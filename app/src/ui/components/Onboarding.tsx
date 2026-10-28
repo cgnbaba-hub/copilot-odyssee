@@ -25,7 +25,7 @@ export function Onboarding(): React.ReactElement {
 
   return (
     <section className={`${styles.panel} ${styles.onboarding}`} aria-labelledby="od-onboarding-title">
-      <SeaScene className={styles.onboardingScene} />
+      <SeaScene className={step === 1 ? styles.onboardingScene : `${styles.onboardingScene} ${styles.onboardingSceneSmall}`} />
       <div className={styles.onboardingBody}>
         <p className={styles.stepCounter}>{format(strings.onboardingStep, { current: step, total: STEPS })}</p>
 

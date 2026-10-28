@@ -41,14 +41,14 @@ export interface NextStage {
  * The stage the start screen offers: one already started, otherwise the
  * first open stage along the route that the player's licence covers.
  */
-export function nextStage(game: Game): NextStage | undefined {
+export function nextStage(game: Game, excludeModuleId?: string): NextStage | undefined {
   const filter = { showDrafts: game.showDrafts };
   const candidates: NextStage[] = [];
   sortedIslands(game.content).forEach((island) => {
     if (isPreview(game, island)) return;
     modulesOfIsland(game.content, island.id, filter).forEach((module) => {
       const status = moduleStatus(game.player, module);
-      if (status !== 'completed' && !isModulePreview(game, module)) candidates.push({ island, module, resume: status === 'inProgress' });
+      if (status !== 'completed' && module.id !== excludeModuleId && !isModulePreview(game, module)) candidates.push({ island, module, resume: status === 'inProgress' });
     });
   });
   return candidates.filter((c) => c.resume)[0] || candidates[0];

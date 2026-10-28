@@ -51,7 +51,7 @@ export function Header(props: { onOpenSettings: () => void; onOpenHelp: () => vo
           </div>
           <button
             type="button"
-            className={license === 'premium' ? `${styles.versionPill} ${styles.versionPillPremium}` : styles.versionPill}
+            className={`${styles.versionPill} ${license === 'premium' ? styles.versionPillPremium : license === 'unknown' ? styles.versionPillUnknown : ''}`}
             onClick={props.onOpenSettings}
             title={`${strings.yourVersion}: ${versionLabel} (${strings.change})`}
           >

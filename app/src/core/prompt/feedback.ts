@@ -20,7 +20,7 @@ const SIGNALS: Record<RubricCriterion, string[]> = {
     'so that', 'customer', 'colleague', 'manager', 'project', 'leadership', 'new ', 'guest'
   ],
   source: [
-    'datei', 'dokument', 'anhang', 'tabelle', 'mail', 'verlauf', 'notizen', 'protokoll', 'präsentation',
+    'datei', 'dokument', 'anhang', 'tabelle', 'verlauf', 'notizen', 'protokoll', 'präsentation',
     'basierend', 'grundlage', 'aus der', 'aus dem', 'quelle', 'eingefügt', 'daten', '/', 'file', 'document',
     'attachment', 'table', 'sheet', 'thread', 'notes', 'minutes', 'based on', 'from the', 'source', 'pasted', 'data'
   ],

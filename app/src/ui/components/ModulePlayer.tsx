@@ -81,7 +81,7 @@ export function ModulePlayer(props: { moduleId: string }): React.ReactElement {
   if (done) {
     const islandDone = island ? islandProgress(game, island.id) : undefined;
     const newStamp = !!island && !!islandDone && islandDone.total > 0 && islandDone.completed === islandDone.total && getModule(player, module.id).completed === 1;
-    const following = nextStage(game);
+    const following = nextStage(game, module.id);
     doneView = (
       <div className={styles.moduleDone}>
         <Confetti />
@@ -89,14 +89,14 @@ export function ModulePlayer(props: { moduleId: string }): React.ReactElement {
         <h2 className={styles.moduleDoneTitle}>{strings.moduleDoneTitle}</h2>
         <p className={styles.lead}>{format(strings.moduleDoneText, { xp: player.xp - xpAtStart.current, xpName: t(theme.terms.xp) })}</p>
         {newStamp && island && <p className={styles.stampNotice}>{format(strings.stampEarned, { island: t(island.name) })}</p>}
-        <Guide text={strings.moduleDoneGuide} cheer compact />
+        <Guide text={following ? strings.moduleDoneGuide : strings.allDoneText} cheer compact />
         <div className={styles.doneActions}>
-          {following && following.module.id !== module.id && (
+          {following && (
             <button type="button" className={`${styles.buttonPrimary} ${styles.buttonBig}`} onClick={() => navigate({ name: 'module', moduleId: following.module.id })}>
               {strings.nextStage}: {t(following.module.title)} →
             </button>
           )}
-          <button type="button" className={styles.button} onClick={() => navigate({ name: 'map' })}>
+          <button type="button" className={following ? styles.button : `${styles.buttonPrimary} ${styles.buttonBig}`} onClick={() => navigate({ name: 'map' })}>
             {strings.backToOverview}
           </button>
         </div>

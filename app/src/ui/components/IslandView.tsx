@@ -38,7 +38,7 @@ export function IslandView(props: { islandId: string }): React.ReactElement {
         </div>
       </div>
 
-      <Guide text={preview ? strings.islandGuidePreview : strings.islandGuide} />
+      <Guide text={modules.length === 0 ? strings.islandGuideEmpty : preview ? strings.islandGuidePreview : strings.islandGuide} />
 
       <blockquote className={styles.motif}>{t(island.motif)}</blockquote>
 
