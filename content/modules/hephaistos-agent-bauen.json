@@ -1,0 +1,145 @@
+{
+  "$schema": "../schema/module.schema.json",
+  "id": "hephaistos-agent-bauen",
+  "island": "hephaistos",
+  "order": 2,
+  "version": "1.0.0",
+  "owner": "copilot-team",
+  "status": "draft",
+  "reviewedAt": "2026-10-28",
+  "reviewIntervalDays": 180,
+  "title": {
+    "de": "Einen eigenen Agenten bauen",
+    "en": "Building your own agent"
+  },
+  "summary": {
+    "de": "Mit Anweisungen und Wissen einen Agenten für eine wiederkehrende Aufgabe erstellen und mit dem Team teilen.",
+    "en": "Create an agent for a recurring task with instructions and knowledge, and share it with your team."
+  },
+  "estimatedMinutes": 12,
+  "notes": "Neuer Inhalt. Stand Oktober 2026: Einfache Agenten erstellt man direkt in Copilot mit Copilot Studio Lite (früher Agent Builder): Name, Beschreibung, Anweisungen, Wissensquellen, Startvorschläge, Teilen. Ob das für Basic freigeschaltet ist, legt die IT fest. Knopfnamen bewusst allgemein.",
+  "blocks": [
+    {
+      "type": "briefing",
+      "id": "bauen",
+      "title": {
+        "de": "So entsteht ein Agent",
+        "en": "How an agent is made"
+      },
+      "body": {
+        "de": "Einen einfachen Agenten erstellst du direkt in Copilot: Klicke links bei den **Agenten** auf **«Agent erstellen»**. Du beschreibst in normaler Sprache, was er tun soll, und Copilot hilft beim Einrichten.\n\nEin guter Agent hat:\n- einen **klaren Namen und Zweck**, zum Beispiel «Kundendienst-Helfer für Umbuchungen»\n- **Anweisungen**: Ton, Aufbau der Antworten, was er nicht tun soll\n- **Wissen**: Dateien oder SharePoint-Seiten, auf die er sich stützt\n- **Startvorschläge**: Beispielfragen, die Kolleginnen und Kollegen anklicken können\n\nTeste den Agenten mit echten Fragen und **teile** ihn danach mit deinem Team. Ob du Agenten erstellen kannst, legt eure IT fest.",
+        "en": "You create a simple agent directly in Copilot: click **“Create agent”** under **Agents** on the left. You describe in plain language what it should do, and Copilot helps you set it up.\n\nA good agent has:\n- a **clear name and purpose**, for example “Customer service helper for rebookings”\n- **instructions**: tone, structure of the answers, what it should not do\n- **knowledge**: files or SharePoint sites it relies on\n- **starter prompts**: example questions colleagues can click\n\nTest the agent with real questions and then **share** it with your team. Whether you can create agents is decided by your IT."
+      }
+    },
+    {
+      "type": "briefing",
+      "id": "verantwortung",
+      "title": {
+        "de": "Verantwortung für dein Werkzeug",
+        "en": "Responsibility for your tool"
+      },
+      "body": {
+        "de": "Wer einen Agenten teilt, ist für ihn verantwortlich:\n- **Nur passendes Wissen:** Gib ihm nur Unterlagen, die alle Nutzenden sehen dürfen.\n- **Aktuell halten:** Ändert sich eine Richtlinie, aktualisierst du die Unterlagen.\n- **Grenzen nennen:** Schreib in die Anweisungen, was der Agent nicht beantworten soll, zum Beispiel verbindliche Preise.",
+        "en": "Whoever shares an agent is responsible for it:\n- **Only suitable knowledge:** Only give it documents that everyone using it may see.\n- **Keep it up to date:** When a guideline changes, you update the documents.\n- **State the limits:** Write in the instructions what the agent should not answer, for example binding prices."
+      }
+    },
+    {
+      "type": "quiz",
+      "id": "q-wissen",
+      "difficulty": "intermediate",
+      "question": {
+        "de": "Du baust einen Agenten für dein ganzes Team. Welche Unterlagen gibst du ihm als Wissen?",
+        "en": "You are building an agent for your whole team. Which documents do you give it as knowledge?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "de": "Nur Unterlagen, die alle im Team sehen dürfen, zum Beispiel das Prozesshandbuch",
+            "en": "Only documents everyone in the team may see, for example the process handbook"
+          },
+          "correct": true,
+          "explanation": {
+            "de": "Genau. Was der Agent weiss, können alle erfragen, die ihn nutzen.",
+            "en": "Exactly. Whatever the agent knows, everyone who uses it can ask about."
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "de": "Alles aus meinem OneDrive, damit er möglichst viel weiss",
+            "en": "Everything from my OneDrive so it knows as much as possible"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Dann könnten andere über den Agenten an deine persönlichen Unterlagen kommen.",
+            "en": "Then others could reach your personal documents through the agent."
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "de": "Gar keine, der Agent weiss alles aus dem Internet",
+            "en": "None at all, the agent knows everything from the internet"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Interne Abläufe stehen nicht im Internet. Gib ihm eure Unterlagen.",
+            "en": "Internal processes are not on the internet. Give it your documents."
+          }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "id": "p-anweisungen",
+      "difficulty": "advanced",
+      "title": {
+        "de": "Anweisungen für einen Agenten",
+        "en": "Instructions for an agent"
+      },
+      "scenario": {
+        "de": "Du baust einen Agenten, der Kolleginnen und Kollegen im Kundendienst hilft, Antworten auf Umbuchungsanfragen zu formulieren. Er stützt sich auf euer Handbuch zu Umbuchungen. Schreib die Anweisungen für den Agenten.",
+        "en": "You are building an agent that helps customer service colleagues phrase replies to rebooking requests. It relies on your rebooking handbook. Write the instructions for the agent."
+      },
+      "rubric": [
+        "goal",
+        "context",
+        "source",
+        "expectation"
+      ],
+      "examplePrompt": {
+        "de": "Du hilfst Mitarbeitenden im Kundendienst, Antworten auf Umbuchungsanfragen von Gästen zu formulieren, damit sie schneller und einheitlich antworten können. Stütze dich nur auf das Dokument «Handbuch Umbuchungen». Schreibe freundlich, in der Sie-Form und in Schweizer Hochdeutsch, höchstens 150 Wörter. Nenne keine Preise oder Gebühren, sondern verweise dafür auf das Buchungssystem. Frag nach, wenn Angaben fehlen.",
+        "en": "You help customer service staff phrase replies to rebooking requests from guests, so that they can answer faster and consistently. Rely only on the document “Rebooking handbook”. Write in a friendly tone with formal address, at most 150 words. Do not state prices or fees; refer to the booking system for those. Ask if information is missing."
+      }
+    },
+    {
+      "type": "mission",
+      "id": "m-agent-bauen",
+      "title": {
+        "de": "Dein erstes Werkzeug",
+        "en": "Your first tool"
+      },
+      "task": {
+        "de": "Öffne Copilot, klicke bei den Agenten auf «Agent erstellen» und baue einen Agenten für eine wiederkehrende Aufgabe aus deinem Alltag. Teste ihn mit drei echten Fragen.",
+        "en": "Open Copilot, click “Create agent” under Agents and build an agent for a recurring task from your daily work. Test it with three real questions."
+      },
+      "tip": {
+        "de": "Kein «Agent erstellen» zu sehen? Dann ist die Funktion für dich noch nicht freigeschaltet. Frag die IT.",
+        "en": "No “Create agent” option? Then the feature has not been enabled for you yet. Ask IT."
+      },
+      "copyText": {
+        "de": "Erstelle einen Agenten, der mir bei [wiederkehrende Aufgabe] hilft. Er soll sich auf [Unterlagen] stützen, freundlich und kurz antworten und nachfragen, wenn Angaben fehlen.",
+        "en": "Create an agent that helps me with [recurring task]. It should rely on [documents], answer briefly and kindly, and ask if information is missing."
+      }
+    },
+    {
+      "type": "usecase",
+      "id": "u-agent",
+      "intro": {
+        "de": "Für welche wiederkehrende Frage in deinem Team wäre ein eigener Agent hilfreich? Halte sie als Use-Case-Karte fest.",
+        "en": "For which recurring question in your team would an agent of its own be helpful? Record it as a use case card."
+      }
+    }
+  ]
+}

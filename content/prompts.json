@@ -529,6 +529,59 @@
         "fuehrung"
       ],
       "license": "basic"
+    },
+    {
+      "id": "projekt-ueberblick",
+      "title": {
+        "de": "Überblick zu einem Projekt",
+        "en": "Overview of a project"
+      },
+      "prompt": {
+        "de": "Was wurde in den letzten zwei Wochen zu [Projekt oder Thema] besprochen? Fasse die wichtigsten Punkte zusammen, nenne offene Fragen und die Quellen.",
+        "en": "What has been discussed about [project or topic] over the last two weeks? Summarise the key points, name open questions and the sources."
+      },
+      "license": "premium"
+    },
+    {
+      "id": "meeting-vorbereitung",
+      "title": {
+        "de": "Auf ein Gespräch vorbereiten",
+        "en": "Prepare for a conversation"
+      },
+      "prompt": {
+        "de": "Bereite mich auf mein Meeting mit [Person oder Firma] vor: Was wurde zuletzt vereinbart, was ist noch offen und welche Mails sind unbeantwortet? Als kurze Liste mit Quellen.",
+        "en": "Prepare me for my meeting with [person or company]: what was agreed recently, what is still open and which emails are unanswered? As a short list with sources."
+      },
+      "license": "premium"
+    },
+    {
+      "id": "researcher-auftrag",
+      "title": {
+        "de": "Rechercheauftrag für Researcher",
+        "en": "Research brief for Researcher"
+      },
+      "prompt": {
+        "de": "Erstelle eine Übersicht zu [Thema] für [Zielgruppe], damit wir [Entscheidung] treffen können. Gliedere in [Punkte], nenne die Quellen und fasse auf höchstens einer Seite zusammen.",
+        "en": "Create an overview of [topic] for [audience], so that we can decide [decision]. Structure it into [points], name the sources and summarise on at most one page."
+      },
+      "areas": [
+        "produkt",
+        "marketing",
+        "fuehrung"
+      ],
+      "license": "premium"
+    },
+    {
+      "id": "agent-anweisungen",
+      "title": {
+        "de": "Anweisungen für einen Agenten",
+        "en": "Instructions for an agent"
+      },
+      "prompt": {
+        "de": "Du hilfst [Zielgruppe] bei [Aufgabe]. Stütze dich nur auf [Dokumente]. Antworte freundlich und kurz, höchstens [Anzahl] Wörter. Nenne keine verbindlichen Preise und frag nach, wenn Angaben fehlen.",
+        "en": "You help [audience] with [task]. Rely only on [documents]. Answer briefly and kindly, at most [number] words. Do not state binding prices and ask if information is missing."
+      },
+      "license": "premium"
     }
   ]
 }

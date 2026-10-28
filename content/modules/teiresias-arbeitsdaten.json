@@ -1,0 +1,192 @@
+{
+  "$schema": "../schema/module.schema.json",
+  "id": "teiresias-arbeitsdaten",
+  "island": "teiresias",
+  "order": 1,
+  "version": "1.0.0",
+  "owner": "copilot-team",
+  "status": "draft",
+  "reviewedAt": "2026-10-28",
+  "reviewIntervalDays": 180,
+  "title": {
+    "de": "Fragen an deine Arbeitsdaten",
+    "en": "Asking your work data"
+  },
+  "summary": {
+    "de": "Copilot sucht für dich in Mails, Chats, Dateien und Meetings und verbindet die Informationen.",
+    "en": "Copilot searches your emails, chats, files and meetings for you and connects the information."
+  },
+  "estimatedMinutes": 10,
+  "notes": "Neuer Inhalt. Stand Oktober 2026: Mit M365 Copilot (Premium) greift Copilot Chat auf Arbeitsdaten zu (Mails, Chats, Dateien, Meetings), nur im Rahmen der eigenen Berechtigungen. Verweise mit «/» auf Dateien, Personen und Meetings. Hinweis auf Überberechtigungen (Oversharing) bewusst aufgenommen.",
+  "blocks": [
+    {
+      "type": "briefing",
+      "id": "arbeitsdaten",
+      "title": {
+        "de": "Copilot kennt deinen Arbeitsalltag",
+        "en": "Copilot knows your working day"
+      },
+      "body": {
+        "de": "Mit **M365 Copilot (Premium)** sucht Copilot Chat nicht nur im Web, sondern auch in deinen **Arbeitsdaten**: Mails, Teams-Chats, Dateien in OneDrive und SharePoint sowie Meetings.\n\nSo fragst du gezielt:\n- «Was wurde in den letzten zwei Wochen zum Projekt [Name] besprochen?»\n- «Bereite mich auf mein Meeting mit [Person] vor: offene Punkte und letzte Mails.»\n- Mit **«/»** im Eingabefeld verweist du auf eine bestimmte Datei, Person oder ein Meeting.\n\nCopilot nennt seine Quellen. Ein Klick darauf führt dich zum Original.",
+        "en": "With **M365 Copilot (Premium)**, Copilot Chat searches not only the web but also your **work data**: emails, Teams chats, files in OneDrive and SharePoint, and meetings.\n\nHow to ask precisely:\n- “What has been discussed about project [name] over the last two weeks?”\n- “Prepare me for my meeting with [person]: open points and recent emails.”\n- Typing **“/”** in the input box lets you refer to a specific file, person or meeting.\n\nCopilot names its sources. One click takes you to the original."
+      }
+    },
+    {
+      "type": "briefing",
+      "id": "berechtigungen",
+      "title": {
+        "de": "Was Copilot sehen darf",
+        "en": "What Copilot may see"
+      },
+      "body": {
+        "de": "Copilot sieht **nur, was du selbst öffnen darfst**. Er umgeht keine Berechtigungen.\n\nDas heisst auch:\n- Ist eine Datei zu offen freigegeben, findet Copilot sie, und andere auch.\n- Stösst du auf etwas, das du nicht sehen solltest, zum Beispiel Lohndaten oder Personaldossiers, **melde es der IT**. So wird die Freigabe korrigiert.\n- Prüfe Antworten zu Personen und Zahlen besonders sorgfältig.",
+        "en": "Copilot **only sees what you yourself are allowed to open**. It does not bypass permissions.\n\nThat also means:\n- If a file is shared too widely, Copilot finds it, and so do others.\n- If you come across something you should not see, such as salary data or personnel files, **report it to IT**. That way the sharing gets fixed.\n- Check answers about people and figures especially carefully."
+      }
+    },
+    {
+      "type": "quiz",
+      "id": "q-sieht",
+      "difficulty": "beginner",
+      "question": {
+        "de": "Welche Daten durchsucht Copilot (Premium), wenn du nach einem Projekt fragst?",
+        "en": "Which data does Copilot (Premium) search when you ask about a project?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "de": "Mails, Chats, Dateien und Meetings, auf die ich selbst Zugriff habe",
+            "en": "Emails, chats, files and meetings I have access to myself"
+          },
+          "correct": true,
+          "explanation": {
+            "de": "Genau. Copilot hält sich an deine Berechtigungen.",
+            "en": "Exactly. Copilot respects your permissions."
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "de": "Alle Daten im Unternehmen, auch gesperrte",
+            "en": "All data in the company, including restricted data"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Copilot umgeht keine Berechtigungen. Was du nicht öffnen darfst, sieht er auch nicht.",
+            "en": "Copilot does not bypass permissions. What you cannot open, it cannot see either."
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "de": "Nur das Internet",
+            "en": "Only the internet"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Das gilt für Copilot Chat (Basic). Mit Premium kommen deine Arbeitsdaten dazu.",
+            "en": "That applies to Copilot Chat (Basic). With Premium, your work data is added."
+          }
+        }
+      ]
+    },
+    {
+      "type": "quiz",
+      "id": "q-oversharing",
+      "difficulty": "intermediate",
+      "question": {
+        "de": "Copilot zeigt dir in einer Antwort eine Lohnliste, die du eigentlich nicht sehen solltest. Was tust du?",
+        "en": "In an answer, Copilot shows you a payroll list you should not actually see. What do you do?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "de": "Die IT informieren, damit die Freigabe der Datei korrigiert wird",
+            "en": "Inform IT so that the file's sharing gets fixed"
+          },
+          "correct": true,
+          "explanation": {
+            "de": "Genau. Copilot zeigt nur, was ohnehin zugänglich ist. Die Freigabe ist das Problem.",
+            "en": "Exactly. Copilot only shows what is accessible anyway. The sharing is the problem."
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "de": "Die Liste weiterleiten, sie ist ja zugänglich",
+            "en": "Forward the list, it is accessible after all"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Zugänglich heisst nicht erlaubt. Vertrauliche Daten gibst du nicht weiter.",
+            "en": "Accessible does not mean permitted. You do not pass on confidential data."
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "de": "Nichts tun und Copilot nicht mehr verwenden",
+            "en": "Do nothing and stop using Copilot"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Copilot ist nicht die Ursache. Melde die Freigabe, dann ist das Problem für alle gelöst.",
+            "en": "Copilot is not the cause. Report the sharing, then the problem is solved for everyone."
+          }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "id": "p-meeting-vorbereitung",
+      "difficulty": "intermediate",
+      "title": {
+        "de": "Vorbereitung auf ein Partnergespräch",
+        "en": "Preparing for a partner meeting"
+      },
+      "scenario": {
+        "de": "Morgen triffst du eine Hotelgruppe, mit der dein Team seit Monaten zusammenarbeitet. Du willst wissen, was zuletzt besprochen wurde und was noch offen ist. Schreib den Prompt für Copilot (Premium).",
+        "en": "Tomorrow you meet a hotel group your team has been working with for months. You want to know what was discussed recently and what is still open. Write the prompt for Copilot (Premium)."
+      },
+      "rubric": [
+        "goal",
+        "context",
+        "source",
+        "expectation"
+      ],
+      "examplePrompt": {
+        "de": "Bereite mich auf mein Meeting morgen mit der Hotelgruppe [Name] vor, damit ich die offenen Punkte gezielt ansprechen kann. Fasse auf Basis meiner Mails, Chats und Meetingnotizen der letzten drei Monate zusammen, was vereinbart wurde und was noch offen ist. Als kurze Liste mit Quellen.",
+        "en": "Prepare me for my meeting tomorrow with the hotel group [name], so that I can address the open points directly. Based on my emails, chats and meeting notes from the last three months, summarise what was agreed and what is still open. As a short list with sources."
+      }
+    },
+    {
+      "type": "mission",
+      "id": "m-arbeitsdaten",
+      "title": {
+        "de": "Das Orakel befragen",
+        "en": "Consulting the oracle"
+      },
+      "task": {
+        "de": "Öffne Copilot und frag nach einem Projekt oder Thema, an dem du gerade arbeitest. Klicke auf zwei Quellen und prüfe, ob die Zusammenfassung stimmt.",
+        "en": "Open Copilot and ask about a project or topic you are currently working on. Click two sources and check whether the summary is correct."
+      },
+      "tip": {
+        "de": "Siehst du oben in Copilot eine Umschaltung zwischen «Arbeit» und «Web»? Für deine Arbeitsdaten wählst du «Arbeit».",
+        "en": "Do you see a switch between “Work” and “Web” at the top of Copilot? For your work data, choose “Work”."
+      },
+      "copyText": {
+        "de": "Was wurde in den letzten zwei Wochen zu [Projekt oder Thema] besprochen? Fasse die wichtigsten Punkte zusammen und nenne die Quellen.",
+        "en": "What has been discussed about [project or topic] over the last two weeks? Summarise the key points and name the sources."
+      }
+    },
+    {
+      "type": "usecase",
+      "id": "u-arbeitsdaten",
+      "intro": {
+        "de": "Wofür suchst du heute lange in Mails, Chats und Ordnern? Halte es als Use-Case-Karte fest.",
+        "en": "What do you currently spend a long time searching for in emails, chats and folders? Record it as a use case card."
+      }
+    }
+  ]
+}

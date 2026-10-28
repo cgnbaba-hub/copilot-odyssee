@@ -229,7 +229,7 @@ Legende: 🤖 = setze ich um · 👤 = brauche ich von dir · 🏢 = IT oder Dat
 ### Phase 4: Ausbau und Betrieb
 
 - [ ] **AP 4.1 Premium-Inseln** 🤖👤 – eine Insel pro AP (3–9), in der Reihenfolge eures Bedarfs.
-  *Stand:* Vorgezogen nach dem Testdurchlauf. Je zwei Etappen als Entwurf für Outlook (Hermes), Teams (Phaiaken), Word (Penelope), Excel (Polyphem) und PowerPoint (Kirke), mit Missionen direkt in der jeweiligen App. Die erste Outlook-Etappe geht auch mit Basic, deshalb gehört Hermes jetzt zu den Inseln für alle. Offen: Teiresias (Arbeitsdaten, Researcher) und Hephaistos (Agenten), danach dein Review.
+  *Stand:* Vorgezogen nach dem Testdurchlauf. Alle sieben Inseln haben je zwei Etappen als Entwurf: Outlook (Hermes), Teams (Phaiaken), Word (Penelope), Excel (Polyphem), PowerPoint (Kirke), Arbeitsdaten und Researcher (Teiresias), Agenten nutzen und bauen (Hephaistos). Die erste Outlook-Etappe geht auch mit Basic, deshalb gehört Hermes zu den Inseln für alle. Offen: dein Review und die Klärung mit der IT, welche Agenten freigeschaltet sind und ob Basic-Nutzende Agenten erstellen dürfen.
 - [ ] **AP 4.2 Pflegeprozess** 🤖
   Review-Fälligkeiten im Dashboard. Ein Modul "Was ist neu". Ein Power-Automate-Flow meldet relevante Einträge der Microsoft-365-Roadmap per Teams an die Content-Verantwortlichen.
 - [ ] **AP 4.3 Inhaltspflege ohne JSON** 🤖 – Editor in der App *oder* eine kleine Power App auf denselben Listen.

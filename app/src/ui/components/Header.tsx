@@ -17,6 +17,8 @@ export function Header(props: { onOpenSettings: () => void; onOpenHelp: () => vo
   const onboarded = player.profile.onboarded;
   const license = player.profile.license;
   const versionLabel = license === 'premium' ? strings.versionPremium : license === 'basic' ? strings.versionBasic : strings.versionUnknown;
+  // The short name keeps the header in one row; the tooltip and the settings give the full name.
+  const versionShort = license === 'premium' ? strings.versionShortPremium : license === 'basic' ? strings.versionShortBasic : strings.versionUnknown;
 
   return (
     <header className={styles.header}>
@@ -32,7 +34,7 @@ export function Header(props: { onOpenSettings: () => void; onOpenHelp: () => vo
       {onboarded && (
         <div
           className={styles.status}
-          title={rank.next ? format(strings.toNextRank, { xp: formatNumber(lang, rank.xpToNext), xpName: t(theme.terms.xp), rank: t(rank.next) }) : strings.topRank}
+          title={`${t(rank.rank)}: ${rank.next ? format(strings.toNextRank, { xp: formatNumber(lang, rank.xpToNext), xpName: t(theme.terms.xp), rank: t(rank.next) }) : strings.topRank}`}
         >
           <RankEmblem index={rank.index} className={styles.statusEmblem} />
           <div className={styles.statusText}>
@@ -52,8 +54,8 @@ export function Header(props: { onOpenSettings: () => void; onOpenHelp: () => vo
             onClick={props.onOpenSettings}
             title={`${strings.yourVersion}: ${versionLabel} (${strings.change})`}
           >
-            <span className={styles.versionPillLabel}>{strings.yourVersion}</span>
-            <span>{versionLabel}</span>
+            <span className={styles.versionPillLabel}>{strings.yourCopilot}</span>
+            <span>{versionShort}</span>
           </button>
         </div>
       )}

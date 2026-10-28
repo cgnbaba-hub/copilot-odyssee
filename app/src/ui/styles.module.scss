@@ -208,8 +208,9 @@ $meander: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' widt
   height: 40px;
 }
 
+// Takes the space that is left; long rank names shorten with "…" (the full name is in the tooltip).
 .statusText {
-  flex: 1 1 auto;
+  flex: 1 1 0;
   min-width: 96px;
 }
 
@@ -218,6 +219,12 @@ $meander: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' widt
   flex-direction: column;
   line-height: 1.25;
   white-space: nowrap;
+
+  strong,
+  span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
   strong {
     font-family: var(--od-font-display);
