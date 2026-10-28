@@ -31,7 +31,7 @@ export function QuizView(props: BlockViewProps<QuizBlock>): React.ReactElement {
     <div>
       <h2 className={styles.blockTitle}>{t(block.question)}</h2>
       <div className={styles.choiceList} role="radiogroup" aria-label={t(block.question)}>
-        {block.options.map((option) => {
+        {block.options.map((option, optionIndex) => {
           let className = styles.choice;
           if (result && result.optionId === option.id) className += ` ${result.correct ? styles.choiceCorrect : styles.choiceWrong}`;
           else if (wrongIds.indexOf(option.id) >= 0) className += ` ${styles.choiceWrong}`;
@@ -46,7 +46,10 @@ export function QuizView(props: BlockViewProps<QuizBlock>): React.ReactElement {
               disabled={!!result || wrongIds.indexOf(option.id) >= 0}
               onClick={() => setSelected(option.id)}
             >
-              {t(option.text)}
+              <span className={styles.choiceLetter} aria-hidden="true">
+                {String.fromCharCode(65 + optionIndex)}
+              </span>
+              <span className={styles.choiceText}>{t(option.text)}</span>
             </button>
           );
         })}

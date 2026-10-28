@@ -11,6 +11,7 @@ import { UseCaseView } from '../blocks/UseCaseView';
 import { format } from '../i18n/strings';
 import { useGame } from '../GameContext';
 import styles from '../styles.module.scss';
+import { IslandArt, Ship } from './Art';
 
 function BlockView(props: { moduleId: string; block: Block; onDone: () => void }): React.ReactElement {
   const { block } = props;
@@ -46,7 +47,7 @@ export function ModulePlayer(props: { moduleId: string }): React.ReactElement {
   React.useEffect(() => {
     if (module && done && !finished.current) {
       finished.current = true;
-      apply((s) => finishModule(s, module));
+      apply((s) => finishModule(s, module, new Date()));
     }
   }, [done]);
 
@@ -59,17 +60,25 @@ export function ModulePlayer(props: { moduleId: string }): React.ReactElement {
       <button type="button" className={styles.linkButton} onClick={backToIsland}>
         ← {strings.backToIsland}
       </button>
-      <p className={styles.eyebrow}>{island ? t(island.name) : ''}</p>
-      <h1 className={styles.panelTitle}>{t(module.title)}</h1>
+      <div className={styles.playerHead}>
+        {island && <IslandArt island={island} className={styles.playerArt} />}
+        <div>
+          <p className={styles.eyebrow}>{island ? t(island.name) : ''}</p>
+          <h1 className={styles.panelTitle}>{t(module.title)}</h1>
+        </div>
+      </div>
 
       <ol className={styles.steps} aria-label={format(strings.stepOf, { current: Math.min(index + 1, module.blocks.length), total: module.blocks.length })}>
         {module.blocks.map((b, i) => (
-          <li key={b.id} className={i < index ? styles.stepDone : i === index ? styles.stepCurrent : undefined} />
+          <li key={b.id} className={i < index ? styles.stepDone : i === index ? styles.stepCurrent : undefined}>
+            {i === index && <Ship className={styles.stepShip} />}
+          </li>
         ))}
       </ol>
 
       {done ? (
         <div className={styles.moduleDone}>
+          {island && <IslandArt island={island} className={styles.moduleDoneArt} />}
           <h2 className={styles.blockTitle}>{strings.moduleDoneTitle}</h2>
           <p>{format(strings.moduleDoneText, { xp: player.xp - xpAtStart.current, xpName: t(theme.terms.xp) })}</p>
           <div className={styles.blockActions}>
@@ -83,7 +92,7 @@ export function ModulePlayer(props: { moduleId: string }): React.ReactElement {
         </div>
       ) : (
         <>
-          <p className={styles.muted}>{format(strings.stepOf, { current: index + 1, total: module.blocks.length })}</p>
+          <p className={styles.stepLabel}>{format(strings.stepOf, { current: index + 1, total: module.blocks.length })}</p>
           <BlockView key={module.blocks[index].id} moduleId={module.id} block={module.blocks[index]} onDone={() => setIndex(index + 1)} />
         </>
       )}

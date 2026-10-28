@@ -3,6 +3,7 @@
   "islands": [
     {
       "id": "sirenenfelsen",
+      "landmark": "rocks",
       "order": 0,
       "license": "basic",
       "name": { "de": "Sirenenfelsen", "en": "The Sirens' Rocks" },
@@ -20,6 +21,7 @@
     },
     {
       "id": "aiolos",
+      "landmark": "wind",
       "order": 1,
       "license": "basic",
       "name": { "de": "Insel des Aiolos", "en": "Isle of Aeolus" },
@@ -37,6 +39,7 @@
     },
     {
       "id": "ithaka",
+      "landmark": "temple",
       "order": 2,
       "license": "basic",
       "name": { "de": "Ithaka", "en": "Ithaca" },
@@ -55,6 +58,7 @@
     },
     {
       "id": "hermes",
+      "landmark": "letter",
       "order": 3,
       "license": "premium",
       "name": { "de": "Hermes' Botenstation", "en": "Hermes' Relay" },
@@ -72,6 +76,7 @@
     },
     {
       "id": "phaiaken",
+      "landmark": "amphora",
       "order": 4,
       "license": "premium",
       "name": { "de": "Hof der Phaiaken", "en": "Court of the Phaeacians" },
@@ -89,6 +94,7 @@
     },
     {
       "id": "penelope",
+      "landmark": "loom",
       "order": 5,
       "license": "premium",
       "name": { "de": "Penelopes Webstuhl", "en": "Penelope's Loom" },
@@ -106,6 +112,7 @@
     },
     {
       "id": "polyphem",
+      "landmark": "cave",
       "order": 6,
       "license": "premium",
       "name": { "de": "Höhle des Polyphem", "en": "Cave of Polyphemus" },
@@ -123,6 +130,7 @@
     },
     {
       "id": "kirke",
+      "landmark": "tower",
       "order": 7,
       "license": "premium",
       "name": { "de": "Kirkes Insel", "en": "Circe's Island" },
@@ -140,6 +148,7 @@
     },
     {
       "id": "teiresias",
+      "landmark": "eye",
       "order": 8,
       "license": "premium",
       "name": { "de": "Orakel des Teiresias", "en": "Oracle of Tiresias" },
@@ -157,6 +166,7 @@
     },
     {
       "id": "hephaistos",
+      "landmark": "anvil",
       "order": 9,
       "license": "premium",
       "name": { "de": "Schmiede des Hephaistos", "en": "Forge of Hephaestus" },

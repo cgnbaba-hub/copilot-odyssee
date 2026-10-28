@@ -29,6 +29,8 @@ export interface ModuleProgress {
   started: number;
   completed: number;
   inProgress: boolean;
+  /** ISO date of the first completion. */
+  firstCompletedAt?: string;
 }
 
 export type Frequency = 'daily' | 'weekly' | 'monthly' | 'rarely';
@@ -160,13 +162,19 @@ export function isModuleDone(state: PlayerState, module: LearningModule): boolea
 }
 
 /** Closes the current run once every block is done; the bonus is paid only the first time. */
-export function finishModule(state: PlayerState, module: LearningModule): Outcome {
+export function finishModule(state: PlayerState, module: LearningModule, now: Date): Outcome {
   const progress = getModule(state, module.id);
   if (!progress.inProgress || !isModuleDone(state, module)) return { state, xpGained: 0 };
 
-  const xpGained = progress.completed === 0 ? MODULE_BONUS_XP : 0;
+  const first = progress.completed === 0;
+  const xpGained = first ? MODULE_BONUS_XP : 0;
   const modules = { ...state.modules };
-  modules[module.id] = { ...progress, completed: progress.completed + 1, inProgress: false };
+  modules[module.id] = {
+    ...progress,
+    completed: progress.completed + 1,
+    inProgress: false,
+    firstCompletedAt: first ? now.toISOString() : progress.firstCompletedAt
+  };
   return { state: { ...state, modules, xp: state.xp + xpGained }, xpGained };
 }
 

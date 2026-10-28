@@ -17,8 +17,11 @@ export type Difficulty = 'beginner' | 'intermediate' | 'advanced' | 'expert';
 export type ModuleStatus = 'draft' | 'active' | 'deprecated';
 export type RubricCriterion = 'goal' | 'context' | 'source' | 'expectation';
 
+export type Landmark = 'rocks' | 'wind' | 'temple' | 'letter' | 'amphora' | 'loom' | 'cave' | 'tower' | 'eye' | 'anvil';
+
 export interface Island {
   id: string;
+  landmark?: Landmark;
   order: number;
   license: License;
   name: Localized;
