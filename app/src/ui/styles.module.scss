@@ -2542,6 +2542,179 @@ $meander: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' widt
   }
 }
 
+// Field of work and cheat sheet
+
+.areaGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+}
+
+.cheatsheetCallout {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 18px;
+  padding: 16px 20px;
+  background: var(--od-surface);
+  border: 2px solid var(--od-line);
+  border-radius: $radius-large;
+  box-shadow: $shadow;
+}
+
+.cheatsheetCalloutIcon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  background: var(--od-sand);
+  border-radius: 16px;
+  color: var(--od-ink);
+}
+
+.cheatsheetCalloutText {
+  display: flex;
+  flex: 1 1 260px;
+  flex-direction: column;
+
+  strong {
+    font-family: var(--od-font-display);
+    font-size: 19px;
+    font-weight: 800;
+    color: var(--od-ink);
+  }
+
+  span {
+    color: var(--od-text-muted);
+  }
+}
+
+.sectionHeadRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 8px 16px;
+
+  .sectionTitle {
+    margin-bottom: 0 !important;
+  }
+}
+
+.filterLabel {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+  max-width: 100%;
+  font-family: var(--od-font-display);
+  font-weight: 800;
+  color: var(--od-ink);
+
+  .input {
+    width: auto;
+    min-width: 0;
+    max-width: 100%;
+  }
+}
+
+.promptList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr));
+  gap: 14px;
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.promptCard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px 18px;
+  background: var(--od-surface);
+  border: 2px solid var(--od-line);
+  border-radius: $radius;
+  box-shadow: 0 3px 0 var(--od-line);
+
+  .eyebrow {
+    margin: 0 !important;
+  }
+}
+
+.promptCardHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+
+  h3 {
+    flex: 1 1 100%;
+    margin: 0 !important;
+    font-size: 18px;
+  }
+}
+
+.promptCardText {
+  flex: 1;
+  margin: 0 !important;
+  padding: 12px 14px;
+  background: var(--od-surface-alt);
+  border-radius: 12px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.placeholder {
+  padding: 0 3px;
+  background: #fff1c7;
+  border-radius: 4px;
+  color: var(--od-ink);
+  font-weight: 700;
+}
+
+.promptCardActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  > * {
+    min-height: 44px;
+    padding: 6px 16px;
+    font-size: 15px;
+  }
+}
+
+.ideas {
+  margin-top: 10px;
+
+  .muted {
+    margin-bottom: 6px !important;
+  }
+}
+
+.ideaList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ideaChip {
+  padding: 8px 14px;
+  background: var(--od-surface-alt);
+  border: 2px solid var(--od-line);
+  border-radius: 999px;
+  color: var(--od-ink);
+  cursor: pointer;
+  font-size: 15px;
+  text-align: left;
+
+  &:hover {
+    border-color: var(--od-primary);
+    color: var(--od-primary);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .mapShipWrap,
   .lessonShip,

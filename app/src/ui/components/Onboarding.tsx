@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import { updateProfile } from '../../core/progress/state';
+import { AreaPicker } from './AreaPicker';
 import { format } from '../i18n/strings';
 import { useGame } from '../GameContext';
 import styles from '../styles.module.scss';
@@ -10,11 +11,12 @@ import { LicenseMockup } from './LicenseMockup';
 import { LicensePicker } from './LicensePicker';
 import { RichText } from './RichText';
 
-const STEPS = 3;
-
-/** Three short screens: welcome, which Copilot version, how the journey works. */
+/** Short screens: welcome, which Copilot version, field of work (when the content has areas), how the journey works. */
 export function Onboarding(): React.ReactElement {
-  const { player, strings, theme, t, update } = useGame();
+  const { content, player, strings, theme, t, update } = useGame();
+  const hasAreas = (content.areas || []).length > 0;
+  const total = hasAreas ? 4 : 3;
+  const howStep = total;
   const [step, setStep] = React.useState(1);
   const [howToOpen, setHowToOpen] = React.useState(false);
   const guide = t(theme.terms.guide);
@@ -27,7 +29,7 @@ export function Onboarding(): React.ReactElement {
     <section className={`${styles.panel} ${styles.onboarding}`} aria-labelledby="od-onboarding-title">
       <SeaScene className={step === 1 ? styles.onboardingScene : `${styles.onboardingScene} ${styles.onboardingSceneSmall}`} />
       <div className={styles.onboardingBody}>
-        <p className={styles.stepCounter}>{format(strings.onboardingStep, { current: step, total: STEPS })}</p>
+        <p className={styles.stepCounter}>{format(strings.onboardingStep, { current: step, total })}</p>
 
         {step === 1 && (
           <>
@@ -60,7 +62,18 @@ export function Onboarding(): React.ReactElement {
           </>
         )}
 
-        {step === 3 && (
+        {hasAreas && step === 3 && (
+          <>
+            <h1 id="od-onboarding-title" className={styles.pageTitle}>
+              {strings.areaQuestion}
+            </h1>
+            <Guide text={strings.areaGuide} />
+            <AreaPicker value={player.profile.area} onChange={(area) => update((s) => updateProfile(s, { area }))} />
+            <p className={styles.muted}>{strings.areaLater}</p>
+          </>
+        )}
+
+        {step === howStep && (
           <>
             <h1 id="od-onboarding-title" className={styles.pageTitle}>
               {strings.howTitle}
@@ -94,7 +107,7 @@ export function Onboarding(): React.ReactElement {
           ) : (
             <span />
           )}
-          {step < STEPS ? (
+          {step < total ? (
             <button type="button" className={styles.buttonPrimary} onClick={() => setStep(step + 1)}>
               {step === 1 ? strings.welcomeStart : strings.next}
             </button>

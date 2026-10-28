@@ -54,8 +54,8 @@
       "id": "daten",
       "question": { "de": "Was speichert diese App über mich?", "en": "What does this app store about me?" },
       "answer": {
-        "de": "- **Gespeichert** werden dein Fortschritt (Seemeilen, abgeschlossene Etappen, Stempel) und deine Use-Case-Karten.\n- **Nicht gespeichert** werden die Prompts, die du in der Prompt-Werkstatt schreibst. Sie werden nur in deinem Browser bewertet.\n- Auswertungen für Schulungen erfolgen nur zusammengefasst über viele Personen, nie über dich einzeln.",
-        "en": "- **Stored**: your progress (nautical miles, completed stages, stamps) and your use case cards.\n- **Not stored**: the prompts you write in the prompt workshop. They are only evaluated in your browser.\n- Analyses for training are only done in aggregate across many people, never about you individually."
+        "de": "- **Gespeichert** werden dein Fortschritt (Seemeilen, abgeschlossene Etappen, Stempel), dein Arbeitsbereich, gemerkte Prompt-Vorlagen und deine Use-Case-Karten.\n- **Nicht gespeichert** werden die Prompts, die du in der Prompt-Werkstatt schreibst. Sie werden nur in deinem Browser bewertet.\n- Auswertungen für Schulungen erfolgen nur zusammengefasst über viele Personen, zum Beispiel pro Bereich, nie über dich einzeln.",
+        "en": "- **Stored**: your progress (nautical miles, completed stages, stamps), your area of work, saved prompt templates and your use case cards.\n- **Not stored**: the prompts you write in the prompt workshop. They are only evaluated in your browser.\n- Analyses for training are only done in aggregate across many people, for example per area, never about you individually."
       }
     },
     {

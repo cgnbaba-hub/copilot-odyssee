@@ -1,0 +1,534 @@
+{
+  "$schema": "./schema/prompts.schema.json",
+  "prompts": [
+    {
+      "id": "mail-zusammenfassen",
+      "title": {
+        "de": "Mail zusammenfassen",
+        "en": "Summarise an email"
+      },
+      "prompt": {
+        "de": "Fasse diese Mail in drei Stichpunkten zusammen. Nenne danach, was ich tun muss und bis wann.",
+        "en": "Summarise this email in three bullet points. Then tell me what I need to do and by when."
+      },
+      "app": "outlook",
+      "license": "basic"
+    },
+    {
+      "id": "mail-antworten",
+      "title": {
+        "de": "Antwort entwerfen",
+        "en": "Draft a reply"
+      },
+      "prompt": {
+        "de": "Entwirf eine kurze, freundliche Antwort auf diese Mail. Inhalt: [deine Stichpunkte]. In Schweizer Hochdeutsch, ohne Eszett.",
+        "en": "Draft a short, friendly reply to this email. Content: [your bullet points]."
+      },
+      "app": "outlook",
+      "license": "basic"
+    },
+    {
+      "id": "text-verbessern",
+      "title": {
+        "de": "Text verbessern",
+        "en": "Improve a text"
+      },
+      "prompt": {
+        "de": "Überarbeite den folgenden Text: klarer, kürzer und freundlicher. Behalte alle Fakten. In Schweizer Hochdeutsch, ohne Eszett. Text: [Text]",
+        "en": "Revise the following text: clearer, shorter and friendlier. Keep all the facts. Text: [text]"
+      },
+      "license": "basic"
+    },
+    {
+      "id": "uebersetzen",
+      "title": {
+        "de": "Übersetzen mit dem richtigen Ton",
+        "en": "Translate with the right tone"
+      },
+      "prompt": {
+        "de": "Übersetze den folgenden Text ins [Französische, Italienische oder Englische]. Ton: [höflich und persönlich]. Schreib so, wie man es in der Schweiz schreiben würde. Text: [Text]",
+        "en": "Translate the following text into [French, Italian or German]. Tone: [polite and personal]. Write it the way it would be written in Switzerland. Text: [text]"
+      },
+      "license": "basic"
+    },
+    {
+      "id": "notizen-ordnen",
+      "title": {
+        "de": "Notizen ordnen",
+        "en": "Organise notes"
+      },
+      "prompt": {
+        "de": "Ordne meine folgenden Notizen in eine übersichtliche Liste mit Zwischentiteln. Markiere offene Punkte und Aufgaben. Notizen: [Notizen]",
+        "en": "Organise my following notes into a clear list with subheadings. Mark open points and tasks. Notes: [notes]"
+      },
+      "license": "basic"
+    },
+    {
+      "id": "erst-fragen",
+      "title": {
+        "de": "Erst fragen lassen",
+        "en": "Let Copilot ask first"
+      },
+      "prompt": {
+        "de": "Ich möchte [dein Ziel]. Stell mir zuerst die fünf wichtigsten Fragen, bevor du einen Vorschlag machst.",
+        "en": "I would like to [your goal]. First ask me the five most important questions before you make a suggestion."
+      },
+      "license": "basic"
+    },
+    {
+      "id": "datei-zusammenfassen",
+      "title": {
+        "de": "Datei zusammenfassen",
+        "en": "Summarise a file"
+      },
+      "prompt": {
+        "de": "Fasse die angehängte Datei in fünf Stichpunkten zusammen. Danach: Welche Fragen bleiben offen?",
+        "en": "Summarise the attached file in five bullet points. Then: which questions remain open?"
+      },
+      "license": "basic"
+    },
+    {
+      "id": "postfach-offen",
+      "title": {
+        "de": "Offene Mails finden",
+        "en": "Find emails awaiting a reply"
+      },
+      "prompt": {
+        "de": "Welche Mails der letzten drei Tage brauchen noch eine Antwort von mir? Liste sie mit Absender und einem Satz zum Inhalt auf, die dringendsten zuerst.",
+        "en": "Which emails from the last three days still need a reply from me? List them with sender and one sentence about the content, most urgent first."
+      },
+      "app": "outlook",
+      "license": "premium"
+    },
+    {
+      "id": "chat-aufholen",
+      "title": {
+        "de": "Chat aufholen",
+        "en": "Catch up on a chat"
+      },
+      "prompt": {
+        "de": "Was habe ich in diesem Chat in den letzten 7 Tagen verpasst? Gibt es Fragen oder Aufgaben an mich?",
+        "en": "What did I miss in this chat in the last 7 days? Are there any questions or tasks for me?"
+      },
+      "app": "teams",
+      "license": "premium"
+    },
+    {
+      "id": "meeting-aufgaben",
+      "title": {
+        "de": "Aufgaben aus dem Meeting",
+        "en": "Tasks from the meeting"
+      },
+      "prompt": {
+        "de": "Welche Entscheidungen wurden getroffen und welche Aufgaben sind offen? Nenne bei jeder Aufgabe, wer sie übernimmt.",
+        "en": "Which decisions were made and which tasks are open? For each task, name who is taking it on."
+      },
+      "app": "teams",
+      "license": "premium"
+    },
+    {
+      "id": "reiseideen",
+      "title": {
+        "de": "Reiseideen für Kundschaft",
+        "en": "Trip ideas for customers"
+      },
+      "prompt": {
+        "de": "Ich berate [zum Beispiel eine Familie mit zwei Kindern, 8 und 12 Jahre]. Reisezeit: [Monat], Budget: [Betrag] Franken, Wünsche: [zum Beispiel Strand und Kultur]. Schlage fünf Destinationen vor, je mit zwei Sätzen, warum sie passen. Nenne keine Preise.",
+        "en": "I am advising [for example a family with two children aged 8 and 12]. Travel period: [month], budget: [amount] francs, wishes: [for example beach and culture]. Suggest five destinations, each with two sentences on why they fit. Do not mention prices."
+      },
+      "areas": [
+        "beratung"
+      ],
+      "license": "basic"
+    },
+    {
+      "id": "angebotsmail",
+      "title": {
+        "de": "Angebot persönlich verschicken",
+        "en": "Send an offer personally"
+      },
+      "prompt": {
+        "de": "Schreibe eine persönliche Mail, mit der ich das Angebot für [Reise] verschicke. Hebe die drei Punkte hervor, die zu den Wünschen passen: [Wünsche]. Ton: herzlich, Sie-Form, maximal 120 Wörter, in Schweizer Hochdeutsch.",
+        "en": "Write a personal email to send the offer for [trip]. Highlight the three points that match the wishes: [wishes]. Tone: warm, formal address, at most 120 words."
+      },
+      "areas": [
+        "beratung"
+      ],
+      "app": "outlook",
+      "license": "basic"
+    },
+    {
+      "id": "kundenfragen",
+      "title": {
+        "de": "Antworten auf häufige Fragen",
+        "en": "Answers to frequent questions"
+      },
+      "prompt": {
+        "de": "Erstelle Antworten auf die zehn häufigsten Fragen von Kundinnen und Kunden zu [Thema, zum Beispiel Reiseversicherung]. Einfache Sprache, je höchstens drei Sätze. Kennzeichne, was ich vor dem Weitergeben prüfen muss.",
+        "en": "Create answers to the ten most frequent customer questions about [topic, for example travel insurance]. Plain language, at most three sentences each. Mark what I need to check before passing it on."
+      },
+      "areas": [
+        "beratung",
+        "kundendienst"
+      ],
+      "license": "basic"
+    },
+    {
+      "id": "beratungsnotizen",
+      "title": {
+        "de": "Beratungsgespräch festhalten",
+        "en": "Record a consultation"
+      },
+      "prompt": {
+        "de": "Mach aus meinen Notizen zum Beratungsgespräch eine Übersicht: Wünsche, Reisedaten, Budget, offene Fragen und nächste Schritte. Notizen: [Notizen ohne Namen]",
+        "en": "Turn my notes from the consultation into an overview: wishes, travel dates, budget, open questions and next steps. Notes: [notes without names]"
+      },
+      "areas": [
+        "beratung"
+      ],
+      "license": "basic"
+    },
+    {
+      "id": "reklamation",
+      "title": {
+        "de": "Antwort auf eine Reklamation",
+        "en": "Reply to a complaint"
+      },
+      "prompt": {
+        "de": "Entwirf eine Antwort auf diese Reklamation. Zeige Verständnis, entschuldige dich für [Fehler] und biete [Lösung] an. Ton: wertschätzend, Sie-Form, maximal 150 Wörter, in Schweizer Hochdeutsch.",
+        "en": "Draft a reply to this complaint. Show understanding, apologise for [mistake] and offer [solution]. Tone: appreciative, formal address, at most 150 words."
+      },
+      "areas": [
+        "kundendienst"
+      ],
+      "app": "outlook",
+      "license": "basic"
+    },
+    {
+      "id": "fall-zusammenfassen",
+      "title": {
+        "de": "Einen Fall zusammenfassen",
+        "en": "Summarise a case"
+      },
+      "prompt": {
+        "de": "Fasse diesen Mailverlauf zum Fall zusammen: Was ist passiert, was wurde bereits angeboten und was ist noch offen? Als kurze Liste.",
+        "en": "Summarise this email thread about the case: what happened, what has already been offered and what is still open? As a short list."
+      },
+      "areas": [
+        "kundendienst"
+      ],
+      "app": "outlook",
+      "license": "premium"
+    },
+    {
+      "id": "aenderung-erklaeren",
+      "title": {
+        "de": "Eine Änderung erklären",
+        "en": "Explain a change"
+      },
+      "prompt": {
+        "de": "Erkläre einem Gast in einfachen Worten, was die folgende Änderung für seine Reise bedeutet und was er tun muss: [Änderung, zum Beispiel neue Flugzeit]. Freundlich, Sie-Form, maximal 100 Wörter.",
+        "en": "Explain to a guest in simple words what the following change means for their trip and what they need to do: [change, for example new flight time]. Friendly, formal address, at most 100 words."
+      },
+      "areas": [
+        "kundendienst",
+        "beratung"
+      ],
+      "license": "basic"
+    },
+    {
+      "id": "ton-pruefen",
+      "title": {
+        "de": "Den Ton prüfen lassen",
+        "en": "Check the tone"
+      },
+      "prompt": {
+        "de": "Prüfe meinen Antwortentwurf an einen verärgerten Gast: Wirkt er verständnisvoll und klar? Schlage drei konkrete Verbesserungen vor. Entwurf: [Entwurf]",
+        "en": "Check my draft reply to an upset guest: does it come across as understanding and clear? Suggest three concrete improvements. Draft: [draft]"
+      },
+      "areas": [
+        "kundendienst"
+      ],
+      "license": "basic"
+    },
+    {
+      "id": "katalogtext",
+      "title": {
+        "de": "Katalogtext aus Notizen",
+        "en": "Catalogue text from notes"
+      },
+      "prompt": {
+        "de": "Entwirf auf Basis von /[Notizen] eine Katalogbeschreibung für [Reise]. Zielgruppe: [Zielgruppe]. Hebe drei Höhepunkte hervor, nenne keine Preise, rund 250 Wörter, in Schweizer Hochdeutsch.",
+        "en": "Draft a catalogue description for [trip] based on /[notes]. Audience: [audience]. Highlight three main attractions, do not mention prices, about 250 words."
+      },
+      "areas": [
+        "produkt",
+        "marketing"
+      ],
+      "app": "word",
+      "license": "premium"
+    },
+    {
+      "id": "vertrag-konditionen",
+      "title": {
+        "de": "Konditionen aus einem Vertrag",
+        "en": "Terms from a contract"
+      },
+      "prompt": {
+        "de": "Liste aus diesem Vertrag alle Stornobedingungen, Release-Fristen und Kontingentregeln auf. Als Tabelle mit Thema, Regel und Abschnitt im Vertrag.",
+        "en": "List all cancellation terms, release deadlines and allotment rules from this contract. As a table with topic, rule and section in the contract."
+      },
+      "areas": [
+        "produkt"
+      ],
+      "app": "word",
+      "license": "premium"
+    },
+    {
+      "id": "angebote-vergleichen",
+      "title": {
+        "de": "Partnerangebote vergleichen",
+        "en": "Compare partner offers"
+      },
+      "prompt": {
+        "de": "Vergleiche die angehängten Angebote von [Partner A] und [Partner B] als Tabelle: Leistungen, Bedingungen, Fristen und Unterschiede. Danach: Welche Fragen sollten wir den Partnern stellen?",
+        "en": "Compare the attached offers from [partner A] and [partner B] as a table: services, conditions, deadlines and differences. Then: which questions should we ask the partners?"
+      },
+      "areas": [
+        "produkt"
+      ],
+      "license": "basic"
+    },
+    {
+      "id": "reiseleitung-briefing",
+      "title": {
+        "de": "Briefing für Reiseleitende",
+        "en": "Briefing for tour guides"
+      },
+      "prompt": {
+        "de": "Schreibe aus den folgenden Infos ein Briefing für Reiseleitende zu [Reise]: Ablauf, Kontakte, Besonderheiten und Notfallnummern als Platzhalter. Übersichtlich mit Zwischentiteln. Infos: [Infos]",
+        "en": "Write a briefing for tour guides on [trip] from the following information: schedule, contacts, special features and emergency numbers as placeholders. Clear, with subheadings. Information: [information]"
+      },
+      "areas": [
+        "produkt"
+      ],
+      "license": "basic"
+    },
+    {
+      "id": "newsletter",
+      "title": {
+        "de": "Newsletter entwerfen",
+        "en": "Draft a newsletter"
+      },
+      "prompt": {
+        "de": "Entwirf einen Newsletter-Text zu [Angebot oder Thema] für [Zielgruppe]: drei Varianten für die Betreffzeile, Einleitung, drei kurze Abschnitte und ein Aufruf zum Handeln. Rund 200 Wörter, in Schweizer Hochdeutsch.",
+        "en": "Draft a newsletter text on [offer or topic] for [audience]: three subject line variants, an introduction, three short sections and a call to action. About 200 words."
+      },
+      "areas": [
+        "marketing"
+      ],
+      "license": "basic"
+    },
+    {
+      "id": "social-varianten",
+      "title": {
+        "de": "Social-Media-Varianten",
+        "en": "Social media variants"
+      },
+      "prompt": {
+        "de": "Schreibe fünf Varianten für einen Beitrag zu [Thema] für [Kanal]. Je höchstens 50 Wörter, im Ton von sachlich bis verspielt.",
+        "en": "Write five variants of a post on [topic] for [channel]. At most 50 words each, in tones ranging from factual to playful."
+      },
+      "areas": [
+        "marketing"
+      ],
+      "license": "basic"
+    },
+    {
+      "id": "romandie",
+      "title": {
+        "de": "Text für die Romandie anpassen",
+        "en": "Adapt a text for Romandy"
+      },
+      "prompt": {
+        "de": "Passe den folgenden Text für die Romandie an: nicht wörtlich übersetzen, sondern so schreiben, wie man ihn in der französischen Schweiz schreiben würde. Text: [Text]",
+        "en": "Adapt the following text for French-speaking Switzerland: do not translate word for word, write it the way it would be written there. Text: [text]"
+      },
+      "areas": [
+        "marketing"
+      ],
+      "license": "basic"
+    },
+    {
+      "id": "kampagnenideen",
+      "title": {
+        "de": "Ideen für eine Kampagne",
+        "en": "Campaign ideas"
+      },
+      "prompt": {
+        "de": "Sammle zehn Ideen für eine Kampagne zu [Thema] für [Zielgruppe]. Je ein Satz zur Idee und ein Satz, warum sie passt.",
+        "en": "Collect ten ideas for a campaign on [topic] for [audience]. One sentence on the idea and one sentence on why it fits."
+      },
+      "areas": [
+        "marketing"
+      ],
+      "license": "basic"
+    },
+    {
+      "id": "protokoll",
+      "title": {
+        "de": "Protokoll aus Notizen",
+        "en": "Minutes from notes"
+      },
+      "prompt": {
+        "de": "Mach aus meinen Notizen ein Protokoll mit Entscheidungen, Aufgaben (wer, bis wann) und offenen Fragen. Sachlich, höchstens eine Seite. Notizen: [Notizen]",
+        "en": "Turn my notes into minutes with decisions, tasks (who, by when) and open questions. Factual, one page at most. Notes: [notes]"
+      },
+      "areas": [
+        "administration",
+        "fuehrung"
+      ],
+      "license": "basic"
+    },
+    {
+      "id": "formel-erklaeren",
+      "title": {
+        "de": "Formel erklären lassen",
+        "en": "Have a formula explained"
+      },
+      "prompt": {
+        "de": "Erkläre mir die Formel in der markierten Zelle Schritt für Schritt in einfachen Worten.",
+        "en": "Explain the formula in the selected cell to me step by step in simple words."
+      },
+      "areas": [
+        "administration"
+      ],
+      "app": "excel",
+      "license": "premium"
+    },
+    {
+      "id": "auswertung",
+      "title": {
+        "de": "Auswertung mit PivotTable",
+        "en": "Analysis with a PivotTable"
+      },
+      "prompt": {
+        "de": "Zeige [Kennzahl, zum Beispiel Umsatz] pro [Kategorie, zum Beispiel Destination] als PivotTable und erstelle ein passendes Diagramm.",
+        "en": "Show [metric, for example revenue] per [category, for example destination] as a PivotTable and create a suitable chart."
+      },
+      "areas": [
+        "administration",
+        "produkt"
+      ],
+      "app": "excel",
+      "license": "premium"
+    },
+    {
+      "id": "stelleninserat",
+      "title": {
+        "de": "Stelleninserat entwerfen",
+        "en": "Draft a job advert"
+      },
+      "prompt": {
+        "de": "Entwirf ein Stelleninserat für [Funktion] im Team [Team]: Aufgaben, Anforderungen und was wir bieten. Inklusiv formuliert, rund 250 Wörter, in Schweizer Hochdeutsch.",
+        "en": "Draft a job advert for [role] in the [team] team: tasks, requirements and what we offer. Inclusive wording, about 250 words."
+      },
+      "areas": [
+        "administration"
+      ],
+      "license": "basic"
+    },
+    {
+      "id": "anleitung",
+      "title": {
+        "de": "Ablauf als Anleitung",
+        "en": "Process as instructions"
+      },
+      "prompt": {
+        "de": "Beschreibe den folgenden Ablauf als einfache Anleitung für neue Mitarbeitende, mit nummerierten Schritten: [Ablauf]",
+        "en": "Describe the following process as simple instructions for new employees, with numbered steps: [process]"
+      },
+      "areas": [
+        "administration",
+        "fuehrung"
+      ],
+      "license": "basic"
+    },
+    {
+      "id": "team-update",
+      "title": {
+        "de": "Team-Update schreiben",
+        "en": "Write a team update"
+      },
+      "prompt": {
+        "de": "Schreibe aus diesen Stichpunkten das wöchentliche Update für mein Team. Aufbau: Erfolge, laufende Themen, Hilfe gesucht. Maximal 150 Wörter, motivierender Ton. Stichpunkte: [Stichpunkte]",
+        "en": "Write the weekly update for my team from these bullet points. Structure: successes, ongoing topics, help wanted. At most 150 words, motivating tone. Bullet points: [bullet points]"
+      },
+      "areas": [
+        "fuehrung"
+      ],
+      "license": "basic"
+    },
+    {
+      "id": "gl-praesentation",
+      "title": {
+        "de": "Präsentation für die Geschäftsleitung",
+        "en": "Presentation for management"
+      },
+      "prompt": {
+        "de": "Erstelle aus /[Dateiname] eine Präsentation mit höchstens 8 Folien für die Geschäftsleitung: Ausgangslage, Vorschlag, Nutzen, Risiken und nächste Schritte. Wenig Text pro Folie, mit Sprechernotizen.",
+        "en": "Create a presentation of at most 8 slides for management from /[file name]: situation, proposal, benefits, risks and next steps. Little text per slide, with speaker notes."
+      },
+      "areas": [
+        "fuehrung"
+      ],
+      "app": "powerpoint",
+      "license": "premium"
+    },
+    {
+      "id": "meeting-vorbereiten",
+      "title": {
+        "de": "Meeting vorbereiten",
+        "en": "Prepare a meeting"
+      },
+      "prompt": {
+        "de": "Ich leite ein Meeting zu [Thema] mit [Teilnehmende]. Erstelle eine Agenda für [Dauer] Minuten mit einem Ziel pro Punkt und nenne drei Fragen, die wir klären müssen.",
+        "en": "I am leading a meeting on [topic] with [participants]. Create an agenda for [duration] minutes with one goal per item and name three questions we need to settle."
+      },
+      "areas": [
+        "fuehrung"
+      ],
+      "license": "basic"
+    },
+    {
+      "id": "projektstatus",
+      "title": {
+        "de": "Projektstatus zusammenfassen",
+        "en": "Summarise project status"
+      },
+      "prompt": {
+        "de": "Fasse den Projektstatus aus den folgenden Infos für die Geschäftsleitung zusammen: Stand, Risiken und Entscheidungen, die wir brauchen, mit einer Ampelfarbe pro Bereich. Infos: [Infos]",
+        "en": "Summarise the project status from the following information for management: progress, risks and decisions we need, with a traffic-light colour per area. Information: [information]"
+      },
+      "areas": [
+        "fuehrung"
+      ],
+      "license": "basic"
+    },
+    {
+      "id": "feedback-vorbereiten",
+      "title": {
+        "de": "Feedbackgespräch vorbereiten",
+        "en": "Prepare a feedback conversation"
+      },
+      "prompt": {
+        "de": "Hilf mir, ein Feedbackgespräch vorzubereiten. Situation: [Situation ohne Namen]. Schlage einen Gesprächsaufbau vor und formuliere das Feedback nach dem Muster Beobachtung, Wirkung, Wunsch.",
+        "en": "Help me prepare a feedback conversation. Situation: [situation without names]. Suggest a structure for the conversation and phrase the feedback as observation, impact, request."
+      },
+      "areas": [
+        "fuehrung"
+      ],
+      "license": "basic"
+    }
+  ]
+}

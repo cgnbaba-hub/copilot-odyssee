@@ -116,9 +116,31 @@ export interface HelpTopic {
   illustration?: 'license';
 }
 
+/** A field of work. It selects prompt templates and use case ideas. */
+export interface Area {
+  id: string;
+  name: Localized;
+  hint: Localized;
+  useCaseIdeas: Localized[];
+}
+
+/** A ready-made prompt for the cheat sheet. Placeholders are in [brackets]. */
+export interface PromptTemplate {
+  id: string;
+  title: Localized;
+  prompt: Localized;
+  /** Area ids; missing means the template suits every area. */
+  areas?: string[];
+  /** Where the prompt is used; Copilot Chat when missing. */
+  app?: MissionApp;
+  license: License;
+}
+
 /** Everything the app needs to render the game world. */
 export interface ContentBundle {
   islands: Island[];
   modules: LearningModule[];
   help?: HelpTopic[];
+  areas?: Area[];
+  prompts?: PromptTemplate[];
 }

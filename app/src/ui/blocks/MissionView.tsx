@@ -1,35 +1,14 @@
 import * as React from 'react';
 
-import { MissionApp, MissionBlock } from '../../core/content/types';
+import { MissionBlock } from '../../core/content/types';
 import { completeMission } from '../../core/progress/state';
 import { format, Strings } from '../i18n/strings';
+import { APP_NAMES, COPILOT_CHAT_URL, copyText, CopyState } from '../copilot';
 import { useGame } from '../GameContext';
 import styles from '../styles.module.scss';
 import { BlockViewProps } from './BlockViewProps';
 
-const COPILOT_CHAT_URL = 'https://m365.cloud.microsoft/chat';
-
-/** Product names, the same in every language. */
-export const APP_NAMES: Record<MissionApp, string> = {
-  outlook: 'Outlook',
-  teams: 'Teams',
-  word: 'Word',
-  excel: 'Excel',
-  powerpoint: 'PowerPoint'
-};
 const RATINGS = [1, 2, 3, 4, 5];
-
-type CopyState = 'idle' | 'copied' | 'failed';
-
-/** Selects the text of an element so it can be copied by hand. */
-function selectText(element: HTMLElement | undefined): void {
-  const selection = window.getSelection();
-  if (!element || !selection) return;
-  const range = document.createRange();
-  range.selectNodeContents(element);
-  selection.removeAllRanges();
-  selection.addRange(range);
-}
 
 export function MissionView(props: BlockViewProps<MissionBlock>): React.ReactElement {
   const { strings, t, apply } = useGame();
@@ -38,26 +17,17 @@ export function MissionView(props: BlockViewProps<MissionBlock>): React.ReactEle
   const [copyState, setCopyState] = React.useState<CopyState>('idle');
   const copyRef = React.useRef<HTMLParagraphElement>(null);
   const inCopilot = block.copilot !== false;
-  const copyText = block.copyText ? t(block.copyText) : undefined;
+  const textToCopy = block.copyText ? t(block.copyText) : undefined;
 
   const copy = (): void => {
-    if (!copyText) return;
-    const failed = (): void => {
-      selectText(copyRef.current || undefined);
-      setCopyState('failed');
-    };
-    try {
-      navigator.clipboard.writeText(copyText).then(() => setCopyState('copied'), failed);
-    } catch {
-      failed();
-    }
+    if (textToCopy) copyText(textToCopy, copyRef.current || undefined, setCopyState);
   };
 
-  const copyBox = copyText && (
+  const copyBox = textToCopy && (
     <div className={styles.copyBox}>
       <p className={styles.copyLabel}>{strings.missionCopyLabel}</p>
       <p className={styles.copyText} ref={copyRef}>
-        {copyText}
+        {textToCopy}
       </p>
       <button type="button" className={copyState === 'copied' ? styles.buttonSuccess : styles.button} onClick={copy}>
         {copyState === 'copied' ? `✓ ${strings.missionCopied}` : `⧉ ${strings.missionCopy}`}
@@ -71,7 +41,7 @@ export function MissionView(props: BlockViewProps<MissionBlock>): React.ReactEle
   const steps: { text: string; action?: React.ReactNode }[] = app
     ? [
         { text: format(strings.missionAppStep1, app) },
-        { text: format(copyText ? strings.missionAppStep2Copy : strings.missionAppStep2, app), action: copyBox },
+        { text: format(textToCopy ? strings.missionAppStep2Copy : strings.missionAppStep2, app), action: copyBox },
         { text: strings.missionAppStep3 },
         { text: strings.missionAppStep4 }
       ]
@@ -84,7 +54,7 @@ export function MissionView(props: BlockViewProps<MissionBlock>): React.ReactEle
             </a>
           )
         },
-        { text: copyText ? strings.missionStep2Copy : strings.missionStep2, action: copyBox },
+        { text: textToCopy ? strings.missionStep2Copy : strings.missionStep2, action: copyBox },
         { text: strings.missionStep3 },
         { text: strings.missionStep4 }
       ];
