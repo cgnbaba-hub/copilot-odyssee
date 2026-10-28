@@ -81,7 +81,14 @@ Beispiel (gekürzt):
 Wie Odysseus segeln die Spielenden von Insel zu Insel. **Ithaka ist Heimathafen und Ziel zugleich**: Dort sammeln sich die Use-Case-Karten aus jeder Etappe. Die Botschaft der Reise ist, das Gelernte in den eigenen Arbeitsalltag heimzubringen.
 
 - **Progression wie ein Reise-Treueprogramm:** Man sammelt *Seemeilen* und steigt im Status auf: *Reisende:r → Entdecker:in → Weltenbummler:in → Reiseleiter:in → Kapitän:in → Legende von Ithaka*. Für jede vollständig bereiste Insel gibt es einen *Stempel im Reisepass*. *Souvenirs* gibt es für besondere Momente, zum Beispiel «Windschlauch des Aiolos» für einen perfekten Prompt oder «Erste Postkarte» für den ersten eigenen Use Case. Alle Begriffe sind im Theme hinterlegt und austauschbar.
-- **Stil:** Ägäis-Palette (Weiss, Tiefblau, Sonnengelb), Display-Schrift im Stil griechischer Inschriften (Marcellus, ins Paket eingebettet), gezeichnete Inseln mit eigenem Wahrzeichen, Mäanderband als Schmuckelement. Eigenständig, ohne Anlehnung an Kampagnen anderer.
+- **Stil:** Helle Ägäis-Palette (Weiss, Meerblau, Türkis, Sonnengelb), Logo in Marcellus, Überschriften und Knöpfe in Nunito (beide ins Paket eingebettet), gezeichnete Inseln mit Strand, Zypressen und eigenem Wahrzeichen, Mäanderband als Schmuckelement. Eigenständig, ohne Anlehnung an Kampagnen anderer.
+- **Bedienung für alle, auch ohne PC-Routine:**
+  - Die Startseite zeigt genau einen nächsten Schritt mit einem grossen Knopf. Die Seekarte und die Inselliste kommen darunter.
+  - Die Eule *Athene* sagt auf jedem Bildschirm in einem Satz, was als Nächstes zu tun ist.
+  - Die eigene Copilot-Version steht immer oben im Kopf, jede Insel zeigt «Geht mit deinem Copilot» (grün) oder «Nur mit Premium» (violett).
+  - Ein Hilfe-Fenster beantwortet die häufigsten Fragen, unter anderem mit einer vereinfachten Darstellung, wie man Basic und Premium in Copilot erkennt. Die Fragen stehen in `content/help.json`.
+  - Missionen führen Schritt für Schritt durch: Copilot öffnen, Text kopieren und einfügen, absenden, zurückkommen. Der passende Knopf steht direkt beim jeweiligen Schritt.
+  - Grosse Knöpfe, ein Lernmodus mit Fortschrittsbalken und farbige Rückmeldung (grün/rot) direkt beim Weiter-Knopf.
 
 Die Inselnamen sind Vorschläge. Das Motiv aus der Odyssee passt jeweils zum Thema:
 
@@ -169,7 +176,7 @@ Legende: 🤖 = setze ich um · 👤 = brauche ich von dir · 🏢 = IT oder Dat
   *Fertig, wenn:* Freigabe vor dem Pilot (AP 2.6) liegt vor.
 - [ ] **AP 0.3 Design und Inselnamen** 👤🤖
   Odyssee-Theme verfeinern, Inselnamen und Stil bestätigen.
-  *Stand:* Inselnamen bestätigt. Zweite Design-Runde umgesetzt (siehe Abschnitt 4), Feedback dazu offen.
+  *Stand:* Inselnamen bestätigt. Dritte Design-Runde umgesetzt: hellere Ägäis-Palette, Nunito als Display-Schrift, neu gezeichnete Inseln, Eule Athene als Begleiterin, Startseite mit nur einem nächsten Schritt (siehe Abschnitt 4). Feedback dazu offen.
   *Fertig, wenn:* Inselliste und Stil sind festgelegt.
 
 ### Phase 1: Fundament
@@ -195,8 +202,10 @@ Legende: 🤖 = setze ich um · 👤 = brauche ich von dir · 🏢 = IT oder Dat
 
 - [ ] **AP 2.1 Seekarte und Onboarding** 🤖
   Karte mit Inseln, Lizenzabfrage, Freischaltlogik, Premium-Ausblick.
+  *Stand:* Onboarding in drei Schritten (Begrüssung, Version wählen mit Anleitung, So funktioniert's), Seekarte mit nummerierter Route, Premium-Ausblick, Hilfe-Fenster. Offen: Feedback aus dem Pilot.
 - [ ] **AP 2.2 Bausteine** 🤖
   Briefing, Quiz, Prompt-Werkstatt (regelbasiertes Feedback nach Ziel/Kontext/Quelle/Erwartung), Mission mit Reflexion, Use-Case-Karte.
+  *Stand:* Alle Bausteine laufen im Lernmodus. Missionen haben eine Schritt-Anleitung und einen Kopier-Knopf. Offen: Feinschliff nach dem Pilot.
 - [ ] **AP 2.3 Gamification** 🤖
   Seemeilen und Ränge (Logik aus dem Prototyp übernommen), Trophäen, Serien. Bereichswertung statt Einzel-Rangliste, Rangliste optional.
   *Stand:* Seemeilen, Status-Stufen mit Aufstiegs-Dialog, Reisepass mit Stempeln und 6 Souvenirs sind umgesetzt. Offen: Serien, Bereichswertung, optionale Rangliste.
@@ -247,4 +256,4 @@ Legende: 🤖 = setze ich um · 👤 = brauche ich von dir · 🏢 = IT oder Dat
 | Mitbestimmung | ✅ Kein Betriebsrat (Schweiz). Abgleich mit der Datenschutzstelle (AP 0.2) |
 | IT: Website-App-Katalog für eine Test-Site | ⏳ klärst du (AP 0.1b) |
 | Inselnamen | ✅ bestätigt |
-| Stil im Detail | ⏳ Feedback zur zweiten Design-Runde (AP 0.3) |
+| Stil im Detail | ⏳ Feedback zur dritten Design-Runde (AP 0.3) |

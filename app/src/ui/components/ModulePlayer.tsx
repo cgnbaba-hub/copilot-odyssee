@@ -2,16 +2,19 @@ import * as React from 'react';
 
 import { findIsland, findModule } from '../../core/content/bundle';
 import { Block } from '../../core/content/types';
-import { finishModule, nextBlockIndex, startModule } from '../../core/progress/state';
+import { finishModule, getModule, nextBlockIndex, startModule } from '../../core/progress/state';
 import { BriefingView } from '../blocks/BriefingView';
 import { MissionView } from '../blocks/MissionView';
 import { PromptView } from '../blocks/PromptView';
 import { QuizView } from '../blocks/QuizView';
 import { UseCaseView } from '../blocks/UseCaseView';
-import { format } from '../i18n/strings';
+import { Strings, format } from '../i18n/strings';
 import { useGame } from '../GameContext';
+import { islandProgress, nextStage } from '../progressHelpers';
 import styles from '../styles.module.scss';
 import { IslandArt, Ship } from './Art';
+import { Confetti } from './Confetti';
+import { Guide } from './Guide';
 
 function BlockView(props: { moduleId: string; block: Block; onDone: () => void }): React.ReactElement {
   const { block } = props;
@@ -29,8 +32,24 @@ function BlockView(props: { moduleId: string; block: Block; onDone: () => void }
   }
 }
 
+function hintFor(strings: Strings, block: Block): string {
+  switch (block.type) {
+    case 'briefing':
+      return strings.hint_briefing;
+    case 'quiz':
+      return strings.hint_quiz;
+    case 'prompt':
+      return strings.hint_prompt;
+    case 'mission':
+      return block.copilot === false ? strings.hint_missionOffline : strings.hint_mission;
+    case 'usecase':
+      return strings.hint_usecase;
+  }
+}
+
 export function ModulePlayer(props: { moduleId: string }): React.ReactElement {
-  const { content, player, strings, theme, t, apply, update, navigate } = useGame();
+  const game = useGame();
+  const { content, player, strings, theme, t, apply, update, navigate } = game;
   const module = findModule(content, props.moduleId);
   const [index, setIndex] = React.useState<number | undefined>(undefined);
   const xpAtStart = React.useRef(player.xp);
@@ -53,47 +72,69 @@ export function ModulePlayer(props: { moduleId: string }): React.ReactElement {
 
   if (!module || index === undefined) return <p className={styles.muted}>{strings.loading}</p>;
   const island = findIsland(content, module.island);
+  const total = module.blocks.length;
+  const current = Math.min(index + 1, total);
+  const percent = Math.round((Math.min(index, total) / total) * 100);
   const backToIsland = (): void => navigate({ name: 'island', islandId: module.island });
 
+  let doneView: React.ReactElement | undefined;
+  if (done) {
+    const islandDone = island ? islandProgress(game, island.id) : undefined;
+    const newStamp = !!island && !!islandDone && islandDone.total > 0 && islandDone.completed === islandDone.total && getModule(player, module.id).completed === 1;
+    const following = nextStage(game);
+    doneView = (
+      <div className={styles.moduleDone}>
+        <Confetti />
+        {island && <IslandArt island={island} className={styles.moduleDoneArt} />}
+        <h2 className={styles.moduleDoneTitle}>{strings.moduleDoneTitle}</h2>
+        <p className={styles.lead}>{format(strings.moduleDoneText, { xp: player.xp - xpAtStart.current, xpName: t(theme.terms.xp) })}</p>
+        {newStamp && island && <p className={styles.stampNotice}>{format(strings.stampEarned, { island: t(island.name) })}</p>}
+        <Guide text={strings.moduleDoneGuide} cheer compact />
+        <div className={styles.doneActions}>
+          {following && following.module.id !== module.id && (
+            <button type="button" className={`${styles.buttonPrimary} ${styles.buttonBig}`} onClick={() => navigate({ name: 'module', moduleId: following.module.id })}>
+              {strings.nextStage}: {t(following.module.title)} →
+            </button>
+          )}
+          <button type="button" className={styles.button} onClick={() => navigate({ name: 'map' })}>
+            {strings.backToOverview}
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <section className={styles.panel} style={island ? ({ ['--od-island' as string]: island.color } as React.CSSProperties) : undefined}>
-      <button type="button" className={styles.linkButton} onClick={backToIsland}>
-        ← {strings.backToIsland}
-      </button>
-      <div className={styles.playerHead}>
-        {island && <IslandArt island={island} className={styles.playerArt} />}
+    <section className={styles.lesson} style={island ? ({ ['--od-island' as string]: island.color } as React.CSSProperties) : undefined}>
+      <div className={styles.lessonTop}>
+        <button type="button" className={styles.pauseButton} onClick={backToIsland} title={strings.pauseHint}>
+          <span aria-hidden="true">✕</span> {strings.pause}
+        </button>
+        <div className={styles.lessonProgress} role="progressbar" aria-valuemin={0} aria-valuemax={total} aria-valuenow={Math.min(index, total)} aria-label={format(strings.stepOf, { current, total })}>
+          <div className={styles.lessonProgressFill} style={{ width: `${percent}%` }}>
+            <Ship className={styles.lessonShip} />
+          </div>
+        </div>
+        <span className={styles.lessonCount}>
+          {current}/{total}
+        </span>
+      </div>
+
+      <div className={styles.lessonHead}>
+        {island && <IslandArt island={island} className={styles.lessonArt} />}
         <div>
           <p className={styles.eyebrow}>{island ? t(island.name) : ''}</p>
-          <h1 className={styles.panelTitle}>{t(module.title)}</h1>
+          <h1 className={styles.lessonTitle}>{t(module.title)}</h1>
         </div>
       </div>
 
-      <ol className={styles.steps} aria-label={format(strings.stepOf, { current: Math.min(index + 1, module.blocks.length), total: module.blocks.length })}>
-        {module.blocks.map((b, i) => (
-          <li key={b.id} className={i < index ? styles.stepDone : i === index ? styles.stepCurrent : undefined}>
-            {i === index && <Ship className={styles.stepShip} />}
-          </li>
-        ))}
-      </ol>
-
-      {done ? (
-        <div className={styles.moduleDone}>
-          {island && <IslandArt island={island} className={styles.moduleDoneArt} />}
-          <h2 className={styles.blockTitle}>{strings.moduleDoneTitle}</h2>
-          <p>{format(strings.moduleDoneText, { xp: player.xp - xpAtStart.current, xpName: t(theme.terms.xp) })}</p>
-          <div className={styles.blockActions}>
-            <button type="button" className={styles.buttonPrimary} onClick={backToIsland}>
-              {strings.backToIsland}
-            </button>
-            <button type="button" className={styles.button} onClick={() => navigate({ name: 'map' })}>
-              {strings.backToMap}
-            </button>
-          </div>
-        </div>
-      ) : (
+      {doneView || (
         <>
-          <p className={styles.stepLabel}>{format(strings.stepOf, { current: index + 1, total: module.blocks.length })}</p>
-          <BlockView key={module.blocks[index].id} moduleId={module.id} block={module.blocks[index]} onDone={() => setIndex(index + 1)} />
+          <Guide text={hintFor(strings, module.blocks[index])} compact />
+          <p className={styles.stepCounter}>{format(strings.stepOf, { current, total })}</p>
+          <div className={styles.lessonCard}>
+            <BlockView key={module.blocks[index].id} moduleId={module.id} block={module.blocks[index]} onDone={() => setIndex(index + 1)} />
+          </div>
         </>
       )}
     </section>

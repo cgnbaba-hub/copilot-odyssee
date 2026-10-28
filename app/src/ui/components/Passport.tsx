@@ -20,8 +20,8 @@ export function Passport(): React.ReactElement {
 
   return (
     <section className={styles.panel}>
-      <button type="button" className={styles.linkButton} onClick={() => navigate({ name: 'map' })}>
-        ← {strings.backToMap}
+      <button type="button" className={styles.backButton} onClick={() => navigate({ name: 'map' })}>
+        ← {strings.backToOverview}
       </button>
 
       <div className={styles.passportCover}>

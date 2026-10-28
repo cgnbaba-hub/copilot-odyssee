@@ -56,7 +56,11 @@ function blockMarkdown(block: Block): string {
         (block.examplePrompt ? `\nBeispiel:\n\n${quote(block.examplePrompt.de)}\n` : '')
       );
     case 'mission':
-      return `${head}: ${block.title.de}\n\n${block.task.de}\n` + (block.tip ? `\nTipp: ${block.tip.de}\n` : '');
+      return (
+        `${head}${block.copilot === false ? ' (ausserhalb von Copilot)' : ''}: ${block.title.de}\n\n${block.task.de}\n` +
+        (block.copyText ? `\nZum Kopieren:\n\n${quote(block.copyText.de)}\n` : '') +
+        (block.tip ? `\nTipp: ${block.tip.de}\n` : '')
+      );
     case 'usecase':
       return `${head}\n\n${block.intro.de}\n`;
   }
@@ -80,6 +84,10 @@ function reviewMarkdown(bundle: ContentBundle): string {
       m.blocks.forEach((b) => lines.push(blockMarkdown(b)));
     });
   });
+  if (bundle.help && bundle.help.length > 0) {
+    lines.push('## Hilfe', '');
+    bundle.help.forEach((topic) => lines.push(`### ${topic.question.de}`, '', topic.answer.de, ''));
+  }
   return lines.join('\n');
 }
 
@@ -110,11 +118,13 @@ function main(): void {
     {
       common: readJson('schema/common.schema.json') as object,
       islands: readJson('schema/islands.schema.json') as object,
-      module: readJson('schema/module.schema.json') as object
+      module: readJson('schema/module.schema.json') as object,
+      help: readJson('schema/help.schema.json') as object
     },
     { path: 'islands.json', data: readJson('islands.json') },
     moduleFiles,
-    new Date()
+    new Date(),
+    fs.existsSync(path.join(CONTENT_DIR, 'help.json')) ? { path: 'help.json', data: readJson('help.json') } : undefined
   );
 
   result.warnings.forEach((w) => console.warn(`Warnung  content/${w.file}: ${w.message}`));
@@ -124,7 +134,7 @@ function main(): void {
     process.exit(1);
   }
 
-  console.log(`Inhalte ok: ${result.bundle.islands.length} Inseln, ${result.bundle.modules.length} Module.`);
+  console.log(`Inhalte ok: ${result.bundle.islands.length} Inseln, ${result.bundle.modules.length} Module, ${(result.bundle.help || []).length} Hilfethemen.`);
 
   if (command === 'bundle') {
     const source =

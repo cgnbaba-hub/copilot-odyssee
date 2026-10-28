@@ -1,0 +1,62 @@
+{
+  "$schema": "./schema/help.schema.json",
+  "topics": [
+    {
+      "id": "welche-version",
+      "illustration": "license",
+      "question": { "de": "Welche Copilot-Version habe ich?", "en": "Which version of Copilot do I have?" },
+      "answer": {
+        "de": "Es gibt zwei Versionen. Copilot zeigt dir an, welche du hast:\n- **Copilot Chat (Basic)** haben alle mit einem Firmenkonto.\n- **M365 Copilot (Premium)** haben nur Personen mit einer Zusatzlizenz.\n\nSo findest du es heraus:\n- Öffne Copilot im Browser unter **m365.cloud.microsoft/chat**.\n- Schau nach der Bezeichnung **«Basic»** oder **«Premium»**.\n- Siehst du keine Bezeichnung? Dann öffne **myaccount.microsoft.com** und klicke auf **«Abonnements»**. Dort sind deine Lizenzen aufgelistet.\n\nIm Zweifel wähle in dieser App **Copilot Chat (Basic)**. Du kannst die Einstellung jederzeit ändern.",
+        "en": "There are two versions. Copilot shows you which one you have:\n- **Copilot Chat (Basic)** is available to everyone with a work account.\n- **M365 Copilot (Premium)** is only for people with an add-on licence.\n\nHow to find out:\n- Open Copilot in the browser at **m365.cloud.microsoft/chat**.\n- Look for the label **“Basic”** or **“Premium”**.\n- No label? Then open **myaccount.microsoft.com** and click **“Subscriptions”**. Your licences are listed there.\n\nIf in doubt, choose **Copilot Chat (Basic)** in this app. You can change the setting at any time."
+      }
+    },
+    {
+      "id": "unterschied",
+      "question": { "de": "Was ist der Unterschied zwischen Basic und Premium?", "en": "What is the difference between Basic and Premium?" },
+      "answer": {
+        "de": "**Copilot Chat (Basic)**\n- Du schreibst Copilot im Chat, was du brauchst.\n- Copilot kennt das Internet und alles, was du ihm gibst: Text, den du einfügst, und Dateien, die du hochlädst.\n- Du findest ihn im Browser, in der Microsoft-365-Copilot-App und in Outlook.\n\n**M365 Copilot (Premium)**\n- Kann zusätzlich selbst in deinen Mails, Chats, Dateien und Meetings suchen.\n- Ist direkt in Word, Excel, PowerPoint und Teams eingebaut.\n\nInseln mit dem Hinweis **«Nur mit Premium»** kannst du trotzdem besuchen und lesen. Ausprobieren geht erst mit der Premium-Lizenz.",
+        "en": "**Copilot Chat (Basic)**\n- You tell Copilot in the chat what you need.\n- Copilot knows the internet and everything you give it: text you paste and files you upload.\n- You find it in the browser, in the Microsoft 365 Copilot app and in Outlook.\n\n**M365 Copilot (Premium)**\n- Can also search your emails, chats, files and meetings by itself.\n- Is built right into Word, Excel, PowerPoint and Teams.\n\nYou can still visit and read islands marked **“Premium only”**. Trying things out requires the Premium licence."
+      }
+    },
+    {
+      "id": "copilot-oeffnen",
+      "question": { "de": "Wie öffne ich Copilot?", "en": "How do I open Copilot?" },
+      "answer": {
+        "de": "Am einfachsten über den Knopf **«Copilot öffnen»** in einer Mission. Copilot öffnet sich dann in einem neuen Tab deines Browsers.\n\nOder so:\n- Öffne deinen Browser, zum Beispiel Edge.\n- Tippe oben in die Adresszeile **m365.cloud.microsoft/chat** und drücke die **Enter-Taste**.\n- Wirst du nach einer Anmeldung gefragt, melde dich mit deinem Firmenkonto an.",
+        "en": "The easiest way is the **“Open Copilot”** button in a mission. Copilot then opens in a new tab of your browser.\n\nOr like this:\n- Open your browser, for example Edge.\n- Type **m365.cloud.microsoft/chat** into the address bar at the top and press **Enter**.\n- If you are asked to sign in, sign in with your work account."
+      }
+    },
+    {
+      "id": "kopieren",
+      "question": { "de": "Wie bringe ich einen Text in Copilot?", "en": "How do I get text into Copilot?" },
+      "answer": {
+        "de": "- Klicke in der Mission auf **«Text kopieren»**. Der Text ist jetzt gemerkt.\n- Wechsle zu Copilot und klicke ins Eingabefeld unten.\n- Drücke **Strg** und **V** gleichzeitig (am Mac: **Cmd** und **V**). Der Text erscheint im Feld.\n- Ersetze Teile in eckigen Klammern, zum Beispiel **[dein Bereich]**, durch deine eigenen Angaben.\n- Drücke die **Enter-Taste** oder klicke auf den Pfeil zum Senden.",
+        "en": "- Click **“Copy text”** in the mission. The text is now stored.\n- Switch to Copilot and click into the input box at the bottom.\n- Press **Ctrl** and **V** at the same time (on a Mac: **Cmd** and **V**). The text appears in the box.\n- Replace parts in square brackets, for example **[your area]**, with your own details.\n- Press **Enter** or click the arrow to send."
+      }
+    },
+    {
+      "id": "zurueck",
+      "question": { "de": "Wie komme ich von Copilot zurück zur Odyssee?", "en": "How do I get back from Copilot to the Odyssey?" },
+      "answer": {
+        "de": "Copilot öffnet sich in einem eigenen Tab. Die Odyssee bleibt offen.\n- Ganz oben im Browser siehst du die Tabs nebeneinander. Klicke auf den Tab mit der Odyssee.\n- Oder schliesse den Copilot-Tab mit dem **×** auf dem Tab.\n\nDein Fortschritt geht dabei nicht verloren.",
+        "en": "Copilot opens in its own tab. The Odyssey stays open.\n- At the very top of the browser you see the tabs side by side. Click the tab with the Odyssey.\n- Or close the Copilot tab with the **×** on the tab.\n\nYour progress is not lost."
+      }
+    },
+    {
+      "id": "daten",
+      "question": { "de": "Was speichert diese App über mich?", "en": "What does this app store about me?" },
+      "answer": {
+        "de": "- **Gespeichert** werden dein Fortschritt (Seemeilen, abgeschlossene Etappen, Stempel) und deine Use-Case-Karten.\n- **Nicht gespeichert** werden die Prompts, die du in der Prompt-Werkstatt schreibst. Sie werden nur in deinem Browser bewertet.\n- Auswertungen für Schulungen erfolgen nur zusammengefasst über viele Personen, nie über dich einzeln.",
+        "en": "- **Stored**: your progress (nautical miles, completed stages, stamps) and your use case cards.\n- **Not stored**: the prompts you write in the prompt workshop. They are only evaluated in your browser.\n- Analyses for training are only done in aggregate across many people, never about you individually."
+      }
+    },
+    {
+      "id": "hilfe-holen",
+      "question": { "de": "Ich komme nicht weiter. Wer hilft mir?", "en": "I'm stuck. Who can help me?" },
+      "answer": {
+        "de": "Kein Problem, jede Reise hat schwierige Stellen.\n- Brich die Etappe einfach ab. Dein Fortschritt bleibt gespeichert, du kannst später weitermachen.\n- Frag eine Kollegin oder einen Kollegen, die Copilot schon nutzen.\n- Wende dich an die Copilot-Ansprechpersonen oder die IT eures Unternehmens.",
+        "en": "No problem, every journey has tricky parts.\n- Simply leave the stage. Your progress is saved and you can continue later.\n- Ask a colleague who already uses Copilot.\n- Contact your company's Copilot contacts or IT."
+      }
+    }
+  ]
+}

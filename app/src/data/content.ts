@@ -38,5 +38,6 @@ export function parseContentFile(data: unknown): ContentBundle {
   const islandsOk = islands.every((i) => isObject(i) && typeof i.id === 'string' && isObject(i.map) && isObject(i.name));
   const modulesOk = modules.every((m) => isObject(m) && typeof m.id === 'string' && typeof m.island === 'string' && Array.isArray(m.blocks));
   if (!islandsOk || !modulesOk) throw new Error('Inhaltsdatei beschädigt');
-  return { islands: islands as ContentBundle['islands'], modules: modules as ContentBundle['modules'] };
+  const help = Array.isArray(data.help) && data.help.every((t) => isObject(t) && typeof t.id === 'string') ? (data.help as ContentBundle['help']) : undefined;
+  return { islands: islands as ContentBundle['islands'], modules: modules as ContentBundle['modules'], help };
 }

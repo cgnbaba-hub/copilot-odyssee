@@ -21,16 +21,26 @@ export interface Theme {
     /** Dark brand colour for the header and strong accents. */
     ink: string;
     primary: string;
+    /** Darker edge that makes primary buttons look pressable. */
+    primaryShade: string;
     onPrimary: string;
     /** Highlights such as progress and rewards. */
     accent: string;
     sand: string;
     success: string;
+    successSoft: string;
     danger: string;
+    dangerSoft: string;
+    /** Marks everything that needs the M365 Copilot (Premium) licence. */
+    premium: string;
+    premiumSoft: string;
     sea: string;
     seaDeep: string;
   };
   fonts: {
+    /** Brand wordmark. */
+    logo: string;
+    /** Headings and buttons. */
     display: string;
     body: string;
   };
@@ -44,6 +54,8 @@ export interface Theme {
     passport: Localized;
     stamps: Localized;
     souvenirs: Localized;
+    /** Name of the guide character. */
+    guide: Localized;
   };
   /** Sorted by minLevel, the first entry starts at level 1. */
   ranks: { minLevel: number; name: Localized }[];
@@ -94,13 +106,19 @@ export function themeVariables(theme: Theme): React.CSSProperties {
     '--od-line': c.line,
     '--od-ink': c.ink,
     '--od-primary': c.primary,
+    '--od-primary-shade': c.primaryShade,
     '--od-on-primary': c.onPrimary,
     '--od-accent': c.accent,
     '--od-sand': c.sand,
     '--od-success': c.success,
+    '--od-success-soft': c.successSoft,
     '--od-danger': c.danger,
+    '--od-danger-soft': c.dangerSoft,
+    '--od-premium': c.premium,
+    '--od-premium-soft': c.premiumSoft,
     '--od-sea': c.sea,
     '--od-sea-deep': c.seaDeep,
+    '--od-font-logo': theme.fonts.logo,
     '--od-font-display': theme.fonts.display,
     '--od-font-body': theme.fonts.body
   } as React.CSSProperties;

@@ -48,8 +48,8 @@
           },
           "correct": true,
           "explanation": {
-            "de": "Richtig. Am besten gleich im ersten Prompt, dann gilt es für den ganzen Chat.",
-            "en": "Correct. Ideally in the first prompt, then it applies to the whole chat."
+            "de": "Am besten gleich im ersten Prompt, dann gilt es für den ganzen Chat.",
+            "en": "Ideally in the first prompt, then it applies to the whole chat."
           }
         },
         {
@@ -110,6 +110,10 @@
       "task": {
         "de": "Such dir eine Mail aus, die du heute oder morgen ohnehin schreiben musst. Lass Copilot Chat einen Entwurf aus deinen Stichpunkten schreiben, passe ihn an und verschick ihn. Wie viel Zeit hat es gespart?",
         "en": "Pick an email you have to write today or tomorrow anyway. Let Copilot Chat draft it from your notes, adapt it and send it. How much time did it save?"
+      },
+      "copyText": {
+        "de": "Schreibe aus diesen Stichpunkten eine freundliche Mail in Schweizer Hochdeutsch, ohne Eszett: [deine Stichpunkte]",
+        "en": "Write a friendly email from these notes: [your notes]"
       }
     },
     {

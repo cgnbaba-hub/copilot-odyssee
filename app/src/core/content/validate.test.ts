@@ -20,7 +20,8 @@ function readJson(path: string): unknown {
 const schemas: ContentSchemas = {
   common: readJson('schema/common.schema.json') as object,
   islands: readJson('schema/islands.schema.json') as object,
-  module: readJson('schema/module.schema.json') as object
+  module: readJson('schema/module.schema.json') as object,
+  help: readJson('schema/help.schema.json') as object
 };
 
 const islandsFile: ContentFile<unknown> = { path: 'islands.json', data: readJson('islands.json') };
@@ -63,10 +64,11 @@ describe('validateContent', () => {
       .filter((name) => /\.json$/.test(name))
       .map((name) => ({ path: `modules/${name}`, data: readJson(`modules/${name}`) }));
 
-    const result = validateContent(schemas, islandsFile, moduleFiles, TODAY);
+    const result = validateContent(schemas, islandsFile, moduleFiles, TODAY, { path: 'help.json', data: readJson('help.json') });
 
     expect(result.errors).toEqual([]);
     expect(result.bundle && result.bundle.modules.length).toBe(moduleFiles.length);
+    expect(result.bundle && result.bundle.help && result.bundle.help.length).toBeGreaterThan(0);
   });
 
   it('accepts a minimal module', () => {
@@ -116,5 +118,12 @@ describe('validateContent', () => {
     const result = validateContent(schemas, islandsFile, [{ path: 'modules/test-modul.json', data: module }], TODAY);
     expect(result.errors).toEqual([]);
     expect(result.warnings.map((w) => w.message)).toEqual(['Review überfällig seit 2026-04-01.']);
+  });
+
+  it('checks help topics', () => {
+    const help = { path: 'help.json', data: { topics: [{ id: 'a', question: { de: 'Frage', en: 'Question' }, answer: { de: 'Grösse', en: 'x' } }, { id: 'a', question: { de: 'F', en: 'Q' }, answer: { de: 'ß', en: 'x' } }] } };
+    const messages = validateContent(schemas, islandsFile, [], TODAY, help).errors.map((e) => e.message);
+    expect(messages).toContain('Hilfethema-id "a" kommt mehrfach vor.');
+    expect(messages).toContain('/topics/1/answer/de: "ß" durch "ss" ersetzen (Schweizer Schreibweise).');
   });
 });

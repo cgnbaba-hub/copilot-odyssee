@@ -132,7 +132,15 @@
         "id": { "$ref": "common.schema.json#/$defs/id" },
         "title": { "$ref": "common.schema.json#/$defs/localized" },
         "task": { "$ref": "common.schema.json#/$defs/localized" },
-        "tip": { "$ref": "common.schema.json#/$defs/localized" }
+        "tip": { "$ref": "common.schema.json#/$defs/localized" },
+        "copyText": {
+          "description": "Text, den man mit einem Knopf kopieren und in Copilot einfügen kann.",
+          "$ref": "common.schema.json#/$defs/localized"
+        },
+        "copilot": {
+          "description": "false, wenn die Mission nicht in Copilot stattfindet (dann gibt es keinen Knopf «Copilot öffnen»). Standard: true.",
+          "type": "boolean"
+        }
       },
       "additionalProperties": false
     },

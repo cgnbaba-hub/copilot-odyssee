@@ -14,7 +14,7 @@ export function BriefingView(props: BlockViewProps<BriefingBlock>): React.ReactE
   const links = (block.links || []).filter((link) => /^https:\/\//.test(link.url));
 
   return (
-    <div>
+    <>
       <h2 className={styles.blockTitle}>{t(block.title)}</h2>
       <RichText text={t(block.body)} />
       {links.length > 0 && (
@@ -22,16 +22,16 @@ export function BriefingView(props: BlockViewProps<BriefingBlock>): React.ReactE
           {links.map((link) => (
             <li key={link.url}>
               <a href={link.url} target="_blank" rel="noopener noreferrer">
-                {t(link.label)}
+                {t(link.label)} ↗
               </a>
             </li>
           ))}
         </ul>
       )}
-      <div className={styles.blockActions}>
+      <div className={styles.actionBar}>
         <button
           type="button"
-          className={styles.buttonPrimary}
+          className={`${styles.buttonPrimary} ${styles.buttonWide}`}
           onClick={() => {
             apply((s) => markBriefingRead(s, moduleId, block.id));
             props.onDone();
@@ -40,6 +40,6 @@ export function BriefingView(props: BlockViewProps<BriefingBlock>): React.ReactE
           {strings.understood}
         </button>
       </div>
-    </div>
+    </>
   );
 }

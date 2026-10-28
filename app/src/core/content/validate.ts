@@ -1,6 +1,6 @@
 import Ajv2020, { ErrorObject } from 'ajv/dist/2020';
 
-import { ContentBundle, Island, LearningModule } from './types';
+import { ContentBundle, HelpTopic, Island, LearningModule } from './types';
 
 /**
  * Validates content packs against the JSON schemas in /content/schema plus
@@ -12,6 +12,7 @@ export interface ContentSchemas {
   common: object;
   islands: object;
   module: object;
+  help: object;
 }
 
 export interface ContentFile<T> {
@@ -109,7 +110,8 @@ export function validateContent(
   schemas: ContentSchemas,
   islandsFile: ContentFile<unknown>,
   moduleFiles: ContentFile<unknown>[],
-  today: Date
+  today: Date,
+  helpFile?: ContentFile<unknown>
 ): ValidationResult {
   const result: ValidationResult = { errors: [], warnings: [] };
 
@@ -117,6 +119,7 @@ export function validateContent(
   ajv.addSchema(schemas.common, 'common.schema.json');
   const validateIslands = ajv.compile(schemas.islands);
   const validateModule = ajv.compile(schemas.module);
+  const validateHelp = ajv.compile(schemas.help);
 
   const schemaErrors = (file: string, errors: ErrorObject[] | null | undefined): void => {
     (errors || [])
@@ -154,8 +157,19 @@ export function validateContent(
 
   duplicates(modules.map((m) => m.id)).forEach((id) => result.errors.push({ file: 'modules', message: `Modul-id "${id}" kommt mehrfach vor.` }));
 
+  let help: HelpTopic[] | undefined;
+  if (helpFile) {
+    if (validateHelp(helpFile.data)) {
+      help = (helpFile.data as { topics: HelpTopic[] }).topics;
+      duplicates(help.map((t) => t.id)).forEach((id) => result.errors.push({ file: helpFile.path, message: `Hilfethema-id "${id}" kommt mehrfach vor.` }));
+    } else {
+      schemaErrors(helpFile.path, validateHelp.errors);
+    }
+    eszett(helpFile);
+  }
+
   if (result.errors.length === 0) {
-    result.bundle = { islands, modules };
+    result.bundle = help ? { islands, modules, help } : { islands, modules };
   }
   return result;
 }

@@ -31,7 +31,7 @@ export function PromptView(props: BlockViewProps<PromptBlock>): React.ReactEleme
   };
 
   return (
-    <div>
+    <>
       <h2 className={styles.blockTitle}>{t(block.title)}</h2>
       <p className={styles.scenario}>{t(block.scenario)}</p>
 
@@ -44,11 +44,15 @@ export function PromptView(props: BlockViewProps<PromptBlock>): React.ReactEleme
       <div aria-live="polite">
         {feedback && (
           <div className={styles.feedbackBox}>
-            <p>
-              <strong>
-                {strings.score}: {feedback.score}/100
-              </strong>
-            </p>
+            <div className={styles.scoreRow}>
+              <span className={styles.scoreValue}>{feedback.score}</span>
+              <span>
+                <strong>{strings.score}</strong> / 100
+              </span>
+              <div className={styles.scoreBar}>
+                <div className={styles.scoreBarFill} style={{ width: `${feedback.score}%` }} />
+              </div>
+            </div>
             {feedback.tooShort && <p>{strings.promptTooShort}</p>}
             <ul className={styles.criteria}>
               {feedback.met.map((c) => (
@@ -75,16 +79,16 @@ export function PromptView(props: BlockViewProps<PromptBlock>): React.ReactEleme
         </div>
       )}
 
-      <div className={styles.blockActions}>
-        <button type="button" className={feedback ? styles.button : styles.buttonPrimary} disabled={text.trim().length === 0} onClick={evaluate}>
+      <div className={styles.actionBar}>
+        <button type="button" className={`${feedback ? styles.button : styles.buttonPrimary} ${styles.buttonWide}`} disabled={text.trim().length === 0} onClick={evaluate}>
           {feedback ? strings.improvePrompt : strings.getFeedback}
         </button>
         {feedback && (
-          <button type="button" className={styles.buttonPrimary} onClick={props.onDone}>
+          <button type="button" className={`${styles.buttonPrimary} ${styles.buttonWide}`} onClick={props.onDone}>
             {strings.continue}
           </button>
         )}
       </div>
-    </div>
+    </>
   );
 }
