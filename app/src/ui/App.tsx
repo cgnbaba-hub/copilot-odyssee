@@ -34,8 +34,11 @@ export interface AppProps {
 
 interface Toast {
   id: number;
-  text: string;
   kind: 'xp' | 'souvenir';
+  /** Nautical miles of an xp toast; quick gains add up in one toast. */
+  xp?: number;
+  /** Text of a souvenir toast. */
+  text?: string;
 }
 
 const TOAST_MS = 2600;
@@ -80,9 +83,16 @@ export function App(props: AppProps): React.ReactElement {
     props.store.save(next).catch(() => undefined);
   };
 
-  const toast = (text: string, kind: Toast['kind']): void => {
+  const showToast = (entry: Omit<Toast, 'id'>): void => {
     const id = Date.now() + Math.random();
-    setToasts((current) => current.concat([{ id, text, kind }]).slice(-MAX_TOASTS));
+    setToasts((current) => {
+      // Miles earned in quick succession are added to the visible miles toast instead of stacking up.
+      const shown = current.filter((x) => x.kind === 'xp')[0];
+      if (entry.kind === 'xp' && shown) {
+        return current.map((x) => (x === shown ? { id, kind: 'xp', xp: (shown.xp || 0) + (entry.xp || 0) } : x));
+      }
+      return current.concat([{ id, ...entry }]).slice(-MAX_TOASTS);
+    });
     window.setTimeout(() => setToasts((current) => current.filter((x) => x.id !== id)), TOAST_MS);
   };
 
@@ -103,7 +113,7 @@ export function App(props: AppProps): React.ReactElement {
       const outcome = change(before);
       commit(outcome.state);
       if (outcome.xpGained > 0) {
-        toast(`+${outcome.xpGained} ${t(theme.terms.xp)}`, 'xp');
+        showToast({ kind: 'xp', xp: outcome.xpGained });
         const oldRank = rankProgress(theme, before.xp).index;
         const newRank = rankProgress(theme, outcome.state.xp).index;
         if (newRank > oldRank) setRankUp(newRank);
@@ -111,7 +121,7 @@ export function App(props: AppProps): React.ReactElement {
       const known = earnedSouvenirs(props.content, before);
       earnedSouvenirs(props.content, outcome.state)
         .filter((id) => known.indexOf(id) < 0)
-        .forEach((id) => toast(format(strings.souvenirFound, { name: t(theme.souvenirs[id].name) }), 'souvenir'));
+        .forEach((id) => showToast({ kind: 'souvenir', text: format(strings.souvenirFound, { name: t(theme.souvenirs[id].name) }) }));
       return outcome;
     },
     update: (change) => {
@@ -155,7 +165,7 @@ export function App(props: AppProps): React.ReactElement {
         <div className={styles.toasts} aria-live="polite">
           {toasts.map((x) => (
             <div key={x.id} className={x.kind === 'souvenir' ? `${styles.toast} ${styles.toastSouvenir}` : styles.toast}>
-              {x.text}
+              {x.kind === 'xp' ? `+${x.xp || 0} ${t(theme.terms.xp)}` : x.text}
             </div>
           ))}
         </div>
