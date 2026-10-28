@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Inseln der Spielwelt",
+  "type": "object",
+  "required": ["islands"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "islands": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/island" }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "island": {
+      "type": "object",
+      "required": ["id", "order", "license", "name", "tool", "summary", "motif", "map", "color"],
+      "properties": {
+        "id": { "$ref": "common.schema.json#/$defs/id" },
+        "order": { "description": "Reihenfolge der Reiseroute.", "type": "integer", "minimum": 0 },
+        "license": { "$ref": "common.schema.json#/$defs/license" },
+        "name": { "description": "Name der Insel, z. B. \"Insel des Aiolos\".", "$ref": "common.schema.json#/$defs/localized" },
+        "tool": { "description": "Copilot-Thema der Insel, z. B. \"Copilot Chat (Basic)\".", "$ref": "common.schema.json#/$defs/localized" },
+        "summary": { "description": "Ein bis zwei Sätze: Was lernt man hier?", "$ref": "common.schema.json#/$defs/localized" },
+        "motif": { "description": "Bezug zur Odyssee.", "$ref": "common.schema.json#/$defs/localized" },
+        "map": {
+          "description": "Position auf der Seekarte in Prozent der Kartenbreite (x) und -höhe (y).",
+          "type": "object",
+          "required": ["x", "y"],
+          "properties": {
+            "x": { "type": "number", "minimum": 0, "maximum": 100 },
+            "y": { "type": "number", "minimum": 0, "maximum": 100 }
+          },
+          "additionalProperties": false
+        },
+        "color": { "description": "Hauptfarbe der Insel.", "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
+        "home": { "description": "Heimathafen: Hier werden die gesammelten Use-Case-Karten angezeigt.", "type": "boolean" }
+      },
+      "additionalProperties": false
+    }
+  }
+}

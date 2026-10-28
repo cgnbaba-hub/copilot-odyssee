@@ -1,0 +1,151 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Lernmodul",
+  "description": "Ein Modul gehört zu einer Insel und besteht aus Bausteinen, die nacheinander durchlaufen werden.",
+  "type": "object",
+  "required": ["id", "island", "order", "version", "owner", "status", "title", "summary", "estimatedMinutes", "blocks"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "id": { "description": "Muss dem Dateinamen entsprechen.", "$ref": "common.schema.json#/$defs/id" },
+    "island": { "description": "id der Insel aus islands.json.", "$ref": "common.schema.json#/$defs/id" },
+    "order": { "type": "integer", "minimum": 0 },
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "owner": { "description": "Wer ist für den Inhalt verantwortlich?", "type": "string", "minLength": 1 },
+    "status": {
+      "description": "draft = Entwurf (nur sichtbar, wenn Entwürfe eingeblendet sind), active = live, deprecated = veraltet (ausgeblendet).",
+      "enum": ["draft", "active", "deprecated"]
+    },
+    "reviewedAt": { "description": "Datum der letzten fachlichen Prüfung (JJJJ-MM-TT).", "$ref": "common.schema.json#/$defs/date" },
+    "reviewIntervalDays": { "description": "Nach wie vielen Tagen der Inhalt erneut geprüft werden muss.", "type": "integer", "minimum": 1 },
+    "license": { "description": "Überschreibt die Lizenzstufe der Insel für dieses Modul.", "$ref": "common.schema.json#/$defs/license" },
+    "title": { "$ref": "common.schema.json#/$defs/localized" },
+    "summary": { "$ref": "common.schema.json#/$defs/localized" },
+    "estimatedMinutes": { "type": "integer", "minimum": 1 },
+    "notes": { "description": "Interne Notizen für die Redaktion, werden in der App nicht angezeigt.", "type": "string" },
+    "blocks": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/block" }
+    }
+  },
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": { "properties": { "status": { "const": "active" } } },
+      "then": { "required": ["reviewedAt", "reviewIntervalDays"] }
+    }
+  ],
+  "$defs": {
+    "block": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": { "enum": ["briefing", "quiz", "prompt", "mission", "usecase"] }
+      },
+      "allOf": [
+        { "if": { "properties": { "type": { "const": "briefing" } } }, "then": { "$ref": "#/$defs/briefing" } },
+        { "if": { "properties": { "type": { "const": "quiz" } } }, "then": { "$ref": "#/$defs/quiz" } },
+        { "if": { "properties": { "type": { "const": "prompt" } } }, "then": { "$ref": "#/$defs/prompt" } },
+        { "if": { "properties": { "type": { "const": "mission" } } }, "then": { "$ref": "#/$defs/mission" } },
+        { "if": { "properties": { "type": { "const": "usecase" } } }, "then": { "$ref": "#/$defs/usecase" } }
+      ]
+    },
+    "briefing": {
+      "description": "Kurze Info. Im Text sind Absätze (Leerzeile), Aufzählungen (\"- \") und **fett** möglich.",
+      "type": "object",
+      "required": ["type", "id", "title", "body"],
+      "properties": {
+        "type": { "const": "briefing" },
+        "id": { "$ref": "common.schema.json#/$defs/id" },
+        "title": { "$ref": "common.schema.json#/$defs/localized" },
+        "body": { "$ref": "common.schema.json#/$defs/localized" },
+        "links": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["label", "url"],
+            "properties": {
+              "label": { "$ref": "common.schema.json#/$defs/localized" },
+              "url": { "type": "string", "pattern": "^https://" }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "quiz": {
+      "description": "Eine Frage mit mehreren Antworten, mindestens eine davon richtig.",
+      "type": "object",
+      "required": ["type", "id", "difficulty", "question", "options"],
+      "properties": {
+        "type": { "const": "quiz" },
+        "id": { "$ref": "common.schema.json#/$defs/id" },
+        "difficulty": { "$ref": "common.schema.json#/$defs/difficulty" },
+        "question": { "$ref": "common.schema.json#/$defs/localized" },
+        "options": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 6,
+          "items": {
+            "type": "object",
+            "required": ["id", "text", "correct"],
+            "properties": {
+              "id": { "$ref": "common.schema.json#/$defs/id" },
+              "text": { "$ref": "common.schema.json#/$defs/localized" },
+              "correct": { "type": "boolean" },
+              "explanation": { "$ref": "common.schema.json#/$defs/localized" }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "prompt": {
+      "description": "Prompt-Werkstatt: Ein Szenario, zu dem ein Prompt geschrieben wird. Das Feedback prüft die Kriterien in rubric.",
+      "type": "object",
+      "required": ["type", "id", "difficulty", "title", "scenario", "rubric"],
+      "properties": {
+        "type": { "const": "prompt" },
+        "id": { "$ref": "common.schema.json#/$defs/id" },
+        "difficulty": { "$ref": "common.schema.json#/$defs/difficulty" },
+        "title": { "$ref": "common.schema.json#/$defs/localized" },
+        "scenario": { "$ref": "common.schema.json#/$defs/localized" },
+        "rubric": {
+          "description": "goal = Ziel, context = Kontext, source = Quelle, expectation = Erwartung an das Ergebnis.",
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "enum": ["goal", "context", "source", "expectation"] }
+        },
+        "examplePrompt": { "$ref": "common.schema.json#/$defs/localized" }
+      },
+      "additionalProperties": false
+    },
+    "mission": {
+      "description": "Aufgabe, die im echten Copilot ausprobiert wird, danach eine kurze Reflexion.",
+      "type": "object",
+      "required": ["type", "id", "title", "task"],
+      "properties": {
+        "type": { "const": "mission" },
+        "id": { "$ref": "common.schema.json#/$defs/id" },
+        "title": { "$ref": "common.schema.json#/$defs/localized" },
+        "task": { "$ref": "common.schema.json#/$defs/localized" },
+        "tip": { "$ref": "common.schema.json#/$defs/localized" }
+      },
+      "additionalProperties": false
+    },
+    "usecase": {
+      "description": "Eigenen Anwendungsfall festhalten. Die Karte landet in Ithaka.",
+      "type": "object",
+      "required": ["type", "id", "intro"],
+      "properties": {
+        "type": { "const": "usecase" },
+        "id": { "$ref": "common.schema.json#/$defs/id" },
+        "intro": { "$ref": "common.schema.json#/$defs/localized" }
+      },
+      "additionalProperties": false
+    }
+  }
+}

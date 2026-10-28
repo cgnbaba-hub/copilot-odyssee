@@ -1,0 +1,176 @@
+{
+  "$schema": "./schema/islands.schema.json",
+  "islands": [
+    {
+      "id": "sirenenfelsen",
+      "order": 0,
+      "license": "basic",
+      "name": { "de": "Sirenenfelsen", "en": "The Sirens' Rocks" },
+      "tool": { "de": "KI-Grundlagen", "en": "AI basics" },
+      "summary": {
+        "de": "Was Copilot ist, wo seine Grenzen liegen und wie du KI verantwortungsvoll einsetzt.",
+        "en": "What Copilot is, where its limits are and how to use AI responsibly."
+      },
+      "motif": {
+        "de": "Der Gesang der Sirenen klingt verlockend, führt aber in die Irre. Genauso können KI-Antworten überzeugend klingen und trotzdem falsch sein.",
+        "en": "The Sirens' song sounds tempting but leads you astray. AI answers can sound convincing and still be wrong."
+      },
+      "map": { "x": 10, "y": 74 },
+      "color": "#8E7CC3"
+    },
+    {
+      "id": "aiolos",
+      "order": 1,
+      "license": "basic",
+      "name": { "de": "Insel des Aiolos", "en": "Isle of Aeolus" },
+      "tool": { "de": "Copilot Chat (Basic)", "en": "Copilot Chat (Basic)" },
+      "summary": {
+        "de": "Copilot Chat sicher und wirkungsvoll nutzen: gute Prompts, Dateien, Datenschutz.",
+        "en": "Use Copilot Chat safely and effectively: good prompts, files, data protection."
+      },
+      "motif": {
+        "de": "Aiolos schenkt Odysseus die Winde in einem Schlauch. Wer sie zu lenken weiss, kommt schnell voran. So ist es auch mit guten Prompts.",
+        "en": "Aeolus gives Odysseus the winds in a bag. Whoever knows how to steer them makes fast progress. Good prompts work the same way."
+      },
+      "map": { "x": 20, "y": 30 },
+      "color": "#3D9BE9"
+    },
+    {
+      "id": "ithaka",
+      "order": 2,
+      "license": "basic",
+      "name": { "de": "Ithaka", "en": "Ithaca" },
+      "tool": { "de": "Mein Arbeitsalltag", "en": "My daily work" },
+      "summary": {
+        "de": "Dein Heimathafen: Hier sammelst du deine eigenen Use Cases und bringst Copilot in deinen Alltag.",
+        "en": "Your home port: collect your own use cases here and bring Copilot into your daily work."
+      },
+      "motif": {
+        "de": "Ithaka ist das Ziel der Odyssee. Von jeder Insel bringst du eine Use-Case-Karte mit nach Hause.",
+        "en": "Ithaca is the goal of the Odyssey. From every island you bring a use case card home."
+      },
+      "map": { "x": 32, "y": 72 },
+      "color": "#E9A23B",
+      "home": true
+    },
+    {
+      "id": "hermes",
+      "order": 3,
+      "license": "premium",
+      "name": { "de": "Hermes' Botenstation", "en": "Hermes' Relay" },
+      "tool": { "de": "Copilot in Outlook", "en": "Copilot in Outlook" },
+      "summary": {
+        "de": "Postfach im Griff: zusammenfassen, Entwürfe schreiben, Ton verbessern.",
+        "en": "Master your inbox: summarise, draft replies, improve your tone."
+      },
+      "motif": {
+        "de": "Hermes, der Götterbote, hilft Odysseus auf seiner Reise. Copilot hilft dir bei deinen Nachrichten.",
+        "en": "Hermes, messenger of the gods, helps Odysseus on his journey. Copilot helps you with your messages."
+      },
+      "map": { "x": 43, "y": 24 },
+      "color": "#4FB0A5"
+    },
+    {
+      "id": "phaiaken",
+      "order": 4,
+      "license": "premium",
+      "name": { "de": "Hof der Phaiaken", "en": "Court of the Phaeacians" },
+      "tool": { "de": "Copilot in Teams", "en": "Copilot in Teams" },
+      "summary": {
+        "de": "Meetings und Chats zusammenfassen, Aufgaben ableiten, nichts mehr verpassen.",
+        "en": "Summarise meetings and chats, capture action items, never miss a thing."
+      },
+      "motif": {
+        "de": "Am Hof der Phaiaken erzählt Odysseus beim Fest seine ganze Geschichte. Copilot hält fest, was in deinen Meetings erzählt wird.",
+        "en": "At the Phaeacian court, Odysseus tells his whole story at the feast. Copilot captures what is said in your meetings."
+      },
+      "map": { "x": 54, "y": 62 },
+      "color": "#7A6FF0"
+    },
+    {
+      "id": "penelope",
+      "order": 5,
+      "license": "premium",
+      "name": { "de": "Penelopes Webstuhl", "en": "Penelope's Loom" },
+      "tool": { "de": "Copilot in Word", "en": "Copilot in Word" },
+      "summary": {
+        "de": "Texte entwerfen, umschreiben und zusammenfassen, auch auf Basis deiner Dateien.",
+        "en": "Draft, rewrite and summarise documents, including from your own files."
+      },
+      "motif": {
+        "de": "Penelope webt und trennt ihr Tuch immer wieder auf. Mit Copilot entstehen und verändern sich Texte ebenso schnell.",
+        "en": "Penelope weaves her cloth and unravels it again. With Copilot, texts take shape and change just as quickly."
+      },
+      "map": { "x": 63, "y": 20 },
+      "color": "#2F6FD6"
+    },
+    {
+      "id": "polyphem",
+      "order": 6,
+      "license": "premium",
+      "name": { "de": "Höhle des Polyphem", "en": "Cave of Polyphemus" },
+      "tool": { "de": "Copilot in Excel", "en": "Copilot in Excel" },
+      "summary": {
+        "de": "Daten analysieren, Formeln erstellen und Trends erkennen.",
+        "en": "Analyse data, build formulas and spot trends."
+      },
+      "motif": {
+        "de": "Der Zyklop zählt jeden Morgen seine Schafe. Copilot hilft dir beim Zählen, Vergleichen und Auswerten.",
+        "en": "Every morning the Cyclops counts his sheep. Copilot helps you count, compare and analyse."
+      },
+      "map": { "x": 72, "y": 70 },
+      "color": "#2E9B58"
+    },
+    {
+      "id": "kirke",
+      "order": 7,
+      "license": "premium",
+      "name": { "de": "Kirkes Insel", "en": "Circe's Island" },
+      "tool": { "de": "Copilot in PowerPoint", "en": "Copilot in PowerPoint" },
+      "summary": {
+        "de": "Aus Dokumenten werden Präsentationen: erstellen, überarbeiten, Sprechernotizen.",
+        "en": "Turn documents into presentations: create, refine, add speaker notes."
+      },
+      "motif": {
+        "de": "Die Zauberin Kirke verwandelt alles, was zu ihr kommt. Copilot verwandelt deine Dokumente in Folien.",
+        "en": "The sorceress Circe transforms everything that comes to her. Copilot transforms your documents into slides."
+      },
+      "map": { "x": 80, "y": 30 },
+      "color": "#D0573A"
+    },
+    {
+      "id": "teiresias",
+      "order": 8,
+      "license": "premium",
+      "name": { "de": "Orakel des Teiresias", "en": "Oracle of Tiresias" },
+      "tool": { "de": "Copilot mit Arbeitsdaten", "en": "Copilot with work data" },
+      "summary": {
+        "de": "Über Mails, Chats und Dateien hinweg suchen, recherchieren und Zusammenhänge erkennen.",
+        "en": "Search and research across your emails, chats and files and connect the dots."
+      },
+      "motif": {
+        "de": "Der Seher Teiresias kennt den Weg nach Hause. Copilot findet in deinen Arbeitsdaten, was du suchst.",
+        "en": "The seer Tiresias knows the way home. Copilot finds what you are looking for in your work data."
+      },
+      "map": { "x": 89, "y": 72 },
+      "color": "#5B5F97"
+    },
+    {
+      "id": "hephaistos",
+      "order": 9,
+      "license": "premium",
+      "name": { "de": "Schmiede des Hephaistos", "en": "Forge of Hephaestus" },
+      "tool": { "de": "Agenten", "en": "Agents" },
+      "summary": {
+        "de": "Fertige Agenten nutzen und eigene Agenten für wiederkehrende Aufgaben erstellen.",
+        "en": "Use ready-made agents and build your own for recurring tasks."
+      },
+      "motif": {
+        "de": "In der Schmiede des Hephaistos entstehen Werkzeuge für Götter und Helden. Hier schmiedest du deine eigenen Agenten.",
+        "en": "The forge of Hephaestus makes tools for gods and heroes. Here you forge your own agents."
+      },
+      "map": { "x": 90, "y": 18 },
+      "color": "#B5651D"
+    }
+  ]
+}
