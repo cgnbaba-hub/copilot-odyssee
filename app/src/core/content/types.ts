@@ -77,7 +77,11 @@ export interface MissionBlock {
   copyText?: Localized;
   /** false when the mission happens outside Copilot; defaults to true. */
   copilot?: boolean;
+  /** The Microsoft 365 app the mission happens in; Copilot Chat when missing. */
+  app?: MissionApp;
 }
+
+export type MissionApp = 'outlook' | 'teams' | 'word' | 'excel' | 'powerpoint';
 
 export interface UseCaseBlock {
   type: 'usecase';

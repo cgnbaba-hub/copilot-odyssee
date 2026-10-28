@@ -140,6 +140,10 @@
         "copilot": {
           "description": "false, wenn die Mission nicht in Copilot stattfindet (dann gibt es keinen Knopf «Copilot öffnen»). Standard: true.",
           "type": "boolean"
+        },
+        "app": {
+          "description": "Wo die Mission stattfindet, wenn nicht in Copilot Chat: dann führt die Anleitung durch die App statt zum Knopf «Copilot öffnen».",
+          "enum": ["outlook", "teams", "word", "excel", "powerpoint"]
         }
       },
       "additionalProperties": false

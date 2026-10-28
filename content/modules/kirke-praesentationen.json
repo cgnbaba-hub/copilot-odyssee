@@ -3,26 +3,49 @@
   "id": "kirke-praesentationen",
   "island": "kirke",
   "order": 1,
-  "version": "0.1.0",
+  "version": "1.0.0",
   "owner": "copilot-team",
   "status": "draft",
-  "title": { "de": "Präsentationen mit Copilot", "en": "Presentations with Copilot" },
-  "summary": {
-    "de": "Was Copilot in PowerPoint erstellen kann und wie du eine gute Präsentation beauftragst.",
-    "en": "What Copilot can create in PowerPoint and how to ask for a good presentation."
+  "reviewedAt": "2026-10-28",
+  "reviewIntervalDays": 180,
+  "title": {
+    "de": "Präsentationen erstellen",
+    "en": "Creating presentations"
   },
-  "estimatedMinutes": 7,
-  "notes": "Aus dem Prototyp übernommen: Frage 7 und Prompt-Challenge 4. Fachliche Prüfung steht aus (AP 2.4).",
+  "summary": {
+    "de": "Aus Dokumenten Präsentationen machen, im Design eures Unternehmens.",
+    "en": "Turn documents into presentations, in your company's design."
+  },
+  "estimatedMinutes": 10,
+  "notes": "Überarbeitet: Prototyp-Frage 7 und Prompt-Challenge 4 behalten, neues Briefing, Frage und Mission. Stand Oktober 2026: Copilot in PowerPoint erstellt Präsentationen aus Prompts oder Dateien («/»), nutzt Firmenvorlagen und, falls eingerichtet, ein Brand Kit (Microsoft-Support).",
   "blocks": [
+    {
+      "type": "briefing",
+      "id": "powerpoint",
+      "title": {
+        "de": "Copilot in PowerPoint",
+        "en": "Copilot in PowerPoint"
+      },
+      "body": {
+        "de": "In PowerPoint öffnest du Copilot über das **Copilot-Symbol** im Menüband «Start».\n\n**Am besten startest du mit einer Datei:** «Erstelle eine Präsentation aus /[Dateiname]». Copilot übernimmt Inhalt und Aufbau aus einem Word-Dokument oder PDF.\n\nSo wird es eure Präsentation:\n- **Starte mit eurer Firmenvorlage**, dann übernimmt Copilot Layouts, Farben und Logos.\n- **Prüfe die Gliederung**, bevor Copilot die Folien erstellt, und passe sie an.\n- **Prüfe Bilder**: Passen sie zur Botschaft und zu euren Werten?\n\nDanach überarbeitest du wie gewohnt. Copilot liefert den ersten Entwurf, du den Feinschliff.",
+        "en": "In PowerPoint you open Copilot via the **Copilot icon** in the “Home” ribbon.\n\n**It is best to start from a file:** “Create a presentation from /[file name]”. Copilot takes content and structure from a Word document or PDF.\n\nHow it becomes your presentation:\n- **Start with your company template**, then Copilot uses its layouts, colours and logos.\n- **Check the outline** before Copilot creates the slides, and adjust it.\n- **Check images**: do they fit the message and your values?\n\nThen you refine as usual. Copilot delivers the first draft, you add the polish."
+      }
+    },
     {
       "type": "quiz",
       "id": "q-powerpoint-kann",
       "difficulty": "beginner",
-      "question": { "de": "Was kann Copilot in PowerPoint erstellen?", "en": "What can Copilot create in PowerPoint?" },
+      "question": {
+        "de": "Was kann Copilot in PowerPoint erstellen?",
+        "en": "What can Copilot create in PowerPoint?"
+      },
       "options": [
         {
           "id": "a",
-          "text": { "de": "Ganze Präsentationen aus einem Prompt", "en": "Complete presentations from a prompt" },
+          "text": {
+            "de": "Ganze Präsentationen aus einem Prompt",
+            "en": "Complete presentations from a prompt"
+          },
           "correct": true,
           "explanation": {
             "de": "Copilot kann aus einer Beschreibung eine komplette Präsentation mit Folien, Titeln und Inhalten erstellen.",
@@ -31,21 +54,86 @@
         },
         {
           "id": "b",
-          "text": { "de": "Nur einzelne Textfelder füllen", "en": "Only fill individual text boxes" },
+          "text": {
+            "de": "Nur einzelne Textfelder füllen",
+            "en": "Only fill individual text boxes"
+          },
           "correct": false,
-          "explanation": { "de": "Copilot kann ganze Präsentationen erstellen, nicht nur einzelne Textfelder.", "en": "Copilot can create entire presentations, not just individual text boxes." }
+          "explanation": {
+            "de": "Copilot kann ganze Präsentationen erstellen, nicht nur einzelne Textfelder.",
+            "en": "Copilot can create entire presentations, not just individual text boxes."
+          }
         },
         {
           "id": "c",
-          "text": { "de": "Nur Bilder in Folien einfügen", "en": "Only insert images into slides" },
+          "text": {
+            "de": "Nur Bilder in Folien einfügen",
+            "en": "Only insert images into slides"
+          },
           "correct": false,
-          "explanation": { "de": "Copilot kann weit mehr als Bilder einfügen.", "en": "Copilot can do much more than insert images." }
+          "explanation": {
+            "de": "Copilot kann weit mehr als Bilder einfügen.",
+            "en": "Copilot can do much more than insert images."
+          }
         },
         {
           "id": "d",
-          "text": { "de": "Nur Animationen hinzufügen", "en": "Only add animations" },
+          "text": {
+            "de": "Nur Animationen hinzufügen",
+            "en": "Only add animations"
+          },
           "correct": false,
-          "explanation": { "de": "Animationen sind nicht die Hauptaufgabe von Copilot in PowerPoint.", "en": "Animations are not the main job of Copilot in PowerPoint." }
+          "explanation": {
+            "de": "Animationen sind nicht die Hauptaufgabe von Copilot in PowerPoint.",
+            "en": "Animations are not the main job of Copilot in PowerPoint."
+          }
+        }
+      ]
+    },
+    {
+      "type": "quiz",
+      "id": "q-vorlage",
+      "difficulty": "beginner",
+      "question": {
+        "de": "Wie bekommst du eine Präsentation von Copilot im Design eures Unternehmens?",
+        "en": "How do you get a presentation from Copilot in your company's design?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "de": "Mit der Firmenvorlage starten oder sie bei Copilot auswählen",
+            "en": "Start with the company template or choose it in Copilot"
+          },
+          "correct": true,
+          "explanation": {
+            "de": "Genau. Dann übernimmt Copilot Layouts, Farben und Logos.",
+            "en": "Exactly. Then Copilot uses its layouts, colours and logos."
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "de": "Copilot das Logo im Internet suchen lassen",
+            "en": "Have Copilot search the internet for the logo"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Logos und Vorlagen kommen aus euren offiziellen Unterlagen, nicht aus dem Internet.",
+            "en": "Logos and templates come from your official material, not from the internet."
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "de": "Danach jede Folie von Hand umfärben",
+            "en": "Recolour every slide by hand afterwards"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Das geht, kostet aber viel Zeit. Mit der Vorlage stimmt das Design von Anfang an.",
+            "en": "Possible, but time-consuming. With the template, the design is right from the start."
+          }
         }
       ]
     },
@@ -53,16 +141,40 @@
       "type": "prompt",
       "id": "p-praesentation",
       "difficulty": "intermediate",
-      "title": { "de": "Präsentation für die Geschäftsleitung", "en": "Presentation for the leadership team" },
+      "title": {
+        "de": "Präsentation für die Geschäftsleitung",
+        "en": "Presentation for the leadership team"
+      },
       "scenario": {
         "de": "Die Geschäftsleitung bittet dich um eine Präsentation zur Einführung von Copilot in eurem Unternehmen und dem erwarteten Nutzen. Schreib den Prompt für Copilot in PowerPoint.",
         "en": "The leadership team asks you for a presentation on introducing Copilot in your company and the expected benefits. Write the prompt for Copilot in PowerPoint."
       },
-      "rubric": ["goal", "context", "expectation"],
+      "rubric": [
+        "goal",
+        "context",
+        "expectation"
+      ],
       "examplePrompt": {
         "de": "Erstelle eine Präsentation mit 8 Folien zur Einführung von Microsoft 365 Copilot für die Geschäftsleitung. Aufbau: 1) Titel, 2) Ausgangslage, 3) Was ist Copilot?, 4) Nutzen für uns, 5) Einführungsplan über 6 Monate, 6) Erwarteter Nutzen mit Kennzahlen, 7) Risiken und Massnahmen, 8) Nächste Schritte. Stil: sachlich und übersichtlich, wenig Text pro Folie.",
         "en": "Create an 8-slide presentation on introducing Microsoft 365 Copilot for the leadership team. Structure: 1) Title, 2) Current situation, 3) What is Copilot?, 4) Benefits for us, 5) 6-month rollout plan, 6) Expected benefits with metrics, 7) Risks and mitigations, 8) Next steps. Style: factual and clear, little text per slide."
       }
+    },
+    {
+      "type": "mission",
+      "id": "m-ppt-erstellen",
+      "title": {
+        "de": "Kirkes Verwandlung",
+        "en": "Circe's transformation"
+      },
+      "task": {
+        "de": "Erstelle aus einem eigenen Word-Dokument oder PDF eine kurze Präsentation. Starte mit eurer Firmenvorlage und ersetze [Dateiname] durch deine Datei.",
+        "en": "Create a short presentation from one of your own Word documents or PDFs. Start with your company template and replace [file name] with your file."
+      },
+      "copyText": {
+        "de": "Erstelle aus /[Dateiname] eine Präsentation mit höchstens 6 Folien für mein Team. Wenig Text pro Folie, mit Sprechernotizen.",
+        "en": "Create a presentation with at most 6 slides for my team from /[file name]. Little text per slide, with speaker notes."
+      },
+      "app": "powerpoint"
     }
   ]
 }

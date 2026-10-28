@@ -1,0 +1,129 @@
+{
+  "$schema": "../schema/module.schema.json",
+  "id": "kirke-ueberarbeiten",
+  "island": "kirke",
+  "order": 2,
+  "version": "1.0.0",
+  "owner": "copilot-team",
+  "status": "draft",
+  "reviewedAt": "2026-10-28",
+  "reviewIntervalDays": 180,
+  "title": {
+    "de": "Präsentationen überarbeiten",
+    "en": "Revising presentations"
+  },
+  "summary": {
+    "de": "Präsentationen kürzen, ergänzen und dich mit Sprechernotizen und möglichen Fragen vorbereiten.",
+    "en": "Shorten and extend presentations and prepare with speaker notes and likely questions."
+  },
+  "estimatedMinutes": 8,
+  "notes": "Neuer Inhalt. Beispiel Partnerevent fiktiv.",
+  "blocks": [
+    {
+      "type": "briefing",
+      "id": "ueberarbeiten",
+      "title": {
+        "de": "Verwandeln, was schon da ist",
+        "en": "Transforming what is already there"
+      },
+      "body": {
+        "de": "Auch bestehende Präsentationen überarbeitet Copilot mit dir:\n- «Fasse diese Präsentation in fünf Sätzen zusammen.»\n- «Füge eine Folie zu den Buchungsfristen hinzu.»\n- «Kürze den Text auf Folie 3 auf drei Stichpunkte.»\n- «Schreibe Sprechernotizen für alle Folien.»\n\nUnd zur Vorbereitung:\n- «Welche Fragen könnte das Publikum stellen?»\n\nSo verstehst du auch fremde Präsentationen schnell, zum Beispiel wenn du für eine Kollegin einspringst.",
+        "en": "Copilot also revises existing presentations with you:\n- “Summarise this presentation in five sentences.”\n- “Add a slide about the booking deadlines.”\n- “Shorten the text on slide 3 to three bullet points.”\n- “Write speaker notes for all slides.”\n\nAnd to prepare:\n- “Which questions might the audience ask?”\n\nThat way you quickly understand other people's presentations too, for example when you stand in for a colleague."
+      }
+    },
+    {
+      "type": "quiz",
+      "id": "q-einspringen",
+      "difficulty": "beginner",
+      "question": {
+        "de": "Du musst morgen die Präsentation einer Kollegin halten. Was hilft dir mit Copilot am meisten?",
+        "en": "Tomorrow you have to give a colleague's presentation. What helps you most with Copilot?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "de": "Sprechernotizen erstellen und mögliche Fragen des Publikums auflisten lassen",
+            "en": "Have speaker notes created and likely audience questions listed"
+          },
+          "correct": true,
+          "explanation": {
+            "de": "Genau. So bist du inhaltlich vorbereitet und wirst von Fragen nicht überrascht.",
+            "en": "Exactly. That way you know the content and are not caught off guard by questions."
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "de": "Copilot die Präsentation halten lassen",
+            "en": "Have Copilot give the presentation"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Präsentieren tust du. Copilot hilft dir bei der Vorbereitung.",
+            "en": "You do the presenting. Copilot helps you prepare."
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "de": "Alle Folien löschen und neu erstellen lassen",
+            "en": "Delete all slides and have them recreated"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Das wirft die Arbeit der Kollegin weg. Besser verstehen und gezielt anpassen.",
+            "en": "That throws away your colleague's work. Better to understand and adjust selectively."
+          }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "id": "p-kurzversion",
+      "difficulty": "intermediate",
+      "title": {
+        "de": "Die Kurzversion",
+        "en": "The short version"
+      },
+      "scenario": {
+        "de": "Du hast eine Präsentation mit 20 Folien zum neuen Kanada-Programm. Am Partnerevent für Reisebüros hast du nur fünf Minuten. Schreib den Prompt für Copilot in PowerPoint.",
+        "en": "You have a 20-slide presentation on the new Canada programme. At the partner event for travel agencies you only have five minutes. Write the prompt for Copilot in PowerPoint."
+      },
+      "rubric": [
+        "goal",
+        "context",
+        "expectation"
+      ],
+      "examplePrompt": {
+        "de": "Kürze diese Präsentation auf fünf Folien für einen fünfminütigen Auftritt an unserem Partnerevent für Reisebüros. Behalte die drei wichtigsten Neuheiten und die Buchungsfristen. Wenig Text pro Folie und Sprechernotizen für jede Folie.",
+        "en": "Shorten this presentation to five slides for a five-minute slot at our partner event for travel agencies. Keep the three most important new features and the booking deadlines. Little text per slide and speaker notes for each slide."
+      }
+    },
+    {
+      "type": "mission",
+      "id": "m-ppt-vorbereiten",
+      "title": {
+        "de": "Gut vorbereitet",
+        "en": "Well prepared"
+      },
+      "task": {
+        "de": "Öffne eine Präsentation, die du bald halten oder verstehen musst. Lass Copilot Sprechernotizen schreiben und mögliche Fragen auflisten.",
+        "en": "Open a presentation you will soon give or need to understand. Have Copilot write speaker notes and list likely questions."
+      },
+      "copyText": {
+        "de": "Schreibe für jede Folie Sprechernotizen mit höchstens drei Sätzen. Liste danach fünf Fragen auf, die das Publikum stellen könnte.",
+        "en": "Write speaker notes of at most three sentences for each slide. Then list five questions the audience might ask."
+      },
+      "app": "powerpoint"
+    },
+    {
+      "type": "usecase",
+      "id": "u-powerpoint",
+      "intro": {
+        "de": "Welche Präsentationen erstellst oder überarbeitest du regelmässig? Halte es als Use-Case-Karte fest.",
+        "en": "Which presentations do you regularly create or revise? Record it as a use case card."
+      }
+    }
+  ]
+}

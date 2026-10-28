@@ -97,7 +97,7 @@ Die Inselnamen sind Vorschläge. Das Motiv aus der Odyssee passt jeweils zum The
 | 0 | **Sirenenfelsen** | KI-Grundlagen: Halluzinationen ("klingt verlockend, stimmt aber nicht"), Grenzen, verantwortungsvoller Umgang, Firmenregeln | alle |
 | 1 | **Insel des Aiolos** | **Copilot Chat (Basic, E3)**: Prompts steuern wie Winde (Ziel, Kontext, Quelle, Erwartung), Web- vs. Arbeitsdaten, Datenschutz-Schild, Dateien hochladen, Copilot Chat in Teams/Outlook/Edge, verfügbare Agenten | alle |
 | 2 | **Ithaka** | Mein Arbeitsalltag: Was mache ich oft, was kostet Zeit, wo hilft Copilot? Hier entsteht die persönliche Use-Case-Sammlung | alle |
-| 3 | Hermes' Botenstation | Outlook: Postfach-Zusammenfassungen, Entwürfe, Coaching | Premium |
+| 3 | Hermes' Botenstation | Outlook: Mails verstehen und beantworten (alle), Postfach-Zusammenfassungen, Coaching (Premium) | alle, teilweise Premium |
 | 4 | Hof der Phaiaken | Teams: Meeting-Recap, Chats zusammenfassen (Odysseus erzählt am Fest seine Geschichte) | Premium |
 | 5 | Penelopes Webstuhl | Word: Texte entwerfen, umschreiben, zusammenfassen | Premium |
 | 6 | Höhle des Polyphem | Excel: Analyse, Formeln, Diagramme (der Zyklop zählt seine Schafe) | Premium |
@@ -228,6 +228,7 @@ Legende: 🤖 = setze ich um · 👤 = brauche ich von dir · 🏢 = IT oder Dat
 ### Phase 4: Ausbau und Betrieb
 
 - [ ] **AP 4.1 Premium-Inseln** 🤖👤 – eine Insel pro AP (3–9), in der Reihenfolge eures Bedarfs.
+  *Stand:* Vorgezogen nach dem Testdurchlauf. Je zwei Etappen als Entwurf für Outlook (Hermes), Teams (Phaiaken), Word (Penelope), Excel (Polyphem) und PowerPoint (Kirke), mit Missionen direkt in der jeweiligen App. Die erste Outlook-Etappe geht auch mit Basic, deshalb gehört Hermes jetzt zu den Inseln für alle. Offen: Teiresias (Arbeitsdaten, Researcher) und Hephaistos (Agenten), danach dein Review.
 - [ ] **AP 4.2 Pflegeprozess** 🤖
   Review-Fälligkeiten im Dashboard. Ein Modul "Was ist neu". Ein Power-Automate-Flow meldet relevante Einträge der Microsoft-365-Roadmap per Teams an die Content-Verantwortlichen.
 - [ ] **AP 4.3 Inhaltspflege ohne JSON** 🤖 – Editor in der App *oder* eine kleine Power App auf denselben Listen.

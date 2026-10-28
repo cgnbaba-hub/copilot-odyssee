@@ -41,7 +41,7 @@ Alle Texte gibt es in beiden Sprachen: `{ "de": "…", "en": "…" }`. Deutsch i
 | `briefing` | Kurze Info | `title`, `body` (Absätze mit Leerzeile, Aufzählung mit `- `, **fett** mit `**…**`), optional `links` |
 | `quiz` | Eine Frage | `question`, `difficulty`, `options` (je `text`, `correct`, optional `explanation`) |
 | `prompt` | Prompt-Werkstatt | `title`, `scenario`, `difficulty`, `rubric` (`goal`, `context`, `source`, `expectation`), optional `examplePrompt` |
-| `mission` | Im echten Copilot ausprobieren | `title`, `task`, optional `tip`, `copyText` (Text mit Knopf «Text kopieren»), `copilot: false` (Aufgabe ausserhalb von Copilot, dann ohne Schritt-Anleitung) |
+| `mission` | Im echten Copilot ausprobieren | `title`, `task`, optional `tip`, `copyText` (Text mit Knopf «Text kopieren»), `copilot: false` (Aufgabe ausserhalb von Copilot, dann ohne Schritt-Anleitung), `app` (`outlook`, `teams`, `word`, `excel` oder `powerpoint`: die Anleitung führt dann durch diese App statt zu Copilot Chat) |
 | `usecase` | Eigenen Use Case festhalten | `intro` |
 
 Seemeilen (XP) vergibt die App selbst: Quiz je nach Schwierigkeit 10–80, Prompt bis 100, Mission 30, Use Case 50, Briefing 5, Abschluss einer Etappe 50.

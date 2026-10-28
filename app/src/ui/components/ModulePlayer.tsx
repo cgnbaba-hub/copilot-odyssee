@@ -4,7 +4,7 @@ import { findIsland, findModule } from '../../core/content/bundle';
 import { Block } from '../../core/content/types';
 import { finishModule, getModule, nextBlockIndex, startModule } from '../../core/progress/state';
 import { BriefingView } from '../blocks/BriefingView';
-import { MissionView } from '../blocks/MissionView';
+import { APP_NAMES, MissionView } from '../blocks/MissionView';
 import { PromptView } from '../blocks/PromptView';
 import { QuizView } from '../blocks/QuizView';
 import { UseCaseView } from '../blocks/UseCaseView';
@@ -41,7 +41,8 @@ function hintFor(strings: Strings, block: Block): string {
     case 'prompt':
       return strings.hint_prompt;
     case 'mission':
-      return block.copilot === false ? strings.hint_missionOffline : strings.hint_mission;
+      if (block.copilot === false) return strings.hint_missionOffline;
+      return block.app ? format(strings.hint_missionApp, { app: APP_NAMES[block.app] }) : strings.hint_mission;
     case 'usecase':
       return strings.hint_usecase;
   }

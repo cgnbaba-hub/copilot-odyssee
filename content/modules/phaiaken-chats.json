@@ -1,0 +1,129 @@
+{
+  "$schema": "../schema/module.schema.json",
+  "id": "phaiaken-chats",
+  "island": "phaiaken",
+  "order": 2,
+  "version": "1.0.0",
+  "owner": "copilot-team",
+  "status": "draft",
+  "reviewedAt": "2026-10-28",
+  "reviewIntervalDays": 180,
+  "title": {
+    "de": "Chats und Kanäle aufholen",
+    "en": "Catching up on chats and channels"
+  },
+  "summary": {
+    "de": "Lange Chats in Sekunden verstehen und eigene Nachrichten klarer formulieren.",
+    "en": "Understand long chats in seconds and phrase your own messages more clearly."
+  },
+  "estimatedMinutes": 8,
+  "notes": "Neuer Inhalt. Chat-Zusammenfassungen mit Copilot in Teams (Premium) gemäss öffentlicher Dokumentation, Stand Oktober 2026. Knopf-Bezeichnungen bewusst allgemein.",
+  "blocks": [
+    {
+      "type": "briefing",
+      "id": "chats",
+      "title": {
+        "de": "Nie mehr 200 Nachrichten nachlesen",
+        "en": "Never read 200 messages again"
+      },
+      "body": {
+        "de": "In Chats und Kanälen öffnest du Copilot über das **Copilot-Symbol** oben im Chat. Typische Fragen:\n- «Was habe ich in den letzten 7 Tagen verpasst?»\n- «Welche Entscheidungen wurden getroffen?»\n- «Gibt es Fragen oder Aufgaben an mich?»\n\nCopilot verweist auf die Nachrichten, aus denen er seine Antwort hat. So springst du direkt an die richtige Stelle.\n\nAuch beim **Schreiben** hilft Copilot: Er formuliert deine Nachricht im Eingabefeld um, zum Beispiel kürzer oder freundlicher.",
+        "en": "In chats and channels you open Copilot via the **Copilot icon** at the top of the chat. Typical questions:\n- “What did I miss in the last 7 days?”\n- “Which decisions were made?”\n- “Are there any questions or tasks for me?”\n\nCopilot refers to the messages its answer is based on. That way you jump straight to the right place.\n\nCopilot also helps with **writing**: it rephrases your message in the input box, for example shorter or friendlier."
+      }
+    },
+    {
+      "type": "quiz",
+      "id": "q-gruppenchat",
+      "difficulty": "beginner",
+      "question": {
+        "de": "Du wirst in einen Gruppenchat mit 200 Nachrichten aufgenommen. Wie startest du am besten?",
+        "en": "You are added to a group chat with 200 messages. How do you best get started?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "de": "Copilot im Chat nach den wichtigsten Punkten und offenen Fragen fragen",
+            "en": "Ask Copilot in the chat for the key points and open questions"
+          },
+          "correct": true,
+          "explanation": {
+            "de": "Genau. In Sekunden weisst du, worum es geht, und kannst gezielt nachlesen.",
+            "en": "Exactly. In seconds you know what it is about and can read up selectively."
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "de": "Alle 200 Nachrichten von Anfang an lesen",
+            "en": "Read all 200 messages from the beginning"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Geht, kostet aber viel Zeit. Copilot gibt dir zuerst den Überblick.",
+            "en": "Possible, but it takes a lot of time. Copilot gives you the overview first."
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "de": "Im Chat fragen, ob jemand zusammenfassen kann",
+            "en": "Ask in the chat whether someone can summarise"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Das kostet die Zeit von anderen. Copilot erledigt das für dich.",
+            "en": "That costs other people's time. Copilot does it for you."
+          }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "id": "p-kanal",
+      "difficulty": "intermediate",
+      "title": {
+        "de": "Zurück im Projektkanal",
+        "en": "Back in the project channel"
+      },
+      "scenario": {
+        "de": "Du warst zwei Wochen weg. Im Teams-Kanal «Sommerkatalog 2027» wurde viel diskutiert. Du willst wissen, was sich geändert hat und was von dir erwartet wird. Schreib den Prompt für Copilot.",
+        "en": "You were away for two weeks. There was a lot of discussion in the Teams channel “Summer catalogue 2027”. You want to know what has changed and what is expected of you. Write the prompt for Copilot."
+      },
+      "rubric": [
+        "goal",
+        "context",
+        "expectation"
+      ],
+      "examplePrompt": {
+        "de": "Fasse zusammen, was in diesem Kanal in den letzten zwei Wochen besprochen wurde, damit ich nach meinen Ferien wieder mitreden kann. Gliedere nach Entscheidungen, offenen Fragen und Aufgaben, die mich betreffen, als kurze Liste.",
+        "en": "Summarise what has been discussed in this channel over the last two weeks, so that I can join in again after my holidays. Structure it by decisions, open questions and tasks that concern me, as a short list."
+      }
+    },
+    {
+      "type": "mission",
+      "id": "m-chat",
+      "title": {
+        "de": "Was habe ich verpasst?",
+        "en": "What did I miss?"
+      },
+      "task": {
+        "de": "Öffne in Teams einen Chat oder Kanal mit vielen Nachrichten. Lass Copilot zusammenfassen, was du verpasst hast, und spring über einen Verweis zur Originalnachricht.",
+        "en": "Open a chat or channel with many messages in Teams. Have Copilot summarise what you missed and jump to the original message via a reference."
+      },
+      "copyText": {
+        "de": "Was habe ich in diesem Chat in den letzten 7 Tagen verpasst? Gibt es Fragen oder Aufgaben an mich?",
+        "en": "What did I miss in this chat in the last 7 days? Are there any questions or tasks for me?"
+      },
+      "app": "teams"
+    },
+    {
+      "type": "usecase",
+      "id": "u-teams",
+      "intro": {
+        "de": "Welche Meetings oder Chats kosten dich regelmässig Zeit beim Nachlesen? Halte es als Use-Case-Karte fest.",
+        "en": "Which meetings or chats regularly cost you time to catch up on? Record it as a use case card."
+      }
+    }
+  ]
+}

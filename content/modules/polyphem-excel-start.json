@@ -3,26 +3,49 @@
   "id": "polyphem-excel-start",
   "island": "polyphem",
   "order": 1,
-  "version": "0.1.0",
+  "version": "1.0.0",
   "owner": "copilot-team",
   "status": "draft",
-  "title": { "de": "Erste Analysen in Excel", "en": "First analyses in Excel" },
-  "summary": {
-    "de": "Was Copilot in Excel kann und wie du eine Analyse gut beauftragst.",
-    "en": "What Copilot can do in Excel and how to ask for a good analysis."
+  "reviewedAt": "2026-10-28",
+  "reviewIntervalDays": 180,
+  "title": {
+    "de": "Erste Analysen in Excel",
+    "en": "First analyses in Excel"
   },
-  "estimatedMinutes": 7,
-  "notes": "Aus dem Prototyp übernommen: Frage 5 und Prompt-Challenge 3. Zwei Antwortoptionen mit fragwürdigen Erklärungen (Internetzugriff, Makros) wurden ersetzt. Fachliche Prüfung steht aus (AP 2.4).",
+  "summary": {
+    "de": "Was Copilot in Excel braucht, was er kann und wie du eine Auswertung gut beauftragst.",
+    "en": "What Copilot in Excel needs, what it can do and how to request a good analysis."
+  },
+  "estimatedMinutes": 10,
+  "notes": "Überarbeitet: Prototyp-Frage 5 und Prompt-Challenge 3 behalten, neues Briefing, Frage und Mission. Stand Oktober 2026: Copilot in Excel arbeitet mit Dateien in OneDrive oder SharePoint am zuverlässigsten, Daten als Tabelle helfen; Copilot kann Änderungen direkt in der Mappe ausführen (Bearbeitungsmodus, seit April 2026 Standard). Die frühere Funktion =COPILOT() ist eingestellt und wird deshalb nicht erwähnt.",
   "blocks": [
+    {
+      "type": "briefing",
+      "id": "excel",
+      "title": {
+        "de": "Bevor du startest",
+        "en": "Before you start"
+      },
+      "body": {
+        "de": "Copilot in Excel findest du über das **Copilot-Symbol** im Menüband «Start». Damit er gut arbeitet:\n- **Speichere die Datei in OneDrive oder SharePoint**, sodass das automatische Speichern eingeschaltet ist.\n- **Formatiere deine Daten als Tabelle:** Klicke in die Daten und drücke **Strg + T**. Jede Spalte braucht eine klare Überschrift.\n\nDann kann Copilot:\n- Fragen zu deinen Daten beantworten und Auffälligkeiten zeigen\n- Formeln vorschlagen und erklären\n- sortieren, filtern und Zeilen hervorheben\n- Diagramme und PivotTables erstellen\n\nCopilot kann die Änderungen direkt in der Mappe ausführen. Er beschreibt vorher, was er tut.",
+        "en": "You find Copilot in Excel via the **Copilot icon** in the “Home” ribbon. For it to work well:\n- **Save the file in OneDrive or SharePoint** so that AutoSave is on.\n- **Format your data as a table:** click into the data and press **Ctrl + T**. Every column needs a clear heading.\n\nThen Copilot can:\n- answer questions about your data and point out patterns\n- suggest and explain formulas\n- sort, filter and highlight rows\n- create charts and PivotTables\n\nCopilot can make the changes directly in the workbook. It describes beforehand what it will do."
+      }
+    },
     {
       "type": "quiz",
       "id": "q-excel-kann",
       "difficulty": "beginner",
-      "question": { "de": "Was kann Copilot in Excel?", "en": "What can Copilot do in Excel?" },
+      "question": {
+        "de": "Was kann Copilot in Excel?",
+        "en": "What can Copilot do in Excel?"
+      },
       "options": [
         {
           "id": "a",
-          "text": { "de": "Daten analysieren und Formeln vorschlagen", "en": "Analyse data and suggest formulas" },
+          "text": {
+            "de": "Daten analysieren und Formeln vorschlagen",
+            "en": "Analyse data and suggest formulas"
+          },
           "correct": true,
           "explanation": {
             "de": "Copilot in Excel kann Trends erkennen, Formeln vorschlagen und Daten zusammenfassen.",
@@ -31,15 +54,74 @@
         },
         {
           "id": "b",
-          "text": { "de": "Nur einfache Berechnungen durchführen", "en": "Only perform simple calculations" },
+          "text": {
+            "de": "Nur einfache Berechnungen durchführen",
+            "en": "Only perform simple calculations"
+          },
           "correct": false,
-          "explanation": { "de": "Copilot geht weit über einfache Berechnungen hinaus.", "en": "Copilot goes far beyond simple calculations." }
+          "explanation": {
+            "de": "Copilot geht weit über einfache Berechnungen hinaus.",
+            "en": "Copilot goes far beyond simple calculations."
+          }
         },
         {
           "id": "c",
-          "text": { "de": "Nur die Formatierung von Zellen ändern", "en": "Only change cell formatting" },
+          "text": {
+            "de": "Nur die Formatierung von Zellen ändern",
+            "en": "Only change cell formatting"
+          },
           "correct": false,
-          "explanation": { "de": "Copilot kann deutlich mehr als formatieren.", "en": "Copilot can do much more than formatting." }
+          "explanation": {
+            "de": "Copilot kann deutlich mehr als formatieren.",
+            "en": "Copilot can do much more than formatting."
+          }
+        }
+      ]
+    },
+    {
+      "type": "quiz",
+      "id": "q-excel-geht-nicht",
+      "difficulty": "beginner",
+      "question": {
+        "de": "Copilot reagiert in deiner Excel-Datei nicht wie erwartet. Was hilft am ehesten?",
+        "en": "Copilot does not respond as expected in your Excel file. What is most likely to help?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "de": "Die Datei in OneDrive oder SharePoint speichern und die Daten als Tabelle formatieren",
+            "en": "Save the file in OneDrive or SharePoint and format the data as a table"
+          },
+          "correct": true,
+          "explanation": {
+            "de": "Genau. Mit gespeicherter Datei und klarer Tabelle versteht Copilot deine Daten am besten.",
+            "en": "Exactly. With a saved file and a clear table, Copilot understands your data best."
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "de": "Excel neu installieren",
+            "en": "Reinstall Excel"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Meist liegt es nicht an Excel, sondern an Speicherort und Aufbau der Daten.",
+            "en": "It is usually not Excel, but where the file is saved and how the data is laid out."
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "de": "Alle Zellen farbig markieren",
+            "en": "Colour all the cells"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Farben helfen Copilot nicht. Klare Spaltenüberschriften schon.",
+            "en": "Colours do not help Copilot. Clear column headings do."
+          }
         }
       ]
     },
@@ -47,16 +129,40 @@
       "type": "prompt",
       "id": "p-verkaufsanalyse",
       "difficulty": "intermediate",
-      "title": { "de": "Verkaufszahlen auswerten", "en": "Analysing sales figures" },
+      "title": {
+        "de": "Verkaufszahlen auswerten",
+        "en": "Analysing sales figures"
+      },
       "scenario": {
         "de": "Du hast eine Excel-Tabelle mit den Verkaufsdaten der letzten 12 Monate (Produkt, Region, Umsatz, Anzahl Verkäufe). Deine Vorgesetzte möchte eine Zusammenfassung der drei besten Produkte und der Trends. Schreib den Prompt für Copilot in Excel.",
         "en": "You have an Excel sheet with sales data for the last 12 months (product, region, revenue, number of sales). Your manager wants a summary of the top three products and the trends. Write the prompt for Copilot in Excel."
       },
-      "rubric": ["goal", "source", "expectation"],
+      "rubric": [
+        "goal",
+        "source",
+        "expectation"
+      ],
       "examplePrompt": {
         "de": "Analysiere die Verkaufstabelle und finde die drei Produkte mit dem höchsten Gesamtumsatz. Erstelle eine Zusammenfassung mit 1) Rangliste der Top-Produkte, 2) Umsatzentwicklung über die 12 Monate, 3) einer Empfehlung für das nächste Quartal. Stelle die Ergebnisse als Tabelle mit kurzem Kommentar dar.",
         "en": "Analyse the sales table and find the three products with the highest total revenue. Create a summary with 1) a ranking of the top products, 2) revenue development over the 12 months, 3) a recommendation for the next quarter. Present the results as a table with a short comment."
       }
+    },
+    {
+      "type": "mission",
+      "id": "m-excel-auffaelligkeiten",
+      "title": {
+        "de": "Schafe zählen",
+        "en": "Counting sheep"
+      },
+      "task": {
+        "de": "Öffne eine unkritische Tabelle, die du selbst pflegst, zum Beispiel eine Übersicht oder Liste. Frag Copilot nach Auffälligkeiten und lass ein passendes Diagramm erstellen.",
+        "en": "Open a non-sensitive table you maintain yourself, for example an overview or list. Ask Copilot about patterns and have it create a suitable chart."
+      },
+      "copyText": {
+        "de": "Welche drei Auffälligkeiten siehst du in diesen Daten? Erstelle dazu ein passendes Diagramm.",
+        "en": "Which three patterns do you see in this data? Create a suitable chart for them."
+      },
+      "app": "excel"
     }
   ]
 }

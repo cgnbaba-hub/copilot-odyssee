@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { sortedIslands } from '../../core/content/bundle';
+import { moduleLicense, sortedIslands } from '../../core/content/bundle';
 import { Island } from '../../core/content/types';
 import { format } from '../i18n/strings';
 import { useGame } from '../GameContext';
@@ -77,7 +77,7 @@ export function Home(): React.ReactElement {
               <p className={styles.nextCardMeta}>
                 {t(stage.island.name)} · {format(strings.aboutMinutes, { minutes: stage.module.estimatedMinutes })}
               </p>
-              <LicenseChip license={stage.island.license} />
+              <LicenseChip license={moduleLicense(game.content, stage.module)} />
               <button type="button" className={`${styles.buttonPrimary} ${styles.buttonBig}`} onClick={() => navigate({ name: 'module', moduleId: stage.module.id })}>
                 {stage.resume ? strings.resumeStage : strings.startStage} →
               </button>
