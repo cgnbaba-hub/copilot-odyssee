@@ -3,21 +3,27 @@
   "id": "ithaka-erste-karte",
   "island": "ithaka",
   "order": 1,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "owner": "copilot-team",
   "status": "draft",
-  "title": { "de": "Deine erste Use-Case-Karte", "en": "Your first use case card" },
+  "title": {
+    "de": "Deine erste Use-Case-Karte",
+    "en": "Your first use case card"
+  },
   "summary": {
     "de": "Erkenne, welche deiner Aufgaben sich für Copilot eignen, und halte sie fest.",
     "en": "Spot which of your tasks suit Copilot and capture them."
   },
   "estimatedMinutes": 8,
-  "notes": "Neuer Inhalt. Fachliche Prüfung steht aus (AP 2.4).",
+  "notes": "Fachlich geprüft am 28.10.2026, Freigabe durch das Copilot-Team steht aus.",
   "blocks": [
     {
       "type": "briefing",
       "id": "heimathafen",
-      "title": { "de": "Willkommen in Ithaka", "en": "Welcome to Ithaca" },
+      "title": {
+        "de": "Willkommen in Ithaka",
+        "en": "Welcome to Ithaca"
+      },
       "body": {
         "de": "Hier sammelst du deine Use Cases. Ein guter Use Case ist eine Aufgabe, die du **regelmässig** machst, die **Zeit kostet** und bei der Copilot **Texte, Struktur oder Zusammenfassungen** liefern kann.\n\nBeispiele:\n- Einen wöchentlichen Statusbericht aus Stichpunkten formulieren\n- Lange E-Mail-Verläufe zusammenfassen\n- Erste Entwürfe für Antworten an Kundinnen und Kunden schreiben\n- Notizen aus einem Workshop in eine übersichtliche Liste bringen",
         "en": "This is where you collect your use cases. A good use case is a task you do **regularly**, that **takes time**, and where Copilot can provide **text, structure or summaries**.\n\nExamples:\n- Turning bullet points into a weekly status report\n- Summarising long email threads\n- Writing first drafts of replies to customers\n- Turning workshop notes into a clear list"
@@ -31,5 +37,7 @@
         "en": "Think about your last working week: which task took a lot of time and keeps coming back? Describe it."
       }
     }
-  ]
+  ],
+  "reviewedAt": "2026-10-28",
+  "reviewIntervalDays": 180
 }

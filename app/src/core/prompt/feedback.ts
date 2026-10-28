@@ -10,13 +10,14 @@ const SIGNALS: Record<RubricCriterion, string[]> = {
   goal: [
     'erstell', 'schreib', 'verfass', 'fasse', 'formulier', 'entwirf', 'entwerf', 'analysier', 'liste', 'erklär',
     'vergleich', 'übersetz', 'gib mir', 'mach', 'plane', 'finde', 'identifizier', 'generier', 'überarbeit',
-    'korrigier', 'kürze', 'bereite', 'create', 'write', 'draft', 'summari', 'analy', 'list ', 'explain', 'compare',
-    'translate', 'give me', 'make', 'plan ', 'find', 'identify', 'generate', 'rewrite', 'revise', 'shorten', 'prepare'
+    'korrigier', 'kürze', 'bereite', 'beantworte', 'antworte', 'verbessere', 'schlage', 'create', 'write', 'draft',
+    'summari', 'analy', 'list ', 'explain', 'compare', 'translate', 'give me', 'make', 'plan ', 'find', 'identify',
+    'generate', 'rewrite', 'revise', 'shorten', 'prepare', 'answer', 'reply', 'improve', 'suggest'
   ],
   context: [
     'für ', 'fuer ', ' an ', 'zielgruppe', 'weil', 'damit', 'team', 'kund', 'kolleg', 'vorgesetzt',
-    'geschäftsleitung', 'projekt', 'neue', 'meeting', 'for ', 'audience', 'because', 'so that', 'customer',
-    'colleague', 'manager', 'project', 'leadership', 'new '
+    'geschäftsleitung', 'projekt', 'neue', 'meeting', 'gast', 'gäste', 'zielgruppe', 'for ', 'audience', 'because',
+    'so that', 'customer', 'colleague', 'manager', 'project', 'leadership', 'new ', 'guest'
   ],
   source: [
     'datei', 'dokument', 'anhang', 'tabelle', 'mail', 'verlauf', 'notizen', 'protokoll', 'präsentation',

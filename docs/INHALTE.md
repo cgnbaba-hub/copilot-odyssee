@@ -53,3 +53,16 @@ npm run content:check
 ```
 
 Die Prüfung meldet unter anderem fehlende Übersetzungen, unbekannte Felder, Verweise auf nicht existierende Inseln, Quizfragen ohne richtige Antwort, «ß» in deutschen Texten und überfällige Reviews (als Warnung). Die CI führt sie bei jedem Pull Request aus.
+
+## Review
+
+Für fachliche Reviews ohne JSON:
+
+```bash
+cd app
+npm run content:review
+```
+
+Das schreibt `app/dist-content/inhalte-review.md` mit allen deutschen Texten, richtigen und falschen Antworten, Beispiel-Prompts und den Redaktionsnotizen. Nach der Freigabe eines Moduls `status` auf `active` setzen und `reviewedAt` aktualisieren.
+
+Jeder Beispiel-Prompt muss im Prompt-Feedback der App 100 Punkte erreichen; ein Test prüft das bei jedem Build.

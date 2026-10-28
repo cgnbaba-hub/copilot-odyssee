@@ -1,0 +1,143 @@
+{
+  "$schema": "../schema/module.schema.json",
+  "id": "sirenen-wie-ki-antwortet",
+  "island": "sirenenfelsen",
+  "order": 2,
+  "version": "1.0.0",
+  "owner": "copilot-team",
+  "status": "draft",
+  "reviewedAt": "2026-10-28",
+  "reviewIntervalDays": 180,
+  "title": { "de": "Wie KI-Antworten entstehen", "en": "How AI answers come about" },
+  "summary": {
+    "de": "Verstehen, warum Copilot so überzeugend klingt, wofür es sich eignet und wo du genauer hinschauen musst.",
+    "en": "Understand why Copilot sounds so convincing, what it is good at and where you need to look closer."
+  },
+  "estimatedMinutes": 8,
+  "notes": "Neuer Inhalt, bewusst ohne Modellnamen und Versionsangaben, damit er nicht veraltet.",
+  "blocks": [
+    {
+      "type": "briefing",
+      "id": "wahrscheinlich",
+      "title": { "de": "Das wahrscheinlich nächste Wort", "en": "The most likely next word" },
+      "body": {
+        "de": "Hinter Copilot steckt ein grosses Sprachmodell. Es hat an riesigen Textmengen gelernt, welche Wörter typischerweise aufeinander folgen, und baut daraus Satz für Satz eine Antwort.\n\nDaraus folgen drei Dinge, die du kennen solltest:\n- **Copilot klingt immer sicher.** Auch wenn eine Angabe nicht stimmt, ist der Text flüssig und überzeugend formuliert.\n- **Dieselbe Frage, andere Antwort.** Copilot formuliert jedes Mal neu. Das ist kein Fehler, sondern gewollt.\n- **Aktuelles holt Copilot aus dem Web.** Für Fragen zu aktuellen Themen sucht Copilot Chat im Internet und zeigt die Quellen als Links an.",
+        "en": "Behind Copilot is a large language model. It learned from huge amounts of text which words typically follow each other, and it builds an answer sentence by sentence.\n\nThree things follow from this:\n- **Copilot always sounds confident.** Even when a statement is wrong, the text is fluent and convincing.\n- **Same question, different answer.** Copilot phrases its answer anew every time. That is intended, not a bug.\n- **Current information comes from the web.** For questions about current topics, Copilot Chat searches the internet and shows its sources as links."
+      }
+    },
+    {
+      "type": "quiz",
+      "id": "q-andere-antwort",
+      "difficulty": "beginner",
+      "question": {
+        "de": "Du stellst Copilot zweimal dieselbe Frage und bekommst zwei unterschiedlich formulierte Antworten. Warum?",
+        "en": "You ask Copilot the same question twice and get two differently worded answers. Why?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": { "de": "Copilot formuliert jede Antwort neu, das ist normal.", "en": "Copilot words every answer anew; that is normal." },
+          "correct": true,
+          "explanation": {
+            "de": "Genau. Sprachmodelle erzeugen Text jedes Mal neu. Inhaltlich sollten die Antworten trotzdem zusammenpassen, sonst lohnt sich ein genauer Blick.",
+            "en": "Exactly. Language models generate text anew each time. The content should still match, otherwise take a closer look."
+          }
+        },
+        {
+          "id": "b",
+          "text": { "de": "Copilot hat einen Fehler und sollte neu gestartet werden.", "en": "Copilot has a bug and should be restarted." },
+          "correct": false,
+          "explanation": { "de": "Unterschiedliche Formulierungen sind kein Fehler.", "en": "Different wording is not a bug." }
+        },
+        {
+          "id": "c",
+          "text": { "de": "Jemand bei Microsoft hat die Antwort zwischendurch geändert.", "en": "Someone at Microsoft changed the answer in between." },
+          "correct": false,
+          "explanation": { "de": "Die Antworten entstehen automatisch, niemand schreibt sie von Hand.", "en": "Answers are generated automatically; nobody writes them by hand." }
+        }
+      ]
+    },
+    {
+      "type": "briefing",
+      "id": "staerken",
+      "title": { "de": "Wofür Copilot stark ist und wo du prüfen musst", "en": "What Copilot is good at and where you need to check" },
+      "body": {
+        "de": "**Stark** ist Copilot überall, wo es um Sprache und Struktur geht:\n- erste Entwürfe für Mails, Texte und Präsentationen\n- Zusammenfassungen langer Texte\n- Umformulieren, Kürzen, Übersetzen\n- Ideen sammeln und ordnen\n\n**Genau prüfen** musst du alles, was verbindlich ist oder exakt stimmen muss:\n- Zahlen, Preise und Daten\n- rechtliche oder vertragliche Aussagen\n- In der Reisebranche zum Beispiel Einreise- und Visabestimmungen oder Verfügbarkeiten. Diese stammen immer aus den offiziellen Quellen und Systemen, nie nur aus einer KI-Antwort.",
+        "en": "Copilot is **strong** wherever language and structure matter:\n- first drafts of emails, texts and presentations\n- summaries of long texts\n- rephrasing, shortening, translating\n- collecting and organising ideas\n\nYou need to **check carefully** anything binding or anything that must be exact:\n- figures, prices and dates\n- legal or contractual statements\n- In travel, for example, entry and visa requirements or availability. These always come from official sources and systems, never from an AI answer alone."
+      }
+    },
+    {
+      "type": "quiz",
+      "id": "q-geeignet",
+      "difficulty": "intermediate",
+      "question": {
+        "de": "Bei welcher Aufgabe kannst du Copilots Ergebnis mit dem geringsten Prüfaufwand verwenden?",
+        "en": "For which task can you use Copilot's result with the least checking?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": { "de": "Einen ersten Entwurf für eine interne Teamnotiz schreiben", "en": "Writing a first draft of an internal team note" },
+          "correct": true,
+          "explanation": {
+            "de": "Richtig. Einen Entwurf liest du ohnehin durch und passt ihn an, das Risiko ist klein.",
+            "en": "Correct. You read and adapt a draft anyway, so the risk is small."
+          }
+        },
+        {
+          "id": "b",
+          "text": { "de": "Einem Gast die aktuellen Einreisebestimmungen für ein Land nennen", "en": "Telling a guest the current entry requirements for a country" },
+          "correct": false,
+          "explanation": {
+            "de": "Einreisebestimmungen sind verbindlich und ändern sich. Sie gehören immer aus der offiziellen Quelle.",
+            "en": "Entry requirements are binding and change. Always take them from the official source."
+          }
+        },
+        {
+          "id": "c",
+          "text": { "de": "Eine Vertragsklausel rechtlich freigeben", "en": "Approving a contract clause legally" },
+          "correct": false,
+          "explanation": {
+            "de": "Eine rechtliche Freigabe braucht Fachleute. Copilot kann höchstens beim Verstehen helfen.",
+            "en": "Legal approval needs experts. Copilot can at most help you understand the text."
+          }
+        }
+      ]
+    },
+    {
+      "type": "quiz",
+      "id": "q-quellen",
+      "difficulty": "beginner",
+      "question": {
+        "de": "Copilot Chat zeigt unter einer Antwort Links zu Webseiten an. Wofür sind sie da?",
+        "en": "Copilot Chat shows links to websites below an answer. What are they for?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": { "de": "Damit ich nachprüfen kann, woher die Information stammt", "en": "So I can check where the information comes from" },
+          "correct": true,
+          "explanation": {
+            "de": "Genau. Ein Blick in die Quelle zeigt, ob Copilot sie richtig wiedergegeben hat.",
+            "en": "Exactly. A look at the source shows whether Copilot represented it correctly."
+          }
+        },
+        {
+          "id": "b",
+          "text": { "de": "Das ist Werbung und kann ignoriert werden", "en": "They are ads and can be ignored" },
+          "correct": false,
+          "explanation": { "de": "Die Links sind die Quellen der Antwort, keine Werbung.", "en": "The links are the answer's sources, not ads." }
+        },
+        {
+          "id": "c",
+          "text": { "de": "Sie beweisen, dass die Antwort stimmt", "en": "They prove the answer is correct" },
+          "correct": false,
+          "explanation": {
+            "de": "Eine Quelle allein beweist nichts. Copilot kann sie auch falsch zusammenfassen.",
+            "en": "A source alone proves nothing. Copilot may also summarise it incorrectly."
+          }
+        }
+      ]
+    }
+  ]
+}

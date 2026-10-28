@@ -31,6 +31,7 @@ npm ci
 |---|---|
 | `npm run content:check` | Prüft alle Inhalte in `content/` (Schema, Verweise, Schweizer Schreibweise) |
 | `npm run content:export` | Prüft und schreibt `app/dist-content/odyssee-content.json` für SharePoint |
+| `npm run content:review` | Schreibt eine Lesefassung aller deutschen Texte nach `app/dist-content/inhalte-review.md` |
 | `npm run demo` | Startet die Demo unter http://localhost:5173 |
 | `npm run demo:build` | Baut die Demo nach `app/dist-demo/` |
 | `npm test` | Typecheck, Lint und Unit-Tests |

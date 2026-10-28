@@ -1,0 +1,61 @@
+{
+  "$schema": "../schema/module.schema.json",
+  "id": "ithaka-prompt-rezept",
+  "island": "ithaka",
+  "order": 3,
+  "version": "1.0.0",
+  "owner": "copilot-team",
+  "status": "draft",
+  "reviewedAt": "2026-10-28",
+  "reviewIntervalDays": 180,
+  "title": { "de": "Vom Use Case zum Prompt-Rezept", "en": "From use case to prompt recipe" },
+  "summary": {
+    "de": "Mach aus einem guten Prompt eine Vorlage, die du immer wieder verwendest und mit dem Team teilst.",
+    "en": "Turn a good prompt into a template you reuse again and again and share with your team."
+  },
+  "estimatedMinutes": 10,
+  "notes": "Neuer Inhalt. Bewusst ohne Verweis auf eine bestimmte Prompt-Bibliothek in Copilot, da deren Verfügbarkeit in Basic unklar ist.",
+  "blocks": [
+    {
+      "type": "briefing",
+      "id": "rezept",
+      "title": { "de": "Ein Rezept statt jedes Mal neu kochen", "en": "A recipe instead of cooking from scratch every time" },
+      "body": {
+        "de": "Ein Prompt-Rezept ist ein bewährter Prompt mit **Platzhaltern** für das, was sich jedes Mal ändert:\n\n«Schreibe aus den folgenden Stichpunkten das wöchentliche Update für [Team]. Zielgruppe: [Zielgruppe]. Ton: sachlich und freundlich. Aufbau: Erfolge, laufende Themen, Hilfe gesucht. Maximal 150 Wörter, in Schweizer Hochdeutsch. Stichpunkte: [Notizen]»\n\nSo nutzt du Rezepte:\n- **Speichere** sie dort, wo du sie schnell findest, zum Beispiel in OneNote oder einem Word-Dokument.\n- **Verbessere** sie, wenn ein Ergebnis nicht passt, statt jedes Mal nachzufragen.\n- **Teile** gute Rezepte mit dem Team, damit alle davon profitieren.",
+        "en": "A prompt recipe is a proven prompt with **placeholders** for whatever changes each time:\n\n“Write the weekly update for [team] from the following notes. Audience: [audience]. Tone: factual and friendly. Structure: wins, ongoing topics, help wanted. At most 150 words. Notes: [notes]”\n\nHow to use recipes:\n- **Save** them where you find them quickly, for example in OneNote or a Word document.\n- **Improve** them when a result doesn't fit, instead of following up every time.\n- **Share** good recipes with the team so everyone benefits."
+      }
+    },
+    {
+      "type": "prompt",
+      "id": "p-rezept",
+      "difficulty": "advanced",
+      "title": { "de": "Dein erstes Rezept", "en": "Your first recipe" },
+      "scenario": {
+        "de": "Nimm einen deiner Use Cases, zum Beispiel ein wiederkehrendes Update oder eine typische Antwort-Mail, und schreib dafür ein Prompt-Rezept mit Platzhaltern in eckigen Klammern.",
+        "en": "Take one of your use cases, such as a recurring update or a typical reply email, and write a prompt recipe for it with placeholders in square brackets."
+      },
+      "rubric": ["goal", "context", "source", "expectation"],
+      "examplePrompt": {
+        "de": "Beantworte die folgende Anfrage eines Gastes zu [Thema] auf Basis der eingefügten Informationen aus unserem Angebot. Zielgruppe: Privatkundschaft, Ton: freundlich und persönlich, Sie-Form. Maximal 120 Wörter, in Schweizer Hochdeutsch, mit einem konkreten nächsten Schritt am Schluss. Anfrage: [Anfrage] Informationen: [Angebotstext]",
+        "en": "Answer the following guest enquiry about [topic] based on the pasted information from our offer. Audience: private customers, tone: friendly and personal, formal address. At most 120 words, ending with one concrete next step. Enquiry: [enquiry] Information: [offer text]"
+      }
+    },
+    {
+      "type": "mission",
+      "id": "m-rezept-teilen",
+      "title": { "de": "Das Rezept weitergeben", "en": "Pass the recipe on" },
+      "task": {
+        "de": "Probiere dein Rezept zweimal mit unterschiedlichen Inhalten in Copilot Chat aus. Speichere es dort, wo du es wiederfindest, und teile es mit mindestens einer Kollegin oder einem Kollegen.",
+        "en": "Try your recipe twice in Copilot Chat with different content. Save it where you will find it again and share it with at least one colleague."
+      }
+    },
+    {
+      "type": "usecase",
+      "id": "u-rezept",
+      "intro": {
+        "de": "Halte den Use Case fest, für den du das Rezept geschrieben hast. Füge das Rezept als Prompt-Idee ein.",
+        "en": "Capture the use case you wrote the recipe for. Add the recipe as your prompt idea."
+      }
+    }
+  ]
+}
