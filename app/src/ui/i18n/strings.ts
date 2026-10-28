@@ -100,7 +100,9 @@ const de = {
 
   settingsLicense: 'Copilot-Version',
   resetProgress: 'Fortschritt zurücksetzen',
-  resetConfirm: 'Willst du deinen ganzen Fortschritt wirklich löschen?'
+  resetConfirm: 'Willst du deinen ganzen Fortschritt wirklich löschen?',
+  resetYes: 'Ja, löschen',
+  cancel: 'Abbrechen'
 };
 
 export type Strings = typeof de;
@@ -204,7 +206,9 @@ const en: Strings = {
 
   settingsLicense: 'Copilot version',
   resetProgress: 'Reset progress',
-  resetConfirm: 'Do you really want to delete all your progress?'
+  resetConfirm: 'Do you really want to delete all your progress?',
+  resetYes: 'Yes, delete',
+  cancel: 'Cancel'
 };
 
 const STRINGS: Record<Lang, Strings> = { de, en };
