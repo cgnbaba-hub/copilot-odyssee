@@ -26,12 +26,14 @@ export function Header(props: { onOpenSettings: () => void; onOpenHelp: () => vo
         </span>
         <span className={styles.brandText}>
           <span className={styles.brandTitle}>{t(theme.terms.appTitle)}</span>
-          <span className={styles.brandTagline}>{t(theme.terms.tagline)}</span>
         </span>
       </button>
 
       {onboarded && (
-        <div className={styles.status}>
+        <div
+          className={styles.status}
+          title={rank.next ? format(strings.toNextRank, { xp: formatNumber(lang, rank.xpToNext), xpName: t(theme.terms.xp), rank: t(rank.next) }) : strings.topRank}
+        >
           <RankEmblem index={rank.index} className={styles.statusEmblem} />
           <div className={styles.statusText}>
             <div className={styles.statusLine}>
@@ -42,11 +44,6 @@ export function Header(props: { onOpenSettings: () => void; onOpenHelp: () => vo
             </div>
             <div className={styles.statusBar} role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={rank.percent} aria-label={t(theme.terms.xp)}>
               <div className={styles.statusBarFill} style={{ width: `${rank.percent}%` }} />
-            </div>
-            <div className={styles.statusNext}>
-              {rank.next
-                ? format(strings.toNextRank, { xp: formatNumber(lang, rank.xpToNext), xpName: t(theme.terms.xp), rank: t(rank.next) })
-                : strings.topRank}
             </div>
           </div>
           <button
@@ -90,27 +87,29 @@ export function Header(props: { onOpenSettings: () => void; onOpenHelp: () => vo
           </svg>
           <span>{strings.help}</span>
         </button>
-        <div className={`${styles.langSwitch} ${styles.hidePhone}`} role="group" aria-label={strings.language}>
-          {SUPPORTED_LANGS.map((l) => (
-            <button
-              type="button"
-              key={l}
-              aria-pressed={l === lang}
-              className={l === lang ? styles.langActive : undefined}
-              onClick={() => update((s) => updateProfile(s, { lang: l }))}
-            >
-              {l.toUpperCase()}
-            </button>
-          ))}
-        </div>
-        <button type="button" className={styles.headerButton} onClick={props.onOpenSettings} aria-label={strings.settings}>
+        {/* Before onboarding the language is chosen here; afterwards it lives in the settings. */}
+        {!onboarded && (
+          <div className={styles.langSwitch} role="group" aria-label={strings.language}>
+            {SUPPORTED_LANGS.map((l) => (
+              <button
+                type="button"
+                key={l}
+                aria-pressed={l === lang}
+                className={l === lang ? styles.langActive : undefined}
+                onClick={() => update((s) => updateProfile(s, { lang: l }))}
+              >
+                {l.toUpperCase()}
+              </button>
+            ))}
+          </div>
+        )}
+        <button type="button" className={styles.headerButton} onClick={props.onOpenSettings} aria-label={strings.settings} title={strings.settings}>
           <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
             <path
               fill="currentColor"
               d="M12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Zm8.6 4.9-.1-1.4 2-1.6-2-3.4-2.4.9a7.8 7.8 0 0 0-2.4-1.4L15.3 4h-3.9l-.4 2.5c-.9.3-1.7.8-2.4 1.4l-2.4-.9-2 3.4 2 1.6a7.5 7.5 0 0 0 0 2.8l-2 1.6 2 3.4 2.4-.9c.7.6 1.5 1.1 2.4 1.4l.4 2.5h3.9l.4-2.5c.9-.3 1.7-.8 2.4-1.4l2.4.9 2-3.4-2-1.6c.1-.4.1-.9.1-1.4Z"
             />
           </svg>
-          <span className={styles.hideNarrow}>{strings.settings}</span>
         </button>
       </nav>
     </header>
