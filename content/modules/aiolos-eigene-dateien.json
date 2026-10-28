@@ -1,0 +1,102 @@
+{
+  "$schema": "../schema/module.schema.json",
+  "id": "aiolos-eigene-dateien",
+  "island": "aiolos",
+  "order": 3,
+  "version": "1.0.0",
+  "owner": "copilot-team",
+  "status": "draft",
+  "reviewedAt": "2026-10-28",
+  "reviewIntervalDays": 90,
+  "title": { "de": "Mit eigenen Dateien arbeiten", "en": "Working with your own files" },
+  "summary": {
+    "de": "Dokumente hochladen, zusammenfassen lassen und Ergebnisse sicher weiterverwenden.",
+    "en": "Upload documents, have them summarised and reuse the results safely."
+  },
+  "estimatedMinutes": 12,
+  "notes": "Datei-Upload ist in Copilot Chat (Basic) verfügbar, mit «Standard-Zugang» je nach Auslastung (Stand Oktober 2026). Konkrete Grössenlimits bewusst nicht genannt, da sie sich ändern.",
+  "blocks": [
+    {
+      "type": "briefing",
+      "id": "hochladen",
+      "title": { "de": "Dateien an Bord holen", "en": "Bringing files on board" },
+      "body": {
+        "de": "Über das **Plus** oder die **Büroklammer** im Eingabefeld lädst du eine Datei hoch, zum Beispiel ein Word-Dokument, ein PDF oder eine Excel-Tabelle. Copilot liest sie und beantwortet deine Fragen dazu.\n\nTypische Aufgaben:\n- **Zusammenfassen:** «Fasse die wichtigsten Punkte in fünf Stichpunkten zusammen.»\n- **Herausziehen:** «Liste alle Fristen und Verantwortlichen auf.»\n- **Vergleichen:** «Was hat sich zwischen den beiden Versionen geändert?»\n- **Weiterverwenden:** «Entwirf auf Basis des Dokuments eine kurze Info-Mail fürs Team.»\n\nLade nur Dateien hoch, die du gemäss eurer KI-Richtlinie mit Copilot verwenden darfst.",
+        "en": "Use the **plus** or the **paperclip** in the input box to upload a file, for example a Word document, a PDF or an Excel sheet. Copilot reads it and answers your questions about it.\n\nTypical tasks:\n- **Summarise:** “Summarise the key points in five bullet points.”\n- **Extract:** “List all deadlines and owners.”\n- **Compare:** “What changed between the two versions?”\n- **Reuse:** “Based on the document, draft a short info email for the team.”\n\nOnly upload files that your AI guideline allows you to use with Copilot."
+      }
+    },
+    {
+      "type": "prompt",
+      "id": "p-partnerpraesentation",
+      "difficulty": "intermediate",
+      "title": { "de": "Die Präsentation eines Partners", "en": "A partner's presentation" },
+      "scenario": {
+        "de": "Ein Hotelpartner hat dir eine 15-seitige Präsentation (PDF) mit seinen Neuerungen für die nächste Saison geschickt. Dein Team soll in zwei Minuten wissen, was davon für euch wichtig ist. Du lädst das PDF in Copilot Chat hoch. Schreib den Prompt dazu.",
+        "en": "A hotel partner sent you a 15-page presentation (PDF) with their news for next season. Your team should know within two minutes what matters for you. You upload the PDF to Copilot Chat. Write the prompt."
+      },
+      "rubric": ["goal", "context", "source", "expectation"],
+      "examplePrompt": {
+        "de": "Fasse die angehängte Präsentation des Hotelpartners für mein Produktteam zusammen. Uns interessieren vor allem neue Angebote, Preisänderungen und Termine für die nächste Saison. Bitte maximal 6 Stichpunkte, danach eine Liste offener Fragen, die wir dem Partner stellen sollten.",
+        "en": "Summarise the attached presentation from the hotel partner for my product team. We are mainly interested in new offers, price changes and dates for next season. Please use at most 6 bullet points, followed by a list of open questions we should ask the partner."
+      }
+    },
+    {
+      "type": "quiz",
+      "id": "q-vor-weitergeben",
+      "difficulty": "intermediate",
+      "question": {
+        "de": "Copilot hat dir ein langes Dokument zusammengefasst. Was tust du, bevor du die Zusammenfassung weitergibst?",
+        "en": "Copilot has summarised a long document for you. What do you do before passing the summary on?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "de": "Wichtige Zahlen, Daten und Namen mit dem Original abgleichen",
+            "en": "Check important figures, dates and names against the original"
+          },
+          "correct": true,
+          "explanation": {
+            "de": "Genau. Gerade bei Zahlen und Daten können sich Fehler einschleichen.",
+            "en": "Exactly. Errors creep in especially with figures and dates."
+          }
+        },
+        {
+          "id": "b",
+          "text": { "de": "Nichts, Copilot hat das Dokument ja gelesen", "en": "Nothing, Copilot did read the document" },
+          "correct": false,
+          "explanation": {
+            "de": "Auch mit Dokument kann Copilot etwas falsch wiedergeben oder weglassen.",
+            "en": "Even with the document, Copilot can misrepresent or leave out things."
+          }
+        },
+        {
+          "id": "c",
+          "text": { "de": "Copilot fragen, ob die Zusammenfassung stimmt", "en": "Ask Copilot whether the summary is correct" },
+          "correct": false,
+          "explanation": {
+            "de": "Das ist keine unabhängige Prüfung. Ein Blick ins Original ist besser.",
+            "en": "That is not an independent check. A look at the original is better."
+          }
+        }
+      ]
+    },
+    {
+      "type": "mission",
+      "id": "m-datei",
+      "title": { "de": "Ein Dokument entschlüsseln", "en": "Decode a document" },
+      "task": {
+        "de": "Lade ein unkritisches Dokument hoch, zum Beispiel eigene Notizen oder eine öffentliche Broschüre. Lass dir die drei wichtigsten Punkte und die offenen Fragen auflisten. Vergleiche das Ergebnis kurz mit dem Original.",
+        "en": "Upload a non-sensitive document, such as your own notes or a public brochure. Ask for the three key points and the open questions. Briefly compare the result with the original."
+      }
+    },
+    {
+      "type": "usecase",
+      "id": "u-dateien",
+      "intro": {
+        "de": "Welches Dokument liest oder fasst du regelmässig zusammen, bei dem Copilot dir Zeit sparen könnte?",
+        "en": "Which document do you regularly read or summarise where Copilot could save you time?"
+      }
+    }
+  ]
+}

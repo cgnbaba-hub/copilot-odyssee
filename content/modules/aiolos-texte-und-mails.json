@@ -1,0 +1,124 @@
+{
+  "$schema": "../schema/module.schema.json",
+  "id": "aiolos-texte-und-mails",
+  "island": "aiolos",
+  "order": 5,
+  "version": "1.0.0",
+  "owner": "copilot-team",
+  "status": "draft",
+  "reviewedAt": "2026-10-28",
+  "reviewIntervalDays": 180,
+  "title": {
+    "de": "Texte und Mails schreiben",
+    "en": "Writing texts and emails"
+  },
+  "summary": {
+    "de": "Entwürfe, Umformulierungen und Übersetzungen in alle Landessprachen, mit dem richtigen Ton.",
+    "en": "Drafts, rewrites and translations into all national languages, with the right tone."
+  },
+  "estimatedMinutes": 12,
+  "notes": "Neuer Inhalt mit Bezug auf die Schweiz (Schweizer Hochdeutsch, Landessprachen). Beispiel zum Transfer ist fiktiv.",
+  "blocks": [
+    {
+      "type": "briefing",
+      "id": "schreiben",
+      "title": {
+        "de": "Dein Schreib-Copilot",
+        "en": "Your writing copilot"
+      },
+      "body": {
+        "de": "Beim Schreiben spart Copilot am meisten Zeit, wenn du den Rohstoff lieferst und Copilot die Form übernimmt:\n- **Aus Stichpunkten wird ein Text:** «Mach aus diesen Notizen eine freundliche Antwort an den Gast.»\n- **Aus einem Text wird ein besserer:** «Mach diese Mail klarer und kürzer, behalte alle Fakten.»\n- **Aus Deutsch wird Französisch oder Italienisch:** «Übersetze ins Französische, Ton höflich und persönlich.»\n\nZwei Tipps für die Schweiz:\n- Schreib dazu: **«in Schweizer Hochdeutsch, ohne Eszett»**. Sonst schreibt Copilot oft deutsches Hochdeutsch.\n- Lass wichtige Übersetzungen, zum Beispiel an Gäste, von jemandem gegenlesen, der die Sprache sicher beherrscht.",
+        "en": "Copilot saves the most time in writing when you supply the raw material and Copilot handles the form:\n- **Notes become text:** “Turn these notes into a friendly reply to the guest.”\n- **A text becomes a better one:** “Make this email clearer and shorter, keep all the facts.”\n- **German becomes French or Italian:** “Translate into French, polite and personal tone.”\n\nTwo tips for Switzerland:\n- Add **“in Swiss Standard German, without ß”**. Otherwise Copilot often writes German as used in Germany.\n- Have important translations, for example to guests, checked by someone who knows the language well."
+      }
+    },
+    {
+      "type": "quiz",
+      "id": "q-schweizer-schreibweise",
+      "difficulty": "beginner",
+      "question": {
+        "de": "Copilot verwendet in deinem Text das Eszett (scharfes S) statt «ss». Wie bekommst du Schweizer Schreibweise?",
+        "en": "Copilot writes “Grüße” and “Straße” in your German text. How do you get Swiss spelling?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "de": "Im Prompt angeben: «in Schweizer Hochdeutsch, ohne Eszett»",
+            "en": "State it in the prompt: “in Swiss Standard German, without ß”"
+          },
+          "correct": true,
+          "explanation": {
+            "de": "Richtig. Am besten gleich im ersten Prompt, dann gilt es für den ganzen Chat.",
+            "en": "Correct. Ideally in the first prompt, then it applies to the whole chat."
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "de": "Gar nicht, Copilot kennt nur deutsches Hochdeutsch",
+            "en": "Not at all, Copilot only knows German as used in Germany"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Copilot kann Schweizer Schreibweise, du musst es nur sagen.",
+            "en": "Copilot can do Swiss spelling, you just have to ask for it."
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "de": "Die Sprache von Windows auf Schweiz umstellen",
+            "en": "Switch the Windows language to Switzerland"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Die Systemsprache steuert Copilots Schreibweise nicht zuverlässig.",
+            "en": "The system language does not reliably control Copilot's spelling."
+          }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "id": "p-gast-franzoesisch",
+      "difficulty": "intermediate",
+      "title": {
+        "de": "Antwort an einen Gast aus Lausanne",
+        "en": "Reply to a guest from Lausanne"
+      },
+      "scenario": {
+        "de": "Ein Gast aus Lausanne fragt per Mail auf Französisch, ob der Flughafentransfer in seinem Paket inbegriffen ist. Ja, er ist inbegriffen und dauert etwa 40 Minuten. Du möchtest eine kurze, freundliche Antwort auf Französisch. Schreib den Prompt.",
+        "en": "A guest from Lausanne asks by email, in French, whether the airport transfer is included in their package. Yes, it is included and takes about 40 minutes. You want a short, friendly reply in French. Write the prompt."
+      },
+      "rubric": [
+        "goal",
+        "context",
+        "expectation"
+      ],
+      "examplePrompt": {
+        "de": "Schreibe eine kurze, freundliche Antwort auf Französisch an einen Gast, der fragt, ob der Flughafentransfer in seinem Paket inbegriffen ist. Der Transfer ist inbegriffen und dauert etwa 40 Minuten. Ton: persönlich und höflich, mit Sie-Form, maximal 5 Sätze.",
+        "en": "Write a short, friendly reply in French to a guest asking whether the airport transfer is included in their package. The transfer is included and takes about 40 minutes. Tone: personal and polite, formal address, at most 5 sentences."
+      }
+    },
+    {
+      "type": "mission",
+      "id": "m-mail",
+      "title": {
+        "de": "Eine echte Mail",
+        "en": "A real email"
+      },
+      "task": {
+        "de": "Such dir eine Mail aus, die du heute oder morgen ohnehin schreiben musst. Lass Copilot Chat einen Entwurf aus deinen Stichpunkten schreiben, passe ihn an und verschick ihn. Wie viel Zeit hat es gespart?",
+        "en": "Pick an email you have to write today or tomorrow anyway. Let Copilot Chat draft it from your notes, adapt it and send it. How much time did it save?"
+      }
+    },
+    {
+      "type": "usecase",
+      "id": "u-texte",
+      "intro": {
+        "de": "Welche Art von Text oder Mail schreibst du immer wieder ähnlich? Halte sie als Use-Case-Karte fest.",
+        "en": "What kind of text or email do you keep writing in a similar way? Capture it as a use case card."
+      }
+    }
+  ]
+}

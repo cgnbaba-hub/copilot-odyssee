@@ -1,0 +1,126 @@
+{
+  "$schema": "../schema/module.schema.json",
+  "id": "aiolos-nachfassen",
+  "island": "aiolos",
+  "order": 4,
+  "version": "1.0.0",
+  "owner": "copilot-team",
+  "status": "draft",
+  "reviewedAt": "2026-10-28",
+  "reviewIntervalDays": 180,
+  "title": { "de": "Im Gespräch nachschärfen", "en": "Refining in conversation" },
+  "summary": {
+    "de": "Die erste Antwort ist selten die beste. So steuerst du Copilot mit Nachfragen ans Ziel.",
+    "en": "The first answer is rarely the best. This is how you steer Copilot to the goal with follow-ups."
+  },
+  "estimatedMinutes": 10,
+  "notes": "Neuer Inhalt.",
+  "blocks": [
+    {
+      "type": "briefing",
+      "id": "kurs-korrigieren",
+      "title": { "de": "Den Kurs korrigieren", "en": "Correcting the course" },
+      "body": {
+        "de": "Copilot merkt sich, was im selben Chat schon gesagt wurde. Du musst also nicht von vorne beginnen, sondern kannst nachsteuern:\n- **Form:** «Kürzer, bitte maximal 5 Sätze.» «Als Tabelle.»\n- **Ton:** «Lockerer, wir duzen uns im Team.» «Formeller, für die Geschäftsleitung.»\n- **Zielgruppe:** «Erkläre es so, dass es jemand ohne Fachwissen versteht.»\n- **Inhalt:** «Der zweite Punkt stimmt nicht, wir arbeiten mit festen Kontingenten. Passe das an.»\n\nZwei Kniffe, die oft viel bringen:\n- **Lass Copilot zuerst fragen:** «Stell mir zuerst drei Fragen, bevor du den Text schreibst.»\n- **Gib eine Rolle:** «Du bist eine erfahrene Reiseberaterin. Prüfe meinen Entwurf aus Sicht einer Kundin.»\n\nFür ein neues Thema öffnest du einen neuen Chat, damit Altes die Antwort nicht beeinflusst.",
+        "en": "Copilot remembers what has already been said in the same chat. So you don't have to start over, you can steer:\n- **Form:** “Shorter, please, at most 5 sentences.” “As a table.”\n- **Tone:** “More casual, we are on first-name terms in the team.” “More formal, for the leadership team.”\n- **Audience:** “Explain it so that someone without expert knowledge understands it.”\n- **Content:** “The second point is wrong, we work with fixed allotments. Adjust that.”\n\nTwo tricks that often help a lot:\n- **Let Copilot ask first:** “Ask me three questions before you write the text.”\n- **Give it a role:** “You are an experienced travel consultant. Review my draft from a customer's point of view.”\n\nFor a new topic, open a new chat so that earlier content does not influence the answer."
+      }
+    },
+    {
+      "type": "quiz",
+      "id": "q-zu-lang",
+      "difficulty": "beginner",
+      "question": {
+        "de": "Die erste Antwort von Copilot ist zu lang und zu förmlich. Was ist am wirksamsten?",
+        "en": "Copilot's first answer is too long and too formal. What works best?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": { "de": "Im selben Chat nachschärfen: «Kürze auf 5 Sätze und schreib lockerer.»", "en": "Refine in the same chat: “Cut it to 5 sentences and make it more casual.”" },
+          "correct": true,
+          "explanation": {
+            "de": "Richtig. Copilot kennt den bisherigen Verlauf und kann gezielt anpassen.",
+            "en": "Correct. Copilot knows the conversation so far and can adjust precisely."
+          }
+        },
+        {
+          "id": "b",
+          "text": { "de": "Einen neuen Chat öffnen und denselben Prompt nochmals schicken", "en": "Open a new chat and send the same prompt again" },
+          "correct": false,
+          "explanation": {
+            "de": "Ohne neue Angaben kommt vermutlich wieder etwas Ähnliches heraus.",
+            "en": "Without new instructions, you will probably get something similar again."
+          }
+        },
+        {
+          "id": "c",
+          "text": { "de": "Die Antwort selbst komplett umschreiben", "en": "Rewrite the answer completely yourself" },
+          "correct": false,
+          "explanation": {
+            "de": "Geht auch, kostet aber mehr Zeit als eine kurze Nachfrage.",
+            "en": "That works too, but takes more time than a short follow-up."
+          }
+        }
+      ]
+    },
+    {
+      "type": "quiz",
+      "id": "q-neuer-chat",
+      "difficulty": "intermediate",
+      "question": { "de": "Wann lohnt sich ein neuer Chat?", "en": "When is it worth starting a new chat?" },
+      "options": [
+        {
+          "id": "a",
+          "text": { "de": "Wenn ich mit einem ganz anderen Thema weitermache", "en": "When I continue with a completely different topic" },
+          "correct": true,
+          "explanation": {
+            "de": "Genau. So vermischt Copilot die Themen nicht.",
+            "en": "Exactly. That way Copilot does not mix up the topics."
+          }
+        },
+        {
+          "id": "b",
+          "text": { "de": "Nach jeder einzelnen Antwort", "en": "After every single answer" },
+          "correct": false,
+          "explanation": {
+            "de": "Dann verlierst du den Zusammenhang, den du für Nachfragen brauchst.",
+            "en": "Then you lose the context you need for follow-ups."
+          }
+        },
+        {
+          "id": "c",
+          "text": { "de": "Nie, ein einziger Chat für alles ist am besten", "en": "Never, one single chat for everything is best" },
+          "correct": false,
+          "explanation": {
+            "de": "Alte Themen im Verlauf können neue Antworten in die falsche Richtung lenken.",
+            "en": "Old topics in the history can steer new answers in the wrong direction."
+          }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "id": "p-familienreise",
+      "difficulty": "intermediate",
+      "title": { "de": "Erst fragen, dann schreiben", "en": "Ask first, then write" },
+      "scenario": {
+        "de": "Eine Kundin bittet um Ideen für eine zehntägige Familienreise in den Herbstferien. Du willst mit Copilot einen ersten Vorschlag entwerfen, aber Copilot soll dir zuerst die wichtigsten Rückfragen stellen. Schreib den Prompt.",
+        "en": "A customer asks for ideas for a ten-day family trip during the autumn holidays. You want to draft a first proposal with Copilot, but Copilot should first ask you the most important questions. Write the prompt."
+      },
+      "rubric": ["goal", "context", "expectation"],
+      "examplePrompt": {
+        "de": "Ich möchte für eine Kundin einen ersten Vorschlag für eine zehntägige Familienreise in den Herbstferien entwerfen. Bevor du etwas vorschlägst, stell mir bitte die fünf wichtigsten Fragen, zum Beispiel zum Alter der Kinder und zum Budget. Danach schreibst du drei Varianten in je drei Sätzen.",
+        "en": "I want to draft a first proposal for a customer's ten-day family trip during the autumn holidays. Before you suggest anything, please ask me the five most important questions, for example about the children's ages and the budget. Then write three options of three sentences each."
+      }
+    },
+    {
+      "type": "mission",
+      "id": "m-nachschaerfen",
+      "title": { "de": "Zwei Wenden", "en": "Two tacks" },
+      "task": {
+        "de": "Nimm eine Antwort aus einer früheren Mission oder einen eigenen Text. Verbessere ihn im Chat mit genau zwei Nachfragen: eine zur Form, eine zum Ton. Vergleiche Anfang und Ergebnis.",
+        "en": "Take an answer from an earlier mission or one of your own texts. Improve it in the chat with exactly two follow-ups: one about form, one about tone. Compare the start with the result."
+      }
+    }
+  ]
+}

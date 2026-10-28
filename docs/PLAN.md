@@ -202,6 +202,8 @@ Legende: 🤖 = setze ich um · 👤 = brauche ich von dir · 🏢 = IT oder Dat
   *Stand:* Seemeilen, Status-Stufen mit Aufstiegs-Dialog, Reisepass mit Stempeln und 6 Souvenirs sind umgesetzt. Offen: Serien, Bereichswertung, optionale Rangliste.
 - [ ] **AP 2.4 Inhalte Inseln 0–2** 🤖👤
   Sirenenfelsen, Aiolos (Copilot Chat Basic) und Ithaka mit vollständigen Inhalten auf DE und EN. Ich schreibe die Inhalte, du prüfst sie auf Passung zu euren Regeln und Beispielen.
+  *Stand:* Entwürfe für alle drei Inseln stehen (11 Etappen, DE/EN): Sirenenfelsen 3, Aiolos 5, Ithaka 3. Fakten zu Copilot Chat (Basic) geprüft am 28.10.2026 anhand öffentlicher Quellen. Unter anderem ist Copilot in Word, Excel, PowerPoint und OneNote seit April 2026 in grossen Organisationen Premium vorbehalten. Offen: dein Review (Lesefassung mit `npm run content:review`), danach Status auf `active`.
+
 - [ ] **AP 2.5 Installationspaket und Pilot-Site** 🤖👤
   GitHub Action baut das `.sppkg`. Dazu eine Schritt-für-Schritt-Anleitung: Website-App-Katalog, Listen anlegen, Webpart auf eine Seite setzen.
 - [ ] **AP 2.6 Pilot** 👤

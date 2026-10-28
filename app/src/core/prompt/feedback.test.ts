@@ -34,4 +34,9 @@ describe('evaluatePrompt', () => {
     expect(feedback.tooShort).toBe(true);
     expect(feedback.score).toBeLessThanOrEqual(30);
   });
+
+  it('recognises replies to guests', () => {
+    expect(evaluatePrompt('Answer the guest asking whether the transfer is included, in French, at most 5 sentences.', ['goal', 'context', 'expectation']).score).toBe(100);
+    expect(evaluatePrompt('Beantworte die Anfrage des Gastes zum Transfer auf Französisch, höflich und in maximal 5 Sätzen.', ['goal', 'context', 'expectation']).score).toBe(100);
+  });
 });
