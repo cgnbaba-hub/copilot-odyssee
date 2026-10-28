@@ -1,6 +1,6 @@
 # Inhalte pflegen
 
-Alle Inhalte liegen als JSON-Dateien im Ordner [`content/`](../content/). Die App liest sie beim Bauen ein; in AP 1.4 kommt das Laden aus einer SharePoint-Bibliothek dazu, dann ist kein neues App-Paket mehr nötig.
+Alle Inhalte liegen als JSON-Dateien im Ordner [`content/`](../content/). Für SharePoint werden sie geprüft und zu einer Datei `odyssee-content.json` zusammengefasst, die in die Bibliothek `OdysseeInhalte` hochgeladen wird (siehe [`SHAREPOINT.md`](SHAREPOINT.md)). Die App lädt sie beim Öffnen; ein neues App-Paket ist für Inhaltsänderungen nicht nötig. Fehlt die Datei, nutzt die App die Inhalte, die beim Bauen ins Paket kamen.
 
 ## Aufbau
 

@@ -22,7 +22,8 @@
     "description": { "default": "Copilot learning game", "de-DE": "Copilot-Lernspiel" },
     "officeFabricIconFontName": "Ferry",
     "properties": {
-      "showDrafts": true
+      "showDrafts": true,
+      "dataSiteUrl": ""
     }
   }]
 }

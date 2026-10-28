@@ -4,6 +4,8 @@ import { Lang } from '../../core/i18n/locale';
 const de = {
   loading: 'Segel werden gesetzt …',
   demoBanner: 'Demo-Modus: Der Fortschritt wird nur in diesem Browser gespeichert.',
+  browserStorageBanner:
+    'Dein Fortschritt wird vorübergehend nur in diesem Browser gespeichert, weil die SharePoint-Listen für die Odyssee noch nicht eingerichtet sind. Sobald sie da sind, wird er automatisch übernommen.',
   language: 'Sprache',
   settings: 'Einstellungen',
   close: 'Schliessen',
@@ -120,6 +122,8 @@ export type Strings = typeof de;
 const en: Strings = {
   loading: 'Setting sail …',
   demoBanner: 'Demo mode: progress is only saved in this browser.',
+  browserStorageBanner:
+    'Your progress is temporarily saved in this browser only, because the SharePoint lists for the Odyssey have not been set up yet. It moves over automatically once they exist.',
   language: 'Language',
   settings: 'Settings',
   close: 'Close',

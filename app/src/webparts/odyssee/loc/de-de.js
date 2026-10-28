@@ -4,6 +4,8 @@ define([], function() {
     "ContentGroupName": "Inhalte",
     "ShowDraftsLabel": "Etappen im Entwurf anzeigen",
     "On": "Ein",
-    "Off": "Aus"
+    "Off": "Aus",
+    "DataSiteUrlLabel": "Website mit den Odyssee-Listen",
+    "DataSiteUrlDescription": "Leer lassen für diese Website. Fortschritt und Inhalte kommen aus den Listen, die Setup-Odyssee.ps1 anlegt."
   }
 });

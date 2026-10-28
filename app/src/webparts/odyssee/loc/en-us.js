@@ -4,6 +4,8 @@ define([], function() {
     "ContentGroupName": "Content",
     "ShowDraftsLabel": "Show draft stages",
     "On": "On",
-    "Off": "Off"
+    "Off": "Off",
+    "DataSiteUrlLabel": "Site with the Odyssey lists",
+    "DataSiteUrlDescription": "Leave empty to use this site. Progress and content are read from the lists created by Setup-Odyssee.ps1."
   }
 });

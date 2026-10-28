@@ -10,14 +10,16 @@ import { BlockViewProps } from './BlockViewProps';
 export function BriefingView(props: BlockViewProps<BriefingBlock>): React.ReactElement {
   const { strings, t, apply } = useGame();
   const { block, moduleId } = props;
+  // Content can come from a SharePoint library, so only plain https links are rendered.
+  const links = (block.links || []).filter((link) => /^https:\/\//.test(link.url));
 
   return (
     <div>
       <h2 className={styles.blockTitle}>{t(block.title)}</h2>
       <RichText text={t(block.body)} />
-      {block.links && block.links.length > 0 && (
+      {links.length > 0 && (
         <ul className={styles.linkList}>
-          {block.links.map((link) => (
+          {links.map((link) => (
             <li key={link.url}>
               <a href={link.url} target="_blank" rel="noopener noreferrer">
                 {t(link.label)}

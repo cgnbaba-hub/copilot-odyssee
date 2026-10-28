@@ -4,6 +4,8 @@ declare interface IOdysseeWebPartStrings {
   ShowDraftsLabel: string;
   On: string;
   Off: string;
+  DataSiteUrlLabel: string;
+  DataSiteUrlDescription: string;
 }
 
 declare module 'OdysseeWebPartStrings' {
