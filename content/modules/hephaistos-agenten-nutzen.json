@@ -1,0 +1,145 @@
+{
+  "$schema": "../schema/module.schema.json",
+  "id": "hephaistos-agenten-nutzen",
+  "island": "hephaistos",
+  "order": 1,
+  "version": "1.0.0",
+  "owner": "copilot-team",
+  "status": "draft",
+  "reviewedAt": "2026-10-28",
+  "reviewIntervalDays": 180,
+  "title": {
+    "de": "Agenten nutzen",
+    "en": "Using agents"
+  },
+  "summary": {
+    "de": "Was Agenten sind, welche es gibt und wann sie dir mehr helfen als ein normaler Chat.",
+    "en": "What agents are, which ones exist and when they help you more than a normal chat."
+  },
+  "estimatedMinutes": 8,
+  "notes": "Neuer Inhalt. Stand Oktober 2026: Agenten erscheinen in der Microsoft-365-Copilot-App links unter «Agenten». Researcher und Analyst brauchen M365 Copilot (Premium). Ob Personen mit Copilot Chat (Basic) Agenten nutzen oder erstellen dürfen, hängt von den IT-Einstellungen ab (nutzungsabhängige Abrechnung), deshalb nur allgemein erwähnt. Bitte mit der IT klären, welche Agenten freigegeben sind.",
+  "blocks": [
+    {
+      "type": "briefing",
+      "id": "agenten",
+      "title": {
+        "de": "Werkzeuge aus der Schmiede",
+        "en": "Tools from the forge"
+      },
+      "body": {
+        "de": "Ein **Agent** ist ein Copilot mit einer festen Aufgabe. Er hat eigene Anweisungen und oft eigenes Wissen, zum Beispiel ein Handbuch oder eine SharePoint-Seite.\n\nDu findest Agenten in Copilot links unter **«Agenten»**:\n- **Researcher** recherchiert gründlich und liefert Berichte mit Quellen.\n- **Analyst** wertet Daten aus, zum Beispiel aus Excel-Dateien.\n- **Agenten eures Unternehmens**, zum Beispiel für interne Richtlinien, wenn die IT welche bereitstellt.\n\nResearcher und Analyst gibt es mit M365 Copilot (Premium). Welche weiteren Agenten du siehst, legt eure IT fest.",
+        "en": "An **agent** is a Copilot with a fixed job. It has its own instructions and often its own knowledge, such as a handbook or a SharePoint site.\n\nYou find agents in Copilot on the left under **“Agents”**:\n- **Researcher** researches thoroughly and delivers reports with sources.\n- **Analyst** analyses data, for example from Excel files.\n- **Your company's agents**, for example for internal guidelines, if IT provides them.\n\nResearcher and Analyst are available with M365 Copilot (Premium). Which other agents you see is decided by your IT."
+      }
+    },
+    {
+      "type": "quiz",
+      "id": "q-agent-was",
+      "difficulty": "beginner",
+      "question": {
+        "de": "Was unterscheidet einen Agenten von einem normalen Chat mit Copilot?",
+        "en": "What distinguishes an agent from a normal chat with Copilot?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "de": "Er hat eine feste Aufgabe, eigene Anweisungen und oft eigenes Wissen",
+            "en": "It has a fixed job, its own instructions and often its own knowledge"
+          },
+          "correct": true,
+          "explanation": {
+            "de": "Genau. Deshalb musst du nicht jedes Mal alles neu erklären.",
+            "en": "Exactly. That is why you do not have to explain everything from scratch every time."
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "de": "Er arbeitet ohne Kontrolle und entscheidet selbst",
+            "en": "It works without supervision and decides on its own"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Auch Agenten liefern Vorschläge. Entscheiden und prüfen tust du.",
+            "en": "Agents also deliver suggestions. You decide and check."
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "de": "Er ist ein echter Mensch im Hintergrund",
+            "en": "It is a real person in the background"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Ein Agent ist Software, kein Mensch.",
+            "en": "An agent is software, not a person."
+          }
+        }
+      ]
+    },
+    {
+      "type": "quiz",
+      "id": "q-agent-wann",
+      "difficulty": "intermediate",
+      "question": {
+        "de": "Für welche Aufgabe lohnt sich ein Agent am meisten?",
+        "en": "For which task is an agent most worthwhile?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "de": "Eine Frage, die im Team jede Woche ähnlich auftaucht, zum Beispiel zu internen Abläufen",
+            "en": "A question that comes up in the team in a similar way every week, for example about internal processes"
+          },
+          "correct": true,
+          "explanation": {
+            "de": "Genau. Wiederkehrende Fragen mit festem Wissen sind ideal für einen Agenten.",
+            "en": "Exactly. Recurring questions with fixed knowledge are ideal for an agent."
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "de": "Eine einmalige Geburtstagskarte",
+            "en": "A one-off birthday card"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Dafür reicht ein normaler Chat.",
+            "en": "A normal chat is enough for that."
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "de": "Eine verbindliche Preisauskunft an Gäste",
+            "en": "A binding price quote for guests"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Verbindliche Auskünfte kommen aus den offiziellen Systemen, nicht von einem Agenten.",
+            "en": "Binding information comes from the official systems, not from an agent."
+          }
+        }
+      ]
+    },
+    {
+      "type": "mission",
+      "id": "m-agenten",
+      "title": {
+        "de": "Ein Rundgang durch die Schmiede",
+        "en": "A tour of the forge"
+      },
+      "task": {
+        "de": "Öffne Copilot und schau links unter «Agenten», welche Agenten du hast. Öffne einen davon und stell ihm eine Frage aus deiner Arbeit.",
+        "en": "Open Copilot and look under “Agents” on the left to see which agents you have. Open one of them and ask it a question from your work."
+      },
+      "tip": {
+        "de": "Siehst du keine Agenten? Dann frag die IT, welche für euch freigeschaltet sind.",
+        "en": "No agents? Then ask IT which ones have been enabled for you."
+      }
+    }
+  ]
+}

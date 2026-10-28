@@ -1,0 +1,133 @@
+{
+  "$schema": "../schema/module.schema.json",
+  "id": "teiresias-researcher",
+  "island": "teiresias",
+  "order": 2,
+  "version": "1.0.0",
+  "owner": "copilot-team",
+  "status": "draft",
+  "reviewedAt": "2026-10-28",
+  "reviewIntervalDays": 180,
+  "title": {
+    "de": "Gründlich recherchieren mit Researcher",
+    "en": "Researching thoroughly with Researcher"
+  },
+  "summary": {
+    "de": "Der Agent Researcher erstellt in mehreren Schritten einen Bericht mit Quellen aus Web und Arbeitsdaten.",
+    "en": "The Researcher agent creates a report with sources from the web and your work data in several steps."
+  },
+  "estimatedMinutes": 8,
+  "notes": "Neuer Inhalt. Stand Oktober 2026: Researcher ist mit M365 Copilot (Premium) verfügbar, sofern die IT ihn freigeschaltet hat (Microsoft-Support). Laufzeit und Modelle bewusst nicht genannt, da sie sich ändern.",
+  "blocks": [
+    {
+      "type": "briefing",
+      "id": "researcher",
+      "title": {
+        "de": "Ein Seher für grosse Fragen",
+        "en": "A seer for big questions"
+      },
+      "body": {
+        "de": "**Researcher** ist ein Agent in M365 Copilot für Fragen, die mehr als eine schnelle Antwort brauchen. Er plant die Recherche, sucht in mehreren Schritten im Web und in deinen Arbeitsdaten und liefert einen **Bericht mit Quellen**.\n\nSo nutzt du ihn:\n- Öffne in Copilot links die **Agenten** und wähle **Researcher**.\n- Beschreibe Ziel, Zielgruppe und gewünschtes Ergebnis. Researcher stellt oft Rückfragen.\n- Die Recherche dauert einige Minuten. Du kannst in der Zwischenzeit weiterarbeiten.\n\nGeeignet für: Marktübersichten, Vergleiche, Hintergründe zu einer Destination oder die Vorbereitung eines Konzepts. Prüfe die Quellen, bevor du Ergebnisse weitergibst.",
+        "en": "**Researcher** is an agent in M365 Copilot for questions that need more than a quick answer. It plans the research, searches the web and your work data in several steps and delivers a **report with sources**.\n\nHow to use it:\n- In Copilot, open **Agents** on the left and choose **Researcher**.\n- Describe goal, audience and the result you want. Researcher often asks follow-up questions.\n- The research takes a few minutes. You can keep working in the meantime.\n\nGood for: market overviews, comparisons, background on a destination or preparing a concept. Check the sources before you pass on results."
+      }
+    },
+    {
+      "type": "quiz",
+      "id": "q-researcher-wann",
+      "difficulty": "beginner",
+      "question": {
+        "de": "Wofür lohnt sich Researcher mehr als eine normale Frage an Copilot?",
+        "en": "When is Researcher worth more than a normal question to Copilot?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "de": "Für eine Marktübersicht zu Familienreisen nach Skandinavien mit Quellen",
+            "en": "For a market overview of family trips to Scandinavia with sources"
+          },
+          "correct": true,
+          "explanation": {
+            "de": "Genau. Umfangreiche Fragen mit mehreren Quellen sind seine Stärke.",
+            "en": "Exactly. Extensive questions with several sources are its strength."
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "de": "Für eine kurze Antwort-Mail an eine Kollegin",
+            "en": "For a short reply email to a colleague"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Dafür reicht Copilot Chat. Researcher braucht mehrere Minuten.",
+            "en": "Copilot Chat is enough for that. Researcher takes several minutes."
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "de": "Für die Frage, wie spät es in Bangkok ist",
+            "en": "For the question of what time it is in Bangkok"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Eine einfache Frage braucht keinen Rechercheagenten.",
+            "en": "A simple question does not need a research agent."
+          }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "id": "p-researcher",
+      "difficulty": "advanced",
+      "title": {
+        "de": "Ein Rechercheauftrag",
+        "en": "A research brief"
+      },
+      "scenario": {
+        "de": "Euer Produktteam überlegt, Wanderreisen in Japan ins Programm aufzunehmen. Du sollst bis Ende Woche eine Übersicht liefern. Schreib den Auftrag für Researcher.",
+        "en": "Your product team is considering adding hiking trips in Japan to the programme. You are to deliver an overview by the end of the week. Write the brief for Researcher."
+      },
+      "rubric": [
+        "goal",
+        "context",
+        "source",
+        "expectation"
+      ],
+      "examplePrompt": {
+        "de": "Erstelle eine Übersicht zum Markt für Wanderreisen in Japan für unser Produktteam, damit wir entscheiden können, ob wir sie ins Programm aufnehmen. Nutze öffentliche Quellen aus dem Web und unsere internen Unterlagen zu bestehenden Asienreisen. Gliedere in Zielgruppen, beliebte Regionen und Saisons, Mitbewerber und Risiken, mit Quellen und einer Zusammenfassung von höchstens einer Seite.",
+        "en": "Create an overview of the market for hiking trips in Japan for our product team, so that we can decide whether to add them to the programme. Use public sources from the web and our internal documents on existing Asia trips. Structure it into target groups, popular regions and seasons, competitors and risks, with sources and a summary of at most one page."
+      }
+    },
+    {
+      "type": "mission",
+      "id": "m-researcher",
+      "title": {
+        "de": "Eine Frage an das Orakel",
+        "en": "A question for the oracle"
+      },
+      "task": {
+        "de": "Öffne Copilot, wähle links unter den Agenten Researcher und gib ihm einen echten Rechercheauftrag aus deiner Arbeit. Prüfe zwei Quellen aus dem Bericht.",
+        "en": "Open Copilot, choose Researcher under the agents on the left and give it a real research brief from your work. Check two sources from the report."
+      },
+      "tip": {
+        "de": "Findest du Researcher nicht? Dann hat ihn eure IT noch nicht freigeschaltet.",
+        "en": "Can't find Researcher? Then your IT has not enabled it yet."
+      },
+      "copyText": {
+        "de": "Erstelle eine Übersicht zu [Thema] für [Zielgruppe], damit wir [Entscheidung] treffen können. Gliedere in [Punkte] und nenne die Quellen.",
+        "en": "Create an overview of [topic] for [audience], so that we can decide [decision]. Structure it into [points] and name the sources."
+      }
+    },
+    {
+      "type": "usecase",
+      "id": "u-researcher",
+      "intro": {
+        "de": "Welche Recherche machst du immer wieder von Hand? Halte sie als Use-Case-Karte fest.",
+        "en": "Which research do you do by hand again and again? Record it as a use case card."
+      }
+    }
+  ]
+}
