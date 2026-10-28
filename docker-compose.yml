@@ -1,0 +1,88 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: odyssey-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${DB_NAME:-copilot_odyssey}
+      POSTGRES_USER: ${DB_USER:-odyssey_admin}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./backend/src/migrations:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-odyssey_admin} -d ${DB_NAME:-copilot_odyssey}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - odyssey-net
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: odyssey-backend
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      NODE_ENV: ${NODE_ENV:-production}
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: ${DB_NAME:-copilot_odyssey}
+      DB_USER: ${DB_USER:-odyssey_admin}
+      DB_PASSWORD: ${DB_PASSWORD}
+      JWT_SECRET: ${JWT_SECRET}
+      MISTRAL_API_KEY: ${MISTRAL_API_KEY}
+      MISTRAL_MODEL: ${MISTRAL_MODEL:-mistral-small-latest}
+      FRONTEND_URL: ${FRONTEND_URL}
+      PORT: 4000
+    volumes:
+      - ./backend/logs:/app/logs
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:4000/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - odyssey-net
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        VITE_API_URL: ${FRONTEND_URL}/api
+    container_name: odyssey-frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    networks:
+      - odyssey-net
+
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    container_name: odyssey-nginx
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8083:80"
+    depends_on:
+      - frontend
+      - backend
+    volumes:
+      - ./nginx/logs:/var/log/nginx
+    networks:
+      - odyssey-net
+
+volumes:
+  postgres_data:
+
+networks:
+  odyssey-net:
+    driver: bridge
