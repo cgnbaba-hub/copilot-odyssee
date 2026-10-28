@@ -1,0 +1,177 @@
+{
+  "$schema": "../schema/module.schema.json",
+  "id": "hermes-postfach",
+  "island": "hermes",
+  "order": 2,
+  "version": "1.0.0",
+  "owner": "copilot-team",
+  "status": "draft",
+  "reviewedAt": "2026-10-28",
+  "reviewIntervalDays": 180,
+  "license": "premium",
+  "title": {
+    "de": "Postfach im Griff",
+    "en": "Inbox under control"
+  },
+  "summary": {
+    "de": "Ganze Verläufe zusammenfassen, Entwürfe coachen lassen und das Postfach nach offenen Punkten fragen.",
+    "en": "Summarise whole threads, get coaching on drafts and ask your inbox about open items."
+  },
+  "estimatedMinutes": 10,
+  "notes": "Neuer Inhalt. Premium-Funktionen in Outlook gemäss öffentlicher Dokumentation und Fachpresse, Stand Oktober 2026: Zusammenfassung von Verläufen, Entwurf, Coaching, Priorisierung, Fragen über Postfach und Kalender. Funktionsnamen bewusst allgemein, da sie sich je nach Outlook-Variante unterscheiden.",
+  "blocks": [
+    {
+      "type": "briefing",
+      "id": "premium-outlook",
+      "title": {
+        "de": "Was Premium in Outlook zusätzlich kann",
+        "en": "What Premium adds in Outlook"
+      },
+      "body": {
+        "de": "Mit **M365 Copilot (Premium)** arbeitet Copilot in Outlook mit deinem ganzen Postfach und deinem Kalender:\n- **Verläufe zusammenfassen:** Oben in einer Mail fasst Copilot den ganzen Verlauf zusammen, mit Verweisen auf die einzelnen Mails.\n- **Entwerfen beim Schreiben:** Im Antwortfenster schreibt Copilot einen Entwurf. Du wählst Länge und Ton.\n- **Coaching:** Copilot gibt dir Rückmeldung zu deinem eigenen Entwurf, zum Beispiel zu Ton und Klarheit.\n- **Fragen an dein Postfach:** «Welche Mails von dieser Woche brauchen noch eine Antwort von mir?» oder «Was steht morgen in meinem Kalender?»\n\nCopilot sieht dabei nur, worauf du selbst Zugriff hast. Termine und Zahlen prüfst du trotzdem.",
+        "en": "With **M365 Copilot (Premium)**, Copilot in Outlook works with your whole inbox and your calendar:\n- **Summarise threads:** At the top of an email, Copilot summarises the whole thread, with references to the individual emails.\n- **Draft while writing:** In the reply window Copilot writes a draft. You choose length and tone.\n- **Coaching:** Copilot gives feedback on your own draft, for example on tone and clarity.\n- **Questions to your inbox:** “Which emails from this week still need a reply from me?” or “What is in my calendar tomorrow?”\n\nCopilot only sees what you yourself have access to. You still check dates and figures."
+      }
+    },
+    {
+      "type": "quiz",
+      "id": "q-ferien",
+      "difficulty": "beginner",
+      "question": {
+        "de": "Du kommst aus einer Woche Ferien zurück. Welche Frage an Copilot (Premium) bringt dich am schnellsten auf den neusten Stand?",
+        "en": "You are back from a week of holidays. Which question to Copilot (Premium) gets you up to date fastest?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "de": "«Welche Mails von letzter Woche brauchen eine Antwort oder Entscheidung von mir?»",
+            "en": "“Which emails from last week need a reply or decision from me?”"
+          },
+          "correct": true,
+          "explanation": {
+            "de": "Genau. Ein klares Ziel liefert eine Liste, mit der du sofort arbeiten kannst.",
+            "en": "Exactly. A clear goal gives you a list you can work with straight away."
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "de": "«Lies meine Mails.»",
+            "en": "“Read my emails.”"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Ohne Ziel weiss Copilot nicht, was dir wichtig ist. Sag, was du brauchst.",
+            "en": "Without a goal Copilot does not know what matters to you. Say what you need."
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "de": "«Lösche alle unwichtigen Mails.»",
+            "en": "“Delete all unimportant emails.”"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Was wegkommt, entscheidest du. Copilot hilft beim Sortieren und Zusammenfassen.",
+            "en": "You decide what goes. Copilot helps with sorting and summarising."
+          }
+        }
+      ]
+    },
+    {
+      "type": "quiz",
+      "id": "q-coaching",
+      "difficulty": "intermediate",
+      "question": {
+        "de": "Wofür ist das Coaching von Copilot in Outlook gedacht?",
+        "en": "What is Copilot coaching in Outlook for?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "de": "Rückmeldung zu Ton, Klarheit und Wirkung meines eigenen Entwurfs",
+            "en": "Feedback on the tone, clarity and impact of my own draft"
+          },
+          "correct": true,
+          "explanation": {
+            "de": "Genau. Gerade bei heiklen Mails hilft ein zweiter Blick, bevor du sendest.",
+            "en": "Exactly. Especially with tricky emails, a second look helps before you send."
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "de": "Die Mail wird automatisch umgeschrieben und gesendet",
+            "en": "The email is automatically rewritten and sent"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Coaching gibt Hinweise. Was du übernimmst und wann du sendest, entscheidest du.",
+            "en": "Coaching gives suggestions. You decide what to take on and when to send."
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "de": "Copilot bewertet die Leistung der Empfängerin",
+            "en": "Copilot rates the recipient's performance"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Copilot bewertet keine Personen. Es geht um deinen Text.",
+            "en": "Copilot does not rate people. It is about your text."
+          }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "id": "p-nach-ferien",
+      "difficulty": "intermediate",
+      "title": {
+        "de": "Zurück aus den Ferien",
+        "en": "Back from holidays"
+      },
+      "scenario": {
+        "de": "Du warst zwei Wochen weg und hast über 300 ungelesene Mails. Du willst heute Vormittag zuerst erledigen, was wirklich dringend ist. Schreib den Prompt für Copilot in Outlook.",
+        "en": "You were away for two weeks and have over 300 unread emails. This morning you want to deal first with what is really urgent. Write the prompt for Copilot in Outlook."
+      },
+      "rubric": [
+        "goal",
+        "context",
+        "expectation"
+      ],
+      "examplePrompt": {
+        "de": "Fasse die Mails der letzten zwei Wochen zusammen, in denen ich direkt angeschrieben wurde und die noch eine Antwort oder Entscheidung von mir brauchen, damit ich heute Vormittag das Dringendste erledigen kann. Bitte als Liste, sortiert nach Dringlichkeit, mit Absender und einem Satz pro Mail.",
+        "en": "Summarise the emails from the last two weeks that were addressed to me directly and still need a reply or decision from me, so that I can deal with the most urgent ones this morning. Please as a list, sorted by urgency, with sender and one sentence per email."
+      }
+    },
+    {
+      "type": "mission",
+      "id": "m-postfach",
+      "title": {
+        "de": "Den Überblick zurückholen",
+        "en": "Get the overview back"
+      },
+      "task": {
+        "de": "Frag Copilot in Outlook nach Mails der letzten Tage, die noch eine Antwort von dir brauchen. Klicke bei einem Treffer auf die Quellenangabe und prüfe, ob die Zusammenfassung stimmt.",
+        "en": "Ask Copilot in Outlook about emails from the last few days that still need a reply from you. Click the reference of one result and check whether the summary is correct."
+      },
+      "copyText": {
+        "de": "Welche Mails der letzten drei Tage brauchen noch eine Antwort von mir? Liste sie mit Absender und einem Satz zum Inhalt auf, die dringendsten zuerst.",
+        "en": "Which emails from the last three days still need a reply from me? List them with sender and one sentence about the content, most urgent first."
+      },
+      "app": "outlook"
+    },
+    {
+      "type": "usecase",
+      "id": "u-postfach",
+      "intro": {
+        "de": "Wo verlierst du in deinem Postfach am meisten Zeit? Halte es als Use-Case-Karte fest.",
+        "en": "Where do you lose the most time in your inbox? Record it as a use case card."
+      }
+    }
+  ]
+}

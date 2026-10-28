@@ -1,0 +1,126 @@
+{
+  "$schema": "../schema/module.schema.json",
+  "id": "penelope-entwerfen",
+  "island": "penelope",
+  "order": 1,
+  "version": "1.0.0",
+  "owner": "copilot-team",
+  "status": "draft",
+  "reviewedAt": "2026-10-28",
+  "reviewIntervalDays": 180,
+  "title": {
+    "de": "Entwerfen mit eigenen Dateien",
+    "en": "Drafting from your own files"
+  },
+  "summary": {
+    "de": "Aus Notizen, Mails und Dokumenten einen ersten Entwurf machen, direkt in Word.",
+    "en": "Turn notes, emails and documents into a first draft, right in Word."
+  },
+  "estimatedMinutes": 10,
+  "notes": "Neuer Inhalt. Stand Oktober 2026: Copilot in Word entwirft auf Basis referenzierter Dateien («/» plus Dateiname); seit 2026 kann Copilot im Bearbeitungsmodus direkt im Dokument arbeiten (Fachpresse, Microsoft-Support). Mengengrenzen für referenzierte Dateien bewusst nicht genannt, da sie sich ändern.",
+  "blocks": [
+    {
+      "type": "briefing",
+      "id": "word",
+      "title": {
+        "de": "Copilot in Word",
+        "en": "Copilot in Word"
+      },
+      "body": {
+        "de": "In Word öffnest du Copilot über das **Copilot-Symbol** im Menüband «Start» oder am Rand eines leeren Dokuments.\n\nDas Wichtigste: **Gib Copilot deinen Rohstoff.** Tippe im Copilot-Feld **«/»** und dann die ersten Buchstaben eines Dateinamens. Copilot schlägt passende Dateien, Mails oder Meetings vor. So schreibt er auf Basis deiner Unterlagen statt aus allgemeinem Wissen.\n\nCopilot kann direkt im Dokument arbeiten. Damit du jede Änderung siehst:\n- Schalte unter «Überprüfen» die **Änderungsverfolgung** ein.\n- Nimm Änderungen an oder lehne sie ab.",
+        "en": "In Word you open Copilot via the **Copilot icon** in the “Home” ribbon or at the edge of an empty document.\n\nThe key point: **give Copilot your raw material.** In the Copilot box, type **“/”** and then the first letters of a file name. Copilot suggests matching files, emails or meetings. That way it writes based on your material instead of general knowledge.\n\nCopilot can work directly in the document. To see every change:\n- Turn on **Track Changes** under “Review”.\n- Accept or reject changes."
+      }
+    },
+    {
+      "type": "quiz",
+      "id": "q-notizen",
+      "difficulty": "beginner",
+      "question": {
+        "de": "Du willst mit Copilot in Word ein Reiseprogramm entwerfen, das auf den Notizen deiner Rekognoszierungsreise beruht. Wie kommt Copilot an die Notizen?",
+        "en": "You want to draft a tour programme in Word with Copilot, based on the notes from your inspection trip. How does Copilot get the notes?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "de": "Ich verweise im Copilot-Feld mit «/» auf die Datei mit den Notizen.",
+            "en": "I reference the file with the notes in the Copilot box using “/”."
+          },
+          "correct": true,
+          "explanation": {
+            "de": "Genau. So weiss Copilot sicher, mit welcher Datei er arbeiten soll.",
+            "en": "Exactly. That way Copilot knows for sure which file to work with."
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "de": "Gar nicht, ich muss die Notizen abtippen.",
+            "en": "Not at all, I have to retype the notes."
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Nicht nötig. Mit «/» gibst du Copilot die Datei direkt.",
+            "en": "Not necessary. With “/” you give Copilot the file directly."
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "de": "Copilot weiss automatisch, welche Notizen ich meine.",
+            "en": "Copilot automatically knows which notes I mean."
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Copilot kann zwar suchen, aber sicher ist es nur, wenn du die Datei nennst.",
+            "en": "Copilot can search, but it is only reliable if you name the file."
+          }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "id": "p-katalog",
+      "difficulty": "intermediate",
+      "title": {
+        "de": "Eine Katalogbeschreibung",
+        "en": "A catalogue description"
+      },
+      "scenario": {
+        "de": "Für die neue achttägige Rundreise durch Andalusien hast du ein Word-Dokument «Notizen Andalusien» von deiner Rekognoszierungsreise. Du brauchst eine Katalogbeschreibung für Familien mit Teenagern, rund 250 Wörter. Schreib den Prompt für Copilot in Word.",
+        "en": "For the new eight-day tour of Andalusia you have a Word document “Notes Andalusia” from your inspection trip. You need a catalogue description for families with teenagers, about 250 words. Write the prompt for Copilot in Word."
+      },
+      "rubric": [
+        "goal",
+        "context",
+        "source",
+        "expectation"
+      ],
+      "examplePrompt": {
+        "de": "Entwirf auf Basis von /Notizen Andalusien eine Katalogbeschreibung für unsere achttägige Rundreise durch Andalusien. Zielgruppe sind Familien mit Teenagern. Hebe die drei Höhepunkte hervor und nenne keine Preise. Rund 250 Wörter, einladend, aber sachlich, in Schweizer Hochdeutsch.",
+        "en": "Draft a catalogue description for our eight-day tour of Andalusia based on /Notes Andalusia. The audience is families with teenagers. Highlight the three main attractions and do not mention prices. About 250 words, inviting but factual."
+      }
+    },
+    {
+      "type": "mission",
+      "id": "m-word-entwurf",
+      "title": {
+        "de": "Am Webstuhl",
+        "en": "At the loom"
+      },
+      "task": {
+        "de": "Erstelle ein neues Word-Dokument. Lass Copilot aus eigenen Notizen oder einer Mail einen ersten Entwurf schreiben, zum Beispiel eine Info für dein Team. Ersetze [Dateiname] durch eine eigene Datei.",
+        "en": "Create a new Word document. Have Copilot write a first draft from your own notes or an email, for example an update for your team. Replace [file name] with one of your own files."
+      },
+      "tip": {
+        "de": "Tippe «/» und die ersten Buchstaben des Dateinamens. Copilot schlägt passende Dateien vor.",
+        "en": "Type “/” and the first letters of the file name. Copilot suggests matching files."
+      },
+      "copyText": {
+        "de": "Entwirf aus /[Dateiname] eine kurze Info für mein Team: worum es geht, was sich ändert und was das Team tun muss. Maximal eine Seite, in Schweizer Hochdeutsch, ohne Eszett.",
+        "en": "Draft a short update for my team from /[file name]: what it is about, what changes and what the team needs to do. One page at most."
+      },
+      "app": "word"
+    }
+  ]
+}

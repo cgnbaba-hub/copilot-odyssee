@@ -1,13 +1,22 @@
 import * as React from 'react';
 
-import { MissionBlock } from '../../core/content/types';
+import { MissionApp, MissionBlock } from '../../core/content/types';
 import { completeMission } from '../../core/progress/state';
-import { Strings } from '../i18n/strings';
+import { format, Strings } from '../i18n/strings';
 import { useGame } from '../GameContext';
 import styles from '../styles.module.scss';
 import { BlockViewProps } from './BlockViewProps';
 
 const COPILOT_CHAT_URL = 'https://m365.cloud.microsoft/chat';
+
+/** Product names, the same in every language. */
+export const APP_NAMES: Record<MissionApp, string> = {
+  outlook: 'Outlook',
+  teams: 'Teams',
+  word: 'Word',
+  excel: 'Excel',
+  powerpoint: 'PowerPoint'
+};
 const RATINGS = [1, 2, 3, 4, 5];
 
 type CopyState = 'idle' | 'copied' | 'failed';
@@ -58,19 +67,27 @@ export function MissionView(props: BlockViewProps<MissionBlock>): React.ReactEle
   );
 
   // Each step carries the button it talks about, so nobody has to look for it.
-  const steps: { text: string; action?: React.ReactNode }[] = [
-    {
-      text: strings.missionStep1,
-      action: (
-        <a className={`${styles.buttonPrimary} ${styles.buttonBig}`} href={COPILOT_CHAT_URL} target="_blank" rel="noopener noreferrer">
-          {strings.missionOpenCopilot} ↗
-        </a>
-      )
-    },
-    { text: copyText ? strings.missionStep2Copy : strings.missionStep2, action: copyBox },
-    { text: strings.missionStep3 },
-    { text: strings.missionStep4 }
-  ];
+  const app = block.app ? { app: APP_NAMES[block.app] } : undefined;
+  const steps: { text: string; action?: React.ReactNode }[] = app
+    ? [
+        { text: format(strings.missionAppStep1, app) },
+        { text: format(copyText ? strings.missionAppStep2Copy : strings.missionAppStep2, app), action: copyBox },
+        { text: strings.missionAppStep3 },
+        { text: strings.missionAppStep4 }
+      ]
+    : [
+        {
+          text: strings.missionStep1,
+          action: (
+            <a className={`${styles.buttonPrimary} ${styles.buttonBig}`} href={COPILOT_CHAT_URL} target="_blank" rel="noopener noreferrer">
+              {strings.missionOpenCopilot} ↗
+            </a>
+          )
+        },
+        { text: copyText ? strings.missionStep2Copy : strings.missionStep2, action: copyBox },
+        { text: strings.missionStep3 },
+        { text: strings.missionStep4 }
+      ];
 
   return (
     <>

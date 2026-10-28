@@ -27,6 +27,14 @@
       }
     },
     {
+      "id": "copilot-in-apps",
+      "question": { "de": "Wo finde ich Copilot in Outlook, Word und Co.?", "en": "Where do I find Copilot in Outlook, Word and the like?" },
+      "answer": {
+        "de": "Achte auf das **Copilot-Symbol**, ein buntes, geschwungenes Zeichen.\n- **Outlook:** im Menüband oder oben in einer geöffneten Mail. Das geht mit **beiden Versionen**.\n- **Word, Excel und PowerPoint:** im Menüband **«Start»**, meist ganz rechts. Das geht nur mit **M365 Copilot (Premium)**.\n- **Teams:** im Meeting in der Leiste oben, in Chats oben rechts. Nur mit **Premium**.\n\nSiehst du das Symbol nicht, obwohl du Premium hast?\n- Speichere die Datei in OneDrive oder SharePoint.\n- Schliesse die App und öffne sie neu.\n- Frag die IT, ob Copilot für dich freigeschaltet ist.",
+        "en": "Look for the **Copilot icon**, a colourful, curved symbol.\n- **Outlook:** in the ribbon or at the top of an open email. This works with **both versions**.\n- **Word, Excel and PowerPoint:** in the **“Home”** ribbon, usually on the far right. This only works with **M365 Copilot (Premium)**.\n- **Teams:** in a meeting in the bar at the top, in chats at the top right. **Premium** only.\n\nCan't see the icon although you have Premium?\n- Save the file in OneDrive or SharePoint.\n- Close the app and open it again.\n- Ask IT whether Copilot has been enabled for you."
+      }
+    },
+    {
       "id": "kopieren",
       "question": { "de": "Wie bringe ich einen Text in Copilot?", "en": "How do I get text into Copilot?" },
       "answer": {

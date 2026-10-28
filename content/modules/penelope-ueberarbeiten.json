@@ -1,0 +1,176 @@
+{
+  "$schema": "../schema/module.schema.json",
+  "id": "penelope-ueberarbeiten",
+  "island": "penelope",
+  "order": 2,
+  "version": "1.0.0",
+  "owner": "copilot-team",
+  "status": "draft",
+  "reviewedAt": "2026-10-28",
+  "reviewIntervalDays": 180,
+  "title": {
+    "de": "Überarbeiten und zusammenfassen",
+    "en": "Revising and summarising"
+  },
+  "summary": {
+    "de": "Texte kürzen, umformulieren und lange Dokumente wie Verträge schnell verstehen.",
+    "en": "Shorten and rephrase texts, and quickly understand long documents such as contracts."
+  },
+  "estimatedMinutes": 8,
+  "notes": "Neuer Inhalt. Beispiel Hotelvertrag fiktiv. Hinweis auf rechtliche Prüfung durch Fachleute bewusst aufgenommen.",
+  "blocks": [
+    {
+      "type": "briefing",
+      "id": "ueberarbeiten",
+      "title": {
+        "de": "Den Stoff neu weben",
+        "en": "Reweaving the cloth"
+      },
+      "body": {
+        "de": "**Einen Abschnitt überarbeiten:** Markiere den Text und frag Copilot, zum Beispiel:\n- «Kürze auf die Hälfte und behalte alle Fakten.»\n- «Formuliere für Gäste ohne Fachbegriffe.»\n- «Mach daraus eine Tabelle.»\n\n**Ein ganzes Dokument verstehen:** Frag im Copilot-Bereich:\n- «Fasse die wichtigsten Punkte zusammen.»\n- «Welche Fristen und Bedingungen stehen in diesem Vertrag?»\n\nCopilot nennt dabei die Stellen im Dokument. Bei Verträgen hilft er beim Verstehen. Die rechtliche Beurteilung bleibt bei Fachleuten.",
+        "en": "**Revise a section:** Highlight the text and ask Copilot, for example:\n- “Cut this in half and keep all the facts.”\n- “Rephrase it for guests without jargon.”\n- “Turn this into a table.”\n\n**Understand a whole document:** Ask in the Copilot pane:\n- “Summarise the key points.”\n- “Which deadlines and conditions are in this contract?”\n\nCopilot points to the places in the document. With contracts it helps you understand them. The legal assessment stays with experts."
+      }
+    },
+    {
+      "type": "quiz",
+      "id": "q-umschreiben",
+      "difficulty": "beginner",
+      "question": {
+        "de": "Copilot hat einen Abschnitt für dich umgeschrieben. Was prüfst du zuerst?",
+        "en": "Copilot has rewritten a section for you. What do you check first?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "de": "Ob alle Fakten, Zahlen und Namen noch stimmen",
+            "en": "Whether all facts, figures and names are still correct"
+          },
+          "correct": true,
+          "explanation": {
+            "de": "Genau. Beim Umformulieren können Details verloren gehen oder sich verändern.",
+            "en": "Exactly. When rephrasing, details can get lost or change."
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "de": "Nichts, es ist ja mein eigener Text",
+            "en": "Nothing, it is my own text after all"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Der Inhalt stammt von dir, die neue Formulierung von Copilot. Lies sie durch.",
+            "en": "The content is yours, the new wording is Copilot's. Read it through."
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "de": "Nur die Schriftart",
+            "en": "Only the font"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Die Schrift ist das kleinste Problem. Wichtig sind die Fakten.",
+            "en": "The font is the least of the worries. The facts matter."
+          }
+        }
+      ]
+    },
+    {
+      "type": "quiz",
+      "id": "q-vertrag",
+      "difficulty": "intermediate",
+      "question": {
+        "de": "Ein Hotelvertrag hat 30 Seiten. Wofür eignet sich Copilot am besten?",
+        "en": "A hotel contract has 30 pages. What is Copilot best suited for?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "de": "Fristen, Stornobedingungen und Kontingente herausziehen und mit Abschnitt auflisten",
+            "en": "Extract deadlines, cancellation terms and allotments and list them with their section"
+          },
+          "correct": true,
+          "explanation": {
+            "de": "Genau. So hast du schnell den Überblick und kannst jede Stelle nachlesen.",
+            "en": "Exactly. That gives you a quick overview and you can look up each point."
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "de": "Den Vertrag rechtsverbindlich prüfen und freigeben",
+            "en": "Check and approve the contract in a legally binding way"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Eine rechtliche Freigabe braucht Fachleute. Copilot hilft beim Verstehen.",
+            "en": "A legal approval needs experts. Copilot helps with understanding."
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "de": "Den Vertrag ändern und dem Partner zurückschicken",
+            "en": "Change the contract and send it back to the partner"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Änderungen an Verträgen sprichst du mit dem Partner ab. Copilot entscheidet nichts.",
+            "en": "You agree changes to contracts with the partner. Copilot decides nothing."
+          }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "id": "p-vertrag",
+      "difficulty": "intermediate",
+      "title": {
+        "de": "Einen Vertrag verstehen",
+        "en": "Understanding a contract"
+      },
+      "scenario": {
+        "de": "Du hast einen 30-seitigen Hotelvertrag in Word geöffnet. Dein Produktteam möchte die wichtigsten Konditionen auf einen Blick: Stornobedingungen, Release-Fristen und Kontingente. Schreib den Prompt für Copilot.",
+        "en": "You have opened a 30-page hotel contract in Word. Your product team wants the key terms at a glance: cancellation terms, release deadlines and allotments. Write the prompt for Copilot."
+      },
+      "rubric": [
+        "goal",
+        "context",
+        "expectation"
+      ],
+      "examplePrompt": {
+        "de": "Liste aus diesem Hotelvertrag alle Stornobedingungen, Release-Fristen und Kontingentregeln auf, damit unser Produktteam die Konditionen schnell vergleichen kann. Als Tabelle mit Thema, Regel und Abschnitt im Vertrag.",
+        "en": "List all cancellation terms, release deadlines and allotment rules from this hotel contract, so that our product team can compare the terms quickly. As a table with topic, rule and section in the contract."
+      }
+    },
+    {
+      "type": "mission",
+      "id": "m-word-zusammenfassen",
+      "title": {
+        "de": "Den Faden finden",
+        "en": "Finding the thread"
+      },
+      "task": {
+        "de": "Öffne ein längeres Word-Dokument, das du ohnehin lesen musst. Lass Copilot es zusammenfassen und prüfe zwei Punkte im Original nach.",
+        "en": "Open a longer Word document you have to read anyway. Have Copilot summarise it and check two points in the original."
+      },
+      "copyText": {
+        "de": "Fasse dieses Dokument in fünf Stichpunkten zusammen und nenne bei jedem Punkt den Abschnitt, aus dem er stammt.",
+        "en": "Summarise this document in five bullet points and name the section each point comes from."
+      },
+      "app": "word"
+    },
+    {
+      "type": "usecase",
+      "id": "u-word",
+      "intro": {
+        "de": "Welche Dokumente schreibst oder liest du immer wieder? Halte es als Use-Case-Karte fest.",
+        "en": "Which documents do you write or read again and again? Record it as a use case card."
+      }
+    }
+  ]
+}

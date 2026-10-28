@@ -60,12 +60,12 @@
       "id": "hermes",
       "landmark": "letter",
       "order": 3,
-      "license": "premium",
+      "license": "basic",
       "name": { "de": "Hermes' Botenstation", "en": "Hermes' Relay" },
       "tool": { "de": "Copilot in Outlook", "en": "Copilot in Outlook" },
       "summary": {
-        "de": "Postfach im Griff: zusammenfassen, Entwürfe schreiben, Ton verbessern.",
-        "en": "Master your inbox: summarise, draft replies, improve your tone."
+        "de": "Mails verstehen und beantworten geht mit beiden Versionen. Mit Premium hast du zusätzlich das ganze Postfach im Griff.",
+        "en": "Understanding and answering emails works with both versions. With Premium you also master your whole inbox."
       },
       "motif": {
         "de": "Hermes, der Götterbote, hilft Odysseus auf seiner Reise. Copilot hilft dir bei deinen Nachrichten.",

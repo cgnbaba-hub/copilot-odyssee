@@ -57,7 +57,7 @@ function blockMarkdown(block: Block): string {
       );
     case 'mission':
       return (
-        `${head}${block.copilot === false ? ' (ausserhalb von Copilot)' : ''}: ${block.title.de}\n\n${block.task.de}\n` +
+        `${head}${block.copilot === false ? ' (ausserhalb von Copilot)' : block.app ? ` (in ${block.app})` : ''}: ${block.title.de}\n\n${block.task.de}\n` +
         (block.copyText ? `\nZum Kopieren:\n\n${quote(block.copyText.de)}\n` : '') +
         (block.tip ? `\nTipp: ${block.tip.de}\n` : '')
       );
@@ -78,7 +78,7 @@ function reviewMarkdown(bundle: ContentBundle): string {
     if (modules.length === 0) return;
     lines.push(`## ${island.name.de} (${island.tool.de}, ${island.license === 'basic' ? 'für alle' : 'Premium'})`, '');
     modules.forEach((m) => {
-      lines.push(`### ${m.title.de}`, '', `\`${m.id}\` · Version ${m.version} · Status ${m.status} · ${m.estimatedMinutes} Min.` + (m.reviewedAt ? ` · geprüft ${m.reviewedAt}` : ''), '');
+      lines.push(`### ${m.title.de}${m.license && m.license !== island.license ? (m.license === 'premium' ? ' (nur Premium)' : ' (für alle)') : ''}`, '', `\`${m.id}\` · Version ${m.version} · Status ${m.status} · ${m.estimatedMinutes} Min.` + (m.reviewedAt ? ` · geprüft ${m.reviewedAt}` : ''), '');
       lines.push(m.summary.de, '');
       if (m.notes) lines.push(`_Redaktion: ${m.notes}_`, '');
       m.blocks.forEach((b) => lines.push(blockMarkdown(b)));

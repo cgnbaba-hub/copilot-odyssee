@@ -1,0 +1,133 @@
+{
+  "$schema": "../schema/module.schema.json",
+  "id": "hermes-mails-verstehen",
+  "island": "hermes",
+  "order": 1,
+  "version": "1.0.0",
+  "owner": "copilot-team",
+  "status": "draft",
+  "reviewedAt": "2026-10-28",
+  "reviewIntervalDays": 180,
+  "title": {
+    "de": "Mails verstehen und beantworten",
+    "en": "Understanding and answering emails"
+  },
+  "summary": {
+    "de": "Lange Mails zusammenfassen und Antworten entwerfen, direkt in Outlook. Geht mit beiden Versionen.",
+    "en": "Summarise long emails and draft replies right in Outlook. Works with both versions."
+  },
+  "estimatedMinutes": 10,
+  "notes": "Neuer Inhalt. Stand Oktober 2026: Copilot Chat in Outlook bleibt auch ohne Lizenz verfügbar (MC1253858/MC1253863) und bezieht sich auf die geöffnete Mail; Markieren begrenzt auf den markierten Text (Release Notes Februar 2026). Ob Basic in eurem Tenant auch über das ganze Postfach antwortet, ist je nach Rollout unterschiedlich, deshalb bewusst nicht versprochen. Knopf-Bezeichnungen bewusst allgemein gehalten, da sie sich zwischen neuem Outlook, klassischem Outlook und Web unterscheiden.",
+  "blocks": [
+    {
+      "type": "briefing",
+      "id": "outlook",
+      "title": {
+        "de": "Copilot in Outlook",
+        "en": "Copilot in Outlook"
+      },
+      "body": {
+        "de": "In Outlook ist Copilot mit **beiden Versionen** dabei. Du erkennst ihn am **Copilot-Symbol**, je nach Outlook im Menüband oder oben in der geöffneten Mail.\n\nSo arbeitest du damit:\n- **Öffne eine Mail** und frag Copilot dazu, zum Beispiel: «Fasse diese Mail in drei Stichpunkten zusammen.»\n- **Lass eine Antwort entwerfen:** «Entwirf eine freundliche Antwort und bestätige den Termin.»\n- **Markierst du einen Teil** der Mail, arbeitet Copilot nur mit diesem Teil.\n\nCopilot schreibt nur **Entwürfe**. Senden tust immer du.",
+        "en": "Copilot is available in Outlook with **both versions**. You recognise it by the **Copilot icon**, in the ribbon or at the top of the open email, depending on your Outlook.\n\nHow to work with it:\n- **Open an email** and ask Copilot about it, for example: “Summarise this email in three bullet points.”\n- **Have a reply drafted:** “Draft a friendly reply and confirm the appointment.”\n- **If you highlight part** of the email, Copilot only works with that part.\n\nCopilot only writes **drafts**. You always do the sending."
+      }
+    },
+    {
+      "type": "quiz",
+      "id": "q-outlook-basic",
+      "difficulty": "beginner",
+      "question": {
+        "de": "Du hast eine lange Mail eines Hotelpartners geöffnet. Was kann Copilot in Outlook damit tun, auch mit Copilot Chat (Basic)?",
+        "en": "You have opened a long email from a hotel partner. What can Copilot in Outlook do with it, even with Copilot Chat (Basic)?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "de": "Die Mail zusammenfassen und einen Antwortentwurf schreiben",
+            "en": "Summarise the email and write a draft reply"
+          },
+          "correct": true,
+          "explanation": {
+            "de": "Genau. Das geht mit beiden Versionen. Den Entwurf prüfst und sendest du selbst.",
+            "en": "Exactly. This works with both versions. You check and send the draft yourself."
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "de": "Die Mail selbstständig beantworten und senden",
+            "en": "Answer and send the email by itself"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Copilot sendet nichts in deinem Namen. Er schreibt Entwürfe, du entscheidest.",
+            "en": "Copilot sends nothing on your behalf. It writes drafts, you decide."
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "de": "Nichts, Copilot gibt es nur im Browser",
+            "en": "Nothing, Copilot only exists in the browser"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Copilot ist auch direkt in Outlook verfügbar, mit beiden Versionen.",
+            "en": "Copilot is also available right in Outlook, with both versions."
+          }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "id": "p-reklamation",
+      "difficulty": "intermediate",
+      "title": {
+        "de": "Antwort auf eine Reklamation",
+        "en": "Replying to a complaint"
+      },
+      "scenario": {
+        "de": "Ein Gast schreibt verärgert, dass sein Zimmer keinen Meerblick hatte, obwohl er ihn gebucht hat. Du hast die Mail in Outlook geöffnet. Du willst dich entschuldigen und einen Reisegutschein über 100 Franken anbieten. Schreib den Prompt für Copilot.",
+        "en": "A guest writes angrily that his room had no sea view although he had booked one. You have opened the email in Outlook. You want to apologise and offer a travel voucher worth 100 francs. Write the prompt for Copilot."
+      },
+      "rubric": [
+        "goal",
+        "context",
+        "expectation"
+      ],
+      "examplePrompt": {
+        "de": "Entwirf eine Antwort auf diese Mail. Der Gast hatte ein Zimmer mit Meerblick gebucht und keines erhalten. Entschuldige dich für den Fehler und biete im Namen unseres Kundendienstes einen Reisegutschein über 100 Franken an. Ton: wertschätzend und persönlich, Sie-Form, maximal 120 Wörter, in Schweizer Hochdeutsch.",
+        "en": "Draft a reply to this email. The guest had booked a room with a sea view and did not get one. Apologise for the mistake and offer a travel voucher worth 100 francs on behalf of our customer service. Tone: appreciative and personal, formal address, at most 120 words."
+      }
+    },
+    {
+      "type": "mission",
+      "id": "m-outlook-antwort",
+      "title": {
+        "de": "Ein Brief für Hermes",
+        "en": "A letter for Hermes"
+      },
+      "task": {
+        "de": "Öffne in Outlook eine längere Mail, die du ohnehin beantworten musst. Lass Copilot sie zusammenfassen und eine Antwort entwerfen. Passe den Entwurf an, bevor du ihn sendest.",
+        "en": "Open a longer email in Outlook that you have to answer anyway. Have Copilot summarise it and draft a reply. Adjust the draft before you send it."
+      },
+      "tip": {
+        "de": "Siehst du kein Copilot-Symbol? Dann schau in der Hilfe unter «Wo finde ich Copilot in Outlook, Word und Co.?».",
+        "en": "No Copilot icon? See “Where do I find Copilot in Outlook, Word and the like?” in the help."
+      },
+      "copyText": {
+        "de": "Fasse diese Mail in drei Stichpunkten zusammen. Entwirf danach eine kurze, freundliche Antwort in Schweizer Hochdeutsch, ohne Eszett.",
+        "en": "Summarise this email in three bullet points. Then draft a short, friendly reply."
+      },
+      "app": "outlook"
+    },
+    {
+      "type": "usecase",
+      "id": "u-outlook",
+      "intro": {
+        "de": "Welche Mails beantwortest du immer wieder ähnlich? Halte sie als Use-Case-Karte fest.",
+        "en": "Which emails do you answer in a similar way again and again? Record them as a use case card."
+      }
+    }
+  ]
+}

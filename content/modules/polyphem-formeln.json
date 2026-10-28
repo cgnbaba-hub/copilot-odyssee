@@ -1,0 +1,130 @@
+{
+  "$schema": "../schema/module.schema.json",
+  "id": "polyphem-formeln",
+  "island": "polyphem",
+  "order": 2,
+  "version": "1.0.0",
+  "owner": "copilot-team",
+  "status": "draft",
+  "reviewedAt": "2026-10-28",
+  "reviewIntervalDays": 180,
+  "title": {
+    "de": "Formeln und Auswertungen",
+    "en": "Formulas and analyses"
+  },
+  "summary": {
+    "de": "Formeln beschreiben statt suchen, Listen auswerten und Ergebnisse richtig prüfen.",
+    "en": "Describe formulas instead of searching for them, analyse lists and check results properly."
+  },
+  "estimatedMinutes": 8,
+  "notes": "Neuer Inhalt. Beispiel Buchungsliste fiktiv. Hinweis: Verbindliche Zahlen stammen aus dem Buchungssystem.",
+  "blocks": [
+    {
+      "type": "briefing",
+      "id": "formeln",
+      "title": {
+        "de": "Sag, was du brauchst",
+        "en": "Say what you need"
+      },
+      "body": {
+        "de": "Du musst keine Formeln kennen. **Beschreib, was du willst:**\n- «Füge eine Spalte hinzu, die die Marge in Prozent berechnet.»\n- «Erkläre mir die Formel in Spalte F in einfachen Worten.»\n- «Zeig den Umsatz pro Destination als PivotTable.»\n- «Markiere alle Buchungen mit Abreise in den nächsten 14 Tagen.»\n\nSo prüfst du das Ergebnis:\n- **Rechne zwei, drei Zeilen von Hand nach.**\n- **Schau dir die Formel an**, die Copilot eingefügt hat.\n- **Verbindliche Zahlen**, zum Beispiel für Gäste oder Abrechnungen, kommen aus dem Buchungssystem.",
+        "en": "You do not need to know formulas. **Describe what you want:**\n- “Add a column that calculates the margin in percent.”\n- “Explain the formula in column F in simple words.”\n- “Show revenue per destination as a PivotTable.”\n- “Highlight all bookings departing in the next 14 days.”\n\nHow to check the result:\n- **Recalculate two or three rows by hand.**\n- **Look at the formula** Copilot inserted.\n- **Binding figures**, for example for guests or invoices, come from the booking system."
+      }
+    },
+    {
+      "type": "quiz",
+      "id": "q-formel-pruefen",
+      "difficulty": "beginner",
+      "question": {
+        "de": "Copilot hat eine neue Spalte mit einer Formel ergänzt. Wie prüfst du sie am besten?",
+        "en": "Copilot has added a new column with a formula. How do you best check it?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "de": "Zwei, drei Zeilen von Hand nachrechnen und die Formel ansehen",
+            "en": "Recalculate two or three rows by hand and look at the formula"
+          },
+          "correct": true,
+          "explanation": {
+            "de": "Genau. Eine kurze Stichprobe zeigt, ob Copilot dich richtig verstanden hat.",
+            "en": "Exactly. A quick spot check shows whether Copilot understood you correctly."
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "de": "Copilot fragen, ob die Formel stimmt",
+            "en": "Ask Copilot whether the formula is correct"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Das ist keine unabhängige Prüfung. Rechne selbst nach.",
+            "en": "That is not an independent check. Recalculate yourself."
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "de": "Gar nicht, Excel rechnet ja immer richtig",
+            "en": "Not at all, Excel always calculates correctly"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Excel rechnet richtig, aber vielleicht die falsche Formel. Genau das prüfst du.",
+            "en": "Excel calculates correctly, but perhaps the wrong formula. That is exactly what you check."
+          }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "id": "p-abreisen",
+      "difficulty": "intermediate",
+      "title": {
+        "de": "Abreisen im Blick",
+        "en": "Keeping an eye on departures"
+      },
+      "scenario": {
+        "de": "Du hast eine Excel-Tabelle mit den Buchungen des nächsten Quartals (Buchungsnummer, Destination, Abreisedatum, Anzahl Personen, Status). Dein Team soll heute alle offenen Buchungen mit baldiger Abreise nachfassen. Schreib den Prompt für Copilot in Excel.",
+        "en": "You have an Excel table with next quarter's bookings (booking number, destination, departure date, number of people, status). Your team should follow up today on all open bookings departing soon. Write the prompt for Copilot in Excel."
+      },
+      "rubric": [
+        "goal",
+        "context",
+        "source",
+        "expectation"
+      ],
+      "examplePrompt": {
+        "de": "Erstelle aus dieser Buchungstabelle eine Übersicht aller Buchungen mit Abreise in den nächsten 14 Tagen und Status offen, damit unser Team sie heute nachfassen kann. Markiere diese Zeilen farbig und zeige zusätzlich die Anzahl offener Buchungen pro Destination als kleine Tabelle.",
+        "en": "From this booking table, create an overview of all bookings departing in the next 14 days with status open, so that our team can follow up on them today. Highlight these rows in colour and also show the number of open bookings per destination as a small table."
+      }
+    },
+    {
+      "type": "mission",
+      "id": "m-excel-formel",
+      "title": {
+        "de": "Eine Formel entschlüsseln",
+        "en": "Decoding a formula"
+      },
+      "task": {
+        "de": "Öffne eine Excel-Datei mit einer Formel, die du nicht ganz verstehst. Markiere die Zelle und lass dir die Formel von Copilot erklären.",
+        "en": "Open an Excel file with a formula you do not fully understand. Select the cell and have Copilot explain the formula."
+      },
+      "copyText": {
+        "de": "Erkläre mir die Formel in der markierten Zelle Schritt für Schritt in einfachen Worten.",
+        "en": "Explain the formula in the selected cell to me step by step in simple words."
+      },
+      "app": "excel"
+    },
+    {
+      "type": "usecase",
+      "id": "u-excel",
+      "intro": {
+        "de": "Welche Liste oder Auswertung erstellst du regelmässig von Hand? Halte es als Use-Case-Karte fest.",
+        "en": "Which list or analysis do you regularly create by hand? Record it as a use case card."
+      }
+    }
+  ]
+}
