@@ -2,6 +2,8 @@
 
 Ein gamifiziertes Lernspiel im 8-Bit/Pixel-Art-Stil, das Mitarbeitenden spielerisch den Umgang mit **Microsoft 365 Copilot** beibringt.
 
+> **Neuausrichtung:** Die App wird in Microsoft 365 (Teams/SharePoint) überführt. Plan und Arbeitspakete: [`docs/PLAN.md`](docs/PLAN.md). Die Beschreibung unten gilt für den bisherigen Prototyp.
+
 ## 🗺️ Spielwelt
 
 Spieler erkunden ein Insel-Archipel, wobei jede Insel ein M365-Tool repräsentiert:
