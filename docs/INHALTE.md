@@ -7,6 +7,7 @@ Alle Inhalte liegen als JSON-Dateien im Ordner [`content/`](../content/). Für S
 ```
 content/
 ├── islands.json          Alle Inseln der Seekarte
+├── help.json             Fragen und Antworten im Hilfe-Fenster
 ├── modules/              Ein Modul (Etappe) pro Datei
 │   └── aiolos-gute-prompts.json
 └── schema/               Regeln, gegen die geprüft wird
@@ -40,10 +41,14 @@ Alle Texte gibt es in beiden Sprachen: `{ "de": "…", "en": "…" }`. Deutsch i
 | `briefing` | Kurze Info | `title`, `body` (Absätze mit Leerzeile, Aufzählung mit `- `, **fett** mit `**…**`), optional `links` |
 | `quiz` | Eine Frage | `question`, `difficulty`, `options` (je `text`, `correct`, optional `explanation`) |
 | `prompt` | Prompt-Werkstatt | `title`, `scenario`, `difficulty`, `rubric` (`goal`, `context`, `source`, `expectation`), optional `examplePrompt` |
-| `mission` | Im echten Copilot ausprobieren | `title`, `task`, optional `tip` |
+| `mission` | Im echten Copilot ausprobieren | `title`, `task`, optional `tip`, `copyText` (Text mit Knopf «Text kopieren»), `copilot: false` (Aufgabe ausserhalb von Copilot, dann ohne Schritt-Anleitung) |
 | `usecase` | Eigenen Use Case festhalten | `intro` |
 
 Seemeilen (XP) vergibt die App selbst: Quiz je nach Schwierigkeit 10–80, Prompt bis 100, Mission 30, Use Case 50, Briefing 5, Abschluss einer Etappe 50.
+
+## Hilfe
+
+`help.json` füllt das Hilfe-Fenster (Knopf «Hilfe» oben rechts). Jedes Thema hat `id`, `question` und `answer` (gleiche Formatierung wie `body` im Briefing). Mit `"illustration": "license"` erscheint unter der Antwort eine vereinfachte Darstellung, wie man Basic und Premium in Copilot erkennt. Neue Fragen von Kolleginnen und Kollegen lassen sich so ohne neues App-Paket ergänzen.
 
 ## Prüfen
 

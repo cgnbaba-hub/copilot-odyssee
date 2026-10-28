@@ -6,12 +6,13 @@ import { earnedSouvenirs } from '../core/progress/achievements';
 import { initialState, Outcome, PlayerState } from '../core/progress/state';
 import { ProgressStore } from '../core/progress/store';
 import { Header } from './components/Header';
+import { HelpPanel } from './components/HelpPanel';
+import { Home } from './components/Home';
 import { IslandView } from './components/IslandView';
 import { ModulePlayer } from './components/ModulePlayer';
 import { Onboarding } from './components/Onboarding';
 import { Passport } from './components/Passport';
 import { RankUp } from './components/RankUp';
-import { SeaMap } from './components/SeaMap';
 import { Settings } from './components/Settings';
 import { Game, GameContext, View } from './GameContext';
 import { format, stringsFor } from './i18n/strings';
@@ -44,6 +45,7 @@ export function App(props: AppProps): React.ReactElement {
   const [player, setPlayer] = React.useState<PlayerState | undefined>(undefined);
   const [view, setView] = React.useState<View>({ name: 'map' });
   const [settingsOpen, setSettingsOpen] = React.useState(false);
+  const [helpOpen, setHelpOpen] = React.useState(false);
   const [rankUp, setRankUp] = React.useState<number | undefined>(undefined);
   const [toasts, setToasts] = React.useState<Toast[]>([]);
   const playerRef = React.useRef<PlayerState | undefined>(undefined);
@@ -134,16 +136,17 @@ export function App(props: AppProps): React.ReactElement {
   else if (view.name === 'island') main = <IslandView islandId={view.islandId} />;
   else if (view.name === 'module') main = <ModulePlayer moduleId={view.moduleId} />;
   else if (view.name === 'passport') main = <Passport />;
-  else main = <SeaMap />;
+  else main = <Home />;
 
   return (
     <GameContext.Provider value={game}>
       <div ref={rootRef} className={styles.app} style={themeVariables(theme)} lang={lang === 'de' ? 'de-CH' : 'en'}>
         {props.storage === 'demo' && <p className={styles.demoBanner}>{strings.demoBanner}</p>}
         {props.storage === 'browser' && <p className={styles.demoBanner}>{strings.browserStorageBanner}</p>}
-        <Header onOpenSettings={() => setSettingsOpen(true)} />
+        <Header onOpenSettings={() => setSettingsOpen(true)} onOpenHelp={() => setHelpOpen(true)} />
         <main className={styles.main}>{main}</main>
         {settingsOpen && <Settings onClose={() => setSettingsOpen(false)} onReset={reset} />}
+        {helpOpen && <HelpPanel onClose={() => setHelpOpen(false)} />}
         {rankUp !== undefined && <RankUp index={rankUp} onClose={() => setRankUp(undefined)} />}
         <div className={styles.toasts} aria-live="polite">
           {toasts.map((x) => (

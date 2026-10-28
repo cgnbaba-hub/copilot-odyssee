@@ -8,7 +8,10 @@
   "status": "draft",
   "reviewedAt": "2026-10-28",
   "reviewIntervalDays": 90,
-  "title": { "de": "Sicher und verantwortungsvoll", "en": "Safe and responsible" },
+  "title": {
+    "de": "Sicher und verantwortungsvoll",
+    "en": "Safe and responsible"
+  },
   "summary": {
     "de": "Was der Datenschutz-Schild bedeutet, was in einen Prompt gehört und was nicht, und warum du die Verantwortung behältst.",
     "en": "What the data protection shield means, what belongs in a prompt and what doesn't, and why you stay responsible."
@@ -19,7 +22,10 @@
     {
       "type": "briefing",
       "id": "schild",
-      "title": { "de": "Der Schild: Unternehmensdatenschutz", "en": "The shield: enterprise data protection" },
+      "title": {
+        "de": "Der Schild: Unternehmensdatenschutz",
+        "en": "The shield: enterprise data protection"
+      },
       "body": {
         "de": "Wenn du mit deinem Firmenkonto angemeldet bist, zeigt Copilot Chat ein **Schild-Symbol**. Es steht für den Unternehmensdatenschutz (Enterprise Data Protection):\n- Deine Eingaben und die Antworten werden **nicht zum Training** der KI-Modelle verwendet.\n- Sie werden **innerhalb von Microsoft 365** verarbeitet, unter den gleichen Verträgen wie deine Mails und Dateien.\n- Sie werden wie andere Firmendaten **protokolliert und aufbewahrt**, zum Beispiel für Audits.\n\nDas heisst auch: Copilot ist ein Firmen-Werkzeug, kein privates Tagebuch. Für private KI-Dienste ohne Schild gelten diese Zusagen nicht, dort haben Firmendaten nichts verloren.",
         "en": "When you are signed in with your work account, Copilot Chat shows a **shield icon**. It stands for enterprise data protection:\n- Your prompts and the answers are **not used to train** the AI models.\n- They are processed **within Microsoft 365**, under the same contracts as your emails and files.\n- Like other company data, they are **logged and retained**, for example for audits.\n\nThat also means: Copilot is a work tool, not a private diary. Private AI services without the shield come without these commitments, and company data does not belong there."
@@ -29,7 +35,10 @@
       "type": "quiz",
       "id": "q-schild",
       "difficulty": "beginner",
-      "question": { "de": "Was bedeutet das Schild-Symbol in Copilot Chat?", "en": "What does the shield icon in Copilot Chat mean?" },
+      "question": {
+        "de": "Was bedeutet das Schild-Symbol in Copilot Chat?",
+        "en": "What does the shield icon in Copilot Chat mean?"
+      },
       "options": [
         {
           "id": "a",
@@ -38,11 +47,17 @@
             "en": "My prompts are covered by enterprise data protection and are not used for training."
           },
           "correct": true,
-          "explanation": { "de": "Richtig.", "en": "Correct." }
+          "explanation": {
+            "de": "Das Schild zeigt: Du arbeitest im geschützten Copilot deines Unternehmens. Deine Eingaben werden protokolliert, aber nicht zum Training der KI verwendet.",
+            "en": "The shield shows that you are working in your company's protected Copilot. Your prompts are logged but not used to train the AI."
+          }
         },
         {
           "id": "b",
-          "text": { "de": "Die Antwort wurde auf Fehler geprüft und ist garantiert richtig.", "en": "The answer was checked for errors and is guaranteed correct." },
+          "text": {
+            "de": "Die Antwort wurde auf Fehler geprüft und ist garantiert richtig.",
+            "en": "The answer was checked for errors and is guaranteed correct."
+          },
           "correct": false,
           "explanation": {
             "de": "Der Schild sagt nichts über die Richtigkeit. Prüfen musst du weiterhin selbst.",
@@ -51,7 +66,10 @@
         },
         {
           "id": "c",
-          "text": { "de": "Niemand im Unternehmen kann meine Eingaben jemals einsehen.", "en": "Nobody in the company can ever see my prompts." },
+          "text": {
+            "de": "Niemand im Unternehmen kann meine Eingaben jemals einsehen.",
+            "en": "Nobody in the company can ever see my prompts."
+          },
           "correct": false,
           "explanation": {
             "de": "Eingaben werden wie andere Firmendaten protokolliert und können zum Beispiel bei Audits ausgewertet werden.",
@@ -63,7 +81,10 @@
     {
       "type": "briefing",
       "id": "was-gehoert-rein",
-      "title": { "de": "Was gehört in einen Prompt?", "en": "What belongs in a prompt?" },
+      "title": {
+        "de": "Was gehört in einen Prompt?",
+        "en": "What belongs in a prompt?"
+      },
       "body": {
         "de": "Massgebend ist die KI-Richtlinie eures Unternehmens. Als Faustregeln gelten:\n- **Gib nur so viel preis, wie die Aufgabe braucht.** Für eine Formulierungshilfe braucht Copilot keinen Namen und keine Buchungsnummer.\n- **Ersetze Personendaten**, zum Beispiel «Gast A» statt des Namens. Passnummern, Geburtsdaten oder Gesundheitsangaben gehören nicht in einen Prompt.\n- **Keine Passwörter oder Zugangsdaten**, nie.\n- **Vertrauliches** nur, wenn eure Richtlinie es für Copilot ausdrücklich erlaubt.",
         "en": "Your company's AI guideline is what counts. As rules of thumb:\n- **Share only what the task needs.** To help with wording, Copilot needs no name and no booking number.\n- **Replace personal data**, for example “Guest A” instead of the name. Passport numbers, dates of birth or health information do not belong in a prompt.\n- **No passwords or credentials**, ever.\n- **Confidential material** only if your guideline explicitly allows it for Copilot."
@@ -92,7 +113,10 @@
         },
         {
           "id": "b",
-          "text": { "de": "Alles inklusive Passnummer einfügen, Copilot ist ja geschützt", "en": "Paste everything including the passport number, Copilot is protected after all" },
+          "text": {
+            "de": "Alles inklusive Passnummer einfügen, Copilot ist ja geschützt",
+            "en": "Paste everything including the passport number, Copilot is protected after all"
+          },
           "correct": false,
           "explanation": {
             "de": "Der Schild schützt die Daten, ersetzt aber nicht den Grundsatz, nur Nötiges zu teilen.",
@@ -101,7 +125,10 @@
         },
         {
           "id": "c",
-          "text": { "de": "Die Reklamation in einen privaten KI-Chat kopieren", "en": "Copy the complaint into a private AI chat" },
+          "text": {
+            "de": "Die Reklamation in einen privaten KI-Chat kopieren",
+            "en": "Copy the complaint into a private AI chat"
+          },
           "correct": false,
           "explanation": {
             "de": "Private KI-Dienste haben keinen Unternehmensdatenschutz. Firmendaten gehören nicht dorthin.",
@@ -113,7 +140,10 @@
     {
       "type": "briefing",
       "id": "verantwortung",
-      "title": { "de": "Du bleibst am Steuer", "en": "You stay at the helm" },
+      "title": {
+        "de": "Du bleibst am Steuer",
+        "en": "You stay at the helm"
+      },
       "body": {
         "de": "Was du mit Copilot erstellst, verschickst du in deinem Namen. Deshalb:\n- **Lies alles**, bevor du es verwendest, und prüfe Fakten, Zahlen und Ton.\n- **Achte auf Schieflagen.** KI kann Klischees übernehmen, zum Beispiel bei Geschlecht, Herkunft oder Alter. Formuliere dann nach.\n- **Sei transparent**, wo eure Regeln es verlangen, zum Beispiel bei Texten, die überwiegend von KI stammen.",
         "en": "Whatever you create with Copilot goes out in your name. So:\n- **Read everything** before you use it, and check facts, figures and tone.\n- **Watch for bias.** AI can repeat stereotypes, for example about gender, origin or age. Rephrase when it does.\n- **Be transparent** where your rules require it, for example for texts mostly written by AI."
@@ -122,7 +152,10 @@
     {
       "type": "mission",
       "id": "m-richtlinie",
-      "title": { "de": "Finde eure Seekarte", "en": "Find your chart" },
+      "title": {
+        "de": "Finde eure Seekarte",
+        "en": "Find your chart"
+      },
       "task": {
         "de": "Suche im Intranet die KI-Richtlinie eures Unternehmens. Lies nach, was dort zu Kundendaten und vertraulichen Informationen steht. Merke dir eine Regel, die du vorher nicht kanntest.",
         "en": "Find your company's AI guideline on the intranet. Read what it says about customer data and confidential information. Note one rule you did not know before."
@@ -130,7 +163,8 @@
       "tip": {
         "de": "Findest du sie nicht, frag die Copilot-Champions oder die IT. Copilot selbst kennt eure interne Richtlinie nicht.",
         "en": "If you can't find it, ask the Copilot champions or IT. Copilot itself does not know your internal guideline."
-      }
+      },
+      "copilot": false
     }
   ]
 }

@@ -45,8 +45,8 @@
           "text": { "de": "Aus meinen Notizen einen Entwurf für das wöchentliche Team-Update machen", "en": "Turning my notes into a draft of the weekly team update" },
           "correct": true,
           "explanation": {
-            "de": "Richtig. Eigene Inhalte, wiederkehrend, und du liest ohnehin drüber.",
-            "en": "Correct. Your own content, recurring, and you read it anyway."
+            "de": "Eigene Inhalte, wiederkehrend, und du liest ohnehin drüber.",
+            "en": "Your own content, recurring, and you read it anyway."
           }
         },
         {

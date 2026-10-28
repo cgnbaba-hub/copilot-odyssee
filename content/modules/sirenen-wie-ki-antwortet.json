@@ -80,8 +80,8 @@
           "text": { "de": "Einen ersten Entwurf für eine interne Teamnotiz schreiben", "en": "Writing a first draft of an internal team note" },
           "correct": true,
           "explanation": {
-            "de": "Richtig. Einen Entwurf liest du ohnehin durch und passt ihn an, das Risiko ist klein.",
-            "en": "Correct. You read and adapt a draft anyway, so the risk is small."
+            "de": "Einen Entwurf liest du ohnehin durch und passt ihn an, das Risiko ist klein.",
+            "en": "You read and adapt a draft anyway, so the risk is small."
           }
         },
         {

@@ -46,8 +46,8 @@
           },
           "correct": true,
           "explanation": {
-            "de": "Richtig! Je nach Lizenz nutzt du ihn im Browser und in Outlook (Basic) oder zusätzlich direkt in Word, Excel, PowerPoint und Teams (Premium).",
-            "en": "Correct! Depending on your licence, you use it in the browser and in Outlook (Basic) or also directly in Word, Excel, PowerPoint and Teams (Premium)."
+            "de": "Je nach Lizenz nutzt du ihn im Browser und in Outlook (Basic) oder zusätzlich direkt in Word, Excel, PowerPoint und Teams (Premium).",
+            "en": "Depending on your licence, you use it in the browser and in Outlook (Basic) or also directly in Word, Excel, PowerPoint and Teams (Premium)."
           }
         },
         {

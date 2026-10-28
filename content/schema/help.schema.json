@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Hilfethemen",
+  "description": "Fragen und Antworten im Hilfe-Bereich der App. Reihenfolge wie in der Datei.",
+  "type": "object",
+  "required": ["topics"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "topics": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "question", "answer"],
+        "properties": {
+          "id": { "$ref": "common.schema.json#/$defs/id" },
+          "question": { "$ref": "common.schema.json#/$defs/localized" },
+          "answer": {
+            "description": "Antwort. Absätze (Leerzeile), Aufzählungen (\"- \") und **fett** sind möglich.",
+            "$ref": "common.schema.json#/$defs/localized"
+          },
+          "illustration": {
+            "description": "Zeigt eine Abbildung zur Antwort. license = schematische Copilot-Ansicht mit Basic- und Premium-Bezeichnung.",
+            "enum": ["license"]
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

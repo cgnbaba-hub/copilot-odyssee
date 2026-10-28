@@ -12,6 +12,25 @@ import { SouvenirId } from '../../core/progress/achievements';
 const INK = 'var(--od-ink)';
 const SAND = 'var(--od-sand)';
 const ACCENT = 'var(--od-accent)';
+const FOLIAGE_DARK = '#2E6B3F';
+const FOLIAGE_LIGHT = '#7DAA4F';
+const DOME = '#1F6FD1';
+
+/** Small deterministic random generator, so every island always looks the same. */
+function seededRandom(seed: string): () => number {
+  let h = 2166136261;
+  for (let i = 0; i < seed.length; i++) {
+    h ^= seed.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return () => {
+    h += 0x6d2b79f5;
+    let t = h;
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
 
 function LandmarkShape(props: { landmark?: Landmark }): React.ReactElement {
   const stroke = { stroke: INK, strokeWidth: 0.9, strokeLinejoin: 'round' as const };
@@ -21,12 +40,13 @@ function LandmarkShape(props: { landmark?: Landmark }): React.ReactElement {
         <g {...stroke}>
           <path d="M-15 14 L-9 -5 L-3 14Z" fill="#8D99A6" />
           <path d="M-5 14 L3 -11 L12 14Z" fill="#A7B2BD" />
+          <path d="M3 -11 L12 14 L6 14Z" fill="#7C8894" />
           <path d="M8 14 L12 4 L16 14Z" fill="#7C8894" />
         </g>
       );
     case 'wind':
       return (
-        <g fill="none" stroke="#FFFFFF" strokeWidth="2.4" strokeLinecap="round">
+        <g fill="none" stroke="#FFFFFF" strokeWidth="2.6" strokeLinecap="round">
           <path d="M-15 -2 h16 a5 5 0 1 0 -5 -5" />
           <path d="M-11 6 h21 a4 4 0 1 1 -4 4" />
         </g>
@@ -108,20 +128,97 @@ function LandmarkShape(props: { landmark?: Landmark }): React.ReactElement {
   }
 }
 
-/** An island seen from above at an angle: surf, beach, two hills and its landmark. */
-export function IslandArt(props: { island: Pick<Island, 'color' | 'landmark'>; muted?: boolean; className?: string }): React.ReactElement {
+const LAND_SHAPES = [
+  'M30 82 C 36 54, 62 42, 82 48 C 100 36, 128 48, 132 82 Z',
+  'M28 82 C 30 62, 50 44, 70 48 C 80 32, 104 32, 112 50 C 124 52, 134 66, 134 82 Z',
+  'M34 82 C 40 58, 58 52, 74 54 C 90 40, 116 42, 128 62 C 132 70, 132 76, 130 82 Z'
+];
+
+function Cypress(props: { x: number; y: number; h: number }): React.ReactElement {
   return (
-    <svg viewBox="0 0 120 84" className={props.className} aria-hidden="true" style={props.muted ? { opacity: 0.55, filter: 'saturate(0.4)' } : undefined}>
-      <ellipse cx="60" cy="66" rx="52" ry="12" fill="rgba(4,24,48,0.28)" />
-      <ellipse cx="60" cy="62" rx="52" ry="13" fill="none" stroke="rgba(255,255,255,0.65)" strokeWidth="2" />
-      <ellipse cx="60" cy="60" rx="47" ry="11" fill={SAND} stroke={INK} strokeWidth="1.2" />
-      <path d="M17 60 C 24 34, 48 26, 62 34 C 76 25, 98 34, 104 60 Z" fill={props.island.color} stroke={INK} strokeWidth="1.2" />
-      <path d="M62 34 C 76 25, 98 34, 104 60 L 78 60 C 80 48, 74 40, 62 34 Z" fill="rgba(4,24,48,0.18)" />
-      <path d="M28 60 C 34 46, 52 42, 64 48 C 74 44, 88 50, 94 60 Z" fill={props.island.color} stroke={INK} strokeWidth="1" />
-      <path d="M28 60 C 34 46, 52 42, 64 48 C 56 47, 44 50, 38 60 Z" fill="rgba(255,255,255,0.22)" />
-      <g transform="translate(60 30)">
-        <LandmarkShape landmark={props.island.landmark} />
+    <g>
+      <path d={`M${props.x} ${props.y} v3`} stroke="#5B3A20" strokeWidth="1.4" />
+      <ellipse cx={props.x} cy={props.y - props.h / 2} rx={props.h / 5} ry={props.h / 2} fill={FOLIAGE_DARK} stroke={INK} strokeWidth="0.7" />
+    </g>
+  );
+}
+
+function Olive(props: { x: number; y: number; r: number }): React.ReactElement {
+  return (
+    <g>
+      <path d={`M${props.x} ${props.y} v4`} stroke="#5B3A20" strokeWidth="1.4" />
+      <circle cx={props.x} cy={props.y - props.r} r={props.r} fill={FOLIAGE_LIGHT} stroke={INK} strokeWidth="0.7" />
+      <circle cx={props.x - props.r / 3} cy={props.y - props.r * 1.3} r={props.r / 3} fill="rgba(255,255,255,0.25)" />
+    </g>
+  );
+}
+
+function House(props: { x: number; y: number; dome: boolean }): React.ReactElement {
+  return (
+    <g stroke={INK} strokeWidth="0.7">
+      {props.dome && <path d={`M${props.x + 1} ${props.y - 7} a4 4 0 0 1 8 0z`} fill={DOME} />}
+      <rect x={props.x} y={props.y - 7} width="10" height="8" fill="#FFFFFF" />
+      <rect x={props.x + 3.5} y={props.y - 4} width="3" height="5" fill={DOME} />
+    </g>
+  );
+}
+
+/** The island drawing as an SVG group (viewBox 0 0 160 110), for use inside a larger SVG. */
+export function IslandShape(props: { id: string; color: string; landmark?: Landmark; home?: boolean }): React.ReactElement {
+  const random = seededRandom(props.id);
+  const variant = Math.floor(random() * LAND_SHAPES.length);
+  const land = LAND_SHAPES[variant];
+  const trees: React.ReactElement[] = [];
+  const treeCount = 2 + Math.floor(random() * 3);
+  for (let i = 0; i < treeCount; i++) {
+    const x = 46 + random() * 70;
+    if (x > 66 && x < 94) continue; // keep the centre free for the landmark
+    const y = 70 + random() * 6;
+    trees.push(random() > 0.5 ? <Cypress key={i} x={x} y={y} h={12 + random() * 6} /> : <Olive key={i} x={x} y={y} r={4 + random() * 2} />);
+  }
+  const houseCount = props.home ? 3 : Math.floor(random() * 3);
+  const houses: React.ReactElement[] = [];
+  for (let i = 0; i < houseCount; i++) {
+    houses.push(<House key={i} x={52 + i * 14 + (i > 0 ? 18 : 0)} y={80} dome={props.home ? i === 1 : random() > 0.6} />);
+  }
+
+  return (
+    <g>
+      <ellipse cx="80" cy="90" rx="72" ry="15" fill="rgba(4,40,70,0.22)" />
+      <ellipse cx="80" cy="85" rx="70" ry="17" fill="rgba(126,220,230,0.55)" />
+      <ellipse cx="80" cy="86" rx="72" ry="18" fill="none" stroke="rgba(255,255,255,0.75)" strokeWidth="2.2" />
+      <ellipse cx="80" cy="82" rx="58" ry="12" fill={SAND} stroke={INK} strokeWidth="1.2" />
+      <path d={land} fill={props.color} stroke={INK} strokeWidth="1.3" />
+      <path d={land} fill="url(#od-island-light)" />
+      {trees}
+      {houses}
+      <ellipse cx="38" cy="84" rx="4" ry="2" fill="#9AA5AF" stroke={INK} strokeWidth="0.6" />
+      <ellipse cx="124" cy="85" rx="3" ry="1.6" fill="#9AA5AF" stroke={INK} strokeWidth="0.6" />
+      <g transform="translate(80 40) scale(1.15)">
+        <LandmarkShape landmark={props.landmark} />
       </g>
+    </g>
+  );
+}
+
+/** Shared gradient for the light from the upper left on every island. */
+function IslandDefs(): React.ReactElement {
+  return (
+    <defs>
+      <linearGradient id="od-island-light" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stopColor="rgba(255,255,255,0.35)" />
+        <stop offset="0.5" stopColor="rgba(255,255,255,0)" />
+        <stop offset="1" stopColor="rgba(4,24,48,0.25)" />
+      </linearGradient>
+    </defs>
+  );
+}
+
+export function IslandArt(props: { island: Pick<Island, 'id' | 'color' | 'landmark' | 'home'>; muted?: boolean; className?: string }): React.ReactElement {
+  return (
+    <svg viewBox="0 0 160 110" className={props.className} aria-hidden="true" style={props.muted ? { filter: 'saturate(0.35)', opacity: 0.75 } : undefined}>
+      <IslandDefs />
+      <IslandShape id={props.island.id} color={props.island.color} landmark={props.island.landmark} home={props.island.home} />
     </svg>
   );
 }
@@ -136,6 +233,56 @@ export function Ship(props: { className?: string; size?: number }): React.ReactE
       <path d="M21 12 c-6 4 -9 11 -9 20 h9z" fill="#FFFFFF" stroke={INK} strokeWidth="1.2" />
       <path d="M6 34 h36 l-5 8 h-26z" fill={INK} />
       <path d="M9 37 h30" stroke={ACCENT} strokeWidth="1.5" />
+      <path d="M2 44 q5 -3 10 0 t10 0 t10 0 t10 0" fill="none" stroke="rgba(255,255,255,0.85)" strokeWidth="1.5" />
+    </svg>
+  );
+}
+
+/** Athene, the little owl that guides the player. */
+export function Owl(props: { className?: string; cheer?: boolean }): React.ReactElement {
+  return (
+    <svg viewBox="0 0 100 100" className={props.className} aria-hidden="true">
+      <ellipse cx="50" cy="94" rx="26" ry="4" fill="rgba(15,44,71,0.15)" />
+      {props.cheer ? (
+        <g fill="#8A5E37" stroke={INK} strokeWidth="1.5">
+          <path d="M22 58 C 8 48, 6 30, 12 22 C 18 34, 24 42, 30 48Z" />
+          <path d="M78 58 C 92 48, 94 30, 88 22 C 82 34, 76 42, 70 48Z" />
+        </g>
+      ) : (
+        <g fill="#8A5E37" stroke={INK} strokeWidth="1.5">
+          <path d="M24 50 C 14 62, 16 78, 26 86 C 28 72, 30 62, 32 54Z" />
+          <path d="M76 50 C 86 62, 84 78, 74 86 C 72 72, 70 62, 68 54Z" />
+        </g>
+      )}
+      <path d="M50 14 C 72 14, 80 32, 80 54 C 80 76, 68 90, 50 90 C 32 90, 20 76, 20 54 C 20 32, 28 14, 50 14Z" fill="#A87A4F" stroke={INK} strokeWidth="1.6" />
+      <path d="M50 46 C 64 46, 70 58, 70 70 C 70 82, 62 88, 50 88 C 38 88, 30 82, 30 70 C 30 58, 36 46, 50 46Z" fill="#EBD7B5" />
+      <g fill="none" stroke="#B88A5C" strokeWidth="1.6" strokeLinecap="round">
+        <path d="M42 62 l4 3 4 -3 M50 62 l4 3 4 -3" />
+        <path d="M38 72 l4 3 4 -3 M46 72 l4 3 4 -3 M54 72 l4 3 4 -3" />
+        <path d="M42 81 l4 3 4 -3 M50 81 l4 3 4 -3" />
+      </g>
+      <g fill="#EBD7B5">
+        <circle cx="30" cy="34" r="1.6" />
+        <circle cx="70" cy="34" r="1.6" />
+        <circle cx="26" cy="46" r="1.6" />
+        <circle cx="74" cy="46" r="1.6" />
+        <circle cx="50" cy="20" r="1.6" />
+        <circle cx="42" cy="22" r="1.3" />
+        <circle cx="58" cy="22" r="1.3" />
+      </g>
+      <circle cx="37" cy="38" r="12" fill="#FFFFFF" stroke={INK} strokeWidth="1.4" />
+      <circle cx="63" cy="38" r="12" fill="#FFFFFF" stroke={INK} strokeWidth="1.4" />
+      <circle cx="38" cy="39" r="7" fill={ACCENT} />
+      <circle cx="62" cy="39" r="7" fill={ACCENT} />
+      <circle cx="38.5" cy="39.5" r="4" fill={INK} />
+      <circle cx="61.5" cy="39.5" r="4" fill={INK} />
+      <circle cx="40" cy="37.5" r="1.5" fill="#FFFFFF" />
+      <circle cx="63" cy="37.5" r="1.5" fill="#FFFFFF" />
+      <path d="M46 48 L50 55 L54 48Z" fill="#E8913A" stroke={INK} strokeWidth="1" strokeLinejoin="round" />
+      <g fill="#E8913A" stroke={INK} strokeWidth="1">
+        <path d="M40 88 l-3 5 h4 l1 -2 1 2 h4 l-2 -5z" />
+        <path d="M54 88 l-2 5 h4 l1 -2 1 2 h4 l-3 -5z" />
+      </g>
     </svg>
   );
 }
@@ -143,62 +290,80 @@ export function Ship(props: { className?: string; size?: number }): React.ReactE
 export function CompassRose(props: { className?: string }): React.ReactElement {
   return (
     <svg viewBox="0 0 64 64" className={props.className} aria-hidden="true">
-      <circle cx="32" cy="32" r="22" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.7)" strokeWidth="1" />
-      <circle cx="32" cy="32" r="17" fill="none" stroke="rgba(255,255,255,0.45)" strokeWidth="0.8" strokeDasharray="2 2" />
-      <path d="M32 8 L36 32 L32 56 L28 32Z" fill="rgba(255,255,255,0.85)" />
-      <path d="M8 32 L32 28 L56 32 L32 36Z" fill="rgba(255,255,255,0.55)" />
-      <path d="M32 8 L36 32 L32 32Z" fill={ACCENT} />
-      <text x="32" y="6" textAnchor="middle" fontSize="7" fill="#FFFFFF" fontFamily="var(--od-font-display)">
+      <circle cx="32" cy="32" r="24" fill="rgba(255,255,255,0.18)" stroke="rgba(255,255,255,0.85)" strokeWidth="1.2" />
+      <circle cx="32" cy="32" r="18" fill="none" stroke="rgba(255,255,255,0.5)" strokeWidth="0.8" strokeDasharray="2 2" />
+      <path d="M32 6 L36 32 L32 58 L28 32Z" fill="rgba(255,255,255,0.9)" />
+      <path d="M6 32 L32 28 L58 32 L32 36Z" fill="rgba(255,255,255,0.6)" />
+      <path d="M32 6 L36 32 L32 32Z" fill={ACCENT} />
+      <circle cx="32" cy="32" r="2.5" fill={INK} />
+      <text x="32" y="4.5" textAnchor="middle" fontSize="7" fontWeight="700" fill="#FFFFFF" fontFamily="var(--od-font-display)">
         N
       </text>
     </svg>
   );
 }
 
-/** Sea, sun and a ship sailing towards distant islands. */
-export function SeaScene(props: { className?: string }): React.ReactElement {
+function Cloud(props: { x: number; y: number; scale: number }): React.ReactElement {
   return (
-    <svg viewBox="0 0 640 220" className={props.className} preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      <defs>
-        <linearGradient id="od-scene-sky" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#CFE6F5" />
-          <stop offset="1" stopColor="#F6F1E1" />
-        </linearGradient>
-        <linearGradient id="od-scene-sea" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="var(--od-sea)" />
-          <stop offset="1" stopColor="var(--od-sea-deep)" />
-        </linearGradient>
-      </defs>
-      <rect width="640" height="220" fill="url(#od-scene-sky)" />
-      <circle cx="510" cy="70" r="34" fill={ACCENT} opacity="0.9" />
-      <path d="M0 122 C 120 112, 260 128, 400 118 S 580 112, 640 120 V220 H0Z" fill="url(#od-scene-sea)" />
-      <g transform="translate(70 92) scale(0.9)">
-        <IslandArtShape color="#8E7CC3" landmark="rocks" />
-      </g>
-      <g transform="translate(420 96) scale(0.75)">
-        <IslandArtShape color="#E9A23B" landmark="temple" />
-      </g>
-      <path d="M0 160 q20 -6 40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0" fill="none" stroke="rgba(255,255,255,0.35)" strokeWidth="2" />
-      <path d="M20 190 q20 -6 40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0" fill="none" stroke="rgba(255,255,255,0.25)" strokeWidth="2" />
-      <g transform="translate(270 92)">
-        <Ship size={80} />
-      </g>
-    </svg>
+    <g transform={`translate(${props.x} ${props.y}) scale(${props.scale})`} fill="#FFFFFF" opacity="0.92">
+      <ellipse cx="0" cy="10" rx="34" ry="10" />
+      <circle cx="-12" cy="4" r="12" />
+      <circle cx="8" cy="0" r="16" />
+      <circle cx="24" cy="7" r="9" />
+    </g>
   );
 }
 
-/** The island drawing as an SVG group, for use inside a larger SVG. */
-function IslandArtShape(props: { color: string; landmark?: Landmark }): React.ReactElement {
+/** Wide scene for the start screens: sky, sun, mountains, sea, islands and a ship. */
+export function SeaScene(props: { className?: string }): React.ReactElement {
   return (
-    <g>
-      <ellipse cx="60" cy="62" rx="52" ry="13" fill="none" stroke="rgba(255,255,255,0.65)" strokeWidth="2" />
-      <ellipse cx="60" cy="60" rx="47" ry="11" fill={SAND} stroke={INK} strokeWidth="1.2" />
-      <path d="M17 60 C 24 34, 48 26, 62 34 C 76 25, 98 34, 104 60 Z" fill={props.color} stroke={INK} strokeWidth="1.2" />
-      <path d="M28 60 C 34 46, 52 42, 64 48 C 74 44, 88 50, 94 60 Z" fill={props.color} stroke={INK} strokeWidth="1" />
-      <g transform="translate(60 30)">
-        <LandmarkShape landmark={props.landmark} />
+    <svg viewBox="0 0 1000 300" className={props.className} preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs>
+        <linearGradient id="od-scene-sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#9FD8F2" />
+          <stop offset="0.75" stopColor="#E9F6FB" />
+          <stop offset="1" stopColor="#FFF6E2" />
+        </linearGradient>
+        <linearGradient id="od-scene-sea" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#38C3D9" />
+          <stop offset="0.45" stopColor="var(--od-sea)" />
+          <stop offset="1" stopColor="var(--od-sea-deep)" />
+        </linearGradient>
+        <radialGradient id="od-scene-sun" cx="0.5" cy="0.5" r="0.5">
+          <stop offset="0" stopColor="#FFE9A8" />
+          <stop offset="0.45" stopColor={ACCENT} />
+          <stop offset="1" stopColor="rgba(255,194,61,0)" />
+        </radialGradient>
+      </defs>
+      <IslandDefs />
+      <rect width="1000" height="300" fill="url(#od-scene-sky)" />
+      <circle cx="790" cy="92" r="90" fill="url(#od-scene-sun)" />
+      <circle cx="790" cy="92" r="40" fill="#FFD567" />
+      <Cloud x={160} y={60} scale={1.2} />
+      <Cloud x={480} y={44} scale={0.8} />
+      <Cloud x={930} y={70} scale={1} />
+      <path d="M0 170 L80 142 L150 158 L240 128 L330 160 L420 150 L520 170Z" fill="#BCD9E8" />
+      <path d="M560 170 L640 150 L720 162 L820 136 L920 158 L1000 150 L1000 170Z" fill="#C9E1EC" />
+      <path d="M0 168 C 200 160, 380 174, 560 166 S 860 160, 1000 168 V300 H0Z" fill="url(#od-scene-sea)" />
+      <path d="M700 176 h120 M720 186 h90 M740 196 h60" stroke="rgba(255,255,255,0.65)" strokeWidth="3" strokeLinecap="round" />
+      <g transform="translate(40 150) scale(1.15)">
+        <IslandShape id="scene-left" color="#8E7CC3" landmark="rocks" />
       </g>
-    </g>
+      <g transform="translate(800 162) scale(0.95)">
+        <IslandShape id="scene-right" color="#E9A23B" landmark="temple" home />
+      </g>
+      <g fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="2.5" strokeLinecap="round">
+        <path d="M0 236 q25 -8 50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0" />
+        <path d="M-25 270 q25 -8 50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0" />
+      </g>
+      <g fill="none" stroke={INK} strokeWidth="2" strokeLinecap="round" opacity="0.55">
+        <path d="M560 96 q6 -6 12 0 q6 -6 12 0" />
+        <path d="M600 74 q5 -5 10 0 q5 -5 10 0" />
+      </g>
+      <g transform="translate(430 150)">
+        <Ship size={110} />
+      </g>
+    </svg>
   );
 }
 
@@ -208,10 +373,11 @@ const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
 export function RankEmblem(props: { index: number; className?: string }): React.ReactElement {
   return (
     <svg viewBox="0 0 48 48" className={props.className} aria-hidden="true">
-      <circle cx="24" cy="24" r="22" fill={ACCENT} stroke={INK} strokeWidth="1.5" />
-      <circle cx="24" cy="24" r="17" fill="none" stroke={INK} strokeWidth="0.8" strokeDasharray="1.5 2" />
-      <path d="M11 30 c-3 -6 -2 -12 2 -16 M37 30 c3 -6 2 -12 -2 -16" fill="none" stroke={INK} strokeWidth="1" />
-      <text x="24" y="29" textAnchor="middle" fontSize="14" fill={INK} fontFamily="var(--od-font-display)">
+      <circle cx="24" cy="25" r="22" fill="#D99A1E" />
+      <circle cx="24" cy="23" r="22" fill={ACCENT} stroke={INK} strokeWidth="1.5" />
+      <circle cx="24" cy="23" r="17" fill="none" stroke={INK} strokeWidth="0.8" strokeDasharray="1.5 2" />
+      <path d="M11 29 c-3 -6 -2 -12 2 -16 M37 29 c3 -6 2 -12 -2 -16" fill="none" stroke={INK} strokeWidth="1" />
+      <text x="24" y="28" textAnchor="middle" fontSize="14" fill={INK} fontFamily="var(--od-font-logo)">
         {ROMAN[props.index] || String(props.index + 1)}
       </text>
     </svg>
@@ -224,6 +390,7 @@ export function Stamp(props: { id: string; label: string; date: string; color: s
   const color = props.empty ? 'var(--od-line)' : props.color;
   return (
     <svg viewBox="0 0 120 120" aria-hidden="true">
+      <IslandDefs />
       <defs>
         <path id={pathId} d="M 20 60 A 40 40 0 0 1 100 60" />
       </defs>
@@ -231,15 +398,15 @@ export function Stamp(props: { id: string; label: string; date: string; color: s
       <circle cx="60" cy="60" r="46" fill="none" stroke={color} strokeWidth="1.2" strokeDasharray={props.empty ? '3 3' : undefined} />
       {!props.empty && (
         <>
-          <text fontSize="11" fill={color} fontFamily="var(--od-font-display)" letterSpacing="1">
+          <text fontSize="11" fill={color} fontFamily="var(--od-font-display)" fontWeight="800" letterSpacing="1">
             <textPath href={`#${pathId}`} startOffset="50%" textAnchor="middle">
               {props.label.toUpperCase()}
             </textPath>
           </text>
-          <g transform="translate(27 40) scale(0.55)">
-            <IslandArtShape color={props.color} landmark={props.landmark} />
+          <g transform="translate(32 44) scale(0.35)">
+            <IslandShape id={props.id} color={props.color} landmark={props.landmark} />
           </g>
-          <text x="60" y="98" textAnchor="middle" fontSize="9" fill={color} fontFamily="var(--od-font-display)">
+          <text x="60" y="100" textAnchor="middle" fontSize="9" fontWeight="700" fill={color} fontFamily="var(--od-font-display)">
             {props.date}
           </text>
         </>
@@ -304,11 +471,28 @@ export function SouvenirIcon(props: { id: SouvenirId }): React.ReactElement {
           <path d="M28 8 v6 h-6 M12 32 v-6 h6" />
         </g>
       );
-      break;
   }
   return (
     <svg viewBox="0 0 40 40" aria-hidden="true">
       {shape}
+    </svg>
+  );
+}
+
+/** Small lock for Premium content. */
+export function LockIcon(props: { className?: string }): React.ReactElement {
+  return (
+    <svg viewBox="0 0 16 16" width="14" height="14" className={props.className} aria-hidden="true">
+      <rect x="3" y="7" width="10" height="7" rx="1.5" fill="currentColor" />
+      <path d="M5 7 V5 a3 3 0 0 1 6 0 V7" fill="none" stroke="currentColor" strokeWidth="1.8" />
+    </svg>
+  );
+}
+
+export function CheckIcon(props: { className?: string }): React.ReactElement {
+  return (
+    <svg viewBox="0 0 16 16" width="14" height="14" className={props.className} aria-hidden="true">
+      <path d="M3 8.5 L6.5 12 L13 4.5" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }

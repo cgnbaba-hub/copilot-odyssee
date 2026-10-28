@@ -1,31 +1,39 @@
 import { Theme } from './types';
 
 /**
- * Aegean palette (whitewashed walls, deep sea, sun) with a display face in
- * the spirit of Greek inscriptions. Progress reads like a travel loyalty
- * programme: miles, status levels, passport stamps and souvenirs.
+ * Bright Aegean palette (turquoise sea, white houses, sun) with a rounded,
+ * friendly display face for headings and buttons; the wordmark keeps the
+ * Greek inscription style. Progress reads like a travel loyalty programme:
+ * miles, status levels, passport stamps and souvenirs. The guide is Athene,
+ * the little owl of the goddess who accompanies Odysseus.
  */
 export const odysseeTheme: Theme = {
   id: 'odyssee',
   colors: {
-    background: '#EAF1F6',
+    background: '#F2F8FB',
     surface: '#FFFFFF',
-    surfaceAlt: '#F3F7FA',
-    text: '#13263A',
-    textMuted: '#556779',
-    line: '#D3E0EA',
-    ink: '#0B2540',
-    primary: '#0D5EAF',
+    surfaceAlt: '#EDF5F9',
+    text: '#16324A',
+    textMuted: '#55708A',
+    line: '#D5E4EE',
+    ink: '#0F2C47',
+    primary: '#1167C9',
+    primaryShade: '#0A4A94',
     onPrimary: '#FFFFFF',
-    accent: '#F2B43A',
-    sand: '#F1E4C6',
-    success: '#4F7F2A',
-    danger: '#B8412F',
-    sea: '#1E86B8',
-    seaDeep: '#0A3760'
+    accent: '#FFC23D',
+    sand: '#F4E3C1',
+    success: '#23884C',
+    successSoft: '#E2F4E8',
+    danger: '#C93C2A',
+    dangerSoft: '#FCE7E3',
+    premium: '#6A4BC4',
+    premiumSoft: '#EEE9FB',
+    sea: '#1FA9C9',
+    seaDeep: '#0B5C8B'
   },
   fonts: {
-    display: "'Odyssee Marcellus', 'Palatino Linotype', Palatino, Georgia, serif",
+    logo: "'Odyssee Marcellus', 'Palatino Linotype', Palatino, Georgia, serif",
+    display: "'Odyssee Nunito', 'Segoe UI', system-ui, -apple-system, Arial, sans-serif",
     body: "'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif"
   },
   terms: {
@@ -36,7 +44,8 @@ export const odysseeTheme: Theme = {
     preview: { de: 'Ausblick', en: 'Preview' },
     passport: { de: 'Reisepass', en: 'Passport' },
     stamps: { de: 'Stempel', en: 'Stamps' },
-    souvenirs: { de: 'Souvenirs', en: 'Souvenirs' }
+    souvenirs: { de: 'Souvenirs', en: 'Souvenirs' },
+    guide: { de: 'Athene', en: 'Athene' }
   },
   ranks: [
     { minLevel: 1, name: { de: 'Reisende:r', en: 'Traveller' } },

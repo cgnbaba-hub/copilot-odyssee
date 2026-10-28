@@ -73,6 +73,10 @@ export interface MissionBlock {
   title: Localized;
   task: Localized;
   tip?: Localized;
+  /** Text to copy into Copilot with one click. */
+  copyText?: Localized;
+  /** false when the mission happens outside Copilot; defaults to true. */
+  copilot?: boolean;
 }
 
 export interface UseCaseBlock {
@@ -101,8 +105,16 @@ export interface LearningModule {
   blocks: Block[];
 }
 
+export interface HelpTopic {
+  id: string;
+  question: Localized;
+  answer: Localized;
+  illustration?: 'license';
+}
+
 /** Everything the app needs to render the game world. */
 export interface ContentBundle {
   islands: Island[];
   modules: LearningModule[];
+  help?: HelpTopic[];
 }

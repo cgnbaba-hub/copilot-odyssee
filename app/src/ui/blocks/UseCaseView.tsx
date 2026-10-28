@@ -28,21 +28,24 @@ export function UseCaseView(props: BlockViewProps<UseCaseBlock>): React.ReactEle
 
   if (saved) {
     return (
-      <div>
-        <div className={styles.feedbackGood} aria-live="polite">
+      <div className={`${styles.actionBar} ${styles.actionBarGood}`} aria-live="polite">
+        <div className={styles.actionFeedback}>
+          <span className={styles.actionIcon} aria-hidden="true">
+            ✓
+          </span>
           <strong>{strings.useCaseSaved}</strong>
         </div>
-        <div className={styles.blockActions}>
-          <button type="button" className={styles.buttonPrimary} onClick={props.onDone}>
-            {strings.continue}
-          </button>
-        </div>
+        <button type="button" className={`${styles.buttonSuccess} ${styles.buttonWide}`} onClick={props.onDone}>
+          {strings.continue}
+        </button>
       </div>
     );
   }
 
   return (
-    <div>
+    <>
+      <h2 className={styles.blockTitle}>{strings.useCaseTitle}</h2>
+      <p className={styles.muted}>{strings.useCaseExplained}</p>
       <p className={styles.scenario}>{t(block.intro)}</p>
 
       <label htmlFor={id('task')} className={styles.label}>
@@ -76,11 +79,11 @@ export function UseCaseView(props: BlockViewProps<UseCaseBlock>): React.ReactEle
       </label>
       <textarea id={id('prompt')} className={styles.textarea} rows={2} value={prompt} onChange={(e) => setPrompt(e.target.value)} />
 
-      <div className={styles.blockActions}>
-        <button type="button" className={styles.buttonPrimary} disabled={!valid} onClick={save}>
+      <div className={styles.actionBar}>
+        <button type="button" className={`${styles.buttonPrimary} ${styles.buttonWide}`} disabled={!valid} onClick={save}>
           {strings.useCaseSave}
         </button>
       </div>
-    </div>
+    </>
   );
 }

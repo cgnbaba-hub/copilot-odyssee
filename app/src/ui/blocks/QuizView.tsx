@@ -28,11 +28,11 @@ export function QuizView(props: BlockViewProps<QuizBlock>): React.ReactElement {
   const answered = block.options.filter((o) => result && o.id === result.optionId)[0];
 
   return (
-    <div>
+    <>
       <h2 className={styles.blockTitle}>{t(block.question)}</h2>
       <div className={styles.choiceList} role="radiogroup" aria-label={t(block.question)}>
         {block.options.map((option, optionIndex) => {
-          let className = styles.choice;
+          let className = `${styles.choice} ${styles.choiceLarge}`;
           if (result && result.optionId === option.id) className += ` ${result.correct ? styles.choiceCorrect : styles.choiceWrong}`;
           else if (wrongIds.indexOf(option.id) >= 0) className += ` ${styles.choiceWrong}`;
           else if (selected === option.id) className += ` ${styles.choiceSelected}`;
@@ -55,32 +55,34 @@ export function QuizView(props: BlockViewProps<QuizBlock>): React.ReactElement {
         })}
       </div>
 
-      <div aria-live="polite">
+      <div className={result ? `${styles.actionBar} ${result.correct ? styles.actionBarGood : styles.actionBarBad}` : styles.actionBar} aria-live="polite">
         {result && (
-          <div className={result.correct ? styles.feedbackGood : styles.feedbackBad}>
-            <strong>{result.correct ? strings.correct : strings.wrong}</strong>
-            {answered && answered.explanation && <p>{t(answered.explanation)}</p>}
+          <div className={styles.actionFeedback}>
+            <span className={styles.actionIcon} aria-hidden="true">
+              {result.correct ? '✓' : '✕'}
+            </span>
+            <div>
+              <strong>{result.correct ? strings.correct : strings.wrong}</strong>
+              {answered && answered.explanation && <p>{t(answered.explanation)}</p>}
+            </div>
           </div>
         )}
-      </div>
-
-      <div className={styles.blockActions}>
         {!result && (
-          <button type="button" className={styles.buttonPrimary} disabled={!selected} onClick={check}>
-            {strings.checkAnswer}
+          <button type="button" className={`${styles.buttonPrimary} ${styles.buttonWide}`} disabled={!selected} onClick={check}>
+            {strings.check}
           </button>
         )}
         {result && !result.correct && (
-          <button type="button" className={styles.buttonPrimary} onClick={retry}>
+          <button type="button" className={`${styles.buttonPrimary} ${styles.buttonWide}`} onClick={retry}>
             {strings.tryAgain}
           </button>
         )}
         {result && result.correct && (
-          <button type="button" className={styles.buttonPrimary} onClick={props.onDone}>
+          <button type="button" className={`${styles.buttonSuccess} ${styles.buttonWide}`} onClick={props.onDone}>
             {strings.continue}
           </button>
         )}
       </div>
-    </div>
+    </>
   );
 }

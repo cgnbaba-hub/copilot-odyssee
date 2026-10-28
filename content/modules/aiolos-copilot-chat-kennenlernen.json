@@ -8,7 +8,10 @@
   "status": "draft",
   "reviewedAt": "2026-10-28",
   "reviewIntervalDays": 90,
-  "title": { "de": "Copilot Chat kennenlernen", "en": "Getting to know Copilot Chat" },
+  "title": {
+    "de": "Copilot Chat kennenlernen",
+    "en": "Getting to know Copilot Chat"
+  },
   "summary": {
     "de": "Wo du Copilot Chat (Basic) findest, was er kann und was er nicht sieht.",
     "en": "Where to find Copilot Chat (Basic), what it can do and what it cannot see."
@@ -19,7 +22,10 @@
     {
       "type": "briefing",
       "id": "wo",
-      "title": { "de": "Wo du Copilot Chat findest", "en": "Where to find Copilot Chat" },
+      "title": {
+        "de": "Wo du Copilot Chat findest",
+        "en": "Where to find Copilot Chat"
+      },
       "body": {
         "de": "Copilot Chat (Basic) erreichst du mit deinem Firmenkonto hier:\n- **im Browser** unter m365.cloud.microsoft/chat\n- in der **Microsoft-365-Copilot-App** auf dem Computer oder dem Handy\n- in **Outlook**\n\nIn Word, Excel, PowerPoint und OneNote ist Copilot seit April 2026 in grösseren Organisationen der Premium-Lizenz vorbehalten. Mit Basic arbeitest du dort, indem du Texte in den Chat kopierst oder Dateien hochlädst.",
         "en": "You can reach Copilot Chat (Basic) with your work account here:\n- **in the browser** at m365.cloud.microsoft/chat\n- in the **Microsoft 365 Copilot app** on your computer or phone\n- in **Outlook**\n\nIn Word, Excel, PowerPoint and OneNote, larger organisations have reserved Copilot for the Premium licence since April 2026. With Basic you work with those documents by copying text into the chat or uploading files."
@@ -28,7 +34,10 @@
     {
       "type": "briefing",
       "id": "was-sieht",
-      "title": { "de": "Was Copilot Chat sieht und was nicht", "en": "What Copilot Chat sees and what it doesn't" },
+      "title": {
+        "de": "Was Copilot Chat sieht und was nicht",
+        "en": "What Copilot Chat sees and what it doesn't"
+      },
       "body": {
         "de": "Copilot Chat (Basic) arbeitet mit zwei Quellen:\n- **dem Web**, für allgemeines Wissen und aktuelle Themen\n- **dem, was du ihm gibst**: deine Nachricht, eingefügter Text und hochgeladene Dateien\n\nWas Copilot Chat (Basic) **nicht** kann: selbstständig in euren SharePoint-Seiten, Teams-Chats oder deinem OneDrive suchen. Das ist der Premium-Lizenz vorbehalten. Wenn Copilot ein internes Dokument kennen soll, gib es ihm.",
         "en": "Copilot Chat (Basic) works with two sources:\n- **the web**, for general knowledge and current topics\n- **what you give it**: your message, pasted text and uploaded files\n\nWhat Copilot Chat (Basic) **cannot** do is search your SharePoint sites, Teams chats or OneDrive on its own. That is reserved for the Premium licence. If Copilot should know an internal document, give it to Copilot."
@@ -51,13 +60,16 @@
           },
           "correct": true,
           "explanation": {
-            "de": "Richtig. Basic sucht nicht selbst in euren Dateien. Achtung: Ohne Dokument erfindet Copilot im schlimmsten Fall eine plausible Antwort.",
-            "en": "Correct. Basic does not search your files by itself. Careful: without the document, Copilot may invent a plausible answer."
+            "de": "Basic sucht nicht selbst in euren Dateien. Achtung: Ohne Dokument erfindet Copilot im schlimmsten Fall eine plausible Antwort.",
+            "en": "Basic does not search your files by itself. Careful: without the document, Copilot may invent a plausible answer."
           }
         },
         {
           "id": "b",
-          "text": { "de": "Copilot findet das Dokument automatisch auf SharePoint.", "en": "Copilot finds the document on SharePoint automatically." },
+          "text": {
+            "de": "Copilot findet das Dokument automatisch auf SharePoint.",
+            "en": "Copilot finds the document on SharePoint automatically."
+          },
           "correct": false,
           "explanation": {
             "de": "Das kann nur M365 Copilot (Premium).",
@@ -66,7 +78,10 @@
         },
         {
           "id": "c",
-          "text": { "de": "Copilot sucht das Dokument im Internet.", "en": "Copilot searches the internet for the document." },
+          "text": {
+            "de": "Copilot sucht das Dokument im Internet.",
+            "en": "Copilot searches the internet for the document."
+          },
           "correct": false,
           "explanation": {
             "de": "Ein internes Dokument ist nicht im Internet. Copilot würde höchstens Ähnliches finden.",
@@ -86,35 +101,60 @@
       "options": [
         {
           "id": "a",
-          "text": { "de": "Ich bin mit dem Firmenkonto angemeldet und sehe das Schild-Symbol.", "en": "I am signed in with my work account and see the shield icon." },
+          "text": {
+            "de": "Ich bin mit dem Firmenkonto angemeldet und sehe das Schild-Symbol.",
+            "en": "I am signed in with my work account and see the shield icon."
+          },
           "correct": true,
-          "explanation": { "de": "Genau.", "en": "Exactly." }
+          "explanation": {
+            "de": "Genau.",
+            "en": "Exactly."
+          }
         },
         {
           "id": "b",
-          "text": { "de": "Die Seite hat ein blaues Design.", "en": "The page has a blue design." },
+          "text": {
+            "de": "Die Seite hat ein blaues Design.",
+            "en": "The page has a blue design."
+          },
           "correct": false,
-          "explanation": { "de": "Das Design sagt nichts über den Datenschutz.", "en": "The design says nothing about data protection." }
+          "explanation": {
+            "de": "Das Design sagt nichts über den Datenschutz.",
+            "en": "The design says nothing about data protection."
+          }
         },
         {
           "id": "c",
-          "text": { "de": "Copilot antwortet auf Deutsch.", "en": "Copilot answers in German." },
+          "text": {
+            "de": "Copilot antwortet auf Deutsch.",
+            "en": "Copilot answers in German."
+          },
           "correct": false,
-          "explanation": { "de": "Die Sprache hat mit dem Schutz nichts zu tun.", "en": "The language has nothing to do with protection." }
+          "explanation": {
+            "de": "Die Sprache hat mit dem Schutz nichts zu tun.",
+            "en": "The language has nothing to do with protection."
+          }
         }
       ]
     },
     {
       "type": "mission",
       "id": "m-erster-chat",
-      "title": { "de": "Erster Kontakt", "en": "First contact" },
+      "title": {
+        "de": "Erster Kontakt",
+        "en": "First contact"
+      },
       "task": {
-        "de": "Öffne Copilot Chat im Browser und prüfe, ob das Schild-Symbol angezeigt wird. Frag dann: «Erkläre mir in drei Sätzen, wie du mir im Arbeitsalltag helfen kannst. Ich arbeite im Bereich [dein Bereich].»",
-        "en": "Open Copilot Chat in the browser and check that the shield icon is shown. Then ask: “Explain in three sentences how you can help me in my daily work. I work in [your area].”"
+        "de": "Öffne Copilot Chat und prüfe, ob das Schild-Symbol angezeigt wird. Kopiere dann den Text unten, füge ihn in Copilot ein und ersetze [dein Bereich] durch deine Aufgabe.",
+        "en": "Open Copilot Chat and check that the shield icon is shown. Then copy the text below, paste it into Copilot and replace [your area] with your role."
       },
       "tip": {
         "de": "Ersetze [dein Bereich] durch deine Aufgabe, zum Beispiel «Produktmanagement Fernreisen» oder «Kundenservice».",
         "en": "Replace [your area] with your role, for example “long-haul product management” or “customer service”."
+      },
+      "copyText": {
+        "de": "Erkläre mir in drei Sätzen, wie du mir im Arbeitsalltag helfen kannst. Ich arbeite im Bereich [dein Bereich].",
+        "en": "Explain in three sentences how you can help me in my daily work. I work in [your area]."
       }
     }
   ]
