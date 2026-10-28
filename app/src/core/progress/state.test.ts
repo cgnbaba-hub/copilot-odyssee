@@ -85,7 +85,7 @@ describe('player state', () => {
     expect(nextBlockIndex(state, module)).toBe(1);
     state = answerQuiz(state, 'm1', quiz, 'a').state;
 
-    const finished = finishModule(state, module);
+    const finished = finishModule(state, module, new Date('2026-10-01T10:00:00Z'));
     expect(finished.xpGained).toBe(50);
     state = finished.state;
     expect(moduleStatus(state, module)).toBe('completed');
@@ -95,10 +95,10 @@ describe('player state', () => {
     expect(nextBlockIndex(state, module)).toBe(0);
     state = markBriefingRead(state, 'm1', 'b1').state;
     state = answerQuiz(state, 'm1', quiz, 'a').state;
-    state = finishModule(state, module).state;
+    state = finishModule(state, module, new Date('2026-10-02T10:00:00Z')).state;
 
     expect(state.xp).toBe(xpAfterFirstRun);
-    expect(getModule(state, 'm1')).toEqual({ started: 2, completed: 2, inProgress: false });
+    expect(getModule(state, 'm1')).toEqual({ started: 2, completed: 2, inProgress: false, firstCompletedAt: '2026-10-01T10:00:00.000Z' });
   });
 
   it('resumes an unfinished run instead of starting a new one', () => {

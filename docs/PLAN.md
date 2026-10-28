@@ -80,8 +80,8 @@ Beispiel (gekürzt):
 
 Wie Odysseus segeln die Spielenden von Insel zu Insel. **Ithaka ist Heimathafen und Ziel zugleich**: Dort sammeln sich die Use-Case-Karten aus jeder Etappe. Die Botschaft der Reise ist, das Gelernte in den eigenen Arbeitsalltag heimzubringen.
 
-- **Begriffe:** Fortschritt in *Seemeilen*, Abzeichen als *Trophäen der Reise*, Ränge von der *Deckshilfe* bis zur *Kapitänin / zum Kapitän*. Alle Begriffe sind im Theme hinterlegt und austauschbar.
-- **Stil:** Pixel-Art aus dem Prototyp als Ausgangspunkt. Der Stil ist eigenständig und lehnt sich nicht an Kampagnen anderer an. Das Feintuning passiert in AP 0.3.
+- **Progression wie ein Reise-Treueprogramm:** Man sammelt *Seemeilen* und steigt im Status auf: *Reisende:r → Entdecker:in → Weltenbummler:in → Reiseleiter:in → Kapitän:in → Legende von Ithaka*. Für jede vollständig bereiste Insel gibt es einen *Stempel im Reisepass*. *Souvenirs* gibt es für besondere Momente, zum Beispiel «Windschlauch des Aiolos» für einen perfekten Prompt oder «Erste Postkarte» für den ersten eigenen Use Case. Alle Begriffe sind im Theme hinterlegt und austauschbar.
+- **Stil:** Ägäis-Palette (Weiss, Tiefblau, Sonnengelb), Display-Schrift im Stil griechischer Inschriften (Marcellus, ins Paket eingebettet), gezeichnete Inseln mit eigenem Wahrzeichen, Mäanderband als Schmuckelement. Eigenständig, ohne Anlehnung an Kampagnen anderer.
 
 Die Inselnamen sind Vorschläge. Das Motiv aus der Odyssee passt jeweils zum Thema:
 
@@ -169,6 +169,7 @@ Legende: 🤖 = setze ich um · 👤 = brauche ich von dir · 🏢 = IT oder Dat
   *Fertig, wenn:* Freigabe vor dem Pilot (AP 2.6) liegt vor.
 - [ ] **AP 0.3 Design und Inselnamen** 👤🤖
   Odyssee-Theme verfeinern, Inselnamen und Stil bestätigen.
+  *Stand:* Inselnamen bestätigt. Zweite Design-Runde umgesetzt (siehe Abschnitt 4), Feedback dazu offen.
   *Fertig, wenn:* Inselliste und Stil sind festgelegt.
 
 ### Phase 1: Fundament
@@ -197,6 +198,7 @@ Legende: 🤖 = setze ich um · 👤 = brauche ich von dir · 🏢 = IT oder Dat
   Briefing, Quiz, Prompt-Werkstatt (regelbasiertes Feedback nach Ziel/Kontext/Quelle/Erwartung), Mission mit Reflexion, Use-Case-Karte.
 - [ ] **AP 2.3 Gamification** 🤖
   Seemeilen und Ränge (Logik aus dem Prototyp übernommen), Trophäen, Serien. Bereichswertung statt Einzel-Rangliste, Rangliste optional.
+  *Stand:* Seemeilen, Status-Stufen mit Aufstiegs-Dialog, Reisepass mit Stempeln und 6 Souvenirs sind umgesetzt. Offen: Serien, Bereichswertung, optionale Rangliste.
 - [ ] **AP 2.4 Inhalte Inseln 0–2** 🤖👤
   Sirenenfelsen, Aiolos (Copilot Chat Basic) und Ithaka mit vollständigen Inhalten auf DE und EN. Ich schreibe die Inhalte, du prüfst sie auf Passung zu euren Regeln und Beispielen.
 - [ ] **AP 2.5 Installationspaket und Pilot-Site** 🤖👤
@@ -229,7 +231,7 @@ Legende: 🤖 = setze ich um · 👤 = brauche ich von dir · 🏢 = IT oder Dat
 | XP- und Level-Logik (`XPService`) | Eigene Anmeldung (JWT) → Entra-SSO |
 | Abzeichen-Regeln (`BadgeService`) | Mistral-API (externer Dienst) |
 | Quizfragen und Prompt-Challenges (ins neue Format) | Duelle und Gilden (später optional, Gilden → Bereichswertung) |
-| Pixel-Art-Insel-Konzept | Spieler-Sprites werden im Zuge von AP 0.3 neu bewertet |
+| Insel-Konzept (neu gezeichnet) | Pixel-Spieler-Sprites (passen nicht zum neuen Stil) |
 
 ## 9. Entscheidungen
 
@@ -241,4 +243,5 @@ Legende: 🤖 = setze ich um · 👤 = brauche ich von dir · 🏢 = IT oder Dat
 | Power BI | ✅ Pro begrenzt vorhanden → nur für Auswertende, alle anderen nutzen das Dashboard in der App |
 | Mitbestimmung | ✅ Kein Betriebsrat (Schweiz). Abgleich mit der Datenschutzstelle (AP 0.2) |
 | IT: Website-App-Katalog für eine Test-Site | ⏳ klärst du (AP 0.1b) |
-| Inselnamen und Stil im Detail | ⏳ AP 0.3 |
+| Inselnamen | ✅ bestätigt |
+| Stil im Detail | ⏳ Feedback zur zweiten Design-Runde (AP 0.3) |

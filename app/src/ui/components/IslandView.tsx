@@ -5,6 +5,7 @@ import { moduleStatus } from '../../core/progress/state';
 import { useGame } from '../GameContext';
 import { isPreview } from '../progressHelpers';
 import styles from '../styles.module.scss';
+import { IslandArt } from './Art';
 import { UseCaseCards } from './UseCaseCards';
 
 export function IslandView(props: { islandId: string }): React.ReactElement {
@@ -23,13 +24,13 @@ export function IslandView(props: { islandId: string }): React.ReactElement {
         ← {strings.backToMap}
       </button>
 
-      <div className={styles.islandHeader}>
-        <span className={styles.islandShapeLarge} aria-hidden="true" />
-        <div>
-          <p className={styles.eyebrow}>
+      <div className={styles.islandHero}>
+        <IslandArt island={island} className={styles.islandHeroArt} />
+        <div className={styles.islandHeroText}>
+          <p className={styles.eyebrowLight}>
             {t(island.tool)} · {island.license === 'premium' ? strings.premiumOnly : strings.forEveryone}
           </p>
-          <h1 className={styles.panelTitle}>{t(island.name)}</h1>
+          <h1 className={styles.islandHeroTitle}>{t(island.name)}</h1>
           <p>{t(island.summary)}</p>
         </div>
       </div>
@@ -38,7 +39,7 @@ export function IslandView(props: { islandId: string }): React.ReactElement {
 
       {isPreview(game, island) && (
         <p className={styles.notice}>
-          <span className={styles.tagPreview}>{t(theme.terms.preview)}</span> {strings.previewNote}
+          <span className={styles.chipPreview}>{t(theme.terms.preview)}</span> {strings.previewNote}
         </p>
       )}
 
@@ -46,23 +47,32 @@ export function IslandView(props: { islandId: string }): React.ReactElement {
       {modules.length === 0 ? (
         <p className={styles.muted}>{strings.noModules}</p>
       ) : (
-        <ol className={styles.moduleList}>
+        <ol className={styles.stageRoute}>
           {modules.map((m) => {
             const status = moduleStatus(player, m);
             return (
-              <li key={m.id} className={styles.moduleCard}>
-                <div>
-                  <h3>
-                    {t(m.title)} {m.status === 'draft' && <span className={styles.tagDraft}>{strings.draft}</span>}
-                  </h3>
-                  <p>{t(m.summary)}</p>
-                  <p className={styles.muted}>
-                    {statusLabel[status]} · {m.estimatedMinutes} {strings.minutes}
-                  </p>
+              <li key={m.id} className={`${styles.stage} ${status === 'completed' ? styles.stageCompleted : status === 'inProgress' ? styles.stageActive : ''}`}>
+                <span className={styles.stageNode} aria-hidden="true">
+                  {status === 'completed' ? '✓' : ''}
+                </span>
+                <div className={styles.stageCard}>
+                  <div className={styles.stageText}>
+                    <h3>
+                      {t(m.title)} {m.status === 'draft' && <span className={styles.chipDraft}>{strings.draft}</span>}
+                    </h3>
+                    <p>{t(m.summary)}</p>
+                    <p className={styles.muted}>
+                      {statusLabel[status]} · {m.estimatedMinutes} {strings.minutes}
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    className={status === 'completed' ? styles.button : styles.buttonPrimary}
+                    onClick={() => navigate({ name: 'module', moduleId: m.id })}
+                  >
+                    {actionLabel[status]}
+                  </button>
                 </div>
-                <button type="button" className={status === 'completed' ? styles.button : styles.buttonPrimary} onClick={() => navigate({ name: 'module', moduleId: m.id })}>
-                  {actionLabel[status]}
-                </button>
               </li>
             );
           })}

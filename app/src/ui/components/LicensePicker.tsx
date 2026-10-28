@@ -23,8 +23,10 @@ export function LicensePicker(props: { value: LicenseChoice; onChange: (license:
           className={props.value === o.value ? `${styles.choice} ${styles.choiceSelected}` : styles.choice}
           onClick={() => props.onChange(o.value)}
         >
-          <strong>{o.title}</strong>
-          <span>{o.hint}</span>
+          <span className={styles.choiceText}>
+            <strong>{o.title}</strong>
+            <span className={styles.choiceHint}>{o.hint}</span>
+          </span>
         </button>
       ))}
       <p className={styles.muted}>{strings.licenseHowTo}</p>
