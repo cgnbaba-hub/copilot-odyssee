@@ -1,0 +1,62 @@
+{
+  "$schema": "../schema/module.schema.json",
+  "id": "polyphem-excel-start",
+  "island": "polyphem",
+  "order": 1,
+  "version": "0.1.0",
+  "owner": "copilot-team",
+  "status": "draft",
+  "title": { "de": "Erste Analysen in Excel", "en": "First analyses in Excel" },
+  "summary": {
+    "de": "Was Copilot in Excel kann und wie du eine Analyse gut beauftragst.",
+    "en": "What Copilot can do in Excel and how to ask for a good analysis."
+  },
+  "estimatedMinutes": 7,
+  "notes": "Aus dem Prototyp übernommen: Frage 5 und Prompt-Challenge 3. Zwei Antwortoptionen mit fragwürdigen Erklärungen (Internetzugriff, Makros) wurden ersetzt. Fachliche Prüfung steht aus (AP 2.4).",
+  "blocks": [
+    {
+      "type": "quiz",
+      "id": "q-excel-kann",
+      "difficulty": "beginner",
+      "question": { "de": "Was kann Copilot in Excel?", "en": "What can Copilot do in Excel?" },
+      "options": [
+        {
+          "id": "a",
+          "text": { "de": "Daten analysieren und Formeln vorschlagen", "en": "Analyse data and suggest formulas" },
+          "correct": true,
+          "explanation": {
+            "de": "Copilot in Excel kann Trends erkennen, Formeln vorschlagen und Daten zusammenfassen.",
+            "en": "Copilot in Excel can spot trends, suggest formulas and summarise data."
+          }
+        },
+        {
+          "id": "b",
+          "text": { "de": "Nur einfache Berechnungen durchführen", "en": "Only perform simple calculations" },
+          "correct": false,
+          "explanation": { "de": "Copilot geht weit über einfache Berechnungen hinaus.", "en": "Copilot goes far beyond simple calculations." }
+        },
+        {
+          "id": "c",
+          "text": { "de": "Nur die Formatierung von Zellen ändern", "en": "Only change cell formatting" },
+          "correct": false,
+          "explanation": { "de": "Copilot kann deutlich mehr als formatieren.", "en": "Copilot can do much more than formatting." }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "id": "p-verkaufsanalyse",
+      "difficulty": "intermediate",
+      "title": { "de": "Verkaufszahlen auswerten", "en": "Analysing sales figures" },
+      "scenario": {
+        "de": "Du hast eine Excel-Tabelle mit den Verkaufsdaten der letzten 12 Monate (Produkt, Region, Umsatz, Anzahl Verkäufe). Deine Vorgesetzte möchte eine Zusammenfassung der drei besten Produkte und der Trends. Schreib den Prompt für Copilot in Excel.",
+        "en": "You have an Excel sheet with sales data for the last 12 months (product, region, revenue, number of sales). Your manager wants a summary of the top three products and the trends. Write the prompt for Copilot in Excel."
+      },
+      "rubric": ["goal", "source", "expectation"],
+      "examplePrompt": {
+        "de": "Analysiere die Verkaufstabelle und finde die drei Produkte mit dem höchsten Gesamtumsatz. Erstelle eine Zusammenfassung mit 1) Rangliste der Top-Produkte, 2) Umsatzentwicklung über die 12 Monate, 3) einer Empfehlung für das nächste Quartal. Stelle die Ergebnisse als Tabelle mit kurzem Kommentar dar.",
+        "en": "Analyse the sales table and find the three products with the highest total revenue. Create a summary with 1) a ranking of the top products, 2) revenue development over the 12 months, 3) a recommendation for the next quarter. Present the results as a table with a short comment."
+      }
+    }
+  ]
+}

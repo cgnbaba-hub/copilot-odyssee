@@ -1,0 +1,23 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "whichFolder": "subdir",
+    "solutionName": "odyssee-spfx",
+    "environment": "spo",
+    "packageManager": "npm",
+    "skipFeatureDeployment": true,
+    "useGulp": false,
+    "componentType": "webpart",
+    "template": "react",
+    "componentName": "Odyssee",
+    "componentDescription": "Copilot-Lernspiel Odyssee",
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "nodeVersion": "22.22.0",
+    "sdksVersions": {},
+    "version": "1.23.2",
+    "libraryName": "odyssee-spfx",
+    "libraryId": "62789fcf-0983-41e2-9ba6-7c9c0ca6fa43",
+    "solutionShortDescription": "odyssee-spfx description",
+    "isDomainIsolated": false
+  }
+}

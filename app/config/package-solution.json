@@ -1,0 +1,43 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "odyssee-client-side-solution",
+    "id": "62789fcf-0983-41e2-9ba6-7c9c0ca6fa43",
+    "version": "0.1.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.23.2"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "Odyssey: the Copilot learning game",
+        "de-DE": "Odyssee: das Copilot-Lernspiel"
+      },
+      "longDescription": {
+        "default": "A gamified learning journey for Microsoft 365 Copilot Chat and Microsoft 365 Copilot.",
+        "de-DE": "Eine gamifizierte Lernreise f\u00fcr Microsoft 365 Copilot Chat und Microsoft 365 Copilot."
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "Odyssee",
+        "description": "Odyssee: das Copilot-Lernspiel",
+        "id": "561c3e70-3da7-4d0c-a0c0-242cf04324e2",
+        "version": "0.1.0.0"
+      }
+    ],
+    "title": "Odyssee"
+  },
+  "paths": {
+    "zippedPackage": "solution/odyssee.sppkg"
+  }
+}

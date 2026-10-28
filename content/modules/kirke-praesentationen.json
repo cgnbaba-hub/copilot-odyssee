@@ -1,0 +1,68 @@
+{
+  "$schema": "../schema/module.schema.json",
+  "id": "kirke-praesentationen",
+  "island": "kirke",
+  "order": 1,
+  "version": "0.1.0",
+  "owner": "copilot-team",
+  "status": "draft",
+  "title": { "de": "Präsentationen mit Copilot", "en": "Presentations with Copilot" },
+  "summary": {
+    "de": "Was Copilot in PowerPoint erstellen kann und wie du eine gute Präsentation beauftragst.",
+    "en": "What Copilot can create in PowerPoint and how to ask for a good presentation."
+  },
+  "estimatedMinutes": 7,
+  "notes": "Aus dem Prototyp übernommen: Frage 7 und Prompt-Challenge 4. Fachliche Prüfung steht aus (AP 2.4).",
+  "blocks": [
+    {
+      "type": "quiz",
+      "id": "q-powerpoint-kann",
+      "difficulty": "beginner",
+      "question": { "de": "Was kann Copilot in PowerPoint erstellen?", "en": "What can Copilot create in PowerPoint?" },
+      "options": [
+        {
+          "id": "a",
+          "text": { "de": "Ganze Präsentationen aus einem Prompt", "en": "Complete presentations from a prompt" },
+          "correct": true,
+          "explanation": {
+            "de": "Copilot kann aus einer Beschreibung eine komplette Präsentation mit Folien, Titeln und Inhalten erstellen.",
+            "en": "Copilot can create a complete presentation with slides, titles and content from a description."
+          }
+        },
+        {
+          "id": "b",
+          "text": { "de": "Nur einzelne Textfelder füllen", "en": "Only fill individual text boxes" },
+          "correct": false,
+          "explanation": { "de": "Copilot kann ganze Präsentationen erstellen, nicht nur einzelne Textfelder.", "en": "Copilot can create entire presentations, not just individual text boxes." }
+        },
+        {
+          "id": "c",
+          "text": { "de": "Nur Bilder in Folien einfügen", "en": "Only insert images into slides" },
+          "correct": false,
+          "explanation": { "de": "Copilot kann weit mehr als Bilder einfügen.", "en": "Copilot can do much more than insert images." }
+        },
+        {
+          "id": "d",
+          "text": { "de": "Nur Animationen hinzufügen", "en": "Only add animations" },
+          "correct": false,
+          "explanation": { "de": "Animationen sind nicht die Hauptaufgabe von Copilot in PowerPoint.", "en": "Animations are not the main job of Copilot in PowerPoint." }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "id": "p-praesentation",
+      "difficulty": "intermediate",
+      "title": { "de": "Präsentation für die Geschäftsleitung", "en": "Presentation for the leadership team" },
+      "scenario": {
+        "de": "Die Geschäftsleitung bittet dich um eine Präsentation zur Einführung von Copilot in eurem Unternehmen und dem erwarteten Nutzen. Schreib den Prompt für Copilot in PowerPoint.",
+        "en": "The leadership team asks you for a presentation on introducing Copilot in your company and the expected benefits. Write the prompt for Copilot in PowerPoint."
+      },
+      "rubric": ["goal", "context", "expectation"],
+      "examplePrompt": {
+        "de": "Erstelle eine Präsentation mit 8 Folien zur Einführung von Microsoft 365 Copilot für die Geschäftsleitung. Aufbau: 1) Titel, 2) Ausgangslage, 3) Was ist Copilot?, 4) Nutzen für uns, 5) Einführungsplan über 6 Monate, 6) Erwarteter Nutzen mit Kennzahlen, 7) Risiken und Massnahmen, 8) Nächste Schritte. Stil: sachlich und übersichtlich, wenig Text pro Folie.",
+        "en": "Create an 8-slide presentation on introducing Microsoft 365 Copilot for the leadership team. Structure: 1) Title, 2) Current situation, 3) What is Copilot?, 4) Benefits for us, 5) 6-month rollout plan, 6) Expected benefits with metrics, 7) Risks and mitigations, 8) Next steps. Style: factual and clear, little text per slide."
+      }
+    }
+  ]
+}

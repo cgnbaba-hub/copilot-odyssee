@@ -1,0 +1,7 @@
+{
+  "extends": "./node_modules/@microsoft/spfx-web-build-rig/profiles/default/tsconfig-base.json",
+  "compilerOptions": {
+    // SharePoint Online only supports modern browsers, so newer library APIs are safe to use.
+    "lib": ["dom", "es2019"]
+  }
+}

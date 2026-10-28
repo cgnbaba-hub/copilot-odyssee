@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  app:
+    name: Inhalte, Tests und Pakete
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+
+      - run: npm ci
+
+      - name: Inhalte prüfen
+        run: npm run content:check
+
+      - name: Build, Lint und Tests (SPFx)
+        run: npm run build
+
+      - name: Demo bauen
+        run: npm run demo:build
+
+      - name: App-Paket hochladen
+        uses: actions/upload-artifact@v4
+        with:
+          name: odyssee-sppkg
+          path: app/sharepoint/solution/odyssee.sppkg
+          if-no-files-found: error
+
+      - name: Demo hochladen
+        uses: actions/upload-artifact@v4
+        with:
+          name: odyssee-demo
+          path: app/dist-demo
+          if-no-files-found: error

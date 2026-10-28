@@ -1,0 +1,22 @@
+# Secrets — niemals einchecken
+.env
+.env.local
+*.env
+
+# Abhängigkeiten
+node_modules/
+frontend/node_modules/
+backend/node_modules/
+
+# Build-Artefakte
+dist/
+build/
+frontend/dist/
+backend/dist/
+
+# Logs
+*.log
+npm-debug.log*
+
+# System
+.DS_Store

@@ -1,0 +1,124 @@
+{
+  "$schema": "../schema/module.schema.json",
+  "id": "sirenen-was-ist-copilot",
+  "island": "sirenenfelsen",
+  "order": 1,
+  "version": "0.1.0",
+  "owner": "copilot-team",
+  "status": "draft",
+  "title": { "de": "Was ist Copilot?", "en": "What is Copilot?" },
+  "summary": {
+    "de": "Die zwei Stufen von Copilot kennen und KI-Antworten richtig einordnen.",
+    "en": "Know the two tiers of Copilot and judge AI answers correctly."
+  },
+  "estimatedMinutes": 6,
+  "notes": "Aus dem Prototyp übernommen: Frage 1. Die Prototyp-Frage zum zugrunde liegenden Sprachmodell (\"GPT-4\") ist entfallen, weil sie veraltet ist und sich die Modelle laufend ändern. Neu: Briefings und Frage zu Halluzinationen. Fachliche Prüfung steht aus (AP 2.4).",
+  "blocks": [
+    {
+      "type": "briefing",
+      "id": "copilot-kurz",
+      "title": { "de": "Copilot in zwei Stufen", "en": "Copilot in two tiers" },
+      "body": {
+        "de": "Copilot ist der KI-Assistent von Microsoft. Du schreibst in normaler Sprache, was du brauchst, und Copilot erstellt Texte, fasst zusammen, beantwortet Fragen oder hilft beim Analysieren.\n\nEs gibt zwei Stufen:\n- **Microsoft 365 Copilot Chat** steht allen mit einem Firmenkonto zur Verfügung. Er arbeitet mit Informationen aus dem Web und mit dem, was du ihm gibst, zum Beispiel eingefügtem Text oder hochgeladenen Dateien.\n- **Microsoft 365 Copilot** ist eine Zusatzlizenz. Er kann zusätzlich auf deine Arbeitsdaten zugreifen (Mails, Chats, Dateien, Meetings) und ist direkt in Outlook, Teams, Word, Excel und PowerPoint eingebaut.\n\nIn beiden Fällen gilt: Copilot unterstützt, du entscheidest.",
+        "en": "Copilot is Microsoft's AI assistant. You write what you need in plain language, and Copilot drafts text, summarises, answers questions or helps with analysis.\n\nThere are two tiers:\n- **Microsoft 365 Copilot Chat** is available to everyone with a work account. It works with information from the web and with what you give it, such as pasted text or uploaded files.\n- **Microsoft 365 Copilot** is an add-on licence. It can also access your work data (emails, chats, files, meetings) and is built right into Outlook, Teams, Word, Excel and PowerPoint.\n\nEither way: Copilot assists, you decide."
+      }
+    },
+    {
+      "type": "quiz",
+      "id": "q-was-ist-copilot",
+      "difficulty": "beginner",
+      "question": { "de": "Was ist Microsoft 365 Copilot?", "en": "What is Microsoft 365 Copilot?" },
+      "options": [
+        {
+          "id": "a",
+          "text": { "de": "Ein KI-Assistent, der in Microsoft-365-Apps integriert ist", "en": "An AI assistant integrated into Microsoft 365 apps" },
+          "correct": true,
+          "explanation": {
+            "de": "Richtig! Copilot ist in Apps wie Word, Excel, Teams und Outlook integriert.",
+            "en": "Correct! Copilot is integrated into apps like Word, Excel, Teams and Outlook."
+          }
+        },
+        {
+          "id": "b",
+          "text": { "de": "Ein neues Textverarbeitungsprogramm", "en": "A new word processor" },
+          "correct": false,
+          "explanation": {
+            "de": "Copilot ist keine eigenständige Textverarbeitung, sondern ein KI-Assistent in vielen Apps.",
+            "en": "Copilot is not a standalone word processor but an AI assistant across many apps."
+          }
+        },
+        {
+          "id": "c",
+          "text": { "de": "Ein Cloud-Speicherdienst", "en": "A cloud storage service" },
+          "correct": false,
+          "explanation": { "de": "Das ist OneDrive. Copilot ist ein KI-Assistent.", "en": "That's OneDrive. Copilot is an AI assistant." }
+        },
+        {
+          "id": "d",
+          "text": { "de": "Ein Videokonferenz-Tool", "en": "A video conferencing tool" },
+          "correct": false,
+          "explanation": {
+            "de": "Das ist Teams. Copilot funktioniert in Teams, ist aber mehr als das.",
+            "en": "That's Teams. Copilot works in Teams, but it is more than that."
+          }
+        }
+      ]
+    },
+    {
+      "type": "briefing",
+      "id": "halluzinationen",
+      "title": { "de": "Vorsicht, Sirenen!", "en": "Beware of the Sirens!" },
+      "body": {
+        "de": "KI-Modelle erzeugen Antworten, die plausibel klingen. Das heisst nicht, dass sie immer stimmen. Wenn eine KI Fakten, Zahlen oder Quellen erfindet, spricht man von **Halluzinationen**.\n\nSo segelst du sicher an den Sirenen vorbei:\n- Prüfe wichtige Fakten, Zahlen und Namen, bevor du sie weitergibst.\n- Schau dir die angegebenen Quellen an.\n- Gib Copilot gute Grundlagen, zum Beispiel eigene Dokumente oder klare Angaben.\n- Du bleibst verantwortlich für das, was du mit dem Ergebnis machst.",
+        "en": "AI models produce answers that sound plausible. That does not mean they are always right. When an AI invents facts, figures or sources, this is called a **hallucination**.\n\nHow to sail safely past the Sirens:\n- Check important facts, figures and names before passing them on.\n- Look at the sources provided.\n- Give Copilot a good foundation, such as your own documents or clear details.\n- You remain responsible for what you do with the result."
+      }
+    },
+    {
+      "type": "quiz",
+      "id": "q-halluzination",
+      "difficulty": "intermediate",
+      "question": {
+        "de": "Copilot nennt dir für einen Bericht eine überraschend genaue Marktzahl. Was tust du?",
+        "en": "Copilot gives you a surprisingly precise market figure for a report. What do you do?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": { "de": "Ich prüfe die Zahl in der angegebenen Quelle, bevor ich sie verwende.", "en": "I check the figure in the cited source before using it." },
+          "correct": true,
+          "explanation": {
+            "de": "Genau. Wichtige Zahlen prüfst du immer an der Quelle.",
+            "en": "Exactly. Always verify important figures at the source."
+          }
+        },
+        {
+          "id": "b",
+          "text": { "de": "Ich übernehme sie direkt, Copilot irrt sich nicht.", "en": "I use it right away, Copilot doesn't make mistakes." },
+          "correct": false,
+          "explanation": {
+            "de": "Auch Copilot kann halluzinieren. Ungeprüfte Zahlen sind riskant.",
+            "en": "Copilot can hallucinate too. Unchecked figures are risky."
+          }
+        },
+        {
+          "id": "c",
+          "text": { "de": "Ich frage Copilot, ob die Zahl stimmt, und übernehme sie bei einem Ja.", "en": "I ask Copilot whether the figure is correct and use it if it says yes." },
+          "correct": false,
+          "explanation": {
+            "de": "Eine Bestätigung von Copilot selbst ist keine unabhängige Prüfung.",
+            "en": "Confirmation from Copilot itself is not an independent check."
+          }
+        },
+        {
+          "id": "d",
+          "text": { "de": "Ich frage Copilot nie wieder nach Zahlen.", "en": "I never ask Copilot for figures again." },
+          "correct": false,
+          "explanation": {
+            "de": "Zu vorsichtig: Zahlen von Copilot sind nützlich, wenn du sie prüfst.",
+            "en": "Too cautious: figures from Copilot are useful when you check them."
+          }
+        }
+      ]
+    }
+  ]
+}

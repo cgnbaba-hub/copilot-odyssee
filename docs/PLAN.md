@@ -51,7 +51,7 @@ Spielwelt
 - **Content-Pakete** sind JSON-Dateien, eine pro Modul. Ein Schema prüft sie automatisch (CI).
 - **Pflege ohne Code:** Ein geänderter Inhalt wird in die SharePoint-Bibliothek hochgeladen und ist sofort live. Ein neues App-Paket ist nicht nötig.
 - **Neue Bausteintypen** (z. B. Video, Drag & Drop) sind Plug-ins in der Engine. Bestehende Inhalte bleiben davon unberührt.
-- **Jedes Modul trägt:** `version`, `owner`, `reviewedAt`, `reviewIntervalDays`, `license` (basic/premium), `status` (entwurf/aktiv/veraltet). In der App steht "Stand: Monat Jahr". Überfällige Reviews werden gemeldet (AP 4.2).
+- **Jedes Modul trägt:** `version`, `owner`, `reviewedAt`, `reviewIntervalDays`, `license` (basic/premium), `status` (`draft` = Entwurf, `active` = aktiv, `deprecated` = veraltet). In der App steht "Stand: Monat Jahr". Überfällige Reviews werden gemeldet (AP 4.2).
 - **Themes** (Optik, Begriffe, Bilder) und **Sprachen** sind ebenfalls austauschbar.
 
 Beispiel (gekürzt):
@@ -173,15 +173,18 @@ Legende: 🤖 = setze ich um · 👤 = brauche ich von dir · 🏢 = IT oder Dat
 
 ### Phase 1: Fundament
 
-- [ ] **AP 1.1 Repo-Umbau und CI** 🤖
+- [x] **AP 1.1 Repo-Umbau und CI** 🤖
   Prototyp mit dem Tag `v0-prototyp` sichern und nach `legacy/` verschieben. Neue Projektstruktur anlegen, GitHub Actions für Lint, Typecheck, Tests und Build einrichten.
   *Fertig, wenn:* CI ist grün.
-- [ ] **AP 1.2 Content-Modell** 🤖
+  *Umgesetzt:* Prototyp liegt in `legacy/`. Den Tag konnte ich aus der Arbeitsumgebung nicht pushen; der Stand ist Commit `e600e46` und lässt sich bei Bedarf über GitHub → Releases als `v0-prototyp` markieren. CI: `.github/workflows/ci.yml`.
+- [x] **AP 1.2 Content-Modell** 🤖
   JSON-Schema für Insel, Modul und Bausteine. Prüfskript in der CI, das auch fehlende Übersetzungen DE/EN findet. Die 7 Quizfragen und 4 Prompt-Challenges aus dem Prototyp werden übernommen.
   *Fertig, wenn:* Beispielmodul validiert und fehlerhafte Inhalte lassen die CI rot werden.
-- [ ] **AP 1.3 App-Gerüst und Demo-Modus** 🤖
+  *Umgesetzt:* Schemas in `content/schema/`, Prüfung mit `npm run content:check`, Anleitung in `docs/INHALTE.md`. Übernommen wurden 6 von 7 Quizfragen und alle 4 Prompt-Challenges, als Entwurf. Die Frage zum Sprachmodell («GPT-4») ist veraltet und entfallen, fragwürdige Antwortoptionen sind ersetzt (Details im Feld `notes` jedes Moduls).
+- [x] **AP 1.3 App-Gerüst und Demo-Modus** 🤖
   SPFx-Projekt (SharePoint-Seite und Teams), Übersetzungen de-CH/EN, Theme-System. Ein Demo-Modus mit Testdaten läuft ohne Tenant im Browser.
   *Fertig, wenn:* Die erste klickbare Demo ist als Link verfügbar und das `.sppkg`-Paket wird gebaut.
+  *Umgesetzt:* SPFx 1.23 (React 17, Heft). Bis AP 1.4 speichert das Webpart den Fortschritt im Browser. Für die Demo sind bereits einfache Versionen aller Bausteine aus AP 2.2 und eine erste Seekarte aus AP 2.1 drin; beide APs verfeinern das.
 - [ ] **AP 1.4 Datenschicht** 🤖
   Einheitliche Schnittstelle mit zwei Umsetzungen: Testdaten (Demo und Tests) und SharePoint. Ein PnP-PowerShell-Skript legt alle Listen und die Bibliothek automatisch an.
   *Fertig, wenn:* Skript und Anleitung sind da, Tests laufen gegen die Testdaten.

@@ -1,0 +1,47 @@
+{
+  "$schema": "../schema/module.schema.json",
+  "id": "phaiaken-meetings",
+  "island": "phaiaken",
+  "order": 1,
+  "version": "0.1.0",
+  "owner": "copilot-team",
+  "status": "draft",
+  "title": { "de": "Copilot in Meetings", "en": "Copilot in meetings" },
+  "summary": {
+    "de": "Wie Copilot dir hilft, Besprechungen festzuhalten und Aufgaben abzuleiten.",
+    "en": "How Copilot helps you capture meetings and derive action items."
+  },
+  "estimatedMinutes": 3,
+  "notes": "Aus dem Prototyp übernommen: Frage 6. Zwei Antwortoptionen mit fragwürdigen Erklärungen wurden ersetzt. Fachliche Prüfung steht aus (AP 2.4).",
+  "blocks": [
+    {
+      "type": "quiz",
+      "id": "q-teams-funktion",
+      "difficulty": "beginner",
+      "question": { "de": "Wobei hilft Copilot in Microsoft Teams?", "en": "What does Copilot help with in Microsoft Teams?" },
+      "options": [
+        {
+          "id": "a",
+          "text": { "de": "Besprechungen zusammenfassen und Aufgaben ableiten", "en": "Summarise meetings and derive action items" },
+          "correct": true,
+          "explanation": {
+            "de": "Copilot kann Meetings zusammenfassen und Aufgaben aus dem Gespräch ableiten.",
+            "en": "Copilot can summarise meetings and derive action items from the conversation."
+          }
+        },
+        {
+          "id": "b",
+          "text": { "de": "Videos von Meetings schneiden", "en": "Edit meeting videos" },
+          "correct": false,
+          "explanation": { "de": "Das ist keine Aufgabe von Copilot in Teams.", "en": "That is not what Copilot in Teams does." }
+        },
+        {
+          "id": "c",
+          "text": { "de": "Die Kameraqualität verbessern", "en": "Improve camera quality" },
+          "correct": false,
+          "explanation": { "de": "Das ist keine Copilot-Funktion.", "en": "That is not a Copilot feature." }
+        }
+      ]
+    }
+  ]
+}

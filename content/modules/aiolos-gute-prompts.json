@@ -1,0 +1,166 @@
+{
+  "$schema": "../schema/module.schema.json",
+  "id": "aiolos-gute-prompts",
+  "island": "aiolos",
+  "order": 1,
+  "version": "0.1.0",
+  "owner": "copilot-team",
+  "status": "draft",
+  "title": { "de": "Gute Prompts schreiben", "en": "Writing good prompts" },
+  "summary": {
+    "de": "Mit Ziel, Kontext, Quelle und Erwartung bekommst du bessere Ergebnisse aus Copilot Chat.",
+    "en": "Goal, context, source and expectations get you better results from Copilot Chat."
+  },
+  "estimatedMinutes": 12,
+  "notes": "Aus dem Prototyp übernommen: Fragen 3 und 4, Prompt-Challenges 1 und 2. Die Challenges spielen jetzt in Copilot Chat statt in Word/Outlook, damit sie mit der Basic-Lizenz funktionieren. Neu: Briefing, Mission, Use-Case-Karte. Fachliche Prüfung steht aus (AP 2.4).",
+  "blocks": [
+    {
+      "type": "briefing",
+      "id": "vier-zutaten",
+      "title": { "de": "Vier Zutaten für einen guten Prompt", "en": "Four ingredients of a good prompt" },
+      "body": {
+        "de": "Ein guter Prompt ist wie ein klarer Kurs. Vier Zutaten helfen:\n- **Ziel:** Was soll Copilot tun? Zum Beispiel «Fasse zusammen …» oder «Entwirf …».\n- **Kontext:** Wofür brauchst du das Ergebnis, für wen und warum?\n- **Quelle:** Worauf soll sich Copilot stützen? Zum Beispiel ein hochgeladenes Dokument oder ein eingefügter Text.\n- **Erwartung:** Wie soll das Ergebnis aussehen? Länge, Format, Ton.\n\nNicht jeder Prompt braucht alle vier. Aber je wichtiger das Ergebnis, desto mehr lohnt es sich.",
+        "en": "A good prompt is like a clear course. Four ingredients help:\n- **Goal:** What should Copilot do? For example \"Summarise …\" or \"Draft …\".\n- **Context:** What do you need the result for, for whom and why?\n- **Source:** What should Copilot rely on? For example an uploaded document or pasted text.\n- **Expectations:** What should the result look like? Length, format, tone.\n\nNot every prompt needs all four. But the more important the result, the more it pays off."
+      }
+    },
+    {
+      "type": "quiz",
+      "id": "q-was-ist-prompt",
+      "difficulty": "beginner",
+      "question": { "de": "Was ist ein «Prompt»?", "en": "What is a \"prompt\"?" },
+      "options": [
+        {
+          "id": "a",
+          "text": { "de": "Eine Eingabe oder Anweisung an die KI", "en": "An input or instruction given to the AI" },
+          "correct": true,
+          "explanation": {
+            "de": "Ein Prompt ist die Eingabe, mit der du der KI mitteilst, was sie tun soll.",
+            "en": "A prompt is the input that tells the AI what to do."
+          }
+        },
+        {
+          "id": "b",
+          "text": { "de": "Ein Fehler im System", "en": "An error in the system" },
+          "correct": false,
+          "explanation": { "de": "Ein Fehler wäre ein Bug, kein Prompt.", "en": "An error would be a bug, not a prompt." }
+        },
+        {
+          "id": "c",
+          "text": { "de": "Eine Datenbankabfrage", "en": "A database query" },
+          "correct": false,
+          "explanation": {
+            "de": "Datenbankabfragen schreibt man zum Beispiel in SQL. Prompts sind normale Sprache.",
+            "en": "Database queries are written in languages like SQL. Prompts are plain language."
+          }
+        },
+        {
+          "id": "d",
+          "text": { "de": "Ein Programmierbefehl", "en": "A programming command" },
+          "correct": false,
+          "explanation": {
+            "de": "Prompts sind in natürlicher Sprache, keine Programmierbefehle.",
+            "en": "Prompts are in natural language, not programming commands."
+          }
+        }
+      ]
+    },
+    {
+      "type": "quiz",
+      "id": "q-gutes-element",
+      "difficulty": "intermediate",
+      "question": {
+        "de": "Was ist ein wichtiges Element eines guten Copilot-Prompts?",
+        "en": "What is an important element of a good Copilot prompt?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": { "de": "Ein klares Ziel und relevanter Kontext", "en": "A clear goal and relevant context" },
+          "correct": true,
+          "explanation": {
+            "de": "Ein guter Prompt beschreibt genau, was du möchtest, und gibt der KI den nötigen Kontext.",
+            "en": "A good prompt describes exactly what you want and gives the AI the context it needs."
+          }
+        },
+        {
+          "id": "b",
+          "text": { "de": "Möglichst kurze Anfragen", "en": "Requests that are as short as possible" },
+          "correct": false,
+          "explanation": {
+            "de": "Kürze allein ist kein Qualitätsmerkmal. Präzision und Kontext sind wichtiger.",
+            "en": "Brevity alone is not a quality feature. Precision and context matter more."
+          }
+        },
+        {
+          "id": "c",
+          "text": { "de": "Viele Fachbegriffe", "en": "Lots of technical jargon" },
+          "correct": false,
+          "explanation": {
+            "de": "Fachbegriffe können helfen, sind aber kein Muss. Klarheit ist entscheidend.",
+            "en": "Technical terms can help but are not required. Clarity is key."
+          }
+        },
+        {
+          "id": "d",
+          "text": { "de": "Mehrere Themen auf einmal", "en": "Several topics at once" },
+          "correct": false,
+          "explanation": {
+            "de": "Ein Thema pro Prompt liefert meist bessere Ergebnisse.",
+            "en": "One topic per prompt usually gives better results."
+          }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "id": "p-willkommenstext",
+      "difficulty": "beginner",
+      "title": { "de": "Willkommenstext fürs Team", "en": "Team welcome text" },
+      "scenario": {
+        "de": "Eine neue Person startet nächste Woche in deinem Team. Du möchtest einen kurzen Willkommenstext (rund 200 Wörter), der das Team und eure Zusammenarbeit beschreibt. Schreib den Prompt, den du dafür in Copilot Chat eingeben würdest.",
+        "en": "A new person joins your team next week. You want a short welcome text (around 200 words) describing the team and how you work together. Write the prompt you would enter in Copilot Chat."
+      },
+      "rubric": ["goal", "context", "expectation"],
+      "examplePrompt": {
+        "de": "Schreibe einen Willkommenstext von rund 200 Wörtern für eine neue Kollegin in unserem Marketing-Team. Wir sind 8 Personen, arbeiten hybrid und legen Wert auf kurze Wege und gegenseitige Unterstützung. Der Ton soll herzlich und locker sein, mit einem Absatz zu unseren wöchentlichen Team-Ritualen.",
+        "en": "Write a welcome text of around 200 words for a new colleague joining our marketing team. We are 8 people, work hybrid and value short decision paths and helping each other. The tone should be warm and casual, with one paragraph about our weekly team rituals."
+      }
+    },
+    {
+      "type": "prompt",
+      "id": "p-dankesmail",
+      "difficulty": "beginner",
+      "title": { "de": "Danke sagen", "en": "Saying thank you" },
+      "scenario": {
+        "de": "Euer Team hat ein wichtiges Projekt abgeschlossen. Du willst dich bei allen Beteiligten bedanken: 15 Personen aus drei Abteilungen. Schreib den Prompt für Copilot Chat.",
+        "en": "Your team has completed an important project. You want to thank everyone involved: 15 people from three departments. Write the prompt for Copilot Chat."
+      },
+      "rubric": ["goal", "context", "expectation"],
+      "examplePrompt": {
+        "de": "Verfasse eine Dankes-Mail an 15 Kolleginnen und Kollegen aus Entwicklung, Design und Marketing, die gemeinsam in drei Monaten unseren neuen Kundenbereich lanciert haben. Hebe die abteilungsübergreifende Zusammenarbeit hervor. Ton: wertschätzend und professionell, Länge: 150 bis 200 Wörter.",
+        "en": "Write a thank-you email to 15 colleagues from engineering, design and marketing who launched our new customer portal together in three months. Highlight the cross-team collaboration. Tone: appreciative and professional, length: 150 to 200 words."
+      }
+    },
+    {
+      "type": "mission",
+      "id": "m-erster-prompt",
+      "title": { "de": "Ab aufs Meer", "en": "Set sail" },
+      "task": {
+        "de": "Öffne Copilot Chat und probiere einen deiner Prompts aus dieser Etappe aus. Verfeinere das Ergebnis danach mit einer zweiten Nachricht, zum Beispiel «Mach es kürzer» oder «Bitte etwas formeller».",
+        "en": "Open Copilot Chat and try one of your prompts from this stage. Then refine the result with a second message, such as \"Make it shorter\" or \"A bit more formal, please\"."
+      },
+      "tip": {
+        "de": "Copilot Chat erreichst du zum Beispiel über m365.cloud.microsoft/chat, in Teams oder in der Microsoft-365-App.",
+        "en": "You can reach Copilot Chat via m365.cloud.microsoft/chat, in Teams or in the Microsoft 365 app."
+      }
+    },
+    {
+      "type": "usecase",
+      "id": "u-eigener-prompt",
+      "intro": {
+        "de": "Wo in deinem Alltag könnte dir ein guter Prompt Zeit sparen? Halte deine Idee als Use-Case-Karte fest.",
+        "en": "Where in your daily work could a good prompt save you time? Capture your idea as a use case card."
+      }
+    }
+  ]
+}
