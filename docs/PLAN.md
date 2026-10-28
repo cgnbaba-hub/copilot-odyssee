@@ -186,9 +186,10 @@ Legende: 🤖 = setze ich um · 👤 = brauche ich von dir · 🏢 = IT oder Dat
   SPFx-Projekt (SharePoint-Seite und Teams), Übersetzungen de-CH/EN, Theme-System. Ein Demo-Modus mit Testdaten läuft ohne Tenant im Browser.
   *Fertig, wenn:* Die erste klickbare Demo ist als Link verfügbar und das `.sppkg`-Paket wird gebaut.
   *Umgesetzt:* SPFx 1.23 (React 17, Heft). Bis AP 1.4 speichert das Webpart den Fortschritt im Browser. Für die Demo sind bereits einfache Versionen aller Bausteine aus AP 2.2 und eine erste Seekarte aus AP 2.1 drin; beide APs verfeinern das.
-- [ ] **AP 1.4 Datenschicht** 🤖
+- [x] **AP 1.4 Datenschicht** 🤖
   Einheitliche Schnittstelle mit zwei Umsetzungen: Testdaten (Demo und Tests) und SharePoint. Ein PnP-PowerShell-Skript legt alle Listen und die Bibliothek automatisch an.
   *Fertig, wenn:* Skript und Anleitung sind da, Tests laufen gegen die Testdaten.
+  *Umgesetzt:* Inhalte kommen als geprüfte Datei `odyssee-content.json` aus der Bibliothek `OdysseeInhalte`, der Fortschritt liegt in der Liste `OdysseeFortschritt` (ein Eintrag pro Person, nur eigene Einträge sichtbar). Ohne Liste läuft das Spiel mit Browser-Speicher weiter und übernimmt den Stand später automatisch. Skripte in `provisioning/`, Anleitung in `docs/SHAREPOINT.md`. Die Skripte sind noch nicht im Tenant gelaufen.
 
 ### Phase 2: Spielbares MVP (Basic zuerst)
 

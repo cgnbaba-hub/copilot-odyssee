@@ -3,15 +3,20 @@
  *
  *   tsx tools/content-cli.ts check    validate only
  *   tsx tools/content-cli.ts bundle   validate, then write src/content/bundle.generated.ts
+ *   tsx tools/content-cli.ts export   validate, then write dist-content/odyssee-content.json,
+ *                                     the file provisioning/Publish-OdysseeContent.ps1 uploads
  */
 import * as fs from 'fs';
 import * as path from 'path';
 
 import { ContentBundle } from '../src/core/content/types';
 import { ContentFile, validateContent } from '../src/core/content/validate';
+import { CONTENT_FILE_FORMAT } from '../src/data/content';
+import { CONTENT_FILE_NAME } from '../src/data/sharepoint/names';
 
 const CONTENT_DIR = path.resolve(__dirname, '../../content');
 const BUNDLE_FILE = path.resolve(__dirname, '../src/content/bundle.generated.ts');
+const EXPORT_FILE = path.resolve(__dirname, '../dist-content', CONTENT_FILE_NAME);
 
 function readJson(relativePath: string): unknown {
   return JSON.parse(fs.readFileSync(path.join(CONTENT_DIR, relativePath), 'utf8'));
@@ -24,8 +29,8 @@ function stripEditorFields(bundle: ContentBundle): ContentBundle {
 
 function main(): void {
   const command = process.argv[2];
-  if (command !== 'check' && command !== 'bundle') {
-    console.error('Aufruf: content-cli.ts check|bundle');
+  if (command !== 'check' && command !== 'bundle' && command !== 'export') {
+    console.error('Aufruf: content-cli.ts check|bundle|export');
     process.exit(2);
   }
 
@@ -64,6 +69,13 @@ function main(): void {
     fs.mkdirSync(path.dirname(BUNDLE_FILE), { recursive: true });
     fs.writeFileSync(BUNDLE_FILE, source);
     console.log(`Geschrieben: ${path.relative(process.cwd(), BUNDLE_FILE)}`);
+  }
+
+  if (command === 'export') {
+    const file = { format: CONTENT_FILE_FORMAT, generatedAt: new Date().toISOString(), ...stripEditorFields(result.bundle) };
+    fs.mkdirSync(path.dirname(EXPORT_FILE), { recursive: true });
+    fs.writeFileSync(EXPORT_FILE, JSON.stringify(file, undefined, 2));
+    console.log(`Geschrieben: ${path.relative(process.cwd(), EXPORT_FILE)}`);
   }
 }
 

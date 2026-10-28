@@ -32,6 +32,9 @@ jobs:
       - name: Demo bauen
         run: npm run demo:build
 
+      - name: Inhaltsdatei für SharePoint exportieren
+        run: npm run content:export
+
       - name: App-Paket hochladen
         uses: actions/upload-artifact@v4
         with:
@@ -44,4 +47,11 @@ jobs:
         with:
           name: odyssee-demo
           path: app/dist-demo
+          if-no-files-found: error
+
+      - name: Inhaltsdatei hochladen
+        uses: actions/upload-artifact@v4
+        with:
+          name: odyssee-content
+          path: app/dist-content/odyssee-content.json
           if-no-files-found: error

@@ -25,7 +25,8 @@ export interface AppProps {
   /** Language before the player picks one. */
   initialLang: Lang;
   showDrafts: boolean;
-  demo: boolean;
+  /** Where progress is saved; anything but SharePoint is pointed out to the player. */
+  storage: 'demo' | 'browser' | 'sharepoint';
   theme?: Theme;
 }
 
@@ -138,7 +139,8 @@ export function App(props: AppProps): React.ReactElement {
   return (
     <GameContext.Provider value={game}>
       <div ref={rootRef} className={styles.app} style={themeVariables(theme)} lang={lang === 'de' ? 'de-CH' : 'en'}>
-        {props.demo && <p className={styles.demoBanner}>{strings.demoBanner}</p>}
+        {props.storage === 'demo' && <p className={styles.demoBanner}>{strings.demoBanner}</p>}
+        {props.storage === 'browser' && <p className={styles.demoBanner}>{strings.browserStorageBanner}</p>}
         <Header onOpenSettings={() => setSettingsOpen(true)} />
         <main className={styles.main}>{main}</main>
         {settingsOpen && <Settings onClose={() => setSettingsOpen(false)} onReset={reset} />}

@@ -10,6 +10,6 @@ import { App } from '../ui/App';
 // The demo page owns the whole document and never unmounts the app.
 // eslint-disable-next-line @rushstack/pair-react-dom-render-unmount
 ReactDom.render(
-  <App content={content} store={new LocalStorageProgressStore('odyssee-demo')} initialLang={langFromCulture(navigator.language)} showDrafts={true} demo={true} />,
+  <App content={content} store={new LocalStorageProgressStore('odyssee-demo')} initialLang={langFromCulture(navigator.language)} showDrafts={true} storage="demo" />,
   document.getElementById('root')
 );

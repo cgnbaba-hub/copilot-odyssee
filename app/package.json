@@ -8,6 +8,7 @@
   "scripts": {
     "content:check": "tsx tools/content-cli.ts check",
     "content:bundle": "tsx tools/content-cli.ts bundle",
+    "content:export": "tsx tools/content-cli.ts export",
     "prebuild": "npm run content:bundle",
     "build": "heft test --clean --production && heft package-solution --production",
     "test": "npm run content:bundle && heft test --clean",
@@ -24,6 +25,7 @@
     "@fluentui/react": "^8.106.4",
     "@microsoft/sp-component-base": "1.23.2",
     "@microsoft/sp-core-library": "1.23.2",
+    "@microsoft/sp-http": "1.23.2",
     "@microsoft/sp-lodash-subset": "1.23.2",
     "@microsoft/sp-office-ui-fabric-core": "1.23.2",
     "@microsoft/sp-property-pane": "1.23.2",
