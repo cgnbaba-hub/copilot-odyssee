@@ -12,6 +12,8 @@ function criterionName(strings: Strings, criterion: RubricCriterion): string {
   return strings[`criterion_${criterion}` as keyof Strings];
 }
 
+const GOOD_SCORE = 70;
+
 function criterionTip(strings: Strings, criterion: RubricCriterion): string {
   return strings[`criterionTip_${criterion}` as keyof Strings];
 }
@@ -23,6 +25,16 @@ export function PromptView(props: BlockViewProps<PromptBlock>): React.ReactEleme
   const [feedback, setFeedback] = React.useState<PromptFeedback | undefined>(undefined);
   const [showExample, setShowExample] = React.useState(false);
   const inputId = `od-prompt-${block.id}`;
+  const feedbackRef = React.useRef<HTMLDivElement>(null);
+
+  // The tips appear below the input; bring them into view so they are not missed.
+  React.useEffect(() => {
+    const box = feedbackRef.current;
+    if (feedback && box && box.scrollIntoView) box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, [feedback]);
+
+  // While the prompt still misses a lot, improving it is the obvious next step.
+  const improveFirst = !!feedback && feedback.score < GOOD_SCORE;
 
   const evaluate = (): void => {
     const result = evaluatePrompt(text, block.rubric);
@@ -43,7 +55,7 @@ export function PromptView(props: BlockViewProps<PromptBlock>): React.ReactEleme
 
       <div aria-live="polite">
         {feedback && (
-          <div className={styles.feedbackBox}>
+          <div className={styles.feedbackBox} ref={feedbackRef}>
             <div className={styles.scoreRow}>
               <span className={styles.scoreValue}>{feedback.score}</span>
               <span>
@@ -80,11 +92,11 @@ export function PromptView(props: BlockViewProps<PromptBlock>): React.ReactEleme
       )}
 
       <div className={styles.actionBar}>
-        <button type="button" className={`${feedback ? styles.button : styles.buttonPrimary} ${styles.buttonWide}`} disabled={text.trim().length === 0} onClick={evaluate}>
+        <button type="button" className={`${feedback && !improveFirst ? styles.button : styles.buttonPrimary} ${styles.buttonWide}`} disabled={text.trim().length === 0} onClick={evaluate}>
           {feedback ? strings.improvePrompt : strings.getFeedback}
         </button>
         {feedback && (
-          <button type="button" className={`${styles.buttonPrimary} ${styles.buttonWide}`} onClick={props.onDone}>
+          <button type="button" className={`${improveFirst ? styles.button : styles.buttonPrimary} ${styles.buttonWide}`} onClick={props.onDone}>
             {strings.continue}
           </button>
         )}

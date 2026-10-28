@@ -79,6 +79,7 @@ const de = {
   backToOverview: 'Zur Übersicht',
   backToIsland: 'Zurück zur Insel',
   islandGuide: 'Wähle eine Etappe und klicke auf «Starten».',
+  islandGuideEmpty: 'Auf dieser Insel gibt es noch keine Etappen. Klicke oben auf «Zur Übersicht» und segle zu einer anderen Insel.',
   islandGuidePreview:
     'Diese Insel gehört zu M365 Copilot (Premium). Du kannst alles lesen und lernen. Ausprobieren kannst du es erst mit der Premium-Lizenz.',
   modules: 'Etappen',
@@ -265,6 +266,7 @@ const en: Strings = {
   backToOverview: 'Back to overview',
   backToIsland: 'Back to the island',
   islandGuide: 'Choose a stage and click “Start”.',
+  islandGuideEmpty: 'There are no stages on this island yet. Click “Back to overview” at the top and sail to another island.',
   islandGuidePreview: 'This island belongs to M365 Copilot (Premium). You can read and learn everything. Trying it out requires the Premium licence.',
   modules: 'Stages',
   noModules: 'This island is being prepared. Check back soon!',

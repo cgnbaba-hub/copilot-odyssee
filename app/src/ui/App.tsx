@@ -133,8 +133,9 @@ export function App(props: AppProps): React.ReactElement {
 
   let main: React.ReactElement;
   if (!player.profile.onboarded) main = <Onboarding />;
-  else if (view.name === 'island') main = <IslandView islandId={view.islandId} />;
-  else if (view.name === 'module') main = <ModulePlayer moduleId={view.moduleId} />;
+  // Keys give every island and stage a fresh screen, so no state carries over from the previous one.
+  else if (view.name === 'island') main = <IslandView key={view.islandId} islandId={view.islandId} />;
+  else if (view.name === 'module') main = <ModulePlayer key={view.moduleId} moduleId={view.moduleId} />;
   else if (view.name === 'passport') main = <Passport />;
   else main = <Home />;
 
@@ -147,7 +148,8 @@ export function App(props: AppProps): React.ReactElement {
         <main className={styles.main}>{main}</main>
         {settingsOpen && <Settings onClose={() => setSettingsOpen(false)} onReset={reset} />}
         {helpOpen && <HelpPanel onClose={() => setHelpOpen(false)} />}
-        {rankUp !== undefined && <RankUp index={rankUp} onClose={() => setRankUp(undefined)} />}
+        {/* A new status is celebrated outside of stages, so it never interrupts a task. */}
+        {rankUp !== undefined && view.name !== 'module' && <RankUp index={rankUp} onClose={() => setRankUp(undefined)} />}
         <div className={styles.toasts} aria-live="polite">
           {toasts.map((x) => (
             <div key={x.id} className={x.kind === 'souvenir' ? `${styles.toast} ${styles.toastSouvenir}` : styles.toast}>

@@ -296,6 +296,16 @@ $meander: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' widt
   }
 }
 
+.versionPillUnknown {
+  background: var(--od-surface-alt);
+  border-color: var(--od-line);
+  color: var(--od-ink);
+
+  &:hover {
+    border-color: var(--od-primary);
+  }
+}
+
 .versionPillLabel {
   font-size: 11px;
   font-weight: 700;
@@ -1877,10 +1887,11 @@ $meander: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' widt
 .moduleDone {
   position: relative;
   margin-top: 8px;
-  padding: 28px 24px;
+  padding: 22px 24px 18px;
   background: linear-gradient(180deg, #fff2cc 0%, var(--od-surface) 100%);
   border-radius: $radius-large;
-  overflow: hidden;
+  // clip, not hidden: hidden would stop the buttons from sticking to the screen bottom.
+  overflow: clip;
   text-align: center;
 
   .guide {
@@ -1893,12 +1904,12 @@ $meander: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' widt
 
 .moduleDoneArt {
   display: block;
-  width: 180px;
-  margin: 0 auto 8px;
+  width: 130px;
+  margin: 0 auto 4px;
 }
 
 .moduleDoneTitle {
-  font-size: 34px;
+  font-size: 32px;
   font-weight: 900 !important;
 }
 
@@ -1912,12 +1923,18 @@ $meander: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' widt
   font-weight: 800;
 }
 
+// The way on stays at the bottom of the screen, even on small laptops.
 .doneActions {
+  position: sticky;
+  bottom: 0;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 12px;
   margin-top: 8px;
+  padding: 14px 0 6px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, var(--od-surface) 22%);
 }
 
 .confetti {
@@ -1960,35 +1977,52 @@ $meander: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' widt
   max-width: 860px;
   margin: 0 auto;
   padding: 0 !important;
-  overflow: hidden;
+  // clip, not hidden: hidden would stop the buttons below from sticking to the screen bottom.
+  overflow: clip;
 }
 
 .onboardingScene {
   display: block;
   width: 100%;
-  height: clamp(170px, 30vw, 290px);
+  height: clamp(150px, 22vw, 230px);
+}
+
+// After the welcome the picture shrinks, so the choices fit on a laptop screen.
+.onboardingSceneSmall {
+  height: clamp(90px, 12vw, 130px);
 }
 
 .onboardingBody {
-  padding: 22px 30px 30px;
+  --od-pad: 30px;
+  padding: 22px var(--od-pad) var(--od-pad);
 
   @media (max-width: $narrow) {
-    padding: 16px;
+    --od-pad: 16px;
   }
 }
 
+// Back and next stay at the bottom of the screen, so nobody has to look for them.
 .wizardActions {
+  position: sticky;
+  bottom: 0;
+  z-index: 5;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 12px;
-  margin-top: 26px;
+  margin: 26px calc(-1 * var(--od-pad)) calc(-1 * var(--od-pad));
+  padding: 16px var(--od-pad);
+  background: rgba(255, 255, 255, 0.96);
+  border-top: 2px solid var(--od-line);
+  backdrop-filter: blur(6px);
 
   > button:last-child {
     min-width: 220px;
 
+    // On phones back and next share one row, so the bar stays small.
     @media (max-width: $narrow) {
-      flex: 1 1 100%;
+      flex: 1;
+      min-width: 0;
     }
   }
 }
