@@ -8,6 +8,8 @@ Alle Inhalte liegen als JSON-Dateien im Ordner [`content/`](../content/). Für S
 content/
 ├── islands.json          Alle Inseln der Seekarte
 ├── help.json             Fragen und Antworten im Hilfe-Fenster
+├── areas.json            Arbeitsbereiche mit Use-Case-Ideen
+├── prompts.json          Prompt-Vorlagen für den Spickzettel
 ├── modules/              Ein Modul (Etappe) pro Datei
 │   └── aiolos-gute-prompts.json
 └── schema/               Regeln, gegen die geprüft wird
@@ -49,6 +51,16 @@ Seemeilen (XP) vergibt die App selbst: Quiz je nach Schwierigkeit 10–80, Promp
 ## Hilfe
 
 `help.json` füllt das Hilfe-Fenster (Knopf «Hilfe» oben rechts). Jedes Thema hat `id`, `question` und `answer` (gleiche Formatierung wie `body` im Briefing). Mit `"illustration": "license"` erscheint unter der Antwort eine vereinfachte Darstellung, wie man Basic und Premium in Copilot erkennt. Neue Fragen von Kolleginnen und Kollegen lassen sich so ohne neues App-Paket ergänzen.
+
+## Bereiche und Prompt-Vorlagen
+
+`areas.json` legt die Arbeitsbereiche fest, die man beim Start und in den Einstellungen wählt. Jeder Bereich hat `id`, `name`, `hint` (kurze Beschreibung) und `useCaseIdeas`: typische Aufgaben, die auf den Use-Case-Karten als anklickbare Vorschläge erscheinen. Der letzte Bereich sollte allgemein sein («Anderer Bereich»); seine Ideen erscheinen auch bei Personen, die keinen Bereich gewählt haben.
+
+`prompts.json` füllt den Spickzettel. Jede Vorlage hat `id`, `title`, `prompt` und `license` (`basic` oder `premium`). Optional:
+- `areas`: Liste von Bereichs-ids. Fehlt das Feld, passt die Vorlage für alle Bereiche.
+- `app`: `outlook`, `teams`, `word`, `excel` oder `powerpoint`, wenn man die Vorlage dort verwendet. Ohne `app` gibt es den Knopf «Copilot öffnen».
+
+Platzhalter schreibst du in eckige Klammern, zum Beispiel `[Thema]`. Die App hebt sie farbig hervor. Die Prüfung meldet unbekannte Bereiche, doppelte ids und «ß».
 
 ## Prüfen
 

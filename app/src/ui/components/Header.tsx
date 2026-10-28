@@ -73,6 +73,15 @@ export function Header(props: { onOpenSettings: () => void; onOpenHelp: () => vo
             <span className={styles.headerCount}>{stamps}</span>
           </button>
         )}
+        {onboarded && (content.prompts || []).length > 0 && (
+          <button type="button" className={styles.headerButton} onClick={() => navigate({ name: 'cheatsheet' })} aria-label={strings.cheatsheet}>
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+              <path d="M7 3h7l4 4v14H7z" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+              <path d="M14 3v4h4M10 12h5M10 16h5" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+            </svg>
+            <span className={styles.hidePhone}>{strings.cheatsheet}</span>
+          </button>
+        )}
         <button type="button" className={styles.headerButton} onClick={props.onOpenHelp}>
           <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
             <circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" strokeWidth="1.8" />

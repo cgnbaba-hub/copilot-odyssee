@@ -4,7 +4,7 @@ import { moduleLicense, sortedIslands } from '../../core/content/bundle';
 import { Island } from '../../core/content/types';
 import { format } from '../i18n/strings';
 import { useGame } from '../GameContext';
-import { islandProgress, isPreview, nextStage } from '../progressHelpers';
+import { islandProgress, isPreview, nextStage, playerArea, templatesFor } from '../progressHelpers';
 import styles from '../styles.module.scss';
 import { CheckIcon, IslandArt, LockIcon } from './Art';
 import { Guide } from './Guide';
@@ -63,6 +63,8 @@ export function Home(): React.ReactElement {
   const islands = sortedIslands(game.content);
 
   const guideText = !stage ? strings.homeGuideDone : started ? strings.homeGuideBack : strings.homeGuideNew;
+  const area = playerArea(game);
+  const templateCount = templatesFor(game, area && area.id).length;
 
   return (
     <div className={styles.home}>
@@ -95,6 +97,24 @@ export function Home(): React.ReactElement {
           </div>
         )}
       </section>
+
+      {templateCount > 0 && (
+        <section className={styles.cheatsheetCallout}>
+          <span className={styles.cheatsheetCalloutIcon} aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="28" height="28">
+              <path d="M7 3h7l4 4v14H7z" fill="#fff" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
+              <path d="M14 3v4h4M10 12h5M10 16h5" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+            </svg>
+          </span>
+          <div className={styles.cheatsheetCalloutText}>
+            <strong>{strings.homeCheatsheetTitle}</strong>
+            <span>{area ? format(strings.homeCheatsheetArea, { count: templateCount, area: t(area.name) }) : format(strings.homeCheatsheetAll, { count: templateCount })}</span>
+          </div>
+          <button type="button" className={styles.button} onClick={() => navigate({ name: 'cheatsheet' })}>
+            {strings.openCheatsheet} →
+          </button>
+        </section>
+      )}
 
       <section className={styles.panel}>
         <h2 className={styles.sectionTitle}>{strings.routeTitle}</h2>

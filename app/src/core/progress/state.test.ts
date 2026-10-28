@@ -5,13 +5,15 @@ import {
   finishModule,
   getModule,
   initialState,
+  isPromptSaved,
   markBriefingRead,
   minutesPerMonth,
   moduleStatus,
   nextBlockIndex,
   saveUseCase,
   startModule,
-  submitPrompt
+  submitPrompt,
+  toggleSavedPrompt
 } from './state';
 
 const quiz: QuizBlock = {
@@ -112,5 +114,12 @@ describe('player state', () => {
   it('estimates the monthly time a use case takes', () => {
     expect(minutesPerMonth({ task: 'x', frequency: 'weekly', minutesPerTime: 30, prompt: '' })).toBe(120);
     expect(minutesPerMonth({ task: 'x', frequency: 'daily', minutesPerTime: 10, prompt: '' })).toBe(200);
+  });
+
+  it('pins and unpins prompt templates, also for older saves without the list', () => {
+    const old = { ...initialState('de'), savedPrompts: undefined };
+    const pinned = toggleSavedPrompt(old, 'mail-antwort');
+    expect(isPromptSaved(pinned, 'mail-antwort')).toBe(true);
+    expect(isPromptSaved(toggleSavedPrompt(pinned, 'mail-antwort'), 'mail-antwort')).toBe(false);
   });
 });

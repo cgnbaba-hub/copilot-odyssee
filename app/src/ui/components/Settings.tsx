@@ -4,12 +4,13 @@ import { SUPPORTED_LANGS } from '../../core/i18n/locale';
 import { LicenseChoice, updateProfile } from '../../core/progress/state';
 import { useGame } from '../GameContext';
 import styles from '../styles.module.scss';
+import { AreaPicker } from './AreaPicker';
 import { Drawer } from './Drawer';
 import { LicenseMockup } from './LicenseMockup';
 import { LicensePicker } from './LicensePicker';
 
 export function Settings(props: { onClose: () => void; onReset: () => void }): React.ReactElement {
-  const { player, lang, strings, update } = useGame();
+  const { content, player, lang, strings, update } = useGame();
   const [confirmReset, setConfirmReset] = React.useState(false);
 
   return (
@@ -17,6 +18,13 @@ export function Settings(props: { onClose: () => void; onReset: () => void }): R
       <h3 className={styles.drawerSection}>{strings.settingsLicense}</h3>
       <LicensePicker value={player.profile.license} onChange={(license: LicenseChoice) => update((s) => updateProfile(s, { license }))} />
       <LicenseMockup highlight={player.profile.license} />
+
+      {(content.areas || []).length > 0 && (
+        <>
+          <h3 className={styles.drawerSection}>{strings.settingsArea}</h3>
+          <AreaPicker value={player.profile.area} onChange={(area) => update((s) => updateProfile(s, { area }))} />
+        </>
+      )}
 
       <h3 className={styles.drawerSection}>{strings.language}</h3>
       <div className={styles.langSwitch} role="group" aria-label={strings.language}>

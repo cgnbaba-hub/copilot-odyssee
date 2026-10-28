@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Prompt-Vorlagen",
+  "description": "Vorlagen für den Spickzettel. Platzhalter in eckigen Klammern, zum Beispiel [Thema], ersetzt man vor dem Absenden.",
+  "type": "object",
+  "required": ["prompts"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "prompts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "prompt", "license"],
+        "properties": {
+          "id": { "$ref": "common.schema.json#/$defs/id" },
+          "title": { "$ref": "common.schema.json#/$defs/localized" },
+          "prompt": { "$ref": "common.schema.json#/$defs/localized" },
+          "areas": {
+            "description": "Bereiche (ids aus areas.json), für die die Vorlage gedacht ist. Fehlt das Feld, passt sie für alle.",
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string" }
+          },
+          "app": {
+            "description": "Wo man die Vorlage verwendet, wenn nicht in Copilot Chat.",
+            "enum": ["outlook", "teams", "word", "excel", "powerpoint"]
+          },
+          "license": {
+            "description": "basic = geht mit Copilot Chat (Basic), premium = braucht M365 Copilot (Premium).",
+            "enum": ["basic", "premium"]
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

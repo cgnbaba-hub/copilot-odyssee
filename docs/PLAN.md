@@ -121,6 +121,7 @@ Die konkreten Funktionen pro Insel prüfe ich beim Schreiben jedes Moduls gegen 
 | Muster | Bedeutung |
 |---|---|
 | Hohe **Wiederholungsquote** eines Moduls | Thema ist schwierig → Schulungsangebot |
+| Unterschiede **nach Arbeitsbereich** (gewählt im Onboarding) | Gezielte Schulungen pro Bereich, zum Beispiel wenn der Kundendienst bei Datenschutz-Fragen öfter danebenliegt |
 | Niedrige **Erstversuch-Quote** je Frage | Thema unklar *oder* Frage schlecht formuliert |
 | **Abbruchpunkte** | Modul zu lang oder zu schwer |
 | Bewertung der **Missionen** | Was hilft im Alltag wirklich? |
@@ -202,7 +203,7 @@ Legende: 🤖 = setze ich um · 👤 = brauche ich von dir · 🏢 = IT oder Dat
 
 - [ ] **AP 2.1 Seekarte und Onboarding** 🤖
   Karte mit Inseln, Lizenzabfrage, Freischaltlogik, Premium-Ausblick.
-  *Stand:* Onboarding in drei Schritten (Begrüssung, Version wählen mit Anleitung, So funktioniert's), Seekarte mit nummerierter Route, Premium-Ausblick, Hilfe-Fenster. Offen: Feedback aus dem Pilot.
+  *Stand:* Onboarding in vier Schritten (Begrüssung, Version wählen mit Anleitung, Arbeitsbereich, So funktioniert's), Seekarte mit nummerierter Route, Premium-Ausblick, Hilfe-Fenster. Dazu der **Spickzettel**: gemerkte Vorlagen, eigene Prompts aus den Use-Case-Karten und 36 Prompt-Vorlagen nach Bereich, je mit «Kopieren» und «Copilot öffnen». Die Use-Case-Karten schlagen Aufgaben aus dem eigenen Bereich vor. Offen: Feedback aus dem Pilot.
 - [ ] **AP 2.2 Bausteine** 🤖
   Briefing, Quiz, Prompt-Werkstatt (regelbasiertes Feedback nach Ziel/Kontext/Quelle/Erwartung), Mission mit Reflexion, Use-Case-Karte.
   *Stand:* Alle Bausteine laufen im Lernmodus. Missionen haben eine Schritt-Anleitung und einen Kopier-Knopf. Offen: Feinschliff nach dem Pilot.

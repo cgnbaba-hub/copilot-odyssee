@@ -1,5 +1,5 @@
 import { moduleLicense, modulesOfIsland, sortedIslands } from '../core/content/bundle';
-import { Island, LearningModule, License } from '../core/content/types';
+import { Area, Island, LearningModule, License, PromptTemplate } from '../core/content/types';
 import { moduleStatus } from '../core/progress/state';
 import { Game } from './GameContext';
 
@@ -58,4 +58,24 @@ export function nextStage(game: Game, excludeModuleId?: string): NextStage | und
 export function nextStop(game: Game): Island | undefined {
   const stage = nextStage(game);
   return stage ? stage.island : undefined;
+}
+
+/** The player's field of work, if chosen and still part of the content. */
+export function playerArea(game: Game): Area | undefined {
+  const id = game.player.profile.area;
+  return (game.content.areas || []).filter((a) => a.id === id)[0];
+}
+
+/**
+ * Prompt templates for an area plus the general ones (all templates when no
+ * area is given). Those the player's Copilot covers come first, and within
+ * them the ones made for the area.
+ */
+export function templatesFor(game: Game, areaId: string | undefined): PromptTemplate[] {
+  const rank = (p: PromptTemplate): number => (licenseCovers(game, p.license) ? 0 : 2) + (areaId && p.areas ? 0 : 1);
+  return (game.content.prompts || [])
+    .filter((p) => !areaId || !p.areas || p.areas.indexOf(areaId) >= 0)
+    .map((p, index) => ({ p, index }))
+    .sort((a, b) => rank(a.p) - rank(b.p) || a.index - b.index)
+    .map((x) => x.p);
 }

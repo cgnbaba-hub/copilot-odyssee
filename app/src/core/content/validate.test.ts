@@ -21,7 +21,9 @@ const schemas: ContentSchemas = {
   common: readJson('schema/common.schema.json') as object,
   islands: readJson('schema/islands.schema.json') as object,
   module: readJson('schema/module.schema.json') as object,
-  help: readJson('schema/help.schema.json') as object
+  help: readJson('schema/help.schema.json') as object,
+  areas: readJson('schema/areas.schema.json') as object,
+  prompts: readJson('schema/prompts.schema.json') as object
 };
 
 const islandsFile: ContentFile<unknown> = { path: 'islands.json', data: readJson('islands.json') };
@@ -64,11 +66,17 @@ describe('validateContent', () => {
       .filter((name) => /\.json$/.test(name))
       .map((name) => ({ path: `modules/${name}`, data: readJson(`modules/${name}`) }));
 
-    const result = validateContent(schemas, islandsFile, moduleFiles, TODAY, { path: 'help.json', data: readJson('help.json') });
+    const result = validateContent(schemas, islandsFile, moduleFiles, TODAY, {
+      help: { path: 'help.json', data: readJson('help.json') },
+      areas: { path: 'areas.json', data: readJson('areas.json') },
+      prompts: { path: 'prompts.json', data: readJson('prompts.json') }
+    });
 
     expect(result.errors).toEqual([]);
     expect(result.bundle && result.bundle.modules.length).toBe(moduleFiles.length);
     expect(result.bundle && result.bundle.help && result.bundle.help.length).toBeGreaterThan(0);
+    expect(result.bundle && result.bundle.areas && result.bundle.areas.length).toBeGreaterThan(0);
+    expect(result.bundle && result.bundle.prompts && result.bundle.prompts.length).toBeGreaterThan(0);
   });
 
   it('accepts a minimal module', () => {
@@ -122,8 +130,22 @@ describe('validateContent', () => {
 
   it('checks help topics', () => {
     const help = { path: 'help.json', data: { topics: [{ id: 'a', question: { de: 'Frage', en: 'Question' }, answer: { de: 'Grösse', en: 'x' } }, { id: 'a', question: { de: 'F', en: 'Q' }, answer: { de: 'ß', en: 'x' } }] } };
-    const messages = validateContent(schemas, islandsFile, [], TODAY, help).errors.map((e) => e.message);
+    const messages = validateContent(schemas, islandsFile, [], TODAY, { help }).errors.map((e) => e.message);
     expect(messages).toContain('Hilfethema-id "a" kommt mehrfach vor.');
     expect(messages).toContain('/topics/1/answer/de: "ß" durch "ss" ersetzen (Schweizer Schreibweise).');
+  });
+
+  it('checks areas and prompt templates', () => {
+    const idea = { de: 'Idee', en: 'Idea' };
+    const areas = { path: 'areas.json', data: { areas: [{ id: 'verkauf', name: idea, hint: idea, useCaseIdeas: [idea, idea, idea] }] } };
+    const template = { id: 'p', title: idea, prompt: { de: 'Schreib einen Gruss', en: 'x' }, license: 'basic' };
+    const prompts = {
+      path: 'prompts.json',
+      data: { prompts: [{ ...template, areas: ['verkauf', 'einkauf'] }, { ...template, prompt: { de: 'Grüße', en: 'x' } }] }
+    };
+    const messages = validateContent(schemas, islandsFile, [], TODAY, { areas, prompts }).errors.map((e) => e.message);
+    expect(messages).toContain('Vorlage "p": unbekannter Bereich "einkauf". Erlaubt: verkauf.');
+    expect(messages).toContain('Vorlagen-id "p" kommt mehrfach vor.');
+    expect(messages).toContain('/prompts/1/prompt/de: "ß" durch "ss" ersetzen (Schweizer Schreibweise).');
   });
 });

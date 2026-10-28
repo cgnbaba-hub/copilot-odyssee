@@ -1,0 +1,232 @@
+{
+  "$schema": "./schema/areas.schema.json",
+  "areas": [
+    {
+      "id": "beratung",
+      "name": {
+        "de": "Reiseberatung und Verkauf",
+        "en": "Travel advice and sales"
+      },
+      "hint": {
+        "de": "Filialen, Contact Center, Firmenkunden",
+        "en": "Branches, contact centre, corporate clients"
+      },
+      "useCaseIdeas": [
+        {
+          "de": "Angebotsmails an Kundinnen und Kunden formulieren",
+          "en": "Writing offer emails to customers"
+        },
+        {
+          "de": "Notizen aus dem Beratungsgespräch ordnen",
+          "en": "Organising notes from a consultation"
+        },
+        {
+          "de": "Reiseideen nach den Wünschen der Kundschaft sammeln",
+          "en": "Collecting trip ideas based on customer wishes"
+        },
+        {
+          "de": "Antworten auf häufige Kundenfragen vorbereiten",
+          "en": "Preparing answers to frequent customer questions"
+        },
+        {
+          "de": "Reiseprogramme für Kundinnen und Kunden zusammenfassen",
+          "en": "Summarising tour programmes for customers"
+        }
+      ]
+    },
+    {
+      "id": "kundendienst",
+      "name": {
+        "de": "Kundendienst und After Sales",
+        "en": "Customer service and after sales"
+      },
+      "hint": {
+        "de": "Reklamationen, Umbuchungen, Rückfragen",
+        "en": "Complaints, rebookings, enquiries"
+      },
+      "useCaseIdeas": [
+        {
+          "de": "Antworten auf Reklamationen entwerfen",
+          "en": "Drafting replies to complaints"
+        },
+        {
+          "de": "Lange Mailverläufe zu einem Fall zusammenfassen",
+          "en": "Summarising long email threads about a case"
+        },
+        {
+          "de": "Änderungen wie neue Flugzeiten verständlich erklären",
+          "en": "Explaining changes such as new flight times clearly"
+        },
+        {
+          "de": "Antworten ins Französische oder Italienische übersetzen",
+          "en": "Translating replies into French or Italian"
+        },
+        {
+          "de": "Den Ton einer heiklen Antwort prüfen lassen",
+          "en": "Having the tone of a tricky reply checked"
+        }
+      ]
+    },
+    {
+      "id": "produkt",
+      "name": {
+        "de": "Produkt und Einkauf",
+        "en": "Product and purchasing"
+      },
+      "hint": {
+        "de": "Destinationen, Hotels, Partner, Verträge",
+        "en": "Destinations, hotels, partners, contracts"
+      },
+      "useCaseIdeas": [
+        {
+          "de": "Katalog- und Webtexte zu Reisen schreiben",
+          "en": "Writing catalogue and web texts for trips"
+        },
+        {
+          "de": "Hotelverträge und Partnerunterlagen zusammenfassen",
+          "en": "Summarising hotel contracts and partner documents"
+        },
+        {
+          "de": "Notizen von Rekognoszierungsreisen aufbereiten",
+          "en": "Turning inspection trip notes into usable text"
+        },
+        {
+          "de": "Angebote von Partnern vergleichen",
+          "en": "Comparing partner offers"
+        },
+        {
+          "de": "Briefings für Reiseleitende erstellen",
+          "en": "Creating briefings for tour guides"
+        }
+      ]
+    },
+    {
+      "id": "marketing",
+      "name": {
+        "de": "Marketing und Kommunikation",
+        "en": "Marketing and communications"
+      },
+      "hint": {
+        "de": "Newsletter, Social Media, Kampagnen, Medien",
+        "en": "Newsletters, social media, campaigns, media"
+      },
+      "useCaseIdeas": [
+        {
+          "de": "Newsletter-Entwürfe schreiben",
+          "en": "Writing newsletter drafts"
+        },
+        {
+          "de": "Social-Media-Texte in mehreren Varianten erstellen",
+          "en": "Creating social media texts in several variants"
+        },
+        {
+          "de": "Ideen für Kampagnen sammeln",
+          "en": "Collecting campaign ideas"
+        },
+        {
+          "de": "Texte für die Romandie und das Tessin anpassen",
+          "en": "Adapting texts for French- and Italian-speaking Switzerland"
+        },
+        {
+          "de": "Medienmitteilungen entwerfen",
+          "en": "Drafting press releases"
+        }
+      ]
+    },
+    {
+      "id": "administration",
+      "name": {
+        "de": "Finanzen, Personal und Administration",
+        "en": "Finance, HR and administration"
+      },
+      "hint": {
+        "de": "Buchhaltung, HR, Controlling, Office",
+        "en": "Accounting, HR, controlling, office"
+      },
+      "useCaseIdeas": [
+        {
+          "de": "Protokolle aus Notizen erstellen",
+          "en": "Creating minutes from notes"
+        },
+        {
+          "de": "Formeln und Auswertungen in Excel verstehen",
+          "en": "Understanding formulas and analyses in Excel"
+        },
+        {
+          "de": "Stelleninserate entwerfen",
+          "en": "Drafting job adverts"
+        },
+        {
+          "de": "Abläufe als einfache Anleitung beschreiben",
+          "en": "Describing processes as simple instructions"
+        },
+        {
+          "de": "Standardantworten auf interne Anfragen vorbereiten",
+          "en": "Preparing standard replies to internal requests"
+        }
+      ]
+    },
+    {
+      "id": "fuehrung",
+      "name": {
+        "de": "Führung und Projekte",
+        "en": "Leadership and projects"
+      },
+      "hint": {
+        "de": "Teamleitung, Projektleitung, Geschäftsleitung",
+        "en": "Team leads, project leads, management"
+      },
+      "useCaseIdeas": [
+        {
+          "de": "Team-Updates aus Stichpunkten schreiben",
+          "en": "Writing team updates from bullet points"
+        },
+        {
+          "de": "Präsentationen für die Geschäftsleitung vorbereiten",
+          "en": "Preparing presentations for management"
+        },
+        {
+          "de": "Meetings vorbereiten und nachbereiten",
+          "en": "Preparing and following up on meetings"
+        },
+        {
+          "de": "Den Projektstatus zusammenfassen",
+          "en": "Summarising project status"
+        },
+        {
+          "de": "Feedbackgespräche vorbereiten, ohne Personendaten",
+          "en": "Preparing feedback conversations, without personal data"
+        }
+      ]
+    },
+    {
+      "id": "anderes",
+      "name": {
+        "de": "Anderer Bereich",
+        "en": "Other area"
+      },
+      "hint": {
+        "de": "Du findest dich oben nicht wieder? Dann bekommst du allgemeine Vorschläge.",
+        "en": "Not listed above? Then you get general suggestions."
+      },
+      "useCaseIdeas": [
+        {
+          "de": "Lange Mails zusammenfassen",
+          "en": "Summarising long emails"
+        },
+        {
+          "de": "Eigene Texte klarer und kürzer machen",
+          "en": "Making your own texts clearer and shorter"
+        },
+        {
+          "de": "Notizen in eine übersichtliche Liste bringen",
+          "en": "Turning notes into a clear list"
+        },
+        {
+          "de": "Ideen für ein neues Thema sammeln",
+          "en": "Collecting ideas for a new topic"
+        }
+      ]
+    }
+  ]
+}

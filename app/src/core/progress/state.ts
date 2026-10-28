@@ -13,6 +13,8 @@ export interface Profile {
   lang: Lang;
   license: LicenseChoice;
   onboarded: boolean;
+  /** Field of work (id from areas.json); missing until chosen. */
+  area?: string;
 }
 
 export interface BlockProgress {
@@ -55,6 +57,8 @@ export interface PlayerState {
   blocks: { [key: string]: BlockProgress };
   modules: { [moduleId: string]: ModuleProgress };
   useCases: UseCaseCard[];
+  /** Prompt templates the player pinned to the cheat sheet; missing in older saves. */
+  savedPrompts?: string[];
 }
 
 export interface Outcome {
@@ -200,4 +204,15 @@ const TIMES_PER_MONTH: Record<Frequency, number> = { daily: 20, weekly: 4, month
 /** Time a use case currently takes per month: the potential Copilot works on. */
 export function minutesPerMonth(card: UseCaseInput): number {
   return Math.round(card.minutesPerTime * TIMES_PER_MONTH[card.frequency]);
+}
+
+export function isPromptSaved(state: PlayerState, promptId: string): boolean {
+  return (state.savedPrompts || []).indexOf(promptId) >= 0;
+}
+
+/** Pins a prompt template to the cheat sheet, or removes it again. */
+export function toggleSavedPrompt(state: PlayerState, promptId: string): PlayerState {
+  const saved = state.savedPrompts || [];
+  const next = isPromptSaved(state, promptId) ? saved.filter((id) => id !== promptId) : saved.concat([promptId]);
+  return { ...state, savedPrompts: next };
 }

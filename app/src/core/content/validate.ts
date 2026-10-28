@@ -1,6 +1,6 @@
 import Ajv2020, { ErrorObject } from 'ajv/dist/2020';
 
-import { ContentBundle, HelpTopic, Island, LearningModule } from './types';
+import { Area, ContentBundle, HelpTopic, Island, LearningModule, PromptTemplate } from './types';
 
 /**
  * Validates content packs against the JSON schemas in /content/schema plus
@@ -13,6 +13,15 @@ export interface ContentSchemas {
   islands: object;
   module: object;
   help: object;
+  areas: object;
+  prompts: object;
+}
+
+/** Content files besides islands and modules; each is optional. */
+export interface ExtraContentFiles {
+  help?: ContentFile<unknown>;
+  areas?: ContentFile<unknown>;
+  prompts?: ContentFile<unknown>;
 }
 
 export interface ContentFile<T> {
@@ -111,7 +120,7 @@ export function validateContent(
   islandsFile: ContentFile<unknown>,
   moduleFiles: ContentFile<unknown>[],
   today: Date,
-  helpFile?: ContentFile<unknown>
+  extras: ExtraContentFiles = {}
 ): ValidationResult {
   const result: ValidationResult = { errors: [], warnings: [] };
 
@@ -120,6 +129,8 @@ export function validateContent(
   const validateIslands = ajv.compile(schemas.islands);
   const validateModule = ajv.compile(schemas.module);
   const validateHelp = ajv.compile(schemas.help);
+  const validateAreas = ajv.compile(schemas.areas);
+  const validatePrompts = ajv.compile(schemas.prompts);
 
   const schemaErrors = (file: string, errors: ErrorObject[] | null | undefined): void => {
     (errors || [])
@@ -158,6 +169,7 @@ export function validateContent(
   duplicates(modules.map((m) => m.id)).forEach((id) => result.errors.push({ file: 'modules', message: `Modul-id "${id}" kommt mehrfach vor.` }));
 
   let help: HelpTopic[] | undefined;
+  const helpFile = extras.help;
   if (helpFile) {
     if (validateHelp(helpFile.data)) {
       help = (helpFile.data as { topics: HelpTopic[] }).topics;
@@ -168,8 +180,42 @@ export function validateContent(
     eszett(helpFile);
   }
 
+  let areas: Area[] | undefined;
+  const areasFile = extras.areas;
+  if (areasFile) {
+    if (validateAreas(areasFile.data)) {
+      areas = (areasFile.data as { areas: Area[] }).areas;
+      duplicates(areas.map((a) => a.id)).forEach((id) => result.errors.push({ file: areasFile.path, message: `Bereich-id "${id}" kommt mehrfach vor.` }));
+    } else {
+      schemaErrors(areasFile.path, validateAreas.errors);
+    }
+    eszett(areasFile);
+  }
+
+  let prompts: PromptTemplate[] | undefined;
+  const promptsFile = extras.prompts;
+  if (promptsFile) {
+    if (validatePrompts(promptsFile.data)) {
+      prompts = (promptsFile.data as { prompts: PromptTemplate[] }).prompts;
+      duplicates(prompts.map((p) => p.id)).forEach((id) => result.errors.push({ file: promptsFile.path, message: `Vorlagen-id "${id}" kommt mehrfach vor.` }));
+      const areaIds = (areas || []).map((a) => a.id);
+      prompts.forEach((p) =>
+        (p.areas || [])
+          .filter((id) => areaIds.indexOf(id) < 0)
+          .forEach((id) => result.errors.push({ file: promptsFile.path, message: `Vorlage "${p.id}": unbekannter Bereich "${id}". Erlaubt: ${areaIds.join(', ')}.` }))
+      );
+    } else {
+      schemaErrors(promptsFile.path, validatePrompts.errors);
+    }
+    eszett(promptsFile);
+  }
+
   if (result.errors.length === 0) {
-    result.bundle = help ? { islands, modules, help } : { islands, modules };
+    const bundle: ContentBundle = { islands, modules };
+    if (help) bundle.help = help;
+    if (areas) bundle.areas = areas;
+    if (prompts) bundle.prompts = prompts;
+    result.bundle = bundle;
   }
   return result;
 }

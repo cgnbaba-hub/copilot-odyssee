@@ -5,6 +5,7 @@ import { Lang, localize } from '../core/i18n/locale';
 import { earnedSouvenirs } from '../core/progress/achievements';
 import { initialState, Outcome, PlayerState } from '../core/progress/state';
 import { ProgressStore } from '../core/progress/store';
+import { CheatSheet } from './components/CheatSheet';
 import { Header } from './components/Header';
 import { HelpPanel } from './components/HelpPanel';
 import { Home } from './components/Home';
@@ -137,6 +138,7 @@ export function App(props: AppProps): React.ReactElement {
   else if (view.name === 'island') main = <IslandView key={view.islandId} islandId={view.islandId} />;
   else if (view.name === 'module') main = <ModulePlayer key={view.moduleId} moduleId={view.moduleId} />;
   else if (view.name === 'passport') main = <Passport />;
+  else if (view.name === 'cheatsheet') main = <CheatSheet />;
   else main = <Home />;
 
   return (

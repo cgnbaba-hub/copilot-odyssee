@@ -3,14 +3,19 @@ import * as React from 'react';
 import { UseCaseBlock } from '../../core/content/types';
 import { Frequency, saveUseCase } from '../../core/progress/state';
 import { useGame } from '../GameContext';
+import { playerArea } from '../progressHelpers';
 import styles from '../styles.module.scss';
 import { BlockViewProps } from './BlockViewProps';
 
 const FREQUENCIES: Frequency[] = ['daily', 'weekly', 'monthly', 'rarely'];
 
 export function UseCaseView(props: BlockViewProps<UseCaseBlock>): React.ReactElement {
-  const { strings, t, apply } = useGame();
+  const game = useGame();
+  const { content, strings, t, apply } = game;
   const { block, moduleId } = props;
+  // Ideas from the player's field of work; without one, from the general area listed last.
+  const area = playerArea(game);
+  const ideaSource = area || (content.areas || []).slice(-1)[0];
   const [task, setTask] = React.useState('');
   const [frequency, setFrequency] = React.useState<Frequency>('weekly');
   const [minutes, setMinutes] = React.useState('30');
@@ -52,6 +57,18 @@ export function UseCaseView(props: BlockViewProps<UseCaseBlock>): React.ReactEle
         {strings.useCaseTask}
       </label>
       <textarea id={id('task')} className={styles.textarea} rows={3} value={task} placeholder={strings.useCaseTaskPlaceholder} onChange={(e) => setTask(e.target.value)} />
+      {ideaSource && (
+        <div className={styles.ideas}>
+          <p className={styles.muted}>{area ? strings.useCaseIdeas : strings.useCaseIdeasGeneric}</p>
+          <div className={styles.ideaList}>
+            {ideaSource.useCaseIdeas.map((idea, i) => (
+              <button type="button" key={i} className={styles.ideaChip} onClick={() => setTask(t(idea))}>
+                {t(idea)}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
 
       <div className={styles.formRow}>
         <div>

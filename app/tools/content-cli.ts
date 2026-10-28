@@ -88,11 +88,29 @@ function reviewMarkdown(bundle: ContentBundle): string {
     lines.push('## Hilfe', '');
     bundle.help.forEach((topic) => lines.push(`### ${topic.question.de}`, '', topic.answer.de, ''));
   }
+  const areas = bundle.areas || [];
+  if (areas.length > 0) {
+    lines.push('## Bereiche und Use-Case-Ideen', '');
+    areas.forEach((area) => lines.push(`### ${area.name.de}`, '', `_${area.hint.de}_`, '', ...area.useCaseIdeas.map((idea) => `- ${idea.de}`), ''));
+  }
+  if (bundle.prompts && bundle.prompts.length > 0) {
+    lines.push('## Prompt-Vorlagen (Spickzettel)', '');
+    const areaName = (id: string): string => (areas.filter((a) => a.id === id)[0] || { name: { de: id } }).name.de;
+    bundle.prompts.forEach((p) => {
+      const where = `${p.app ? `in ${p.app}` : 'in Copilot Chat'}, ${p.license === 'basic' ? 'für alle' : 'nur Premium'}`;
+      const forAreas = p.areas ? p.areas.map(areaName).join(', ') : 'alle Bereiche';
+      lines.push(`### ${p.title.de}`, '', `${where} · ${forAreas}`, '', quote(p.prompt.de), '');
+    });
+  }
   return lines.join('\n');
 }
 
 function readJson(relativePath: string): unknown {
   return JSON.parse(fs.readFileSync(path.join(CONTENT_DIR, relativePath), 'utf8'));
+}
+
+function optionalFile(relativePath: string): ContentFile<unknown> | undefined {
+  return fs.existsSync(path.join(CONTENT_DIR, relativePath)) ? { path: relativePath, data: readJson(relativePath) } : undefined;
 }
 
 /** Drops fields that only matter to editors. */
@@ -119,12 +137,14 @@ function main(): void {
       common: readJson('schema/common.schema.json') as object,
       islands: readJson('schema/islands.schema.json') as object,
       module: readJson('schema/module.schema.json') as object,
-      help: readJson('schema/help.schema.json') as object
+      help: readJson('schema/help.schema.json') as object,
+      areas: readJson('schema/areas.schema.json') as object,
+      prompts: readJson('schema/prompts.schema.json') as object
     },
     { path: 'islands.json', data: readJson('islands.json') },
     moduleFiles,
     new Date(),
-    fs.existsSync(path.join(CONTENT_DIR, 'help.json')) ? { path: 'help.json', data: readJson('help.json') } : undefined
+    { help: optionalFile('help.json'), areas: optionalFile('areas.json'), prompts: optionalFile('prompts.json') }
   );
 
   result.warnings.forEach((w) => console.warn(`Warnung  content/${w.file}: ${w.message}`));
@@ -134,7 +154,11 @@ function main(): void {
     process.exit(1);
   }
 
-  console.log(`Inhalte ok: ${result.bundle.islands.length} Inseln, ${result.bundle.modules.length} Module, ${(result.bundle.help || []).length} Hilfethemen.`);
+  const b = result.bundle;
+  console.log(
+    `Inhalte ok: ${b.islands.length} Inseln, ${b.modules.length} Module, ${(b.help || []).length} Hilfethemen, ` +
+      `${(b.areas || []).length} Bereiche, ${(b.prompts || []).length} Prompt-Vorlagen.`
+  );
 
   if (command === 'bundle') {
     const source =
