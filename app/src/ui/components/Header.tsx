@@ -38,6 +38,7 @@ export function Header(props: { onOpenSettings: () => void; onOpenHelp: () => vo
               <strong>{t(rank.rank)}</strong>
               <span>
                 {formatNumber(lang, player.xp)} {t(theme.terms.xp)}
+                {rank.next && <span className={styles.statusNext}> · {format(strings.statusNext, { xp: formatNumber(lang, rank.xpToNext), rank: t(rank.next) })}</span>}
               </span>
             </div>
             <div className={styles.statusBar} role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={rank.percent} aria-label={t(theme.terms.xp)}>

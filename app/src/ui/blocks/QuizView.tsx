@@ -67,6 +67,7 @@ export function QuizView(props: BlockViewProps<QuizBlock>): React.ReactElement {
             </div>
           </div>
         )}
+        {!result && !selected && <p className={styles.actionHint}>{strings.hintPickAnswer}</p>}
         {!result && (
           <button type="button" className={`${styles.buttonPrimary} ${styles.buttonWide}`} disabled={!selected} onClick={check}>
             {strings.check}

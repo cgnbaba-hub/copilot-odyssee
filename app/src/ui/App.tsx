@@ -5,10 +5,12 @@ import { AdminSource } from '../core/admin/source';
 import { ContentBundle, Localized } from '../core/content/types';
 import { FeedbackSender } from '../core/feedback/feedback';
 import { Lang, localize } from '../core/i18n/locale';
-import { earnedSouvenirs } from '../core/progress/achievements';
+import { earnedSouvenirs, SouvenirId } from '../core/progress/achievements';
 import { initialState, Outcome, PlayerState, updateProfile } from '../core/progress/state';
 import { ProgressStore } from '../core/progress/store';
 import { AdminView } from './components/AdminView';
+import { SouvenirIcon } from './components/Art';
+import { Loading } from './components/Loading';
 import { CheatSheet } from './components/CheatSheet';
 import { ContactNote } from './components/ContactNote';
 import { FeedbackPanel } from './components/FeedbackPanel';
@@ -51,6 +53,8 @@ interface Toast {
   xp?: number;
   /** Text of a souvenir toast. */
   text?: string;
+  /** Which souvenir was found, for its icon. */
+  souvenir?: SouvenirId;
 }
 
 const TOAST_MS = 2600;
@@ -83,7 +87,11 @@ export function App(props: AppProps): React.ReactElement {
   }, [props.store]);
 
   if (!player) {
-    return <div className={styles.app}>{stringsFor(props.initialLang).loading}</div>;
+    return (
+      <div className={styles.app} style={themeVariables(theme)}>
+        <Loading text={stringsFor(props.initialLang).loading} />
+      </div>
+    );
   }
 
   const lang = player.profile.lang;
@@ -134,7 +142,7 @@ export function App(props: AppProps): React.ReactElement {
       const known = earnedSouvenirs(props.content, before);
       earnedSouvenirs(props.content, outcome.state)
         .filter((id) => known.indexOf(id) < 0)
-        .forEach((id) => showToast({ kind: 'souvenir', text: format(strings.souvenirFound, { name: t(theme.souvenirs[id].name) }) }));
+        .forEach((id) => showToast({ kind: 'souvenir', souvenir: id, text: format(strings.souvenirFound, { name: t(theme.souvenirs[id].name) }) }));
       return outcome;
     },
     update: (change) => {
@@ -225,7 +233,18 @@ export function App(props: AppProps): React.ReactElement {
         <div className={styles.toasts} aria-live="polite">
           {toasts.map((x) => (
             <div key={x.id} className={x.kind === 'souvenir' ? `${styles.toast} ${styles.toastSouvenir}` : styles.toast}>
-              {x.kind === 'xp' ? `+${x.xp || 0} ${t(theme.terms.xp)}` : x.text}
+              <span className={styles.toastIcon} aria-hidden="true">
+                {x.souvenir ? (
+                  <SouvenirIcon id={x.souvenir} />
+                ) : (
+                  <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10" fill="#f2b13a" stroke="#1a2940" strokeWidth="1.8" />
+                    <circle cx="12" cy="12" r="6.6" fill="none" stroke="#1a2940" strokeWidth="1.2" strokeDasharray="2 1.6" />
+                    <path d="M12 8.2v7.6M9.4 10.4h5.2M8.8 13.6c.8 1.6 2 2.2 3.2 2.2s2.4-.6 3.2-2.2" fill="none" stroke="#1a2940" strokeWidth="1.4" strokeLinecap="round" />
+                  </svg>
+                )}
+              </span>
+              <span>{x.kind === 'xp' ? `+${x.xp || 0} ${t(theme.terms.xp)}` : x.text}</span>
             </div>
           ))}
         </div>

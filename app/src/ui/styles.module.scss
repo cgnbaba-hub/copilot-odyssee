@@ -10,7 +10,9 @@ $radius: 16px;
 $radius-large: 22px;
 $narrow: 640px;
 $compact: 760px;
-$shadow: 0 1px 2px rgba(15, 44, 71, 0.06), 0 8px 24px rgba(15, 44, 71, 0.08);
+$shadow:
+  0 1px 2px rgba(15, 44, 71, 0.06),
+  0 8px 24px rgba(15, 44, 71, 0.08);
 $shadow-strong: 0 16px 48px rgba(15, 44, 71, 0.25);
 // Greek key band; the colour is fixed because data URIs cannot read CSS variables.
 $meander: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath d='M0 11H12M1 11V1H11V8H5V5H8' fill='none' stroke='%231FA9C9' stroke-width='1.3'/%3E%3C/svg%3E");
@@ -656,7 +658,10 @@ $meander: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' widt
   text-align: center;
   text-decoration: none;
   cursor: pointer;
-  transition: transform 0.08s ease, box-shadow 0.08s ease, filter 0.15s ease;
+  transition:
+    transform 0.08s ease,
+    box-shadow 0.08s ease,
+    filter 0.15s ease;
 
   &:hover:not(:disabled) {
     filter: brightness(1.05);
@@ -814,7 +819,9 @@ $meander: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' widt
   padding: 22px;
   background: var(--od-surface);
   border-radius: 20px;
-  box-shadow: 0 6px 0 rgba(15, 44, 71, 0.08), $shadow;
+  box-shadow:
+    0 6px 0 rgba(15, 44, 71, 0.08),
+    $shadow;
 
   @media (max-width: $narrow) {
     flex-direction: column;
@@ -870,7 +877,9 @@ $meander: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' widt
   margin: 16px 0 8px;
   background: linear-gradient(170deg, #55d2e3 0%, var(--od-sea) 40%, var(--od-sea-deep) 100%);
   border-radius: 20px;
-  box-shadow: inset 0 0 0 4px rgba(255, 255, 255, 0.35), 0 10px 30px rgba(11, 92, 139, 0.25);
+  box-shadow:
+    inset 0 0 0 4px rgba(255, 255, 255, 0.35),
+    0 10px 30px rgba(11, 92, 139, 0.25);
   overflow: hidden;
 }
 
@@ -1081,7 +1090,9 @@ $meander: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' widt
   box-shadow: 0 3px 0 var(--od-line);
   text-align: left;
   cursor: pointer;
-  transition: border-color 0.15s ease, transform 0.15s ease;
+  transition:
+    border-color 0.15s ease,
+    transform 0.15s ease;
 
   &:hover {
     border-color: var(--od-primary);
@@ -1501,7 +1512,9 @@ $meander: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' widt
   box-shadow: 0 3px 0 var(--od-line);
   text-align: left;
   cursor: pointer;
-  transition: border-color 0.12s ease, background 0.12s ease;
+  transition:
+    border-color 0.12s ease,
+    background 0.12s ease;
 
   &:hover:not(:disabled) {
     border-color: var(--od-primary);
@@ -2114,7 +2127,9 @@ $meander: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' widt
 
 .mockupWindowActive {
   border-color: var(--od-primary);
-  box-shadow: 0 0 0 4px rgba(17, 103, 201, 0.15), $shadow;
+  box-shadow:
+    0 0 0 4px rgba(17, 103, 201, 0.15),
+    $shadow;
   opacity: 1;
 }
 
@@ -2602,7 +2617,10 @@ $meander: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' widt
 }
 
 .toast {
-  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 20px 8px 8px;
   background: var(--od-ink);
   border-radius: 999px;
   box-shadow: $shadow-strong;
@@ -2615,6 +2633,37 @@ $meander: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' widt
 .toastSouvenir {
   background: var(--od-accent);
   color: var(--od-ink);
+}
+
+.toastIcon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  background: #fbf6e8;
+  border-radius: 50%;
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.toast:not(.toastSouvenir) .toastIcon {
+  background: none;
+  animation: odCoinFlip 0.7s ease-out;
+
+  svg {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@keyframes odCoinFlip {
+  from {
+    transform: rotateY(180deg) scale(0.6);
+  }
 }
 
 @keyframes pop {
@@ -3285,13 +3334,21 @@ $grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width=
 .deckIslands {
   transform-box: view-box;
   transform-origin: 500px 350px;
-  transition: transform 0.75s ease-in, opacity 0.75s ease-in;
+  transition:
+    transform 0.75s ease-in,
+    opacity 0.75s ease-in;
+}
+
+.deckScene .deckIsland {
+  cursor: pointer;
 }
 
 .deckIsland {
   transform-box: view-box;
   transform-origin: 0 0;
-  transition: transform 1.35s cubic-bezier(0.45, 0.05, 0.25, 1), opacity 1.1s ease;
+  transition:
+    transform 1.35s cubic-bezier(0.45, 0.05, 0.25, 1),
+    opacity 1.1s ease;
 
   :global(.od-sails) {
     transform-box: fill-box;
@@ -3515,25 +3572,50 @@ $grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width=
 
 .route {
   display: flex;
-  gap: 5px;
-  margin-top: 8px;
+  flex-wrap: wrap;
+  gap: 2px;
+  margin: 6px 0 -4px -4px;
 
-  i {
-    width: 9px;
-    height: 9px;
-    border: 1.5px solid $ink;
-    border-radius: 50%;
+  button {
+    position: relative;
+    width: 17px;
+    height: 17px;
+    padding: 0;
+    background: none;
+    border: 0;
+    cursor: pointer;
+
+    // The visible dot is small; the button around it is big enough to hit.
+    &::after {
+      content: '';
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      width: 9px;
+      height: 9px;
+      box-sizing: border-box;
+      border: 1.5px solid $ink;
+      border-radius: 50%;
+    }
+
+    &:hover::after {
+      background: rgba(242, 177, 58, 0.6);
+    }
   }
 }
 
-.routeDone {
+.routeDone::after {
   background: $ink;
 }
 
 .routeCurrent {
-  width: 22px !important;
-  background: $sun;
-  border-radius: 999px !important;
+  width: 30px !important;
+
+  &::after {
+    width: 22px !important;
+    background: $sun !important;
+    border-radius: 999px !important;
+  }
 }
 
 .steer {
@@ -3601,6 +3683,18 @@ $grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width=
   font-weight: 700;
   text-overflow: ellipsis;
   white-space: nowrap;
+
+  // On a phone the names get two short lines instead of being cut off.
+  @media (max-width: $narrow) {
+    display: -webkit-box;
+    max-width: 92px;
+    font-size: 12px;
+    line-height: 1.2;
+    text-align: center;
+    white-space: normal;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
 }
 
 .deckGuide {
@@ -3842,6 +3936,33 @@ $grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width=
   font-size: 15px;
 }
 
+.ticketKinds {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 0 10px;
+  padding: 0;
+  list-style: none;
+
+  li {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 10px 3px 7px;
+    background: rgba(26, 41, 64, 0.06);
+    border: 1.5px solid rgba(26, 41, 64, 0.25);
+    border-radius: 999px;
+    color: $ink;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  svg {
+    width: 15px;
+    height: 15px;
+  }
+}
+
 .ticketMeta {
   display: flex;
   flex-wrap: wrap;
@@ -3945,7 +4066,9 @@ $grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width=
   grid-template-columns: 220px minmax(0, 1fr);
   align-items: center;
   gap: 8px 22px;
-  padding: 56px 24px 22px;
+  padding: 56px 24px 34px;
+  overflow: hidden;
+  background: linear-gradient(180deg, var(--od-sky, #2a5a85) 0%, var(--od-sky-low, #3a76a6) 100%);
   border-bottom: 3px solid $ink;
   color: $paper-hi;
 
@@ -3956,7 +4079,65 @@ $grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width=
 
   @media (max-width: $narrow) {
     grid-template-columns: minmax(0, 1fr);
-    padding: 56px 16px 18px;
+    padding: 56px 16px 30px;
+  }
+}
+
+.islandBandRays {
+  transform-origin: 0 -60px;
+  transform-box: view-box;
+  animation: odRays 60s linear infinite;
+}
+
+@keyframes odRays {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.islandBandSea {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 22px;
+}
+
+.islandBandFacts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+}
+
+.islandBandProgress {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: $paper-hi;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.islandBandDots {
+  display: inline-flex;
+  gap: 5px;
+
+  i {
+    width: 12px;
+    height: 12px;
+    border: 2px solid $paper-hi;
+    border-radius: 50%;
+  }
+
+  .dotDone {
+    background: $sun;
+    border-color: $sun;
+  }
+
+  .dotHalf {
+    background: linear-gradient(90deg, $sun 50%, transparent 50%);
   }
 }
 
@@ -4091,14 +4272,13 @@ $grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width=
 
 .passportFields {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr);
   align-content: start;
-  gap: 3px 12px;
   margin: 0;
   font-size: 15px;
 
   dt {
-    padding-top: 3px;
+    padding-top: 5px;
     color: var(--od-text-muted);
     font-size: 11px;
     letter-spacing: 0.1em;
@@ -4109,7 +4289,100 @@ $grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width=
     margin: 0;
     font-weight: 700;
     font-variant-numeric: tabular-nums;
+    overflow-wrap: anywhere;
   }
+}
+
+.passportRank,
+.passportUnderway {
+  grid-column: 1 / -1;
+}
+
+.passportRank {
+  display: grid;
+  gap: 5px;
+  margin-top: 14px;
+  color: #12355a;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.passportRankBar,
+.passportUnderwayBar {
+  display: block;
+  height: 8px;
+  overflow: hidden;
+  background: rgba(18, 53, 90, 0.12);
+  border: 1.5px solid #12355a;
+  border-radius: 999px;
+
+  span {
+    display: block;
+    height: 100%;
+    background: $sun;
+  }
+}
+
+.passportUnderway {
+  margin-top: 18px;
+  padding-top: 12px;
+  border-top: 2px dashed rgba(18, 53, 90, 0.3);
+
+  ul {
+    display: grid;
+    gap: 6px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  button {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 4px 10px;
+    width: 100%;
+    padding: 7px 10px;
+    background: rgba(251, 246, 232, 0.7);
+    border: 1.5px solid rgba(18, 53, 90, 0.35);
+    border-left: 5px solid var(--od-island, #12355a);
+    border-radius: 8px;
+    color: $ink;
+    cursor: pointer;
+    font: inherit;
+    text-align: left;
+
+    &:hover {
+      background: $paper-hi;
+      border-color: #12355a;
+      border-left-color: var(--od-island, #12355a);
+    }
+  }
+
+  .passportUnderwayBar {
+    grid-column: 1 / -1;
+    order: 1;
+    height: 6px;
+
+    span {
+      background: var(--od-island, $sun);
+    }
+  }
+}
+
+.passportUnderwayName {
+  font-weight: 700;
+}
+
+.passportUnderwayCount {
+  color: var(--od-text-muted);
+  font-size: 13px;
+}
+
+.passportUnderwayEmpty {
+  margin: 0 !important;
+  color: var(--od-text-muted);
+  font-size: 14px;
 }
 
 .passportMrz {
@@ -4205,14 +4478,18 @@ $grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width=
   position: fixed;
   border: 3px solid $sun;
   border-radius: 16px;
-  box-shadow: 0 0 0 4px rgba(242, 177, 58, 0.35), 0 0 26px 6px rgba(242, 177, 58, 0.55);
+  box-shadow:
+    0 0 0 4px rgba(242, 177, 58, 0.35),
+    0 0 26px 6px rgba(242, 177, 58, 0.55);
   pointer-events: none;
   animation: odRing 1.4s ease-in-out infinite;
 }
 
 @keyframes odRing {
   50% {
-    box-shadow: 0 0 0 9px rgba(242, 177, 58, 0.15), 0 0 34px 10px rgba(242, 177, 58, 0.7);
+    box-shadow:
+      0 0 0 9px rgba(242, 177, 58, 0.15),
+      0 0 34px 10px rgba(242, 177, 58, 0.7);
   }
 }
 
@@ -4298,6 +4575,7 @@ $grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width=
 
 @media (prefers-reduced-motion: reduce) {
   .deckWave,
+  .islandBandRays,
   .deckCloud,
   .deckBow,
   .deckPennant,
@@ -4323,7 +4601,9 @@ $grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width=
 
   // With reduced motion the islands still glide, but briefly and without the extra effects.
   .deckIsland {
-    transition: transform 0.45s ease, opacity 0.45s ease !important;
+    transition:
+      transform 0.45s ease,
+      opacity 0.45s ease !important;
   }
 
   .islandPage,
@@ -4886,4 +5166,324 @@ $grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width=
   .promptCard {
     transform: none !important;
   }
+}
+
+// Stages: the steps as stops on a route, and a label naming each kind of step
+
+.visuallyHidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.stageStops {
+  display: flex;
+  margin: 16px 0 6px;
+  padding: 0;
+  list-style: none;
+  counter-reset: none;
+
+  li {
+    position: relative;
+    display: grid;
+    flex: 1 1 0;
+    justify-items: center;
+    gap: 6px;
+    min-width: 0;
+    text-align: center;
+
+    // The dashed sea route between two stops.
+    & + li::before {
+      content: '';
+      position: absolute;
+      top: 21px;
+      right: calc(50% + 24px);
+      left: calc(-50% + 24px);
+      border-top: 3px dashed rgba(26, 41, 64, 0.35);
+    }
+  }
+}
+
+.stopIcon {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  background: $paper-hi;
+  border: 2.5px solid rgba(26, 41, 64, 0.35);
+  border-radius: 50%;
+  color: var(--od-text-muted);
+
+  svg {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+.stopLabel {
+  max-width: 100%;
+  overflow: hidden;
+  color: var(--od-text-muted);
+  font-size: 13px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.stopDone {
+  .stopIcon {
+    background: $ink;
+    border-color: $ink;
+    color: $paper-hi;
+  }
+
+  & + li::before {
+    border-top-style: solid !important;
+    border-top-color: $ink !important;
+  }
+}
+
+.stopCurrent {
+  .stopIcon {
+    background: $sun;
+    border-color: $ink;
+    box-shadow: 3px 3px 0 $ink;
+    color: $ink;
+    transform: scale(1.12);
+  }
+
+  .stopLabel {
+    color: $ink;
+  }
+}
+
+.stopNext .stopIcon {
+  border-style: dashed;
+}
+
+@media (max-width: $narrow) {
+  .stageStops li + li::before {
+    right: calc(50% + 18px);
+    left: calc(-50% + 18px);
+    top: 17px;
+  }
+
+  .stopIcon {
+    width: 36px;
+    height: 36px;
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  // Only the current stop keeps its name on a phone.
+  .stopDone .stopLabel,
+  .stopNext .stopLabel {
+    visibility: hidden;
+  }
+
+  .stopLabel {
+    font-size: 12px;
+    overflow: visible;
+  }
+}
+
+.blockKind {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+  margin: 0 0 12px !important;
+
+  > span:first-of-type {
+    display: inline-flex;
+  }
+
+  svg {
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    border: 2px solid $ink;
+    border-radius: 50%;
+    background: var(--od-kind, $sun);
+    color: var(--od-kind-ink, $ink);
+  }
+
+  > span:not(.blockKindCount) {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+}
+
+.blockKindCount {
+  margin-left: auto;
+  color: var(--od-text-muted);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+
+.kindBriefing {
+  --od-kind: #1d5a85;
+  --od-kind-ink: #fbf6e8;
+  color: #1d5a85;
+}
+
+.kindQuiz {
+  --od-kind: #f2b13a;
+  --od-kind-ink: #1a2940;
+  color: #8a5a00;
+}
+
+.kindPrompt {
+  --od-kind: #c94f33;
+  --od-kind-ink: #fbf6e8;
+  color: #a43c24;
+}
+
+.kindMission {
+  --od-kind: #2c7a4b;
+  --od-kind-ink: #fbf6e8;
+  color: #2c7a4b;
+}
+
+.kindUseCase {
+  --od-kind: #5b4ba8;
+  --od-kind-ink: #fbf6e8;
+  color: #5b4ba8;
+}
+
+.actionHint {
+  flex-basis: 100%;
+  margin: 0 !important;
+  color: var(--od-text-muted);
+  font-size: 14px;
+  text-align: center;
+}
+
+// Loading: a small boat rocking on the waves
+
+.loading {
+  display: grid;
+  place-items: center;
+  gap: 4px;
+  min-height: 320px;
+  padding: 32px 16px;
+  color: $ink;
+  font-family: var(--od-font-display);
+  font-weight: 700;
+
+  svg {
+    width: 180px;
+    height: auto;
+    overflow: hidden;
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.loadingCompact {
+  min-height: 220px;
+
+  svg {
+    width: 130px;
+  }
+}
+
+.loadingBoat {
+  transform-box: view-box;
+  transform-origin: 0 10px;
+  animation: odRock 1.8s ease-in-out infinite;
+}
+
+.loadingWave {
+  animation: odWaveRun 1.8s linear infinite;
+}
+
+@keyframes odRock {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-4deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(4deg);
+  }
+}
+
+@keyframes odWaveRun {
+  to {
+    transform: translateX(-60px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loadingBoat,
+  .loadingWave,
+  .toastIcon {
+    animation: none !important;
+  }
+}
+
+// Header: what the next rank needs, on wide screens only
+
+.statusNext {
+  color: #9fb0c4 !important;
+
+  @media (max-width: 900px) {
+    display: none;
+  }
+}
+
+// Mission: the text to copy as a note pinned to the page
+
+.copyBox {
+  position: relative;
+  padding: 18px 18px 16px;
+  background: $paper-hi;
+  border: 2.5px solid $ink;
+  border-radius: 12px;
+  box-shadow: 4px 4px 0 rgba(26, 41, 64, 0.9);
+
+  // A strip of tape holds the note.
+  &::before {
+    content: '';
+    position: absolute;
+    top: -11px;
+    left: 50%;
+    width: 86px;
+    height: 20px;
+    background: rgba(242, 177, 58, 0.75);
+    border: 1px solid rgba(26, 41, 64, 0.25);
+    transform: translateX(-50%) rotate(-2deg);
+  }
+}
+
+.copyLabel {
+  margin: 0 0 8px !important;
+  color: $coral;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.copyText {
+  margin: 0 0 12px !important;
+  padding: 12px 14px;
+  background: repeating-linear-gradient(180deg, transparent 0 27px, rgba(31, 95, 139, 0.14) 27px 28px), #fffdf6;
+  border: 1.5px solid rgba(26, 41, 64, 0.3);
+  border-left: 5px solid $sun;
+  border-radius: 6px;
+  color: $ink;
+  font-size: 17px;
+  line-height: 28px;
 }

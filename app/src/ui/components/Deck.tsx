@@ -160,14 +160,30 @@ export function Deck(props: { islands: Island[] }): React.ReactElement {
   const preview = isPreview(game, island);
   const guide = guideById(player.profile.guide);
 
-  const steer = (dir: -1 | 1): void => {
-    const next = current + dir;
-    if (next < 0 || next >= islands.length) return;
+  const goTo = (next: number): void => {
+    if (next < 0 || next >= islands.length || next === current) return;
+    const dir = next < current ? -1 : 1;
     setCurrent(next);
     setTurn({ dir, n: turn ? turn.n + 1 : 1 });
     setSailing(true);
     window.clearTimeout(sailTimer.current);
     sailTimer.current = window.setTimeout(() => setSailing(false), 1600);
+  };
+  const steer = (dir: -1 | 1): void => goTo(current + dir);
+
+  // A swipe across the scene steers as well, the way a carousel works on a phone.
+  const touchStart = React.useRef<{ x: number; y: number } | undefined>(undefined);
+  const onTouchStart = (event: React.TouchEvent): void => {
+    const touch = event.touches[0];
+    touchStart.current = { x: touch.clientX, y: touch.clientY };
+  };
+  const onTouchEnd = (event: React.TouchEvent): void => {
+    const start = touchStart.current;
+    touchStart.current = undefined;
+    if (!start) return;
+    const touch = event.changedTouches[0];
+    const dx = touch.clientX - start.x;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(touch.clientY - start.y) * 1.5) steer(dx < 0 ? 1 : -1);
   };
 
   const dock = (): void => {
@@ -205,7 +221,14 @@ export function Deck(props: { islands: Island[] }): React.ReactElement {
   const signClass = turn ? `${styles.plaque} ${turn.dir < 0 ? styles.plaqueFromLeft : styles.plaqueFromRight}` : styles.plaque;
 
   return (
-    <section className={docking ? `${styles.deck} ${styles.deckDocking}` : styles.deck} onKeyDown={onKeyDown} aria-label={strings.viewDeck} data-tour="deck">
+    <section
+      className={docking ? `${styles.deck} ${styles.deckDocking}` : styles.deck}
+      onKeyDown={onKeyDown}
+      onTouchStart={onTouchStart}
+      onTouchEnd={onTouchEnd}
+      aria-label={strings.viewDeck}
+      data-tour="deck"
+    >
       <svg className={styles.deckScene} viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
         <defs>
           <pattern id="od-deck-dots" width="9" height="9" patternUnits="userSpaceOnUse">
@@ -254,7 +277,10 @@ export function Deck(props: { islands: Island[] }): React.ReactElement {
                   key={isl.id}
                   className={step === 0 ? `${styles.deckIsland} ${styles.deckIslandCurrent}` : styles.deckIsland}
                   style={{ transform: `translate(${x}px, ${y}px) scale(${SCALES[step]})`, opacity: OPACITY[step] * (isPreview(game, isl) ? 0.85 : 1) }}
+                  // Pointer shortcut only; the buttons below do the same for keyboards and screen readers.
+                  onClick={() => (off === 0 ? dock() : goTo(i))}
                 >
+                  <title>{off === 0 ? `${strings.dock}: ${t(isl.name)}` : format(strings.steerTo, { name: t(isl.name) })}</title>
                   <path d={islandSilhouette(isl.landmark)} transform="scale(1 -0.3)" fill="#164a70" opacity="0.28" />
                   <PosterIsland landmark={isl.landmark} color={isl.color} flag={islDone} />
                 </g>
@@ -278,11 +304,21 @@ export function Deck(props: { islands: Island[] }): React.ReactElement {
         <p className={styles.plaqueTool}>
           {t(island.tool)} · {status}
         </p>
-        <div className={styles.route} aria-hidden="true">
+        <div className={styles.route}>
           {islands.map((isl, i) => {
             const p = islandProgress(game, isl.id);
             const cls = i === current ? styles.routeCurrent : p.total > 0 && p.completed === p.total ? styles.routeDone : undefined;
-            return <i key={isl.id} className={cls} />;
+            return (
+              <button
+                type="button"
+                key={isl.id}
+                className={cls}
+                onClick={() => goTo(i)}
+                title={t(isl.name)}
+                aria-label={format(strings.steerTo, { name: t(isl.name) })}
+                aria-current={i === current ? 'true' : undefined}
+              />
+            );
           })}
         </div>
       </div>

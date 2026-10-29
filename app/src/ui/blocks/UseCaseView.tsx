@@ -97,6 +97,7 @@ export function UseCaseView(props: BlockViewProps<UseCaseBlock>): React.ReactEle
       <textarea id={id('prompt')} className={styles.textarea} rows={2} value={prompt} onChange={(e) => setPrompt(e.target.value)} />
 
       <div className={styles.actionBar}>
+        {!valid && <p className={styles.actionHint}>{strings.hintDescribeTask}</p>}
         <button type="button" className={`${styles.buttonPrimary} ${styles.buttonWide}`} disabled={!valid} onClick={save}>
           {strings.useCaseSave}
         </button>
