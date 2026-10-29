@@ -190,8 +190,15 @@ const de = {
   statsUseCases: 'Use Cases',
   statsStamps: 'Stempel',
 
-  helpGuide: 'Wie kann ich dir helfen? Klicke auf eine Frage.',
+  helpGuide: 'Wie kann ich dir helfen? Such nach einem Stichwort oder klicke auf eine Frage.',
   helpEmpty: 'Zurzeit sind keine Hilfethemen hinterlegt.',
+  helpSearch: 'Frage suchen',
+  helpSearchPlaceholder: 'z. B. Excel, Kundendaten, Facilitator',
+  helpNoMatch: 'Keine passende Frage gefunden. Versuch ein anderes Wort oder schreib uns.',
+  helpMore: 'Weitere Fragen',
+  helpContactTitle: 'Deine Frage ist nicht dabei?',
+  helpContactText: 'Schreib an {mail}. Wir helfen dir gern weiter.',
+  contactNote: 'Konkrete Frage, die hier nicht beantwortet wird? Schreib an',
   mockupCaption: 'Vereinfachte Darstellung: Copilot zeigt dir die Bezeichnung deiner Version an.',
   mockupInput: 'Nachricht an Copilot',
 
@@ -411,8 +418,15 @@ const en: Strings = {
   statsUseCases: 'Use cases',
   statsStamps: 'Stamps',
 
-  helpGuide: 'How can I help you? Click a question.',
+  helpGuide: 'How can I help you? Search for a keyword or click a question.',
   helpEmpty: 'There are no help topics at the moment.',
+  helpSearch: 'Search questions',
+  helpSearchPlaceholder: 'e.g. Excel, customer data, Facilitator',
+  helpNoMatch: 'No matching question found. Try another word or write to us.',
+  helpMore: 'More questions',
+  helpContactTitle: 'Your question is not here?',
+  helpContactText: 'Write to {mail}. We are happy to help.',
+  contactNote: 'A specific question not answered here? Write to',
   mockupCaption: 'Simplified view: Copilot shows you the name of your version.',
   mockupInput: 'Message to Copilot',
 

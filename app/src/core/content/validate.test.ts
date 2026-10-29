@@ -135,6 +135,23 @@ describe('validateContent', () => {
     expect(messages).toContain('/topics/1/answer/de: "ß" durch "ss" ersetzen (Schweizer Schreibweise).');
   });
 
+  it('checks help groups and the contact address', () => {
+    const q = { de: 'Frage', en: 'Question' };
+    const groups = [{ id: 'start', title: q }];
+    const ok = { path: 'help.json', data: { contact: 'team@example.ch', groups, topics: [{ id: 'a', group: 'start', question: q, answer: q }] } };
+    const result = validateContent(schemas, islandsFile, [], TODAY, { help: ok });
+    expect(result.errors).toEqual([]);
+    expect(result.bundle && result.bundle.contact).toBe('team@example.ch');
+    expect(result.bundle && result.bundle.helpGroups).toEqual(groups);
+
+    const wrong = { path: 'help.json', data: { groups, topics: [{ id: 'a', group: 'apps', question: q, answer: q }] } };
+    expect(validateContent(schemas, islandsFile, [], TODAY, { help: wrong }).errors.map((e) => e.message)).toContain(
+      'Hilfethema "a": unbekannte Gruppe "apps". Erlaubt: start.'
+    );
+    const badMail = { path: 'help.json', data: { contact: 'keine Adresse', topics: [{ id: 'a', question: q, answer: q }] } };
+    expect(validateContent(schemas, islandsFile, [], TODAY, { help: badMail }).errors.length).toBeGreaterThan(0);
+  });
+
   it('checks areas and prompt templates', () => {
     const idea = { de: 'Idee', en: 'Idea' };
     const areas = { path: 'areas.json', data: { areas: [{ id: 'verkauf', name: idea, hint: idea, useCaseIdeas: [idea, idea, idea] }] } };

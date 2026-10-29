@@ -6,7 +6,7 @@
   "version": "1.0.0",
   "owner": "copilot-team",
   "status": "draft",
-  "reviewedAt": "2026-10-28",
+  "reviewedAt": "2026-10-29",
   "reviewIntervalDays": 180,
   "title": {
     "de": "Fragen an deine Arbeitsdaten",
@@ -17,7 +17,7 @@
     "en": "Copilot searches your emails, chats, files and meetings for you and connects the information."
   },
   "estimatedMinutes": 10,
-  "notes": "Neuer Inhalt. Stand Oktober 2026: Mit M365 Copilot (Premium) greift Copilot Chat auf Arbeitsdaten zu (Mails, Chats, Dateien, Meetings), nur im Rahmen der eigenen Berechtigungen. Verweise mit «/» auf Dateien, Personen und Meetings. Hinweis auf Überberechtigungen (Oversharing) bewusst aufgenommen.",
+  "notes": "Neuer Inhalt. Stand Oktober 2026: Mit M365 Copilot (Premium) greift Copilot Chat auf Arbeitsdaten zu (Mails, Chats, Dateien, Meetings), nur im Rahmen der eigenen Berechtigungen. Verweise mit «/» auf Dateien, Personen und Meetings. Hinweis auf Überberechtigungen (Oversharing) bewusst aufgenommen. Praxisprüfung 29.10.2026 mit Premium- und Basic-Konto bei DERTOUR Suisse.",
   "blocks": [
     {
       "type": "briefing",
@@ -27,8 +27,8 @@
         "en": "Copilot knows your working day"
       },
       "body": {
-        "de": "Mit **M365 Copilot (Premium)** sucht Copilot Chat nicht nur im Web, sondern auch in deinen **Arbeitsdaten**: Mails, Teams-Chats, Dateien in OneDrive und SharePoint sowie Meetings.\n\nSo fragst du gezielt:\n- «Was wurde in den letzten zwei Wochen zum Projekt [Name] besprochen?»\n- «Bereite mich auf mein Meeting mit [Person] vor: offene Punkte und letzte Mails.»\n- Mit **«/»** im Eingabefeld verweist du auf eine bestimmte Datei, Person oder ein Meeting.\n\nCopilot nennt seine Quellen. Ein Klick darauf führt dich zum Original.",
-        "en": "With **M365 Copilot (Premium)**, Copilot Chat searches not only the web but also your **work data**: emails, Teams chats, files in OneDrive and SharePoint, and meetings.\n\nHow to ask precisely:\n- “What has been discussed about project [name] over the last two weeks?”\n- “Prepare me for my meeting with [person]: open points and recent emails.”\n- Typing **“/”** in the input box lets you refer to a specific file, person or meeting.\n\nCopilot names its sources. One click takes you to the original."
+        "de": "Mit **M365 Copilot (Premium)** sucht Copilot Chat nicht nur im Web, sondern auch in deinen **Arbeitsdaten**: Mails, Teams-Chats, Dateien in OneDrive und SharePoint sowie Meetings.\n\nSo fragst du gezielt:\n- «Was wurde in den letzten zwei Wochen zum Projekt [Name] besprochen?»\n- «Bereite mich auf mein Meeting mit [Person] vor: offene Punkte und letzte Mails.»\n- Mit **«/»** im Eingabefeld verweist du auf eine bestimmte Datei, Person oder ein Meeting.\n\nDafür muss in Copilot der Schalter **«Work IQ»** eingeschaltet sein.\n\nCopilot nennt seine Quellen. Ein Klick darauf führt dich zum Original.",
+        "en": "With **M365 Copilot (Premium)**, Copilot Chat searches not only the web but also your **work data**: emails, Teams chats, files in OneDrive and SharePoint, and meetings.\n\nHow to ask precisely:\n- “What has been discussed about project [name] over the last two weeks?”\n- “Prepare me for my meeting with [person]: open points and recent emails.”\n- Typing **“/”** in the input box lets you refer to a specific file, person or meeting.\n\nFor this, the **“Work IQ”** switch in Copilot must be on.\n\nCopilot names its sources. One click takes you to the original."
       }
     },
     {
@@ -172,8 +172,8 @@
         "en": "Open Copilot and ask about a project or topic you are currently working on. Click two sources and check whether the summary is correct."
       },
       "tip": {
-        "de": "Siehst du oben in Copilot eine Umschaltung zwischen «Arbeit» und «Web»? Für deine Arbeitsdaten wählst du «Arbeit».",
-        "en": "Do you see a switch between “Work” and “Web” at the top of Copilot? For your work data, choose “Work”."
+        "de": "Siehst du in Copilot den Schalter **«Work IQ»**? Schalte ihn ein, damit Copilot deine Arbeitsdaten nutzt. In manchen Apps, zum Beispiel im Seitenbereich von Outlook, heisst die Umschaltung «Arbeit» und «Web». Dann wählst du «Arbeit».",
+        "en": "Do you see the **“Work IQ”** switch in Copilot? Turn it on so that Copilot uses your work data. In some apps, for example the side pane in Outlook, the switch is called “Work” and “Web”. Then choose “Work”."
       },
       "copyText": {
         "de": "Was wurde in den letzten zwei Wochen zu [Projekt oder Thema] besprochen? Fasse die wichtigsten Punkte zusammen und nenne die Quellen.",

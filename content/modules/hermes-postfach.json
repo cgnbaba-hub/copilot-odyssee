@@ -6,7 +6,7 @@
   "version": "1.0.0",
   "owner": "copilot-team",
   "status": "draft",
-  "reviewedAt": "2026-10-28",
+  "reviewedAt": "2026-10-29",
   "reviewIntervalDays": 180,
   "license": "premium",
   "title": {
@@ -18,7 +18,7 @@
     "en": "Summarise whole threads, get coaching on drafts and ask your inbox about open items."
   },
   "estimatedMinutes": 10,
-  "notes": "Neuer Inhalt. Premium-Funktionen in Outlook gemäss öffentlicher Dokumentation und Fachpresse, Stand Oktober 2026: Zusammenfassung von Verläufen, Entwurf, Coaching, Priorisierung, Fragen über Postfach und Kalender. Funktionsnamen bewusst allgemein, da sie sich je nach Outlook-Variante unterscheiden.",
+  "notes": "Neuer Inhalt. Premium-Funktionen in Outlook gemäss öffentlicher Dokumentation und Fachpresse, Stand Oktober 2026: Zusammenfassung von Verläufen, Entwurf, Coaching, Priorisierung, Fragen über Postfach und Kalender. Funktionsnamen bewusst allgemein, da sie sich je nach Outlook-Variante unterscheiden. Praxisprüfung 29.10.2026 mit Premium- und Basic-Konto bei DERTOUR Suisse.",
   "blocks": [
     {
       "type": "briefing",
@@ -28,8 +28,8 @@
         "en": "What Premium adds in Outlook"
       },
       "body": {
-        "de": "Mit **M365 Copilot (Premium)** arbeitet Copilot in Outlook mit deinem ganzen Postfach und deinem Kalender:\n- **Verläufe zusammenfassen:** Oben in einer Mail fasst Copilot den ganzen Verlauf zusammen, mit Verweisen auf die einzelnen Mails.\n- **Entwerfen beim Schreiben:** Im Antwortfenster schreibt Copilot einen Entwurf. Du wählst Länge und Ton.\n- **Coaching:** Copilot gibt dir Rückmeldung zu deinem eigenen Entwurf, zum Beispiel zu Ton und Klarheit.\n- **Fragen an dein Postfach:** «Welche Mails von dieser Woche brauchen noch eine Antwort von mir?» oder «Was steht morgen in meinem Kalender?»\n\nCopilot sieht dabei nur, worauf du selbst Zugriff hast. Termine und Zahlen prüfst du trotzdem.",
-        "en": "With **M365 Copilot (Premium)**, Copilot in Outlook works with your whole inbox and your calendar:\n- **Summarise threads:** At the top of an email, Copilot summarises the whole thread, with references to the individual emails.\n- **Draft while writing:** In the reply window Copilot writes a draft. You choose length and tone.\n- **Coaching:** Copilot gives feedback on your own draft, for example on tone and clarity.\n- **Questions to your inbox:** “Which emails from this week still need a reply from me?” or “What is in my calendar tomorrow?”\n\nCopilot only sees what you yourself have access to. You still check dates and figures."
+        "de": "Mit **M365 Copilot (Premium)** arbeitet Copilot in Outlook mit deinem ganzen Postfach und deinem Kalender:\n- **Verläufe zusammenfassen:** Oben in einer Mail fasst Copilot den ganzen Verlauf zusammen, mit Verweisen auf die einzelnen Mails.\n- **Entwerfen beim Schreiben:** Im Antwortfenster schreibt Copilot einen Entwurf. Du wählst Länge und Ton.\n- **Planen mit Copilot:** Der Knopf im Menüband macht aus einem Mailverlauf eine Meeting-Einladung, mit einer kurzen Zusammenfassung des Verlaufs.\n- **Coaching:** Copilot gibt dir Rückmeldung zu deinem eigenen Entwurf, zum Beispiel zu Ton und Klarheit.\n- **Fragen an dein Postfach:** «Welche Mails von dieser Woche brauchen noch eine Antwort von mir?» oder «Was steht morgen in meinem Kalender?»\n\nCopilot sieht dabei nur, worauf du selbst Zugriff hast. Termine und Zahlen prüfst du trotzdem.",
+        "en": "With **M365 Copilot (Premium)**, Copilot in Outlook works with your whole inbox and your calendar:\n- **Summarise threads:** At the top of an email, Copilot summarises the whole thread, with references to the individual emails.\n- **Draft while writing:** In the reply window Copilot writes a draft. You choose length and tone.\n- **Schedule with Copilot:** The button in the ribbon turns an email thread into a meeting invitation, with a short summary of the thread.\n- **Coaching:** Copilot gives feedback on your own draft, for example on tone and clarity.\n- **Questions to your inbox:** “Which emails from this week still need a reply from me?” or “What is in my calendar tomorrow?”\n\nCopilot only sees what you yourself have access to. You still check dates and figures."
       }
     },
     {

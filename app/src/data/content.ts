@@ -43,6 +43,8 @@ export function parseContentFile(data: unknown): ContentBundle {
     islands: islands as ContentBundle['islands'],
     modules: modules as ContentBundle['modules'],
     help: list(data.help),
+    helpGroups: list(data.helpGroups),
+    contact: typeof data.contact === 'string' ? data.contact : undefined,
     areas: list(data.areas),
     prompts: list(data.prompts)
   };

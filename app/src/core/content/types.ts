@@ -111,9 +111,17 @@ export interface LearningModule {
 
 export interface HelpTopic {
   id: string;
+  /** Id of a HelpGroup; topics without a group are listed last. */
+  group?: string;
   question: Localized;
   answer: Localized;
   illustration?: 'license';
+}
+
+/** A heading in the help that bundles related topics. */
+export interface HelpGroup {
+  id: string;
+  title: Localized;
 }
 
 /** A field of work. It selects prompt templates and use case ideas. */
@@ -141,6 +149,9 @@ export interface ContentBundle {
   islands: Island[];
   modules: LearningModule[];
   help?: HelpTopic[];
+  helpGroups?: HelpGroup[];
+  /** Email address for questions the app does not answer. */
+  contact?: string;
   areas?: Area[];
   prompts?: PromptTemplate[];
 }

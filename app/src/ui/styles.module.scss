@@ -2471,6 +2471,75 @@ $meander: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' widt
   }
 }
 
+.faqSearch {
+  display: grid;
+  gap: 6px;
+  margin: 4px 0 20px;
+  font-weight: 700;
+
+  input {
+    width: 100%;
+    min-height: 48px;
+    padding: 10px 14px;
+    background: var(--od-surface);
+    border: 2px solid var(--od-line);
+    border-radius: 12px;
+    color: var(--od-ink);
+    font: inherit;
+    font-weight: 400;
+
+    &:focus {
+      border-color: var(--od-primary);
+      outline: none;
+    }
+  }
+}
+
+.faqGroup + .faqGroup {
+  margin-top: 22px;
+}
+
+.faqGroupTitle {
+  margin: 0 0 10px;
+  color: var(--od-text-muted);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.faqContact {
+  margin-top: 26px;
+  padding: 16px 18px;
+  background: var(--od-surface);
+  border: 2px dashed var(--od-line);
+  border-radius: 14px;
+
+  p {
+    margin: 4px 0 0;
+  }
+
+  a {
+    color: var(--od-primary);
+    font-weight: 700;
+    overflow-wrap: anywhere;
+  }
+}
+
+.contactNote {
+  margin: 0;
+  padding: 14px 20px 18px;
+  color: var(--od-text-muted);
+  font-size: 15px;
+  text-align: center;
+
+  a {
+    color: var(--od-primary);
+    font-weight: 700;
+    overflow-wrap: anywhere;
+  }
+}
+
 .faqAnswer {
   padding: 0 16px 16px;
 

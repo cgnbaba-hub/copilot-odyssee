@@ -1,10 +1,52 @@
 {
   "$schema": "./schema/help.schema.json",
+  "contact": "ai-automation@dertour.ch",
+  "groups": [
+    {
+      "id": "start",
+      "title": {
+        "de": "Erste Schritte",
+        "en": "Getting started"
+      }
+    },
+    {
+      "id": "alltag",
+      "title": {
+        "de": "Copilot im Alltag",
+        "en": "Copilot day to day"
+      }
+    },
+    {
+      "id": "apps",
+      "title": {
+        "de": "Outlook, Teams, Word und Co.",
+        "en": "Outlook, Teams, Word and more"
+      }
+    },
+    {
+      "id": "sicherheit",
+      "title": {
+        "de": "Daten und Sicherheit",
+        "en": "Data and security"
+      }
+    },
+    {
+      "id": "app",
+      "title": {
+        "de": "Diese App",
+        "en": "This app"
+      }
+    }
+  ],
   "topics": [
     {
       "id": "welche-version",
+      "group": "start",
       "illustration": "license",
-      "question": { "de": "Welche Copilot-Version habe ich?", "en": "Which version of Copilot do I have?" },
+      "question": {
+        "de": "Welche Copilot-Version habe ich?",
+        "en": "Which version of Copilot do I have?"
+      },
       "answer": {
         "de": "Es gibt zwei Versionen. Copilot zeigt dir an, welche du hast:\n- **Copilot Chat (Basic)** haben alle mit einem Firmenkonto.\n- **M365 Copilot (Premium)** haben nur Personen mit einer Zusatzlizenz.\n\nSo findest du es heraus:\n- Öffne Copilot im Browser unter **m365.cloud.microsoft/chat**.\n- Schau nach der Bezeichnung **«Basic»** oder **«Premium»**.\n- Siehst du keine Bezeichnung? Dann öffne **myaccount.microsoft.com** und klicke auf **«Abonnements»**. Dort sind deine Lizenzen aufgelistet.\n\nIm Zweifel wähle in dieser App **Copilot Chat (Basic)**. Du kannst die Einstellung jederzeit ändern.",
         "en": "There are two versions. Copilot shows you which one you have:\n- **Copilot Chat (Basic)** is available to everyone with a work account.\n- **M365 Copilot (Premium)** is only for people with an add-on licence.\n\nHow to find out:\n- Open Copilot in the browser at **m365.cloud.microsoft/chat**.\n- Look for the label **“Basic”** or **“Premium”**.\n- No label? Then open **myaccount.microsoft.com** and click **“Subscriptions”**. Your licences are listed there.\n\nIf in doubt, choose **Copilot Chat (Basic)** in this app. You can change the setting at any time."
@@ -12,7 +54,11 @@
     },
     {
       "id": "unterschied",
-      "question": { "de": "Was ist der Unterschied zwischen Basic und Premium?", "en": "What is the difference between Basic and Premium?" },
+      "group": "start",
+      "question": {
+        "de": "Was ist der Unterschied zwischen Basic und Premium?",
+        "en": "What is the difference between Basic and Premium?"
+      },
       "answer": {
         "de": "**Copilot Chat (Basic)**\n- Du schreibst Copilot im Chat, was du brauchst.\n- Copilot kennt das Internet und alles, was du ihm gibst: Text, den du einfügst, und Dateien, die du hochlädst.\n- Du findest ihn im Browser, in der Microsoft-365-Copilot-App und in Outlook.\n\n**M365 Copilot (Premium)**\n- Kann zusätzlich selbst in deinen Mails, Chats, Dateien und Meetings suchen.\n- Ist direkt in Word, Excel, PowerPoint und Teams eingebaut.\n\nInseln mit dem Hinweis **«Nur mit Premium»** kannst du trotzdem besuchen und lesen. Ausprobieren geht erst mit der Premium-Lizenz.",
         "en": "**Copilot Chat (Basic)**\n- You tell Copilot in the chat what you need.\n- Copilot knows the internet and everything you give it: text you paste and files you upload.\n- You find it in the browser, in the Microsoft 365 Copilot app and in Outlook.\n\n**M365 Copilot (Premium)**\n- Can also search your emails, chats, files and meetings by itself.\n- Is built right into Word, Excel, PowerPoint and Teams.\n\nYou can still visit and read islands marked **“Premium only”**. Trying things out requires the Premium licence."
@@ -20,39 +66,323 @@
     },
     {
       "id": "copilot-oeffnen",
-      "question": { "de": "Wie öffne ich Copilot?", "en": "How do I open Copilot?" },
+      "group": "start",
+      "question": {
+        "de": "Wie öffne ich Copilot?",
+        "en": "How do I open Copilot?"
+      },
       "answer": {
         "de": "Am einfachsten über den Knopf **«Copilot öffnen»** in einer Mission. Copilot öffnet sich dann in einem neuen Tab deines Browsers.\n\nOder so:\n- Öffne deinen Browser, zum Beispiel Edge.\n- Tippe oben in die Adresszeile **m365.cloud.microsoft/chat** und drücke die **Enter-Taste**.\n- Wirst du nach einer Anmeldung gefragt, melde dich mit deinem Firmenkonto an.",
         "en": "The easiest way is the **“Open Copilot”** button in a mission. Copilot then opens in a new tab of your browser.\n\nOr like this:\n- Open your browser, for example Edge.\n- Type **m365.cloud.microsoft/chat** into the address bar at the top and press **Enter**.\n- If you are asked to sign in, sign in with your work account."
       }
     },
     {
-      "id": "copilot-in-apps",
-      "question": { "de": "Wo finde ich Copilot in Outlook, Word und Co.?", "en": "Where do I find Copilot in Outlook, Word and the like?" },
+      "id": "premium-bekommen",
+      "group": "start",
+      "question": {
+        "de": "Wie bekomme ich eine Premium-Lizenz?",
+        "en": "How do I get a Premium licence?"
+      },
       "answer": {
-        "de": "Achte auf das **Copilot-Symbol**, ein buntes, geschwungenes Zeichen.\n- **Outlook:** im Menüband oder oben in einer geöffneten Mail. Das geht mit **beiden Versionen**.\n- **Word, Excel und PowerPoint:** im Menüband **«Start»**, meist ganz rechts. Das geht nur mit **M365 Copilot (Premium)**.\n- **Teams:** im Meeting in der Leiste oben, in Chats oben rechts. Nur mit **Premium**.\n\nSiehst du das Symbol nicht, obwohl du Premium hast?\n- Speichere die Datei in OneDrive oder SharePoint.\n- Schliesse die App und öffne sie neu.\n- Frag die IT, ob Copilot für dich freigeschaltet ist.",
-        "en": "Look for the **Copilot icon**, a colourful, curved symbol.\n- **Outlook:** in the ribbon or at the top of an open email. This works with **both versions**.\n- **Word, Excel and PowerPoint:** in the **“Home”** ribbon, usually on the far right. This only works with **M365 Copilot (Premium)**.\n- **Teams:** in a meeting in the bar at the top, in chats at the top right. **Premium** only.\n\nCan't see the icon although you have Premium?\n- Save the file in OneDrive or SharePoint.\n- Close the app and open it again.\n- Ask IT whether Copilot has been enabled for you."
+        "de": "Premium ist eine Zusatzlizenz, die das Unternehmen vergibt.\n\nWenn du denkst, dass sie dir im Alltag viel Zeit sparen würde, schreib an **ai-automation@dertour.ch**. Beschreib kurz, wofür du Copilot brauchst. Deine Use-Case-Karten aus Ithaka helfen dir dabei.",
+        "en": "Premium is an add-on licence that the company assigns.\n\nIf you think it would save you a lot of time, write to **ai-automation@dertour.ch**. Briefly describe what you need Copilot for. Your use case cards from Ithaca help with that."
+      }
+    },
+    {
+      "id": "premium-inseln",
+      "group": "start",
+      "question": {
+        "de": "Ich habe Basic. Lohnen sich die Premium-Inseln trotzdem?",
+        "en": "I have Basic. Are the Premium islands still worth it?"
+      },
+      "answer": {
+        "de": "Ja, zum Lesen und Verstehen. Du siehst, was mit Premium möglich wäre, und kannst besser einschätzen, ob du die Lizenz brauchst.\n\nDie Missionen dort kannst du erst mit Premium ausprobieren. Viele Prompts funktionieren aber auch in Copilot Chat, wenn du den Text oder die Datei selbst hineingibst.",
+        "en": "Yes, for reading and understanding. You see what Premium could do and can judge better whether you need the licence.\n\nYou can only try the missions there with Premium. Many prompts also work in Copilot Chat, though, if you add the text or file yourself."
+      }
+    },
+    {
+      "id": "guter-prompt",
+      "group": "alltag",
+      "question": {
+        "de": "Wie schreibe ich einen guten Prompt?",
+        "en": "How do I write a good prompt?"
+      },
+      "answer": {
+        "de": "Ein guter Prompt hat vier Teile:\n- **Ziel:** Was soll entstehen? «Schreib eine Antwort auf diese Reklamation.»\n- **Kontext:** Für wen und warum? «Der Gast ist Stammkunde und verärgert.»\n- **Quelle:** Womit soll Copilot arbeiten? Eingefügter Text, eine Datei oder eine Mail.\n- **Erwartung:** Wie soll es aussehen? «Höchstens 100 Wörter, Sie-Form, freundlich.»\n\nPasst das Ergebnis noch nicht, sag Copilot einfach, was er ändern soll. Mehr dazu auf der Insel des Aiolos.",
+        "en": "A good prompt has four parts:\n- **Goal:** What should be created? “Write a reply to this complaint.”\n- **Context:** For whom and why? “The guest is a regular customer and upset.”\n- **Source:** What should Copilot work with? Pasted text, a file or an email.\n- **Expectations:** What should it look like? “At most 100 words, formal, friendly.”\n\nIf the result is not right yet, just tell Copilot what to change. More on this on the Isle of Aeolus."
+      }
+    },
+    {
+      "id": "antwort-passt-nicht",
+      "group": "alltag",
+      "question": {
+        "de": "Die Antwort passt nicht. Was mache ich?",
+        "en": "The answer is not right. What do I do?"
+      },
+      "answer": {
+        "de": "Fang nicht von vorne an, sondern schreib im selben Chat weiter:\n- «Kürzer, bitte, höchstens fünf Sätze.»\n- «Lockerer, wir duzen uns im Team.»\n- «Der zweite Punkt stimmt nicht. Es geht um Kreta, nicht um Zypern.»\n\nWechselst du das Thema, starte einen **neuen Chat**. Sonst mischt Copilot alte Inhalte hinein.",
+        "en": "Do not start over, keep writing in the same chat:\n- “Shorter, please, at most five sentences.”\n- “More casual, we are on first-name terms in the team.”\n- “The second point is wrong. It is about Crete, not Cyprus.”\n\nWhen you change the topic, start a **new chat**. Otherwise Copilot mixes in earlier content."
+      }
+    },
+    {
+      "id": "verlassen",
+      "group": "alltag",
+      "question": {
+        "de": "Kann ich mich auf die Antworten verlassen?",
+        "en": "Can I rely on the answers?"
+      },
+      "answer": {
+        "de": "Nicht blind. Copilot formuliert überzeugend, kann sich aber irren, besonders bei **Zahlen, Daten, Preisen und Namen**.\n- Prüfe Fakten, bevor du sie weitergibst.\n- Klicke auf die **Quellen**, die Copilot nennt.\n- Verbindliche Auskünfte, zum Beispiel zu Preisen oder Einreisebestimmungen, holst du aus den offiziellen Systemen.\n\nDu bleibst verantwortlich für das, was du sendest.",
+        "en": "Not blindly. Copilot sounds convincing but can be wrong, especially with **figures, dates, prices and names**.\n- Check facts before you pass them on.\n- Click the **sources** Copilot names.\n- Get binding information, for example on prices or entry requirements, from the official systems.\n\nYou remain responsible for what you send."
       }
     },
     {
       "id": "kopieren",
-      "question": { "de": "Wie bringe ich einen Text in Copilot?", "en": "How do I get text into Copilot?" },
+      "group": "alltag",
+      "question": {
+        "de": "Wie bringe ich einen Text in Copilot?",
+        "en": "How do I get text into Copilot?"
+      },
       "answer": {
         "de": "- Klicke in der Mission auf **«Text kopieren»**. Der Text ist jetzt gemerkt.\n- Wechsle zu Copilot und klicke ins Eingabefeld unten.\n- Drücke **Strg** und **V** gleichzeitig (am Mac: **Cmd** und **V**). Der Text erscheint im Feld.\n- Ersetze Teile in eckigen Klammern, zum Beispiel **[dein Bereich]**, durch deine eigenen Angaben.\n- Drücke die **Enter-Taste** oder klicke auf den Pfeil zum Senden.",
         "en": "- Click **“Copy text”** in the mission. The text is now stored.\n- Switch to Copilot and click into the input box at the bottom.\n- Press **Ctrl** and **V** at the same time (on a Mac: **Cmd** and **V**). The text appears in the box.\n- Replace parts in square brackets, for example **[your area]**, with your own details.\n- Press **Enter** or click the arrow to send."
       }
     },
     {
+      "id": "datei-geben",
+      "group": "alltag",
+      "question": {
+        "de": "Wie gebe ich Copilot eine Datei?",
+        "en": "How do I give Copilot a file?"
+      },
+      "answer": {
+        "de": "- **Mit Basic:** Klicke im Eingabefeld auf das **Plus** oder die **Büroklammer** und lade die Datei hoch, zum Beispiel ein Word-Dokument, ein PDF oder eine Excel-Tabelle.\n- **Mit Premium:** Tippe im Eingabefeld **«/»** und die ersten Buchstaben des Dateinamens. Copilot schlägt passende Dateien aus OneDrive und SharePoint vor.\n\nGib Copilot nur Dateien, die du gemäss eurer KI-Richtlinie verwenden darfst.",
+        "en": "- **With Basic:** Click the **plus** or the **paperclip** in the input box and upload the file, for example a Word document, a PDF or an Excel sheet.\n- **With Premium:** Type **“/”** in the input box and the first letters of the file name. Copilot suggests matching files from OneDrive and SharePoint.\n\nOnly give Copilot files that your AI guideline allows."
+      }
+    },
+    {
+      "id": "schweizer-schreibweise",
+      "group": "alltag",
+      "question": {
+        "de": "Copilot schreibt Eszett statt «ss». Was tun?",
+        "en": "Copilot writes German “ß” instead of Swiss “ss”. What can I do?"
+      },
+      "answer": {
+        "de": "Schreib es in den Prompt: **«in Schweizer Hochdeutsch, ohne Eszett»**.\n\nIst der Text schon fertig, sag einfach: «Ersetze alle Eszett durch ss.» In Word hilft zusätzlich die Rechtschreibprüfung mit der Sprache **Deutsch (Schweiz)**.",
+        "en": "Put it in the prompt: **“in Swiss Standard German, without Eszett”**.\n\nIf the text is already done, just say: “Replace every Eszett with ss.” In Word, the spell check with the language **German (Switzerland)** also helps."
+      }
+    },
+    {
+      "id": "fruehere-chats",
+      "group": "alltag",
+      "question": {
+        "de": "Wo finde ich meine früheren Chats?",
+        "en": "Where do I find my earlier chats?"
+      },
+      "answer": {
+        "de": "In Copilot links in der Seitenleiste. Dort sind deine letzten Unterhaltungen aufgelistet. Ein Klick öffnet sie, und du kannst direkt weiterschreiben.\n\nIst die Seitenleiste zugeklappt, öffnest du sie mit dem Symbol oben links.",
+        "en": "In Copilot, in the sidebar on the left. Your recent conversations are listed there. One click opens them and you can carry on writing.\n\nIf the sidebar is collapsed, open it with the icon at the top left."
+      }
+    },
+    {
+      "id": "sprachen",
+      "group": "alltag",
+      "question": {
+        "de": "Versteht Copilot auch Französisch, Italienisch oder Englisch?",
+        "en": "Does Copilot understand French, Italian or English too?"
+      },
+      "answer": {
+        "de": "Ja. Schreib in der Sprache, in der du die Antwort brauchst, oder sag es dazu: «Antworte auf Französisch.»\n\nCopilot übersetzt auch: «Übersetze diese Mail ins Italienische, freundlich und in der Sie-Form.» Lass wichtige Texte trotzdem von jemandem prüfen, der die Sprache gut kann.",
+        "en": "Yes. Write in the language you need the answer in, or say so: “Answer in French.”\n\nCopilot also translates: “Translate this email into Italian, friendly and formal.” Still have important texts checked by someone who knows the language well."
+      }
+    },
+    {
+      "id": "grenzen",
+      "group": "alltag",
+      "question": {
+        "de": "Was kann Copilot nicht?",
+        "en": "What can Copilot not do?"
+      },
+      "answer": {
+        "de": "- **Nichts selbst senden oder buchen.** Copilot schlägt vor, du entscheidest und klickst.\n- **Nicht in eure Buchungssysteme schauen**, ausser die IT stellt dafür einen Agenten bereit.\n- **Mit Basic** kennt Copilot deine Mails, Chats und Dateien nicht. Er sieht nur, was du ihm gibst.\n- **Fehler sind möglich.** Prüfe Zahlen, Daten und Namen.",
+        "en": "- **Send or book anything itself.** Copilot suggests, you decide and click.\n- **Look into your booking systems**, unless IT provides an agent for it.\n- **With Basic**, Copilot does not know your emails, chats and files. It only sees what you give it.\n- **Mistakes are possible.** Check figures, dates and names."
+      }
+    },
+    {
       "id": "zurueck",
-      "question": { "de": "Wie komme ich von Copilot zurück zur Odyssee?", "en": "How do I get back from Copilot to the Odyssey?" },
+      "group": "alltag",
+      "question": {
+        "de": "Wie komme ich von Copilot zurück zur Odyssee?",
+        "en": "How do I get back from Copilot to the Odyssey?"
+      },
       "answer": {
         "de": "Copilot öffnet sich in einem eigenen Tab. Die Odyssee bleibt offen.\n- Ganz oben im Browser siehst du die Tabs nebeneinander. Klicke auf den Tab mit der Odyssee.\n- Oder schliesse den Copilot-Tab mit dem **×** auf dem Tab.\n\nDein Fortschritt geht dabei nicht verloren.",
         "en": "Copilot opens in its own tab. The Odyssey stays open.\n- At the very top of the browser you see the tabs side by side. Click the tab with the Odyssey.\n- Or close the Copilot tab with the **×** on the tab.\n\nYour progress is not lost."
       }
     },
     {
+      "id": "copilot-in-apps",
+      "group": "apps",
+      "question": {
+        "de": "Wo finde ich Copilot in Outlook, Word und Co.?",
+        "en": "Where do I find Copilot in Outlook, Word and the like?"
+      },
+      "answer": {
+        "de": "Achte auf das **Copilot-Symbol**, ein buntes, geschwungenes Zeichen.\n- **Outlook:** Im neuen Outlook steht über einer geöffneten Mail «Zusammenfassung durch Copilot». Ganz rechts im Menüband öffnet «Copilot» einen Bereich an der Seite. Geht mit **beiden Versionen**.\n- **Word:** Copilot öffnet sich nicht von selbst. Klicke im Dokument **unten rechts** auf das Copilot-Symbol. Nur mit **Premium**.\n- **Excel und PowerPoint:** im Menüband **«Start»**. In PowerPoint im Browser gibt es zusätzlich «Mit Copilot erstellen». Nur mit **Premium**.\n- **Teams:** im Meeting in der Leiste oben, in Chats oben rechts. Nur mit **Premium**.\n\nSiehst du das Symbol nicht, obwohl du Premium hast? Schliesse die App, öffne sie neu und prüfe, ob die Datei im aktuellen Format gespeichert ist (.docx, .xlsx, .pptx). Hilft das nicht, schreib an **ai-automation@dertour.ch**.",
+        "en": "Look for the **Copilot icon**, a colourful, curved symbol.\n- **Outlook:** In the new Outlook, “Summary by Copilot” appears above an open email. The “Copilot” button at the far right of the ribbon opens a side pane. Works with **both versions**.\n- **Word:** Copilot does not open by itself. Click the Copilot icon **at the bottom right** of the document. **Premium** only.\n- **Excel and PowerPoint:** in the **“Home”** ribbon. PowerPoint for the web also has “Create with Copilot”. **Premium** only.\n- **Teams:** in a meeting in the bar at the top, in chats at the top right. **Premium** only.\n\nDon't see the icon although you have Premium? Close the app, open it again and check that the file is saved in a current format (.docx, .xlsx, .pptx). If that does not help, write to **ai-automation@dertour.ch**."
+      }
+    },
+    {
+      "id": "outlook-klassisch",
+      "group": "apps",
+      "question": {
+        "de": "Ich habe das klassische Outlook. Ist Copilot dort anders?",
+        "en": "I have classic Outlook. Is Copilot different there?"
+      },
+      "answer": {
+        "de": "Etwas. Ob du das neue Outlook nutzt, siehst du oben rechts am Schalter **«Das neue Outlook»**.\n- **Neues Outlook:** «Zusammenfassung durch Copilot» über der Mail, «Copilot» ganz rechts im Menüband.\n- **Klassisches Outlook:** Achte auf das bunte Copilot-Symbol im Menüband. Die Knöpfe heissen teilweise anders.\n\nWas Copilot kann, ist in beiden gleich. Die Prompts aus dieser App funktionieren überall.",
+        "en": "Somewhat. Whether you use the new Outlook is shown by the **“New Outlook”** switch at the top right.\n- **New Outlook:** “Summary by Copilot” above the email, “Copilot” at the far right of the ribbon.\n- **Classic Outlook:** Look for the colourful Copilot icon in the ribbon. Some buttons have different names.\n\nWhat Copilot can do is the same in both. The prompts from this app work everywhere."
+      }
+    },
+    {
+      "id": "outlook-basic-premium",
+      "group": "apps",
+      "question": {
+        "de": "Was geht in Outlook mit Basic, was nur mit Premium?",
+        "en": "What works in Outlook with Basic, and what only with Premium?"
+      },
+      "answer": {
+        "de": "**Mit Basic:**\n- eine geöffnete Mail zusammenfassen lassen\n- im Seitenbereich Fragen zur Mail stellen\n- Antworttexte vorschlagen lassen und in deine Antwort kopieren\n\n**Zusätzlich mit Premium:**\n- Entwurf direkt im Antwortfenster und Coaching für deine eigenen Texte\n- Fragen an dein ganzes Postfach und deinen Kalender\n- «Planen mit Copilot»: aus einem Mailverlauf eine Meeting-Einladung machen",
+        "en": "**With Basic:**\n- have an open email summarised\n- ask questions about the email in the side pane\n- have reply texts suggested and copy them into your reply\n\n**Additionally with Premium:**\n- a draft directly in the reply window and coaching for your own texts\n- questions about your whole mailbox and calendar\n- “Schedule with Copilot”: turn an email thread into a meeting invitation"
+      }
+    },
+    {
+      "id": "facilitator",
+      "group": "apps",
+      "question": {
+        "de": "Was ist der Facilitator in Teams?",
+        "en": "What is the Facilitator in Teams?"
+      },
+      "answer": {
+        "de": "Der Facilitator ist ein Copilot-Helfer für **geplante Meetings** (Premium). Er schreibt für alle sichtbar Notizen mit und hält Entscheidungen und Aufgaben fest.\n\nSo schaltest du ihn ein:\n- beim Planen direkt in der **Einladung in Outlook oder Teams**\n- oder im laufenden geplanten Meeting\n\nIn spontanen Meetings («Jetzt besprechen») gibt es ihn nicht. Sag zu Beginn, dass er mitschreibt.",
+        "en": "The Facilitator is a Copilot helper for **scheduled meetings** (Premium). It takes notes everyone can see and captures decisions and tasks.\n\nHow to turn it on:\n- when scheduling, right in the **invitation in Outlook or Teams**\n- or during the scheduled meeting\n\nIt is not available in ad-hoc meetings (“Meet now”). Say at the start that it is taking notes."
+      }
+    },
+    {
+      "id": "excel-reagiert-nicht",
+      "group": "apps",
+      "question": {
+        "de": "Copilot in Excel reagiert nicht. Was tun?",
+        "en": "Copilot in Excel does not respond. What can I do?"
+      },
+      "answer": {
+        "de": "- Speichere die Datei als **.xlsx** oder **.csv**.\n- Gib jeder Spalte eine **klare Überschrift**.\n- Hilft das nicht: Speichere die Datei in **OneDrive oder SharePoint** und formatiere die Daten als Tabelle (**Strg + T**).\n- Schliesse Excel und öffne die Datei neu.",
+        "en": "- Save the file as **.xlsx** or **.csv**.\n- Give every column a **clear heading**.\n- If that does not help: save the file in **OneDrive or SharePoint** and format the data as a table (**Ctrl + T**).\n- Close Excel and open the file again."
+      }
+    },
+    {
+      "id": "work-iq",
+      "group": "apps",
+      "question": {
+        "de": "Was bedeutet der Schalter «Work IQ»?",
+        "en": "What does the “Work IQ” switch mean?"
+      },
+      "answer": {
+        "de": "Mit Premium entscheidest du damit, ob Copilot deine **Arbeitsdaten** nutzt: Mails, Chats, Dateien und Meetings.\n- **Eingeschaltet:** Copilot sucht auch in deinen Arbeitsdaten, natürlich nur in dem, was du selbst öffnen darfst.\n- **Ausgeschaltet:** Copilot arbeitet mit dem Web und mit dem, was du ihm gibst.\n\nIn manchen Apps, zum Beispiel im Seitenbereich von Outlook, heisst die Umschaltung noch «Arbeit» und «Web».",
+        "en": "With Premium, it decides whether Copilot uses your **work data**: emails, chats, files and meetings.\n- **On:** Copilot also searches your work data, of course only what you are allowed to open yourself.\n- **Off:** Copilot works with the web and with what you give it.\n\nIn some apps, for example the side pane in Outlook, the switch is still called “Work” and “Web”."
+      }
+    },
+    {
+      "id": "agenten",
+      "group": "apps",
+      "question": {
+        "de": "Was sind Agenten und wo finde ich sie?",
+        "en": "What are agents and where do I find them?"
+      },
+      "answer": {
+        "de": "Ein Agent ist ein Copilot mit einer festen Aufgabe, zum Beispiel für ein Handbuch oder eine Recherche. Du findest Agenten in Copilot links unter **«Agenten»**.\n- **Researcher** und **Analyst** gibt es mit Premium.\n- Welche weiteren Agenten du siehst und ob du selbst welche bauen kannst, legt das Unternehmen fest.\n\nMehr dazu in der Schmiede des Hephaistos.",
+        "en": "An agent is a Copilot with a fixed job, for example for a handbook or research. You find agents in Copilot on the left under **“Agents”**.\n- **Researcher** and **Analyst** come with Premium.\n- Which other agents you see and whether you can build your own is decided by the company.\n\nMore on this at the Forge of Hephaestus."
+      }
+    },
+    {
+      "id": "schild",
+      "group": "sicherheit",
+      "question": {
+        "de": "Was bedeutet das Schild-Symbol?",
+        "en": "What does the shield icon mean?"
+      },
+      "answer": {
+        "de": "Das Schild zeigt: Du bist mit deinem Firmenkonto angemeldet und deine Daten sind geschützt.\n- Deine Eingaben werden **nicht zum Trainieren** der KI verwendet.\n- Sie bleiben **innerhalb von Microsoft 365**, unter denselben Verträgen wie deine Mails.\n\nSiehst du kein Schild, bist du vermutlich mit einem privaten Konto angemeldet. Dann gib keine Firmendaten ein.",
+        "en": "The shield shows that you are signed in with your work account and your data is protected.\n- Your input is **not used to train** the AI.\n- It stays **within Microsoft 365**, under the same contracts as your emails.\n\nIf you see no shield, you are probably signed in with a private account. Then do not enter company data."
+      }
+    },
+    {
+      "id": "kundendaten",
+      "group": "sicherheit",
+      "question": {
+        "de": "Darf ich Kundendaten in Copilot eingeben?",
+        "en": "May I enter customer data in Copilot?"
+      },
+      "answer": {
+        "de": "Massgebend ist die KI-Richtlinie des Unternehmens. Als Faustregel:\n- **Nur so viel wie nötig.** Für eine Formulierungshilfe braucht Copilot keinen Namen und keine Buchungsnummer.\n- **Ersetze Personendaten**, zum Beispiel «Gast A» statt des Namens.\n- **Nie** Passnummern, Gesundheitsangaben, Zahlungsdaten oder Passwörter.\n\nBist du unsicher, frag nach: **ai-automation@dertour.ch**.",
+        "en": "The company's AI guideline is what counts. As a rule of thumb:\n- **Only as much as needed.** To help with wording, Copilot needs no name and no booking number.\n- **Replace personal data**, for example “Guest A” instead of the name.\n- **Never** passport numbers, health information, payment details or passwords.\n\nIf you are unsure, ask: **ai-automation@dertour.ch**."
+      }
+    },
+    {
+      "id": "wer-sieht",
+      "group": "sicherheit",
+      "question": {
+        "de": "Wer sieht, was ich Copilot frage?",
+        "en": "Who sees what I ask Copilot?"
+      },
+      "answer": {
+        "de": "Deine Chats mit Copilot sind Firmendaten, wie deine Mails. Im Alltag sieht sie niemand ausser dir. Sie werden aber nach den Regeln des Unternehmens aufbewahrt und können in geregelten Fällen geprüft werden, zum Beispiel bei rechtlichen Abklärungen.\n\nDiese App sieht deine Copilot-Chats nicht.",
+        "en": "Your chats with Copilot are company data, like your emails. Day to day, nobody but you sees them. They are, however, retained under the company's rules and can be reviewed in regulated cases, for example for legal matters.\n\nThis app does not see your Copilot chats."
+      }
+    },
+    {
+      "id": "fortschritt",
+      "group": "app",
+      "question": {
+        "de": "Geht mein Fortschritt verloren, wenn ich aufhöre?",
+        "en": "Do I lose my progress if I stop?"
+      },
+      "answer": {
+        "de": "Nein. Jede abgeschlossene Übung wird gespeichert. Schliesst du die Seite mitten in einer Etappe, machst du später dort weiter.\n\nMit «Startseite» oder «Reise» kommst du jederzeit zurück zur Übersicht.",
+        "en": "No. Every completed exercise is saved. If you close the page in the middle of a stage, you continue there later.\n\n“Home” or “Journey” takes you back to the overview at any time."
+      }
+    },
+    {
+      "id": "belohnungen",
+      "group": "app",
+      "question": {
+        "de": "Was sind Seemeilen, Stempel und Souvenirs?",
+        "en": "What are nautical miles, stamps and souvenirs?"
+      },
+      "answer": {
+        "de": "- **Seemeilen** bekommst du für jede Übung. Mit genug Seemeilen steigst du im Rang auf.\n- **Stempel** kommen in deinen Reisepass, wenn du alle Etappen einer Insel abgeschlossen hast. Der volle Pass ist dein Abschluss-Badge.\n- **Souvenirs** sind kleine Erinnerungen an besondere Momente, zum Beispiel deine erste Mission.",
+        "en": "- **Nautical miles** are awarded for every exercise. With enough miles you rise in rank.\n- **Stamps** go into your passport when you complete all stages of an island. The full passport is your completion badge.\n- **Souvenirs** are small mementos of special moments, for example your first mission."
+      }
+    },
+    {
+      "id": "handy",
+      "group": "app",
+      "question": {
+        "de": "Kann ich die Odyssee auf dem Handy nutzen?",
+        "en": "Can I use the Odyssey on my phone?"
+      },
+      "answer": {
+        "de": "Ja. Öffne die Seite im Browser deines Handys oder in der SharePoint-App. Dein Fortschritt ist auf allen Geräten derselbe.\n\nCopilot gibt es fürs Handy als **Microsoft-365-Copilot-App**. Missionen in Word, Excel oder PowerPoint machst du am besten am Computer.",
+        "en": "Yes. Open the page in your phone's browser or in the SharePoint app. Your progress is the same on all devices.\n\nFor your phone, Copilot is available as the **Microsoft 365 Copilot app**. Missions in Word, Excel or PowerPoint are best done on a computer."
+      }
+    },
+    {
       "id": "daten",
-      "question": { "de": "Was speichert diese App über mich?", "en": "What does this app store about me?" },
+      "group": "app",
+      "question": {
+        "de": "Was speichert diese App über mich?",
+        "en": "What does this app store about me?"
+      },
       "answer": {
         "de": "- **Gespeichert** werden dein Fortschritt (Seemeilen, abgeschlossene Etappen, Stempel), dein Arbeitsbereich, gemerkte Prompt-Vorlagen und deine Use-Case-Karten.\n- **Nicht gespeichert** werden die Prompts, die du in der Prompt-Werkstatt schreibst. Sie werden nur in deinem Browser bewertet.\n- Auswertungen für Schulungen erfolgen nur zusammengefasst über viele Personen, zum Beispiel pro Bereich, nie über dich einzeln.",
         "en": "- **Stored**: your progress (nautical miles, completed stages, stamps), your area of work, saved prompt templates and your use case cards.\n- **Not stored**: the prompts you write in the prompt workshop. They are only evaluated in your browser.\n- Analyses for training are only done in aggregate across many people, for example per area, never about you individually."
@@ -60,10 +390,14 @@
     },
     {
       "id": "hilfe-holen",
-      "question": { "de": "Ich komme nicht weiter. Wer hilft mir?", "en": "I'm stuck. Who can help me?" },
+      "group": "app",
+      "question": {
+        "de": "Ich komme nicht weiter. Wer hilft mir?",
+        "en": "I'm stuck. Who can help me?"
+      },
       "answer": {
-        "de": "Kein Problem, jede Reise hat schwierige Stellen.\n- Brich die Etappe einfach ab. Dein Fortschritt bleibt gespeichert, du kannst später weitermachen.\n- Frag eine Kollegin oder einen Kollegen, die Copilot schon nutzen.\n- Wende dich an die Copilot-Ansprechpersonen oder die IT eures Unternehmens.",
-        "en": "No problem, every journey has tricky parts.\n- Simply leave the stage. Your progress is saved and you can continue later.\n- Ask a colleague who already uses Copilot.\n- Contact your company's Copilot contacts or IT."
+        "de": "Kein Problem, jede Reise hat schwierige Stellen.\n- Brich die Etappe einfach ab. Dein Fortschritt bleibt gespeichert.\n- Frag eine Kollegin oder einen Kollegen, die Copilot schon nutzen.\n- Für konkrete Fragen, die hier nicht beantwortet werden, schreib an **ai-automation@dertour.ch**.",
+        "en": "No problem, every journey has tricky parts.\n- Simply leave the stage. Your progress is saved.\n- Ask a colleague who already uses Copilot.\n- For specific questions not answered here, write to **ai-automation@dertour.ch**."
       }
     }
   ]

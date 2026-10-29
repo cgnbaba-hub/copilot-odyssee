@@ -1,6 +1,6 @@
 import Ajv2020, { ErrorObject } from 'ajv/dist/2020';
 
-import { Area, ContentBundle, HelpTopic, Island, LearningModule, PromptTemplate } from './types';
+import { Area, ContentBundle, HelpGroup, HelpTopic, Island, LearningModule, PromptTemplate } from './types';
 
 /**
  * Validates content packs against the JSON schemas in /content/schema plus
@@ -169,11 +169,21 @@ export function validateContent(
   duplicates(modules.map((m) => m.id)).forEach((id) => result.errors.push({ file: 'modules', message: `Modul-id "${id}" kommt mehrfach vor.` }));
 
   let help: HelpTopic[] | undefined;
+  let helpGroups: HelpGroup[] | undefined;
+  let contact: string | undefined;
   const helpFile = extras.help;
   if (helpFile) {
     if (validateHelp(helpFile.data)) {
-      help = (helpFile.data as { topics: HelpTopic[] }).topics;
+      const data = helpFile.data as { topics: HelpTopic[]; groups?: HelpGroup[]; contact?: string };
+      help = data.topics;
+      helpGroups = data.groups;
+      contact = data.contact;
       duplicates(help.map((t) => t.id)).forEach((id) => result.errors.push({ file: helpFile.path, message: `Hilfethema-id "${id}" kommt mehrfach vor.` }));
+      const groupIds = (helpGroups || []).map((g) => g.id);
+      duplicates(groupIds).forEach((id) => result.errors.push({ file: helpFile.path, message: `Hilfegruppe-id "${id}" kommt mehrfach vor.` }));
+      help
+        .filter((t) => t.group !== undefined && groupIds.indexOf(t.group) < 0)
+        .forEach((t) => result.errors.push({ file: helpFile.path, message: `Hilfethema "${t.id}": unbekannte Gruppe "${t.group}". Erlaubt: ${groupIds.join(', ')}.` }));
     } else {
       schemaErrors(helpFile.path, validateHelp.errors);
     }
@@ -213,6 +223,8 @@ export function validateContent(
   if (result.errors.length === 0) {
     const bundle: ContentBundle = { islands, modules };
     if (help) bundle.help = help;
+    if (helpGroups) bundle.helpGroups = helpGroups;
+    if (contact) bundle.contact = contact;
     if (areas) bundle.areas = areas;
     if (prompts) bundle.prompts = prompts;
     result.bundle = bundle;
