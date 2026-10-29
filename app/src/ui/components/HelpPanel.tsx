@@ -17,7 +17,7 @@ export function searchWords(query: string): string[] {
 }
 
 /** Questions and answers from content/help.json, grouped and searchable, as a panel over the game. */
-export function HelpPanel(props: { onClose: () => void; initialTopic?: string }): React.ReactElement {
+export function HelpPanel(props: { onClose: () => void; onFeedback?: () => void; initialTopic?: string }): React.ReactElement {
   const { content, player, strings, t } = useGame();
   const topics = content.help || [];
   const groups = content.helpGroups || [];
@@ -101,6 +101,15 @@ export function HelpPanel(props: { onClose: () => void; initialTopic?: string })
             <a href={`mailto:${content.contact}`}>{content.contact}</a>
             {strings.helpContactText.split('{mail}')[1]}
           </p>
+        </div>
+      )}
+      {props.onFeedback && (
+        <div className={styles.faqContact}>
+          <strong>{strings.feedbackPrompt}</strong>
+          <p>{strings.feedbackHelpText}</p>
+          <button type="button" className={styles.button} onClick={props.onFeedback}>
+            {strings.feedbackOpen}
+          </button>
         </div>
       )}
     </Drawer>

@@ -94,7 +94,8 @@ export default class OdysseeWebPart extends BaseClientSideWebPart<IOdysseeWebPar
       store: connection.store,
       initialLang: langFromCulture(this.context.pageContext.cultureInfo.currentUICultureName),
       showDrafts: this.properties.showDrafts,
-      storage: connection.storage
+      storage: connection.storage,
+      feedback: connection.feedback
     } as AppProps & React.Attributes);
     ReactDom.render(element, this.domElement);
   }

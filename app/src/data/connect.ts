@@ -1,8 +1,10 @@
 import { ContentBundle } from '../core/content/types';
+import { FeedbackSender } from '../core/feedback/feedback';
 import { DebouncedProgressStore } from '../core/progress/debounced';
 import { ProgressStore } from '../core/progress/store';
 import { RestClient } from './RestClient';
 import { SharePointContentSource } from './sharepoint/SharePointContentSource';
+import { SharePointFeedbackSender } from './sharepoint/SharePointFeedbackSender';
 import { SharePointProgressStore } from './sharepoint/SharePointProgressStore';
 
 /** Where progress ends up; shown to the player when it is not SharePoint. */
@@ -13,6 +15,8 @@ export interface Connection {
   contentSource: 'sharepoint' | 'bundled';
   store: ProgressStore;
   storage: StorageMode;
+  /** Missing while the feedback list has not been set up. */
+  feedback?: FeedbackSender;
 }
 
 export interface ConnectOptions {
@@ -44,12 +48,21 @@ export async function connect(options: ConnectOptions): Promise<Connection> {
     log('Inhalte aus SharePoint nicht verfügbar, verwende mitgelieferte Inhalte', error);
   }
 
+  let feedback: FeedbackSender | undefined;
+  const feedbackSender = new SharePointFeedbackSender(options.client, options.webUrl);
+  try {
+    await feedbackSender.checkList();
+    feedback = feedbackSender;
+  } catch (error) {
+    log('Feedback-Liste nicht verfügbar, Feedback nur per E-Mail', error);
+  }
+
   const sharePointStore = new SharePointProgressStore(options.client, options.webUrl, options.playerKey);
   try {
     await sharePointStore.checkList();
   } catch (error) {
     log('Fortschrittsliste nicht verfügbar, speichere im Browser', error);
-    return { content, contentSource, store: options.browserStore, storage: 'browser' };
+    return { content, contentSource, store: options.browserStore, storage: 'browser', feedback };
   }
 
   try {
@@ -62,5 +75,5 @@ export async function connect(options: ConnectOptions): Promise<Connection> {
     log('Übernahme des Browser-Fortschritts fehlgeschlagen', error);
   }
 
-  return { content, contentSource, store: new DebouncedProgressStore(sharePointStore, options.saveDelayMs), storage: 'sharepoint' };
+  return { content, contentSource, store: new DebouncedProgressStore(sharePointStore, options.saveDelayMs), storage: 'sharepoint', feedback };
 }
