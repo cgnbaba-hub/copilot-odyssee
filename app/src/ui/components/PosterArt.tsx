@@ -246,3 +246,87 @@ export function PosterIsland(props: { landmark?: Landmark; color: string; flag?:
     </g>
   );
 }
+
+/** A sailing boat seen from the side, drawn around (0, 0) on the waterline. */
+function Sailboat(): React.ReactElement {
+  return (
+    <g>
+      <path d="M-46 -6 L46 -6 L34 14 L-34 14 Z" fill="#6b4228" stroke={INK} strokeWidth="2.5" strokeLinejoin="round" />
+      <path d="M-40 2 H40" stroke="#b98256" strokeWidth="3" />
+      <path d="M0 -6 V-96" stroke={INK} strokeWidth="3" />
+      <path d="M4 -90 C34 -62 40 -32 40 -12 L4 -12 Z" fill={WHITE} stroke={INK} strokeWidth="2.5" strokeLinejoin="round" />
+      <path d="M-4 -80 C-24 -56 -30 -34 -32 -12 L-4 -12 Z" fill="#f2b13a" stroke={INK} strokeWidth="2.5" strokeLinejoin="round" />
+      <path d="M0 -96 L22 -90 L0 -84 Z" fill="#c94f33" stroke={INK} strokeWidth="2" strokeLinejoin="round" />
+    </g>
+  );
+}
+
+/** Wide poster scene for the welcome screens: sun, islands on the horizon and a boat setting sail. */
+export function PosterBanner(props: { className?: string }): React.ReactElement {
+  const horizon = 214;
+  const rays: string[] = [];
+  for (let i = 0; i < 18; i++) {
+    const a1 = (i / 18) * Math.PI * 2;
+    const a2 = a1 + Math.PI / 36;
+    const p = (a: number): string => `${(720 + Math.cos(a) * 900).toFixed(0)} ${(horizon + Math.sin(a) * 900).toFixed(0)}`;
+    rays.push(`M720 ${horizon} L${p(a1)} L${p(a2)}Z`);
+  }
+  const waves: React.ReactElement[] = [];
+  for (let i = 0; i < 7; i++) {
+    const y = horizon + 10 + i * i * 2.2 + i * 6;
+    waves.push(
+      <path
+        key={i}
+        d={`M-50 ${y} H1050`}
+        stroke="#3a82b4"
+        strokeWidth={1.5 + i * 0.6}
+        strokeDasharray={`${14 + i * 10} ${30 + i * 18}`}
+        strokeDashoffset={(i * 53) % 90}
+        strokeLinecap="round"
+      />
+    );
+  }
+  return (
+    <svg className={props.className} viewBox="0 0 1000 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+      <defs>
+        <pattern id="od-banner-dots" width="9" height="9" patternUnits="userSpaceOnUse">
+          <circle cx="4.5" cy="4.5" r="2" fill="#f8cf72" />
+        </pattern>
+        <clipPath id="od-banner-sky">
+          <rect x="0" y="0" width="1000" height={horizon} />
+        </clipPath>
+      </defs>
+      <rect width="1000" height={horizon} fill="#f5e0b0" />
+      <g clipPath="url(#od-banner-sky)">
+        <path d={rays.join(' ')} fill="#f9ebc9" opacity="0.75" />
+        <circle cx="720" cy={horizon} r="96" fill="#f0a537" />
+        <circle cx="720" cy={horizon} r="96" fill="url(#od-banner-dots)" opacity="0.55" />
+      </g>
+      <g fill="#fbf4e4">
+        <rect x="90" y="58" width="150" height="22" rx="11" />
+        <rect x="126" y="40" width="74" height="24" rx="12" />
+        <rect x="820" y="40" width="120" height="20" rx="10" />
+      </g>
+      <g fill="none" stroke={INK} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M430 70 q7 -8 14 0 q7 -8 14 0" />
+        <path d="M466 90 q6 -7 12 0 q6 -7 12 0" />
+      </g>
+      <g transform={`translate(160 ${horizon + 4}) scale(0.55)`}>
+        <PosterIsland landmark="rocks" color="#8e7cc3" />
+      </g>
+      <g transform={`translate(720 ${horizon + 6}) scale(0.5)`}>
+        <PosterIsland landmark="wind" color="#3d9be9" />
+      </g>
+      <g transform={`translate(905 ${horizon + 4}) scale(0.38)`}>
+        <PosterIsland landmark="temple" color="#e9a23b" />
+      </g>
+      <rect x="0" y={horizon} width="1000" height={300 - horizon} fill="#1f5f8b" />
+      <g fill="none">{waves}</g>
+      <g transform={`translate(430 ${horizon + 44})`}>
+        <g className="od-boat">
+          <Sailboat />
+        </g>
+      </g>
+    </svg>
+  );
+}

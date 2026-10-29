@@ -6,11 +6,11 @@ import { format } from '../i18n/strings';
 import { useGame } from '../GameContext';
 import { guideById } from '../guides';
 import styles from '../styles.module.scss';
-import { SeaScene } from './Art';
 import { Guide } from './Guide';
 import { GuidePicker } from './GuidePicker';
 import { LicenseMockup } from './LicenseMockup';
 import { LicensePicker } from './LicensePicker';
+import { PosterBanner } from './PosterArt';
 import { RichText } from './RichText';
 
 /** Short screens: welcome, which Copilot version, field of work (when the content has areas), how the journey works. */
@@ -29,7 +29,7 @@ export function Onboarding(): React.ReactElement {
 
   return (
     <section className={`${styles.panel} ${styles.onboarding}`} aria-labelledby="od-onboarding-title">
-      <SeaScene className={step === 1 ? styles.onboardingScene : `${styles.onboardingScene} ${styles.onboardingSceneSmall}`} />
+      <PosterBanner className={step === 1 ? styles.onboardingScene : `${styles.onboardingScene} ${styles.onboardingSceneSmall}`} />
       <div className={styles.onboardingBody}>
         <p className={styles.stepCounter}>{format(strings.onboardingStep, { current: step, total })}</p>
 
