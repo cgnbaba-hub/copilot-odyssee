@@ -5,6 +5,7 @@ import { MemoryProgressStore } from '../core/progress/store';
 import { connect } from './connect';
 import { CONTENT_FILE_FORMAT, parseContentFile } from './content';
 import { FakeSharePoint } from './FakeSharePoint';
+import { SharePointAdminSource } from './sharepoint/SharePointAdminSource';
 import { SharePointProgressStore } from './sharepoint/SharePointProgressStore';
 
 const WEB = 'https://contoso.sharepoint.com/sites/odyssee';
@@ -108,6 +109,21 @@ describe('connect', () => {
     expect(connection.feedback).toBeDefined();
     await (connection.feedback as FeedbackSender).send({ kind: 'problem', message: 'Der Knopf fehlt', context: 'Startseite', lang: 'de', license: 'basic', area: 'produkt' });
     expect(sp.feedback).toEqual([{ Title: 'Etwas funktioniert nicht', OdysseeMessage: 'Der Knopf fehlt', OdysseeContext: 'Startseite', OdysseeProfile: 'de · basic · produkt' }]);
+  });
+
+  it('offers the evaluation only to people who manage the lists', async () => {
+    const sp = new FakeSharePoint(WEB);
+    await new SharePointProgressStore(sp, WEB, 'a').save({ ...initialState('de'), xp: 1 });
+    await new SharePointProgressStore(sp, WEB, 'b').save({ ...initialState('de'), xp: 2 });
+    expect((await connect(options(sp))).admin).toBeUndefined();
+
+    sp.managesLists = true;
+    const connection = await connect(options(sp));
+    expect(connection.admin).toBeInstanceOf(SharePointAdminSource);
+    const data = await (connection.admin as SharePointAdminSource).load();
+    expect(data.players.map((p) => p.state.xp).sort()).toEqual([1, 2]);
+    expect(data.players[0].modified).toBe('2026-10-20T08:00:00Z');
+    expect(data.feedback).toEqual([]);
   });
 
   it('keeps SharePoint progress when both exist', async () => {

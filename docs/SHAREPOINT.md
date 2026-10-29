@@ -61,6 +61,20 @@ Die Datei gibt es auch fertig als Download `odyssee-content` bei jedem CI-Lauf. 
 
 Liegen Bibliothek und Liste auf einer anderen Website als die Seite, im Eigenschaftenbereich des Webparts **«Website mit den Odyssee-Listen»** setzen.
 
+## Auswertung
+
+Wer die Listen der Website verwalten darf (in der Regel die Besitzerinnen und Besitzer), sieht unten in der App zusätzlich den Menüpunkt **«Auswertung»**. Die App prüft das bei jedem Start über die SharePoint-Berechtigung «Listen verwalten»; alle anderen sehen den Menüpunkt nicht und könnten die Einträge anderer auch gar nicht lesen.
+
+Die Auswertung zeigt:
+- Teilnehmende, Aktivität der letzten 30 Tage, abgeschlossene Etappen, Use-Case-Karten mit dem Zeitpotenzial pro Monat und die Zahl der Feedbacks
+- Fortschritt pro Insel und pro Etappe, mit Hinweis auf Etappen, bei denen viele anfangen, aber nicht abschliessen
+- Durchschnittliche Bewertung der Missionen, Verteilung nach Copilot-Version und Bereich
+- Alle Feedbacks, filterbar nach Art
+
+Alles ist zusammengefasst, Namen erscheinen nicht. Bereiche und Bewertungen mit weniger als 5 Personen werden nicht einzeln gezeigt. Über «Etappen als CSV» und «Feedback als CSV» lassen sich die Zahlen in Excel weiterverwenden.
+
+Wer die Auswertung sehen soll, ohne Besitzer der ganzen Website zu sein, bekommt auf den beiden Listen die Berechtigungsstufe «Bearbeiten» (enthält «Listen verwalten»).
+
 ## Feedback lesen
 
 Über «Feedback geben» (unten auf jeder Seite und in der Hilfe) schicken Teilnehmende eine Idee, einen Fehler, einen Hinweis auf falsche Inhalte oder Lob. Jede Rückmeldung wird ein Eintrag in der Liste `OdysseeFeedback`: Art, Nachricht, die Seite, auf der sie geschrieben wurde, sowie Sprache, Lizenz und Bereich. SharePoint speichert dazu, wer den Eintrag angelegt hat und wann.
