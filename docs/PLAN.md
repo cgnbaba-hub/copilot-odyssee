@@ -81,7 +81,7 @@ Beispiel (gekürzt):
 Wie Odysseus segeln die Spielenden von Insel zu Insel. **Ithaka ist Heimathafen und Ziel zugleich**: Dort sammeln sich die Use-Case-Karten aus jeder Etappe. Die Botschaft der Reise ist, das Gelernte in den eigenen Arbeitsalltag heimzubringen.
 
 - **Progression wie ein Reise-Treueprogramm:** Man sammelt *Seemeilen* und steigt im Status auf: *Reisende:r → Entdecker:in → Weltenbummler:in → Reiseleiter:in → Kapitän:in → Legende von Ithaka*. Für jede vollständig bereiste Insel gibt es einen *Stempel im Reisepass*. *Souvenirs* gibt es für besondere Momente, zum Beispiel «Windschlauch des Aiolos» für einen perfekten Prompt oder «Erste Postkarte» für den ersten eigenen Use Case. Alle Begriffe sind im Theme hinterlegt und austauschbar.
-- **Stil:** Helle Ägäis-Palette (Weiss, Meerblau, Türkis, Sonnengelb), Logo in Marcellus, Überschriften und Knöpfe in Nunito (beide ins Paket eingebettet), gezeichnete Inseln mit Strand, Zypressen und eigenem Wahrzeichen, Mäanderband als Schmuckelement. Eigenständig, ohne Anlehnung an Kampagnen anderer.
+- **Stil:** Altes Reiseplakat: Papier, Tusche-Konturen mit harten Schatten, tiefes Ägäisblau und Sonnengelb für die grossen Knöpfe. Titel in League Gothic, Text in Atkinson Hyperlegible (beide ins Paket eingebettet). Startseite als Blick vom Bug eines Schiffs mit Steuerpfeilen und «Anlegen»; das Logbuch zeigt dieselben Inseln als Liste. Feste Leiste unten mit beschrifteten Knöpfen (Reise, Spickzettel, Reisepass, Hilfe, Einstellungen), Tour mit Spotlight beim ersten Start, Etappen als Tickets, Reisepass als Abschluss-Badge. Begleitung wählbar: Möwe Mira (Standard), Aetos der Adler des Zeus, Delfin Fino, Lotsin Nora.
 - **Bedienung für alle, auch ohne PC-Routine:**
   - Die Startseite zeigt genau einen nächsten Schritt mit einem grossen Knopf. Die Seekarte und die Inselliste kommen darunter.
   - Die Eule *Athene* sagt auf jedem Bildschirm in einem Satz, was als Nächstes zu tun ist.
@@ -177,7 +177,7 @@ Legende: 🤖 = setze ich um · 👤 = brauche ich von dir · 🏢 = IT oder Dat
   *Fertig, wenn:* Freigabe vor dem Pilot (AP 2.6) liegt vor.
 - [ ] **AP 0.3 Design und Inselnamen** 👤🤖
   Odyssee-Theme verfeinern, Inselnamen und Stil bestätigen.
-  *Stand:* Inselnamen bestätigt. Dritte Design-Runde umgesetzt: hellere Ägäis-Palette, Nunito als Display-Schrift, neu gezeichnete Inseln, Eule Athene als Begleiterin, Startseite mit nur einem nächsten Schritt (siehe Abschnitt 4). Feedback dazu offen.
+  *Stand:* Inselnamen bestätigt. Vierte Design-Runde nach klickbarem Konzept umgesetzt: Reiseplakat-Stil, Blick vom Schiff mit Logbuch als Liste, Leiste unten, Tour, Tickets, wählbare Begleitung statt Eule (siehe Abschnitt 4).
   *Fertig, wenn:* Inselliste und Stil sind festgelegt.
 
 ### Phase 1: Fundament

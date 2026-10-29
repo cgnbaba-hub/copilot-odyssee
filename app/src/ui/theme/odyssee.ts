@@ -1,51 +1,50 @@
 import { Theme } from './types';
 
 /**
- * Bright Aegean palette (turquoise sea, white houses, sun) with a rounded,
- * friendly display face for headings and buttons; the wordmark keeps the
- * Greek inscription style. Progress reads like a travel loyalty programme:
- * miles, status levels, passport stamps and souvenirs. The guide is Athene,
- * the little owl of the goddess who accompanies Odysseus.
+ * Old travel poster: paper, ink outlines, a deep Aegean blue and a sun
+ * yellow for the big calls to action. Titles use a condensed poster face,
+ * everything else a typeface built for legibility. Progress reads like a
+ * travel loyalty programme: miles, status levels, passport stamps and
+ * souvenirs.
  */
 export const odysseeTheme: Theme = {
   id: 'odyssee',
   colors: {
-    background: '#F2F8FB',
-    surface: '#FFFFFF',
-    surfaceAlt: '#EDF5F9',
-    text: '#16324A',
-    textMuted: '#55708A',
-    line: '#D5E4EE',
-    ink: '#0F2C47',
-    primary: '#1167C9',
-    primaryShade: '#0A4A94',
+    background: '#EFE4C8',
+    surface: '#FAF4E4',
+    surfaceAlt: '#F3E9D0',
+    text: '#1A2940',
+    textMuted: '#4B566A',
+    line: '#CDBE98',
+    ink: '#1A2940',
+    primary: '#1D5A85',
+    primaryShade: '#1A2940',
     onPrimary: '#FFFFFF',
-    accent: '#FFC23D',
-    sand: '#F4E3C1',
-    success: '#23884C',
-    successSoft: '#E2F4E8',
-    danger: '#C93C2A',
-    dangerSoft: '#FCE7E3',
-    premium: '#6A4BC4',
-    premiumSoft: '#EEE9FB',
-    sea: '#1FA9C9',
-    seaDeep: '#0B5C8B'
+    accent: '#F2B13A',
+    sand: '#E3CF9F',
+    success: '#2C7A4B',
+    successSoft: '#DCEBD3',
+    danger: '#B8432B',
+    dangerSoft: '#F6DCD2',
+    premium: '#5B4BA8',
+    premiumSoft: '#E6E0F5',
+    sea: '#2F7FB1',
+    seaDeep: '#1F5F8B'
   },
   fonts: {
-    logo: "'Odyssee Marcellus', 'Palatino Linotype', Palatino, Georgia, serif",
-    display: "'Odyssee Nunito', 'Segoe UI', system-ui, -apple-system, Arial, sans-serif",
-    body: "'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif"
+    logo: "'Odyssee League Gothic', 'Arial Narrow', Impact, sans-serif",
+    display: "'Odyssee Atkinson', 'Segoe UI', system-ui, -apple-system, Arial, sans-serif",
+    body: "'Odyssee Atkinson', 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif"
   },
   terms: {
-    appTitle: { de: 'Odyssee', en: 'Odyssey' },
+    appTitle: { de: 'Copilot Odyssee', en: 'Copilot Odyssey' },
     tagline: { de: 'Deine Reise mit Copilot', en: 'Your journey with Copilot' },
     xp: { de: 'Seemeilen', en: 'nautical miles' },
     mapTitle: { de: 'Seekarte', en: 'Sea chart' },
     preview: { de: 'Ausblick', en: 'Preview' },
     passport: { de: 'Reisepass', en: 'Passport' },
     stamps: { de: 'Stempel', en: 'Stamps' },
-    souvenirs: { de: 'Souvenirs', en: 'Souvenirs' },
-    guide: { de: 'Athene', en: 'Athene' }
+    souvenirs: { de: 'Souvenirs', en: 'Souvenirs' }
   },
   ranks: [
     { minLevel: 1, name: { de: 'Reisende:r', en: 'Traveller' } },

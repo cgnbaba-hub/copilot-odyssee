@@ -54,8 +54,6 @@ export interface Theme {
     passport: Localized;
     stamps: Localized;
     souvenirs: Localized;
-    /** Name of the guide character. */
-    guide: Localized;
   };
   /** Sorted by minLevel, the first entry starts at level 1. */
   ranks: { minLevel: number; name: Localized }[];

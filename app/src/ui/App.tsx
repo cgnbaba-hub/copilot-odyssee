@@ -3,7 +3,7 @@ import * as React from 'react';
 import { ContentBundle, Localized } from '../core/content/types';
 import { Lang, localize } from '../core/i18n/locale';
 import { earnedSouvenirs } from '../core/progress/achievements';
-import { initialState, Outcome, PlayerState } from '../core/progress/state';
+import { initialState, Outcome, PlayerState, updateProfile } from '../core/progress/state';
 import { ProgressStore } from '../core/progress/store';
 import { CheatSheet } from './components/CheatSheet';
 import { ContactNote } from './components/ContactNote';
@@ -12,10 +12,12 @@ import { HelpPanel } from './components/HelpPanel';
 import { Home } from './components/Home';
 import { IslandView } from './components/IslandView';
 import { ModulePlayer } from './components/ModulePlayer';
+import { NavBar } from './components/NavBar';
 import { Onboarding } from './components/Onboarding';
 import { Passport } from './components/Passport';
 import { RankUp } from './components/RankUp';
 import { Settings } from './components/Settings';
+import { Tour } from './components/Tour';
 import { Game, GameContext, View } from './GameContext';
 import { format, stringsFor } from './i18n/strings';
 import styles from './styles.module.scss';
@@ -143,8 +145,21 @@ export function App(props: AppProps): React.ReactElement {
     setView({ name: 'map' });
   };
 
+  const onboarded = player.profile.onboarded;
+  const navActive = helpOpen ? 'help' : settingsOpen ? 'settings' : view.name === 'passport' ? 'passport' : view.name === 'cheatsheet' ? 'cheatsheet' : 'journey';
+  // The tour explains the start screen, so it waits until the player is there and nothing else is open.
+  const showTour = onboarded && !player.profile.toured && view.name === 'map' && !helpOpen && !settingsOpen && rankUp === undefined;
+  const finishTour = (): void => {
+    game.update((s) => updateProfile(s, { toured: true }));
+  };
+  const restartTour = (): void => {
+    setSettingsOpen(false);
+    setView({ name: 'map' });
+    game.update((s) => updateProfile(s, { toured: false }));
+  };
+
   let main: React.ReactElement;
-  if (!player.profile.onboarded) main = <Onboarding />;
+  if (!onboarded) main = <Onboarding />;
   // Keys give every island and stage a fresh screen, so no state carries over from the previous one.
   else if (view.name === 'island') main = <IslandView key={view.islandId} islandId={view.islandId} />;
   else if (view.name === 'module') main = <ModulePlayer key={view.moduleId} moduleId={view.moduleId} />;
@@ -160,8 +175,10 @@ export function App(props: AppProps): React.ReactElement {
         <Header onOpenSettings={() => setSettingsOpen(true)} onOpenHelp={() => setHelpOpen(true)} />
         <main className={styles.main}>{main}</main>
         <ContactNote />
-        {settingsOpen && <Settings onClose={() => setSettingsOpen(false)} onReset={reset} />}
+        {onboarded && <NavBar onOpenHelp={() => setHelpOpen(true)} onOpenSettings={() => setSettingsOpen(true)} active={navActive} />}
+        {settingsOpen && <Settings onClose={() => setSettingsOpen(false)} onReset={reset} onRestartTour={restartTour} />}
         {helpOpen && <HelpPanel onClose={() => setHelpOpen(false)} />}
+        {showTour && <Tour getRoot={() => rootRef.current || undefined} onDone={finishTour} />}
         {/* A new status is celebrated outside of stages, so it never interrupts a task. */}
         {rankUp !== undefined && view.name !== 'module' && <RankUp index={rankUp} onClose={() => setRankUp(undefined)} />}
         <div className={styles.toasts} aria-live="polite">

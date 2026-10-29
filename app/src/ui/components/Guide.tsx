@@ -1,17 +1,18 @@
 import * as React from 'react';
 
 import { useGame } from '../GameContext';
+import { GuidePortrait, guideById } from '../guides';
 import styles from '../styles.module.scss';
-import { Owl } from './Art';
 
-/** Athene the owl with a speech bubble that says what to do on this screen. */
+/** The chosen companion with a speech bubble that says what to do on this screen. */
 export function Guide(props: { text: string; cheer?: boolean; compact?: boolean }): React.ReactElement {
-  const { theme, t } = useGame();
+  const { player, t } = useGame();
+  const guide = guideById(player.profile.guide);
   return (
     <div className={props.compact ? `${styles.guide} ${styles.guideCompact}` : styles.guide}>
-      <Owl className={styles.guideOwl} cheer={props.cheer} />
+      <GuidePortrait id={guide.id} className={props.cheer ? `${styles.guideOwl} ${styles.guideCheer}` : styles.guideOwl} />
       <div className={styles.guideBubble} role="note">
-        <span className={styles.guideName}>{t(theme.terms.guide)}</span>
+        <span className={styles.guideName}>{t(guide.name)}</span>
         <p>{props.text}</p>
       </div>
     </div>

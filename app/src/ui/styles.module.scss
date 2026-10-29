@@ -1,5 +1,5 @@
-@use './fonts/marcellus';
-@use './fonts/nunito';
+@use './fonts/league-gothic';
+@use './fonts/atkinson';
 
 // Colours and fonts come from the theme as CSS custom properties (see theme/types.ts).
 // Layout: light header, a sky-and-sea hero with one clear next step, white cards.
@@ -2798,4 +2798,1438 @@ $meander: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' widt
   .mapCloud {
     animation: none;
   }
+}
+
+// ---------------------------------------------------------------------------
+// Poster look (design round 4)
+// Paper, ink outlines with hard offset shadows, a condensed poster face for
+// titles and a sun-yellow for the big calls to action. The start screen is
+// the view from the bow; the menu sits at the bottom with words, not only
+// symbols. Rules here come last on purpose and refine the ones above.
+// ---------------------------------------------------------------------------
+
+$ink: #1a2940;
+$paper-hi: #fbf6e8;
+$sun: #f2b13a;
+$coral: #c94f33;
+$nav-h: 66px;
+$grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .1 0 0 0 0 .12 0 0 0 0 .18 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+
+%poster-title {
+  font-family: var(--od-font-logo);
+  font-weight: 400 !important;
+  letter-spacing: 0.01em;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.app {
+  --od-nav-h: #{$nav-h};
+  border: 3px solid $ink;
+  overflow: clip;
+  font-synthesis: none;
+  background-image: linear-gradient(rgba(239, 228, 200, 0.6), rgba(239, 228, 200, 0.6)), $grain;
+
+  h1,
+  h2 {
+    @extend %poster-title;
+  }
+}
+
+.pageTitle {
+  font-size: 46px;
+
+  @media (max-width: $narrow) {
+    font-size: 38px;
+  }
+}
+
+.sectionTitle {
+  font-size: 32px;
+}
+
+.blockTitle {
+  font-family: var(--od-font-display);
+  font-weight: 700 !important;
+  text-transform: none;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+.eyebrow {
+  color: $coral;
+  letter-spacing: 0.14em;
+}
+
+// Header: an ink bar with the wordmark
+
+.header {
+  padding: 10px 18px;
+  background: $ink;
+  box-shadow: none;
+
+  &::after {
+    display: none;
+  }
+}
+
+.brandCompass {
+  flex: none;
+  width: 34px;
+  height: 34px;
+}
+
+.brandTitle {
+  font-size: 28px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: $paper-hi;
+
+  @media (max-width: 400px) {
+    display: inline;
+    font-size: 22px;
+  }
+}
+
+.statusLine strong {
+  color: $sun;
+}
+
+.statusLine span {
+  color: #c9d4e0;
+}
+
+.statusBar {
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: none;
+}
+
+.versionPill {
+  background: #e3f0de;
+  border: 2px solid #e3f0de;
+  color: #1f5e37;
+}
+
+.versionPillPremium {
+  background: #e6e0f5;
+  border-color: #e6e0f5;
+  color: #4a3b94;
+}
+
+.versionPillUnknown {
+  background: $paper-hi;
+  border-color: $paper-hi;
+}
+
+.headerButton {
+  background: $paper-hi;
+  border: 2px solid $paper-hi;
+  box-shadow: none;
+}
+
+.langSwitch {
+  background: rgba(255, 255, 255, 0.12);
+
+  button {
+    color: #c9d4e0;
+  }
+}
+
+// Panels, buttons and chips
+
+.panel,
+.lesson {
+  background: var(--od-surface);
+  border: 2.5px solid $ink;
+  border-radius: 18px;
+  box-shadow: 6px 6px 0 rgba(26, 41, 64, 0.9);
+}
+
+.buttonPrimary {
+  border: 2.5px solid $ink;
+  border-radius: 999px;
+  box-shadow: 4px 4px 0 $ink;
+
+  &:active:not(:disabled) {
+    transform: translate(3px, 3px);
+    box-shadow: 1px 1px 0 $ink;
+  }
+
+  &:disabled {
+    background: #c7c0ad;
+    border-color: #8a8577;
+    box-shadow: 4px 4px 0 #8a8577;
+    color: $ink !important;
+  }
+}
+
+.buttonSuccess {
+  border: 2.5px solid $ink;
+  border-radius: 999px;
+  box-shadow: 4px 4px 0 $ink;
+}
+
+.button,
+.buttonDanger {
+  border-width: 2.5px;
+  border-radius: 999px;
+  border-color: $ink;
+  box-shadow: 3px 3px 0 $ink;
+
+  &:active:not(:disabled) {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 $ink;
+  }
+}
+
+.buttonDanger {
+  border-color: var(--od-danger);
+  box-shadow: 3px 3px 0 var(--od-danger);
+}
+
+.chip,
+.chipDone,
+.chipWorks,
+.chipPremium,
+.chipDraft {
+  border: 1.5px solid currentColor;
+}
+
+.backButton,
+.linkButton {
+  color: var(--od-sea-deep);
+}
+
+// Guide
+
+.guideBubble {
+  background: $paper-hi;
+  border: 2.5px solid $ink;
+  border-radius: 18px 18px 18px 4px;
+  box-shadow: 3px 3px 0 $ink;
+}
+
+.guideName {
+  font-family: var(--od-font-logo);
+  font-size: 18px;
+  font-weight: 400;
+  color: $coral;
+}
+
+.guideOwl {
+  animation: none;
+}
+
+.guideCheer {
+  animation: hop 3.5s ease-in-out infinite;
+}
+
+.motif {
+  background: $paper-hi;
+  border: 2px solid $ink;
+  border-left-width: 8px;
+  border-left-color: var(--od-island, var(--od-sea));
+  font-family: var(--od-font-body);
+  font-style: italic;
+}
+
+// Sticky bars leave room for the menu at the bottom.
+
+.actionBar,
+.doneActions {
+  bottom: var(--od-nav-h);
+}
+
+.toasts {
+  bottom: calc(#{$nav-h} + 20px);
+}
+
+// Menu at the bottom
+
+.navBar {
+  position: sticky;
+  bottom: 0;
+  z-index: 20;
+  display: flex;
+  background: $ink;
+  border-top: 3px solid $ink;
+}
+
+.navButton {
+  display: grid;
+  flex: 1 1 auto;
+  justify-items: center;
+  gap: 3px;
+  min-width: 0;
+  min-height: $nav-h - 6px;
+  padding: 8px 4px 9px;
+  background: none;
+  border: none;
+  border-top: 4px solid transparent;
+  color: #c9d4e0;
+  cursor: pointer;
+  font-family: var(--od-font-display);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.1;
+
+  svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  &:hover {
+    color: #ffffff;
+  }
+
+  &[aria-current='page'] {
+    background: #22365a;
+    border-top-color: $sun;
+    color: $sun;
+  }
+
+  @media (max-width: 420px) {
+    font-size: 11.5px;
+
+    svg {
+      width: 23px;
+      height: 23px;
+    }
+  }
+}
+
+// Start screen: view switch, deck and next ticket
+
+.viewSwitch {
+  display: inline-flex;
+  justify-self: start;
+  gap: 6px;
+  padding: 4px;
+  background: $paper-hi;
+  border: 2.5px solid $ink;
+  border-radius: 999px;
+
+  button {
+    min-height: 40px;
+    padding: 0 16px;
+    background: none;
+    border: none;
+    border-radius: 999px;
+    color: $ink;
+    cursor: pointer;
+    font-family: var(--od-font-display);
+    font-size: 15px;
+    font-weight: 700;
+  }
+}
+
+.viewSwitchActive {
+  background: $ink !important;
+  color: $paper-hi !important;
+}
+
+.deck {
+  position: relative;
+  height: clamp(420px, 58vh, 540px);
+  overflow: hidden;
+  background: #f5e0b0;
+  border: 3px solid $ink;
+  border-radius: 20px;
+  box-shadow: 6px 6px 0 rgba(26, 41, 64, 0.9);
+  container-type: inline-size;
+}
+
+.deckScene {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.deckGrain {
+  position: absolute;
+  inset: 0;
+  background-image: $grain;
+  mix-blend-mode: multiply;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.deckWave {
+  fill: none;
+  stroke: #3a82b4;
+  stroke-linecap: round;
+  animation: odDrift var(--od-dur) linear infinite;
+}
+
+@keyframes odDrift {
+  from {
+    stroke-dashoffset: var(--od-from);
+  }
+  to {
+    stroke-dashoffset: var(--od-to);
+  }
+}
+
+.deckParallax {
+  transition: transform 1.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.deckCloud {
+  animation: odCloud 28s ease-in-out infinite alternate;
+}
+
+@keyframes odCloud {
+  to {
+    transform: translateX(40px);
+  }
+}
+
+.deckIslands {
+  transform-box: view-box;
+  transform-origin: 500px 350px;
+  transition: transform 0.6s ease-in, opacity 0.6s ease-in;
+}
+
+.deckIsland {
+  transform-box: view-box;
+  transform-origin: 0 0;
+  transition: transform 0.9s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.9s;
+
+  :global(.od-sails) {
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+}
+
+.deckIslandCurrent :global(.od-sails) {
+  animation: odSpin 10s linear infinite;
+}
+
+.deckIsland :global(.od-smoke) {
+  animation: odRise 4s ease-in-out infinite;
+
+  &:nth-child(odd) {
+    animation-delay: -1.6s;
+  }
+}
+
+@keyframes odSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes odRise {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.95;
+  }
+  50% {
+    transform: translateY(-6px);
+    opacity: 0.7;
+  }
+}
+
+.deckBow {
+  transform-box: view-box;
+  transform-origin: 500px 600px;
+  transition: transform 0.6s ease-in;
+  animation: odBob 5s ease-in-out infinite;
+}
+
+// Two copies per direction, so every click restarts the roll.
+.deckSwayLeft {
+  animation: odRollLeft 1s ease-in-out;
+}
+.deckSwayLeftB {
+  animation: odRollLeftB 1s ease-in-out;
+}
+.deckSwayRight {
+  animation: odRollRight 1s ease-in-out;
+}
+.deckSwayRightB {
+  animation: odRollRightB 1s ease-in-out;
+}
+
+@keyframes odBob {
+  50% {
+    transform: translateY(3px);
+  }
+}
+@keyframes odRollLeft {
+  40% {
+    transform: rotate(-1.6deg) translateY(2px);
+  }
+}
+@keyframes odRollLeftB {
+  40% {
+    transform: rotate(-1.6deg) translateY(2px);
+  }
+}
+@keyframes odRollRight {
+  40% {
+    transform: rotate(1.6deg) translateY(2px);
+  }
+}
+@keyframes odRollRightB {
+  40% {
+    transform: rotate(1.6deg) translateY(2px);
+  }
+}
+
+.deckPennant {
+  transform-box: fill-box;
+  transform-origin: left center;
+  animation: odFlap 2.2s ease-in-out infinite;
+}
+
+@keyframes odFlap {
+  50% {
+    transform: scaleX(0.8) skewY(4deg);
+  }
+}
+
+.deckSplash {
+  animation: odSplash 0.9s ease-out forwards;
+}
+
+@keyframes odSplash {
+  from {
+    opacity: 0.95;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+.deckDocking {
+  .deckIslands {
+    transform: scale(1.6);
+    opacity: 0.3;
+  }
+
+  .deckBow {
+    transform: translateY(60px);
+  }
+}
+
+.plaque {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 2;
+  width: max-content;
+  max-width: min(340px, calc(100% - 32px));
+  padding: 9px 18px 11px;
+  background: $paper-hi;
+  border: 2.5px solid $ink;
+  box-shadow: 4px 4px 0 $ink;
+  transform: rotate(-1.2deg);
+}
+
+.plaqueFromLeft {
+  animation: odSignLeft 0.55s ease-out;
+}
+
+.plaqueFromRight {
+  animation: odSignRight 0.55s ease-out;
+}
+
+@keyframes odSignLeft {
+  from {
+    opacity: 0;
+    transform: rotate(-1.2deg) translateX(-24px);
+  }
+}
+
+@keyframes odSignRight {
+  from {
+    opacity: 0;
+    transform: rotate(-1.2deg) translateX(24px);
+  }
+}
+
+.plaqueTop {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 8px;
+  color: var(--od-text-muted);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+%plaque-chip {
+  padding: 0 8px;
+  border: 1.5px solid $ink;
+  border-radius: 999px;
+  color: $ink;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  line-height: 1.6;
+}
+
+.plaqueChip {
+  @extend %plaque-chip;
+}
+
+.plaqueChipPremium {
+  @extend %plaque-chip;
+  background: $sun;
+}
+
+.plaqueChipDone {
+  @extend %plaque-chip;
+  background: $ink;
+  color: $paper-hi;
+}
+
+.plaqueName {
+  margin: 3px 0 0 !important;
+  font-size: 42px;
+  text-shadow: 2px 2px 0 rgba(201, 79, 51, 0.4);
+}
+
+.plaqueTool {
+  margin: 3px 0 0 !important;
+  font-size: 15px;
+}
+
+.route {
+  display: flex;
+  gap: 5px;
+  margin-top: 8px;
+
+  i {
+    width: 9px;
+    height: 9px;
+    border: 1.5px solid $ink;
+    border-radius: 50%;
+  }
+}
+
+.routeDone {
+  background: $ink;
+}
+
+.routeCurrent {
+  width: 22px !important;
+  background: $sun;
+  border-radius: 999px !important;
+}
+
+.steer {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  display: grid;
+  justify-items: center;
+  gap: 5px;
+  width: 124px;
+  padding: 0;
+  background: none;
+  border: none;
+  color: $ink;
+  cursor: pointer;
+  transform: translateY(-50%);
+
+  &:disabled {
+    opacity: 0.35;
+    cursor: default;
+  }
+
+  &:hover:not(:disabled) .steerArrow {
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0 $ink;
+  }
+
+  &:active:not(:disabled) .steerArrow {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 $ink;
+  }
+}
+
+.steerLeft {
+  left: 6px;
+}
+
+.steerRight {
+  right: 6px;
+}
+
+.steerArrow {
+  display: grid;
+  place-items: center;
+  width: 62px;
+  height: 62px;
+  background: $paper-hi;
+  border: 2.5px solid $ink;
+  border-radius: 50%;
+  box-shadow: 3px 3px 0 $ink;
+
+  svg {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+.steerCaption {
+  max-width: 124px;
+  padding: 1px 7px;
+  overflow: hidden;
+  background: $paper-hi;
+  border-radius: 5px;
+  font-size: 13px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.deckGuide {
+  position: absolute;
+  left: 14px;
+  bottom: 16px;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  max-width: 360px;
+
+  p {
+    min-width: 0;
+    margin: 0 0 22px;
+    padding: 8px 12px 9px;
+    background: $paper-hi;
+    border: 2.5px solid $ink;
+    border-radius: 16px 16px 16px 4px;
+    box-shadow: 3px 3px 0 $ink;
+    font-size: 15px;
+    line-height: 1.4;
+  }
+
+  b {
+    display: block;
+    color: $coral;
+    font-family: var(--od-font-logo);
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    line-height: 1.1;
+    text-transform: uppercase;
+  }
+}
+
+.deckGuidePortrait {
+  flex: none;
+  width: 70px;
+  height: 70px;
+}
+
+.dock {
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 30px 6px;
+  background: $sun;
+  border: 3px solid $ink;
+  border-radius: 999px;
+  box-shadow: 4px 4px 0 $ink;
+  color: $ink;
+  cursor: pointer;
+  font-family: var(--od-font-logo);
+  font-size: 32px;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  text-transform: uppercase;
+  transform: translateX(-50%);
+  white-space: nowrap;
+
+  svg {
+    width: 26px;
+    height: 26px;
+    margin-top: -3px;
+  }
+
+  &:hover {
+    transform: translate(calc(-50% - 1px), -1px);
+    box-shadow: 5px 5px 0 $ink;
+  }
+
+  &:active {
+    transform: translate(calc(-50% + 2px), 2px);
+    box-shadow: 1px 1px 0 $ink;
+  }
+}
+
+@container (max-width: 620px) {
+  .plaque {
+    top: 12px;
+    left: 50%;
+    max-width: calc(100% - 24px);
+    padding: 7px 14px 9px;
+    transform: translateX(-50%) rotate(-1deg);
+  }
+
+  .plaqueFromLeft,
+  .plaqueFromRight {
+    animation: none;
+  }
+
+  .plaqueName {
+    font-size: 31px;
+  }
+
+  .plaqueTool {
+    font-size: 14px;
+  }
+
+  .steer {
+    top: 54%;
+    width: 76px;
+  }
+
+  .steerLeft {
+    left: 2px;
+  }
+
+  .steerRight {
+    right: 2px;
+  }
+
+  .steerArrow {
+    width: 52px;
+    height: 52px;
+  }
+
+  .steerCaption {
+    max-width: 74px;
+    font-size: 12px;
+  }
+
+  .deckGuide {
+    left: 10px;
+    right: 10px;
+    bottom: 76px;
+    max-width: none;
+
+    p {
+      margin-bottom: 10px;
+      font-size: 13.5px;
+    }
+  }
+
+  .deckGuidePortrait {
+    width: 50px;
+    height: 50px;
+  }
+
+  .dock {
+    bottom: 14px;
+    padding: 7px 24px 5px;
+    font-size: 27px;
+  }
+}
+
+// Tickets for stages
+
+.tickets {
+  display: grid;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ticket {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 124px;
+  background: $paper-hi;
+  border: 2.5px solid $ink;
+  border-radius: 12px;
+  box-shadow: 4px 4px 0 rgba(26, 41, 64, 0.9);
+
+  // Punched notches where the stub tears off.
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    right: 112px;
+    width: 20px;
+    height: 20px;
+    background: var(--od-background);
+    border: 2.5px solid $ink;
+    border-radius: 50%;
+  }
+
+  &::before {
+    top: -12px;
+    clip-path: inset(50% 0 0 0);
+  }
+
+  &::after {
+    bottom: -12px;
+    clip-path: inset(0 0 50% 0);
+  }
+
+  @media (max-width: $narrow) {
+    grid-template-columns: minmax(0, 1fr) 100px;
+
+    &::before,
+    &::after {
+      right: 88px;
+    }
+  }
+}
+
+.ticketNext {
+  outline: 3px solid $sun;
+  outline-offset: 3px;
+}
+
+.ticketDone {
+  background: #efe6cf;
+}
+
+.ticketMain {
+  min-width: 0;
+  padding: 12px 16px 14px;
+}
+
+.ticketEyebrow {
+  margin: 0 !important;
+  color: $coral;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.ticketTitle {
+  margin: 2px 0 6px !important;
+  font-family: var(--od-font-display) !important;
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0 !important;
+  line-height: 1.25 !important;
+  text-transform: none !important;
+}
+
+.ticketSummary {
+  margin: 0 0 8px !important;
+  font-size: 15px;
+}
+
+.ticketMeta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 14px;
+  margin: 0 !important;
+  color: var(--od-text-muted);
+  font-size: 14px;
+}
+
+.ticketStub {
+  position: relative;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 8px;
+  padding: 10px 8px;
+  border-left: 2.5px dashed $ink;
+  text-align: center;
+}
+
+.ticketStubLabel {
+  color: var(--od-text-muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.ticketGo {
+  padding: 6px 18px 4px;
+  background: $sun;
+  border: 2.5px solid $ink;
+  border-radius: 999px;
+  box-shadow: 3px 3px 0 $ink;
+  color: $ink;
+  cursor: pointer;
+  font-family: var(--od-font-logo);
+  font-size: 26px;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  text-transform: uppercase;
+
+  &:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0 $ink;
+  }
+
+  &:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 $ink;
+  }
+}
+
+.ticketAgain {
+  padding: 4px 12px;
+  background: none;
+  border: 2px solid $ink;
+  border-radius: 999px;
+  color: $ink;
+  cursor: pointer;
+  font-family: var(--od-font-display);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.ticketStamp {
+  display: inline-block;
+  padding: 4px 8px 2px;
+  border: 3px double $coral;
+  border-radius: 8px;
+  color: $coral;
+  font-family: var(--od-font-logo);
+  font-size: 20px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transform: rotate(-10deg);
+}
+
+// Island page
+
+.islandPage {
+  overflow: hidden;
+  background: var(--od-surface);
+  border: 2.5px solid $ink;
+  border-radius: 18px;
+  box-shadow: 6px 6px 0 rgba(26, 41, 64, 0.9);
+}
+
+.islandBand {
+  position: relative;
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  align-items: center;
+  gap: 8px 22px;
+  padding: 56px 24px 22px;
+  border-bottom: 3px solid $ink;
+  color: $paper-hi;
+
+  p {
+    margin: 0 0 10px;
+    max-width: 52ch;
+  }
+
+  @media (max-width: $narrow) {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 56px 16px 18px;
+  }
+}
+
+.islandBack {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 6px 14px;
+  background: $paper-hi;
+  border: 2px solid $ink;
+  border-radius: 999px;
+  color: $ink;
+  cursor: pointer;
+  font-family: var(--od-font-display);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.islandBandArt {
+  width: 220px;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 36 / 23;
+
+  @media (max-width: $narrow) {
+    width: 170px;
+  }
+}
+
+.islandBandText {
+  min-width: 0;
+}
+
+.islandBandEyebrow {
+  margin: 0 0 2px !important;
+  color: $sun;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.islandBandTitle {
+  margin: 0 0 8px !important;
+  color: $paper-hi !important;
+  font-size: 54px;
+  text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.3);
+
+  @media (max-width: $narrow) {
+    font-size: 42px;
+  }
+}
+
+.islandBody {
+  padding: 8px 24px 26px;
+
+  @media (max-width: $narrow) {
+    padding: 4px 14px 20px;
+  }
+}
+
+// Passport book
+
+.passportBook {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+  margin: 16px 0 10px;
+  overflow: hidden;
+  border: 3px solid #12355a;
+  border-radius: 14px;
+  box-shadow: 5px 5px 0 $ink;
+
+  @media (max-width: 760px) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.passportPage {
+  position: relative;
+  min-width: 0;
+  padding: 16px 18px 18px;
+  background-color: #f4ead2;
+  background-image: repeating-radial-gradient(circle at 18% 22%, rgba(31, 95, 139, 0.07) 0 1.5px, transparent 1.5px 8px);
+
+  & + & {
+    border-left: 2px solid rgba(18, 53, 90, 0.35);
+    box-shadow: inset 14px 0 18px -14px rgba(18, 53, 90, 0.35);
+
+    @media (max-width: 760px) {
+      border-top: 2px solid rgba(18, 53, 90, 0.35);
+      border-left: none;
+      box-shadow: none;
+    }
+  }
+}
+
+.passportId {
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr);
+  align-content: start;
+  gap: 0 16px;
+
+  .passportPageTitle,
+  .passportMrz {
+    grid-column: 1 / -1;
+  }
+}
+
+.passportPageTitle {
+  margin: 0 0 12px !important;
+  color: #12355a;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.passportPhoto {
+  display: grid;
+  place-items: center;
+  width: 96px;
+  height: 116px;
+  background: #e3d6b6;
+  border: 2px solid #12355a;
+  border-radius: 6px;
+
+  .passportEmblem {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+.passportFields {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-content: start;
+  gap: 3px 12px;
+  margin: 0;
+  font-size: 15px;
+
+  dt {
+    padding-top: 3px;
+    color: var(--od-text-muted);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  dd {
+    margin: 0;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+.passportMrz {
+  margin: 16px 0 0 !important;
+  color: #12355a;
+  font-family: ui-monospace, Consolas, 'Courier New', monospace;
+  font-size: 12.5px;
+  letter-spacing: 0.06em;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.passportGoal {
+  margin: 14px 0 0 !important;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+// Companion choice
+
+.guideGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+  margin: 8px 0 12px;
+}
+
+.guideChoice {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px 8px 8px;
+  background: $paper-hi;
+  border: 2.5px solid var(--od-line);
+  border-radius: 999px;
+  color: $ink;
+  cursor: pointer;
+  text-align: left;
+
+  &:hover {
+    border-color: $ink;
+  }
+}
+
+.guideChoiceSelected {
+  background: $ink;
+  border-color: $ink;
+  color: $paper-hi;
+}
+
+.guideChoicePortrait {
+  flex: none;
+  width: 46px;
+  height: 46px;
+}
+
+.guideChoiceText {
+  display: grid;
+  min-width: 0;
+  line-height: 1.2;
+
+  strong {
+    font-size: 16px;
+  }
+
+  span {
+    font-size: 13px;
+    opacity: 0.85;
+  }
+}
+
+// Tour
+
+.tour {
+  position: fixed;
+  inset: 0;
+  z-index: 1002;
+  pointer-events: none;
+}
+
+.tourShade {
+  position: fixed;
+  background: rgba(9, 19, 35, 0.66);
+  pointer-events: auto;
+}
+
+.tourShadeClear {
+  position: fixed;
+  pointer-events: auto;
+}
+
+.tourRing {
+  position: fixed;
+  border: 3px solid $sun;
+  border-radius: 16px;
+  box-shadow: 0 0 0 4px rgba(242, 177, 58, 0.35), 0 0 26px 6px rgba(242, 177, 58, 0.55);
+  pointer-events: none;
+  animation: odRing 1.4s ease-in-out infinite;
+}
+
+@keyframes odRing {
+  50% {
+    box-shadow: 0 0 0 9px rgba(242, 177, 58, 0.15), 0 0 34px 10px rgba(242, 177, 58, 0.7);
+  }
+}
+
+.tourBubble {
+  position: fixed;
+  padding: 12px 14px;
+  background: $paper-hi;
+  border: 3px solid $ink;
+  border-radius: 18px;
+  box-shadow: 5px 5px 0 $ink;
+  color: $ink;
+  font-family: var(--od-font-body);
+  pointer-events: auto;
+}
+
+.tourHead {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  b {
+    color: $coral;
+    font-family: var(--od-font-logo);
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+}
+
+.tourPortrait {
+  flex: none;
+  width: 50px;
+  height: 50px;
+}
+
+.tourText {
+  margin: 6px 0 12px !important;
+  font-size: 17px;
+  line-height: 1.45;
+}
+
+.tourFoot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.tourCount {
+  color: var(--od-text-muted);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+
+.tourButtons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  .buttonPrimary {
+    min-height: 44px;
+    padding: 8px 20px;
+  }
+}
+
+.tourSkip {
+  padding: 6px 4px;
+  background: none;
+  border: none;
+  color: var(--od-text-muted);
+  cursor: pointer;
+  font-size: 14px;
+  text-decoration: underline;
+}
+
+.tourTap {
+  color: $coral;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .deckWave,
+  .deckCloud,
+  .deckBow,
+  .deckPennant,
+  .deckSplash,
+  .deckSwayLeft,
+  .deckSwayLeftB,
+  .deckSwayRight,
+  .deckSwayRightB,
+  .plaqueFromLeft,
+  .plaqueFromRight,
+  .tourRing,
+  .guideCheer,
+  .deckIslandCurrent :global(.od-sails),
+  .deckIsland :global(.od-smoke) {
+    animation: none !important;
+  }
+
+  .deckIsland,
+  .deckIslands,
+  .deckParallax,
+  .deckBow {
+    transition: none !important;
+  }
+}
+
+// Questions and step titles are read, not admired: they keep the legible face.
+.app .blockTitle,
+.app .drawerSection {
+  font-family: var(--od-font-display);
+  font-weight: 700 !important;
+  letter-spacing: 0;
+  line-height: 1.25;
+  text-transform: none;
+}
+
+.pauseButton {
+  background: $paper-hi;
+  border: 2.5px solid $ink;
+  border-radius: 999px;
+  box-shadow: 3px 3px 0 $ink;
+  font-weight: 700;
+
+  &:hover {
+    border-color: $ink;
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0 $ink;
+  }
+}
+
+.passportPage .stampGrid {
+  padding: 4px 0;
+  background: none;
+  border: none;
 }
