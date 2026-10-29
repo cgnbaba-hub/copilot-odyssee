@@ -1,4 +1,5 @@
 import { ContentBundle } from '../core/content/types';
+import { cleanMessage, FeedbackSender } from '../core/feedback/feedback';
 import { initialState } from '../core/progress/state';
 import { MemoryProgressStore } from '../core/progress/store';
 import { connect } from './connect';
@@ -98,6 +99,17 @@ describe('connect', () => {
     expect(await browserStore.load()).toBeUndefined();
   });
 
+  it('offers feedback only once the feedback list exists', async () => {
+    const sp = new FakeSharePoint(WEB);
+    expect((await connect(options(sp))).feedback).toBeUndefined();
+
+    sp.feedbackListExists = true;
+    const connection = await connect(options(sp));
+    expect(connection.feedback).toBeDefined();
+    await (connection.feedback as FeedbackSender).send({ kind: 'problem', message: 'Der Knopf fehlt', context: 'Startseite', lang: 'de', license: 'basic', area: 'produkt' });
+    expect(sp.feedback).toEqual([{ Title: 'Etwas funktioniert nicht', OdysseeMessage: 'Der Knopf fehlt', OdysseeContext: 'Startseite', OdysseeProfile: 'de · basic · produkt' }]);
+  });
+
   it('keeps SharePoint progress when both exist', async () => {
     const sp = new FakeSharePoint(WEB);
     await new SharePointProgressStore(sp, WEB, 'spieler-1').save({ ...initialState('de'), xp: 7 });
@@ -107,5 +119,13 @@ describe('connect', () => {
     const connection = await connect(options(sp, browserStore));
     const loaded = await connection.store.load();
     expect(loaded && loaded.xp).toBe(7);
+  });
+});
+
+describe('feedback messages', () => {
+  it('trims, limits and rejects empty messages', () => {
+    expect(cleanMessage('  Tolle App!  ')).toBe('Tolle App!');
+    expect(cleanMessage(' a ')).toBeUndefined();
+    expect((cleanMessage('x'.repeat(3000)) || '').length).toBe(2000);
   });
 });

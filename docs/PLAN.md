@@ -217,7 +217,7 @@ Legende: 🤖 = setze ich um · 👤 = brauche ich von dir · 🏢 = IT oder Dat
 - [ ] **AP 2.5 Installationspaket und Pilot-Site** 🤖👤
   GitHub Action baut das `.sppkg`. Dazu eine Schritt-für-Schritt-Anleitung: Website-App-Katalog, Listen anlegen, Webpart auf eine Seite setzen.
 - [ ] **AP 2.6 Pilot** 👤
-  10–20 KollegInnen testen zwei Wochen, Feedback über ein Microsoft-Formular. Danach arbeite ich das Feedback ein.
+  10–20 KollegInnen testen zwei Wochen und geben Feedback direkt in der App («Feedback geben», Liste `OdysseeFeedback`). Danach arbeite ich das Feedback ein.
 
 ### Phase 3: Lernanalyse
 

@@ -1,12 +1,15 @@
 import * as React from 'react';
 
+import { findIsland, findModule } from '../core/content/bundle';
 import { ContentBundle, Localized } from '../core/content/types';
+import { FeedbackSender } from '../core/feedback/feedback';
 import { Lang, localize } from '../core/i18n/locale';
 import { earnedSouvenirs } from '../core/progress/achievements';
 import { initialState, Outcome, PlayerState, updateProfile } from '../core/progress/state';
 import { ProgressStore } from '../core/progress/store';
 import { CheatSheet } from './components/CheatSheet';
 import { ContactNote } from './components/ContactNote';
+import { FeedbackPanel } from './components/FeedbackPanel';
 import { Header } from './components/Header';
 import { HelpPanel } from './components/HelpPanel';
 import { Home } from './components/Home';
@@ -33,6 +36,8 @@ export interface AppProps {
   /** Where progress is saved; anything but SharePoint is pointed out to the player. */
   storage: 'demo' | 'browser' | 'sharepoint';
   theme?: Theme;
+  /** Where feedback goes; without it the app points to the contact address. */
+  feedback?: FeedbackSender;
 }
 
 interface Toast {
@@ -53,6 +58,7 @@ export function App(props: AppProps): React.ReactElement {
   const [view, setView] = React.useState<View>({ name: 'map' });
   const [settingsOpen, setSettingsOpen] = React.useState(false);
   const [helpOpen, setHelpOpen] = React.useState(false);
+  const [feedbackOpen, setFeedbackOpen] = React.useState(false);
   const [rankUp, setRankUp] = React.useState<number | undefined>(undefined);
   const [toasts, setToasts] = React.useState<Toast[]>([]);
   const playerRef = React.useRef<PlayerState | undefined>(undefined);
@@ -146,9 +152,27 @@ export function App(props: AppProps): React.ReactElement {
   };
 
   const onboarded = player.profile.onboarded;
+  // Sent along with feedback so the team knows which screen it is about.
+  const pageLabel = ((): string => {
+    if (view.name === 'module') {
+      const module = findModule(props.content, view.moduleId);
+      return format(strings.pageStage, { name: module ? t(module.title) : view.moduleId });
+    }
+    if (view.name === 'island') {
+      const island = findIsland(props.content, view.islandId);
+      return format(strings.pageIsland, { name: island ? t(island.name) : view.islandId });
+    }
+    if (view.name === 'passport') return t(theme.terms.passport);
+    if (view.name === 'cheatsheet') return strings.cheatsheet;
+    return strings.pageHome;
+  })();
+  const openFeedback = (): void => {
+    setHelpOpen(false);
+    setFeedbackOpen(true);
+  };
   const navActive = helpOpen ? 'help' : settingsOpen ? 'settings' : view.name === 'passport' ? 'passport' : view.name === 'cheatsheet' ? 'cheatsheet' : 'journey';
   // The tour explains the start screen, so it waits until the player is there and nothing else is open.
-  const showTour = onboarded && !player.profile.toured && view.name === 'map' && !helpOpen && !settingsOpen && rankUp === undefined;
+  const showTour = onboarded && !player.profile.toured && view.name === 'map' && !helpOpen && !settingsOpen && !feedbackOpen && rankUp === undefined;
   const finishTour = (): void => {
     game.update((s) => updateProfile(s, { toured: true }));
   };
@@ -174,10 +198,11 @@ export function App(props: AppProps): React.ReactElement {
         {props.storage === 'browser' && <p className={styles.demoBanner}>{strings.browserStorageBanner}</p>}
         <Header onOpenSettings={() => setSettingsOpen(true)} onOpenHelp={() => setHelpOpen(true)} />
         <main className={styles.main}>{main}</main>
-        <ContactNote />
+        <ContactNote onFeedback={openFeedback} />
         {onboarded && <NavBar onOpenHelp={() => setHelpOpen(true)} onOpenSettings={() => setSettingsOpen(true)} active={navActive} />}
         {settingsOpen && <Settings onClose={() => setSettingsOpen(false)} onReset={reset} onRestartTour={restartTour} />}
-        {helpOpen && <HelpPanel onClose={() => setHelpOpen(false)} />}
+        {helpOpen && <HelpPanel onClose={() => setHelpOpen(false)} onFeedback={openFeedback} />}
+        {feedbackOpen && <FeedbackPanel sender={props.feedback} demo={props.storage === 'demo'} page={pageLabel} onClose={() => setFeedbackOpen(false)} />}
         {showTour && <Tour getRoot={() => rootRef.current || undefined} onDone={finishTour} />}
         {/* A new status is celebrated outside of stages, so it never interrupts a task. */}
         {rankUp !== undefined && view.name !== 'module' && <RankUp index={rankUp} onClose={() => setRankUp(undefined)} />}

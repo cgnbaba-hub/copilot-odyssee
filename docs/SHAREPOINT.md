@@ -11,8 +11,9 @@ Diese Anleitung bringt die Odyssee auf eine SharePoint-Website, zum Beispiel fü
 | App-Paket `odyssee.sppkg` | App-Katalog (für den Pilot: Website-App-Katalog) | Das Webpart «Odyssee» |
 | Bibliothek `OdysseeInhalte` | Website der Odyssee | Inhaltsdatei `odyssee-content.json` |
 | Liste `OdysseeFortschritt` | Website der Odyssee | Spielstand, ein Eintrag pro Person |
+| Liste `OdysseeFeedback` | Website der Odyssee | Rückmeldungen aus der App |
 
-Bibliothek und Liste legt ein Skript an. Solange sie fehlen, läuft das Spiel trotzdem: mit den Inhalten aus dem App-Paket und mit Fortschritt im Browser. Ein Hinweis im Spiel weist darauf hin. Sobald die Liste da ist, wird der Browser-Fortschritt automatisch übernommen.
+Bibliothek und Listen legt ein Skript an. Solange sie fehlen, läuft das Spiel trotzdem: mit den Inhalten aus dem App-Paket und mit Fortschritt im Browser. Ein Hinweis im Spiel weist darauf hin. Sobald die Liste da ist, wird der Browser-Fortschritt automatisch übernommen.
 
 ## 1. Voraussetzungen (einmalig, IT)
 
@@ -60,9 +61,20 @@ Die Datei gibt es auch fertig als Download `odyssee-content` bei jedem CI-Lauf. 
 
 Liegen Bibliothek und Liste auf einer anderen Website als die Seite, im Eigenschaftenbereich des Webparts **«Website mit den Odyssee-Listen»** setzen.
 
+## Feedback lesen
+
+Über «Feedback geben» (unten auf jeder Seite und in der Hilfe) schicken Teilnehmende eine Idee, einen Fehler, einen Hinweis auf falsche Inhalte oder Lob. Jede Rückmeldung wird ein Eintrag in der Liste `OdysseeFeedback`: Art, Nachricht, die Seite, auf der sie geschrieben wurde, sowie Sprache, Lizenz und Bereich. SharePoint speichert dazu, wer den Eintrag angelegt hat und wann.
+
+- **Lesen:** Website öffnen, «Websiteinhalte», Liste `OdysseeFeedback`. Die neusten Einträge stehen oben.
+- **Auswerten:** In der Liste «Exportieren» und «Nach CSV exportieren» oder «In Excel öffnen».
+- **Bearbeiten:** Wer mag, ergänzt in der Liste eine Spalte «Status» (z. B. Neu, Geplant, Erledigt), um den Überblick zu behalten. Die App liest diese Spalte nicht und stört sich nicht daran.
+
+Solange die Liste fehlt, zeigt die App statt des Formulars die Kontaktadresse aus `help.json`.
+
 ## Datenschutz und Berechtigungen
 
 - **Liste `OdysseeFortschritt`:** Elementberechtigungen sind so gesetzt, dass alle nur ihre eigenen Einträge sehen und ändern. Der Titel eines Eintrags ist ein SHA-256-Hash der Entra-Objekt-ID, nicht der Name.
 - **Grenze der Pseudonymisierung:** SharePoint speichert bei jedem Eintrag automatisch, wer ihn angelegt hat. Besitzerinnen und Besitzer der Website können deshalb technisch sehen, welcher Eintrag zu wem gehört. Die Auswertungen in Phase 3 arbeiten nur mit dem Hash und nur aggregiert. Der Zugriff auf die Website sollte auf wenige Personen beschränkt bleiben.
+- **Liste `OdysseeFeedback`:** Teilnehmende sehen nur ihre eigenen Einträge, Besitzerinnen und Besitzer der Website alle. Das Formular sagt offen, dass der Name mitgespeichert wird.
 - **Prompt-Texte** werden nicht gespeichert. Use-Case-Karten liegen im eigenen Spielstand.
 - **Grösse:** Ein Spielstand ist wenige Kilobyte gross. Ein Feld vom Typ «Mehrere Textzeilen» reicht dafür auf Jahre.

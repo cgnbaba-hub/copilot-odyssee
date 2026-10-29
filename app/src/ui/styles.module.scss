@@ -2533,6 +2533,16 @@ $meander: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' widt
   font-size: 15px;
   text-align: center;
 
+  p {
+    margin: 0 0 4px;
+  }
+
+  .linkButton {
+    padding: 0;
+    font-size: 15px;
+    text-decoration: underline;
+  }
+
   a {
     color: var(--od-primary);
     font-weight: 700;
@@ -4232,4 +4242,47 @@ $grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width=
   padding: 4px 0;
   background: none;
   border: none;
+}
+
+// Feedback form
+
+.feedbackForm {
+  display: grid;
+  gap: 16px;
+}
+
+.feedbackKinds {
+  margin: 0;
+  padding: 0;
+  border: none;
+
+  legend {
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+}
+
+.feedbackField {
+  display: grid;
+  gap: 6px;
+  font-weight: 700;
+
+  textarea {
+    font-weight: 400;
+  }
+}
+
+.feedbackCheck {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 16px;
+
+  input {
+    flex: none;
+    width: 22px;
+    height: 22px;
+    margin-top: 2px;
+    accent-color: var(--od-primary);
+  }
 }
