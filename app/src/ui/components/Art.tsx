@@ -62,69 +62,6 @@ export function CompassRose(props: { className?: string }): React.ReactElement {
   );
 }
 
-function Cloud(props: { x: number; y: number; scale: number }): React.ReactElement {
-  return (
-    <g transform={`translate(${props.x} ${props.y}) scale(${props.scale})`} fill="#FFFFFF" opacity="0.92">
-      <ellipse cx="0" cy="10" rx="34" ry="10" />
-      <circle cx="-12" cy="4" r="12" />
-      <circle cx="8" cy="0" r="16" />
-      <circle cx="24" cy="7" r="9" />
-    </g>
-  );
-}
-
-/** Wide scene for the start screens: sky, sun, mountains, sea, islands and a ship. */
-export function SeaScene(props: { className?: string }): React.ReactElement {
-  return (
-    <svg viewBox="0 0 1000 300" className={props.className} preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      <defs>
-        <linearGradient id="od-scene-sky" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#9FD8F2" />
-          <stop offset="0.75" stopColor="#E9F6FB" />
-          <stop offset="1" stopColor="#FFF6E2" />
-        </linearGradient>
-        <linearGradient id="od-scene-sea" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#38C3D9" />
-          <stop offset="0.45" stopColor="var(--od-sea)" />
-          <stop offset="1" stopColor="var(--od-sea-deep)" />
-        </linearGradient>
-        <radialGradient id="od-scene-sun" cx="0.5" cy="0.5" r="0.5">
-          <stop offset="0" stopColor="#FFE9A8" />
-          <stop offset="0.45" stopColor={ACCENT} />
-          <stop offset="1" stopColor="rgba(255,194,61,0)" />
-        </radialGradient>
-      </defs>
-      <rect width="1000" height="300" fill="url(#od-scene-sky)" />
-      <circle cx="790" cy="92" r="90" fill="url(#od-scene-sun)" />
-      <circle cx="790" cy="92" r="40" fill="#FFD567" />
-      <Cloud x={160} y={60} scale={1.2} />
-      <Cloud x={480} y={44} scale={0.8} />
-      <Cloud x={930} y={70} scale={1} />
-      <path d="M0 170 L80 142 L150 158 L240 128 L330 160 L420 150 L520 170Z" fill="#BCD9E8" />
-      <path d="M560 170 L640 150 L720 162 L820 136 L920 158 L1000 150 L1000 170Z" fill="#C9E1EC" />
-      <path d="M0 168 C 200 160, 380 174, 560 166 S 860 160, 1000 168 V300 H0Z" fill="url(#od-scene-sea)" />
-      <path d="M700 176 h120 M720 186 h90 M740 196 h60" stroke="rgba(255,255,255,0.65)" strokeWidth="3" strokeLinecap="round" />
-      <g transform="translate(40 150) scale(1.15)">
-        <IslandShape id="scene-left" color="#8E7CC3" landmark="rocks" />
-      </g>
-      <g transform="translate(800 162) scale(0.95)">
-        <IslandShape id="scene-right" color="#E9A23B" landmark="temple" home />
-      </g>
-      <g fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="2.5" strokeLinecap="round">
-        <path d="M0 236 q25 -8 50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0" />
-        <path d="M-25 270 q25 -8 50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0" />
-      </g>
-      <g fill="none" stroke={INK} strokeWidth="2" strokeLinecap="round" opacity="0.55">
-        <path d="M560 96 q6 -6 12 0 q6 -6 12 0" />
-        <path d="M600 74 q5 -5 10 0 q5 -5 10 0" />
-      </g>
-      <g transform="translate(430 150)">
-        <Ship size={110} />
-      </g>
-    </svg>
-  );
-}
-
 const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
 
 /** A coin-like medallion with the rank number in Roman numerals. */

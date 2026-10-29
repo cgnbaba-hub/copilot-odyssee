@@ -51,7 +51,7 @@ function hintFor(strings: Strings, block: Block): string {
 
 export function ModulePlayer(props: { moduleId: string }): React.ReactElement {
   const game = useGame();
-  const { content, player, strings, theme, t, apply, update, navigate } = game;
+  const { content, player, lang, strings, theme, t, apply, update, navigate } = game;
   const module = findModule(content, props.moduleId);
   const [index, setIndex] = React.useState<number | undefined>(undefined);
   const xpAtStart = React.useRef(player.xp);
@@ -87,7 +87,15 @@ export function ModulePlayer(props: { moduleId: string }): React.ReactElement {
     doneView = (
       <div className={styles.moduleDone}>
         <Confetti />
-        {island && <IslandArt island={island} className={styles.moduleDoneArt} />}
+        {island && (
+          <div className={styles.doneArtWrap}>
+            <IslandArt island={island} className={styles.moduleDoneArt} />
+            <span className={styles.doneStamp} aria-hidden="true">
+              <b>{strings.statusCompleted}</b>
+              <small>{new Date().toLocaleDateString(lang === 'de' ? 'de-CH' : 'en-GB')}</small>
+            </span>
+          </div>
+        )}
         <h2 className={styles.moduleDoneTitle}>{strings.moduleDoneTitle}</h2>
         <p className={styles.lead}>{format(strings.moduleDoneText, { xp: player.xp - xpAtStart.current, xpName: t(theme.terms.xp) })}</p>
         {newStamp && island && <p className={styles.stampNotice}>{format(strings.stampEarned, { island: t(island.name) })}</p>}
@@ -115,7 +123,14 @@ export function ModulePlayer(props: { moduleId: string }): React.ReactElement {
         <button type="button" className={styles.pauseButton} onClick={backToIsland} title={strings.pauseHint}>
           <span aria-hidden="true">←</span> {strings.toIsland}
         </button>
-        <div className={styles.lessonProgress} role="progressbar" aria-valuemin={0} aria-valuemax={total} aria-valuenow={Math.min(index, total)} aria-label={format(strings.stepOf, { current, total })}>
+        <div
+          className={styles.lessonProgress}
+          role="progressbar"
+          aria-valuemin={0}
+          aria-valuemax={total}
+          aria-valuenow={Math.min(index, total)}
+          aria-label={format(strings.stepOf, { current, total })}
+        >
           <div className={styles.lessonProgressFill} style={{ width: `${percent}%` }}>
             <Ship className={styles.lessonShip} />
           </div>

@@ -4654,3 +4654,236 @@ $grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width=
   margin: 6px 0 4px !important;
   font-size: 16px;
 }
+
+// Poster look for the remaining screens (welcome, lessons, stage done)
+
+.onboardingScene {
+  border-bottom: 3px solid $ink;
+
+  :global(.od-boat) {
+    animation: odBoat 4s ease-in-out infinite;
+    transform-box: fill-box;
+    transform-origin: center bottom;
+  }
+}
+
+@keyframes odBoat {
+  50% {
+    transform: translateY(4px) rotate(-2deg);
+  }
+}
+
+.howSteps li {
+  background: $paper-hi;
+  border: 2.5px solid $ink;
+  border-radius: 12px;
+  box-shadow: 4px 4px 0 rgba(26, 41, 64, 0.9);
+}
+
+.howNumber {
+  background: $sun !important;
+  border: 2px solid $ink;
+  color: $ink !important;
+}
+
+.wizardActions,
+.actionBar {
+  background: var(--od-surface);
+  border-top: 2.5px solid $ink;
+  backdrop-filter: none;
+}
+
+.actionBarGood {
+  background: var(--od-success-soft);
+}
+
+.actionBarBad {
+  background: var(--od-danger-soft);
+}
+
+.choice {
+  border: 2.5px solid var(--od-line);
+  box-shadow: none;
+
+  &:hover:not(:disabled) {
+    border-color: $ink;
+  }
+}
+
+.choiceLetter {
+  background: $paper-hi;
+  border: 2px solid $ink;
+  border-radius: 50%;
+}
+
+.choiceSelected {
+  background: #fff3d6 !important;
+  border-color: $ink !important;
+  box-shadow: 3px 3px 0 $ink;
+
+  .choiceLetter {
+    background: $ink;
+    border-color: $ink;
+  }
+
+  .radioDot {
+    border-color: $ink;
+    background: $ink;
+  }
+}
+
+.choiceCorrect,
+.choiceWrong {
+  box-shadow: 3px 3px 0 $ink;
+}
+
+.lessonProgress {
+  height: 16px;
+  background: $paper-hi;
+  border: 2px solid $ink;
+  box-shadow: none;
+}
+
+.lessonProgressFill {
+  background: repeating-linear-gradient(90deg, var(--od-sea-deep) 0 14px, var(--od-sea) 14px 18px);
+}
+
+.moduleDone {
+  background: $paper-hi;
+  border: 2.5px solid $ink;
+  border-radius: 16px;
+}
+
+.doneArtWrap {
+  position: relative;
+  display: inline-block;
+}
+
+// The stamp lands on the island like on a passport page.
+.doneStamp {
+  position: absolute;
+  right: -34px;
+  bottom: -6px;
+  display: grid;
+  justify-items: center;
+  padding: 6px 12px 4px;
+  border: 4px double $coral;
+  border-radius: 10px;
+  color: $coral;
+  background: rgba(251, 246, 232, 0.6);
+  transform: rotate(-12deg);
+  animation: odStamp 0.55s cubic-bezier(0.2, 1.4, 0.4, 1) 0.35s both;
+
+  b {
+    font-family: var(--od-font-logo);
+    font-size: 30px;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  small {
+    font-family: ui-monospace, Consolas, monospace;
+    font-size: 11px;
+  }
+}
+
+@keyframes odStamp {
+  0% {
+    opacity: 0;
+    transform: rotate(-12deg) scale(2.2);
+  }
+  60% {
+    opacity: 1;
+    transform: rotate(-12deg) scale(0.92);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(-12deg) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .doneStamp,
+  .onboardingScene :global(.od-boat) {
+    animation: none !important;
+  }
+}
+
+// Cheat sheet cards as pinned notes, dialogs and drawers on paper
+
+.promptCard {
+  position: relative;
+  padding-top: 20px;
+  background: $paper-hi;
+  border: 2px solid $ink;
+  border-radius: 6px;
+  box-shadow: 4px 4px 0 rgba(26, 41, 64, 0.85);
+
+  // A strip of tape holds the note.
+  &::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    width: 84px;
+    height: 20px;
+    background: rgba(242, 177, 58, 0.75);
+    transform: translateX(-50%) rotate(-3deg);
+  }
+
+  &:nth-child(even) {
+    transform: rotate(0.5deg);
+  }
+
+  &:nth-child(odd) {
+    transform: rotate(-0.4deg);
+  }
+}
+
+.promptCardText {
+  background: #f4ead2;
+  border-left: 4px solid var(--od-sea-deep);
+}
+
+.dialog,
+.drawer {
+  background: var(--od-surface);
+  border: 3px solid $ink;
+}
+
+.dialog {
+  box-shadow: 8px 8px 0 $ink;
+}
+
+.rankUpName {
+  font-size: 52px;
+  color: $ink;
+  text-shadow: 3px 3px 0 rgba(201, 79, 51, 0.35);
+}
+
+.rankUpEmblem {
+  animation: odPop 0.6s cubic-bezier(0.2, 1.4, 0.4, 1) both;
+}
+
+@keyframes odPop {
+  0% {
+    opacity: 0;
+    transform: scale(2);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(0.92);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rankUpEmblem {
+    animation: none !important;
+  }
+
+  .promptCard {
+    transform: none !important;
+  }
+}
