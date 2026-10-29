@@ -1315,6 +1315,20 @@ $meander: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' widt
   align-items: center;
   gap: 14px;
   margin-bottom: 18px;
+  flex-wrap: wrap;
+
+  // On phones the two buttons share the first row and the progress bar gets its own.
+  @media (max-width: $narrow) {
+    .lessonProgress {
+      order: 3;
+      flex-basis: 100%;
+      margin-right: 0;
+    }
+
+    .lessonCount {
+      margin-left: auto;
+    }
+  }
 }
 
 .pauseButton {

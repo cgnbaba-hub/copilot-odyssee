@@ -94,8 +94,9 @@ const de = {
   resume: 'Weitermachen',
   repeat: 'Wiederholen',
 
-  pause: 'Pause',
-  pauseHint: 'Dein Fortschritt bleibt gespeichert.',
+  toStart: 'Startseite',
+  toIsland: 'Zur Insel',
+  pauseHint: 'Dein Fortschritt bleibt gespeichert. Du kannst später hier weitermachen.',
   stepOf: 'Schritt {current} von {total}',
   hint_briefing: 'Lies den Text in Ruhe. Klicke dann unten auf «Verstanden».',
   hint_quiz: 'Wähle eine Antwort aus. Klicke dann unten auf «Prüfen».',
@@ -314,8 +315,9 @@ const en: Strings = {
   resume: 'Continue',
   repeat: 'Repeat',
 
-  pause: 'Pause',
-  pauseHint: 'Your progress is saved.',
+  toStart: 'Home',
+  toIsland: 'To the island',
+  pauseHint: 'Your progress is saved. You can continue here later.',
   stepOf: 'Step {current} of {total}',
   hint_briefing: 'Read the text at your own pace. Then click “Got it” below.',
   hint_quiz: 'Choose an answer. Then click “Check” below.',
