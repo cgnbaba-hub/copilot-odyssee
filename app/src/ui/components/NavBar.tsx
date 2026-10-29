@@ -4,7 +4,13 @@ import { useGame } from '../GameContext';
 import styles from '../styles.module.scss';
 
 /** The fixed menu at the bottom: every button has a word, not only a symbol. */
-export function NavBar(props: { onOpenHelp: () => void; onOpenSettings: () => void; active: 'journey' | 'cheatsheet' | 'passport' | 'help' | 'settings' }): React.ReactElement {
+export function NavBar(props: {
+  onOpenHelp: () => void;
+  onOpenSettings: () => void;
+  /** Adds the evaluation for people who may see it. */
+  admin?: boolean;
+  active: 'journey' | 'cheatsheet' | 'passport' | 'help' | 'settings' | 'admin';
+}): React.ReactElement {
   const { content, strings, theme, t, navigate } = useGame();
   const item = (id: typeof props.active, label: string, icon: React.ReactElement, onClick: () => void, tour: string): React.ReactElement => (
     <button type="button" className={styles.navButton} aria-current={props.active === id ? 'page' : undefined} onClick={onClick} data-tour={tour}>
@@ -72,6 +78,18 @@ export function NavBar(props: { onOpenHelp: () => void; onOpenSettings: () => vo
         props.onOpenHelp,
         'nav-help'
       )}
+      {props.admin &&
+        item(
+          'admin',
+          strings.adminTitle,
+          svg(
+            <>
+              <path d="M4 20V10M10 20V4M16 20v-7M22 20H2" />
+            </>
+          ),
+          () => navigate({ name: 'admin' }),
+          'nav-admin'
+        )}
       {item(
         'settings',
         strings.settings,

@@ -1,8 +1,10 @@
+import { AdminSource } from '../core/admin/source';
 import { ContentBundle } from '../core/content/types';
 import { FeedbackSender } from '../core/feedback/feedback';
 import { DebouncedProgressStore } from '../core/progress/debounced';
 import { ProgressStore } from '../core/progress/store';
 import { RestClient } from './RestClient';
+import { SharePointAdminSource } from './sharepoint/SharePointAdminSource';
 import { SharePointContentSource } from './sharepoint/SharePointContentSource';
 import { SharePointFeedbackSender } from './sharepoint/SharePointFeedbackSender';
 import { SharePointProgressStore } from './sharepoint/SharePointProgressStore';
@@ -17,6 +19,8 @@ export interface Connection {
   storage: StorageMode;
   /** Missing while the feedback list has not been set up. */
   feedback?: FeedbackSender;
+  /** Only for people who may see every entry, e.g. the site owners. */
+  admin?: AdminSource;
 }
 
 export interface ConnectOptions {
@@ -65,6 +69,14 @@ export async function connect(options: ConnectOptions): Promise<Connection> {
     return { content, contentSource, store: options.browserStore, storage: 'browser', feedback };
   }
 
+  let admin: AdminSource | undefined;
+  const adminSource = new SharePointAdminSource(options.client, options.webUrl);
+  try {
+    if (await adminSource.isAllowed()) admin = adminSource;
+  } catch (error) {
+    log('Berechtigung für die Auswertung nicht prüfbar', error);
+  }
+
   try {
     const [remote, local] = await Promise.all([sharePointStore.load(), options.browserStore.load()]);
     if (!remote && local) {
@@ -75,5 +87,5 @@ export async function connect(options: ConnectOptions): Promise<Connection> {
     log('Übernahme des Browser-Fortschritts fehlgeschlagen', error);
   }
 
-  return { content, contentSource, store: new DebouncedProgressStore(sharePointStore, options.saveDelayMs), storage: 'sharepoint', feedback };
+  return { content, contentSource, store: new DebouncedProgressStore(sharePointStore, options.saveDelayMs), storage: 'sharepoint', feedback, admin };
 }

@@ -8,6 +8,8 @@ import { CONTENT_FILE_NAME, CONTENT_LIBRARY_URL, FEEDBACK_LIST_TITLE, PROGRESS_L
 export class FakeSharePoint implements RestClient {
   public listExists = true;
   public feedbackListExists = false;
+  /** Whether the current user may manage the lists (site owner). */
+  public managesLists = false;
   public feedback: { [field: string]: unknown }[] = [];
   public items: { Id: number; Title: string; [field: string]: unknown }[] = [];
   public files: { [serverRelativeUrl: string]: string } = {};
@@ -52,7 +54,11 @@ export class FakeSharePoint implements RestClient {
     if (path === undefined || !this.listExists) return this._respond(404);
     if (path.indexOf('/items') === 0) {
       const match = /Title eq '([^']*)'/.exec(decodeURIComponent(path));
-      return this._respond(200, { value: this.items.filter((i) => !match || i.Title === match[1]).slice(0, 1) });
+      const items = this.items.map((i) => ({ Modified: '2026-10-20T08:00:00Z', ...i }));
+      return this._respond(200, { value: match ? items.filter((i) => i.Title === match[1]).slice(0, 1) : items });
+    }
+    if (path === '/EffectiveBasePermissions') {
+      return this._respond(200, { High: '0', Low: this.managesLists ? '4294967295' : '27' });
     }
     return this._respond(200, { Id: 'list' });
   }

@@ -1,12 +1,14 @@
 import * as React from 'react';
 
 import { findIsland, findModule } from '../core/content/bundle';
+import { AdminSource } from '../core/admin/source';
 import { ContentBundle, Localized } from '../core/content/types';
 import { FeedbackSender } from '../core/feedback/feedback';
 import { Lang, localize } from '../core/i18n/locale';
 import { earnedSouvenirs } from '../core/progress/achievements';
 import { initialState, Outcome, PlayerState, updateProfile } from '../core/progress/state';
 import { ProgressStore } from '../core/progress/store';
+import { AdminView } from './components/AdminView';
 import { CheatSheet } from './components/CheatSheet';
 import { ContactNote } from './components/ContactNote';
 import { FeedbackPanel } from './components/FeedbackPanel';
@@ -38,6 +40,8 @@ export interface AppProps {
   theme?: Theme;
   /** Where feedback goes; without it the app points to the contact address. */
   feedback?: FeedbackSender;
+  /** Evaluation data; only given to people who may see every entry. */
+  admin?: AdminSource;
 }
 
 interface Toast {
@@ -164,13 +168,24 @@ export function App(props: AppProps): React.ReactElement {
     }
     if (view.name === 'passport') return t(theme.terms.passport);
     if (view.name === 'cheatsheet') return strings.cheatsheet;
+    if (view.name === 'admin') return strings.adminTitle;
     return strings.pageHome;
   })();
   const openFeedback = (): void => {
     setHelpOpen(false);
     setFeedbackOpen(true);
   };
-  const navActive = helpOpen ? 'help' : settingsOpen ? 'settings' : view.name === 'passport' ? 'passport' : view.name === 'cheatsheet' ? 'cheatsheet' : 'journey';
+  const navActive = helpOpen
+    ? 'help'
+    : settingsOpen
+      ? 'settings'
+      : view.name === 'passport'
+        ? 'passport'
+        : view.name === 'cheatsheet'
+          ? 'cheatsheet'
+          : view.name === 'admin'
+            ? 'admin'
+            : 'journey';
   // The tour explains the start screen, so it waits until the player is there and nothing else is open.
   const showTour = onboarded && !player.profile.toured && view.name === 'map' && !helpOpen && !settingsOpen && !feedbackOpen && rankUp === undefined;
   const finishTour = (): void => {
@@ -189,6 +204,7 @@ export function App(props: AppProps): React.ReactElement {
   else if (view.name === 'module') main = <ModulePlayer key={view.moduleId} moduleId={view.moduleId} />;
   else if (view.name === 'passport') main = <Passport />;
   else if (view.name === 'cheatsheet') main = <CheatSheet />;
+  else if (view.name === 'admin' && props.admin) main = <AdminView source={props.admin} />;
   else main = <Home />;
 
   return (
@@ -199,7 +215,7 @@ export function App(props: AppProps): React.ReactElement {
         <Header onOpenSettings={() => setSettingsOpen(true)} onOpenHelp={() => setHelpOpen(true)} />
         <main className={styles.main}>{main}</main>
         <ContactNote onFeedback={openFeedback} />
-        {onboarded && <NavBar onOpenHelp={() => setHelpOpen(true)} onOpenSettings={() => setSettingsOpen(true)} active={navActive} />}
+        {onboarded && <NavBar onOpenHelp={() => setHelpOpen(true)} onOpenSettings={() => setSettingsOpen(true)} admin={!!props.admin} active={navActive} />}
         {settingsOpen && <Settings onClose={() => setSettingsOpen(false)} onReset={reset} onRestartTour={restartTour} />}
         {helpOpen && <HelpPanel onClose={() => setHelpOpen(false)} onFeedback={openFeedback} />}
         {feedbackOpen && <FeedbackPanel sender={props.feedback} demo={props.storage === 'demo'} page={pageLabel} onClose={() => setFeedbackOpen(false)} />}

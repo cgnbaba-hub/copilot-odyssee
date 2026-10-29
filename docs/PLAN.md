@@ -222,7 +222,8 @@ Legende: 🤖 = setze ich um · 👤 = brauche ich von dir · 🏢 = IT oder Dat
 ### Phase 3: Lernanalyse
 
 - [ ] **AP 3.1 Event-Tracking** 🤖 – pseudonym, gemäss AP 0.2.
-- [ ] **AP 3.2 Dashboard in der App** 🤖 – Kennzahlen und Schulungsbedarf-Signale aus Abschnitt 5, für eine Admin-Gruppe. Kommt ohne Zusatzlizenz aus.
+- [x] **AP 3.2 Dashboard in der App** 🤖 – Kennzahlen und Schulungsbedarf-Signale aus Abschnitt 5, für eine Admin-Gruppe. Kommt ohne Zusatzlizenz aus.
+  *Stand:* Menüpunkt «Auswertung» für alle, die die Listen verwalten dürfen (Besitzer der Website): Teilnehmende, Aktivität, Fortschritt pro Insel und Etappe mit Hinweis auf Etappen, bei denen viele abbrechen, Bewertungen, Lizenzen, Bereiche, Use-Case-Potenzial und Feedback, dazu CSV-Export. Nur zusammengefasst, Gruppen unter 5 Personen werden nicht einzeln gezeigt.
 - [ ] **AP 3.3 Power-BI-Bericht** 🤖 – Vorlage für die wenigen Auswertenden mit Pro-Lizenz, für Verläufe und tiefere Analysen.
 - [ ] **AP 3.4 Use-Case-Bibliothek** 🤖 – Use Cases freiwillig und anonym teilen, mit Moderation. KollegInnen können sich gegenseitig inspirieren.
 

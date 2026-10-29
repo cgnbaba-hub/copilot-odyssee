@@ -6,6 +6,7 @@ import { langFromCulture } from '../core/i18n/locale';
 import { LocalStorageProgressStore } from '../core/progress/store';
 import { FeedbackEntry, FeedbackSender } from '../core/feedback/feedback';
 import { App } from '../ui/App';
+import { sampleAdminSource } from './sampleAdmin';
 
 /** In the demo, feedback only goes to the browser console. */
 const demoFeedback: FeedbackSender = {
@@ -27,6 +28,7 @@ ReactDom.render(
     showDrafts={true}
     storage="demo"
     feedback={demoFeedback}
+    admin={sampleAdminSource(content)}
   />,
   document.getElementById('root')
 );
