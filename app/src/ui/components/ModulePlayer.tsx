@@ -109,8 +109,11 @@ export function ModulePlayer(props: { moduleId: string }): React.ReactElement {
   return (
     <section className={styles.lesson} style={island ? ({ ['--od-island' as string]: island.color } as React.CSSProperties) : undefined}>
       <div className={styles.lessonTop}>
+        <button type="button" className={styles.pauseButton} onClick={() => navigate({ name: 'map' })} title={strings.pauseHint}>
+          <span aria-hidden="true">⌂</span> {strings.toStart}
+        </button>
         <button type="button" className={styles.pauseButton} onClick={backToIsland} title={strings.pauseHint}>
-          <span aria-hidden="true">✕</span> {strings.pause}
+          <span aria-hidden="true">←</span> {strings.toIsland}
         </button>
         <div className={styles.lessonProgress} role="progressbar" aria-valuemin={0} aria-valuemax={total} aria-valuenow={Math.min(index, total)} aria-label={format(strings.stepOf, { current, total })}>
           <div className={styles.lessonProgressFill} style={{ width: `${percent}%` }}>
