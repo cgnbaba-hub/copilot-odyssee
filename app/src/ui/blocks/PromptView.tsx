@@ -92,7 +92,13 @@ export function PromptView(props: BlockViewProps<PromptBlock>): React.ReactEleme
       )}
 
       <div className={styles.actionBar}>
-        <button type="button" className={`${feedback && !improveFirst ? styles.button : styles.buttonPrimary} ${styles.buttonWide}`} disabled={text.trim().length === 0} onClick={evaluate}>
+        {text.trim().length === 0 && <p className={styles.actionHint}>{strings.hintWritePrompt}</p>}
+        <button
+          type="button"
+          className={`${feedback && !improveFirst ? styles.button : styles.buttonPrimary} ${styles.buttonWide}`}
+          disabled={text.trim().length === 0}
+          onClick={evaluate}
+        >
           {feedback ? strings.improvePrompt : strings.getFeedback}
         </button>
         {feedback && (

@@ -5,6 +5,7 @@ import { Block } from '../../core/content/types';
 import { finishModule, getModule, nextBlockIndex, startModule } from '../../core/progress/state';
 import { BriefingView } from '../blocks/BriefingView';
 import { MissionView } from '../blocks/MissionView';
+import { BlockKindIcon, blockKindNames } from '../blockKinds';
 import { APP_NAMES } from '../copilot';
 import { PromptView } from '../blocks/PromptView';
 import { QuizView } from '../blocks/QuizView';
@@ -13,9 +14,11 @@ import { Strings, format } from '../i18n/strings';
 import { useGame } from '../GameContext';
 import { islandProgress, nextStage } from '../progressHelpers';
 import styles from '../styles.module.scss';
-import { IslandArt, Ship } from './Art';
+import { IslandArt } from './Art';
 import { Confetti } from './Confetti';
 import { Guide } from './Guide';
+import { Loading } from './Loading';
+import { StageRoute } from './StageRoute';
 
 function BlockView(props: { moduleId: string; block: Block; onDone: () => void }): React.ReactElement {
   const { block } = props;
@@ -32,6 +35,15 @@ function BlockView(props: { moduleId: string; block: Block; onDone: () => void }
       return <UseCaseView moduleId={props.moduleId} block={block} onDone={props.onDone} />;
   }
 }
+
+/** Colour of the label that names the kind of step. */
+const KIND_CLASS: Record<Block['type'], string> = {
+  briefing: styles.kindBriefing,
+  quiz: styles.kindQuiz,
+  prompt: styles.kindPrompt,
+  mission: styles.kindMission,
+  usecase: styles.kindUseCase
+};
 
 function hintFor(strings: Strings, block: Block): string {
   switch (block.type) {
@@ -72,11 +84,10 @@ export function ModulePlayer(props: { moduleId: string }): React.ReactElement {
     }
   }, [done]);
 
-  if (!module || index === undefined) return <p className={styles.muted}>{strings.loading}</p>;
+  if (!module || index === undefined) return <Loading text={strings.loading} compact />;
   const island = findIsland(content, module.island);
   const total = module.blocks.length;
   const current = Math.min(index + 1, total);
-  const percent = Math.round((Math.min(index, total) / total) * 100);
   const backToIsland = (): void => navigate({ name: 'island', islandId: module.island });
 
   let doneView: React.ReactElement | undefined;
@@ -123,21 +134,6 @@ export function ModulePlayer(props: { moduleId: string }): React.ReactElement {
         <button type="button" className={styles.pauseButton} onClick={backToIsland} title={strings.pauseHint}>
           <span aria-hidden="true">←</span> {strings.toIsland}
         </button>
-        <div
-          className={styles.lessonProgress}
-          role="progressbar"
-          aria-valuemin={0}
-          aria-valuemax={total}
-          aria-valuenow={Math.min(index, total)}
-          aria-label={format(strings.stepOf, { current, total })}
-        >
-          <div className={styles.lessonProgressFill} style={{ width: `${percent}%` }}>
-            <Ship className={styles.lessonShip} />
-          </div>
-        </div>
-        <span className={styles.lessonCount}>
-          {current}/{total}
-        </span>
       </div>
 
       <div className={styles.lessonHead}>
@@ -148,11 +144,17 @@ export function ModulePlayer(props: { moduleId: string }): React.ReactElement {
         </div>
       </div>
 
+      <StageRoute blocks={module.blocks} index={Math.min(index, total)} />
+
       {doneView || (
         <>
           <Guide text={hintFor(strings, module.blocks[index])} compact />
-          <p className={styles.stepCounter}>{format(strings.stepOf, { current, total })}</p>
           <div className={styles.lessonCard}>
+            <p className={`${styles.blockKind} ${KIND_CLASS[module.blocks[index].type]}`}>
+              <BlockKindIcon type={module.blocks[index].type} />
+              <span>{blockKindNames(strings, module.blocks[index].type).long}</span>
+              <span className={styles.blockKindCount}>{format(strings.stepOf, { current, total })}</span>
+            </p>
             <BlockView key={module.blocks[index].id} moduleId={module.id} block={module.blocks[index]} onDone={() => setIndex(index + 1)} />
           </div>
         </>

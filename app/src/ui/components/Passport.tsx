@@ -1,6 +1,7 @@
 import * as React from 'react';
 
-import { sortedIslands } from '../../core/content/bundle';
+import { modulesOfIsland, sortedIslands } from '../../core/content/bundle';
+import { moduleStatus } from '../../core/progress/state';
 import { earnedSouvenirs, passportStamps, SOUVENIR_IDS } from '../../core/progress/achievements';
 import { formatDate, formatNumber } from '../format';
 import { format } from '../i18n/strings';
@@ -19,6 +20,14 @@ export function Passport(): React.ReactElement {
   const rank = rankProgress(theme, player.xp);
   const islands = sortedIslands(content);
   const stagesDone = Object.keys(player.modules).filter((id) => player.modules[id].completed > 0).length;
+  // Islands with at least one stage done or started, but no stamp yet.
+  const underway = islands
+    .map((island) => {
+      const modules = modulesOfIsland(content, island.id, { showDrafts });
+      const statuses = modules.map((m) => moduleStatus(player, m));
+      return { island, total: modules.length, completed: statuses.filter((x) => x === 'completed').length, started: statuses.some((x) => x !== 'new') };
+    })
+    .filter((row) => row.started && row.completed < row.total);
 
   return (
     <section className={styles.panel}>
@@ -47,6 +56,34 @@ export function Passport(): React.ReactElement {
             <dt>{strings.statsUseCases}</dt>
             <dd>{player.useCases.length}</dd>
           </dl>
+          <div className={styles.passportRank}>
+            <span className={styles.passportRankBar} aria-hidden="true">
+              <span style={{ width: `${rank.percent}%` }} />
+            </span>
+            <span>
+              {rank.next ? format(strings.toNextRank, { xp: formatNumber(lang, rank.xpToNext), xpName: t(theme.terms.xp), rank: t(rank.next) }) : strings.passportTopRank}
+            </span>
+          </div>
+          <div className={styles.passportUnderway}>
+            <p className={styles.passportPageTitle}>{strings.passportUnderway}</p>
+            {underway.length === 0 ? (
+              <p className={styles.passportUnderwayEmpty}>{strings.passportUnderwayEmpty}</p>
+            ) : (
+              <ul>
+                {underway.map((row) => (
+                  <li key={row.island.id} style={{ ['--od-island' as string]: row.island.color } as React.CSSProperties}>
+                    <button type="button" onClick={() => navigate({ name: 'island', islandId: row.island.id })}>
+                      <span className={styles.passportUnderwayName}>{t(row.island.name)}</span>
+                      <span className={styles.passportUnderwayBar} aria-hidden="true">
+                        <span style={{ width: `${Math.round((row.completed / row.total) * 100)}%` }} />
+                      </span>
+                      <span className={styles.passportUnderwayCount}>{format(strings.deckStagesDone, { done: row.completed, total: row.total })}</span>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
           <p className={styles.passportMrz} aria-hidden="true">
             {`P<CHEODYSSEE<<${t(rank.rank)
               .toUpperCase()

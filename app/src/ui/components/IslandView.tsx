@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import { findIsland, moduleLicense, modulesOfIsland, sortedIslands } from '../../core/content/bundle';
 import { moduleStatus } from '../../core/progress/state';
+import { BlockKindIcon, blockKindNames } from '../blockKinds';
 import { format } from '../i18n/strings';
 import { useGame } from '../GameContext';
 import { islandProgress, isPreview } from '../progressHelpers';
@@ -28,13 +29,21 @@ export function IslandView(props: { islandId: string }): React.ReactElement {
 
   return (
     <section className={styles.islandPage} style={{ ['--od-island' as string]: island.color } as React.CSSProperties}>
-      <header className={styles.islandBand} style={{ background: mixColor(island.color, '#1a2940', 0.45) }}>
+      <header
+        className={styles.islandBand}
+        style={{ ['--od-sky' as string]: mixColor(island.color, '#1a2940', 0.5), ['--od-sky-low' as string]: mixColor(island.color, '#1a2940', 0.2) } as React.CSSProperties}
+      >
         <button type="button" className={styles.islandBack} onClick={() => navigate({ name: 'map' })}>
           ← {strings.backToDeck}
         </button>
         <svg className={styles.islandBandArt} viewBox="-180 -190 360 230" aria-hidden="true">
+          <g className={styles.islandBandRays}>
+            {Array.from({ length: 12 }, (_, i) => (
+              <path key={i} d="M0 -60 L-14 -230 L14 -230 Z" fill="#fbf6e8" opacity="0.13" transform={`rotate(${i * 30} 0 -60)`} />
+            ))}
+          </g>
           <circle cx="0" cy="-60" r="98" fill="#f2b13a" />
-          <rect x="-180" y="0" width="360" height="40" fill="#1f5f8b" />
+          <circle cx="0" cy="-60" r="80" fill="none" stroke="#fbf6e8" strokeWidth="3" opacity="0.35" />
           <PosterIsland landmark={island.landmark} color={island.color} flag={done} />
         </svg>
         <div className={styles.islandBandText}>
@@ -43,8 +52,24 @@ export function IslandView(props: { islandId: string }): React.ReactElement {
           </p>
           <h1 className={styles.islandBandTitle}>{t(island.name)}</h1>
           <p>{t(island.summary)}</p>
-          <LicenseChip license={island.license} />
+          <div className={styles.islandBandFacts}>
+            <LicenseChip license={island.license} />
+            {modules.length > 0 && (
+              <span className={styles.islandBandProgress}>
+                <span className={styles.islandBandDots} aria-hidden="true">
+                  {modules.map((m) => (
+                    <i key={m.id} className={moduleStatus(player, m) === 'completed' ? styles.dotDone : moduleStatus(player, m) === 'inProgress' ? styles.dotHalf : undefined} />
+                  ))}
+                </span>
+                {format(strings.deckStagesDone, { done: progress.completed, total: progress.total })}
+              </span>
+            )}
+          </div>
         </div>
+        <svg className={styles.islandBandSea} viewBox="0 0 400 24" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0 10 Q25 2 50 10 T100 10 T150 10 T200 10 T250 10 T300 10 T350 10 T400 10 V24 H0 Z" fill="#1f5f8b" />
+          <path d="M0 16 Q25 9 50 16 T100 16 T150 16 T200 16 T250 16 T300 16 T350 16 T400 16" fill="none" stroke="#fbf6e8" strokeWidth="1.6" opacity="0.5" />
+        </svg>
       </header>
 
       <div className={styles.islandBody}>
@@ -68,6 +93,17 @@ export function IslandView(props: { islandId: string }): React.ReactElement {
                     </p>
                     <h3 className={styles.ticketTitle}>{t(m.title)}</h3>
                     <p className={styles.ticketSummary}>{t(m.summary)}</p>
+                    <ul className={styles.ticketKinds} aria-label={strings.ticketContains}>
+                      {m.blocks
+                        .map((b) => b.type)
+                        .filter((type, i, all) => all.indexOf(type) === i)
+                        .map((type) => (
+                          <li key={type}>
+                            <BlockKindIcon type={type} />
+                            {blockKindNames(strings, type).short}
+                          </li>
+                        ))}
+                    </ul>
                     <p className={styles.ticketMeta}>
                       <span>{format(strings.aboutMinutes, { minutes: m.estimatedMinutes })}</span>
                       {status === 'inProgress' && <span>{strings.statusInProgress}</span>}

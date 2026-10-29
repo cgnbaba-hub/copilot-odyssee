@@ -248,7 +248,7 @@ export function PosterIsland(props: { landmark?: Landmark; color: string; flag?:
 }
 
 /** A sailing boat seen from the side, drawn around (0, 0) on the waterline. */
-function Sailboat(): React.ReactElement {
+export function Sailboat(): React.ReactElement {
   return (
     <g>
       <path d="M-46 -6 L46 -6 L34 14 L-34 14 Z" fill="#6b4228" stroke={INK} strokeWidth="2.5" strokeLinejoin="round" />

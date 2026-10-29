@@ -110,6 +110,7 @@ export function MissionView(props: BlockViewProps<MissionBlock>): React.ReactEle
       </fieldset>
 
       <div className={styles.actionBar}>
+        {rating === undefined && <p className={styles.actionHint}>{strings.hintRateFirst}</p>}
         <button
           type="button"
           className={`${styles.buttonPrimary} ${styles.buttonWide}`}
