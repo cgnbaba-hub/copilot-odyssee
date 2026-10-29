@@ -17,12 +17,6 @@ export interface GuideDef {
 
 export const GUIDES: GuideDef[] = [
   {
-    id: 'moewe',
-    name: { de: 'Mira', en: 'Mira' },
-    kind: { de: 'Möwe', en: 'Seagull' },
-    why: { de: 'Möwen sind immer dort, wo Schiffe sind, und sehen von oben, wo es langgeht.', en: 'Seagulls are always where ships are and see from above where to go.' }
-  },
-  {
     id: 'adler',
     name: { de: 'Aetos', en: 'Aetos' },
     kind: { de: 'Adler des Zeus', en: 'Eagle of Zeus' },
@@ -30,6 +24,12 @@ export const GUIDES: GuideDef[] = [
       de: 'Der Adler ist das Tier des Zeus, des obersten Gottes. Er behält aus grosser Höhe den Überblick.',
       en: 'The eagle is the animal of Zeus, king of the gods. From high above it keeps the overview.'
     }
+  },
+  {
+    id: 'moewe',
+    name: { de: 'Mira', en: 'Mira' },
+    kind: { de: 'Möwe', en: 'Seagull' },
+    why: { de: 'Möwen sind immer dort, wo Schiffe sind, und sehen von oben, wo es langgeht.', en: 'Seagulls are always where ships are and see from above where to go.' }
   },
   {
     id: 'delfin',
@@ -48,7 +48,7 @@ export const GUIDES: GuideDef[] = [
   }
 ];
 
-export const DEFAULT_GUIDE = 'moewe';
+export const DEFAULT_GUIDE = 'adler';
 
 export function guideById(id: string | undefined): GuideDef {
   return GUIDES.filter((g) => g.id === id)[0] || GUIDES.filter((g) => g.id === DEFAULT_GUIDE)[0];

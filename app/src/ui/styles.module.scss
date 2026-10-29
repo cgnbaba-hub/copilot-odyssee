@@ -3183,7 +3183,93 @@ $grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width=
 }
 
 .deckParallax {
-  transition: transform 1.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: transform 1.6s cubic-bezier(0.45, 0.05, 0.25, 1);
+}
+
+.deckWorld {
+  transform-box: view-box;
+  transform-origin: 500px 600px;
+}
+
+// Two copies per direction, so every click restarts the lean of the horizon.
+.deckTiltLeft {
+  animation: odTiltLeft 1.4s ease-in-out;
+}
+.deckTiltLeftB {
+  animation: odTiltLeftB 1.4s ease-in-out;
+}
+.deckTiltRight {
+  animation: odTiltRight 1.4s ease-in-out;
+}
+.deckTiltRightB {
+  animation: odTiltRightB 1.4s ease-in-out;
+}
+
+@keyframes odTiltLeft {
+  35% {
+    transform: rotate(2deg) translateY(-4px);
+  }
+  75% {
+    transform: rotate(-0.6deg);
+  }
+}
+@keyframes odTiltLeftB {
+  35% {
+    transform: rotate(2deg) translateY(-4px);
+  }
+  75% {
+    transform: rotate(-0.6deg);
+  }
+}
+@keyframes odTiltRight {
+  35% {
+    transform: rotate(-2deg) translateY(-4px);
+  }
+  75% {
+    transform: rotate(0.6deg);
+  }
+}
+@keyframes odTiltRightB {
+  35% {
+    transform: rotate(-2deg) translateY(-4px);
+  }
+  75% {
+    transform: rotate(0.6deg);
+  }
+}
+
+.deckStreak {
+  animation: odStreak 1.2s ease-out forwards;
+}
+
+@keyframes odStreak {
+  0% {
+    opacity: 0;
+    transform: translateX(0);
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(var(--od-dx));
+  }
+}
+
+.deckBirds {
+  animation: odBirds 1.6s ease-in-out forwards;
+}
+
+@keyframes odBirds {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(calc(var(--od-bx) / 2), -18px);
+  }
+  100% {
+    transform: translate(var(--od-bx), 6px);
+  }
 }
 
 .deckCloud {
@@ -3199,13 +3285,13 @@ $grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width=
 .deckIslands {
   transform-box: view-box;
   transform-origin: 500px 350px;
-  transition: transform 0.6s ease-in, opacity 0.6s ease-in;
+  transition: transform 0.75s ease-in, opacity 0.75s ease-in;
 }
 
 .deckIsland {
   transform-box: view-box;
   transform-origin: 0 0;
-  transition: transform 0.9s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.9s;
+  transition: transform 1.35s cubic-bezier(0.45, 0.05, 0.25, 1), opacity 1.1s ease;
 
   :global(.od-sails) {
     transform-box: fill-box;
@@ -3252,16 +3338,16 @@ $grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width=
 
 // Two copies per direction, so every click restarts the roll.
 .deckSwayLeft {
-  animation: odRollLeft 1s ease-in-out;
+  animation: odRollLeft 1.4s ease-in-out;
 }
 .deckSwayLeftB {
-  animation: odRollLeftB 1s ease-in-out;
+  animation: odRollLeftB 1.4s ease-in-out;
 }
 .deckSwayRight {
-  animation: odRollRight 1s ease-in-out;
+  animation: odRollRight 1.4s ease-in-out;
 }
 .deckSwayRightB {
-  animation: odRollRightB 1s ease-in-out;
+  animation: odRollRightB 1.4s ease-in-out;
 }
 
 @keyframes odBob {
@@ -3270,23 +3356,35 @@ $grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width=
   }
 }
 @keyframes odRollLeft {
-  40% {
-    transform: rotate(-1.6deg) translateY(2px);
+  35% {
+    transform: rotate(-3deg) translateY(4px);
+  }
+  75% {
+    transform: rotate(0.8deg);
   }
 }
 @keyframes odRollLeftB {
-  40% {
-    transform: rotate(-1.6deg) translateY(2px);
+  35% {
+    transform: rotate(-3deg) translateY(4px);
+  }
+  75% {
+    transform: rotate(0.8deg);
   }
 }
 @keyframes odRollRight {
-  40% {
-    transform: rotate(1.6deg) translateY(2px);
+  35% {
+    transform: rotate(3deg) translateY(4px);
+  }
+  75% {
+    transform: rotate(-0.8deg);
   }
 }
 @keyframes odRollRightB {
-  40% {
-    transform: rotate(1.6deg) translateY(2px);
+  35% {
+    transform: rotate(3deg) translateY(4px);
+  }
+  75% {
+    transform: rotate(-0.8deg);
   }
 }
 
@@ -3303,17 +3401,20 @@ $grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width=
 }
 
 .deckSplash {
-  animation: odSplash 0.9s ease-out forwards;
+  animation: odSplash 1.1s ease-out forwards;
 }
 
 @keyframes odSplash {
-  from {
-    opacity: 0.95;
-    transform: translateY(0);
-  }
-  to {
+  0% {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(10px);
+  }
+  20% {
+    opacity: 0.95;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-14px);
   }
 }
 
@@ -3822,7 +3923,15 @@ $grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width=
 
 // Island page
 
+@keyframes odArrive {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
 .islandPage {
+  animation: odArrive 0.5s ease-out;
   overflow: hidden;
   background: var(--od-surface);
   border: 2.5px solid $ink;
@@ -4206,11 +4315,23 @@ $grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width=
     animation: none !important;
   }
 
-  .deckIsland,
   .deckIslands,
   .deckParallax,
   .deckBow {
     transition: none !important;
+  }
+
+  // With reduced motion the islands still glide, but briefly and without the extra effects.
+  .deckIsland {
+    transition: transform 0.45s ease, opacity 0.45s ease !important;
+  }
+
+  .islandPage,
+  .deckTiltLeft,
+  .deckTiltLeftB,
+  .deckTiltRight,
+  .deckTiltRightB {
+    animation: none !important;
   }
 }
 
