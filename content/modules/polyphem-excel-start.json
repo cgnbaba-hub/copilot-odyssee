@@ -6,7 +6,7 @@
   "version": "1.0.0",
   "owner": "copilot-team",
   "status": "draft",
-  "reviewedAt": "2026-10-28",
+  "reviewedAt": "2026-10-29",
   "reviewIntervalDays": 180,
   "title": {
     "de": "Erste Analysen in Excel",
@@ -17,7 +17,7 @@
     "en": "What Copilot in Excel needs, what it can do and how to request a good analysis."
   },
   "estimatedMinutes": 10,
-  "notes": "Überarbeitet: Prototyp-Frage 5 und Prompt-Challenge 3 behalten, neues Briefing, Frage und Mission. Stand Oktober 2026: Copilot in Excel arbeitet mit Dateien in OneDrive oder SharePoint am zuverlässigsten, Daten als Tabelle helfen; Copilot kann Änderungen direkt in der Mappe ausführen (Bearbeitungsmodus, seit April 2026 Standard). Die frühere Funktion =COPILOT() ist eingestellt und wird deshalb nicht erwähnt.",
+  "notes": "Überarbeitet: Prototyp-Frage 5 und Prompt-Challenge 3 behalten, neues Briefing, Frage und Mission. Stand Oktober 2026: Copilot in Excel arbeitet mit Dateien in OneDrive oder SharePoint am zuverlässigsten, Daten als Tabelle helfen; Copilot kann Änderungen direkt in der Mappe ausführen (Bearbeitungsmodus, seit April 2026 Standard). Die frühere Funktion =COPILOT() ist eingestellt und wird deshalb nicht erwähnt. Laut Praxisprüfung reicht .xlsx oder .csv; OneDrive und Tabelle nur noch als Tipp bei Problemen. Praxisprüfung 29.10.2026 mit Premium- und Basic-Konto bei DERTOUR Suisse.",
   "blocks": [
     {
       "type": "briefing",
@@ -27,8 +27,8 @@
         "en": "Before you start"
       },
       "body": {
-        "de": "Copilot in Excel findest du über das **Copilot-Symbol** im Menüband «Start». Damit er gut arbeitet:\n- **Speichere die Datei in OneDrive oder SharePoint**, sodass das automatische Speichern eingeschaltet ist.\n- **Formatiere deine Daten als Tabelle:** Klicke in die Daten und drücke **Strg + T**. Jede Spalte braucht eine klare Überschrift.\n\nDann kann Copilot:\n- Fragen zu deinen Daten beantworten und Auffälligkeiten zeigen\n- Formeln vorschlagen und erklären\n- sortieren, filtern und Zeilen hervorheben\n- Diagramme und PivotTables erstellen\n\nCopilot kann die Änderungen direkt in der Mappe ausführen. Er beschreibt vorher, was er tut.",
-        "en": "You find Copilot in Excel via the **Copilot icon** in the “Home” ribbon. For it to work well:\n- **Save the file in OneDrive or SharePoint** so that AutoSave is on.\n- **Format your data as a table:** click into the data and press **Ctrl + T**. Every column needs a clear heading.\n\nThen Copilot can:\n- answer questions about your data and point out patterns\n- suggest and explain formulas\n- sort, filter and highlight rows\n- create charts and PivotTables\n\nCopilot can make the changes directly in the workbook. It describes beforehand what it will do."
+        "de": "Copilot in Excel findest du über das **Copilot-Symbol** im Menüband «Start». Die Datei muss als **.xlsx** oder **.csv** gespeichert sein.\n\nDamit Copilot deine Daten gut versteht:\n- **Jede Spalte braucht eine klare Überschrift**, zum Beispiel «Destination» statt «Spalte C».\n- **Reagiert Copilot nicht wie erwartet?** Speichere die Datei in OneDrive oder SharePoint und formatiere die Daten als Tabelle: Klicke in die Daten und drücke **Strg + T**.\n\nDann kann Copilot:\n- Fragen zu deinen Daten beantworten und Auffälligkeiten zeigen\n- Formeln vorschlagen und erklären\n- sortieren, filtern und Zeilen hervorheben\n- Diagramme und PivotTables erstellen\n\nCopilot kann die Änderungen direkt in der Mappe ausführen. Er beschreibt vorher, was er tut.",
+        "en": "You find Copilot in Excel via the **Copilot icon** in the “Home” ribbon. The file must be saved as **.xlsx** or **.csv**.\n\nSo that Copilot understands your data well:\n- **Every column needs a clear heading**, for example “Destination” instead of “Column C”.\n- **Copilot not reacting as expected?** Save the file in OneDrive or SharePoint and format the data as a table: click into the data and press **Ctrl + T**.\n\nThen Copilot can:\n- answer questions about your data and point out patterns\n- suggest and explain formulas\n- sort, filter and highlight rows\n- create charts and PivotTables\n\nCopilot can make the changes directly in the workbook. It describes beforehand what it will do."
       }
     },
     {
@@ -90,13 +90,13 @@
         {
           "id": "a",
           "text": {
-            "de": "Die Datei in OneDrive oder SharePoint speichern und die Daten als Tabelle formatieren",
-            "en": "Save the file in OneDrive or SharePoint and format the data as a table"
+            "de": "Prüfen, ob die Datei als .xlsx gespeichert ist, und klare Spaltenüberschriften setzen",
+            "en": "Check that the file is saved as .xlsx and give the columns clear headings"
           },
           "correct": true,
           "explanation": {
-            "de": "Genau. Mit gespeicherter Datei und klarer Tabelle versteht Copilot deine Daten am besten.",
-            "en": "Exactly. With a saved file and a clear table, Copilot understands your data best."
+            "de": "Genau. Mit dem richtigen Format und klaren Überschriften versteht Copilot deine Daten am besten. Hilft das nicht, speichere die Datei in OneDrive und formatiere die Daten als Tabelle.",
+            "en": "Exactly. With the right format and clear headings, Copilot understands your data best. If that does not help, save the file in OneDrive and format the data as a table."
           }
         },
         {
@@ -107,8 +107,8 @@
           },
           "correct": false,
           "explanation": {
-            "de": "Meist liegt es nicht an Excel, sondern an Speicherort und Aufbau der Daten.",
-            "en": "It is usually not Excel, but where the file is saved and how the data is laid out."
+            "de": "Meist liegt es nicht an Excel, sondern an Dateiformat und Aufbau der Daten.",
+            "en": "Usually it is not Excel, but the file format and how the data is laid out."
           }
         },
         {

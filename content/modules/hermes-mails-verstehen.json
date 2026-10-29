@@ -6,18 +6,18 @@
   "version": "1.0.0",
   "owner": "copilot-team",
   "status": "draft",
-  "reviewedAt": "2026-10-28",
+  "reviewedAt": "2026-10-29",
   "reviewIntervalDays": 180,
   "title": {
     "de": "Mails verstehen und beantworten",
     "en": "Understanding and answering emails"
   },
   "summary": {
-    "de": "Lange Mails zusammenfassen und Antworten entwerfen, direkt in Outlook. Geht mit beiden Versionen.",
-    "en": "Summarise long emails and draft replies right in Outlook. Works with both versions."
+    "de": "Lange Mails zusammenfassen und Antworten vorbereiten, direkt in Outlook. Geht mit beiden Versionen.",
+    "en": "Summarise long emails and prepare replies, right in Outlook. Works with both versions."
   },
   "estimatedMinutes": 10,
-  "notes": "Neuer Inhalt. Stand Oktober 2026: Copilot Chat in Outlook bleibt auch ohne Lizenz verfügbar (MC1253858/MC1253863) und bezieht sich auf die geöffnete Mail; Markieren begrenzt auf den markierten Text (Release Notes Februar 2026). Ob Basic in eurem Tenant auch über das ganze Postfach antwortet, ist je nach Rollout unterschiedlich, deshalb bewusst nicht versprochen. Knopf-Bezeichnungen bewusst allgemein gehalten, da sie sich zwischen neuem Outlook, klassischem Outlook und Web unterscheiden.",
+  "notes": "Neuer Inhalt. Stand Oktober 2026: Copilot Chat in Outlook bleibt auch ohne Lizenz verfügbar (MC1253858/MC1253863) und bezieht sich auf die geöffnete Mail; Markieren begrenzt auf den markierten Text (Release Notes Februar 2026). Ob Basic in eurem Tenant auch über das ganze Postfach antwortet, ist je nach Rollout unterschiedlich, deshalb bewusst nicht versprochen. Knopf-Bezeichnungen bewusst allgemein gehalten, da sie sich zwischen neuem Outlook, klassischem Outlook und Web unterscheiden. Praxisprüfung 29.10.2026 mit Premium- und Basic-Konto bei DERTOUR Suisse.",
   "blocks": [
     {
       "type": "briefing",
@@ -27,8 +27,8 @@
         "en": "Copilot in Outlook"
       },
       "body": {
-        "de": "In Outlook ist Copilot mit **beiden Versionen** dabei. Du erkennst ihn am **Copilot-Symbol**, je nach Outlook im Menüband oder oben in der geöffneten Mail.\n\nSo arbeitest du damit:\n- **Öffne eine Mail** und frag Copilot dazu, zum Beispiel: «Fasse diese Mail in drei Stichpunkten zusammen.»\n- **Lass eine Antwort entwerfen:** «Entwirf eine freundliche Antwort und bestätige den Termin.»\n- **Markierst du einen Teil** der Mail, arbeitet Copilot nur mit diesem Teil.\n\nCopilot schreibt nur **Entwürfe**. Senden tust immer du.",
-        "en": "Copilot is available in Outlook with **both versions**. You recognise it by the **Copilot icon**, in the ribbon or at the top of the open email, depending on your Outlook.\n\nHow to work with it:\n- **Open an email** and ask Copilot about it, for example: “Summarise this email in three bullet points.”\n- **Have a reply drafted:** “Draft a friendly reply and confirm the appointment.”\n- **If you highlight part** of the email, Copilot only works with that part.\n\nCopilot only writes **drafts**. You always do the sending."
+        "de": "In Outlook ist Copilot mit **beiden Versionen** dabei. Wo genau, hängt von deinem Outlook ab:\n- Im **neuen Outlook** steht über einer geöffneten Mail **«Zusammenfassung durch Copilot»**. Ganz rechts im Menüband öffnet der Knopf **«Copilot»** einen Bereich an der Seite. Dort chattest du mit Copilot über die geöffnete Mail.\n- Im **klassischen Outlook** sieht es etwas anders aus. Achte auf das bunte **Copilot-Symbol** im Menüband.\n\nSo arbeitest du damit:\n- **Öffne eine Mail** und frag Copilot dazu, zum Beispiel: «Fasse diese Mail in drei Stichpunkten zusammen.»\n- **Lass dir eine Antwort vorschlagen:** «Schreib eine freundliche Antwort und bestätige den Termin.» Mit **Basic** schreibt Copilot den Text im Seitenbereich, und du kopierst ihn in deine Antwort. Einen Entwurf direkt im Antwortfenster gibt es nur mit **Premium**.\n- **Markierst du einen Teil** der Mail, arbeitet Copilot nur mit diesem Teil.\n\nCopilot sendet nie selbst. Senden tust immer du.",
+        "en": "Copilot is available in Outlook with **both versions**. Where exactly depends on your Outlook:\n- In the **new Outlook**, **“Summary by Copilot”** appears above an open email. The **“Copilot”** button at the far right of the ribbon opens a side pane. There you chat with Copilot about the open email.\n- In **classic Outlook** it looks a little different. Look for the colourful **Copilot icon** in the ribbon.\n\nHow to work with it:\n- **Open an email** and ask Copilot about it, for example: “Summarise this email in three bullet points.”\n- **Have a reply suggested:** “Write a friendly reply and confirm the appointment.” With **Basic**, Copilot writes the text in the side pane and you copy it into your reply. A draft directly in the reply window is only available with **Premium**.\n- **If you highlight part** of the email, Copilot only works with that part.\n\nCopilot never sends anything itself. You always do the sending."
       }
     },
     {
@@ -43,13 +43,13 @@
         {
           "id": "a",
           "text": {
-            "de": "Die Mail zusammenfassen und einen Antwortentwurf schreiben",
-            "en": "Summarise the email and write a draft reply"
+            "de": "Die Mail zusammenfassen und einen Antworttext vorschlagen",
+            "en": "Summarise the email and suggest a reply text"
           },
           "correct": true,
           "explanation": {
-            "de": "Genau. Das geht mit beiden Versionen. Den Entwurf prüfst und sendest du selbst.",
-            "en": "Exactly. This works with both versions. You check and send the draft yourself."
+            "de": "Genau. Das geht mit beiden Versionen. Mit Basic kopierst du den Text in deine Antwort, mit Premium entsteht der Entwurf direkt im Antwortfenster.",
+            "en": "Exactly. This works with both versions. With Basic you copy the text into your reply, with Premium the draft appears directly in the reply window."
           }
         },
         {
@@ -60,8 +60,8 @@
           },
           "correct": false,
           "explanation": {
-            "de": "Copilot sendet nichts in deinem Namen. Er schreibt Entwürfe, du entscheidest.",
-            "en": "Copilot sends nothing on your behalf. It writes drafts, you decide."
+            "de": "Copilot sendet nichts in deinem Namen. Er schlägt Text vor, du entscheidest.",
+            "en": "Copilot does not send anything on your behalf. It suggests text, you decide."
           }
         },
         {
@@ -108,16 +108,16 @@
         "en": "A letter for Hermes"
       },
       "task": {
-        "de": "Öffne in Outlook eine längere Mail, die du ohnehin beantworten musst. Lass Copilot sie zusammenfassen und eine Antwort entwerfen. Passe den Entwurf an, bevor du ihn sendest.",
-        "en": "Open a longer email in Outlook that you have to answer anyway. Have Copilot summarise it and draft a reply. Adjust the draft before you send it."
+        "de": "Öffne in Outlook eine längere Mail, die du ohnehin beantworten musst. Lass Copilot sie zusammenfassen und eine Antwort vorschlagen. Übernimm den Text in deine Antwort und passe ihn an, bevor du sendest.",
+        "en": "Open a longer email in Outlook that you need to answer anyway. Let Copilot summarise it and suggest a reply. Put the text into your reply and adjust it before you send."
       },
       "tip": {
         "de": "Siehst du kein Copilot-Symbol? Dann schau in der Hilfe unter «Wo finde ich Copilot in Outlook, Word und Co.?».",
         "en": "No Copilot icon? See “Where do I find Copilot in Outlook, Word and the like?” in the help."
       },
       "copyText": {
-        "de": "Fasse diese Mail in drei Stichpunkten zusammen. Entwirf danach eine kurze, freundliche Antwort in Schweizer Hochdeutsch, ohne Eszett.",
-        "en": "Summarise this email in three bullet points. Then draft a short, friendly reply."
+        "de": "Fasse diese Mail in drei Stichpunkten zusammen. Schreib danach eine kurze, freundliche Antwort in Schweizer Hochdeutsch, ohne Eszett.",
+        "en": "Summarise this email in three bullet points. Then write a short, friendly reply."
       },
       "app": "outlook"
     },

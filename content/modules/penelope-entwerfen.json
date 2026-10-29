@@ -6,7 +6,7 @@
   "version": "1.0.0",
   "owner": "copilot-team",
   "status": "draft",
-  "reviewedAt": "2026-10-28",
+  "reviewedAt": "2026-10-29",
   "reviewIntervalDays": 180,
   "title": {
     "de": "Entwerfen mit eigenen Dateien",
@@ -17,7 +17,7 @@
     "en": "Turn notes, emails and documents into a first draft, right in Word."
   },
   "estimatedMinutes": 10,
-  "notes": "Neuer Inhalt. Stand Oktober 2026: Copilot in Word entwirft auf Basis referenzierter Dateien («/» plus Dateiname); seit 2026 kann Copilot im Bearbeitungsmodus direkt im Dokument arbeiten (Fachpresse, Microsoft-Support). Mengengrenzen für referenzierte Dateien bewusst nicht genannt, da sie sich ändern.",
+  "notes": "Neuer Inhalt. Stand Oktober 2026: Copilot in Word entwirft auf Basis referenzierter Dateien («/» plus Dateiname); seit 2026 kann Copilot im Bearbeitungsmodus direkt im Dokument arbeiten (Fachpresse, Microsoft-Support). Mengengrenzen für referenzierte Dateien bewusst nicht genannt, da sie sich ändern. Praxisprüfung 29.10.2026 mit Premium- und Basic-Konto bei DERTOUR Suisse.",
   "blocks": [
     {
       "type": "briefing",
@@ -27,8 +27,8 @@
         "en": "Copilot in Word"
       },
       "body": {
-        "de": "In Word öffnest du Copilot über das **Copilot-Symbol** im Menüband «Start» oder am Rand eines leeren Dokuments.\n\nDas Wichtigste: **Gib Copilot deinen Rohstoff.** Tippe im Copilot-Feld **«/»** und dann die ersten Buchstaben eines Dateinamens. Copilot schlägt passende Dateien, Mails oder Meetings vor. So schreibt er auf Basis deiner Unterlagen statt aus allgemeinem Wissen.\n\nCopilot kann direkt im Dokument arbeiten. Damit du jede Änderung siehst:\n- Schalte unter «Überprüfen» die **Änderungsverfolgung** ein.\n- Nimm Änderungen an oder lehne sie ab.",
-        "en": "In Word you open Copilot via the **Copilot icon** in the “Home” ribbon or at the edge of an empty document.\n\nThe key point: **give Copilot your raw material.** In the Copilot box, type **“/”** and then the first letters of a file name. Copilot suggests matching files, emails or meetings. That way it writes based on your material instead of general knowledge.\n\nCopilot can work directly in the document. To see every change:\n- Turn on **Track Changes** under “Review”.\n- Accept or reject changes."
+        "de": "In Word öffnet sich Copilot **nicht von selbst**. Klicke im geöffneten Dokument **unten rechts auf das Copilot-Symbol**. Je nach Version findest du es auch im Menüband «Start».\n\nDas Wichtigste: **Gib Copilot deinen Rohstoff.** Tippe im Copilot-Feld **«/»** und dann die ersten Buchstaben eines Dateinamens. Copilot schlägt passende Dateien vor. So schreibt er auf Basis deiner Unterlagen statt aus allgemeinem Wissen. Das klappt auch in Copilot Chat ausserhalb von Word.\n\nCopilot kann direkt im Dokument arbeiten. Damit du jede Änderung siehst:\n- Schalte unter «Überprüfen» die **Änderungsverfolgung** ein.\n- Nimm Änderungen an oder lehne sie ab.",
+        "en": "In Word, Copilot does **not open by itself**. In the open document, click the **Copilot icon at the bottom right**. Depending on your version, it is also in the “Home” ribbon.\n\nThe key point: **give Copilot your raw material.** In the Copilot box, type **“/”** and then the first letters of a file name. Copilot suggests matching files. That way it writes based on your material instead of general knowledge. This also works in Copilot Chat outside Word.\n\nCopilot can work directly in the document. To see every change:\n- Turn on **Track Changes** under “Review”.\n- Accept or reject changes."
       }
     },
     {

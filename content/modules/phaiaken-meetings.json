@@ -6,7 +6,7 @@
   "version": "1.0.0",
   "owner": "copilot-team",
   "status": "draft",
-  "reviewedAt": "2026-10-28",
+  "reviewedAt": "2026-10-29",
   "reviewIntervalDays": 180,
   "title": {
     "de": "Copilot in Meetings",
@@ -17,7 +17,7 @@
     "en": "Keep track during meetings, catch up on what you missed and capture decisions and tasks afterwards."
   },
   "estimatedMinutes": 10,
-  "notes": "Überarbeitet: Prototyp-Frage 6 behalten, neue Briefings, Fragen, Werkstatt und Mission. Stand Oktober 2026 laut Microsoft-Support: Copilot im Meeting braucht in der Regel eine Transkription, ausser die organisierende Person erlaubt Copilot ohne Transkription (dann nur während des Meetings). Mit Bezug auf Transparenz gegenüber Teilnehmenden (Schweizer Datenschutz).",
+  "notes": "Überarbeitet: Prototyp-Frage 6 behalten, neue Briefings, Fragen, Werkstatt und Mission. Stand Oktober 2026 laut Microsoft-Support: Copilot im Meeting braucht in der Regel eine Transkription, ausser die organisierende Person erlaubt Copilot ohne Transkription (dann nur während des Meetings). Mit Bezug auf Transparenz gegenüber Teilnehmenden (Schweizer Datenschutz). Facilitator laut Praxisprüfung: nur in geplanten Meetings, in der Einladung (Outlook/Teams) aktivierbar. Praxisprüfung 29.10.2026 mit Premium- und Basic-Konto bei DERTOUR Suisse.",
   "blocks": [
     {
       "type": "briefing",
@@ -27,8 +27,8 @@
         "en": "Copilot in the meeting"
       },
       "body": {
-        "de": "In Teams-Meetings findest du Copilot über das **Copilot-Symbol** in der Meeting-Leiste. Du kannst ihn jederzeit fragen, nur du siehst die Antworten:\n- «Fasse zusammen, was bisher besprochen wurde.»\n- «Welche Fragen sind noch offen?»\n- «Wo sind wir uns nicht einig?»\n\nKommst du zu spät, bietet Copilot dir eine Zusammenfassung an. **Nach dem Meeting** findest du in der Zusammenfassung des Meetings Notizen und Aufgaben.\n\nDamit Copilot mitschreiben kann, läuft meistens eine **Transkription**. Die organisierende Person kann Copilot auch ohne Transkription erlauben. Dann hilft er nur während des Meetings.",
-        "en": "In Teams meetings you find Copilot via the **Copilot icon** in the meeting toolbar. You can ask it at any time, and only you see the answers:\n- “Summarise what has been discussed so far.”\n- “Which questions are still open?”\n- “Where do we disagree?”\n\nIf you join late, Copilot offers you a summary. **After the meeting** you find notes and tasks in the meeting recap.\n\nFor Copilot to follow along, a **transcript** is usually running. The organiser can also allow Copilot without a transcript. Then it only helps during the meeting."
+        "de": "In Teams-Meetings findest du Copilot über das **Copilot-Symbol** in der Meeting-Leiste. Du kannst ihn jederzeit fragen, nur du siehst die Antworten:\n- «Fasse zusammen, was bisher besprochen wurde.»\n- «Welche Fragen sind noch offen?»\n- «Wo sind wir uns nicht einig?»\n\nKommst du zu spät, bietet Copilot dir eine Zusammenfassung an. **Nach dem Meeting** findest du in der Zusammenfassung des Meetings Notizen und Aufgaben.\n\nDamit Copilot mitschreiben kann, läuft meistens eine **Transkription**. Die organisierende Person kann Copilot auch ohne Transkription erlauben. Dann hilft er nur während des Meetings.\n\n**Facilitator:** In **geplanten Meetings** kannst du zusätzlich den Facilitator dazuholen. Er schreibt für alle sichtbar Notizen mit und hält Entscheidungen und Aufgaben fest. Du schaltest ihn schon beim Planen in der **Einladung in Outlook oder Teams** ein oder holst ihn im laufenden Meeting dazu. In spontanen Meetings («Jetzt besprechen») gibt es ihn nicht.",
+        "en": "In Teams meetings you find Copilot via the **Copilot icon** in the meeting toolbar. You can ask it at any time, and only you see the answers:\n- “Summarise what has been discussed so far.”\n- “Which questions are still open?”\n- “Where do we disagree?”\n\nIf you join late, Copilot offers you a summary. **After the meeting** you find notes and tasks in the meeting recap.\n\nFor Copilot to follow along, a **transcript** is usually running. The organiser can also allow Copilot without a transcript. Then it only helps during the meeting.\n\n**Facilitator:** In **scheduled meetings** you can also bring in the Facilitator. It takes notes that everyone can see and captures decisions and tasks. You turn it on when you schedule the meeting, in the **invitation in Outlook or Teams**, or add it during the meeting. It is not available in ad-hoc meetings (“Meet now”)."
       }
     },
     {
@@ -180,6 +180,53 @@
           "explanation": {
             "de": "Alle sehen einen Hinweis, und heimliches Mitschreiben zerstört Vertrauen.",
             "en": "Everyone sees a notice, and secret recording destroys trust."
+          }
+        }
+      ]
+    },
+    {
+      "type": "quiz",
+      "id": "q-facilitator",
+      "difficulty": "intermediate",
+      "question": {
+        "de": "Du planst ein Projektmeeting und möchtest, dass für alle sichtbar Notizen und Aufgaben entstehen. Was tust du?",
+        "en": "You are scheduling a project meeting and want notes and tasks that everyone can see. What do you do?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "de": "In der Einladung den Facilitator einschalten",
+            "en": "Turn on the Facilitator in the invitation"
+          },
+          "correct": true,
+          "explanation": {
+            "de": "Genau. Beim Planen schaltest du ihn direkt in der Einladung ein.",
+            "en": "Exactly. You turn it on right in the invitation when scheduling."
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "de": "Ein spontanes Meeting starten und dort den Facilitator dazuholen",
+            "en": "Start an ad-hoc meeting and add the Facilitator there"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "In spontanen Meetings gibt es den Facilitator nicht. Plane das Meeting vorher.",
+            "en": "The Facilitator is not available in ad-hoc meetings. Schedule the meeting first."
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "de": "Nach dem Meeting alles aus dem Gedächtnis aufschreiben",
+            "en": "Write everything down from memory after the meeting"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Das geht, ist aber mühsam und ungenau. Der Facilitator schreibt während des Meetings mit.",
+            "en": "That works, but it is tedious and inaccurate. The Facilitator takes notes during the meeting."
           }
         }
       ]

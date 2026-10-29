@@ -6,7 +6,7 @@
   "version": "1.0.0",
   "owner": "copilot-team",
   "status": "draft",
-  "reviewedAt": "2026-10-28",
+  "reviewedAt": "2026-10-29",
   "reviewIntervalDays": 180,
   "title": {
     "de": "Präsentationen erstellen",
@@ -17,7 +17,7 @@
     "en": "Turn documents into presentations, in your company's design."
   },
   "estimatedMinutes": 10,
-  "notes": "Überarbeitet: Prototyp-Frage 7 und Prompt-Challenge 4 behalten, neues Briefing, Frage und Mission. Stand Oktober 2026: Copilot in PowerPoint erstellt Präsentationen aus Prompts oder Dateien («/»), nutzt Firmenvorlagen und, falls eingerichtet, ein Brand Kit (Microsoft-Support).",
+  "notes": "Überarbeitet: Prototyp-Frage 7 und Prompt-Challenge 4 behalten, neues Briefing, Frage und Mission. Stand Oktober 2026: Copilot in PowerPoint erstellt Präsentationen aus Prompts oder Dateien («/»), nutzt Firmenvorlagen und, falls eingerichtet, ein Brand Kit (Microsoft-Support). «Mit Copilot erstellen» in PowerPoint im Web bestätigt; Brand Kit in Arbeit. Praxisprüfung 29.10.2026 mit Premium- und Basic-Konto bei DERTOUR Suisse.",
   "blocks": [
     {
       "type": "briefing",
@@ -27,8 +27,8 @@
         "en": "Copilot in PowerPoint"
       },
       "body": {
-        "de": "In PowerPoint öffnest du Copilot über das **Copilot-Symbol** im Menüband «Start».\n\n**Am besten startest du mit einer Datei:** «Erstelle eine Präsentation aus /[Dateiname]». Copilot übernimmt Inhalt und Aufbau aus einem Word-Dokument oder PDF.\n\nSo wird es eure Präsentation:\n- **Starte mit eurer Firmenvorlage**, dann übernimmt Copilot Layouts, Farben und Logos.\n- **Prüfe die Gliederung**, bevor Copilot die Folien erstellt, und passe sie an.\n- **Prüfe Bilder**: Passen sie zur Botschaft und zu euren Werten?\n\nDanach überarbeitest du wie gewohnt. Copilot liefert den ersten Entwurf, du den Feinschliff.",
-        "en": "In PowerPoint you open Copilot via the **Copilot icon** in the “Home” ribbon.\n\n**It is best to start from a file:** “Create a presentation from /[file name]”. Copilot takes content and structure from a Word document or PDF.\n\nHow it becomes your presentation:\n- **Start with your company template**, then Copilot uses its layouts, colours and logos.\n- **Check the outline** before Copilot creates the slides, and adjust it.\n- **Check images**: do they fit the message and your values?\n\nThen you refine as usual. Copilot delivers the first draft, you add the polish."
+        "de": "In PowerPoint öffnest du Copilot über das **Copilot-Symbol** im Menüband «Start». In **PowerPoint im Browser** gibt es beim Start zusätzlich den Knopf **«Mit Copilot erstellen»**.\n\n**Am besten startest du mit einer Datei:** «Erstelle eine Präsentation aus /[Dateiname]». Copilot übernimmt Inhalt und Aufbau aus einem Word-Dokument oder PDF.\n\nSo wird es eure Präsentation:\n- **Starte mit einer Firmenvorlage**, wenn es für dein Thema eine gibt. Noch sind nicht alle Vorlagen hinterlegt. Das Brand Management arbeitet an einem **Brand Kit**, damit Copilot Farben, Schriften und Logos automatisch übernimmt.\n- **Prüfe die Gliederung**, bevor Copilot die Folien erstellt, und passe sie an.\n- **Prüfe Bilder**: Passen sie zur Botschaft und zu euren Werten?\n\nDanach überarbeitest du wie gewohnt. Copilot liefert den ersten Entwurf, du den Feinschliff.",
+        "en": "In PowerPoint you open Copilot via the **Copilot icon** in the “Home” ribbon. In **PowerPoint for the web** there is also a **“Create with Copilot”** button when you start.\n\n**It works best to start with a file:** “Create a presentation from /[file name]”. Copilot takes content and structure from a Word document or PDF.\n\nHow it becomes your presentation:\n- **Start with a company template** if there is one for your topic. Not all templates are available yet. Brand management is working on a **Brand Kit** so that Copilot applies colours, fonts and logos automatically.\n- **Check the outline** before Copilot creates the slides, and adjust it.\n- **Check images**: do they fit the message and your values?\n\nThen you revise as usual. Copilot delivers the first draft, you add the finishing touches."
       }
     },
     {

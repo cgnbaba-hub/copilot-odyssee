@@ -6,6 +6,7 @@ import { earnedSouvenirs } from '../core/progress/achievements';
 import { initialState, Outcome, PlayerState } from '../core/progress/state';
 import { ProgressStore } from '../core/progress/store';
 import { CheatSheet } from './components/CheatSheet';
+import { ContactNote } from './components/ContactNote';
 import { Header } from './components/Header';
 import { HelpPanel } from './components/HelpPanel';
 import { Home } from './components/Home';
@@ -158,6 +159,7 @@ export function App(props: AppProps): React.ReactElement {
         {props.storage === 'browser' && <p className={styles.demoBanner}>{strings.browserStorageBanner}</p>}
         <Header onOpenSettings={() => setSettingsOpen(true)} onOpenHelp={() => setHelpOpen(true)} />
         <main className={styles.main}>{main}</main>
+        <ContactNote />
         {settingsOpen && <Settings onClose={() => setSettingsOpen(false)} onReset={reset} />}
         {helpOpen && <HelpPanel onClose={() => setHelpOpen(false)} />}
         {/* A new status is celebrated outside of stages, so it never interrupts a task. */}

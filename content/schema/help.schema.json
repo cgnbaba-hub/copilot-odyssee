@@ -3,25 +3,68 @@
   "title": "Hilfethemen",
   "description": "Fragen und Antworten im Hilfe-Bereich der App. Reihenfolge wie in der Datei.",
   "type": "object",
-  "required": ["topics"],
+  "required": [
+    "topics"
+  ],
   "properties": {
-    "$schema": { "type": "string" },
+    "$schema": {
+      "type": "string"
+    },
+    "contact": {
+      "description": "E-Mail-Adresse für Fragen, die die App nicht beantwortet. Erscheint in der Hilfe und unten in der App.",
+      "type": "string",
+      "pattern": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$"
+    },
+    "groups": {
+      "description": "Überschriften, unter denen die Hilfe ihre Themen bündelt. Reihenfolge wie in der Datei.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "title"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/id"
+          },
+          "title": {
+            "$ref": "common.schema.json#/$defs/localized"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
     "topics": {
       "type": "array",
       "minItems": 1,
       "items": {
         "type": "object",
-        "required": ["id", "question", "answer"],
+        "required": [
+          "id",
+          "question",
+          "answer"
+        ],
         "properties": {
-          "id": { "$ref": "common.schema.json#/$defs/id" },
-          "question": { "$ref": "common.schema.json#/$defs/localized" },
+          "id": {
+            "$ref": "common.schema.json#/$defs/id"
+          },
+          "group": {
+            "description": "id einer Gruppe aus groups.",
+            "$ref": "common.schema.json#/$defs/id"
+          },
+          "question": {
+            "$ref": "common.schema.json#/$defs/localized"
+          },
           "answer": {
             "description": "Antwort. Absätze (Leerzeile), Aufzählungen (\"- \") und **fett** sind möglich.",
             "$ref": "common.schema.json#/$defs/localized"
           },
           "illustration": {
             "description": "Zeigt eine Abbildung zur Antwort. license = schematische Copilot-Ansicht mit Basic- und Premium-Bezeichnung.",
-            "enum": ["license"]
+            "enum": [
+              "license"
+            ]
           }
         },
         "additionalProperties": false

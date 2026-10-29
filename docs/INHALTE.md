@@ -52,6 +52,8 @@ Seemeilen (XP) vergibt die App selbst: Quiz je nach Schwierigkeit 10–80, Promp
 
 `help.json` füllt das Hilfe-Fenster (Knopf «Hilfe» oben rechts). Jedes Thema hat `id`, `question` und `answer` (gleiche Formatierung wie `body` im Briefing). Mit `"illustration": "license"` erscheint unter der Antwort eine vereinfachte Darstellung, wie man Basic und Premium in Copilot erkennt. Neue Fragen von Kolleginnen und Kollegen lassen sich so ohne neues App-Paket ergänzen.
 
+Die Themen stehen unter Überschriften aus `groups` (`id`, `title`); jedes Thema nennt seine Gruppe in `group`. Im Hilfe-Fenster kann man zusätzlich nach Stichworten suchen. `contact` ist die E-Mail-Adresse für Fragen, die die App nicht beantwortet. Sie erscheint unten in der Hilfe und unter jeder Ansicht der App.
+
 ## Bereiche und Prompt-Vorlagen
 
 `areas.json` legt die Arbeitsbereiche fest, die man beim Start und in den Einstellungen wählt. Jeder Bereich hat `id`, `name`, `hint` (kurze Beschreibung) und `useCaseIdeas`: typische Aufgaben, die auf den Use-Case-Karten als anklickbare Vorschläge erscheinen. Der letzte Bereich sollte allgemein sein («Anderer Bereich»); seine Ideen erscheinen auch bei Personen, die keinen Bereich gewählt haben.
