@@ -1,14 +1,14 @@
 import * as React from 'react';
 
-import { findIsland, moduleLicense, modulesOfIsland } from '../../core/content/bundle';
+import { findIsland, moduleLicense, modulesOfIsland, sortedIslands } from '../../core/content/bundle';
 import { moduleStatus } from '../../core/progress/state';
 import { format } from '../i18n/strings';
 import { useGame } from '../GameContext';
-import { isPreview } from '../progressHelpers';
+import { islandProgress, isPreview } from '../progressHelpers';
 import styles from '../styles.module.scss';
-import { CheckIcon, IslandArt } from './Art';
 import { Guide } from './Guide';
 import { LicenseChip } from './LicenseChip';
+import { mixColor, PosterIsland } from './PosterArt';
 import { UseCaseCards } from './UseCaseCards';
 
 export function IslandView(props: { islandId: string }): React.ReactElement {
@@ -18,69 +18,81 @@ export function IslandView(props: { islandId: string }): React.ReactElement {
   if (!island) return <p>{props.islandId}</p>;
 
   const modules = modulesOfIsland(content, island.id, { showDrafts });
-  const statusLabel = { new: strings.statusNew, inProgress: strings.statusInProgress, completed: strings.statusCompleted };
-  const actionLabel = { new: strings.start, inProgress: strings.resume, completed: strings.repeat };
+  const actionLabel = { new: strings.go, inProgress: strings.resumeShort, completed: strings.repeat };
   const preview = isPreview(game, island);
+  const progress = islandProgress(game, island.id);
+  const done = progress.total > 0 && progress.completed === progress.total;
+  const number = sortedIslands(content).indexOf(island) + 1;
+  // The first open stage gets the attention; done ones carry a stamp.
+  const firstOpen = modules.filter((m) => moduleStatus(player, m) !== 'completed')[0];
 
   return (
-    <section className={styles.panel} style={{ ['--od-island' as string]: island.color } as React.CSSProperties}>
-      <button type="button" className={styles.backButton} onClick={() => navigate({ name: 'map' })}>
-        ← {strings.backToOverview}
-      </button>
-
-      <div className={styles.islandHero}>
-        <IslandArt island={island} className={styles.islandHeroArt} />
-        <div className={styles.islandHeroText}>
-          <p className={styles.eyebrowLight}>{t(island.tool)}</p>
-          <h1 className={styles.islandHeroTitle}>{t(island.name)}</h1>
+    <section className={styles.islandPage} style={{ ['--od-island' as string]: island.color } as React.CSSProperties}>
+      <header className={styles.islandBand} style={{ background: mixColor(island.color, '#1a2940', 0.45) }}>
+        <button type="button" className={styles.islandBack} onClick={() => navigate({ name: 'map' })}>
+          ← {strings.backToDeck}
+        </button>
+        <svg className={styles.islandBandArt} viewBox="-180 -190 360 230" aria-hidden="true">
+          <circle cx="0" cy="-60" r="98" fill="#f2b13a" />
+          <rect x="-180" y="0" width="360" height="40" fill="#1f5f8b" />
+          <PosterIsland landmark={island.landmark} color={island.color} flag={done} />
+        </svg>
+        <div className={styles.islandBandText}>
+          <p className={styles.islandBandEyebrow}>
+            {format(strings.islandNumber, { n: number })} · {t(island.tool)}
+          </p>
+          <h1 className={styles.islandBandTitle}>{t(island.name)}</h1>
           <p>{t(island.summary)}</p>
           <LicenseChip license={island.license} />
         </div>
-      </div>
+      </header>
 
-      <Guide text={modules.length === 0 ? strings.islandGuideEmpty : preview ? strings.islandGuidePreview : strings.islandGuide} />
+      <div className={styles.islandBody}>
+        <Guide text={modules.length === 0 ? strings.islandGuideEmpty : preview ? strings.islandGuidePreview : strings.islandGuide} />
 
-      <blockquote className={styles.motif}>{t(island.motif)}</blockquote>
+        <blockquote className={styles.motif}>{t(island.motif)}</blockquote>
 
-      <h2 className={styles.sectionTitle}>{strings.modules}</h2>
-      {modules.length === 0 ? (
-        <p className={styles.muted}>{strings.noModules}</p>
-      ) : (
-        <ol className={styles.stageRoute}>
-          {modules.map((m, index) => {
-            const status = moduleStatus(player, m);
-            return (
-              <li key={m.id} className={`${styles.stage} ${status === 'completed' ? styles.stageCompleted : status === 'inProgress' ? styles.stageActive : ''}`}>
-                <span className={styles.stageNode} aria-hidden="true">
-                  {status === 'completed' ? <CheckIcon /> : index + 1}
-                </span>
-                <div className={styles.stageCard}>
-                  <div className={styles.stageText}>
-                    <h3>
-                      {t(m.title)} {m.status === 'draft' && <span className={styles.chipDraft}>{strings.draft}</span>}
-                    </h3>
-                    <p>{t(m.summary)}</p>
-                    <p className={styles.stageMeta}>
-                      <span>{statusLabel[status]}</span>
+        <h2 className={styles.sectionTitle}>{strings.modules}</h2>
+        {modules.length === 0 ? (
+          <p className={styles.muted}>{strings.noModules}</p>
+        ) : (
+          <ol className={styles.tickets}>
+            {modules.map((m, index) => {
+              const status = moduleStatus(player, m);
+              const isDone = status === 'completed';
+              return (
+                <li key={m.id} className={isDone ? `${styles.ticket} ${styles.ticketDone}` : m === firstOpen ? `${styles.ticket} ${styles.ticketNext}` : styles.ticket}>
+                  <div className={styles.ticketMain}>
+                    <p className={styles.ticketEyebrow}>
+                      {format(strings.stageNumber, { n: index + 1 })} {m.status === 'draft' && <span className={styles.chipDraft}>{strings.draft}</span>}
+                    </p>
+                    <h3 className={styles.ticketTitle}>{t(m.title)}</h3>
+                    <p className={styles.ticketSummary}>{t(m.summary)}</p>
+                    <p className={styles.ticketMeta}>
                       <span>{format(strings.aboutMinutes, { minutes: m.estimatedMinutes })}</span>
+                      {status === 'inProgress' && <span>{strings.statusInProgress}</span>}
                       {m.license && m.license !== island.license && <LicenseChip license={moduleLicense(content, m)} />}
                     </p>
                   </div>
-                  <button
-                    type="button"
-                    className={status === 'completed' ? styles.button : styles.buttonPrimary}
-                    onClick={() => navigate({ name: 'module', moduleId: m.id })}
-                  >
-                    {actionLabel[status]}
-                  </button>
-                </div>
-              </li>
-            );
-          })}
-        </ol>
-      )}
+                  <div className={styles.ticketStub}>
+                    {isDone ? <span className={styles.ticketStamp}>{strings.statusCompleted}</span> : <span className={styles.ticketStubLabel}>{strings.boarding}</span>}
+                    <button
+                      type="button"
+                      className={isDone ? styles.ticketAgain : styles.ticketGo}
+                      onClick={() => navigate({ name: 'module', moduleId: m.id })}
+                      aria-label={`${actionLabel[status]}: ${t(m.title)}`}
+                    >
+                      {actionLabel[status]}
+                    </button>
+                  </div>
+                </li>
+              );
+            })}
+          </ol>
+        )}
 
-      {island.home && <UseCaseCards />}
+        {island.home && <UseCaseCards />}
+      </div>
     </section>
   );
 }

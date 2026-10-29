@@ -15,6 +15,10 @@ export interface Profile {
   onboarded: boolean;
   /** Field of work (id from areas.json); missing until chosen. */
   area?: string;
+  /** Companion character; the theme's default when missing. */
+  guide?: string;
+  /** True once the guided tour of the menu was finished or skipped. */
+  toured?: boolean;
 }
 
 export interface BlockProgress {

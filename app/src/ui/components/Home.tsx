@@ -4,12 +4,22 @@ import { moduleLicense, sortedIslands } from '../../core/content/bundle';
 import { Island } from '../../core/content/types';
 import { format } from '../i18n/strings';
 import { useGame } from '../GameContext';
-import { islandProgress, isPreview, nextStage, playerArea, templatesFor } from '../progressHelpers';
+import { islandProgress, isPreview, nextStage } from '../progressHelpers';
 import styles from '../styles.module.scss';
 import { CheckIcon, IslandArt, LockIcon } from './Art';
-import { Guide } from './Guide';
+import { Deck } from './Deck';
 import { LicenseChip } from './LicenseChip';
-import { SeaChart } from './SeaChart';
+
+type HomeView = 'deck' | 'log';
+const VIEW_KEY = 'odyssee-home-view';
+
+function savedView(): HomeView {
+  try {
+    return window.localStorage.getItem(VIEW_KEY) === 'log' ? 'log' : 'deck';
+  } catch {
+    return 'deck';
+  }
+}
 
 function IslandList(props: { islands: Island[]; route: Island[]; title: string; intro: string; premium?: boolean }): React.ReactElement {
   const game = useGame();
@@ -29,7 +39,7 @@ function IslandList(props: { islands: Island[]; route: Island[]; title: string; 
             <li key={island.id}>
               <button type="button" className={styles.islandRow} onClick={() => navigate({ name: 'island', islandId: island.id })}>
                 <span className={isPreview(game, island) ? `${styles.mapNumber} ${styles.mapNumberPreview}` : styles.mapNumber}>{props.route.indexOf(island) + 1}</span>
-                <IslandArt island={island} muted={isPreview(game, island)} className={styles.islandRowArt} />
+                <IslandArt island={island} muted={isPreview(game, island)} flag={done} className={styles.islandRowArt} />
                 <span className={styles.islandRowText}>
                   <strong className={styles.islandRowName}>{t(island.name)}</strong>
                   <span className={styles.muted}>{t(island.tool)}</span>
@@ -55,74 +65,85 @@ function IslandList(props: { islands: Island[]; route: Island[]; title: string; 
   );
 }
 
+/** The one stage to do next, as a ticket with a big button. */
+function NextTicket(): React.ReactElement {
+  const game = useGame();
+  const { strings, t, navigate } = game;
+  const stage = nextStage(game);
+  if (!stage) {
+    return (
+      <article className={styles.ticket} data-tour="next">
+        <div className={styles.ticketMain}>
+          <p className={styles.ticketEyebrow}>{strings.allDoneTitle}</p>
+          <h2 className={styles.ticketTitle}>{strings.allDoneText}</h2>
+        </div>
+        <div className={styles.ticketStub}>
+          <button type="button" className={styles.ticketGo} onClick={() => navigate({ name: 'passport' })}>
+            {strings.openPassportShort}
+          </button>
+        </div>
+      </article>
+    );
+  }
+  return (
+    <article className={styles.ticket} data-tour="next">
+      <div className={styles.ticketMain}>
+        <p className={styles.ticketEyebrow}>{stage.resume ? strings.resumeStageTitle : strings.nextStageTitle}</p>
+        <h2 className={styles.ticketTitle}>{t(stage.module.title)}</h2>
+        <p className={styles.ticketMeta}>
+          <span>{t(stage.island.name)}</span>
+          <span>{format(strings.aboutMinutes, { minutes: stage.module.estimatedMinutes })}</span>
+          <LicenseChip license={moduleLicense(game.content, stage.module)} />
+        </p>
+      </div>
+      <div className={styles.ticketStub}>
+        <span className={styles.ticketStubLabel}>{strings.boarding}</span>
+        <button type="button" className={styles.ticketGo} onClick={() => navigate({ name: 'module', moduleId: stage.module.id })}>
+          {stage.resume ? strings.resumeShort : strings.go}
+        </button>
+      </div>
+    </article>
+  );
+}
+
 export function Home(): React.ReactElement {
   const game = useGame();
-  const { strings, t, navigate, player } = game;
-  const stage = nextStage(game);
-  const started = Object.keys(player.modules).length > 0;
+  const { strings } = game;
   const islands = sortedIslands(game.content);
+  const [view, setView] = React.useState<HomeView>(savedView);
 
-  const guideText = !stage ? strings.homeGuideDone : started ? strings.homeGuideBack : strings.homeGuideNew;
-  const area = playerArea(game);
-  const templateCount = templatesFor(game, area && area.id).length;
+  const choose = (next: HomeView): void => {
+    setView(next);
+    try {
+      window.localStorage.setItem(VIEW_KEY, next);
+    } catch {
+      // The choice simply is not remembered.
+    }
+  };
 
   return (
     <div className={styles.home}>
-      <section className={styles.hero}>
-        <Guide text={guideText} cheer={!stage} />
-        {stage ? (
-          <div className={styles.nextCard}>
-            <IslandArt island={stage.island} className={styles.nextCardArt} />
-            <div className={styles.nextCardBody}>
-              <p className={styles.eyebrow}>{stage.resume ? strings.resumeStageTitle : strings.nextStageTitle}</p>
-              <h1 className={styles.nextCardTitle}>{t(stage.module.title)}</h1>
-              <p className={styles.nextCardMeta}>
-                {t(stage.island.name)} · {format(strings.aboutMinutes, { minutes: stage.module.estimatedMinutes })}
-              </p>
-              <LicenseChip license={moduleLicense(game.content, stage.module)} />
-              <button type="button" className={`${styles.buttonPrimary} ${styles.buttonBig}`} onClick={() => navigate({ name: 'module', moduleId: stage.module.id })}>
-                {stage.resume ? strings.resumeStage : strings.startStage} →
-              </button>
-            </div>
-          </div>
-        ) : (
-          <div className={styles.nextCard}>
-            <div className={styles.nextCardBody}>
-              <h1 className={styles.nextCardTitle}>{strings.allDoneTitle}</h1>
-              <p>{strings.allDoneText}</p>
-              <button type="button" className={`${styles.buttonPrimary} ${styles.buttonBig}`} onClick={() => navigate({ name: 'passport' })}>
-                {strings.openPassport} →
-              </button>
-            </div>
-          </div>
-        )}
-      </section>
+      <div className={styles.viewSwitch} role="group" aria-label={strings.viewLabel} data-tour="view">
+        <button type="button" aria-pressed={view === 'deck'} className={view === 'deck' ? styles.viewSwitchActive : undefined} onClick={() => choose('deck')}>
+          {strings.viewDeck}
+        </button>
+        <button type="button" aria-pressed={view === 'log'} className={view === 'log' ? styles.viewSwitchActive : undefined} onClick={() => choose('log')}>
+          {strings.viewLog}
+        </button>
+      </div>
 
-      {templateCount > 0 && (
-        <section className={styles.cheatsheetCallout}>
-          <span className={styles.cheatsheetCalloutIcon} aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="28" height="28">
-              <path d="M7 3h7l4 4v14H7z" fill="#fff" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
-              <path d="M14 3v4h4M10 12h5M10 16h5" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-            </svg>
-          </span>
-          <div className={styles.cheatsheetCalloutText}>
-            <strong>{strings.homeCheatsheetTitle}</strong>
-            <span>{area ? format(strings.homeCheatsheetArea, { count: templateCount, area: t(area.name) }) : format(strings.homeCheatsheetAll, { count: templateCount })}</span>
-          </div>
-          <button type="button" className={styles.button} onClick={() => navigate({ name: 'cheatsheet' })}>
-            {strings.openCheatsheet} →
-          </button>
+      {view === 'deck' ? (
+        <Deck islands={islands} />
+      ) : (
+        <section className={styles.panel}>
+          <h1 className={styles.pageTitle}>{strings.viewLog}</h1>
+          <p className={styles.muted}>{strings.logIntro}</p>
+          <IslandList islands={islands.filter((i) => i.license === 'basic')} route={islands} title={strings.islandsBasicTitle} intro={strings.islandsBasicIntro} />
+          <IslandList islands={islands.filter((i) => i.license === 'premium')} route={islands} title={strings.islandsPremiumTitle} intro={strings.islandsPremiumIntro} premium />
         </section>
       )}
 
-      <section className={styles.panel}>
-        <h2 className={styles.sectionTitle}>{strings.routeTitle}</h2>
-        <p className={styles.muted}>{strings.routeIntro}</p>
-        <SeaChart />
-        <IslandList islands={islands.filter((i) => i.license === 'basic')} route={islands} title={strings.islandsBasicTitle} intro={strings.islandsBasicIntro} />
-        <IslandList islands={islands.filter((i) => i.license === 'premium')} route={islands} title={strings.islandsPremiumTitle} intro={strings.islandsPremiumIntro} premium />
-      </section>
+      <NextTicket />
     </div>
   );
 }

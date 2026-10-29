@@ -4,22 +4,24 @@ import { updateProfile } from '../../core/progress/state';
 import { AreaPicker } from './AreaPicker';
 import { format } from '../i18n/strings';
 import { useGame } from '../GameContext';
+import { guideById } from '../guides';
 import styles from '../styles.module.scss';
 import { SeaScene } from './Art';
 import { Guide } from './Guide';
+import { GuidePicker } from './GuidePicker';
 import { LicenseMockup } from './LicenseMockup';
 import { LicensePicker } from './LicensePicker';
 import { RichText } from './RichText';
 
 /** Short screens: welcome, which Copilot version, field of work (when the content has areas), how the journey works. */
 export function Onboarding(): React.ReactElement {
-  const { content, player, strings, theme, t, update } = useGame();
+  const { content, player, strings, t, update } = useGame();
   const hasAreas = (content.areas || []).length > 0;
   const total = hasAreas ? 4 : 3;
   const howStep = total;
   const [step, setStep] = React.useState(1);
   const [howToOpen, setHowToOpen] = React.useState(false);
-  const guide = t(theme.terms.guide);
+  const guide = t(guideById(player.profile.guide).name);
 
   const finish = (): void => {
     update((s) => updateProfile(s, { onboarded: true }));
@@ -38,6 +40,9 @@ export function Onboarding(): React.ReactElement {
             </h1>
             <Guide text={format(strings.welcomeGuide, { guide })} />
             <p className={styles.lead}>{strings.welcomeText}</p>
+            <h2 className={styles.drawerSection}>{strings.guideQuestion}</h2>
+            <GuidePicker value={player.profile.guide} onChange={(id) => update((s) => updateProfile(s, { guide: id }))} />
+            <p className={styles.muted}>{strings.guideLater}</p>
           </>
         )}
 
