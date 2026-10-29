@@ -86,6 +86,54 @@ function ArrowIcon(props: { dir: -1 | 1 }): React.ReactElement {
   );
 }
 
+/** Streaks on the water and birds in the sky while the ship sails to the next island. */
+function Voyage(props: { dir: -1 | 1 }): React.ReactElement {
+  const shift = { ['--od-dx' as string]: `${-props.dir * 420}px` } as React.CSSProperties;
+  const streaks: React.ReactElement[] = [];
+  for (let i = 0; i < 14; i++) {
+    const y = HORIZON + 18 + ((i * 53) % 200);
+    const x = 60 + ((i * 271) % 880);
+    const length = 50 + ((i * 37) % 110);
+    streaks.push(
+      <path key={i} className={styles.deckStreak} d={`M${x} ${y} h${length}`} strokeWidth={1.5 + (y - HORIZON) / 70} style={{ ...shift, animationDelay: `${(i % 5) * 60}ms` }} />
+    );
+  }
+  const from = props.dir > 0 ? 1080 : -80;
+  return (
+    <g>
+      <g fill="none" stroke="#fbf5e6" strokeLinecap="round" opacity="0.75">
+        {streaks}
+      </g>
+      <g className={styles.deckBirds} style={{ ['--od-bx' as string]: `${-props.dir * 1250}px` } as React.CSSProperties}>
+        {[0, 1, 2].map((i) => (
+          <path
+            key={i}
+            d={`M${from + i * 34 * props.dir} ${150 + i * 22} q7 -8 14 0 q7 -8 14 0`}
+            fill="none"
+            stroke="#1a2940"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        ))}
+      </g>
+    </g>
+  );
+}
+
+/** White water thrown up at the bow when the ship turns. */
+function Spray(props: { dir: -1 | 1 }): React.ReactElement {
+  const d = props.dir;
+  return (
+    <g className={styles.deckSplash} fill="#fbf5e6" stroke="#fbf5e6" strokeLinecap="round">
+      <path d={`M${500 + d * 20} 470 q${d * 34} -18 ${d * 72} -6 M${500 + d * 30} 488 q${d * 46} -14 ${d * 96} 0`} fill="none" strokeWidth="5" />
+      {[0, 1, 2, 3, 4].map((i) => (
+        <circle key={i} cx={500 + d * (40 + i * 18)} cy={456 - (i % 3) * 10} r={3 + (i % 2)} stroke="none" />
+      ))}
+    </g>
+  );
+}
+
 export function Deck(props: { islands: Island[] }): React.ReactElement {
   const game = useGame();
   const { strings, t, navigate, player } = game;
@@ -100,6 +148,10 @@ export function Deck(props: { islands: Island[] }): React.ReactElement {
   // Direction of the last turn: drives the roll of the bow and where the sign slides in from.
   const [turn, setTurn] = React.useState<{ dir: -1 | 1; n: number } | undefined>(undefined);
   const [docking, setDocking] = React.useState(false);
+  // True while the ship is under way to the next island; drives the extra effects of the voyage.
+  const [sailing, setSailing] = React.useState(false);
+  const sailTimer = React.useRef(0);
+  React.useEffect(() => () => window.clearTimeout(sailTimer.current), []);
 
   if (islands.length === 0) return <></>;
   const island = islands[Math.min(current, islands.length - 1)];
@@ -113,6 +165,9 @@ export function Deck(props: { islands: Island[] }): React.ReactElement {
     if (next < 0 || next >= islands.length) return;
     setCurrent(next);
     setTurn({ dir, n: turn ? turn.n + 1 : 1 });
+    setSailing(true);
+    window.clearTimeout(sailTimer.current);
+    sailTimer.current = window.setTimeout(() => setSailing(false), 1600);
   };
 
   const dock = (): void => {
@@ -121,7 +176,7 @@ export function Deck(props: { islands: Island[] }): React.ReactElement {
       return;
     }
     setDocking(true);
-    window.setTimeout(() => navigate({ name: 'island', islandId: island.id }), 600);
+    window.setTimeout(() => navigate({ name: 'island', islandId: island.id }), 750);
   };
 
   const onKeyDown = (event: React.KeyboardEvent): void => {
@@ -144,6 +199,9 @@ export function Deck(props: { islands: Island[] }): React.ReactElement {
   const left = islands[current - 1];
   const right = islands[current + 1];
   const sway = turn ? (turn.n % 2 === 0 ? (turn.dir < 0 ? styles.deckSwayLeftB : styles.deckSwayRightB) : turn.dir < 0 ? styles.deckSwayLeft : styles.deckSwayRight) : '';
+  // The horizon leans against the roll of the bow, as it does from a ship that changes course.
+  const tilt =
+    turn && !reduceMotion ? (turn.n % 2 === 0 ? (turn.dir < 0 ? styles.deckTiltLeftB : styles.deckTiltRightB) : turn.dir < 0 ? styles.deckTiltLeft : styles.deckTiltRight) : '';
   const signClass = turn ? `${styles.plaque} ${turn.dir < 0 ? styles.plaqueFromLeft : styles.plaqueFromRight}` : styles.plaque;
 
   return (
@@ -157,56 +215,55 @@ export function Deck(props: { islands: Island[] }): React.ReactElement {
             <rect x="-200" y="-200" width="1400" height={HORIZON + 201} />
           </clipPath>
         </defs>
-        <rect x="-200" y="-200" width="1400" height={HORIZON + 202} fill="#f5e0b0" />
-        <g clipPath="url(#od-deck-sky)">
-          <SunRays />
-          {/* Sky and sun drift a little against the turn, which makes steering feel like a change of course. */}
-          <g className={styles.deckParallax} style={{ transform: `translateX(${-current * 8}px)` }}>
-            <circle cx="500" cy={HORIZON} r="128" fill="#f0a537" />
-            <circle cx="500" cy={HORIZON} r="128" fill="url(#od-deck-dots)" opacity="0.55" />
+        <g className={`${styles.deckWorld} ${tilt}`}>
+          <rect x="-200" y="-200" width="1400" height={HORIZON + 202} fill="#f5e0b0" />
+          <g clipPath="url(#od-deck-sky)">
+            <SunRays />
+            {/* Sky and sun drift a little against the turn, which makes steering feel like a change of course. */}
+            <g className={styles.deckParallax} style={{ transform: `translateX(${-current * 8}px)` }}>
+              <circle cx="500" cy={HORIZON} r="128" fill="#f0a537" />
+              <circle cx="500" cy={HORIZON} r="128" fill="url(#od-deck-dots)" opacity="0.55" />
+            </g>
           </g>
-        </g>
-        <g className={styles.deckParallax} style={{ transform: `translateX(${-current * 36}px)` }}>
-          <g className={styles.deckCloud} fill="#fbf4e4">
-            <rect x="80" y="118" width="180" height="26" rx="13" />
-            <rect x="122" y="96" width="92" height="30" rx="15" />
-            <rect x="720" y="74" width="150" height="22" rx="11" />
-            <rect x="760" y="56" width="70" height="26" rx="13" />
-            <rect x="1180" y="104" width="160" height="24" rx="12" />
-            <rect x="1214" y="84" width="80" height="26" rx="13" />
-            <rect x="1520" y="66" width="140" height="22" rx="11" />
+          <g className={styles.deckParallax} style={{ transform: `translateX(${-current * 36}px)` }}>
+            <g className={styles.deckCloud} fill="#fbf4e4">
+              <rect x="80" y="118" width="180" height="26" rx="13" />
+              <rect x="122" y="96" width="92" height="30" rx="15" />
+              <rect x="720" y="74" width="150" height="22" rx="11" />
+              <rect x="760" y="56" width="70" height="26" rx="13" />
+              <rect x="1180" y="104" width="160" height="24" rx="12" />
+              <rect x="1214" y="84" width="80" height="26" rx="13" />
+              <rect x="1520" y="66" width="140" height="22" rx="11" />
+            </g>
           </g>
-        </g>
-        <rect x="-200" y={HORIZON} width="1400" height={600 - HORIZON + 200} fill="#1f5f8b" />
-        {[0, 1, 2, 3, 4, 5].map((i) => (
-          <rect key={i} x={500 - (170 - i * 24) / 2} y={HORIZON + 10 + i * 13} width={170 - i * 24} height="4" rx="2" fill="#f8cf72" opacity={(0.7 - i * 0.09).toFixed(2)} />
-        ))}
-        <Waves />
-        <g className={styles.deckIslands}>
-          {islands.map((isl, i) => {
-            const off = i - current;
-            const step = Math.min(Math.abs(off), 3);
-            const x = 500 + Math.sign(off) * OFFSETS[step];
-            const y = HORIZON + (step === 0 ? 10 : 2);
-            const islProgress = islandProgress(game, isl.id);
-            const islDone = islProgress.total > 0 && islProgress.completed === islProgress.total;
-            return (
-              <g
-                key={isl.id}
-                className={step === 0 ? `${styles.deckIsland} ${styles.deckIslandCurrent}` : styles.deckIsland}
-                style={{ transform: `translate(${x}px, ${y}px) scale(${SCALES[step]})`, opacity: OPACITY[step] * (isPreview(game, isl) ? 0.85 : 1) }}
-              >
-                <path d={islandSilhouette(isl.landmark)} transform="scale(1 -0.3)" fill="#164a70" opacity="0.28" />
-                <PosterIsland landmark={isl.landmark} color={isl.color} flag={islDone} />
-              </g>
-            );
-          })}
-        </g>
-        {turn && !reduceMotion && (
-          <g key={turn.n} className={styles.deckSplash} fill="none" stroke="#fbf5e6" strokeWidth="4" strokeLinecap="round">
-            <path d={turn.dir > 0 ? 'M520 470 q30 -14 60 -4 M530 486 q40 -12 80 0' : 'M480 470 q-30 -14 -60 -4 M470 486 q-40 -12 -80 0'} />
+          <rect x="-200" y={HORIZON} width="1400" height={600 - HORIZON + 200} fill="#1f5f8b" />
+          {[0, 1, 2, 3, 4, 5].map((i) => (
+            <rect key={i} x={500 - (170 - i * 24) / 2} y={HORIZON + 10 + i * 13} width={170 - i * 24} height="4" rx="2" fill="#f8cf72" opacity={(0.7 - i * 0.09).toFixed(2)} />
+          ))}
+          <Waves />
+          <g className={styles.deckIslands}>
+            {islands.map((isl, i) => {
+              const off = i - current;
+              const step = Math.min(Math.abs(off), 3);
+              const x = 500 + Math.sign(off) * OFFSETS[step];
+              const y = HORIZON + (step === 0 ? 10 : 2);
+              const islProgress = islandProgress(game, isl.id);
+              const islDone = islProgress.total > 0 && islProgress.completed === islProgress.total;
+              return (
+                <g
+                  key={isl.id}
+                  className={step === 0 ? `${styles.deckIsland} ${styles.deckIslandCurrent}` : styles.deckIsland}
+                  style={{ transform: `translate(${x}px, ${y}px) scale(${SCALES[step]})`, opacity: OPACITY[step] * (isPreview(game, isl) ? 0.85 : 1) }}
+                >
+                  <path d={islandSilhouette(isl.landmark)} transform="scale(1 -0.3)" fill="#164a70" opacity="0.28" />
+                  <PosterIsland landmark={isl.landmark} color={isl.color} flag={islDone} />
+                </g>
+              );
+            })}
           </g>
-        )}
+          {turn && sailing && !reduceMotion && <Voyage key={turn.n} dir={turn.dir} />}
+        </g>
+        {turn && sailing && !reduceMotion && <Spray key={`spray-${turn.n}`} dir={turn.dir} />}
         <Bow sway={sway} />
       </svg>
       <div className={styles.deckGrain} />
