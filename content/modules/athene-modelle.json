@@ -1,0 +1,120 @@
+{
+  "$schema": "../schema/module.schema.json",
+  "island": "athene",
+  "version": "1.0.0",
+  "owner": "copilot-team",
+  "status": "draft",
+  "reviewedAt": "2026-10-30",
+  "reviewIntervalDays": 90,
+  "id": "athene-modelle",
+  "order": 2,
+  "title": {
+    "de": "Schnell oder gründlich: das Modell wählen",
+    "en": "Quick or thorough: choosing the model"
+  },
+  "summary": {
+    "de": "Copilot wählt das Modell meist selbst. Für knifflige Aufgaben kannst du gründlicheres Nachdenken einschalten.",
+    "en": "Copilot usually chooses the model itself. For tricky tasks you can switch on deeper thinking."
+  },
+  "estimatedMinutes": 6,
+  "notes": "Neuer Inhalt. Stand Oktober 2026: Modellauswahl in Copilot Chat mit Standard «Auto»; weitere Modelle (OpenAI, Anthropic) je nach Lizenz und Freigabe durch die IT. Modellnamen ändern sich laufend, deshalb bewusst keine Versionsnummern. Mit Basic- und Premium-Konto prüfen, welche Auswahl sichtbar ist.",
+  "blocks": [
+    {
+      "type": "briefing",
+      "id": "modelle",
+      "title": {
+        "de": "Ein Kopf, mehrere Denkweisen",
+        "en": "One mind, several ways of thinking"
+      },
+      "body": {
+        "de": "Hinter Copilot stecken mehrere **KI-Modelle**. Manche antworten schnell, andere denken länger nach und sind bei kniffligen Aufgaben besser.\n- **Auto** ist der Standard: Copilot wählt selbst. Für die meisten Fragen ist das genau richtig.\n- Für Vergleiche, Konzepte oder mehrere Schritte kannst du ein **gründlicheres Modell** wählen. Die Antwort dauert dann etwas länger.\n- Je nach Lizenz und Freigabe durch die IT siehst du weitere Modelle, zum Beispiel von OpenAI oder Anthropic.\n\nDie Auswahl findest du meist direkt **über oder im Eingabefeld**. Die Namen der Modelle ändern sich oft. Merk dir darum das Prinzip: schnell für Alltägliches, gründlich für Knifflige.",
+        "en": "Copilot is powered by several **AI models**. Some answer quickly, others think longer and do better on tricky tasks.\n- **Auto** is the default: Copilot chooses itself. For most questions that is exactly right.\n- For comparisons, concepts or several steps you can choose a **more thorough model**. The answer then takes a little longer.\n- Depending on your licence and what IT has enabled, you see further models, for example from OpenAI or Anthropic.\n\nYou usually find the choice right **above or in the input box**. Model names change often. So remember the principle: quick for everyday things, thorough for tricky ones."
+      }
+    },
+    {
+      "type": "quiz",
+      "id": "q-modell-wann",
+      "difficulty": "beginner",
+      "question": {
+        "de": "Wann lohnt sich ein gründlicheres Modell?",
+        "en": "When is a more thorough model worth it?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "de": "Du willst drei Hotelangebote nach Preis, Lage und Bewertungen vergleichen und eine Empfehlung begründen.",
+            "en": "You want to compare three hotel offers by price, location and reviews and justify a recommendation."
+          },
+          "correct": true,
+          "explanation": {
+            "de": "Genau. Mehrere Kriterien und eine Begründung profitieren vom längeren Nachdenken.",
+            "en": "Exactly. Several criteria and a justification benefit from longer thinking."
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "de": "Du willst einen Satz ins Französische übersetzen.",
+            "en": "You want to translate a sentence into French."
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Dafür reicht Auto. Ein gründliches Modell braucht nur mehr Zeit.",
+            "en": "Auto is enough for that. A thorough model just takes more time."
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "de": "Immer, weil es dann automatisch keine Fehler mehr gibt",
+            "en": "Always, because then there are automatically no more mistakes"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Auch gründliche Modelle machen Fehler. Prüfen musst du die Antwort trotzdem.",
+            "en": "Thorough models make mistakes too. You still have to check the answer."
+          }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "id": "p-modell",
+      "difficulty": "intermediate",
+      "title": {
+        "de": "Eine Aufgabe für gründliches Nachdenken",
+        "en": "A task for deeper thinking"
+      },
+      "scenario": {
+        "de": "Eine Kundin fragt, ob sie ihre Familienreise nach Kanada lieber im Juni oder im September machen soll. Schreib einen Prompt, bei dem sich ein gründliches Modell lohnt.",
+        "en": "A customer asks whether she should take her family trip to Canada in June or in September. Write a prompt where a thorough model pays off."
+      },
+      "rubric": ["goal", "context", "expectation"],
+      "examplePrompt": {
+        "de": "Vergleiche für eine Familie mit zwei Kindern (8 und 11 Jahre) eine dreiwöchige Rundreise durch Westkanada im Juni und im September, damit ich die Kundin beraten kann. Berücksichtige Wetter, Preise, Schulferien in der Schweiz, Andrang und Tierbeobachtungen. Gib mir eine Tabelle und eine begründete Empfehlung in drei Sätzen.",
+        "en": "For a family with two children (aged 8 and 11), compare a three-week round trip through western Canada in June and in September, so that I can advise the customer. Consider weather, prices, Swiss school holidays, crowds and wildlife watching. Give me a table and a justified recommendation in three sentences."
+      }
+    },
+    {
+      "type": "mission",
+      "id": "m-modell",
+      "title": {
+        "de": "Zwei Antworten im Vergleich",
+        "en": "Two answers compared"
+      },
+      "task": {
+        "de": "Stell Copilot die Frage unten einmal mit Auto. Wähle danach ein gründlicheres Modell, falls du eines siehst, und stell dieselbe Frage nochmals. Vergleiche: Was ist anders?",
+        "en": "Ask Copilot the question below once with Auto. Then choose a more thorough model if you see one and ask the same question again. Compare: what is different?"
+      },
+      "tip": {
+        "de": "Siehst du keine Modellauswahl? Dann wählt Copilot bei dir automatisch. Frag in diesem Fall am Ende: «Denk gründlich nach und prüfe deine Antwort Schritt für Schritt.»",
+        "en": "Don't see a model choice? Then Copilot chooses automatically for you. In that case add at the end: “Think carefully and check your answer step by step.”"
+      },
+      "copyText": {
+        "de": "Vergleiche eine Städtereise nach Lissabon und nach Porto für ein verlängertes Wochenende im Oktober. Berücksichtige Wetter, Flugverbindungen ab Zürich, Sehenswürdigkeiten und Kosten. Gib eine Tabelle und eine Empfehlung.",
+        "en": "Compare a city break to Lisbon and to Porto for a long weekend in October. Consider weather, flight connections from Zurich, sights and costs. Give a table and a recommendation."
+      }
+    }
+  ]
+}

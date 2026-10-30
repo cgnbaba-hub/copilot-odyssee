@@ -77,6 +77,18 @@
       }
     },
     {
+      "id": "sieht-anders-aus",
+      "group": "start",
+      "question": {
+        "de": "Copilot sieht bei mir anders aus als hier beschrieben. Was nun?",
+        "en": "Copilot looks different for me than described here. What now?"
+      },
+      "answer": {
+        "de": "Das kann gut sein. Microsoft baut Copilot laufend um. Seit Herbst 2026 wird schrittweise eine **neue Copilot-App** eingeführt, die mehrere Bereiche in einer App zusammenfasst. Knöpfe und Menüs können darum anders heissen oder an anderer Stelle sein.\n\nSo kommst du trotzdem ans Ziel:\n- Die **Funktion** bleibt meist gleich, nur der Weg dorthin ändert sich. Achte auf dieselben Begriffe, zum Beispiel «Agenten», «Notebooks» oder «Personalisierung».\n- Schau in den **drei Punkten** oder hinter deinem **Profilbild** nach den Einstellungen.\n- Frag Copilot selbst: «Wo finde ich in dieser App die Einstellungen für …?»\n\nStimmt etwas in der Odyssee nicht mehr? Gib uns über **«Feedback geben»** Bescheid, dann passen wir es an.",
+        "en": "That may well be. Microsoft keeps rebuilding Copilot. Since autumn 2026 a **new Copilot app** is being rolled out step by step that brings several areas together in one app. Buttons and menus may therefore have different names or be in a different place.\n\nHow to get there anyway:\n- The **feature** usually stays the same, only the way to it changes. Look for the same terms, for example “Agents”, “Notebooks” or “Personalization”.\n- Look for the settings in the **three dots** or behind your **profile picture**.\n- Ask Copilot itself: “Where do I find the settings for … in this app?”\n\nIs something in the Odyssey no longer right? Let us know via **“Give feedback”** and we will update it."
+      }
+    },
+    {
       "id": "premium-bekommen",
       "group": "start",
       "question": {
@@ -170,6 +182,30 @@
       "answer": {
         "de": "Schreib es in den Prompt: **«in Schweizer Hochdeutsch, ohne Eszett»**.\n\nIst der Text schon fertig, sag einfach: «Ersetze alle Eszett durch ss.» In Word hilft zusätzlich die Rechtschreibprüfung mit der Sprache **Deutsch (Schweiz)**.",
         "en": "Put it in the prompt: **“in Swiss Standard German, without Eszett”**.\n\nIf the text is already done, just say: “Replace every Eszett with ss.” In Word, the spell check with the language **German (Switzerland)** also helps."
+      }
+    },
+    {
+      "id": "anweisungen",
+      "group": "alltag",
+      "question": {
+        "de": "Kann ich Copilot sagen, wie er mir antworten soll?",
+        "en": "Can I tell Copilot how to answer me?"
+      },
+      "answer": {
+        "de": "Ja. In den **Einstellungen** unter **Personalisierung** kannst du eigene Anweisungen hinterlegen, die für alle Chats gelten. Zum Beispiel:\n- deine Rolle und dein Bereich\n- Schweizer Rechtschreibung mit «ss»\n- kurze Antworten mit Aufzählungen\n\nDort siehst du auch, was Copilot sich gemerkt hat, und kannst Erinnerungen löschen. Keine Kundendaten in die Anweisungen schreiben. Mehr dazu in Athenes Olivenhain.",
+        "en": "Yes. Under **Personalization** in the **settings** you can store custom instructions that apply to all chats. For example:\n- your role and your area\n- the spelling you prefer\n- short answers with bullet points\n\nThere you also see what Copilot has remembered and can delete memories. Do not put customer data in the instructions. More on this in Athena's Olive Grove."
+      }
+    },
+    {
+      "id": "modell-waehlen",
+      "group": "alltag",
+      "question": {
+        "de": "Was bringt die Auswahl des Modells?",
+        "en": "What does choosing the model do?"
+      },
+      "answer": {
+        "de": "Copilot nutzt mehrere KI-Modelle. **Auto** wählt selbst und passt für die meisten Fragen. Für knifflige Aufgaben mit mehreren Schritten kannst du ein **gründlicheres Modell** wählen, falls du die Auswahl siehst. Welche Modelle es gibt, hängt von Lizenz und IT ab, und die Namen ändern sich oft.",
+        "en": "Copilot uses several AI models. **Auto** chooses itself and fits most questions. For tricky tasks with several steps you can choose a **more thorough model** if you see the choice. Which models are available depends on licence and IT, and the names change often."
       }
     },
     {
@@ -302,6 +338,18 @@
       "answer": {
         "de": "Ein Agent ist ein Copilot mit einer festen Aufgabe, zum Beispiel für ein Handbuch oder eine Recherche. Du findest Agenten in Copilot links unter **«Agenten»**.\n- **Researcher** und **Analyst** gibt es mit Premium.\n- Welche weiteren Agenten du siehst und ob du selbst welche bauen kannst, legt das Unternehmen fest.\n\nMehr dazu in der Schmiede des Hephaistos.",
         "en": "An agent is a Copilot with a fixed job, for example for a handbook or research. You find agents in Copilot on the left under **“Agents”**.\n- **Researcher** and **Analyst** come with Premium.\n- Which other agents you see and whether you can build your own is decided by the company.\n\nMore on this at the Forge of Hephaestus."
+      }
+    },
+    {
+      "id": "notebooks",
+      "group": "apps",
+      "question": {
+        "de": "Was sind Notebooks und Pages?",
+        "en": "What are Notebooks and Pages?"
+      },
+      "answer": {
+        "de": "Ein **Notebook** sammelt Dateien, Notizen und Chats zu einem Projekt. Copilot antwortet dann auf dieser Grundlage. **Pages** sind Seiten aus Copilot-Antworten, die du weiterbearbeiten und teilen kannst.\n- Mit **Premium** findest du Notebooks in der Microsoft-365-Copilot-App links.\n- Mit **Basic** gibt es eine kleinere Version, je nach Einführung nur in OneNote im Web.",
+        "en": "A **notebook** collects files, notes and chats for a project. Copilot then answers on that basis. **Pages** are pages made from Copilot answers that you can keep editing and share.\n- With **Premium** you find notebooks on the left in the Microsoft 365 Copilot app.\n- With **Basic** there is a smaller version, depending on the rollout only in OneNote on the web."
       }
     },
     {

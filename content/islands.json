@@ -75,9 +75,27 @@
       "color": "#4FB0A5"
     },
     {
+      "id": "athene",
+      "landmark": "owl",
+      "order": 4,
+      "license": "basic",
+      "name": { "de": "Athenes Olivenhain", "en": "Athena's Olive Grove" },
+      "tool": { "de": "Copilot einstellen", "en": "Setting up Copilot" },
+      "summary": {
+        "de": "Weniger bekannte Funktionen: eigene Anweisungen, Gedächtnis, Modellauswahl, Notebooks und Pages.",
+        "en": "Lesser-known features: custom instructions, memory, model choice, notebooks and pages."
+      },
+      "motif": {
+        "de": "Athene, Göttin der Weisheit, stand Odysseus mit klugem Rat zur Seite. Hier richtest du Copilot so ein, dass er dich wirklich kennt.",
+        "en": "Athena, goddess of wisdom, stood by Odysseus with wise counsel. Here you set Copilot up so that it really knows you."
+      },
+      "map": { "x": 50, "y": 50 },
+      "color": "#6F8F3A"
+    },
+    {
       "id": "phaiaken",
       "landmark": "amphora",
-      "order": 4,
+      "order": 5,
       "license": "premium",
       "name": { "de": "Hof der Phaiaken", "en": "Court of the Phaeacians" },
       "tool": { "de": "Copilot in Teams", "en": "Copilot in Teams" },
@@ -95,7 +113,7 @@
     {
       "id": "penelope",
       "landmark": "loom",
-      "order": 5,
+      "order": 6,
       "license": "premium",
       "name": { "de": "Penelopes Webstuhl", "en": "Penelope's Loom" },
       "tool": { "de": "Copilot in Word", "en": "Copilot in Word" },
@@ -113,7 +131,7 @@
     {
       "id": "polyphem",
       "landmark": "cave",
-      "order": 6,
+      "order": 7,
       "license": "premium",
       "name": { "de": "Höhle des Polyphem", "en": "Cave of Polyphemus" },
       "tool": { "de": "Copilot in Excel", "en": "Copilot in Excel" },
@@ -131,7 +149,7 @@
     {
       "id": "kirke",
       "landmark": "tower",
-      "order": 7,
+      "order": 8,
       "license": "premium",
       "name": { "de": "Kirkes Insel", "en": "Circe's Island" },
       "tool": { "de": "Copilot in PowerPoint", "en": "Copilot in PowerPoint" },
@@ -149,7 +167,7 @@
     {
       "id": "teiresias",
       "landmark": "eye",
-      "order": 8,
+      "order": 9,
       "license": "premium",
       "name": { "de": "Orakel des Teiresias", "en": "Oracle of Tiresias" },
       "tool": { "de": "Copilot mit Arbeitsdaten", "en": "Copilot with work data" },
@@ -167,7 +185,7 @@
     {
       "id": "hephaistos",
       "landmark": "anvil",
-      "order": 9,
+      "order": 10,
       "license": "premium",
       "name": { "de": "Schmiede des Hephaistos", "en": "Forge of Hephaestus" },
       "tool": { "de": "Agenten", "en": "Agents" },
