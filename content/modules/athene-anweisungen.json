@@ -1,0 +1,157 @@
+{
+  "$schema": "../schema/module.schema.json",
+  "island": "athene",
+  "version": "1.0.0",
+  "owner": "copilot-team",
+  "status": "draft",
+  "reviewedAt": "2026-10-30",
+  "reviewIntervalDays": 90,
+  "id": "athene-anweisungen",
+  "order": 1,
+  "title": {
+    "de": "Copilot auf dich einstellen",
+    "en": "Setting Copilot up for you"
+  },
+  "summary": {
+    "de": "Mit eigenen Anweisungen und dem Gedächtnis antwortet Copilot so, wie du es brauchst, ohne dass du es jedes Mal neu sagst.",
+    "en": "With custom instructions and memory, Copilot answers the way you need without you repeating it every time."
+  },
+  "estimatedMinutes": 7,
+  "notes": "Neuer Inhalt. Stand Oktober 2026: Anweisungen und gespeicherte Erinnerungen unter Einstellungen > Personalisierung (Microsoft-Support «Customize how Microsoft 365 Copilot responds to you»). Gedächtnis wird laut Message Center bis Ende Oktober 2026 allgemein verfügbar; die IT kann es ausschalten. Ob Basic die Personalisierung hat, ist nicht eindeutig belegt: mit dem Basic-Testkonto prüfen. Menüpfad bewusst mit Suchhinweis, weil sich die App mit der neuen Copilot-App ändert.",
+  "blocks": [
+    {
+      "type": "briefing",
+      "id": "anweisungen",
+      "title": {
+        "de": "Einmal sagen, immer gemeint",
+        "en": "Say it once, mean it always"
+      },
+      "body": {
+        "de": "Copilot kann sich merken, wie du arbeitest. Dafür gibt es zwei Dinge:\n- **Eigene Anweisungen:** Ein kurzer Text, der für alle deine Chats gilt. Zum Beispiel deine Rolle, die Schweizer Schreibweise oder wie lang Antworten sein sollen.\n- **Gedächtnis:** Copilot merkt sich wichtige Dinge aus euren Gesprächen. Du kannst ihm auch direkt sagen: «Merk dir, dass …».\n\nSo findest du die Einstellungen:\n- Öffne Copilot und klicke auf die **drei Punkte** oder dein **Profilbild**.\n- Wähle **Einstellungen** und dann **Personalisierung**.\n- Sieht es bei dir anders aus? Such in den Einstellungen nach «Personalisierung». Microsoft baut die Copilot-App gerade um.\n\nDu siehst dort jederzeit, was Copilot sich gemerkt hat, und kannst einzelne Erinnerungen löschen.",
+        "en": "Copilot can remember how you work. There are two things for this:\n- **Custom instructions:** A short text that applies to all your chats. For example your role, Swiss spelling or how long answers should be.\n- **Memory:** Copilot remembers important things from your conversations. You can also tell it directly: “Remember that …”.\n\nHow to find the settings:\n- Open Copilot and click the **three dots** or your **profile picture**.\n- Choose **Settings** and then **Personalization**.\n- Looks different for you? Search the settings for “Personalization”. Microsoft is currently rebuilding the Copilot app.\n\nThere you can always see what Copilot has remembered and delete individual memories."
+      }
+    },
+    {
+      "type": "quiz",
+      "id": "q-anweisungen-inhalt",
+      "difficulty": "beginner",
+      "question": {
+        "de": "Was gehört in deine eigenen Anweisungen?",
+        "en": "What belongs in your custom instructions?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "de": "«Ich arbeite im Produktmanagement Fernreisen. Schreib in Schweizer Rechtschreibung, kurz und mit Aufzählungen.»",
+            "en": "“I work in long-haul product management. Write in Swiss spelling, briefly and with bullet points.”"
+          },
+          "correct": true,
+          "explanation": {
+            "de": "Genau. Rolle, Sprache und Stil passen für fast jeden Chat.",
+            "en": "Exactly. Role, language and style fit almost every chat."
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "de": "Die Buchungsnummer und das Geburtsdatum eines Kunden",
+            "en": "A customer's booking number and date of birth"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Kundendaten gehören nie in die Anweisungen. Sie würden in jedem Chat mitgeschickt.",
+            "en": "Customer data never belongs in the instructions. It would be sent along with every chat."
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "de": "Die komplette Aufgabe von heute Nachmittag",
+            "en": "This afternoon's complete task"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Eine einzelne Aufgabe gehört in den Chat. Anweisungen gelten für alles.",
+            "en": "A single task belongs in the chat. Instructions apply to everything."
+          }
+        }
+      ]
+    },
+    {
+      "type": "quiz",
+      "id": "q-gedaechtnis",
+      "difficulty": "intermediate",
+      "question": {
+        "de": "Copilot hat sich etwas Falsches über dich gemerkt. Was tust du?",
+        "en": "Copilot has remembered something wrong about you. What do you do?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "de": "In den Einstellungen unter Personalisierung die Erinnerung löschen oder Copilot sagen: «Vergiss, dass …»",
+            "en": "Delete the memory under Personalization in the settings or tell Copilot: “Forget that …”"
+          },
+          "correct": true,
+          "explanation": {
+            "de": "Richtig. Du behältst die Kontrolle über das, was Copilot sich merkt.",
+            "en": "Right. You stay in control of what Copilot remembers."
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "de": "Nichts, das lässt sich nicht ändern",
+            "en": "Nothing, it can't be changed"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Doch: Erinnerungen kannst du jederzeit ansehen und löschen.",
+            "en": "It can: you can view and delete memories at any time."
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "de": "Einen neuen Chat beginnen",
+            "en": "Start a new chat"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Das Gedächtnis gilt über alle Chats hinweg. Ein neuer Chat ändert daran nichts.",
+            "en": "Memory applies across all chats. A new chat does not change that."
+          }
+        }
+      ]
+    },
+    {
+      "type": "mission",
+      "id": "m-anweisungen",
+      "title": {
+        "de": "Deine Anweisungen",
+        "en": "Your instructions"
+      },
+      "task": {
+        "de": "Öffne in Copilot die Einstellungen und dort die Personalisierung. Füge den Text unten als eigene Anweisungen ein und passe die Klammern an. Stell danach in einem neuen Chat eine Frage und schau, ob die Antwort jetzt besser passt.",
+        "en": "In Copilot, open the settings and then Personalization. Paste the text below as custom instructions and adjust the brackets. Then ask a question in a new chat and see whether the answer fits better now."
+      },
+      "tip": {
+        "de": "Findest du keine Personalisierung? Dann ist sie bei euch noch nicht verfügbar oder von der IT ausgeschaltet. Du kannst den Text auch an den Anfang eines Chats stellen.",
+        "en": "Can't find Personalization? Then it is not available for you yet or IT has turned it off. You can also put the text at the start of a chat."
+      },
+      "copyText": {
+        "de": "Ich arbeite bei DERTOUR Suisse im Bereich [dein Bereich]. Schreib auf Deutsch in Schweizer Rechtschreibung (immer «ss», nie das Eszett). Antworte kurz und gegliedert, mit Aufzählungen, wenn es passt. Frag nach, wenn dir etwas fehlt.",
+        "en": "I work at DERTOUR Suisse in [your area]. Write in English and keep it short and structured, with bullet points where it fits. Ask if anything is missing."
+      }
+    },
+    {
+      "type": "usecase",
+      "id": "u-anweisungen",
+      "intro": {
+        "de": "Was erklärst du Copilot immer wieder? Halte die Aufgabe fest, bei der dir feste Anweisungen am meisten Zeit sparen.",
+        "en": "What do you keep explaining to Copilot? Record the task where fixed instructions save you the most time."
+      }
+    }
+  ]
+}

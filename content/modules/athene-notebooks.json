@@ -1,0 +1,158 @@
+{
+  "$schema": "../schema/module.schema.json",
+  "island": "athene",
+  "version": "1.0.0",
+  "owner": "copilot-team",
+  "status": "draft",
+  "reviewedAt": "2026-10-30",
+  "reviewIntervalDays": 90,
+  "id": "athene-notebooks",
+  "order": 3,
+  "license": "premium",
+  "title": {
+    "de": "Notebooks und Pages: Wissen sammeln",
+    "en": "Notebooks and Pages: gathering knowledge"
+  },
+  "summary": {
+    "de": "In einem Notebook sammelst du Dateien, Notizen und Chats zu einem Projekt. Copilot antwortet dann genau auf dieser Grundlage.",
+    "en": "In a notebook you collect files, notes and chats for a project. Copilot then answers on exactly that basis."
+  },
+  "estimatedMinutes": 8,
+  "notes": "Neuer Inhalt. Stand Oktober 2026: Copilot Notebooks allgemein verfügbar für M365 Copilot; seit Juni 2026 eingeschränkt auch für Copilot Chat (Basic), laut Microsoft nur in OneNote im Web und mit weniger Quellen. Neue Notebooks werden ab Mitte Oktober in OneDrive gespeichert. Pages sind Teil der Notebooks-Ansicht. Basic-Verfügbarkeit mit dem Testkonto prüfen; dann ggf. license entfernen.",
+  "blocks": [
+    {
+      "type": "briefing",
+      "id": "notebooks",
+      "title": {
+        "de": "Eine Bibliothek für jedes Projekt",
+        "en": "A library for every project"
+      },
+      "body": {
+        "de": "Ein **Notebook** ist ein Projektordner für Copilot. Du legst hinein, was zum Thema gehört: Dateien, Notizen, frühere Chats. Copilot antwortet dann auf dieser Grundlage und nennt die Quellen.\n\nGut geeignet für:\n- ein neues Reiseprogramm mit Hotelverträgen, Briefings und Notizen\n- die Vorbereitung einer Messe\n- ein Projekt, an dem du über Wochen arbeitest\n\n**Pages** sind Seiten, die du aus einer Copilot-Antwort machst. Du kannst sie weiter bearbeiten und mit Kolleginnen und Kollegen teilen. Im Notebook siehst du Quellen, Pages und Chat nebeneinander.\n\nSo findest du Notebooks: Öffne die Microsoft-365-Copilot-App und such links nach **«Notebooks»**. Mit Basic gibt es eine kleinere Version, je nach Einführung nur in OneNote im Web.",
+        "en": "A **notebook** is a project folder for Copilot. You put in what belongs to the topic: files, notes, earlier chats. Copilot then answers on that basis and names the sources.\n\nGood for:\n- a new travel programme with hotel contracts, briefings and notes\n- preparing a trade fair\n- a project you work on over weeks\n\n**Pages** are pages you make from a Copilot answer. You can keep editing them and share them with colleagues. In the notebook you see sources, pages and chat side by side.\n\nHow to find notebooks: open the Microsoft 365 Copilot app and look on the left for **“Notebooks”**. With Basic there is a smaller version, depending on the rollout only in OneNote on the web."
+      }
+    },
+    {
+      "type": "quiz",
+      "id": "q-notebook-wann",
+      "difficulty": "beginner",
+      "question": {
+        "de": "Wann ist ein Notebook besser als ein normaler Chat?",
+        "en": "When is a notebook better than a normal chat?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "de": "Du arbeitest drei Wochen an einem neuen Katalog und brauchst immer wieder dieselben zehn Dokumente.",
+            "en": "You are working on a new catalogue for three weeks and keep needing the same ten documents."
+          },
+          "correct": true,
+          "explanation": {
+            "de": "Genau. Das Notebook hält die Unterlagen zusammen, und Copilot kennt sie bei jeder Frage.",
+            "en": "Exactly. The notebook keeps the documents together, and Copilot knows them for every question."
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "de": "Du brauchst schnell eine Betreffzeile für eine Mail.",
+            "en": "You quickly need a subject line for an email."
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Für eine schnelle Frage reicht der Chat.",
+            "en": "The chat is enough for a quick question."
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "de": "Du willst Kundendaten sammeln, die sonst niemand sehen darf.",
+            "en": "You want to collect customer data that nobody else may see."
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Kundendaten gehören nicht in Copilot. Halte dich an die Regeln aus den Sirenenfelsen.",
+            "en": "Customer data does not belong in Copilot. Stick to the rules from the Sirens' Rocks."
+          }
+        }
+      ]
+    },
+    {
+      "type": "quiz",
+      "id": "q-pages",
+      "difficulty": "intermediate",
+      "question": {
+        "de": "Wozu sind Pages gut?",
+        "en": "What are Pages good for?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "de": "Eine Copilot-Antwort weiterbearbeiten und mit dem Team teilen",
+            "en": "Keep editing a Copilot answer and share it with the team"
+          },
+          "correct": true,
+          "explanation": {
+            "de": "Richtig. Aus einer Antwort wird eine Seite, an der ihr gemeinsam arbeitet.",
+            "en": "Right. An answer becomes a page you work on together."
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "de": "Copilot in eine andere Sprache umstellen",
+            "en": "Switch Copilot to another language"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Die Sprache stellst du in den Einstellungen oder im Prompt ein.",
+            "en": "You set the language in the settings or in the prompt."
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "de": "Webseiten für Kundinnen und Kunden veröffentlichen",
+            "en": "Publish web pages for customers"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Pages sind für die Zusammenarbeit intern gedacht, nicht für die Website.",
+            "en": "Pages are meant for internal collaboration, not for the website."
+          }
+        }
+      ]
+    },
+    {
+      "type": "mission",
+      "id": "m-notebook",
+      "title": {
+        "de": "Dein erstes Notebook",
+        "en": "Your first notebook"
+      },
+      "task": {
+        "de": "Leg ein Notebook für ein aktuelles Projekt an und füge zwei oder drei passende Dateien hinzu. Stell dann die Frage unten. Mach aus der Antwort eine Page, wenn sie dir gefällt.",
+        "en": "Create a notebook for a current project and add two or three matching files. Then ask the question below. Turn the answer into a page if you like it."
+      },
+      "tip": {
+        "de": "Findest du keine Notebooks? Dann sind sie bei euch noch nicht eingeführt. Melde dich bei Fragen bei ai-automation@dertour.ch.",
+        "en": "Can't find Notebooks? Then they have not been rolled out for you yet. Contact ai-automation@dertour.ch with questions."
+      },
+      "copyText": {
+        "de": "Fasse die wichtigsten Punkte aus allen Unterlagen in diesem Notebook zusammen. Was ist entschieden, was ist noch offen, und wer ist wofür zuständig?",
+        "en": "Summarise the key points from all documents in this notebook. What has been decided, what is still open, and who is responsible for what?"
+      }
+    },
+    {
+      "type": "usecase",
+      "id": "u-notebook",
+      "intro": {
+        "de": "Für welches Projekt würde sich bei dir ein Notebook lohnen? Halte es als Use-Case-Karte fest.",
+        "en": "Which of your projects would a notebook be worth it for? Record it as a use case card."
+      }
+    }
+  ]
+}

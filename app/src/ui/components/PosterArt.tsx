@@ -221,6 +221,32 @@ function Landmarks(props: { landmark?: Landmark; color: string }): React.ReactEl
           </g>
         </>
       );
+    case 'owl':
+      return (
+        <>
+          <Hill color={color} />
+          {/* An olive tree and a column with Athena's owl on top. */}
+          <path d="M-62 -60 C-64 -74 -60 -84 -56 -92" stroke="#6b4228" strokeWidth="5" fill="none" strokeLinecap="round" />
+          <ellipse cx="-74" cy="-100" rx="24" ry="14" fill="#8fa35a" {...line} />
+          <ellipse cx="-46" cy="-108" rx="22" ry="13" fill="#7d9348" {...line} />
+          <ellipse cx="-60" cy="-122" rx="18" ry="11" fill="#8fa35a" {...line} />
+          <circle cx="-68" cy="-104" r="2.6" fill="#3d4a2a" />
+          <circle cx="-50" cy="-112" r="2.6" fill="#3d4a2a" />
+          <circle cx="-58" cy="-124" r="2.6" fill="#3d4a2a" />
+          <rect x="14" y="-74" width="40" height="8" fill={WHITE} {...line} />
+          <rect x="20" y="-124" width="28" height="50" fill={WHITE} {...line} />
+          <path d="M27 -122 v46 M34 -122 v46 M41 -122 v46" stroke={SAND} strokeWidth="2" />
+          <rect x="14" y="-132" width="40" height="8" fill={WHITE} {...line} />
+          <path d="M22 -132 C20 -150 24 -164 34 -164 C44 -164 48 -150 46 -132 Z" fill="#8a6a4a" {...line} />
+          <path d="M24 -160 L22 -170 L30 -163 M44 -160 L46 -170 L38 -163" fill="#8a6a4a" {...line} />
+          <circle cx="29" cy="-152" r="5" fill={WHITE} {...line} />
+          <circle cx="39" cy="-152" r="5" fill={WHITE} {...line} />
+          <circle cx="29" cy="-152" r="2" fill={INK} />
+          <circle cx="39" cy="-152" r="2" fill={INK} />
+          <path d="M32 -146 L34 -142 L36 -146 Z" fill="#f2b13a" />
+          <path d="M27 -140 C30 -137 38 -137 41 -140" stroke="#5e4630" strokeWidth="1.5" fill="none" />
+        </>
+      );
     default:
       return (
         <>

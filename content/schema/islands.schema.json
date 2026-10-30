@@ -37,7 +37,7 @@
         "color": { "description": "Hauptfarbe der Insel.", "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
         "landmark": {
           "description": "Wahrzeichen, das auf der Insel gezeichnet wird.",
-          "enum": ["rocks", "wind", "temple", "letter", "amphora", "loom", "cave", "tower", "eye", "anvil"]
+          "enum": ["rocks", "wind", "temple", "letter", "amphora", "loom", "cave", "tower", "eye", "anvil", "owl"]
         },
         "home": { "description": "Heimathafen: Hier werden die gesammelten Use-Case-Karten angezeigt.", "type": "boolean" }
       },
