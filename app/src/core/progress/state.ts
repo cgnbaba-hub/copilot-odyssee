@@ -127,11 +127,16 @@ export function markBriefingRead(state: PlayerState, moduleId: string, blockId: 
   return withBlock(state, moduleId, blockId, { ...block, done: true, attempts: block.attempts + 1, xp: block.xp + xpGained }, xpGained);
 }
 
+/** Whether the chosen options are exactly the correct ones; a question can have several. */
+export function isQuizAnswerCorrect(quiz: QuizBlock, optionIds: string[]): boolean {
+  const right = quiz.options.filter((o) => o.correct).map((o) => o.id);
+  return optionIds.length === right.length && right.every((id) => optionIds.indexOf(id) >= 0);
+}
+
 /** Full XP for a correct first attempt, half for a later one. */
-export function answerQuiz(state: PlayerState, moduleId: string, quiz: QuizBlock, optionId: string): Outcome & { correct: boolean } {
+export function answerQuiz(state: PlayerState, moduleId: string, quiz: QuizBlock, answer: string | string[]): Outcome & { correct: boolean } {
   const block = getBlock(state, moduleId, quiz.id);
-  const option = quiz.options.filter((o) => o.id === optionId)[0];
-  const correct = !!option && option.correct;
+  const correct = isQuizAnswerCorrect(quiz, typeof answer === 'string' ? [answer] : answer);
   const attempts = block.attempts + 1;
 
   let xpGained = 0;

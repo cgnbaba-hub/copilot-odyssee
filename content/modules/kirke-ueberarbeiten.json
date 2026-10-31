@@ -43,37 +43,49 @@
         {
           "id": "a",
           "text": {
-            "de": "Sprechernotizen erstellen und mögliche Fragen des Publikums auflisten lassen",
-            "en": "Have speaker notes created and likely audience questions listed"
+            "de": "Sprechernotizen zu jeder Folie erstellen lassen",
+            "en": "Having speaker notes created for every slide"
           },
           "correct": true,
           "explanation": {
-            "de": "Genau. So bist du inhaltlich vorbereitet und wirst von Fragen nicht überrascht.",
-            "en": "Exactly. That way you know the content and are not caught off guard by questions."
+            "de": "Ja. So weisst du, was zu jeder Folie gesagt werden soll.",
+            "en": "Yes. Then you know what to say on every slide."
           }
         },
         {
           "id": "b",
           "text": {
-            "de": "Copilot die Präsentation halten lassen",
-            "en": "Have Copilot give the presentation"
+            "de": "Mögliche Fragen aus dem Publikum mit Antworten auflisten lassen",
+            "en": "Having possible audience questions listed with answers"
           },
-          "correct": false,
+          "correct": true,
           "explanation": {
-            "de": "Präsentieren tust du. Copilot hilft dir bei der Vorbereitung.",
-            "en": "You do the presenting. Copilot helps you prepare."
+            "de": "Ja. So bist du auf Rückfragen vorbereitet.",
+            "en": "Yes. That way you are prepared for questions."
           }
         },
         {
           "id": "c",
           "text": {
-            "de": "Alle Folien löschen und neu erstellen lassen",
-            "en": "Delete all slides and have them recreated"
+            "de": "Alle Folien neu erstellen lassen, damit sie zu deinem Stil passen",
+            "en": "Having all slides recreated to match your style"
           },
           "correct": false,
           "explanation": {
-            "de": "Das wirft die Arbeit der Kollegin weg. Besser verstehen und gezielt anpassen.",
-            "en": "That throws away your colleague's work. Better to understand and adjust selectively."
+            "de": "Das kostet Zeit und verändert die abgestimmte Präsentation.",
+            "en": "That takes time and changes the agreed presentation."
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "de": "Copilot die Präsentation im Meeting vortragen lassen",
+            "en": "Letting Copilot give the presentation in the meeting"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Vortragen musst du selbst.",
+            "en": "You present yourself."
           }
         }
       ]

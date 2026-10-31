@@ -34,7 +34,7 @@
     {
       "type": "quiz",
       "id": "q-excel-kann",
-      "difficulty": "beginner",
+      "difficulty": "intermediate",
       "question": {
         "de": "Was kann Copilot in Excel?",
         "en": "What can Copilot do in Excel?"
@@ -43,37 +43,49 @@
         {
           "id": "a",
           "text": {
-            "de": "Daten analysieren und Formeln vorschlagen",
-            "en": "Analyse data and suggest formulas"
+            "de": "Formeln vorschlagen und erklären",
+            "en": "Suggesting and explaining formulas"
           },
           "correct": true,
           "explanation": {
-            "de": "Copilot in Excel kann Trends erkennen, Formeln vorschlagen und Daten zusammenfassen.",
-            "en": "Copilot in Excel can spot trends, suggest formulas and summarise data."
+            "de": "Ja. Er erklärt auch, was eine Formel tut.",
+            "en": "Yes. It also explains what a formula does."
           }
         },
         {
           "id": "b",
           "text": {
-            "de": "Nur einfache Berechnungen durchführen",
-            "en": "Only perform simple calculations"
+            "de": "Diagramme und PivotTables zu deinen Daten erstellen",
+            "en": "Creating charts and PivotTables for your data"
           },
-          "correct": false,
+          "correct": true,
           "explanation": {
-            "de": "Copilot geht weit über einfache Berechnungen hinaus.",
-            "en": "Copilot goes far beyond simple calculations."
+            "de": "Ja. Er beschreibt vorher, was er tut.",
+            "en": "Yes. It describes beforehand what it does."
           }
         },
         {
           "id": "c",
           "text": {
-            "de": "Nur die Formatierung von Zellen ändern",
-            "en": "Only change cell formatting"
+            "de": "Daten aus jeder beliebigen Dateiart lesen, auch aus gescannten PDF-Dateien",
+            "en": "Reading data from any file type, including scanned PDFs"
           },
           "correct": false,
           "explanation": {
-            "de": "Copilot kann deutlich mehr als formatieren.",
-            "en": "Copilot can do much more than formatting."
+            "de": "In Excel arbeitet Copilot mit .xlsx- oder .csv-Dateien.",
+            "en": "In Excel, Copilot works with .xlsx or .csv files."
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "de": "Garantieren, dass alle Berechnungen fehlerfrei sind",
+            "en": "Guaranteeing that all calculations are error-free"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Nachrechnen musst du selbst, zumindest stichprobenweise.",
+            "en": "You have to recalculate yourself, at least spot checks."
           }
         }
       ]
@@ -81,7 +93,7 @@
     {
       "type": "quiz",
       "id": "q-excel-geht-nicht",
-      "difficulty": "beginner",
+      "difficulty": "intermediate",
       "question": {
         "de": "Copilot reagiert in deiner Excel-Datei nicht wie erwartet. Was hilft am ehesten?",
         "en": "Copilot does not respond as expected in your Excel file. What is most likely to help?"
@@ -90,37 +102,49 @@
         {
           "id": "a",
           "text": {
-            "de": "Prüfen, ob die Datei als .xlsx gespeichert ist, und klare Spaltenüberschriften setzen",
-            "en": "Check that the file is saved as .xlsx and give the columns clear headings"
+            "de": "Excel schliessen und neu installieren",
+            "en": "Close Excel and reinstall it"
           },
-          "correct": true,
+          "correct": false,
           "explanation": {
-            "de": "Genau. Mit dem richtigen Format und klaren Überschriften versteht Copilot deine Daten am besten. Hilft das nicht, speichere die Datei in OneDrive und formatiere die Daten als Tabelle.",
-            "en": "Exactly. With the right format and clear headings, Copilot understands your data best. If that does not help, save the file in OneDrive and format the data as a table."
+            "de": "Das ist selten das Problem. Meist liegt es an Dateiformat oder Datenaufbau.",
+            "en": "That is rarely the problem. Usually it is the file format or data layout."
           }
         },
         {
           "id": "b",
           "text": {
-            "de": "Excel neu installieren",
-            "en": "Reinstall Excel"
+            "de": "Die Datei als .xls im alten Format speichern",
+            "en": "Save the file as .xls in the old format"
           },
           "correct": false,
           "explanation": {
-            "de": "Meist liegt es nicht an Excel, sondern an Dateiformat und Aufbau der Daten.",
-            "en": "Usually it is not Excel, but the file format and how the data is laid out."
+            "de": "Gerade das alte Format funktioniert nicht. Nötig ist .xlsx oder .csv.",
+            "en": "The old format is exactly what does not work. You need .xlsx or .csv."
           }
         },
         {
           "id": "c",
           "text": {
-            "de": "Alle Zellen farbig markieren",
-            "en": "Colour all the cells"
+            "de": "Als .xlsx in OneDrive speichern und die Daten mit Strg + T als Tabelle formatieren",
+            "en": "Save as .xlsx in OneDrive and format the data as a table with Ctrl + T"
+          },
+          "correct": true,
+          "explanation": {
+            "de": "Richtig. Dazu klare Spaltenüberschriften, dann versteht Copilot die Daten.",
+            "en": "Right. Add clear column headers and Copilot understands the data."
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "de": "Alle wichtigen Zellen farbig markieren",
+            "en": "Colour all important cells"
           },
           "correct": false,
           "explanation": {
-            "de": "Farben helfen Copilot nicht. Klare Spaltenüberschriften schon.",
-            "en": "Colours do not help Copilot. Clear column headings do."
+            "de": "Farben helfen dir, aber Copilot braucht vor allem klare Überschriften und eine Tabelle.",
+            "en": "Colours help you, but Copilot mainly needs clear headers and a table."
           }
         }
       ]

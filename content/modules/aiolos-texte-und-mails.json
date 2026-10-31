@@ -36,44 +36,56 @@
       "id": "q-schweizer-schreibweise",
       "difficulty": "beginner",
       "question": {
-        "de": "Copilot verwendet in deinem Text das Eszett (scharfes S) statt «ss». Wie bekommst du Schweizer Schreibweise?",
-        "en": "Copilot writes “Grüße” and “Straße” in your German text. How do you get Swiss spelling?"
+        "de": "Copilot schreibt in deinem Text das Eszett statt «ss», zum Beispiel bei «Grüsse». Wie bekommst du dauerhaft die Schweizer Schreibweise?",
+        "en": "Copilot uses the German Eszett instead of “ss” in your text, for example in “Grüsse”. How do you get Swiss spelling permanently?"
       },
       "options": [
         {
           "id": "a",
           "text": {
-            "de": "Im Prompt angeben: «in Schweizer Hochdeutsch, ohne Eszett»",
-            "en": "State it in the prompt: “in Swiss Standard German, without ß”"
+            "de": "Die Sprache von Windows auf Deutsch (Schweiz) umstellen",
+            "en": "Switch the Windows language to German (Switzerland)"
           },
-          "correct": true,
+          "correct": false,
           "explanation": {
-            "de": "Am besten gleich im ersten Prompt, dann gilt es für den ganzen Chat.",
-            "en": "Ideally in the first prompt, then it applies to the whole chat."
+            "de": "Copilot richtet sich nach deinem Prompt, nicht nach der Windows-Sprache.",
+            "en": "Copilot follows your prompt, not the Windows language."
           }
         },
         {
           "id": "b",
           "text": {
-            "de": "Gar nicht, Copilot kennt nur deutsches Hochdeutsch",
-            "en": "Not at all, Copilot only knows German as used in Germany"
+            "de": "Gar nicht, Copilot kennt nur die deutsche Schreibweise",
+            "en": "Not at all, Copilot only knows German spelling"
           },
           "correct": false,
           "explanation": {
-            "de": "Copilot kann Schweizer Schreibweise, du musst es nur sagen.",
-            "en": "Copilot can do Swiss spelling, you just have to ask for it."
+            "de": "Copilot kann Schweizer Schreibweise. Du musst es ihm nur sagen.",
+            "en": "Copilot can do Swiss spelling. You just have to tell it."
           }
         },
         {
           "id": "c",
           "text": {
-            "de": "Die Sprache von Windows auf Schweiz umstellen",
-            "en": "Switch the Windows language to Switzerland"
+            "de": "Es in den eigenen Anweisungen hinterlegen: «Schreib in Schweizer Rechtschreibung.»",
+            "en": "Store it in the custom instructions: “Write in Swiss spelling.”"
+          },
+          "correct": true,
+          "explanation": {
+            "de": "Richtig. Dann gilt es für alle Chats. Im einzelnen Prompt geht es auch.",
+            "en": "Right. Then it applies to all chats. It also works in a single prompt."
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "de": "Den Text danach durch die Word-Rechtschreibprüfung laufen lassen",
+            "en": "Run the text through the Word spell check afterwards"
           },
           "correct": false,
           "explanation": {
-            "de": "Die Systemsprache steuert Copilots Schreibweise nicht zuverlässig.",
-            "en": "The system language does not reliably control Copilot's spelling."
+            "de": "Die Rechtschreibprüfung ersetzt das Eszett nicht unbedingt. Sag es Copilot direkt.",
+            "en": "The spell check does not necessarily replace the Eszett. Tell Copilot directly."
           }
         }
       ]

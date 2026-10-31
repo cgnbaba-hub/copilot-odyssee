@@ -50,6 +50,8 @@ export interface Theme {
   };
   terms: {
     appTitle: Localized;
+    /** Company shown beside the app name in the header. */
+    company?: Localized;
     tagline: Localized;
     /** Name of the XP currency. */
     xp: Localized;

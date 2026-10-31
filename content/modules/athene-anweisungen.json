@@ -34,7 +34,7 @@
     {
       "type": "quiz",
       "id": "q-anweisungen-inhalt",
-      "difficulty": "beginner",
+      "difficulty": "intermediate",
       "question": {
         "de": "Was gehört in deine eigenen Anweisungen?",
         "en": "What belongs in your custom instructions?"
@@ -43,37 +43,49 @@
         {
           "id": "a",
           "text": {
-            "de": "«Ich arbeite im Produktmanagement Fernreisen. Schreib in Schweizer Rechtschreibung, kurz und mit Aufzählungen.»",
-            "en": "“I work in long-haul product management. Write in Swiss spelling, briefly and with bullet points.”"
+            "de": "Deine Rolle, zum Beispiel «Ich arbeite im Produktmanagement Fernreisen.»",
+            "en": "Your role, for example “I work in long-haul product management.”"
           },
           "correct": true,
           "explanation": {
-            "de": "Genau. Rolle, Sprache und Stil passen für fast jeden Chat.",
-            "en": "Exactly. Role, language and style fit almost every chat."
+            "de": "Ja. Die Rolle hilft in fast jedem Chat.",
+            "en": "Yes. The role helps in almost every chat."
           }
         },
         {
           "id": "b",
           "text": {
-            "de": "Die Buchungsnummer und das Geburtsdatum eines Kunden",
-            "en": "A customer's booking number and date of birth"
+            "de": "Wie du Antworten willst: kurz, gegliedert, Schweizer Rechtschreibung",
+            "en": "How you want answers: short, structured, Swiss spelling"
           },
-          "correct": false,
+          "correct": true,
           "explanation": {
-            "de": "Kundendaten gehören nie in die Anweisungen. Sie würden in jedem Chat mitgeschickt.",
-            "en": "Customer data never belongs in the instructions. It would be sent along with every chat."
+            "de": "Ja. Das musst du dann nicht mehr jedes Mal schreiben.",
+            "en": "Yes. Then you no longer have to write it every time."
           }
         },
         {
           "id": "c",
           "text": {
-            "de": "Die komplette Aufgabe von heute Nachmittag",
-            "en": "This afternoon's complete task"
+            "de": "Die Buchungsnummer eines Kunden, den du gerade betreust",
+            "en": "The booking number of a customer you are currently looking after"
           },
           "correct": false,
           "explanation": {
-            "de": "Eine einzelne Aufgabe gehört in den Chat. Anweisungen gelten für alles.",
-            "en": "A single task belongs in the chat. Instructions apply to everything."
+            "de": "Kundendaten gehören nie in die Anweisungen. Sie würden in jedem Chat mitgeschickt.",
+            "en": "Customer data never belongs in the instructions. It would be sent with every chat."
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "de": "Die genaue Aufgabe von heute Nachmittag",
+            "en": "The exact task for this afternoon"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Eine einzelne Aufgabe gehört in den Chat. Anweisungen gelten dauerhaft.",
+            "en": "A single task belongs in the chat. Instructions apply permanently."
           }
         }
       ]
@@ -83,15 +95,27 @@
       "id": "q-gedaechtnis",
       "difficulty": "intermediate",
       "question": {
-        "de": "Copilot hat sich etwas Falsches über dich gemerkt. Was tust du?",
-        "en": "Copilot has remembered something wrong about you. What do you do?"
+        "de": "Copilot hat sich gemerkt, dass du im Marketing arbeitest. Du bist aber im Produktmanagement. Was hilft?",
+        "en": "Copilot has remembered that you work in marketing. But you are in product management. What helps?"
       },
       "options": [
         {
           "id": "a",
           "text": {
-            "de": "In den Einstellungen unter Personalisierung die Erinnerung löschen oder Copilot sagen: «Vergiss, dass …»",
-            "en": "Delete the memory under Personalization in the settings or tell Copilot: “Forget that …”"
+            "de": "Einen neuen Chat beginnen, dann ist die Erinnerung weg",
+            "en": "Start a new chat, then the memory is gone"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Das Gedächtnis gilt über alle Chats. Ein neuer Chat ändert daran nichts.",
+            "en": "Memory applies across all chats. A new chat changes nothing."
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "de": "Die Erinnerung unter Personalisierung löschen oder Copilot sagen: «Vergiss, dass …»",
+            "en": "Delete the memory under Personalization or tell Copilot: “Forget that …”"
           },
           "correct": true,
           "explanation": {
@@ -100,27 +124,27 @@
           }
         },
         {
-          "id": "b",
+          "id": "c",
           "text": {
-            "de": "Nichts, das lässt sich nicht ändern",
-            "en": "Nothing, it can't be changed"
+            "de": "Den Browser-Verlauf löschen",
+            "en": "Clear the browser history"
           },
           "correct": false,
           "explanation": {
-            "de": "Doch: Erinnerungen kannst du jederzeit ansehen und löschen.",
-            "en": "It can: you can view and delete memories at any time."
+            "de": "Die Erinnerungen liegen in deinem Microsoft-365-Konto, nicht im Browser.",
+            "en": "The memories are stored in your Microsoft 365 account, not in the browser."
           }
         },
         {
-          "id": "c",
+          "id": "d",
           "text": {
-            "de": "Einen neuen Chat beginnen",
-            "en": "Start a new chat"
+            "de": "Die IT bitten, dein Copilot-Konto zurückzusetzen",
+            "en": "Ask IT to reset your Copilot account"
           },
           "correct": false,
           "explanation": {
-            "de": "Das Gedächtnis gilt über alle Chats hinweg. Ein neuer Chat ändert daran nichts.",
-            "en": "Memory applies across all chats. A new chat does not change that."
+            "de": "Das ist nicht nötig. Du kannst Erinnerungen selbst ansehen und löschen.",
+            "en": "That is not necessary. You can view and delete memories yourself."
           }
         }
       ]

@@ -34,56 +34,56 @@
       "id": "q-was-ist-prompt",
       "difficulty": "beginner",
       "question": {
-        "de": "Was ist ein «Prompt»?",
-        "en": "What is a \"prompt\"?"
+        "de": "Welche Eingabe ist ein Prompt im Sinne von Copilot?",
+        "en": "Which input is a prompt in the Copilot sense?"
       },
       "options": [
         {
           "id": "a",
           "text": {
-            "de": "Eine Eingabe oder Anweisung an die KI",
-            "en": "An input or instruction given to the AI"
+            "de": "Alles, was du Copilot schreibst oder sagst, damit er etwas tut",
+            "en": "Everything you write or say to Copilot to make it do something"
           },
           "correct": true,
           "explanation": {
-            "de": "Ein Prompt ist die Eingabe, mit der du der KI mitteilst, was sie tun soll.",
-            "en": "A prompt is the input that tells the AI what to do."
+            "de": "Genau. Jede Frage oder Anweisung an Copilot ist ein Prompt.",
+            "en": "Exactly. Every question or instruction to Copilot is a prompt."
           }
         },
         {
           "id": "b",
           "text": {
-            "de": "Ein Fehler im System",
-            "en": "An error in the system"
+            "de": "Nur Anweisungen, die mit einem Befehl wie «/» beginnen",
+            "en": "Only instructions that start with a command such as “/”"
           },
           "correct": false,
           "explanation": {
-            "de": "Ein Fehler wäre ein Bug, kein Prompt.",
-            "en": "An error would be a bug, not a prompt."
+            "de": "Mit «/» verweist du auf Dateien. Ein Prompt kann aber jeder normale Satz sein.",
+            "en": "With “/” you refer to files. But a prompt can be any normal sentence."
           }
         },
         {
           "id": "c",
           "text": {
-            "de": "Eine Datenbankabfrage",
-            "en": "A database query"
+            "de": "Nur die vorgefertigten Vorschläge, die Copilot unter dem Eingabefeld zeigt",
+            "en": "Only the ready-made suggestions Copilot shows below the input box"
           },
           "correct": false,
           "explanation": {
-            "de": "Datenbankabfragen schreibt man zum Beispiel in SQL. Prompts sind normale Sprache.",
-            "en": "Database queries are written in languages like SQL. Prompts are plain language."
+            "de": "Die Vorschläge sind Beispiele. Was du selbst schreibst, ist genauso ein Prompt.",
+            "en": "The suggestions are examples. What you write yourself is just as much a prompt."
           }
         },
         {
           "id": "d",
           "text": {
-            "de": "Ein Programmierbefehl",
-            "en": "A programming command"
+            "de": "Die Antwort, die Copilot dir zurückgibt",
+            "en": "The answer Copilot gives you back"
           },
           "correct": false,
           "explanation": {
-            "de": "Prompts sind in natürlicher Sprache, keine Programmierbefehle.",
-            "en": "Prompts are in natural language, not programming commands."
+            "de": "Die Antwort ist das Ergebnis. Der Prompt ist deine Eingabe.",
+            "en": "The answer is the result. The prompt is your input."
           }
         }
       ]
@@ -93,56 +93,56 @@
       "id": "q-gutes-element",
       "difficulty": "intermediate",
       "question": {
-        "de": "Was ist ein wichtiges Element eines guten Copilot-Prompts?",
-        "en": "What is an important element of a good Copilot prompt?"
+        "de": "Welche Bausteine machen einen Prompt deutlich besser?",
+        "en": "Which building blocks make a prompt clearly better?"
       },
       "options": [
         {
           "id": "a",
           "text": {
-            "de": "Ein klares Ziel und relevanter Kontext",
-            "en": "A clear goal and relevant context"
+            "de": "Das Ziel: wofür du das Ergebnis brauchst",
+            "en": "The goal: what you need the result for"
           },
           "correct": true,
           "explanation": {
-            "de": "Ein guter Prompt beschreibt genau, was du möchtest, und gibt der KI den nötigen Kontext.",
-            "en": "A good prompt describes exactly what you want and gives the AI the context it needs."
+            "de": "Ja. Mit dem Ziel kann Copilot Wichtiges von Unwichtigem trennen.",
+            "en": "Yes. With the goal, Copilot can tell important from unimportant."
           }
         },
         {
           "id": "b",
           "text": {
-            "de": "Möglichst kurze Anfragen",
-            "en": "Requests that are as short as possible"
+            "de": "Die Erwartung: Form, Länge und Ton des Ergebnisses",
+            "en": "The expectation: form, length and tone of the result"
           },
-          "correct": false,
+          "correct": true,
           "explanation": {
-            "de": "Kürze allein ist kein Qualitätsmerkmal. Präzision und Kontext sind wichtiger.",
-            "en": "Brevity alone is not a quality feature. Precision and context matter more."
+            "de": "Ja. So bekommst du gleich das passende Format.",
+            "en": "Yes. That way you get the right format straight away."
           }
         },
         {
           "id": "c",
           "text": {
-            "de": "Viele Fachbegriffe",
-            "en": "Lots of technical jargon"
+            "de": "Möglichst viele Fachbegriffe, damit Copilot dich ernst nimmt",
+            "en": "As many technical terms as possible so that Copilot takes you seriously"
           },
           "correct": false,
           "explanation": {
-            "de": "Fachbegriffe können helfen, sind aber kein Muss. Klarheit ist entscheidend.",
-            "en": "Technical terms can help but are not required. Clarity is key."
+            "de": "Fachbegriffe helfen nur, wenn sie zur Aufgabe gehören. Klarheit zählt mehr.",
+            "en": "Technical terms only help if they belong to the task. Clarity matters more."
           }
         },
         {
           "id": "d",
           "text": {
-            "de": "Mehrere Themen auf einmal",
-            "en": "Several topics at once"
+            "de": "Mehrere Aufgaben in einem Prompt, damit es schneller geht",
+            "en": "Several tasks in one prompt to save time"
           },
           "correct": false,
           "explanation": {
-            "de": "Ein Thema pro Prompt liefert meist bessere Ergebnisse.",
-            "en": "One topic per prompt usually gives better results."
+            "de": "Mehrere Aufgaben auf einmal führen oft zu oberflächlichen Antworten. Lieber nacheinander.",
+            "en": "Several tasks at once often lead to shallow answers. Better one after another."
           }
         }
       ]

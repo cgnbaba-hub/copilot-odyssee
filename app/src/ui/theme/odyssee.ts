@@ -42,6 +42,7 @@ export const odysseeTheme: Theme = {
   },
   terms: {
     appTitle: { de: 'Copilot Odyssee', en: 'Copilot Odyssey' },
+    company: { de: 'DERTOUR Suisse', en: 'DERTOUR Suisse' },
     tagline: { de: 'Deine Reise mit Copilot', en: 'Your journey with Copilot' },
     xp: { de: 'Seemeilen', en: 'nautical miles' },
     mapTitle: { de: 'Seekarte', en: 'Sea chart' },

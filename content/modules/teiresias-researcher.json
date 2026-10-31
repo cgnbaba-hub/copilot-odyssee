@@ -34,7 +34,7 @@
     {
       "type": "quiz",
       "id": "q-researcher-wann",
-      "difficulty": "beginner",
+      "difficulty": "intermediate",
       "question": {
         "de": "Wofür lohnt sich Researcher mehr als eine normale Frage an Copilot?",
         "en": "When is Researcher worth more than a normal question to Copilot?"
@@ -43,20 +43,8 @@
         {
           "id": "a",
           "text": {
-            "de": "Für eine Marktübersicht zu Familienreisen nach Skandinavien mit Quellen",
-            "en": "For a market overview of family trips to Scandinavia with sources"
-          },
-          "correct": true,
-          "explanation": {
-            "de": "Genau. Umfangreiche Fragen mit mehreren Quellen sind seine Stärke.",
-            "en": "Exactly. Extensive questions with several sources are its strength."
-          }
-        },
-        {
-          "id": "b",
-          "text": {
-            "de": "Für eine kurze Antwort-Mail an eine Kollegin",
-            "en": "For a short reply email to a colleague"
+            "de": "Für eine schnelle Antwort-Mail an eine Kollegin",
+            "en": "For a quick reply email to a colleague"
           },
           "correct": false,
           "explanation": {
@@ -65,15 +53,39 @@
           }
         },
         {
-          "id": "c",
+          "id": "b",
           "text": {
-            "de": "Für die Frage, wie spät es in Bangkok ist",
-            "en": "For the question of what time it is in Bangkok"
+            "de": "Für die aktuelle Uhrzeit in Bangkok",
+            "en": "For the current time in Bangkok"
           },
           "correct": false,
           "explanation": {
             "de": "Eine einfache Frage braucht keinen Rechercheagenten.",
             "en": "A simple question does not need a research agent."
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "de": "Für eine Marktübersicht zu Familienreisen nach Skandinavien mit Quellen",
+            "en": "For a market overview of family trips to Scandinavia with sources"
+          },
+          "correct": true,
+          "explanation": {
+            "de": "Richtig. Umfangreiche Fragen mit vielen Quellen sind seine Stärke.",
+            "en": "Right. Extensive questions with many sources are its strength."
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "de": "Für eine verbindliche Auskunft zu Visa-Regeln an einen Gast",
+            "en": "For a binding answer on visa rules to a guest"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Auch Researcher kann irren. Verbindliches prüfst du an offizieller Stelle.",
+            "en": "Researcher can be wrong too. Check binding information at an official source."
           }
         }
       ]

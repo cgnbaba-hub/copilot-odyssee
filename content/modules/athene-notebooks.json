@@ -35,7 +35,7 @@
     {
       "type": "quiz",
       "id": "q-notebook-wann",
-      "difficulty": "beginner",
+      "difficulty": "intermediate",
       "question": {
         "de": "Wann ist ein Notebook besser als ein normaler Chat?",
         "en": "When is a notebook better than a normal chat?"
@@ -44,20 +44,8 @@
         {
           "id": "a",
           "text": {
-            "de": "Du arbeitest drei Wochen an einem neuen Katalog und brauchst immer wieder dieselben zehn Dokumente.",
-            "en": "You are working on a new catalogue for three weeks and keep needing the same ten documents."
-          },
-          "correct": true,
-          "explanation": {
-            "de": "Genau. Das Notebook hält die Unterlagen zusammen, und Copilot kennt sie bei jeder Frage.",
-            "en": "Exactly. The notebook keeps the documents together, and Copilot knows them for every question."
-          }
-        },
-        {
-          "id": "b",
-          "text": {
-            "de": "Du brauchst schnell eine Betreffzeile für eine Mail.",
-            "en": "You quickly need a subject line for an email."
+            "de": "Wenn du schnell eine Betreffzeile für eine Mail brauchst",
+            "en": "When you quickly need a subject line for an email"
           },
           "correct": false,
           "explanation": {
@@ -66,15 +54,39 @@
           }
         },
         {
-          "id": "c",
+          "id": "b",
           "text": {
-            "de": "Du willst Kundendaten sammeln, die sonst niemand sehen darf.",
-            "en": "You want to collect customer data that nobody else may see."
+            "de": "Wenn du vertrauliche Kundendaten an einem sicheren Ort sammeln willst",
+            "en": "When you want to collect confidential customer data in a safe place"
           },
           "correct": false,
           "explanation": {
-            "de": "Kundendaten gehören nicht in Copilot. Halte dich an die Regeln aus den Sirenenfelsen.",
-            "en": "Customer data does not belong in Copilot. Stick to the rules from the Sirens' Rocks."
+            "de": "Ein Notebook ist kein Ablageort für Kundendaten. Es gelten dieselben Regeln wie im Chat.",
+            "en": "A notebook is not a storage place for customer data. The same rules apply as in the chat."
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "de": "Wenn du über Wochen an einem Projekt arbeitest und immer dieselben Unterlagen brauchst",
+            "en": "When you work on a project for weeks and keep needing the same documents"
+          },
+          "correct": true,
+          "explanation": {
+            "de": "Richtig. Das Notebook hält die Unterlagen zusammen, und Copilot kennt sie bei jeder Frage.",
+            "en": "Right. The notebook keeps the documents together, and Copilot knows them for every question."
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "de": "Wenn Copilot eine Frage im Chat nicht beantworten konnte",
+            "en": "When Copilot could not answer a question in the chat"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Ein Notebook hilft nur, wenn die Antwort in deinen Unterlagen steckt.",
+            "en": "A notebook only helps if the answer is in your documents."
           }
         }
       ]
@@ -91,8 +103,20 @@
         {
           "id": "a",
           "text": {
-            "de": "Eine Copilot-Antwort weiterbearbeiten und mit dem Team teilen",
-            "en": "Keep editing a Copilot answer and share it with the team"
+            "de": "Webseiten für Kundinnen und Kunden veröffentlichen",
+            "en": "Publishing web pages for customers"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Pages sind für die Zusammenarbeit im Team gedacht, nicht für die Website.",
+            "en": "Pages are meant for teamwork, not for the website."
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "de": "Eine Copilot-Antwort als Seite weiterbearbeiten und mit dem Team teilen",
+            "en": "Keep editing a Copilot answer as a page and share it with the team"
           },
           "correct": true,
           "explanation": {
@@ -101,27 +125,27 @@
           }
         },
         {
-          "id": "b",
+          "id": "c",
           "text": {
-            "de": "Copilot in eine andere Sprache umstellen",
-            "en": "Switch Copilot to another language"
+            "de": "Lange Chats automatisch in PDF-Dateien umwandeln",
+            "en": "Automatically turning long chats into PDF files"
           },
           "correct": false,
           "explanation": {
-            "de": "Die Sprache stellst du in den Einstellungen oder im Prompt ein.",
-            "en": "You set the language in the settings or in the prompt."
+            "de": "Das ist nicht der Zweck von Pages.",
+            "en": "That is not what Pages are for."
           }
         },
         {
-          "id": "c",
+          "id": "d",
           "text": {
-            "de": "Webseiten für Kundinnen und Kunden veröffentlichen",
-            "en": "Publish web pages for customers"
+            "de": "Copilot dauerhaft eigene Regeln geben",
+            "en": "Giving Copilot permanent rules of your own"
           },
           "correct": false,
           "explanation": {
-            "de": "Pages sind für die Zusammenarbeit intern gedacht, nicht für die Website.",
-            "en": "Pages are meant for internal collaboration, not for the website."
+            "de": "Dafür sind die eigenen Anweisungen unter Personalisierung da.",
+            "en": "That is what the custom instructions under Personalization are for."
           }
         }
       ]

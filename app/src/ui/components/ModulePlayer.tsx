@@ -53,7 +53,7 @@ function hintFor(strings: Strings, block: Block): string {
     case 'briefing':
       return strings.hint_briefing;
     case 'quiz':
-      return strings.hint_quiz;
+      return block.options.filter((o) => o.correct).length > 1 ? strings.hint_quizMulti : strings.hint_quiz;
     case 'prompt':
       return strings.hint_prompt;
     case 'mission':

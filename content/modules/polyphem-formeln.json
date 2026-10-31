@@ -34,7 +34,7 @@
     {
       "type": "quiz",
       "id": "q-formel-pruefen",
-      "difficulty": "beginner",
+      "difficulty": "intermediate",
       "question": {
         "de": "Copilot hat eine neue Spalte mit einer Formel ergänzt. Wie prüfst du sie am besten?",
         "en": "Copilot has added a new column with a formula. How do you best check it?"
@@ -43,37 +43,49 @@
         {
           "id": "a",
           "text": {
-            "de": "Zwei, drei Zeilen von Hand nachrechnen und die Formel ansehen",
-            "en": "Recalculate two or three rows by hand and look at the formula"
+            "de": "Copilot fragen, ob die Formel stimmt",
+            "en": "Ask Copilot whether the formula is right"
           },
-          "correct": true,
+          "correct": false,
           "explanation": {
-            "de": "Genau. Eine kurze Stichprobe zeigt, ob Copilot dich richtig verstanden hat.",
-            "en": "Exactly. A quick spot check shows whether Copilot understood you correctly."
+            "de": "Copilot bestätigt oft seine eigene Lösung. Prüfe selbst.",
+            "en": "Copilot often confirms its own solution. Check yourself."
           }
         },
         {
           "id": "b",
           "text": {
-            "de": "Copilot fragen, ob die Formel stimmt",
-            "en": "Ask Copilot whether the formula is correct"
+            "de": "Schauen, ob alle Zellen einen Wert ohne Fehlermeldung zeigen",
+            "en": "See whether all cells show a value without an error message"
           },
           "correct": false,
           "explanation": {
-            "de": "Das ist keine unabhängige Prüfung. Rechne selbst nach.",
-            "en": "That is not an independent check. Recalculate yourself."
+            "de": "Eine Formel kann ohne Fehlermeldung trotzdem falsch rechnen.",
+            "en": "A formula can calculate wrongly without any error message."
           }
         },
         {
           "id": "c",
+          "text": {
+            "de": "Zwei, drei Zeilen von Hand nachrechnen, auch einen Grenzfall, und die Formel lesen",
+            "en": "Recalculate two or three rows by hand, including an edge case, and read the formula"
+          },
+          "correct": true,
+          "explanation": {
+            "de": "Richtig. Stichproben mit Grenzfällen zeigen die meisten Fehler.",
+            "en": "Right. Spot checks with edge cases reveal most errors."
+          }
+        },
+        {
+          "id": "d",
           "text": {
             "de": "Gar nicht, Excel rechnet ja immer richtig",
             "en": "Not at all, Excel always calculates correctly"
           },
           "correct": false,
           "explanation": {
-            "de": "Excel rechnet richtig, aber vielleicht die falsche Formel. Genau das prüfst du.",
-            "en": "Excel calculates correctly, but perhaps the wrong formula. That is exactly what you check."
+            "de": "Excel rechnet richtig, was in der Formel steht. Ob die Formel stimmt, ist die Frage.",
+            "en": "Excel correctly calculates what the formula says. Whether the formula is right is the question."
           }
         }
       ]

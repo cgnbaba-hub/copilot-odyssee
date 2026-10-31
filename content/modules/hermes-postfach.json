@@ -35,46 +35,58 @@
     {
       "type": "quiz",
       "id": "q-ferien",
-      "difficulty": "beginner",
+      "difficulty": "intermediate",
       "question": {
-        "de": "Du kommst aus einer Woche Ferien zurück. Welche Frage an Copilot (Premium) bringt dich am schnellsten auf den neusten Stand?",
-        "en": "You are back from a week of holidays. Which question to Copilot (Premium) gets you up to date fastest?"
+        "de": "Du kommst aus einer Woche Ferien zurück. Welcher Prompt an Copilot (Premium) bringt dich am schnellsten auf den Stand?",
+        "en": "You are back from a week of holiday. Which prompt to Copilot (Premium) gets you up to speed fastest?"
       },
       "options": [
         {
           "id": "a",
           "text": {
-            "de": "«Welche Mails von letzter Woche brauchen eine Antwort oder Entscheidung von mir?»",
-            "en": "“Which emails from last week need a reply or decision from me?”"
+            "de": "«Fasse alle Mails der letzten Woche zusammen.»",
+            "en": "“Summarise all emails from last week.”"
           },
-          "correct": true,
+          "correct": false,
           "explanation": {
-            "de": "Genau. Ein klares Ziel liefert eine Liste, mit der du sofort arbeiten kannst.",
-            "en": "Exactly. A clear goal gives you a list you can work with straight away."
+            "de": "Das ergibt eine lange Liste ohne Prioritäten.",
+            "en": "That gives a long list without priorities."
           }
         },
         {
           "id": "b",
           "text": {
-            "de": "«Lies meine Mails.»",
-            "en": "“Read my emails.”"
+            "de": "«Welche Mails der letzten Woche brauchen eine Antwort oder Entscheidung von mir?»",
+            "en": "“Which emails from last week need a reply or decision from me?”"
           },
-          "correct": false,
+          "correct": true,
           "explanation": {
-            "de": "Ohne Ziel weiss Copilot nicht, was dir wichtig ist. Sag, was du brauchst.",
-            "en": "Without a goal Copilot does not know what matters to you. Say what you need."
+            "de": "Richtig. Der Prompt sagt, was für dich wichtig ist, und Copilot filtert danach.",
+            "en": "Right. The prompt says what matters to you, and Copilot filters accordingly."
           }
         },
         {
           "id": "c",
           "text": {
-            "de": "«Lösche alle unwichtigen Mails.»",
-            "en": "“Delete all unimportant emails.”"
+            "de": "«Lies meine Mails und markiere die wichtigen.»",
+            "en": "“Read my emails and flag the important ones.”"
           },
           "correct": false,
           "explanation": {
-            "de": "Was wegkommt, entscheidest du. Copilot hilft beim Sortieren und Zusammenfassen.",
-            "en": "You decide what goes. Copilot helps with sorting and summarising."
+            "de": "«Wichtig» ist unklar. Sag Copilot, wonach er filtern soll.",
+            "en": "“Important” is vague. Tell Copilot what to filter by."
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "de": "«Lösche alle Newsletter und Werbung von letzter Woche.»",
+            "en": "“Delete all newsletters and ads from last week.”"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Copilot löscht keine Mails für dich, und es bringt dich inhaltlich nicht weiter.",
+            "en": "Copilot does not delete emails for you, and it does not get you up to speed."
           }
         }
       ]
@@ -85,43 +97,55 @@
       "difficulty": "intermediate",
       "question": {
         "de": "Wofür ist das Coaching von Copilot in Outlook gedacht?",
-        "en": "What is Copilot coaching in Outlook for?"
+        "en": "What is Copilot coaching in Outlook meant for?"
       },
       "options": [
         {
           "id": "a",
           "text": {
-            "de": "Rückmeldung zu Ton, Klarheit und Wirkung meines eigenen Entwurfs",
-            "en": "Feedback on the tone, clarity and impact of my own draft"
+            "de": "Es schreibt deinen Entwurf automatisch in einen besseren Ton um",
+            "en": "It automatically rewrites your draft in a better tone"
           },
-          "correct": true,
+          "correct": false,
           "explanation": {
-            "de": "Genau. Gerade bei heiklen Mails hilft ein zweiter Blick, bevor du sendest.",
-            "en": "Exactly. Especially with tricky emails, a second look helps before you send."
+            "de": "Coaching gibt Rückmeldung. Umschreiben entscheidest du selbst.",
+            "en": "Coaching gives feedback. Rewriting is your decision."
           }
         },
         {
           "id": "b",
           "text": {
-            "de": "Die Mail wird automatisch umgeschrieben und gesendet",
-            "en": "The email is automatically rewritten and sent"
+            "de": "Es prüft, ob die Empfängerin die Mail wahrscheinlich liest",
+            "en": "It checks whether the recipient is likely to read the email"
           },
           "correct": false,
           "explanation": {
-            "de": "Coaching gibt Hinweise. Was du übernimmst und wann du sendest, entscheidest du.",
-            "en": "Coaching gives suggestions. You decide what to take on and when to send."
+            "de": "Coaching bewertet deinen Entwurf, nicht das Verhalten anderer.",
+            "en": "Coaching assesses your draft, not other people's behaviour."
           }
         },
         {
           "id": "c",
           "text": {
-            "de": "Copilot bewertet die Leistung der Empfängerin",
-            "en": "Copilot rates the recipient's performance"
+            "de": "Es gibt Rückmeldung zu Ton, Klarheit und Wirkung deines eigenen Entwurfs",
+            "en": "It gives feedback on tone, clarity and impact of your own draft"
+          },
+          "correct": true,
+          "explanation": {
+            "de": "Richtig. Du bekommst Hinweise und entscheidest, was du änderst.",
+            "en": "Right. You get hints and decide what to change."
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "de": "Es korrigiert nur Tippfehler und Grammatik",
+            "en": "It only corrects typos and grammar"
           },
           "correct": false,
           "explanation": {
-            "de": "Copilot bewertet keine Personen. Es geht um deinen Text.",
-            "en": "Copilot does not rate people. It is about your text."
+            "de": "Dafür gibt es die Rechtschreibprüfung. Coaching geht um Ton und Wirkung.",
+            "en": "That is what the spell check is for. Coaching is about tone and impact."
           }
         }
       ]
