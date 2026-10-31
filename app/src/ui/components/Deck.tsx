@@ -138,7 +138,8 @@ export function Deck(props: { islands: Island[] }): React.ReactElement {
   const game = useGame();
   const { strings, t, navigate, player } = game;
   const islands = props.islands;
-  const reduceMotion = React.useMemo(() => !!window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches, []);
+  const systemReduced = React.useMemo(() => !!window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches, []);
+  const reduceMotion = systemReduced || player.profile.motion === 'reduced';
 
   const [current, setCurrent] = React.useState(() => {
     const stage = nextStage(game);

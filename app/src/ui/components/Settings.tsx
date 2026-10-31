@@ -45,6 +45,36 @@ export function Settings(props: { onClose: () => void; onReset: () => void; onRe
         ))}
       </div>
 
+      <h3 className={styles.drawerSection}>{strings.settingsDisplay}</h3>
+      <p className={styles.muted}>{strings.settingsTextSize}</p>
+      <div className={styles.langSwitch} role="group" aria-label={strings.settingsTextSize}>
+        {(['normal', 'large'] as const).map((size) => (
+          <button
+            type="button"
+            key={size}
+            aria-pressed={(player.profile.textSize || 'normal') === size}
+            className={(player.profile.textSize || 'normal') === size ? styles.langActive : undefined}
+            onClick={() => update((s) => updateProfile(s, { textSize: size }))}
+          >
+            {size === 'normal' ? strings.settingsTextNormal : strings.settingsTextLarge}
+          </button>
+        ))}
+      </div>
+      <p className={styles.muted}>{strings.settingsMotion}</p>
+      <div className={styles.langSwitch} role="group" aria-label={strings.settingsMotion}>
+        {(['full', 'reduced'] as const).map((motion) => (
+          <button
+            type="button"
+            key={motion}
+            aria-pressed={(player.profile.motion || 'full') === motion}
+            className={(player.profile.motion || 'full') === motion ? styles.langActive : undefined}
+            onClick={() => update((s) => updateProfile(s, { motion }))}
+          >
+            {motion === 'full' ? strings.settingsMotionFull : strings.settingsMotionReduced}
+          </button>
+        ))}
+      </div>
+
       <h3 className={styles.drawerSection}>{strings.tourTitle}</h3>
       <button type="button" className={styles.button} onClick={props.onRestartTour}>
         {strings.tourRestart}

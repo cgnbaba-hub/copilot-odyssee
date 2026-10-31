@@ -7,6 +7,8 @@ import { format } from '../i18n/strings';
 import { useGame } from '../GameContext';
 import { islandProgress, isPreview } from '../progressHelpers';
 import styles from '../styles.module.scss';
+import { copyText, CopyState } from '../copilot';
+import { linkTo } from '../links';
 import { Guide } from './Guide';
 import { LicenseChip } from './LicenseChip';
 import { mixColor, PosterIsland } from './PosterArt';
@@ -28,6 +30,7 @@ export function IslandView(props: { islandId: string }): React.ReactElement {
   const firstOpen = modules.filter((m) => moduleStatus(player, m) !== 'completed')[0];
   // Touch screens cannot hover, so there the preview of a ticket opens with a tap.
   const [peek, setPeek] = React.useState<string | undefined>(undefined);
+  const [linkState, setLinkState] = React.useState<CopyState>('idle');
 
   return (
     <section className={styles.islandPage} style={{ ['--od-island' as string]: island.color } as React.CSSProperties}>
@@ -37,6 +40,9 @@ export function IslandView(props: { islandId: string }): React.ReactElement {
       >
         <button type="button" className={styles.islandBack} onClick={() => navigate({ name: 'map' })}>
           ← {strings.backToDeck}
+        </button>
+        <button type="button" className={styles.islandShare} onClick={() => copyText(linkTo('insel', island.id), undefined, setLinkState)} title={strings.shareLinkHint}>
+          {linkState === 'copied' ? `✓ ${strings.shareLinkCopied}` : `🔗 ${strings.shareLink}`}
         </button>
         <svg className={styles.islandBandArt} viewBox="-180 -190 360 230" aria-hidden="true">
           <g className={styles.islandBandRays}>

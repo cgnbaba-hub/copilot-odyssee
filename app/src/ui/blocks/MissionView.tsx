@@ -6,6 +6,7 @@ import { format, Strings } from '../i18n/strings';
 import { APP_NAMES, COPILOT_CHAT_URL, copyText, CopyState } from '../copilot';
 import { useGame } from '../GameContext';
 import styles from '../styles.module.scss';
+import { EdgeTip } from '../components/EdgeTip';
 import { BlockViewProps } from './BlockViewProps';
 
 const RATINGS = [1, 2, 3, 4, 5];
@@ -47,11 +48,15 @@ export function MissionView(props: BlockViewProps<MissionBlock>): React.ReactEle
       ]
     : [
         {
+          // The Edge sidebar keeps Copilot right beside the Odyssey; a new tab is the fallback.
           text: strings.missionStep1,
           action: (
-            <a className={`${styles.buttonPrimary} ${styles.buttonBig}`} href={COPILOT_CHAT_URL} target="_blank" rel="noopener noreferrer">
-              {strings.missionOpenCopilot} ↗
-            </a>
+            <>
+              <EdgeTip />
+              <a className={styles.edgeFallback} href={COPILOT_CHAT_URL} target="_blank" rel="noopener noreferrer">
+                {strings.missionOpenCopilotTab} ↗
+              </a>
+            </>
           )
         },
         { text: textToCopy ? strings.missionStep2Copy : strings.missionStep2, action: copyBox },

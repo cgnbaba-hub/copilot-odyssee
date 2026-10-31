@@ -3,7 +3,7 @@
   "id": "aiolos-copilot-chat-kennenlernen",
   "island": "aiolos",
   "order": 1,
-  "version": "1.0.0",
+  "version": "1.1.0",
   "owner": "copilot-team",
   "status": "draft",
   "reviewedAt": "2026-10-28",
@@ -27,8 +27,8 @@
         "en": "Where to find Copilot Chat"
       },
       "body": {
-        "de": "Copilot Chat (Basic) erreichst du mit deinem Firmenkonto hier:\n- **im Browser** unter m365.cloud.microsoft/chat\n- in der **Microsoft-365-Copilot-App** auf dem Computer oder dem Handy\n- in **Outlook**\n\nIn Word, Excel, PowerPoint und OneNote ist Copilot seit April 2026 in grösseren Organisationen der Premium-Lizenz vorbehalten. Mit Basic arbeitest du dort, indem du Texte in den Chat kopierst oder Dateien hochlädst.",
-        "en": "You can reach Copilot Chat (Basic) with your work account here:\n- **in the browser** at m365.cloud.microsoft/chat\n- in the **Microsoft 365 Copilot app** on your computer or phone\n- in **Outlook**\n\nIn Word, Excel, PowerPoint and OneNote, larger organisations have reserved Copilot for the Premium licence since April 2026. With Basic you work with those documents by copying text into the chat or uploading files."
+        "de": "Copilot Chat (Basic) erreichst du mit deinem Firmenkonto hier:\n- **im Browser** unter m365.cloud.microsoft/chat\n- in der **Microsoft-365-Copilot-App** auf dem Computer oder dem Handy\n- in **Outlook**\n- in **Microsoft Edge** als Seitenleiste: oben rechts auf das Copilot-Symbol klicken. So hast du Copilot direkt neben jeder Webseite, auch neben der Odyssee.\n\nIn Word, Excel, PowerPoint und OneNote ist Copilot seit April 2026 in grösseren Organisationen der Premium-Lizenz vorbehalten. Mit Basic arbeitest du dort, indem du Texte in den Chat kopierst oder Dateien hochlädst.",
+        "en": "You can reach Copilot Chat (Basic) with your work account here:\n- **in the browser** at m365.cloud.microsoft/chat\n- in the **Microsoft 365 Copilot app** on your computer or phone\n- in **Outlook**\n- in **Microsoft Edge** as a sidebar: click the Copilot icon at the top right. That way you have Copilot right beside any web page, including the Odyssey.\n\nIn Word, Excel, PowerPoint and OneNote, larger organisations have reserved Copilot for the Premium licence since April 2026. With Basic you work with those documents by copying text into the chat or uploading files."
       }
     },
     {
@@ -41,6 +41,18 @@
       "body": {
         "de": "Copilot Chat (Basic) arbeitet mit zwei Quellen:\n- **dem Web**, für allgemeines Wissen und aktuelle Themen\n- **dem, was du ihm gibst**: deine Nachricht, eingefügter Text und hochgeladene Dateien\n\nWas Copilot Chat (Basic) **nicht** kann: selbstständig in euren SharePoint-Seiten, Teams-Chats oder deinem OneDrive suchen. Das ist der Premium-Lizenz vorbehalten. Wenn Copilot ein internes Dokument kennen soll, gib es ihm.",
         "en": "Copilot Chat (Basic) works with two sources:\n- **the web**, for general knowledge and current topics\n- **what you give it**: your message, pasted text and uploaded files\n\nWhat Copilot Chat (Basic) **cannot** do is search your SharePoint sites, Teams chats or OneDrive on its own. That is reserved for the Premium licence. If Copilot should know an internal document, give it to Copilot."
+      }
+    },
+    {
+      "type": "briefing",
+      "id": "edge",
+      "title": {
+        "de": "Copilot in Edge: Webseiten erklären lassen",
+        "en": "Copilot in Edge: having web pages explained"
+      },
+      "body": {
+        "de": "In der **Edge-Seitenleiste** kann Copilot die Webseite lesen, die gerade offen ist. Das ist praktisch, wenn du dir etwas erklären oder Informationen herausziehen lassen willst, zum Beispiel:\n- «Fasse diese Seite in fünf Punkten zusammen.»\n- «Erkläre mir die Fachbegriffe auf dieser Seite in einfachen Worten.»\n- «Stelle alle Preise und Reisedaten dieser Seite als Tabelle zusammen.»\n\nDamit das geht, muss in Edge der **Zugriff auf Seiteninhalte** eingeschaltet sein: Einstellungen › Darstellung › Copilot und Seitenleiste. Je nach Version heisst die Einstellung etwas anders, und manchmal gibt die IT sie vor. Wie immer gilt: Wichtige Angaben prüfst du an der Quelle.",
+        "en": "In the **Edge sidebar**, Copilot can read the web page that is currently open. That is handy when you want something explained or information extracted, for example:\n- “Summarise this page in five points.”\n- “Explain the technical terms on this page in plain words.”\n- “Put all prices and travel dates on this page into a table.”\n\nFor this to work, **access to page content** must be switched on in Edge: Settings › Appearance › Copilot and sidebar. Depending on the version the setting is named slightly differently, and sometimes IT sets it. As always: check important details at the source."
       }
     },
     {

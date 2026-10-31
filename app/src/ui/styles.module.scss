@@ -6290,5 +6290,146 @@ $grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width=
 }
 
 .toast {
-  border-left: 6px solid var(--od-brand);
+  border: 2px solid var(--od-brand);
+}
+
+// Save status: a quiet note bottom left, so players know their progress is safe
+
+.saveStatus {
+  position: fixed;
+  left: 16px;
+  bottom: calc(#{$nav-h} + 16px);
+  z-index: 1001;
+  margin: 0;
+  padding: 5px 12px;
+  background: $paper-hi;
+  border: 2px solid $ink;
+  border-radius: 999px;
+  box-shadow: 2px 2px 0 $ink;
+  color: $ink;
+  font-size: 13px;
+  font-weight: 700;
+  pointer-events: none;
+}
+
+.saveStatusError {
+  max-width: min(420px, calc(100% - 32px));
+  background: var(--od-danger-soft);
+  border-color: var(--od-danger);
+  color: var(--od-danger);
+}
+
+@media (max-width: $narrow) {
+  .saveStatus {
+    left: 12px;
+    bottom: calc(#{$nav-h} + 10px);
+  }
+}
+
+.islandShare {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 6px 14px;
+  background: rgba(251, 246, 232, 0.92);
+  border: 2px solid $ink;
+  border-radius: 999px;
+  color: $ink;
+  cursor: pointer;
+  font-family: var(--od-font-display);
+  font-size: 14px;
+  font-weight: 700;
+
+  &:hover {
+    background: $paper-hi;
+  }
+}
+
+// Display settings chosen in the app: larger text, fewer animations
+
+.appLarge {
+  zoom: 1.15;
+}
+
+.appCalm *,
+.appCalm *::before,
+.appCalm *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}
+
+.appCalm .confetti,
+.appCalm .stampTool {
+  display: none;
+}
+
+// Missions: Copilot in the Edge sidebar, right beside the Odyssey
+
+.edgeTip {
+  display: grid;
+  gap: 10px;
+  margin: 6px 0 4px;
+}
+
+.edgeSketch {
+  width: 100%;
+  max-width: 340px;
+  height: auto;
+}
+
+.edgeMore {
+  max-width: 560px;
+  padding: 10px 14px;
+  background: $paper-hi;
+  border: 2px solid rgba(26, 41, 64, 0.25);
+  border-left: 5px solid var(--od-brand);
+  border-radius: 10px;
+  font-size: 15px;
+
+  summary {
+    cursor: pointer;
+    font-weight: 700;
+  }
+
+  p {
+    margin: 8px 0 4px;
+  }
+
+  ul {
+    margin: 4px 0 6px;
+    padding-left: 20px;
+  }
+}
+
+.edgeFallback {
+  justify-self: start;
+  color: var(--od-brand);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+// Switches inside panels sit on paper, not on the dark header: readable ink, red when chosen.
+.drawer .langSwitch {
+  display: inline-flex;
+  gap: 4px;
+  background: rgba(26, 41, 64, 0.08);
+  border: 2px solid $ink;
+  border-radius: 999px;
+
+  button {
+    padding: 0 16px;
+    border-radius: 999px;
+    color: $ink;
+  }
+
+  .langActive {
+    background: var(--od-brand) !important;
+    color: var(--od-on-brand) !important;
+    box-shadow: none;
+  }
+}
+
+.edgeMore li {
+  margin: 2px 0;
 }

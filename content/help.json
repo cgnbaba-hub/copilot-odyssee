@@ -72,8 +72,8 @@
         "en": "How do I open Copilot?"
       },
       "answer": {
-        "de": "Am einfachsten über den Knopf **«Copilot öffnen»** in einer Mission. Copilot öffnet sich dann in einem neuen Tab deines Browsers.\n\nOder so:\n- Öffne deinen Browser, zum Beispiel Edge.\n- Tippe oben in die Adresszeile **m365.cloud.microsoft/chat** und drücke die **Enter-Taste**.\n- Wirst du nach einer Anmeldung gefragt, melde dich mit deinem Firmenkonto an.",
-        "en": "The easiest way is the **“Open Copilot”** button in a mission. Copilot then opens in a new tab of your browser.\n\nOr like this:\n- Open your browser, for example Edge.\n- Type **m365.cloud.microsoft/chat** into the address bar at the top and press **Enter**.\n- If you are asked to sign in, sign in with your work account."
+        "de": "Am einfachsten in **Microsoft Edge**: Klicke oben rechts auf das **Copilot-Symbol**. Copilot öffnet sich als Seitenleiste, und die Odyssee bleibt daneben sichtbar.\n\nOder so:\n- Öffne deinen Browser, zum Beispiel Edge.\n- Tippe oben in die Adresszeile **m365.cloud.microsoft/chat** und drücke die **Enter-Taste**.\n- Wirst du nach einer Anmeldung gefragt, melde dich mit deinem Firmenkonto an.",
+        "en": "The easiest way is in **Microsoft Edge**: click the **Copilot icon** at the top right. Copilot opens as a sidebar, and the Odyssey stays visible beside it.\n\nOr like this:\n- Open your browser, for example Edge.\n- Type **m365.cloud.microsoft/chat** into the address bar at the top and press **Enter**.\n- If you are asked to sign in, sign in with your work account."
       }
     },
     {
@@ -206,6 +206,18 @@
       "answer": {
         "de": "Copilot nutzt mehrere KI-Modelle. **Auto** wählt selbst und passt für die meisten Fragen. Für knifflige Aufgaben mit mehreren Schritten kannst du ein **gründlicheres Modell** wählen, falls du die Auswahl siehst. Welche Modelle es gibt, hängt von Lizenz und IT ab, und die Namen ändern sich oft.",
         "en": "Copilot uses several AI models. **Auto** chooses itself and fits most questions. For tricky tasks with several steps you can choose a **more thorough model** if you see the choice. Which models are available depends on licence and IT, and the names change often."
+      }
+    },
+    {
+      "id": "webseite-erklaeren",
+      "group": "alltag",
+      "question": {
+        "de": "Kann Copilot mir eine Webseite erklären?",
+        "en": "Can Copilot explain a web page to me?"
+      },
+      "answer": {
+        "de": "Ja, in der **Edge-Seitenleiste**. Öffne die Webseite, klicke oben rechts auf das Copilot-Symbol und frag zum Beispiel: «Fasse diese Seite zusammen» oder «Stelle alle Preise als Tabelle zusammen».\n\nDafür muss in Edge der Zugriff auf Seiteninhalte eingeschaltet sein: Einstellungen › Darstellung › Copilot und Seitenleiste. Je nach Version heisst die Einstellung etwas anders, und manchmal gibt die IT sie vor.",
+        "en": "Yes, in the **Edge sidebar**. Open the web page, click the Copilot icon at the top right and ask, for example: “Summarise this page” or “Put all prices into a table”.\n\nFor this, access to page content must be switched on in Edge: Settings › Appearance › Copilot and sidebar. Depending on the version the setting is named slightly differently, and sometimes IT sets it."
       }
     },
     {
