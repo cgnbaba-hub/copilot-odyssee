@@ -36,44 +36,56 @@
       "id": "q-gruppenchat",
       "difficulty": "beginner",
       "question": {
-        "de": "Du wirst in einen Gruppenchat mit 200 Nachrichten aufgenommen. Wie startest du am besten?",
-        "en": "You are added to a group chat with 200 messages. How do you best get started?"
+        "de": "Du wirst in einen Teams-Gruppenchat mit 200 Nachrichten aufgenommen. Wie steigst du am besten ein?",
+        "en": "You are added to a Teams group chat with 200 messages. What is the best way to get started?"
       },
       "options": [
         {
           "id": "a",
+          "text": {
+            "de": "Alle Nachrichten von Anfang an lesen, damit dir nichts entgeht",
+            "en": "Read all messages from the beginning so that you miss nothing"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Das kostet viel Zeit. Copilot kann dir einen Überblick geben.",
+            "en": "That takes a lot of time. Copilot can give you an overview."
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "de": "Im Chat fragen, ob jemand kurz zusammenfassen kann",
+            "en": "Ask in the chat whether someone can summarise briefly"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Das geht, kostet aber Zeit anderer. Copilot kann das sofort.",
+            "en": "That works but costs others' time. Copilot can do it at once."
+          }
+        },
+        {
+          "id": "c",
           "text": {
             "de": "Copilot im Chat nach den wichtigsten Punkten und offenen Fragen fragen",
             "en": "Ask Copilot in the chat for the key points and open questions"
           },
           "correct": true,
           "explanation": {
-            "de": "Genau. In Sekunden weisst du, worum es geht, und kannst gezielt nachlesen.",
-            "en": "Exactly. In seconds you know what it is about and can read up selectively."
+            "de": "Richtig. Danach liest du gezielt die Stellen, die dich betreffen.",
+            "en": "Right. Then you read the parts that concern you in a targeted way."
           }
         },
         {
-          "id": "b",
+          "id": "d",
           "text": {
-            "de": "Alle 200 Nachrichten von Anfang an lesen",
-            "en": "Read all 200 messages from the beginning"
+            "de": "Nur die letzten zehn Nachrichten lesen",
+            "en": "Read only the last ten messages"
           },
           "correct": false,
           "explanation": {
-            "de": "Geht, kostet aber viel Zeit. Copilot gibt dir zuerst den Überblick.",
-            "en": "Possible, but it takes a lot of time. Copilot gives you the overview first."
-          }
-        },
-        {
-          "id": "c",
-          "text": {
-            "de": "Im Chat fragen, ob jemand zusammenfassen kann",
-            "en": "Ask in the chat whether someone can summarise"
-          },
-          "correct": false,
-          "explanation": {
-            "de": "Das kostet die Zeit von anderen. Copilot erledigt das für dich.",
-            "en": "That costs other people's time. Copilot does it for you."
+            "de": "Dann fehlen dir womöglich Entscheidungen von früher.",
+            "en": "Then you may miss earlier decisions."
           }
         }
       ]

@@ -34,46 +34,58 @@
     {
       "type": "quiz",
       "id": "q-zu-lang",
-      "difficulty": "beginner",
+      "difficulty": "intermediate",
       "question": {
-        "de": "Die erste Antwort von Copilot ist zu lang und zu förmlich. Was ist am wirksamsten?",
-        "en": "Copilot's first answer is too long and too formal. What works best?"
+        "de": "Die erste Antwort von Copilot ist inhaltlich gut, aber zu lang und zu förmlich. Was ist am wirksamsten?",
+        "en": "Copilot's first answer is good in content but too long and too formal. What is most effective?"
       },
       "options": [
         {
           "id": "a",
           "text": {
-            "de": "Im selben Chat nachschärfen: «Kürze auf 5 Sätze und schreib lockerer.»",
-            "en": "Refine in the same chat: “Cut it to 5 sentences and make it more casual.”"
+            "de": "Einen neuen Chat öffnen und den Prompt mit «kurz» ergänzen",
+            "en": "Open a new chat and add “short” to the prompt"
           },
-          "correct": true,
+          "correct": false,
           "explanation": {
-            "de": "Copilot kennt den bisherigen Verlauf und kann gezielt anpassen.",
-            "en": "Copilot knows the conversation so far and can adjust precisely."
+            "de": "Damit verlierst du den guten Inhalt und fängst von vorne an.",
+            "en": "You lose the good content and start from scratch."
           }
         },
         {
           "id": "b",
           "text": {
-            "de": "Einen neuen Chat öffnen und denselben Prompt nochmals schicken",
-            "en": "Open a new chat and send the same prompt again"
+            "de": "Im selben Chat nachschärfen: «Kürze auf fünf Sätze und schreib lockerer.»",
+            "en": "Refine in the same chat: “Shorten to five sentences and write more casually.”"
           },
-          "correct": false,
+          "correct": true,
           "explanation": {
-            "de": "Ohne neue Angaben kommt vermutlich wieder etwas Ähnliches heraus.",
-            "en": "Without new instructions, you will probably get something similar again."
+            "de": "Richtig. Copilot kennt die erste Antwort und passt nur Länge und Ton an.",
+            "en": "Right. Copilot knows the first answer and only adjusts length and tone."
           }
         },
         {
           "id": "c",
           "text": {
-            "de": "Die Antwort selbst komplett umschreiben",
-            "en": "Rewrite the answer completely yourself"
+            "de": "Auf «Neu generieren» klicken, bis eine kürzere Version kommt",
+            "en": "Click “Regenerate” until a shorter version appears"
           },
           "correct": false,
           "explanation": {
-            "de": "Geht auch, kostet aber mehr Zeit als eine kurze Nachfrage.",
-            "en": "That works too, but takes more time than a short follow-up."
+            "de": "Das ist Glückssache. Sag Copilot lieber genau, was du anders willst.",
+            "en": "That is luck. Better tell Copilot exactly what you want differently."
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "de": "Die Antwort kopieren und selbst kürzen, Copilot kann das nicht",
+            "en": "Copy the answer and shorten it yourself, Copilot cannot do that"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Kürzen und Umformulieren kann Copilot sehr gut.",
+            "en": "Shortening and rephrasing is something Copilot does very well."
           }
         }
       ]
@@ -83,44 +95,56 @@
       "id": "q-neuer-chat",
       "difficulty": "intermediate",
       "question": {
-        "de": "Wann lohnt sich ein neuer Chat?",
-        "en": "When is it worth starting a new chat?"
+        "de": "In welchen Fällen lohnt sich ein neuer Chat?",
+        "en": "In which cases is a new chat worth it?"
       },
       "options": [
         {
           "id": "a",
           "text": {
-            "de": "Wenn ich mit einem ganz anderen Thema weitermache",
-            "en": "When I continue with a completely different topic"
+            "de": "Du wechselst zu einem ganz anderen Thema",
+            "en": "You switch to a completely different topic"
           },
           "correct": true,
           "explanation": {
-            "de": "Genau. So vermischt Copilot die Themen nicht.",
-            "en": "Exactly. That way Copilot does not mix up the topics."
+            "de": "Ja. Alter Kontext kann sonst die neue Antwort verfälschen.",
+            "en": "Yes. Otherwise old context can distort the new answer."
           }
         },
         {
           "id": "b",
           "text": {
-            "de": "Nach jeder einzelnen Antwort",
-            "en": "After every single answer"
+            "de": "Copilot hängt nach vielen Runden an einer falschen Annahme fest",
+            "en": "After many rounds, Copilot is stuck on a wrong assumption"
           },
-          "correct": false,
+          "correct": true,
           "explanation": {
-            "de": "Dann verlierst du den Zusammenhang, den du für Nachfragen brauchst.",
-            "en": "Then you lose the context you need for follow-ups."
+            "de": "Ja. Ein frischer Chat mit besserem Prompt löst das oft schneller.",
+            "en": "Yes. A fresh chat with a better prompt often solves it faster."
           }
         },
         {
           "id": "c",
           "text": {
-            "de": "Nie, ein einziger Chat für alles ist am besten",
-            "en": "Never, one single chat for everything is best"
+            "de": "Die Antwort soll nur etwas kürzer werden",
+            "en": "The answer should just be a bit shorter"
           },
           "correct": false,
           "explanation": {
-            "de": "Alte Themen im Verlauf können neue Antworten in die falsche Richtung lenken.",
-            "en": "Old topics in the history can steer new answers in the wrong direction."
+            "de": "Dafür reicht eine Nachfrage im selben Chat.",
+            "en": "A follow-up in the same chat is enough for that."
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "de": "Nach jeder Antwort, damit Copilot nicht durcheinanderkommt",
+            "en": "After every answer, so that Copilot does not get confused"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Dann verlierst du jedes Mal den Zusammenhang, auf dem du aufbauen könntest.",
+            "en": "Then you lose the context you could build on every time."
           }
         }
       ]

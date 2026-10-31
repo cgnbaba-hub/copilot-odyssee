@@ -46,7 +46,7 @@
     {
       "type": "quiz",
       "id": "q-wissen",
-      "difficulty": "intermediate",
+      "difficulty": "advanced",
       "question": {
         "de": "Du baust einen Agenten für dein ganzes Team. Welche Unterlagen gibst du ihm als Wissen?",
         "en": "You are building an agent for your whole team. Which documents do you give it as knowledge?"
@@ -55,37 +55,49 @@
         {
           "id": "a",
           "text": {
-            "de": "Nur Unterlagen, die alle im Team sehen dürfen, zum Beispiel das Prozesshandbuch",
-            "en": "Only documents everyone in the team may see, for example the process handbook"
+            "de": "Alles aus deinem OneDrive, damit er möglichst viel weiss",
+            "en": "Everything from your OneDrive so that it knows as much as possible"
           },
-          "correct": true,
+          "correct": false,
           "explanation": {
-            "de": "Genau. Was der Agent weiss, können alle erfragen, die ihn nutzen.",
-            "en": "Exactly. Whatever the agent knows, everyone who uses it can ask about."
+            "de": "Dann sehen andere womöglich Inhalte, die nur für dich bestimmt sind.",
+            "en": "Then others may see content meant only for you."
           }
         },
         {
           "id": "b",
           "text": {
-            "de": "Alles aus meinem OneDrive, damit er möglichst viel weiss",
-            "en": "Everything from my OneDrive so it knows as much as possible"
+            "de": "Nur aktuelle Unterlagen, die alle im Team sehen dürfen, zum Beispiel das Prozesshandbuch",
+            "en": "Only current documents everyone in the team may see, for example the process handbook"
           },
-          "correct": false,
+          "correct": true,
           "explanation": {
-            "de": "Dann könnten andere über den Agenten an deine persönlichen Unterlagen kommen.",
-            "en": "Then others could reach your personal documents through the agent."
+            "de": "Richtig. Wer den Agenten nutzt, soll nur Wissen bekommen, das er ohnehin sehen darf.",
+            "en": "Right. Anyone using the agent should only get knowledge they may see anyway."
           }
         },
         {
           "id": "c",
           "text": {
-            "de": "Gar keine, der Agent weiss alles aus dem Internet",
-            "en": "None at all, the agent knows everything from the internet"
+            "de": "Möglichst alte Unterlagen, weil die gut geprüft sind",
+            "en": "Preferably old documents because they have been well checked"
           },
           "correct": false,
           "explanation": {
-            "de": "Interne Abläufe stehen nicht im Internet. Gib ihm eure Unterlagen.",
-            "en": "Internal processes are not on the internet. Give it your documents."
+            "de": "Veraltete Unterlagen führen zu veralteten Antworten.",
+            "en": "Outdated documents lead to outdated answers."
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "de": "Gar keine, der Agent findet alles selbst im Internet",
+            "en": "None, the agent finds everything on the internet itself"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Interne Abläufe stehen nicht im Internet.",
+            "en": "Internal processes are not on the internet."
           }
         }
       ]

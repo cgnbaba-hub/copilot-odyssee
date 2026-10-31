@@ -46,46 +46,58 @@
     {
       "type": "quiz",
       "id": "q-internes-dokument",
-      "difficulty": "beginner",
+      "difficulty": "intermediate",
       "question": {
         "de": "Du fragst Copilot Chat (Basic) nach dem Inhalt eines internen Konzepts, das auf SharePoint liegt. Was passiert?",
-        "en": "You ask Copilot Chat (Basic) about an internal concept stored on SharePoint. What happens?"
+        "en": "You ask Copilot Chat (Basic) about the content of an internal concept stored on SharePoint. What happens?"
       },
       "options": [
         {
           "id": "a",
           "text": {
-            "de": "Copilot kennt das Dokument nicht. Ich muss es hochladen oder den Text einfügen.",
-            "en": "Copilot doesn't know the document. I need to upload it or paste the text."
+            "de": "Copilot findet das Dokument, weil du darauf Zugriff hast",
+            "en": "Copilot finds the document because you have access to it"
           },
-          "correct": true,
+          "correct": false,
           "explanation": {
-            "de": "Basic sucht nicht selbst in euren Dateien. Achtung: Ohne Dokument erfindet Copilot im schlimmsten Fall eine plausible Antwort.",
-            "en": "Basic does not search your files by itself. Careful: without the document, Copilot may invent a plausible answer."
+            "de": "Das kann nur Premium mit Zugriff auf Arbeitsdaten. Basic sucht nicht selbst in euren Dateien.",
+            "en": "Only Premium with access to work data can do that. Basic does not search your files itself."
           }
         },
         {
           "id": "b",
           "text": {
-            "de": "Copilot findet das Dokument automatisch auf SharePoint.",
-            "en": "Copilot finds the document on SharePoint automatically."
+            "de": "Copilot kennt es nicht. Du musst die Datei hochladen oder den Text einfügen.",
+            "en": "Copilot does not know it. You have to upload the file or paste the text."
           },
-          "correct": false,
+          "correct": true,
           "explanation": {
-            "de": "Das kann nur M365 Copilot (Premium).",
-            "en": "Only M365 Copilot (Premium) can do that."
+            "de": "Richtig. Basic arbeitet mit dem Web und mit dem, was du ihm gibst.",
+            "en": "Right. Basic works with the web and with what you give it."
           }
         },
         {
           "id": "c",
           "text": {
-            "de": "Copilot sucht das Dokument im Internet.",
-            "en": "Copilot searches the internet for the document."
+            "de": "Copilot findet es, wenn du den genauen Dateinamen nennst",
+            "en": "Copilot finds it if you name the exact file name"
           },
           "correct": false,
           "explanation": {
-            "de": "Ein internes Dokument ist nicht im Internet. Copilot würde höchstens Ähnliches finden.",
-            "en": "An internal document is not on the internet. At best Copilot would find something similar."
+            "de": "Auch mit Dateinamen sucht Basic nicht in SharePoint. Lade die Datei hoch.",
+            "en": "Even with a file name, Basic does not search SharePoint. Upload the file."
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "de": "Copilot antwortet trotzdem, aber nur mit öffentlichen Infos aus dem Web",
+            "en": "Copilot still answers, but only with public information from the web"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Das kann passieren, und genau das ist gefährlich: Die Antwort klingt passend, beruht aber nicht auf eurem Konzept.",
+            "en": "That can happen, and that is exactly the danger: the answer sounds fitting but is not based on your concept."
           }
         }
       ]
@@ -96,43 +108,55 @@
       "difficulty": "beginner",
       "question": {
         "de": "Woran erkennst du, dass du im geschützten Copilot Chat deines Unternehmens arbeitest?",
-        "en": "How can you tell you are working in your company's protected Copilot Chat?"
+        "en": "How can you tell that you are working in your company's protected Copilot Chat?"
       },
       "options": [
         {
           "id": "a",
           "text": {
-            "de": "Ich bin mit dem Firmenkonto angemeldet und sehe das Schild-Symbol.",
-            "en": "I am signed in with my work account and see the shield icon."
+            "de": "An der Adresse copilot.microsoft.com im Browser",
+            "en": "By the address copilot.microsoft.com in the browser"
           },
-          "correct": true,
+          "correct": false,
           "explanation": {
-            "de": "Genau.",
-            "en": "Exactly."
+            "de": "Die Adresse allein sagt wenig. Entscheidend ist, mit welchem Konto du angemeldet bist.",
+            "en": "The address alone says little. What matters is which account you are signed in with."
           }
         },
         {
           "id": "b",
           "text": {
-            "de": "Die Seite hat ein blaues Design.",
-            "en": "The page has a blue design."
+            "de": "Daran, dass Copilot auf Deutsch antwortet",
+            "en": "By Copilot answering in German"
           },
           "correct": false,
           "explanation": {
-            "de": "Das Design sagt nichts über den Datenschutz.",
-            "en": "The design says nothing about data protection."
+            "de": "Die Sprache hat nichts mit dem Datenschutz zu tun.",
+            "en": "The language has nothing to do with data protection."
           }
         },
         {
           "id": "c",
           "text": {
-            "de": "Copilot antwortet auf Deutsch.",
-            "en": "Copilot answers in German."
+            "de": "Am Firmenkonto oben rechts und am Schild-Symbol",
+            "en": "By the company account at the top right and the shield icon"
+          },
+          "correct": true,
+          "explanation": {
+            "de": "Genau. Firmenkonto und Schild zeigen den Unternehmensdatenschutz.",
+            "en": "Exactly. Company account and shield show enterprise data protection."
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "de": "Daran, dass du dich mit deinem privaten Microsoft-Konto anmeldest",
+            "en": "By signing in with your private Microsoft account"
           },
           "correct": false,
           "explanation": {
-            "de": "Die Sprache hat mit dem Schutz nichts zu tun.",
-            "en": "The language has nothing to do with protection."
+            "de": "Mit einem privaten Konto gilt der Unternehmensdatenschutz gerade nicht.",
+            "en": "With a private account, enterprise data protection does not apply."
           }
         }
       ]

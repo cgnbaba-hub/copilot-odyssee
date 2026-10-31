@@ -2870,7 +2870,8 @@ $meander: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' widt
 $ink: #1a2940;
 $paper-hi: #fbf6e8;
 $sun: #f2b13a;
-$coral: #c94f33;
+// Eyebrows, labels and stamps take the DERTOUR red.
+$coral: #e40028;
 $nav-h: 66px;
 $grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .1 0 0 0 0 .12 0 0 0 0 .18 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 
@@ -6170,4 +6171,124 @@ $grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width=
   .chartScrollHint {
     display: block;
   }
+}
+
+// Quiz with several right answers: square boxes instead of letters
+
+.quizMulti {
+  display: inline-block;
+  margin: -4px 0 12px !important;
+  padding: 3px 12px;
+  background: var(--od-brand);
+  border-radius: 999px;
+  color: var(--od-on-brand);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.choiceMulti .choiceLetter {
+  border-radius: 6px !important;
+}
+
+// ---------------------------------------------------------------------------
+// DERTOUR look: the company red carries the frame of the app
+// ---------------------------------------------------------------------------
+
+.header {
+  border-bottom: 5px solid var(--od-brand);
+}
+
+.brandCompany {
+  align-self: flex-start;
+  display: inline-block;
+  margin-top: 2px;
+  padding: 1px 8px;
+  background: var(--od-brand);
+  border-radius: 999px;
+  color: var(--od-on-brand);
+  font-family: var(--od-font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.statusBarFill {
+  background: linear-gradient(90deg, #ff5a72, var(--od-brand));
+}
+
+.navBar {
+  border-top: 4px solid var(--od-brand);
+}
+
+.navButton[aria-current='page'] {
+  background: var(--od-brand);
+  border-top-color: #ffffff;
+  color: #ffffff;
+}
+
+.viewSwitchActive {
+  background: var(--od-brand) !important;
+  color: var(--od-on-brand) !important;
+}
+
+.pageTitle {
+  padding-bottom: 12px;
+  background: linear-gradient(var(--od-brand), var(--od-brand)) left bottom / 64px 6px no-repeat;
+}
+
+.sectionTitle::after {
+  content: '';
+  flex: none;
+  width: 34px;
+  height: 5px;
+  margin-left: 4px;
+  background: var(--od-brand);
+  border-radius: 999px;
+}
+
+.ticketNext {
+  outline-color: var(--od-brand);
+}
+
+.mapNumber:not(.mapNumberPreview) {
+  background: var(--od-brand);
+  color: var(--od-on-brand);
+}
+
+// More DERTOUR red at chosen points: signs, panels, links and small labels
+
+.contactNote a,
+.contactNote .linkButton {
+  color: var(--od-brand);
+}
+
+.drawerHead {
+  padding-bottom: 12px;
+  border-bottom: 5px solid var(--od-brand);
+}
+
+.dialog {
+  border-top: 8px solid var(--od-brand);
+}
+
+.rankUpName {
+  text-shadow: 3px 3px 0 rgba(228, 0, 40, 0.3);
+}
+
+.plaque {
+  border-top: 7px solid var(--od-brand);
+}
+
+.routeCurrent::after {
+  background: var(--od-brand) !important;
+}
+
+.ticketStubLabel {
+  color: var(--od-brand);
+}
+
+.toast {
+  border-left: 6px solid var(--od-brand);
 }

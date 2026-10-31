@@ -34,46 +34,58 @@
     {
       "type": "quiz",
       "id": "q-notizen",
-      "difficulty": "beginner",
+      "difficulty": "intermediate",
       "question": {
-        "de": "Du willst mit Copilot in Word ein Reiseprogramm entwerfen, das auf den Notizen deiner Rekognoszierungsreise beruht. Wie kommt Copilot an die Notizen?",
-        "en": "You want to draft a tour programme in Word with Copilot, based on the notes from your inspection trip. How does Copilot get the notes?"
+        "de": "Du willst in Word ein Reiseprogramm entwerfen, das auf den Notizen deiner Rekognoszierungsreise beruht. Wie kommt Copilot an die Notizen?",
+        "en": "You want to draft a tour programme in Word based on the notes from your inspection trip. How does Copilot get the notes?"
       },
       "options": [
         {
           "id": "a",
           "text": {
-            "de": "Ich verweise im Copilot-Feld mit «/» auf die Datei mit den Notizen.",
-            "en": "I reference the file with the notes in the Copilot box using “/”."
+            "de": "Copilot öffnet sich beim Start von Word und liest alle Dateien im Ordner",
+            "en": "Copilot opens when Word starts and reads all files in the folder"
           },
-          "correct": true,
+          "correct": false,
           "explanation": {
-            "de": "Genau. So weiss Copilot sicher, mit welcher Datei er arbeiten soll.",
-            "en": "Exactly. That way Copilot knows for sure which file to work with."
+            "de": "Copilot öffnest du über das Symbol unten rechts, und er liest nur, worauf du verweist.",
+            "en": "You open Copilot via the icon at the bottom right, and it only reads what you refer to."
           }
         },
         {
           "id": "b",
           "text": {
-            "de": "Gar nicht, ich muss die Notizen abtippen.",
-            "en": "Not at all, I have to retype the notes."
+            "de": "Im Copilot-Feld mit «/» auf die Datei mit den Notizen verweisen",
+            "en": "Refer to the file with the notes in the Copilot box using “/”"
           },
-          "correct": false,
+          "correct": true,
           "explanation": {
-            "de": "Nicht nötig. Mit «/» gibst du Copilot die Datei direkt.",
-            "en": "Not necessary. With “/” you give Copilot the file directly."
+            "de": "Richtig. So weiss Copilot genau, welche Datei er verwenden soll.",
+            "en": "Right. That way Copilot knows exactly which file to use."
           }
         },
         {
           "id": "c",
           "text": {
-            "de": "Copilot weiss automatisch, welche Notizen ich meine.",
-            "en": "Copilot automatically knows which notes I mean."
+            "de": "Den Dateinamen der Notizen in den Text des Dokuments schreiben",
+            "en": "Write the file name of the notes into the text of the document"
           },
           "correct": false,
           "explanation": {
-            "de": "Copilot kann zwar suchen, aber sicher ist es nur, wenn du die Datei nennst.",
-            "en": "Copilot can search, but it is only reliable if you name the file."
+            "de": "Ein Dateiname im Text ist kein Verweis. Nutze «/» im Copilot-Feld.",
+            "en": "A file name in the text is not a reference. Use “/” in the Copilot box."
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "de": "Gar nicht, du musst die Notizen abtippen",
+            "en": "Not at all, you have to type up the notes"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Abtippen ist nicht nötig. Mit «/» verweist du auf die Datei.",
+            "en": "Typing is not needed. Use “/” to refer to the file."
           }
         }
       ]

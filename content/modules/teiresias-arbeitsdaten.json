@@ -46,46 +46,58 @@
     {
       "type": "quiz",
       "id": "q-sieht",
-      "difficulty": "beginner",
+      "difficulty": "intermediate",
       "question": {
-        "de": "Welche Daten durchsucht Copilot (Premium), wenn du nach einem Projekt fragst?",
-        "en": "Which data does Copilot (Premium) search when you ask about a project?"
+        "de": "Du fragst Copilot (Premium) mit eingeschaltetem Work IQ nach einem Projekt. Wo sucht er?",
+        "en": "You ask Copilot (Premium) about a project with Work IQ switched on. Where does it search?"
       },
       "options": [
         {
           "id": "a",
           "text": {
-            "de": "Mails, Chats, Dateien und Meetings, auf die ich selbst Zugriff habe",
-            "en": "Emails, chats, files and meetings I have access to myself"
+            "de": "In allen Daten des Unternehmens, auch in gesperrten Ordnern",
+            "en": "In all company data, including locked folders"
           },
-          "correct": true,
+          "correct": false,
           "explanation": {
-            "de": "Genau. Copilot hält sich an deine Berechtigungen.",
-            "en": "Exactly. Copilot respects your permissions."
+            "de": "Copilot sieht nur, was du selbst öffnen darfst.",
+            "en": "Copilot only sees what you yourself are allowed to open."
           }
         },
         {
           "id": "b",
           "text": {
-            "de": "Alle Daten im Unternehmen, auch gesperrte",
-            "en": "All data in the company, including restricted data"
+            "de": "In Mails, Chats, Dateien und Meetings, auf die du selbst Zugriff hast",
+            "en": "In emails, chats, files and meetings that you yourself can access"
           },
-          "correct": false,
+          "correct": true,
           "explanation": {
-            "de": "Copilot umgeht keine Berechtigungen. Was du nicht öffnen darfst, sieht er auch nicht.",
-            "en": "Copilot does not bypass permissions. What you cannot open, it cannot see either."
+            "de": "Richtig. Copilot hält sich an deine Berechtigungen.",
+            "en": "Right. Copilot follows your permissions."
           }
         },
         {
           "id": "c",
           "text": {
-            "de": "Nur das Internet",
-            "en": "Only the internet"
+            "de": "Nur in den Dateien, die du heute geöffnet hast",
+            "en": "Only in the files you opened today"
           },
           "correct": false,
           "explanation": {
-            "de": "Das gilt für Copilot Chat (Basic). Mit Premium kommen deine Arbeitsdaten dazu.",
-            "en": "That applies to Copilot Chat (Basic). With Premium, your work data is added."
+            "de": "Copilot sucht in allen Arbeitsdaten, auf die du Zugriff hast, nicht nur in heutigen.",
+            "en": "Copilot searches all work data you can access, not just today's."
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "de": "Nur im Internet, Arbeitsdaten bleiben aussen vor",
+            "en": "Only on the internet, work data stays out"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Mit eingeschaltetem Work IQ nutzt Copilot gerade deine Arbeitsdaten.",
+            "en": "With Work IQ switched on, Copilot uses precisely your work data."
           }
         }
       ]
@@ -93,7 +105,7 @@
     {
       "type": "quiz",
       "id": "q-oversharing",
-      "difficulty": "intermediate",
+      "difficulty": "advanced",
       "question": {
         "de": "Copilot zeigt dir in einer Antwort eine Lohnliste, die du eigentlich nicht sehen solltest. Was tust du?",
         "en": "In an answer, Copilot shows you a payroll list you should not actually see. What do you do?"
@@ -102,37 +114,49 @@
         {
           "id": "a",
           "text": {
-            "de": "Die IT informieren, damit die Freigabe der Datei korrigiert wird",
-            "en": "Inform IT so that the file's sharing gets fixed"
+            "de": "Nichts, Copilot hat sich offenbar geirrt",
+            "en": "Nothing, Copilot has apparently made a mistake"
           },
-          "correct": true,
+          "correct": false,
           "explanation": {
-            "de": "Genau. Copilot zeigt nur, was ohnehin zugänglich ist. Die Freigabe ist das Problem.",
-            "en": "Exactly. Copilot only shows what is accessible anyway. The sharing is the problem."
+            "de": "Copilot zeigt nur, worauf du Zugriff hast. Die Datei ist also falsch freigegeben.",
+            "en": "Copilot only shows what you have access to. So the file is shared wrongly."
           }
         },
         {
           "id": "b",
           "text": {
-            "de": "Die Liste weiterleiten, sie ist ja zugänglich",
-            "en": "Forward the list, it is accessible after all"
+            "de": "Copilot ab sofort nicht mehr verwenden",
+            "en": "Stop using Copilot from now on"
           },
           "correct": false,
           "explanation": {
-            "de": "Zugänglich heisst nicht erlaubt. Vertrauliche Daten gibst du nicht weiter.",
-            "en": "Accessible does not mean permitted. You do not pass on confidential data."
+            "de": "Das Problem ist die Freigabe der Datei, nicht Copilot.",
+            "en": "The problem is the file's sharing, not Copilot."
           }
         },
         {
           "id": "c",
           "text": {
-            "de": "Nichts tun und Copilot nicht mehr verwenden",
-            "en": "Do nothing and stop using Copilot"
+            "de": "Die IT oder die verantwortliche Person informieren, damit die Freigabe korrigiert wird",
+            "en": "Inform IT or the person responsible so that the sharing is corrected"
+          },
+          "correct": true,
+          "explanation": {
+            "de": "Richtig. Die Datei ist für zu viele Personen freigegeben, das muss behoben werden.",
+            "en": "Right. The file is shared with too many people, which must be fixed."
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "de": "Die Liste an die Personalabteilung weiterleiten, damit sie Bescheid weiss",
+            "en": "Forward the list to HR so that they know"
           },
           "correct": false,
           "explanation": {
-            "de": "Copilot ist nicht die Ursache. Melde die Freigabe, dann ist das Problem für alle gelöst.",
-            "en": "Copilot is not the cause. Report the sharing, then the problem is solved for everyone."
+            "de": "Leite vertrauliche Daten nicht weiter. Melde nur, wo die Datei liegt.",
+            "en": "Do not forward confidential data. Just report where the file is."
           }
         }
       ]

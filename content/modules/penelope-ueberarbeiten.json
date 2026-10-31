@@ -36,44 +36,56 @@
       "id": "q-umschreiben",
       "difficulty": "beginner",
       "question": {
-        "de": "Copilot hat einen Abschnitt für dich umgeschrieben. Was prüfst du zuerst?",
-        "en": "Copilot has rewritten a section for you. What do you check first?"
+        "de": "Copilot hat einen Abschnitt deines Reiseprogramms umgeschrieben. Was prüfst du zuerst?",
+        "en": "Copilot has rewritten a section of your tour programme. What do you check first?"
       },
       "options": [
         {
           "id": "a",
           "text": {
-            "de": "Ob alle Fakten, Zahlen und Namen noch stimmen",
-            "en": "Whether all facts, figures and names are still correct"
+            "de": "Ob der neue Text länger ist als vorher",
+            "en": "Whether the new text is longer than before"
           },
-          "correct": true,
+          "correct": false,
           "explanation": {
-            "de": "Genau. Beim Umformulieren können Details verloren gehen oder sich verändern.",
-            "en": "Exactly. When rephrasing, details can get lost or change."
+            "de": "Länge sagt nichts über die Qualität. Wichtig sind die Fakten.",
+            "en": "Length says nothing about quality. The facts are what matter."
           }
         },
         {
           "id": "b",
           "text": {
-            "de": "Nichts, es ist ja mein eigener Text",
-            "en": "Nothing, it is my own text after all"
+            "de": "Ob Copilot die Formatierung beibehalten hat",
+            "en": "Whether Copilot kept the formatting"
           },
           "correct": false,
           "explanation": {
-            "de": "Der Inhalt stammt von dir, die neue Formulierung von Copilot. Lies sie durch.",
-            "en": "The content is yours, the new wording is Copilot's. Read it through."
+            "de": "Formatierung ist schnell korrigiert. Falsche Fakten sind gefährlicher.",
+            "en": "Formatting is quickly fixed. Wrong facts are more dangerous."
           }
         },
         {
           "id": "c",
           "text": {
-            "de": "Nur die Schriftart",
-            "en": "Only the font"
+            "de": "Ob alle Fakten, Zahlen und Namen noch stimmen",
+            "en": "Whether all facts, figures and names are still right"
+          },
+          "correct": true,
+          "explanation": {
+            "de": "Richtig. Beim Umschreiben können Details verloren gehen oder sich ändern.",
+            "en": "Right. Details can get lost or change when rewriting."
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "de": "Nichts, es war ja dein eigener Text",
+            "en": "Nothing, it was your own text after all"
           },
           "correct": false,
           "explanation": {
-            "de": "Die Schrift ist das kleinste Problem. Wichtig sind die Fakten.",
-            "en": "The font is the least of the worries. The facts matter."
+            "de": "Gerade beim Umschreiben können sich Fehler einschleichen.",
+            "en": "Mistakes can creep in precisely when rewriting."
           }
         }
       ]
@@ -83,44 +95,56 @@
       "id": "q-vertrag",
       "difficulty": "intermediate",
       "question": {
-        "de": "Ein Hotelvertrag hat 30 Seiten. Wofür eignet sich Copilot am besten?",
-        "en": "A hotel contract has 30 pages. What is Copilot best suited for?"
+        "de": "Ein Hotelvertrag hat 30 Seiten. Wofür setzt du Copilot sinnvoll ein?",
+        "en": "A hotel contract has 30 pages. What do you sensibly use Copilot for?"
       },
       "options": [
         {
           "id": "a",
           "text": {
-            "de": "Fristen, Stornobedingungen und Kontingente herausziehen und mit Abschnitt auflisten",
-            "en": "Extract deadlines, cancellation terms and allotments and list them with their section"
+            "de": "Fristen, Stornobedingungen und Kontingente mit Abschnittsnummer auflisten",
+            "en": "Listing deadlines, cancellation terms and allotments with section numbers"
           },
           "correct": true,
           "explanation": {
-            "de": "Genau. So hast du schnell den Überblick und kannst jede Stelle nachlesen.",
-            "en": "Exactly. That gives you a quick overview and you can look up each point."
+            "de": "Ja. Mit den Abschnittsnummern prüfst du schnell nach.",
+            "en": "Yes. With the section numbers you can check quickly."
           }
         },
         {
           "id": "b",
           "text": {
-            "de": "Den Vertrag rechtsverbindlich prüfen und freigeben",
-            "en": "Check and approve the contract in a legally binding way"
+            "de": "Unklare Klauseln in einfachen Worten erklären lassen",
+            "en": "Having unclear clauses explained in plain words"
           },
-          "correct": false,
+          "correct": true,
           "explanation": {
-            "de": "Eine rechtliche Freigabe braucht Fachleute. Copilot hilft beim Verstehen.",
-            "en": "A legal approval needs experts. Copilot helps with understanding."
+            "de": "Ja, als Verständnishilfe. Massgebend bleibt der Vertragstext.",
+            "en": "Yes, as an aid to understanding. The contract text remains authoritative."
           }
         },
         {
           "id": "c",
           "text": {
-            "de": "Den Vertrag ändern und dem Partner zurückschicken",
-            "en": "Change the contract and send it back to the partner"
+            "de": "Den Vertrag rechtsverbindlich prüfen und freigeben",
+            "en": "Legally reviewing and approving the contract"
           },
           "correct": false,
           "explanation": {
-            "de": "Änderungen an Verträgen sprichst du mit dem Partner ab. Copilot entscheidet nichts.",
-            "en": "You agree changes to contracts with the partner. Copilot decides nothing."
+            "de": "Eine rechtliche Freigabe macht immer ein Mensch.",
+            "en": "A legal approval is always made by a person."
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "de": "Den Vertrag ändern und dem Partner direkt zurückschicken",
+            "en": "Changing the contract and sending it straight back to the partner"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Änderungen und Versand entscheidest du, nicht Copilot.",
+            "en": "Changes and sending are your decision, not Copilot's."
           }
         }
       ]

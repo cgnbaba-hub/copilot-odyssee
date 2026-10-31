@@ -51,6 +51,21 @@ describe('player state', () => {
     expect(outcome.state.xp).toBe(20);
   });
 
+  it('needs exactly all correct options when several are right', () => {
+    const multi: QuizBlock = {
+      ...quiz,
+      id: 'q2',
+      options: [
+        { id: 'a', text: { de: 'A', en: 'A' }, correct: true },
+        { id: 'b', text: { de: 'B', en: 'B' }, correct: true },
+        { id: 'c', text: { de: 'C', en: 'C' }, correct: false }
+      ]
+    };
+    expect(answerQuiz(initialState('de'), 'm1', multi, ['a']).correct).toBe(false);
+    expect(answerQuiz(initialState('de'), 'm1', multi, ['a', 'b', 'c']).correct).toBe(false);
+    expect(answerQuiz(initialState('de'), 'm1', multi, ['b', 'a']).correct).toBe(true);
+  });
+
   it('pays half quiz XP after a wrong attempt', () => {
     const wrong = answerQuiz(initialState('de'), 'm1', quiz, 'b');
     expect(wrong.correct).toBe(false);

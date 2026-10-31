@@ -24,6 +24,7 @@ export function Header(props: { onOpenSettings: () => void; onOpenHelp: () => vo
         <CompassRose className={styles.brandCompass} />
         <span className={styles.brandText}>
           <span className={styles.brandTitle}>{t(theme.terms.appTitle)}</span>
+          {theme.terms.company && <span className={styles.brandCompany}>{t(theme.terms.company)}</span>}
         </span>
       </button>
 

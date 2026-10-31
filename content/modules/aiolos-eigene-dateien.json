@@ -59,44 +59,56 @@
       "id": "q-vor-weitergeben",
       "difficulty": "intermediate",
       "question": {
-        "de": "Copilot hat dir ein langes Dokument zusammengefasst. Was tust du, bevor du die Zusammenfassung weitergibst?",
-        "en": "Copilot has summarised a long document for you. What do you do before passing the summary on?"
+        "de": "Copilot hat dir ein 20-seitiges Dokument zusammengefasst. Was prüfst du, bevor du die Zusammenfassung weitergibst?",
+        "en": "Copilot has summarised a 20-page document for you. What do you check before passing the summary on?"
       },
       "options": [
         {
           "id": "a",
           "text": {
-            "de": "Wichtige Zahlen, Daten und Namen mit dem Original abgleichen",
-            "en": "Check important figures, dates and names against the original"
+            "de": "Zahlen, Daten und Namen mit dem Original abgleichen",
+            "en": "Compare figures, dates and names with the original"
           },
           "correct": true,
           "explanation": {
-            "de": "Genau. Gerade bei Zahlen und Daten können sich Fehler einschleichen.",
-            "en": "Exactly. Errors creep in especially with figures and dates."
+            "de": "Ja. Hier passieren die folgenreichsten Fehler.",
+            "en": "Yes. This is where the most consequential mistakes happen."
           }
         },
         {
           "id": "b",
           "text": {
-            "de": "Nichts, Copilot hat das Dokument ja gelesen",
-            "en": "Nothing, Copilot did read the document"
+            "de": "Ob wichtige Punkte fehlen, zum Beispiel Ausnahmen oder Fristen",
+            "en": "Whether important points are missing, for example exceptions or deadlines"
           },
-          "correct": false,
+          "correct": true,
           "explanation": {
-            "de": "Auch mit Dokument kann Copilot etwas falsch wiedergeben oder weglassen.",
-            "en": "Even with the document, Copilot can misrepresent or leave out things."
+            "de": "Ja. Zusammenfassungen lassen manchmal genau das Entscheidende weg.",
+            "en": "Yes. Summaries sometimes leave out exactly what matters."
           }
         },
         {
           "id": "c",
           "text": {
-            "de": "Copilot fragen, ob die Zusammenfassung stimmt",
-            "en": "Ask Copilot whether the summary is correct"
+            "de": "Ob Copilot auf Nachfrage bestätigt, dass alles stimmt",
+            "en": "Whether Copilot confirms on request that everything is correct"
           },
           "correct": false,
           "explanation": {
-            "de": "Das ist keine unabhängige Prüfung. Ein Blick ins Original ist besser.",
-            "en": "That is not an independent check. A look at the original is better."
+            "de": "Eine Bestätigung von Copilot ist keine Prüfung. Vergleiche mit dem Original.",
+            "en": "A confirmation from Copilot is not a check. Compare with the original."
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "de": "Nur die Rechtschreibung, der Inhalt stammt ja aus dem Dokument",
+            "en": "Only the spelling, the content comes from the document after all"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Auch wenn die Grundlage stimmt, kann Copilot Inhalte falsch wiedergeben.",
+            "en": "Even if the basis is right, Copilot can reproduce content wrongly."
           }
         }
       ]

@@ -34,56 +34,56 @@
       "id": "q-was-ist-copilot",
       "difficulty": "beginner",
       "question": {
-        "de": "Was ist Copilot?",
-        "en": "What is Copilot?"
+        "de": "Welche Aussage über Copilot trifft am besten zu?",
+        "en": "Which statement about Copilot fits best?"
       },
       "options": [
         {
           "id": "a",
           "text": {
-            "de": "Der KI-Assistent von Microsoft 365",
-            "en": "The AI assistant of Microsoft 365"
+            "de": "Ein KI-Assistent, der in Microsoft 365 eingebaut ist und Texte auf Basis von Wahrscheinlichkeiten erzeugt",
+            "en": "An AI assistant built into Microsoft 365 that generates text based on probabilities"
           },
           "correct": true,
           "explanation": {
-            "de": "Je nach Lizenz nutzt du ihn im Browser und in Outlook (Basic) oder zusätzlich direkt in Word, Excel, PowerPoint und Teams (Premium).",
-            "en": "Depending on your licence, you use it in the browser and in Outlook (Basic) or also directly in Word, Excel, PowerPoint and Teams (Premium)."
+            "de": "Genau. Copilot ist in Microsoft 365 eingebaut und formuliert Antworten Wort für Wort nach Wahrscheinlichkeit.",
+            "en": "Exactly. Copilot is built into Microsoft 365 and phrases answers word by word by probability."
           }
         },
         {
           "id": "b",
           "text": {
-            "de": "Ein neues Textverarbeitungsprogramm",
-            "en": "A new word processor"
+            "de": "Eine Suchmaschine, die zu jeder Frage die passende Webseite unverändert anzeigt",
+            "en": "A search engine that shows the matching web page unchanged for every question"
           },
           "correct": false,
           "explanation": {
-            "de": "Copilot ist keine eigenständige Textverarbeitung, sondern ein KI-Assistent in vielen Apps.",
-            "en": "Copilot is not a standalone word processor but an AI assistant across many apps."
+            "de": "Copilot kann im Web suchen, formuliert aber eine eigene Antwort. Er zeigt nicht einfach Seiten an.",
+            "en": "Copilot can search the web, but it writes its own answer. It does not just show pages."
           }
         },
         {
           "id": "c",
           "text": {
-            "de": "Ein Cloud-Speicherdienst",
-            "en": "A cloud storage service"
+            "de": "Eine Datenbank mit geprüften Antworten, die Microsoft laufend von Hand pflegt",
+            "en": "A database of verified answers that Microsoft maintains by hand"
           },
           "correct": false,
           "explanation": {
-            "de": "Das ist OneDrive. Copilot ist ein KI-Assistent.",
-            "en": "That's OneDrive. Copilot is an AI assistant."
+            "de": "Copilots Antworten sind nicht von Hand geprüft. Er erzeugt sie jedes Mal neu.",
+            "en": "Copilot's answers are not checked by hand. It generates them anew each time."
           }
         },
         {
           "id": "d",
           "text": {
-            "de": "Ein Videokonferenz-Tool",
-            "en": "A video conferencing tool"
+            "de": "Ein Programm, das nur in Word funktioniert und dort Texte korrigiert",
+            "en": "A program that only works in Word and corrects texts there"
           },
           "correct": false,
           "explanation": {
-            "de": "Das ist Teams. Copilot funktioniert in Teams, ist aber mehr als das.",
-            "en": "That's Teams. Copilot works in Teams, but it is more than that."
+            "de": "Copilot gibt es in vielen Microsoft-365-Apps und als eigenen Chat, nicht nur in Word.",
+            "en": "Copilot exists in many Microsoft 365 apps and as its own chat, not only in Word."
           }
         }
       ]
@@ -105,56 +105,56 @@
       "id": "q-halluzination",
       "difficulty": "intermediate",
       "question": {
-        "de": "Copilot nennt dir für einen Bericht eine überraschend genaue Marktzahl. Was tust du?",
-        "en": "Copilot gives you a surprisingly precise market figure for a report. What do you do?"
+        "de": "Copilot nennt dir für einen Bericht eine überraschend genaue Marktzahl und einen Link als Quelle. Was ist der beste nächste Schritt?",
+        "en": "For a report, Copilot gives you a surprisingly precise market figure and a link as source. What is the best next step?"
       },
       "options": [
         {
           "id": "a",
           "text": {
-            "de": "Ich prüfe die Zahl in der angegebenen Quelle, bevor ich sie verwende.",
-            "en": "I check the figure in the cited source before using it."
+            "de": "Copilot fragen, ob die Zahl stimmt, und sie bei einem Ja übernehmen",
+            "en": "Ask Copilot whether the figure is right and use it if it says yes"
           },
-          "correct": true,
+          "correct": false,
           "explanation": {
-            "de": "Genau. Wichtige Zahlen prüfst du immer an der Quelle.",
-            "en": "Exactly. Always verify important figures at the source."
+            "de": "Copilot bestätigt oft, was er selbst geschrieben hat. Eine zweite Antwort ist keine Prüfung.",
+            "en": "Copilot often confirms what it wrote itself. A second answer is not a check."
           }
         },
         {
           "id": "b",
           "text": {
-            "de": "Ich übernehme sie direkt, Copilot irrt sich nicht.",
-            "en": "I use it right away, Copilot doesn't make mistakes."
+            "de": "Den Link öffnen und prüfen, ob die Zahl dort genau so steht",
+            "en": "Open the link and check whether the figure appears there exactly"
           },
-          "correct": false,
+          "correct": true,
           "explanation": {
-            "de": "Auch Copilot kann halluzinieren. Ungeprüfte Zahlen sind riskant.",
-            "en": "Copilot can hallucinate too. Unchecked figures are risky."
+            "de": "Richtig. Auch mit Quellenangabe kann eine Zahl falsch übernommen oder erfunden sein.",
+            "en": "Right. Even with a source, a figure can be copied wrongly or invented."
           }
         },
         {
           "id": "c",
           "text": {
-            "de": "Ich frage Copilot, ob die Zahl stimmt, und übernehme sie bei einem Ja.",
-            "en": "I ask Copilot whether the figure is correct and use it if it says yes."
+            "de": "Die Zahl übernehmen, weil ein Link angegeben ist",
+            "en": "Use the figure because a link is given"
           },
           "correct": false,
           "explanation": {
-            "de": "Eine Bestätigung von Copilot selbst ist keine unabhängige Prüfung.",
-            "en": "Confirmation from Copilot itself is not an independent check."
+            "de": "Ein Link macht die Zahl nicht automatisch richtig. Copilot kann Quellen falsch wiedergeben.",
+            "en": "A link does not make the figure right automatically. Copilot can misquote sources."
           }
         },
         {
           "id": "d",
           "text": {
-            "de": "Ich frage Copilot nie wieder nach Zahlen.",
-            "en": "I never ask Copilot for figures again."
+            "de": "Die Zahl runden, damit eine kleine Abweichung nicht auffällt",
+            "en": "Round the figure so that a small deviation does not stand out"
           },
           "correct": false,
           "explanation": {
-            "de": "Zu vorsichtig: Zahlen von Copilot sind nützlich, wenn du sie prüfst.",
-            "en": "Too cautious: figures from Copilot are useful when you check them."
+            "de": "Runden versteckt das Problem nur. Prüfe die Zahl an der Quelle.",
+            "en": "Rounding only hides the problem. Check the figure at the source."
           }
         }
       ]

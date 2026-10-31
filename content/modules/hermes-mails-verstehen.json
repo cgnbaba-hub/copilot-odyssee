@@ -34,46 +34,58 @@
     {
       "type": "quiz",
       "id": "q-outlook-basic",
-      "difficulty": "beginner",
+      "difficulty": "intermediate",
       "question": {
-        "de": "Du hast eine lange Mail eines Hotelpartners geöffnet. Was kann Copilot in Outlook damit tun, auch mit Copilot Chat (Basic)?",
-        "en": "You have opened a long email from a hotel partner. What can Copilot in Outlook do with it, even with Copilot Chat (Basic)?"
+        "de": "Du hast in Outlook die lange Mail eines Hotelpartners geöffnet und hast Copilot Chat (Basic). Was geht?",
+        "en": "You have opened a hotel partner's long email in Outlook and have Copilot Chat (Basic). What works?"
       },
       "options": [
         {
           "id": "a",
           "text": {
-            "de": "Die Mail zusammenfassen und einen Antworttext vorschlagen",
-            "en": "Summarise the email and suggest a reply text"
+            "de": "Im Bereich Copilot Chat eine Zusammenfassung der markierten Mail erhalten",
+            "en": "Getting a summary of the selected email in the Copilot Chat pane"
           },
           "correct": true,
           "explanation": {
-            "de": "Genau. Das geht mit beiden Versionen. Mit Basic kopierst du den Text in deine Antwort, mit Premium entsteht der Entwurf direkt im Antwortfenster.",
-            "en": "Exactly. This works with both versions. With Basic you copy the text into your reply, with Premium the draft appears directly in the reply window."
+            "de": "Ja. Die markierte Mail ist dort schon angehängt.",
+            "en": "Yes. The selected email is already attached there."
           }
         },
         {
           "id": "b",
           "text": {
-            "de": "Die Mail selbstständig beantworten und senden",
-            "en": "Answer and send the email by itself"
+            "de": "Einen Antworttext vorschlagen lassen und ihn in die Antwort kopieren",
+            "en": "Having a reply text suggested and copying it into the reply"
           },
-          "correct": false,
+          "correct": true,
           "explanation": {
-            "de": "Copilot sendet nichts in deinem Namen. Er schlägt Text vor, du entscheidest.",
-            "en": "Copilot does not send anything on your behalf. It suggests text, you decide."
+            "de": "Ja. Mit Basic kopierst du den Vorschlag selbst in deine Antwort.",
+            "en": "Yes. With Basic you copy the suggestion into your reply yourself."
           }
         },
         {
           "id": "c",
           "text": {
-            "de": "Nichts, Copilot gibt es nur im Browser",
-            "en": "Nothing, Copilot only exists in the browser"
+            "de": "Direkt im Antwortfenster einen fertigen Entwurf erstellen lassen",
+            "en": "Having a finished draft created directly in the reply window"
           },
           "correct": false,
           "explanation": {
-            "de": "Copilot ist auch direkt in Outlook verfügbar, mit beiden Versionen.",
-            "en": "Copilot is also available right in Outlook, with both versions."
+            "de": "Den Entwurf im Antwortfenster gibt es mit Premium. Mit Basic kopierst du den Text.",
+            "en": "The draft in the reply window comes with Premium. With Basic you copy the text."
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "de": "Copilot die Antwort selbstständig senden lassen",
+            "en": "Letting Copilot send the reply on its own"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Copilot sendet nie selbst. Du entscheidest und klickst auf «Senden».",
+            "en": "Copilot never sends on its own. You decide and click “Send”."
           }
         }
       ]

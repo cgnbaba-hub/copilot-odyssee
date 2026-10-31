@@ -36,56 +36,56 @@
       "id": "q-powerpoint-kann",
       "difficulty": "beginner",
       "question": {
-        "de": "Was kann Copilot in PowerPoint erstellen?",
-        "en": "What can Copilot create in PowerPoint?"
+        "de": "Was kann Copilot in PowerPoint?",
+        "en": "What can Copilot do in PowerPoint?"
       },
       "options": [
         {
           "id": "a",
           "text": {
-            "de": "Ganze Präsentationen aus einem Prompt",
-            "en": "Complete presentations from a prompt"
+            "de": "Nur bestehende Folien umformulieren, aber keine neuen erstellen",
+            "en": "Only rephrase existing slides but not create new ones"
           },
-          "correct": true,
+          "correct": false,
           "explanation": {
-            "de": "Copilot kann aus einer Beschreibung eine komplette Präsentation mit Folien, Titeln und Inhalten erstellen.",
-            "en": "Copilot can create a complete presentation with slides, titles and content from a description."
+            "de": "Copilot kann mit «Mit Copilot erstellen» ganze Präsentationen anlegen.",
+            "en": "With “Create with Copilot” it can build whole presentations."
           }
         },
         {
           "id": "b",
           "text": {
-            "de": "Nur einzelne Textfelder füllen",
-            "en": "Only fill individual text boxes"
+            "de": "Nur Bilder einfügen und Animationen hinzufügen",
+            "en": "Only insert images and add animations"
           },
           "correct": false,
           "explanation": {
-            "de": "Copilot kann ganze Präsentationen erstellen, nicht nur einzelne Textfelder.",
-            "en": "Copilot can create entire presentations, not just individual text boxes."
+            "de": "Copilot kann viel mehr, zum Beispiel ganze Präsentationen entwerfen.",
+            "en": "Copilot can do much more, for example draft whole presentations."
           }
         },
         {
           "id": "c",
           "text": {
-            "de": "Nur Bilder in Folien einfügen",
-            "en": "Only insert images into slides"
+            "de": "Eine ganze Präsentation aus einem Prompt oder einem Dokument entwerfen",
+            "en": "Draft a whole presentation from a prompt or a document"
           },
-          "correct": false,
+          "correct": true,
           "explanation": {
-            "de": "Copilot kann weit mehr als Bilder einfügen.",
-            "en": "Copilot can do much more than insert images."
+            "de": "Richtig. Den Entwurf passt du danach selbst an.",
+            "en": "Right. You then adapt the draft yourself."
           }
         },
         {
           "id": "d",
           "text": {
-            "de": "Nur Animationen hinzufügen",
-            "en": "Only add animations"
+            "de": "Die Präsentation im Meeting selbstständig vortragen",
+            "en": "Present the slides in the meeting on its own"
           },
           "correct": false,
           "explanation": {
-            "de": "Animationen sind nicht die Hauptaufgabe von Copilot in PowerPoint.",
-            "en": "Animations are not the main job of Copilot in PowerPoint."
+            "de": "Vortragen musst du selbst. Copilot hilft dir mit Sprechernotizen.",
+            "en": "You present yourself. Copilot helps with speaker notes."
           }
         }
       ]
@@ -93,46 +93,58 @@
     {
       "type": "quiz",
       "id": "q-vorlage",
-      "difficulty": "beginner",
+      "difficulty": "intermediate",
       "question": {
-        "de": "Wie bekommst du eine Präsentation von Copilot im Design eures Unternehmens?",
-        "en": "How do you get a presentation from Copilot in your company's design?"
+        "de": "Wie bekommst du eine Präsentation von Copilot im Design von DERTOUR?",
+        "en": "How do you get a presentation from Copilot in the DERTOUR design?"
       },
       "options": [
         {
           "id": "a",
           "text": {
-            "de": "Mit der Firmenvorlage starten oder sie bei Copilot auswählen",
-            "en": "Start with the company template or choose it in Copilot"
+            "de": "Copilot bitten, die Farben und das Logo im Internet zu suchen",
+            "en": "Ask Copilot to look up the colours and logo on the internet"
           },
-          "correct": true,
+          "correct": false,
           "explanation": {
-            "de": "Genau. Dann übernimmt Copilot Layouts, Farben und Logos.",
-            "en": "Exactly. Then Copilot uses its layouts, colours and logos."
+            "de": "So entsteht kein verlässliches Firmendesign.",
+            "en": "That does not produce a reliable company design."
           }
         },
         {
           "id": "b",
           "text": {
-            "de": "Copilot das Logo im Internet suchen lassen",
-            "en": "Have Copilot search the internet for the logo"
+            "de": "Mit der Firmenvorlage starten oder sie bei Copilot auswählen, sobald das Brand-Kit hinterlegt ist",
+            "en": "Start with the company template or select it in Copilot once the brand kit is set up"
           },
-          "correct": false,
+          "correct": true,
           "explanation": {
-            "de": "Logos und Vorlagen kommen aus euren offiziellen Unterlagen, nicht aus dem Internet.",
-            "en": "Logos and templates come from your official material, not from the internet."
+            "de": "Richtig. Das Brandmanagement arbeitet am Brand-Kit, bis dahin startest du mit der Vorlage.",
+            "en": "Right. Brand management is working on the brand kit; until then you start with the template."
           }
         },
         {
           "id": "c",
+          "text": {
+            "de": "Im Prompt schreiben: «im DERTOUR-Design»",
+            "en": "Write in the prompt: “in the DERTOUR design”"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Copilot kennt euer Design nicht aus dem Prompt. Er braucht die Vorlage.",
+            "en": "Copilot does not know your design from the prompt. It needs the template."
+          }
+        },
+        {
+          "id": "d",
           "text": {
             "de": "Danach jede Folie von Hand umfärben",
             "en": "Recolour every slide by hand afterwards"
           },
           "correct": false,
           "explanation": {
-            "de": "Das geht, kostet aber viel Zeit. Mit der Vorlage stimmt das Design von Anfang an.",
-            "en": "Possible, but time-consuming. With the template, the design is right from the start."
+            "de": "Das ist viel Arbeit. Die Vorlage erledigt das von Anfang an.",
+            "en": "That is a lot of work. The template does it from the start."
           }
         }
       ]

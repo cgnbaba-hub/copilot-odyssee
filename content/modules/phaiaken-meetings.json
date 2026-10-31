@@ -46,7 +46,7 @@
     {
       "type": "quiz",
       "id": "q-teams-copilot",
-      "difficulty": "beginner",
+      "difficulty": "intermediate",
       "question": {
         "de": "Wobei hilft Copilot in Microsoft Teams?",
         "en": "What does Copilot help with in Microsoft Teams?"
@@ -55,32 +55,44 @@
         {
           "id": "a",
           "text": {
-            "de": "Besprechungen zusammenfassen und Aufgaben ableiten",
-            "en": "Summarising meetings and deriving tasks"
+            "de": "Während des Meetings zusammenfassen, was bisher besprochen wurde",
+            "en": "Summarising during the meeting what has been discussed so far"
           },
           "correct": true,
           "explanation": {
-            "de": "Copilot kann Meetings zusammenfassen und Aufgaben aus dem Gespräch ableiten.",
-            "en": "Copilot can summarise meetings and derive tasks from the conversation."
+            "de": "Ja. Das siehst nur du.",
+            "en": "Yes. Only you see it."
           }
         },
         {
           "id": "b",
           "text": {
-            "de": "Videos von Meetings schneiden",
-            "en": "Editing meeting videos"
+            "de": "Nach dem Meeting Aufgaben und offene Fragen auflisten",
+            "en": "Listing tasks and open questions after the meeting"
           },
-          "correct": false,
+          "correct": true,
           "explanation": {
-            "de": "Das ist keine Aufgabe von Copilot in Teams.",
-            "en": "That is not a job for Copilot in Teams."
+            "de": "Ja. Du findest sie in der Zusammenfassung des Meetings.",
+            "en": "Yes. You find them in the meeting recap."
           }
         },
         {
           "id": "c",
           "text": {
-            "de": "Die Kameraqualität verbessern",
-            "en": "Improving camera quality"
+            "de": "Beurteilen, wer im Meeting am meisten beigetragen hat",
+            "en": "Judging who contributed most in the meeting"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Copilot fasst Inhalte zusammen. Personen bewertet er nicht.",
+            "en": "Copilot summarises content. It does not assess people."
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "de": "Die Aufzeichnung nachträglich schneiden und kürzen",
+            "en": "Editing and shortening the recording afterwards"
           },
           "correct": false,
           "explanation": {
@@ -95,44 +107,56 @@
       "id": "q-zu-spaet",
       "difficulty": "beginner",
       "question": {
-        "de": "Du kommst zehn Minuten zu spät ins Meeting. Was ist mit Copilot am geschicktesten?",
-        "en": "You join the meeting ten minutes late. What is the smartest thing to do with Copilot?"
+        "de": "Du kommst zehn Minuten zu spät ins Meeting. Was ist am geschicktesten?",
+        "en": "You join the meeting ten minutes late. What is the smartest move?"
       },
       "options": [
         {
           "id": "a",
           "text": {
-            "de": "Copilot fragen: «Fasse zusammen, was bisher besprochen wurde.»",
-            "en": "Ask Copilot: “Summarise what has been discussed so far.”"
+            "de": "Kurz das Wort ergreifen und um eine Zusammenfassung bitten",
+            "en": "Briefly take the floor and ask for a summary"
           },
-          "correct": true,
+          "correct": false,
           "explanation": {
-            "de": "Genau. Nur du siehst die Antwort, und das Meeting läuft ungestört weiter.",
-            "en": "Exactly. Only you see the answer, and the meeting continues undisturbed."
+            "de": "Das unterbricht alle. Copilot kann dir das leise geben.",
+            "en": "That interrupts everyone. Copilot can give it to you quietly."
           }
         },
         {
           "id": "b",
           "text": {
-            "de": "Alle bitten, nochmals von vorne zu beginnen",
-            "en": "Ask everyone to start again from the beginning"
+            "de": "Copilot fragen: «Was wurde bisher besprochen?»",
+            "en": "Ask Copilot: “What has been discussed so far?”"
           },
-          "correct": false,
+          "correct": true,
           "explanation": {
-            "de": "Das kostet alle Zeit. Copilot holt dich still auf.",
-            "en": "That costs everyone time. Copilot catches you up quietly."
+            "de": "Richtig. Die Antwort siehst nur du.",
+            "en": "Right. Only you see the answer."
           }
         },
         {
           "id": "c",
           "text": {
-            "de": "Nach dem Meeting die ganze Aufzeichnung anschauen",
-            "en": "Watch the whole recording after the meeting"
+            "de": "Abwarten und nach dem Meeting die Aufzeichnung ansehen",
+            "en": "Wait and watch the recording after the meeting"
           },
           "correct": false,
           "explanation": {
-            "de": "Geht, dauert aber lange. Copilot fasst dir das Wichtigste in Sekunden zusammen.",
-            "en": "Possible, but it takes long. Copilot summarises the key points in seconds."
+            "de": "Dann kannst du im Meeting nicht mitreden.",
+            "en": "Then you cannot take part in the meeting."
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "de": "Den Facilitator bitten, das Meeting neu zu starten",
+            "en": "Ask the Facilitator to restart the meeting"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Der Facilitator führt Notizen. Neu starten muss niemand.",
+            "en": "The Facilitator takes notes. Nobody needs to restart anything."
           }
         }
       ]
@@ -142,44 +166,56 @@
       "id": "q-transkription",
       "difficulty": "intermediate",
       "question": {
-        "de": "Du willst in einem Meeting die Transkription starten, damit Copilot mitschreibt. Was gehört dazu?",
-        "en": "You want to start the transcript in a meeting so that Copilot can follow along. What is part of that?"
+        "de": "Du startest in einem Meeting die Transkription, damit Copilot mitschreibt. Was gehört dazu?",
+        "en": "You start transcription in a meeting so that Copilot takes notes. What goes with it?"
       },
       "options": [
         {
           "id": "a",
           "text": {
-            "de": "Die Teilnehmenden informieren und bei vertraulichen Themen darauf verzichten",
-            "en": "Inform the participants and skip it for confidential topics"
+            "de": "Kurz ankündigen, dass die Transkription läuft",
+            "en": "Briefly announce that transcription is running"
           },
           "correct": true,
           "explanation": {
-            "de": "Genau. Transparenz schafft Vertrauen, und manche Gespräche gehören nicht ins Protokoll.",
-            "en": "Exactly. Transparency builds trust, and some conversations do not belong in a record."
+            "de": "Ja. Alle sehen zwar einen Hinweis, ein Satz schafft aber Vertrauen.",
+            "en": "Yes. Everyone sees a notice, but a sentence builds trust."
           }
         },
         {
           "id": "b",
           "text": {
-            "de": "Nichts, Copilot ist ja geschützt",
-            "en": "Nothing, Copilot is protected after all"
+            "de": "Bei vertraulichen Themen wie Mitarbeitergesprächen darauf verzichten",
+            "en": "Do without it for confidential topics such as staff reviews"
           },
-          "correct": false,
+          "correct": true,
           "explanation": {
-            "de": "Der Schutz betrifft die Daten. Die Teilnehmenden haben trotzdem ein Recht zu wissen, dass mitgeschrieben wird.",
-            "en": "The protection covers the data. Participants still have a right to know that a record is being made."
+            "de": "Ja. Dort gehören weder Transkription noch Copilot hin.",
+            "en": "Yes. Neither transcription nor Copilot belongs there."
           }
         },
         {
           "id": "c",
           "text": {
-            "de": "Die Transkription erst am Schluss starten, damit es niemand merkt",
-            "en": "Only start the transcript at the end so nobody notices"
+            "de": "Sie erst am Schluss starten, damit sich niemand gestört fühlt",
+            "en": "Start it only at the end so that nobody feels disturbed"
           },
           "correct": false,
           "explanation": {
-            "de": "Alle sehen einen Hinweis, und heimliches Mitschreiben zerstört Vertrauen.",
-            "en": "Everyone sees a notice, and secret recording destroys trust."
+            "de": "Heimliches Mitschreiben zerstört Vertrauen und hilft Copilot nicht.",
+            "en": "Secret recording destroys trust and does not help Copilot."
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "de": "Nichts weiter, Copilot ist ja geschützt",
+            "en": "Nothing else, Copilot is protected after all"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Der Schutz betrifft die Daten, nicht das Einverständnis der Teilnehmenden.",
+            "en": "The protection concerns the data, not the participants' consent."
           }
         }
       ]
@@ -187,46 +223,58 @@
     {
       "type": "quiz",
       "id": "q-facilitator",
-      "difficulty": "intermediate",
+      "difficulty": "advanced",
       "question": {
-        "de": "Du planst ein Projektmeeting und möchtest, dass für alle sichtbar Notizen und Aufgaben entstehen. Was tust du?",
-        "en": "You are scheduling a project meeting and want notes and tasks that everyone can see. What do you do?"
+        "de": "Du willst, dass im Projektmeeting nächste Woche für alle sichtbar Notizen und Aufgaben entstehen. Was tust du?",
+        "en": "You want visible notes and tasks for everyone in next week's project meeting. What do you do?"
       },
       "options": [
         {
           "id": "a",
           "text": {
-            "de": "In der Einladung den Facilitator einschalten",
-            "en": "Turn on the Facilitator in the invitation"
+            "de": "Kurz vor Beginn ein spontanes Meeting starten und dort den Facilitator dazuholen",
+            "en": "Start an ad-hoc meeting just before and add the Facilitator there"
           },
-          "correct": true,
+          "correct": false,
           "explanation": {
-            "de": "Genau. Beim Planen schaltest du ihn direkt in der Einladung ein.",
-            "en": "Exactly. You turn it on right in the invitation when scheduling."
+            "de": "Den Facilitator gibt es nur in geplanten Meetings, nicht in spontanen.",
+            "en": "The Facilitator is only available in scheduled meetings, not ad-hoc ones."
           }
         },
         {
           "id": "b",
           "text": {
-            "de": "Ein spontanes Meeting starten und dort den Facilitator dazuholen",
-            "en": "Start an ad-hoc meeting and add the Facilitator there"
+            "de": "Das Meeting planen und in der Einladung den Facilitator einschalten",
+            "en": "Schedule the meeting and turn on the Facilitator in the invitation"
           },
-          "correct": false,
+          "correct": true,
           "explanation": {
-            "de": "In spontanen Meetings gibt es den Facilitator nicht. Plane das Meeting vorher.",
-            "en": "The Facilitator is not available in ad-hoc meetings. Schedule the meeting first."
+            "de": "Richtig. In Outlook oder Teams geht das schon beim Planen.",
+            "en": "Right. In Outlook or Teams this works right when scheduling."
           }
         },
         {
           "id": "c",
           "text": {
-            "de": "Nach dem Meeting alles aus dem Gedächtnis aufschreiben",
-            "en": "Write everything down from memory after the meeting"
+            "de": "Die Transkription starten, dann schreibt Copilot automatisch für alle mit",
+            "en": "Start transcription, then Copilot automatically takes notes for everyone"
           },
           "correct": false,
           "explanation": {
-            "de": "Das geht, ist aber mühsam und ungenau. Der Facilitator schreibt während des Meetings mit.",
-            "en": "That works, but it is tedious and inaccurate. The Facilitator takes notes during the meeting."
+            "de": "Die Transkription allein macht noch keine gemeinsamen Notizen. Dafür ist der Facilitator da.",
+            "en": "Transcription alone does not create shared notes. That is what the Facilitator is for."
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "de": "Nach dem Meeting Copilot Chat bitten, Notizen für alle zu verschicken",
+            "en": "Ask Copilot Chat after the meeting to send notes to everyone"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Copilot verschickt nichts selbst. Und die Notizen sollen ja während des Meetings entstehen.",
+            "en": "Copilot does not send anything itself. And the notes should be created during the meeting."
           }
         }
       ]

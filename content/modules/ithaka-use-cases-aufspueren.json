@@ -8,7 +8,10 @@
   "status": "draft",
   "reviewedAt": "2026-10-28",
   "reviewIntervalDays": 180,
-  "title": { "de": "Use Cases aufspüren", "en": "Tracking down use cases" },
+  "title": {
+    "de": "Use Cases aufspüren",
+    "en": "Tracking down use cases"
+  },
   "summary": {
     "de": "Mit dem Wochen-Rückblick und der Ampel findest du Aufgaben, bei denen Copilot wirklich hilft.",
     "en": "Use the weekly look-back and the traffic light to find tasks where Copilot really helps."
@@ -19,7 +22,10 @@
     {
       "type": "briefing",
       "id": "rueckblick",
-      "title": { "de": "Der Wochen-Rückblick", "en": "The weekly look-back" },
+      "title": {
+        "de": "Der Wochen-Rückblick",
+        "en": "The weekly look-back"
+      },
       "body": {
         "de": "Die besten Use Cases findest du nicht im Kopf, sondern in deinem Kalender und deinem Postfach. Geh die letzte Woche durch und frag dich bei jeder Aufgabe:\n- **Schreibe ich das oft ähnlich?** Antworten, Updates, Protokolle\n- **Lese ich lange, um wenig herauszuziehen?** Berichte, Mail-Verläufe, Präsentationen\n- **Starte ich mit einem leeren Blatt?** Konzepte, Ankündigungen, Ideen\n- **Übersetze oder formuliere ich um?** Texte für andere Zielgruppen oder Sprachen\n\nNotiere alles, wo du mindestens einmal «ja» sagst. Das sind deine Kandidaten.",
         "en": "You won't find the best use cases in your head but in your calendar and inbox. Go through last week and ask yourself for each task:\n- **Do I often write this in a similar way?** Replies, updates, minutes\n- **Do I read a lot to extract a little?** Reports, email threads, presentations\n- **Do I start with a blank page?** Concepts, announcements, ideas\n- **Do I translate or rephrase?** Texts for other audiences or languages\n\nNote everything where you say “yes” at least once. Those are your candidates."
@@ -28,7 +34,10 @@
     {
       "type": "briefing",
       "id": "ampel",
-      "title": { "de": "Die Ampel", "en": "The traffic light" },
+      "title": {
+        "de": "Die Ampel",
+        "en": "The traffic light"
+      },
       "body": {
         "de": "Sortiere deine Kandidaten nach Risiko:\n- **Grün, einfach loslegen:** Entwürfe, Zusammenfassungen eigener oder öffentlicher Inhalte, Ideensammlungen, Umformulierungen\n- **Gelb, nur mit Prüfung:** Texte an Kundinnen und Kunden, alles mit Zahlen, Preisen oder Daten\n- **Rot, nicht mit Copilot:** verbindliche Auskünfte ohne Prüfung in den offiziellen Systemen, Entscheidungen über Personen, Daten, die eure Richtlinie für KI ausschliesst\n\nStarte mit einem grünen Use Case, den du jede Woche brauchst. Dort lohnt es sich am schnellsten.",
         "en": "Sort your candidates by risk:\n- **Green, just go:** drafts, summaries of your own or public content, idea collections, rephrasing\n- **Amber, only with checks:** texts to customers, anything with figures, prices or dates\n- **Red, not with Copilot:** binding information without checking the official systems, decisions about people, data your guideline excludes from AI\n\nStart with a green use case you need every week. That is where it pays off fastest."
@@ -37,34 +46,58 @@
     {
       "type": "quiz",
       "id": "q-gruen",
-      "difficulty": "beginner",
-      "question": { "de": "Welcher Use Case ist «grün»?", "en": "Which use case is “green”?" },
+      "difficulty": "intermediate",
+      "question": {
+        "de": "Welche Use Cases sind «grün», also gut für Copilot geeignet?",
+        "en": "Which use cases are “green”, i.e. well suited for Copilot?"
+      },
       "options": [
         {
           "id": "a",
-          "text": { "de": "Aus meinen Notizen einen Entwurf für das wöchentliche Team-Update machen", "en": "Turning my notes into a draft of the weekly team update" },
+          "text": {
+            "de": "Aus meinen Stichworten einen Entwurf für das wöchentliche Team-Update machen",
+            "en": "Turning my bullet points into a draft of the weekly team update"
+          },
           "correct": true,
           "explanation": {
-            "de": "Eigene Inhalte, wiederkehrend, und du liest ohnehin drüber.",
-            "en": "Your own content, recurring, and you read it anyway."
+            "de": "Ja. Häufig, intern und leicht zu prüfen.",
+            "en": "Yes. Frequent, internal and easy to check."
           }
         },
         {
           "id": "b",
-          "text": { "de": "Einer Kundin den Endpreis ihrer Reise bestätigen", "en": "Confirming the final price of a trip to a customer" },
-          "correct": false,
+          "text": {
+            "de": "Eine lange Partner-Mail zusammenfassen, bevor ich sie genau lese",
+            "en": "Summarising a long partner email before I read it closely"
+          },
+          "correct": true,
           "explanation": {
-            "de": "Preise sind verbindlich und kommen aus dem Buchungssystem. Das ist mindestens gelb, eher rot.",
-            "en": "Prices are binding and come from the booking system. That is at least amber, more likely red."
+            "de": "Ja. Du liest die Mail ohnehin und kannst die Zusammenfassung prüfen.",
+            "en": "Yes. You read the email anyway and can check the summary."
           }
         },
         {
           "id": "c",
-          "text": { "de": "Copilot entscheiden lassen, wer im Team befördert wird", "en": "Letting Copilot decide who in the team gets promoted" },
+          "text": {
+            "de": "Einer Kundin den Endpreis ihrer Reise verbindlich bestätigen",
+            "en": "Bindingly confirming the final price of her trip to a customer"
+          },
           "correct": false,
           "explanation": {
-            "de": "Entscheidungen über Personen sind rot.",
-            "en": "Decisions about people are red."
+            "de": "Verbindliche Preise sind rot: Fehler hätten direkte Folgen.",
+            "en": "Binding prices are red: mistakes would have direct consequences."
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "de": "Copilot entscheiden lassen, wer eine Lohnerhöhung bekommt",
+            "en": "Letting Copilot decide who gets a pay rise"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Entscheidungen über Menschen trifft immer ein Mensch.",
+            "en": "Decisions about people are always made by a person."
           }
         }
       ]
@@ -74,35 +107,56 @@
       "id": "q-start",
       "difficulty": "intermediate",
       "question": {
-        "de": "Mit welchem Use Case startest du am besten?",
-        "en": "Which use case is the best one to start with?"
+        "de": "Du hast fünf Use Cases gesammelt. Mit welchem startest du am besten?",
+        "en": "You have collected five use cases. Which one do you start with?"
       },
       "options": [
         {
           "id": "a",
-          "text": { "de": "Ein grüner, der jede Woche vorkommt", "en": "A green one that comes up every week" },
-          "correct": true,
+          "text": {
+            "de": "Mit dem kompliziertesten, weil dort die grösste Ersparnis liegt",
+            "en": "With the most complicated one, because the biggest saving lies there"
+          },
+          "correct": false,
           "explanation": {
-            "de": "Genau. Wenig Risiko, schnelle Übung und spürbare Zeitersparnis.",
-            "en": "Exactly. Low risk, quick practice and noticeable time savings."
+            "de": "Komplizierte Fälle brauchen Übung. Starte dort, wo du schnell Erfolg hast.",
+            "en": "Complicated cases need practice. Start where you succeed quickly."
           }
         },
         {
           "id": "b",
-          "text": { "de": "Der komplizierteste, der einmal im Jahr vorkommt", "en": "The most complicated one that comes up once a year" },
+          "text": {
+            "de": "Mit einem roten, um die Grenzen von Copilot zu testen",
+            "en": "With a red one, to test Copilot's limits"
+          },
           "correct": false,
           "explanation": {
-            "de": "Selten und komplex heisst: wenig Übung und viel Aufwand.",
-            "en": "Rare and complex means little practice and a lot of effort."
+            "de": "Rote Use Cases eignen sich nicht für Copilot. Dort lernst du wenig Nützliches.",
+            "en": "Red use cases are not suited for Copilot. You learn little useful there."
           }
         },
         {
           "id": "c",
-          "text": { "de": "Ein roter, weil dort am meisten Zeit drinsteckt", "en": "A red one, because that's where most time goes" },
+          "text": {
+            "de": "Mit einem grünen, der jede Woche vorkommt",
+            "en": "With a green one that comes up every week"
+          },
+          "correct": true,
+          "explanation": {
+            "de": "Richtig. Häufig und einfach heisst: schnell gelernt und oft gespart.",
+            "en": "Right. Frequent and simple means: learned quickly and saving often."
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "de": "Mit dem, den das Team am meisten fürchtet",
+            "en": "With the one the team dreads most"
+          },
           "correct": false,
           "explanation": {
-            "de": "Rote Use Cases sind für Copilot nicht geeignet, egal wie viel Zeit sie kosten.",
-            "en": "Red use cases are not suitable for Copilot, however much time they take."
+            "de": "Ein guter Start ist einer mit wenig Risiko und viel Wiederholung.",
+            "en": "A good start has little risk and a lot of repetition."
           }
         }
       ]

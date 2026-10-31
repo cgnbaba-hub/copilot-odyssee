@@ -43,37 +43,49 @@
         {
           "id": "a",
           "text": {
-            "de": "Er hat eine feste Aufgabe, eigene Anweisungen und oft eigenes Wissen",
-            "en": "It has a fixed job, its own instructions and often its own knowledge"
+            "de": "Er arbeitet ohne Kontrolle und trifft Entscheidungen selbst",
+            "en": "It works without control and makes decisions itself"
           },
-          "correct": true,
+          "correct": false,
           "explanation": {
-            "de": "Genau. Deshalb musst du nicht jedes Mal alles neu erklären.",
-            "en": "Exactly. That is why you do not have to explain everything from scratch every time."
+            "de": "Auch bei Agenten entscheidest du, was mit dem Ergebnis passiert.",
+            "en": "With agents too, you decide what happens with the result."
           }
         },
         {
           "id": "b",
           "text": {
-            "de": "Er arbeitet ohne Kontrolle und entscheidet selbst",
-            "en": "It works without supervision and decides on its own"
+            "de": "Er hat eine feste Aufgabe, eigene Anweisungen und oft eigenes Wissen",
+            "en": "It has a fixed task, its own instructions and often its own knowledge"
           },
-          "correct": false,
+          "correct": true,
           "explanation": {
-            "de": "Auch Agenten liefern Vorschläge. Entscheiden und prüfen tust du.",
-            "en": "Agents also deliver suggestions. You decide and check."
+            "de": "Richtig. Darum liefert er für seine Aufgabe passendere Antworten.",
+            "en": "Right. That is why it gives more fitting answers for its task."
           }
         },
         {
           "id": "c",
           "text": {
-            "de": "Er ist ein echter Mensch im Hintergrund",
-            "en": "It is a real person in the background"
+            "de": "Er nutzt ein anderes, geheimes KI-Modell",
+            "en": "It uses a different, secret AI model"
           },
           "correct": false,
           "explanation": {
-            "de": "Ein Agent ist Software, kein Mensch.",
-            "en": "An agent is software, not a person."
+            "de": "Der Unterschied liegt in Aufgabe, Anweisungen und Wissen, nicht in einem geheimen Modell.",
+            "en": "The difference lies in task, instructions and knowledge, not a secret model."
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "de": "Er ist ein Mensch aus dem Support, der im Hintergrund antwortet",
+            "en": "It is a support person answering in the background"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Ein Agent ist KI, kein Mensch.",
+            "en": "An agent is AI, not a person."
           }
         }
       ]
@@ -84,43 +96,55 @@
       "difficulty": "intermediate",
       "question": {
         "de": "Für welche Aufgabe lohnt sich ein Agent am meisten?",
-        "en": "For which task is an agent most worthwhile?"
+        "en": "Which task is an agent most worth it for?"
       },
       "options": [
         {
           "id": "a",
           "text": {
-            "de": "Eine Frage, die im Team jede Woche ähnlich auftaucht, zum Beispiel zu internen Abläufen",
-            "en": "A question that comes up in the team in a similar way every week, for example about internal processes"
+            "de": "Eine einmalige Rede für das Firmenjubiläum",
+            "en": "A one-off speech for the company anniversary"
           },
-          "correct": true,
+          "correct": false,
           "explanation": {
-            "de": "Genau. Wiederkehrende Fragen mit festem Wissen sind ideal für einen Agenten.",
-            "en": "Exactly. Recurring questions with fixed knowledge are ideal for an agent."
+            "de": "Für einmalige Aufgaben reicht der normale Chat.",
+            "en": "The normal chat is enough for one-off tasks."
           }
         },
         {
           "id": "b",
           "text": {
-            "de": "Eine einmalige Geburtstagskarte",
-            "en": "A one-off birthday card"
+            "de": "Fragen zu internen Abläufen, die im Team jede Woche ähnlich auftauchen",
+            "en": "Questions about internal processes that come up similarly in the team every week"
           },
-          "correct": false,
+          "correct": true,
           "explanation": {
-            "de": "Dafür reicht ein normaler Chat.",
-            "en": "A normal chat is enough for that."
+            "de": "Richtig. Wiederkehrende Fragen mit festem Wissen sind ideal für einen Agenten.",
+            "en": "Right. Recurring questions with fixed knowledge are ideal for an agent."
           }
         },
         {
           "id": "c",
           "text": {
-            "de": "Eine verbindliche Preisauskunft an Gäste",
-            "en": "A binding price quote for guests"
+            "de": "Verbindliche Preisauskünfte direkt an Gäste",
+            "en": "Binding price information directly to guests"
           },
           "correct": false,
           "explanation": {
-            "de": "Verbindliche Auskünfte kommen aus den offiziellen Systemen, nicht von einem Agenten.",
-            "en": "Binding information comes from the official systems, not from an agent."
+            "de": "Verbindliche Auskünfte an Gäste gehören nicht in die Hand eines Agenten.",
+            "en": "Binding information to guests does not belong in an agent's hands."
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "de": "Eine Frage, deren Antwort sich täglich ändert und nirgends steht",
+            "en": "A question whose answer changes daily and is written nowhere"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Ein Agent kann nur mit Wissen arbeiten, das irgendwo festgehalten ist.",
+            "en": "An agent can only work with knowledge that is written down somewhere."
           }
         }
       ]

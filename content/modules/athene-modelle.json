@@ -34,29 +34,41 @@
     {
       "type": "quiz",
       "id": "q-modell-wann",
-      "difficulty": "beginner",
+      "difficulty": "intermediate",
       "question": {
-        "de": "Wann lohnt sich ein gründlicheres Modell?",
-        "en": "When is a more thorough model worth it?"
+        "de": "Bei welchen Aufgaben lohnt sich ein gründlicheres Modell?",
+        "en": "For which tasks is a more thorough model worth it?"
       },
       "options": [
         {
           "id": "a",
           "text": {
-            "de": "Du willst drei Hotelangebote nach Preis, Lage und Bewertungen vergleichen und eine Empfehlung begründen.",
-            "en": "You want to compare three hotel offers by price, location and reviews and justify a recommendation."
+            "de": "Drei Hotelangebote nach Preis, Lage und Bewertungen vergleichen und eine Empfehlung begründen",
+            "en": "Comparing three hotel offers by price, location and reviews and justifying a recommendation"
           },
           "correct": true,
           "explanation": {
-            "de": "Genau. Mehrere Kriterien und eine Begründung profitieren vom längeren Nachdenken.",
-            "en": "Exactly. Several criteria and a justification benefit from longer thinking."
+            "de": "Ja. Mehrere Kriterien und eine Begründung profitieren vom längeren Nachdenken.",
+            "en": "Yes. Several criteria and a justification benefit from longer thinking."
           }
         },
         {
           "id": "b",
           "text": {
-            "de": "Du willst einen Satz ins Französische übersetzen.",
-            "en": "You want to translate a sentence into French."
+            "de": "Einen Ablauf in mehreren Schritten planen, bei dem Termine voneinander abhängen",
+            "en": "Planning a process in several steps where dates depend on each other"
+          },
+          "correct": true,
+          "explanation": {
+            "de": "Ja. Abhängigkeiten sind typische Aufgaben für gründliches Nachdenken.",
+            "en": "Yes. Dependencies are typical tasks for thorough thinking."
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "de": "Einen Satz ins Französische übersetzen",
+            "en": "Translating a sentence into French"
           },
           "correct": false,
           "explanation": {
@@ -65,15 +77,15 @@
           }
         },
         {
-          "id": "c",
+          "id": "d",
           "text": {
-            "de": "Immer, weil es dann automatisch keine Fehler mehr gibt",
-            "en": "Always, because then there are automatically no more mistakes"
+            "de": "Jede Aufgabe, weil dann keine Fehler mehr passieren",
+            "en": "Every task, because then no more mistakes happen"
           },
           "correct": false,
           "explanation": {
-            "de": "Auch gründliche Modelle machen Fehler. Prüfen musst du die Antwort trotzdem.",
-            "en": "Thorough models make mistakes too. You still have to check the answer."
+            "de": "Auch gründliche Modelle irren sich. Prüfen musst du trotzdem.",
+            "en": "Thorough models make mistakes too. You still have to check."
           }
         }
       ]
@@ -90,7 +102,11 @@
         "de": "Eine Kundin fragt, ob sie ihre Familienreise nach Kanada lieber im Juni oder im September machen soll. Schreib einen Prompt, bei dem sich ein gründliches Modell lohnt.",
         "en": "A customer asks whether she should take her family trip to Canada in June or in September. Write a prompt where a thorough model pays off."
       },
-      "rubric": ["goal", "context", "expectation"],
+      "rubric": [
+        "goal",
+        "context",
+        "expectation"
+      ],
       "examplePrompt": {
         "de": "Vergleiche für eine Familie mit zwei Kindern (8 und 11 Jahre) eine dreiwöchige Rundreise durch Westkanada im Juni und im September, damit ich die Kundin beraten kann. Berücksichtige Wetter, Preise, Schulferien in der Schweiz, Andrang und Tierbeobachtungen. Gib mir eine Tabelle und eine begründete Empfehlung in drei Sätzen.",
         "en": "For a family with two children (aged 8 and 11), compare a three-week round trip through western Canada in June and in September, so that I can advise the customer. Consider weather, prices, Swiss school holidays, crowds and wildlife watching. Give me a table and a justified recommendation in three sentences."

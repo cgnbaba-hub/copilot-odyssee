@@ -34,7 +34,7 @@
     {
       "type": "quiz",
       "id": "q-schild",
-      "difficulty": "beginner",
+      "difficulty": "intermediate",
       "question": {
         "de": "Was bedeutet das Schild-Symbol in Copilot Chat?",
         "en": "What does the shield icon in Copilot Chat mean?"
@@ -43,37 +43,49 @@
         {
           "id": "a",
           "text": {
-            "de": "Meine Eingaben sind durch den Unternehmensdatenschutz geschützt und werden nicht zum Training verwendet.",
-            "en": "My prompts are covered by enterprise data protection and are not used for training."
+            "de": "Eingaben und Antworten werden nicht zum Training der KI-Modelle verwendet",
+            "en": "Prompts and answers are not used to train the AI models"
           },
           "correct": true,
           "explanation": {
-            "de": "Das Schild zeigt: Du arbeitest im geschützten Copilot deines Unternehmens. Deine Eingaben werden protokolliert, aber nicht zum Training der KI verwendet.",
-            "en": "The shield shows that you are working in your company's protected Copilot. Your prompts are logged but not used to train the AI."
+            "de": "Ja. Das ist eine der Zusagen des Unternehmensdatenschutzes.",
+            "en": "Yes. This is one of the promises of enterprise data protection."
           }
         },
         {
           "id": "b",
           "text": {
-            "de": "Die Antwort wurde auf Fehler geprüft und ist garantiert richtig.",
-            "en": "The answer was checked for errors and is guaranteed correct."
+            "de": "Die Daten werden wie andere Firmendaten protokolliert und aufbewahrt",
+            "en": "The data is logged and retained like other company data"
           },
-          "correct": false,
+          "correct": true,
           "explanation": {
-            "de": "Der Schild sagt nichts über die Richtigkeit. Prüfen musst du weiterhin selbst.",
-            "en": "The shield says nothing about correctness. You still have to check yourself."
+            "de": "Ja. Copilot-Chats können zum Beispiel für Audits aufbewahrt werden.",
+            "en": "Yes. Copilot chats can be retained, for example for audits."
           }
         },
         {
           "id": "c",
           "text": {
-            "de": "Niemand im Unternehmen kann meine Eingaben jemals einsehen.",
-            "en": "Nobody in the company can ever see my prompts."
+            "de": "Niemand im Unternehmen kann die Eingaben jemals einsehen",
+            "en": "Nobody in the company can ever see the prompts"
           },
           "correct": false,
           "explanation": {
-            "de": "Eingaben werden wie andere Firmendaten protokolliert und können zum Beispiel bei Audits ausgewertet werden.",
-            "en": "Prompts are logged like other company data and can be reviewed, for example in audits."
+            "de": "Nein. Die Daten werden wie Mails aufbewahrt und können bei Bedarf eingesehen werden.",
+            "en": "No. The data is retained like emails and can be accessed if needed."
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "de": "Die Antwort wurde auf Fehler geprüft und ist verlässlich",
+            "en": "The answer has been checked for errors and is reliable"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Nein. Das Schild betrifft den Datenschutz, nicht die Richtigkeit der Antwort.",
+            "en": "No. The shield is about data protection, not about the answer being right."
           }
         }
       ]
@@ -95,44 +107,56 @@
       "id": "q-reklamation",
       "difficulty": "intermediate",
       "question": {
-        "de": "Du möchtest eine lange Reklamation eines Gastes zusammenfassen lassen. Wie gehst du vor?",
-        "en": "You want Copilot to summarise a long complaint from a guest. How do you go about it?"
+        "de": "Du möchtest die lange Reklamation eines Gastes zusammenfassen lassen. Welches Vorgehen passt?",
+        "en": "You want a guest's long complaint summarised. Which approach fits?"
       },
       "options": [
         {
           "id": "a",
           "text": {
-            "de": "Name, Buchungsnummer und weitere Personendaten weglassen oder ersetzen und nur den Inhalt verwenden",
-            "en": "Remove or replace the name, booking number and other personal data and use only the content"
+            "de": "Alles inklusive Name und Buchungsnummer einfügen, weil das Schild-Symbol angezeigt wird",
+            "en": "Paste everything including name and booking number because the shield icon is shown"
           },
-          "correct": true,
+          "correct": false,
           "explanation": {
-            "de": "Genau. Für die Zusammenfassung zählt der Inhalt, nicht die Person.",
-            "en": "Exactly. The summary needs the content, not the person."
+            "de": "Das Schild schützt die Daten, ersetzt aber nicht die Regel: nur so viel preisgeben, wie die Aufgabe braucht.",
+            "en": "The shield protects the data but does not replace the rule: share only what the task needs."
           }
         },
         {
           "id": "b",
           "text": {
-            "de": "Alles inklusive Passnummer einfügen, Copilot ist ja geschützt",
-            "en": "Paste everything including the passport number, Copilot is protected after all"
+            "de": "Die Reklamation in einen privaten KI-Chat kopieren, damit sie nicht im Firmenkonto landet",
+            "en": "Copy the complaint into a private AI chat so that it does not end up in the company account"
           },
           "correct": false,
           "explanation": {
-            "de": "Der Schild schützt die Daten, ersetzt aber nicht den Grundsatz, nur Nötiges zu teilen.",
-            "en": "The shield protects data, but it does not replace the principle of sharing only what is needed."
+            "de": "Private Dienste haben keinen Unternehmensdatenschutz. Firmendaten haben dort nichts verloren.",
+            "en": "Private services have no enterprise data protection. Company data does not belong there."
           }
         },
         {
           "id": "c",
           "text": {
-            "de": "Die Reklamation in einen privaten KI-Chat kopieren",
-            "en": "Copy the complaint into a private AI chat"
+            "de": "Personendaten weglassen oder ersetzen, zum Beispiel «Gast A», und nur den Inhalt verwenden",
+            "en": "Leave out or replace personal data, for example “Guest A”, and use only the content"
+          },
+          "correct": true,
+          "explanation": {
+            "de": "Richtig. Für eine Zusammenfassung braucht Copilot keine Personendaten.",
+            "en": "Right. Copilot does not need personal data for a summary."
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "de": "Nur die Passnummer weglassen, alle übrigen Angaben sind unbedenklich",
+            "en": "Leave out only the passport number, all other details are harmless"
           },
           "correct": false,
           "explanation": {
-            "de": "Private KI-Dienste haben keinen Unternehmensdatenschutz. Firmendaten gehören nicht dorthin.",
-            "en": "Private AI services have no enterprise data protection. Company data does not belong there."
+            "de": "Auch Name, Buchungsnummer und Kontaktdaten sind Personendaten. Lass weg, was nicht nötig ist.",
+            "en": "Name, booking number and contact details are personal data too. Leave out what is not needed."
           }
         }
       ]
