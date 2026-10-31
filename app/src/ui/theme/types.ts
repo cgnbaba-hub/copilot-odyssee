@@ -24,6 +24,10 @@ export interface Theme {
     /** Darker edge that makes primary buttons look pressable. */
     primaryShade: string;
     onPrimary: string;
+    /** Company colour for the main calls to action (start, dock, next). */
+    brand: string;
+    brandShade: string;
+    onBrand: string;
     /** Highlights such as progress and rewards. */
     accent: string;
     sand: string;
@@ -106,6 +110,9 @@ export function themeVariables(theme: Theme): React.CSSProperties {
     '--od-primary': c.primary,
     '--od-primary-shade': c.primaryShade,
     '--od-on-primary': c.onPrimary,
+    '--od-brand': c.brand,
+    '--od-brand-shade': c.brandShade,
+    '--od-on-brand': c.onBrand,
     '--od-accent': c.accent,
     '--od-sand': c.sand,
     '--od-success': c.success,

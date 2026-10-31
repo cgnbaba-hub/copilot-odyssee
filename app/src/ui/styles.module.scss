@@ -5179,34 +5179,6 @@ $grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width=
   white-space: nowrap;
 }
 
-.stageStops {
-  display: flex;
-  margin: 16px 0 6px;
-  padding: 0;
-  list-style: none;
-  counter-reset: none;
-
-  li {
-    position: relative;
-    display: grid;
-    flex: 1 1 0;
-    justify-items: center;
-    gap: 6px;
-    min-width: 0;
-    text-align: center;
-
-    // The dashed sea route between two stops.
-    & + li::before {
-      content: '';
-      position: absolute;
-      top: 21px;
-      right: calc(50% + 24px);
-      left: calc(-50% + 24px);
-      border-top: 3px dashed rgba(26, 41, 64, 0.35);
-    }
-  }
-}
-
 .stopIcon {
   position: relative;
   z-index: 1;
@@ -5225,26 +5197,11 @@ $grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width=
   }
 }
 
-.stopLabel {
-  max-width: 100%;
-  overflow: hidden;
-  color: var(--od-text-muted);
-  font-size: 13px;
-  font-weight: 700;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
 .stopDone {
   .stopIcon {
     background: $ink;
     border-color: $ink;
     color: $paper-hi;
-  }
-
-  & + li::before {
-    border-top-style: solid !important;
-    border-top-color: $ink !important;
   }
 }
 
@@ -5256,43 +5213,10 @@ $grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width=
     color: $ink;
     transform: scale(1.12);
   }
-
-  .stopLabel {
-    color: $ink;
-  }
 }
 
 .stopNext .stopIcon {
   border-style: dashed;
-}
-
-@media (max-width: $narrow) {
-  .stageStops li + li::before {
-    right: calc(50% + 18px);
-    left: calc(-50% + 18px);
-    top: 17px;
-  }
-
-  .stopIcon {
-    width: 36px;
-    height: 36px;
-
-    svg {
-      width: 18px;
-      height: 18px;
-    }
-  }
-
-  // Only the current stop keeps its name on a phone.
-  .stopDone .stopLabel,
-  .stopNext .stopLabel {
-    visibility: hidden;
-  }
-
-  .stopLabel {
-    font-size: 12px;
-    overflow: visible;
-  }
 }
 
 .blockKind {
@@ -5486,4 +5410,764 @@ $grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width=
   color: $ink;
   font-size: 17px;
   line-height: 28px;
+}
+
+// ---------------------------------------------------------------------------
+// Playful look in DERTOUR colours (design lab, October 2026)
+// The main calls to action carry the company red; rounder shapes and a small
+// wiggle on hover make the poster style friendlier. The sun yellow stays for
+// rewards and the current step.
+// ---------------------------------------------------------------------------
+
+.buttonPrimary:not(:disabled),
+.ticketGo,
+.dock {
+  background: var(--od-brand);
+  color: var(--od-on-brand) !important;
+}
+
+.buttonPrimary:not(:disabled):hover,
+.ticketGo:hover {
+  transform: translate(-1px, -2px) rotate(-1deg);
+}
+
+.dock:hover {
+  transform: translate(calc(-50% - 1px), -2px) rotate(-1deg);
+}
+
+.lesson,
+.islandPage,
+.panel,
+.deck {
+  border-radius: 26px;
+}
+
+.ticket {
+  border-radius: 18px;
+  transition: transform 0.18s ease;
+
+  &:hover {
+    transform: translateY(-2px) rotate(-0.4deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticket:hover,
+  .buttonPrimary:not(:disabled):hover,
+  .ticketGo:hover {
+    transform: none;
+  }
+}
+
+// The companion is alive: a gentle sway and a blink every few seconds.
+
+:global(.od-guide-body) {
+  transform-box: view-box;
+  transform-origin: 50px 96px;
+  animation: odGuideSway 4.8s ease-in-out infinite;
+}
+
+:global(.od-eyes) {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: odBlink 5.2s infinite;
+}
+
+@keyframes odGuideSway {
+  0%,
+  100% {
+    transform: translateX(-2px) rotate(-3deg);
+  }
+  50% {
+    transform: translateX(2px) rotate(3deg);
+  }
+}
+
+@keyframes odBlink {
+  0%,
+  92%,
+  100% {
+    transform: scaleY(1);
+  }
+  95% {
+    transform: scaleY(0.1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :global(.od-guide-body),
+  :global(.od-eyes) {
+    animation: none;
+  }
+}
+
+.guideBubbleIn {
+  transform-origin: 0 100%;
+  animation: odBubbleIn 0.42s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes odBubbleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.85) translateY(6px);
+  }
+}
+
+.guideCompact .guideOwl {
+  width: 66px;
+  height: 66px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .guideBubbleIn {
+    animation: none;
+  }
+}
+
+// Stage trail: the steps as stations on a path across the island
+
+.trail {
+  position: relative;
+  max-width: 640px;
+  margin: 44px auto 10px;
+}
+
+// The drawing keeps the frame; the companion may stand above it.
+.trailArt {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: linear-gradient(180deg, #f8e4b6 0%, #f5d79a 100%);
+  border: 2.5px solid $ink;
+  border-radius: 18px;
+}
+
+.trailStop {
+  position: absolute;
+  display: grid;
+  justify-items: center;
+  transform: translate(-50%, -50%);
+
+  .stopIcon {
+    width: 38px;
+    height: 38px;
+
+    svg {
+      width: 19px;
+      height: 19px;
+    }
+  }
+
+  &.stopNext .stopIcon {
+    border-color: rgba(26, 41, 64, 0.55);
+  }
+
+  &.stopCurrent .stopIcon {
+    animation: odStopPulse 1.8s ease-in-out infinite;
+  }
+}
+
+@keyframes odStopPulse {
+  0%,
+  100% {
+    box-shadow:
+      3px 3px 0 $ink,
+      0 0 0 0 rgba(242, 177, 58, 0.7);
+  }
+  50% {
+    box-shadow:
+      3px 3px 0 $ink,
+      0 0 0 9px rgba(242, 177, 58, 0);
+  }
+}
+
+.trailLabel {
+  position: absolute;
+  top: calc(100% + 3px);
+  padding: 1px 7px;
+  background: rgba(251, 246, 232, 0.92);
+  border-radius: 999px;
+  color: $ink;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.stopDone .trailLabel,
+.stopNext .trailLabel {
+  opacity: 0.75;
+}
+
+// The companion walks from station to station.
+.trailGuide {
+  position: absolute;
+  z-index: 2;
+  width: 46px;
+  height: 46px;
+  margin: -66px 0 0 -23px;
+  transition:
+    left 0.9s cubic-bezier(0.45, 0.05, 0.25, 1),
+    top 0.9s cubic-bezier(0.45, 0.05, 0.25, 1);
+  animation: odGuideHop 2.6s ease-in-out infinite;
+  filter: drop-shadow(2px 3px 0 rgba(26, 41, 64, 0.35));
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@keyframes odGuideHop {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.trailFlagUp {
+  transform-box: fill-box;
+  transform-origin: 0 50%;
+  animation: odFlag 1.6s ease-in-out infinite;
+}
+
+@keyframes odFlag {
+  50% {
+    transform: scaleX(0.82) skewY(4deg);
+  }
+}
+
+@media (max-width: $narrow) {
+  .trailStop .stopIcon {
+    width: 30px;
+    height: 30px;
+
+    svg {
+      width: 15px;
+      height: 15px;
+    }
+  }
+
+  .trailGuide {
+    width: 38px;
+    height: 38px;
+    margin: -54px 0 0 -19px;
+  }
+
+  // Only the current station keeps its name on a phone.
+  .stopDone .trailLabel,
+  .stopNext .trailLabel {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trailGuide,
+  .trailStop.stopCurrent .stopIcon,
+  .trailFlagUp {
+    animation: none;
+  }
+
+  .trailGuide {
+    transition: none;
+  }
+}
+
+// Sea chart: all islands at once, in any order
+
+.chart {
+  overflow: hidden;
+  background: var(--od-surface);
+  border: 2.5px solid $ink;
+  border-radius: 26px;
+  box-shadow: 6px 6px 0 rgba(26, 41, 64, 0.9);
+}
+
+.chartHead {
+  padding: 18px 22px 8px;
+
+  p {
+    margin: 0;
+  }
+}
+
+.chartScroll {
+  overflow-x: auto;
+  border-top: 2.5px solid $ink;
+}
+
+.chartSea {
+  position: relative;
+  min-width: 720px;
+  aspect-ratio: 1000 / 470;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 59px, rgba(31, 95, 139, 0.12) 59px 60px), repeating-linear-gradient(90deg, transparent 0 59px, rgba(31, 95, 139, 0.12) 59px 60px),
+    radial-gradient(circle at 30% 40%, #d8ecf0 0%, #b9d9e4 70%, #a7cddc 100%);
+}
+
+.chartPremium {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  border-left: 3px dashed rgba(91, 75, 168, 0.55);
+  background: rgba(91, 75, 168, 0.07);
+
+  span {
+    position: absolute;
+    top: 10px;
+    left: 12px;
+    padding: 2px 10px;
+    background: var(--od-premium-soft);
+    border: 1.5px solid var(--od-premium);
+    border-radius: 999px;
+    color: var(--od-premium);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+}
+
+.chartCompass {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  width: 70px;
+  height: 70px;
+
+  circle:first-child {
+    fill: rgba(26, 41, 64, 0.08);
+    stroke: rgba(26, 41, 64, 0.6);
+  }
+}
+
+.chartIsland {
+  position: absolute;
+  display: grid;
+  justify-items: center;
+  width: 128px;
+  padding: 0;
+  background: none;
+  border: 0;
+  color: $ink;
+  cursor: pointer;
+  font: inherit;
+  transform: translate(-50%, -62%);
+  transition: transform 0.2s ease;
+
+  > svg {
+    width: 112px;
+    height: auto;
+    filter: drop-shadow(0 3px 0 rgba(26, 41, 64, 0.25));
+  }
+
+  &:hover,
+  &:focus-visible {
+    transform: translate(-50%, -66%) rotate(-1.5deg);
+  }
+
+  &:focus-visible {
+    outline: 3px solid $sun;
+    outline-offset: 4px;
+    border-radius: 12px;
+  }
+}
+
+.chartIslandPreview > svg {
+  opacity: 0.6;
+  filter: grayscale(0.4);
+}
+
+.chartName {
+  margin-top: -2px;
+  padding: 1px 9px;
+  background: $paper-hi;
+  border: 2px solid $ink;
+  border-radius: 999px;
+  font-family: var(--od-font-logo);
+  font-size: 17px;
+  letter-spacing: 0.03em;
+  line-height: 1.2;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.chartCount {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  margin-top: 3px;
+  padding: 0 8px;
+  background: rgba(251, 246, 232, 0.85);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.chartCountDone {
+  background: $ink;
+  color: $paper-hi;
+}
+
+.chartHome {
+  position: absolute;
+  top: -6px;
+  padding: 1px 8px;
+  background: $sun;
+  border: 1.5px solid $ink;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.chartShip {
+  position: absolute;
+  right: -30px;
+  bottom: 50px;
+  display: grid;
+  justify-items: center;
+  animation: odChartBob 2.4s ease-in-out infinite;
+
+  svg {
+    width: 44px;
+    height: auto;
+  }
+
+  em {
+    padding: 0 6px;
+    background: var(--od-brand);
+    border-radius: 999px;
+    color: var(--od-on-brand);
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 700;
+  }
+}
+
+.chartIslandNext .chartName {
+  border-color: var(--od-brand);
+  box-shadow: 2px 2px 0 var(--od-brand);
+}
+
+@keyframes odChartBob {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-3deg);
+  }
+  50% {
+    transform: translateY(-4px) rotate(3deg);
+  }
+}
+
+@media (max-width: $narrow) {
+  .viewSwitch button {
+    padding: 0 11px;
+    font-size: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chartShip {
+    animation: none;
+  }
+
+  .chartIsland:hover,
+  .chartIsland:focus-visible {
+    transform: translate(-50%, -62%);
+  }
+}
+
+// Ticket preview: hovering a ticket shows what the stage teaches
+
+.ticketMain {
+  position: relative;
+}
+
+.ticketPeek {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: grid;
+  align-content: center;
+  gap: 4px;
+  padding: 10px 16px;
+  overflow: hidden;
+  background: $paper-hi;
+  border-radius: 16px 0 0 16px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(6px);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+
+  ul {
+    display: grid;
+    gap: 3px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  svg {
+    flex: none;
+    width: 17px;
+    height: 17px;
+    color: $coral;
+  }
+}
+
+.ticketPeekTitle {
+  margin: 0 !important;
+  color: $coral;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+@media (hover: hover) {
+  .ticket:hover .ticketPeek {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.ticketPeekOpen {
+  opacity: 1;
+  pointer-events: auto;
+  transform: none;
+}
+
+.ticketPeekToggle {
+  display: none;
+  padding: 2px 10px;
+  background: none;
+  border: 1.5px solid $ink;
+  border-radius: 999px;
+  color: $ink;
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+@media (hover: none) {
+  .ticketPeekToggle {
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticketPeek {
+    transition: none;
+  }
+}
+
+// Confetti: a burst from the middle that flutters down
+
+.confetti {
+  overflow: visible;
+  z-index: 3;
+
+  span {
+    top: 32%;
+    left: 50%;
+    width: 9px;
+    height: 14px;
+    border: 1px solid rgba(26, 41, 64, 0.35);
+    animation: odBurst 2.2s cubic-bezier(0.2, 0.7, 0.3, 1) forwards;
+  }
+}
+
+.confettiRound {
+  width: 10px !important;
+  height: 10px !important;
+  border-radius: 50% !important;
+}
+
+@keyframes odBurst {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) rotate(0deg) scale(0.4);
+  }
+  28% {
+    opacity: 1;
+    transform: translate(var(--dx), var(--dy)) rotate(calc(var(--spin) * 0.4)) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(var(--dx) * 1.35), var(--fall)) rotate(var(--spin)) scale(0.9) rotateX(540deg);
+  }
+}
+
+// Finished island: the done screen counts down, then the passport gets its stamp
+
+.stampNotice {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  max-width: 520px;
+  margin: 6px auto 0;
+  padding: 14px 18px;
+  background: $paper-hi;
+  border: 2.5px solid $ink;
+  border-radius: 18px;
+  box-shadow: 4px 4px 0 $ink;
+  color: $ink;
+  text-align: center;
+
+  p {
+    margin: 0;
+  }
+}
+
+.stampCountdown {
+  display: block;
+  width: 100%;
+  height: 6px;
+  overflow: hidden;
+  background: rgba(26, 41, 64, 0.12);
+  border-radius: 999px;
+
+  i {
+    display: block;
+    height: 100%;
+    background: var(--od-brand);
+    transform-origin: left;
+    animation: odCountdown linear forwards;
+  }
+}
+
+@keyframes odCountdown {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+.stamp {
+  position: relative;
+}
+
+// The imprint appears the moment the rubber stamp touches the page.
+.stampFresh > svg:not(.stampTool) {
+  animation: odImprint 1.5s var(--od-stamp-delay, 0ms) both;
+}
+
+@keyframes odImprint {
+  0%,
+  44% {
+    opacity: 0;
+    transform: scale(1.25);
+  }
+  48% {
+    opacity: 1;
+    transform: scale(0.94);
+  }
+  60%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.stampTool {
+  position: absolute;
+  top: -84px;
+  left: 50%;
+  z-index: 3;
+  width: 108px !important;
+  max-width: none !important;
+  margin-left: -54px;
+  pointer-events: none;
+  animation: odRubber 1.5s var(--od-stamp-delay, 0ms) cubic-bezier(0.5, 0, 0.5, 1) both;
+  filter: drop-shadow(4px 6px 0 rgba(26, 41, 64, 0.25));
+}
+
+@keyframes odRubber {
+  0% {
+    opacity: 0;
+    transform: translateY(-120px) rotate(-14deg);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(-70px) rotate(-8deg);
+  }
+  44% {
+    transform: translateY(18px) rotate(0deg) scaleY(1);
+  }
+  50% {
+    transform: translateY(22px) rotate(0deg) scaleY(0.9);
+  }
+  72% {
+    opacity: 1;
+    transform: translateY(-60px) rotate(8deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-140px) rotate(14deg);
+  }
+}
+
+.passportBookThump {
+  animation: odThump 0.35s ease-out both;
+}
+
+@keyframes odThump {
+  30% {
+    transform: translateY(4px) scale(0.995);
+  }
+  60% {
+    transform: translateY(-2px);
+  }
+}
+
+.passportStamped {
+  display: inline-block;
+  margin: 8px 0 0 !important;
+  padding: 6px 14px;
+  background: var(--od-brand);
+  border-radius: 999px;
+  color: var(--od-on-brand);
+  font-weight: 700;
+  animation: odBubbleIn 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stampTool {
+    display: none;
+  }
+
+  .stampFresh > svg,
+  .passportBookThump,
+  .passportStamped,
+  .stampCountdown i {
+    animation: none;
+  }
+}
+
+.chartScrollHint {
+  display: none;
+  margin: 6px 0 0 !important;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+@media (max-width: $narrow) {
+  .chartScrollHint {
+    display: block;
+  }
 }

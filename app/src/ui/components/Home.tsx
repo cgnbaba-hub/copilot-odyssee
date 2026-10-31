@@ -9,13 +9,15 @@ import styles from '../styles.module.scss';
 import { CheckIcon, IslandArt, LockIcon } from './Art';
 import { Deck } from './Deck';
 import { LicenseChip } from './LicenseChip';
+import { SeaChart } from './SeaChart';
 
-type HomeView = 'deck' | 'log';
+type HomeView = 'deck' | 'chart' | 'log';
 const VIEW_KEY = 'odyssee-home-view';
 
 function savedView(): HomeView {
   try {
-    return window.localStorage.getItem(VIEW_KEY) === 'log' ? 'log' : 'deck';
+    const saved = window.localStorage.getItem(VIEW_KEY);
+    return saved === 'log' || saved === 'chart' ? saved : 'deck';
   } catch {
     return 'deck';
   }
@@ -127,6 +129,9 @@ export function Home(): React.ReactElement {
         <button type="button" aria-pressed={view === 'deck'} className={view === 'deck' ? styles.viewSwitchActive : undefined} onClick={() => choose('deck')}>
           {strings.viewDeck}
         </button>
+        <button type="button" aria-pressed={view === 'chart'} className={view === 'chart' ? styles.viewSwitchActive : undefined} onClick={() => choose('chart')}>
+          {strings.viewChart}
+        </button>
         <button type="button" aria-pressed={view === 'log'} className={view === 'log' ? styles.viewSwitchActive : undefined} onClick={() => choose('log')}>
           {strings.viewLog}
         </button>
@@ -134,6 +139,8 @@ export function Home(): React.ReactElement {
 
       {view === 'deck' ? (
         <Deck islands={islands} />
+      ) : view === 'chart' ? (
+        <SeaChart islands={islands} />
       ) : (
         <section className={styles.panel}>
           <h1 className={styles.pageTitle}>{strings.viewLog}</h1>

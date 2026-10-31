@@ -26,6 +26,8 @@ export function IslandView(props: { islandId: string }): React.ReactElement {
   const number = sortedIslands(content).indexOf(island) + 1;
   // The first open stage gets the attention; done ones carry a stamp.
   const firstOpen = modules.filter((m) => moduleStatus(player, m) !== 'completed')[0];
+  // Touch screens cannot hover, so there the preview of a ticket opens with a tap.
+  const [peek, setPeek] = React.useState<string | undefined>(undefined);
 
   return (
     <section className={styles.islandPage} style={{ ['--od-island' as string]: island.color } as React.CSSProperties}>
@@ -88,6 +90,20 @@ export function IslandView(props: { islandId: string }): React.ReactElement {
               return (
                 <li key={m.id} className={isDone ? `${styles.ticket} ${styles.ticketDone}` : m === firstOpen ? `${styles.ticket} ${styles.ticketNext}` : styles.ticket}>
                   <div className={styles.ticketMain}>
+                    <div className={peek === m.id ? `${styles.ticketPeek} ${styles.ticketPeekOpen}` : styles.ticketPeek}>
+                      <p className={styles.ticketPeekTitle}>{strings.ticketLearn}</p>
+                      <ul>
+                        {m.blocks
+                          .filter((b) => b.type === 'briefing' || b.type === 'prompt' || b.type === 'mission')
+                          .slice(0, 4)
+                          .map((b) => (
+                            <li key={b.id}>
+                              <BlockKindIcon type={b.type} />
+                              {'title' in b ? t(b.title) : ''}
+                            </li>
+                          ))}
+                      </ul>
+                    </div>
                     <p className={styles.ticketEyebrow}>
                       {format(strings.stageNumber, { n: index + 1 })} {m.status === 'draft' && <span className={styles.chipDraft}>{strings.draft}</span>}
                     </p>
@@ -105,6 +121,9 @@ export function IslandView(props: { islandId: string }): React.ReactElement {
                         ))}
                     </ul>
                     <p className={styles.ticketMeta}>
+                      <button type="button" className={styles.ticketPeekToggle} aria-expanded={peek === m.id} onClick={() => setPeek(peek === m.id ? undefined : m.id)}>
+                        {strings.ticketLearnToggle}
+                      </button>
                       <span>{format(strings.aboutMinutes, { minutes: m.estimatedMinutes })}</span>
                       {status === 'inProgress' && <span>{strings.statusInProgress}</span>}
                       {m.license && m.license !== island.license && <LicenseChip license={moduleLicense(content, m)} />}

@@ -70,7 +70,7 @@ function Seagull(): React.ReactElement {
       <circle cx="64" cy="34" r="13" fill={CREAM} {...line} />
       <path d="M75 33 L92 37 L75 41 Z" fill={SUN} {...line} />
       <circle cx="85" cy="38.6" r="1.8" fill="#c94f33" />
-      <circle cx="68" cy="31" r="2.6" fill={INK} />
+      <circle className="od-eyes" cx="68" cy="31" r="2.6" fill={INK} />
       <path d="M63 25.5 L72 27.5" {...line} />
     </>
   );
@@ -87,8 +87,10 @@ function Eagle(): React.ReactElement {
       <path d="M34 89 L47 84 L45 88 L60 85 L49 94 L51 90 Z" fill="#f7cd62" {...line} strokeWidth={2} />
       <circle cx="62" cy="31" r="13" fill="#c9913f" {...line} />
       <path d="M71 29 C80 29 87 33 85 40 C83 38 79 37 74 38 Z" fill={SUN} {...line} />
-      <circle cx="65.5" cy="29.5" r="2.6" fill={INK} />
-      <circle cx="66.3" cy="28.7" r="0.8" fill={CREAM} />
+      <g className="od-eyes">
+        <circle cx="65.5" cy="29.5" r="2.6" fill={INK} />
+        <circle cx="66.3" cy="28.7" r="0.8" fill={CREAM} />
+      </g>
       <path d="M60 24.5 L70 25.5" {...line} />
     </>
   );
@@ -103,7 +105,7 @@ function Dolphin(): React.ReactElement {
       <path d="M20 67 C30 45 44 32 60 30 C70 29 78 32 83 38 L94 43 C92 46 86 47 82 46 C72 50 62 56 52 60 C40 65 30 70 24 73 Z" fill="#3e7cb1" {...line} />
       <path d="M81 47 C72 51 62 56 52 60 C46 62 42 64 38 65 C48 55 63 49 81 47 Z" fill="#a9d1ea" />
       <path d="M60 54 C58 62 54 66 49 68 C51 62 53 58 55 55 Z" fill="#2f6496" {...line} />
-      <circle cx="77" cy="38" r="2.4" fill={INK} />
+      <circle className="od-eyes" cx="77" cy="38" r="2.4" fill={INK} />
       <path d="M87 45.5 q-3 1.6 -6 .6" fill="none" {...line} strokeWidth={1.8} />
     </>
   );
@@ -122,8 +124,10 @@ function Pilot(): React.ReactElement {
       <path d="M29 35 h42 v6 h-42 Z" fill="#1f3a60" {...line} />
       <path d="M30 41 C40 47 60 47 70 41 L72 43 C60 51 40 51 28 43 Z" fill={INK} />
       <circle cx="50" cy="27" r="4.5" fill={SUN} stroke={INK} strokeWidth="1.5" />
-      <circle cx="44" cy="52" r="2" fill={INK} />
-      <circle cx="56" cy="52" r="2" fill={INK} />
+      <g className="od-eyes">
+        <circle cx="44" cy="52" r="2" fill={INK} />
+        <circle cx="56" cy="52" r="2" fill={INK} />
+      </g>
       <path d="M45 58.5 q5 4 10 0" fill="none" {...line} strokeWidth={2} />
     </>
   );
@@ -142,7 +146,10 @@ export function GuidePortrait(props: { id?: string; className?: string }): React
         </clipPath>
       </defs>
       <circle cx="50" cy="50" r="48" fill={guide.id === 'delfin' ? '#7fb3d8' : SUN} stroke={INK} strokeWidth="2.5" />
-      <g clipPath={`url(#${clipId})`}>{body}</g>
+      <g clipPath={`url(#${clipId})`}>
+        {/* The companion sways a little and blinks now and then, so it feels alive. */}
+        <g className="od-guide-body">{body}</g>
+      </g>
     </svg>
   );
 }

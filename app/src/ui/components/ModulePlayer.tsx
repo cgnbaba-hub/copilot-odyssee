@@ -36,6 +36,9 @@ function BlockView(props: { moduleId: string; block: Block; onDone: () => void }
   }
 }
 
+/** How long the done screen of a finished island shows before the passport opens. */
+const STAMP_DELAY_MS = 4200;
+
 /** Colour of the label that names the kind of step. */
 const KIND_CLASS: Record<Block['type'], string> = {
   briefing: styles.kindBriefing,
@@ -84,6 +87,21 @@ export function ModulePlayer(props: { moduleId: string }): React.ReactElement {
     }
   }, [done]);
 
+  // A finished island earns a stamp: after a moment the player is taken to the passport, where it is pressed in.
+  const islandStamped =
+    done &&
+    !!module &&
+    getModule(player, module.id).completed === 1 &&
+    (() => {
+      const p = islandProgress(game, module.island);
+      return p.total > 0 && p.completed === p.total;
+    })();
+  React.useEffect(() => {
+    if (!islandStamped || !module) return undefined;
+    const timer = window.setTimeout(() => navigate({ name: 'passport', stamp: module.island }), STAMP_DELAY_MS);
+    return () => window.clearTimeout(timer);
+  }, [islandStamped]);
+
   if (!module || index === undefined) return <Loading text={strings.loading} compact />;
   const island = findIsland(content, module.island);
   const total = module.blocks.length;
@@ -109,7 +127,17 @@ export function ModulePlayer(props: { moduleId: string }): React.ReactElement {
         )}
         <h2 className={styles.moduleDoneTitle}>{strings.moduleDoneTitle}</h2>
         <p className={styles.lead}>{format(strings.moduleDoneText, { xp: player.xp - xpAtStart.current, xpName: t(theme.terms.xp) })}</p>
-        {newStamp && island && <p className={styles.stampNotice}>{format(strings.stampEarned, { island: t(island.name) })}</p>}
+        {newStamp && island && (
+          <div className={styles.stampNotice}>
+            <p>{format(strings.stampEarned, { island: t(island.name) })}</p>
+            <span className={styles.stampCountdown} aria-hidden="true">
+              <i style={{ animationDuration: `${STAMP_DELAY_MS}ms` }} />
+            </span>
+            <button type="button" className={styles.buttonPrimary} onClick={() => navigate({ name: 'passport', stamp: island.id })}>
+              {strings.stampGoNow}
+            </button>
+          </div>
+        )}
         <Guide text={following ? strings.moduleDoneGuide : strings.allDoneText} cheer compact />
         <div className={styles.doneActions}>
           {following && (
@@ -144,7 +172,7 @@ export function ModulePlayer(props: { moduleId: string }): React.ReactElement {
         </div>
       </div>
 
-      <StageRoute blocks={module.blocks} index={Math.min(index, total)} />
+      <StageRoute blocks={module.blocks} index={Math.min(index, total)} island={island} />
 
       {doneView || (
         <>
