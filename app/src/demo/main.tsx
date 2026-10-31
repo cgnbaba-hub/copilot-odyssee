@@ -3,6 +3,7 @@ import * as ReactDom from 'react-dom';
 
 import content from '../content/bundle.generated';
 import { langFromCulture } from '../core/i18n/locale';
+import { DebouncedProgressStore } from '../core/progress/debounced';
 import { LocalStorageProgressStore } from '../core/progress/store';
 import { FeedbackEntry, FeedbackSender } from '../core/feedback/feedback';
 import { App } from '../ui/App';
@@ -23,7 +24,7 @@ const demoFeedback: FeedbackSender = {
 ReactDom.render(
   <App
     content={content}
-    store={new LocalStorageProgressStore('odyssee-demo')}
+    store={new DebouncedProgressStore(new LocalStorageProgressStore('odyssee-demo'), 800)}
     initialLang={langFromCulture(navigator.language)}
     showDrafts={true}
     storage="demo"

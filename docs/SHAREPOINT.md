@@ -61,6 +61,25 @@ Die Datei gibt es auch fertig als Download `odyssee-content` bei jedem CI-Lauf. 
 
 Liegen Bibliothek und Liste auf einer anderen Website als die Seite, im Eigenschaftenbereich des Webparts **«Website mit den Odyssee-Listen»** setzen.
 
+## 5. Direktlinks auf Inseln und Etappen
+
+Mit einem Zusatz an der Adresse der Odyssee-Seite öffnet die App direkt eine Insel oder eine Etappe, zum Beispiel für eine Teams-Nachricht oder eine Mail:
+
+- `…/SitePages/Odyssee.aspx?insel=aiolos` öffnet die Insel des Aiolos.
+- `…/SitePages/Odyssee.aspx?etappe=aiolos-gute-prompts` öffnet die Etappe «Gute Prompts schreiben».
+
+Die Kennungen stehen in `content/islands.json` und als Dateinamen in `content/modules/`. Auf jeder Inselseite gibt es oben rechts den Knopf **«Link kopieren»**, der diesen Link erzeugt. Wer die Odyssee zum ersten Mal öffnet, sieht zuerst die kurze Einführung.
+
+## 6. Als App in Teams
+
+Der Webpart läuft auch in Teams, als persönliche App in der linken Leiste oder als Registerkarte in einem Team. Der Fortschritt ist derselbe wie auf der SharePoint-Seite, weil er in denselben Listen liegt.
+
+1. Im **Tenant-App-Katalog** das Paket `odyssee.sppkg` auswählen und **Mit Teams synchronisieren** wählen. Für eine Website-App-Sammlung reicht das nicht, die Synchronisation geht nur über den Tenant-App-Katalog.
+2. Im **Teams Admin Center** unter **Teams-Apps → Apps verwalten** die App «Odyssee» erlauben und bei Bedarf über eine Setup-Richtlinie anheften.
+3. **Wichtig:** In Teams kennt der Webpart die Odyssee-Website nicht von selbst. Vor dem Bauen in `app/src/webparts/odyssee/OdysseeWebPart.manifest.json` bei `preconfiguredEntries → properties → dataSiteUrl` die Adresse der Odyssee-Website eintragen, zum Beispiel `https://dertour.sharepoint.com/sites/odyssee`. Bei einer Registerkarte im Team lässt sich die Adresse auch im Eigenschaftenbereich setzen.
+
+Fehlt die Adresse, speichert die App nur im Browser und zeigt oben einen Hinweis.
+
 ## Auswertung
 
 Wer die Listen der Website verwalten darf (in der Regel die Besitzerinnen und Besitzer), sieht unten in der App zusätzlich den Menüpunkt **«Auswertung»**. Die App prüft das bei jedem Start über die SharePoint-Berechtigung «Listen verwalten»; alle anderen sehen den Menüpunkt nicht und könnten die Einträge anderer auch gar nicht lesen.

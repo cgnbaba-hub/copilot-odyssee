@@ -19,6 +19,10 @@ export interface Profile {
   guide?: string;
   /** True once the guided tour of the menu was finished or skipped. */
   toured?: boolean;
+  /** Larger text for easier reading; normal when missing. */
+  textSize?: 'normal' | 'large';
+  /** Fewer animations, in addition to the operating system setting. */
+  motion?: 'full' | 'reduced';
 }
 
 export interface BlockProgress {

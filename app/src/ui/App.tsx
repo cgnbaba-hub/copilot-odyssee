@@ -6,6 +6,7 @@ import { ContentBundle, Localized } from '../core/content/types';
 import { FeedbackSender } from '../core/feedback/feedback';
 import { Lang, localize } from '../core/i18n/locale';
 import { earnedSouvenirs, SouvenirId } from '../core/progress/achievements';
+import { DebouncedProgressStore, SaveStatus } from '../core/progress/debounced';
 import { initialState, Outcome, PlayerState, updateProfile } from '../core/progress/state';
 import { ProgressStore } from '../core/progress/store';
 import { AdminView } from './components/AdminView';
@@ -60,18 +61,50 @@ interface Toast {
 const TOAST_MS = 2600;
 /** How long pressing a new stamp into the passport takes. */
 const STAMP_PRESS_MS = 2600;
+/** How long «Gespeichert» stays visible. */
+const SAVED_VISIBLE_MS = 2200;
 const MAX_TOASTS = 3;
+
+/**
+ * A link can open an island or a stage directly, e.g. «…/Odyssee.aspx?insel=aiolos»
+ * or «?etappe=aiolos-gute-prompts». The hash form «#insel-aiolos» works too.
+ */
+function viewFromLink(content: ContentBundle): View {
+  try {
+    const query = new URLSearchParams(window.location.search);
+    const hash = window.location.hash.replace(/^#/, '');
+    const island = query.get('insel') || (hash.indexOf('insel-') === 0 ? hash.slice(6) : '');
+    const stage = query.get('etappe') || (hash.indexOf('etappe-') === 0 ? hash.slice(7) : '');
+    if (stage && findModule(content, stage)) return { name: 'module', moduleId: stage };
+    if (island && findIsland(content, island)) return { name: 'island', islandId: island };
+  } catch {
+    // Without a readable address the journey simply starts at the deck.
+  }
+  return { name: 'map' };
+}
 
 export function App(props: AppProps): React.ReactElement {
   const theme = props.theme || odysseeTheme;
   const [player, setPlayer] = React.useState<PlayerState | undefined>(undefined);
-  const [view, setView] = React.useState<View>({ name: 'map' });
+  const [view, setView] = React.useState<View>(() => viewFromLink(props.content));
   const [settingsOpen, setSettingsOpen] = React.useState(false);
   const [helpOpen, setHelpOpen] = React.useState(false);
   const [feedbackOpen, setFeedbackOpen] = React.useState(false);
   const [rankUp, setRankUp] = React.useState<number | undefined>(undefined);
   // While a new stamp is pressed into the passport, a new status waits until the stamp is in.
   const [stampSeen, setStampSeen] = React.useState(true);
+  const [saveStatus, setSaveStatus] = React.useState<SaveStatus | undefined>(undefined);
+  // Stores that save with a delay report their status, so players can see their progress is safe.
+  React.useEffect(() => {
+    const store = props.store as Partial<DebouncedProgressStore>;
+    if (!store.subscribe) return undefined;
+    return store.subscribe(setSaveStatus);
+  }, [props.store]);
+  React.useEffect(() => {
+    if (saveStatus !== 'saved') return undefined;
+    const timer = window.setTimeout(() => setSaveStatus(undefined), SAVED_VISIBLE_MS);
+    return () => window.clearTimeout(timer);
+  }, [saveStatus]);
   const [toasts, setToasts] = React.useState<Toast[]>([]);
   const playerRef = React.useRef<PlayerState | undefined>(undefined);
   const rootRef = React.useRef<HTMLDivElement>(null);
@@ -229,7 +262,12 @@ export function App(props: AppProps): React.ReactElement {
 
   return (
     <GameContext.Provider value={game}>
-      <div ref={rootRef} className={styles.app} style={themeVariables(theme)} lang={lang === 'de' ? 'de-CH' : 'en'}>
+      <div
+        ref={rootRef}
+        className={[styles.app, player.profile.textSize === 'large' ? styles.appLarge : '', player.profile.motion === 'reduced' ? styles.appCalm : ''].join(' ')}
+        style={themeVariables(theme)}
+        lang={lang === 'de' ? 'de-CH' : 'en'}
+      >
         {props.storage === 'demo' && <p className={styles.demoBanner}>{strings.demoBanner}</p>}
         {props.storage === 'browser' && <p className={styles.demoBanner}>{strings.browserStorageBanner}</p>}
         <Header onOpenSettings={() => setSettingsOpen(true)} onOpenHelp={() => setHelpOpen(true)} />
@@ -243,6 +281,11 @@ export function App(props: AppProps): React.ReactElement {
         {/* A new status is celebrated outside of stages and after a new stamp, so it never interrupts either. */}
         {rankUp !== undefined && view.name !== 'module' && !(view.name === 'passport' && view.stamp && !stampSeen) && (
           <RankUp index={rankUp} onClose={() => setRankUp(undefined)} />
+        )}
+        {saveStatus && (
+          <p className={`${styles.saveStatus} ${saveStatus === 'error' ? styles.saveStatusError : ''}`} role="status">
+            {saveStatus === 'saved' ? `✓ ${strings.saveSaved}` : saveStatus === 'error' ? strings.saveError : strings.saveSaving}
+          </p>
         )}
         <div className={styles.toasts} aria-live="polite">
           {toasts.map((x) => (

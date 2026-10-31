@@ -43,4 +43,14 @@ describe('DebouncedProgressStore', () => {
     await store.flush();
     expect(inner.saved).toEqual([7]);
   });
+
+  it('reports pending, saving and saved', async () => {
+    const store = new DebouncedProgressStore(new RecordingStore(), 1000);
+    const seen: string[] = [];
+    store.subscribe((status) => seen.push(status));
+    await store.save({ ...initialState('de'), xp: 1 });
+    await store.flush();
+    await Promise.resolve();
+    expect(seen).toEqual(['pending', 'saving', 'saved']);
+  });
 });
