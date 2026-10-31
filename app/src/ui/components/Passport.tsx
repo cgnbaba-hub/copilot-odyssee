@@ -13,12 +13,22 @@ import { RankEmblem, SouvenirIcon, Stamp } from './Art';
 /** Small deterministic tilt so stamps look hand-pressed. */
 const TILTS = [-8, 5, -3, 9, -6, 3, -10, 6, -2, 8];
 
-export function Passport(): React.ReactElement {
+/** Delay before the rubber stamp comes down, so the page has settled. */
+const STAMP_START_MS = 450;
+
+export function Passport(props: { stamp?: string }): React.ReactElement {
   const { content, player, lang, strings, theme, t, navigate, showDrafts } = useGame();
   const stamps = passportStamps(content, player, { showDrafts });
   const souvenirs = earnedSouvenirs(content, player);
   const rank = rankProgress(theme, player.xp);
   const islands = sortedIslands(content);
+  const freshRef = React.useRef<HTMLLIElement>(null);
+  // A stamp just earned is pressed in with a rubber stamp, like at a border crossing.
+  const fresh = props.stamp && stamps.some((x) => x.islandId === props.stamp) ? props.stamp : undefined;
+  const freshIsland = fresh ? islands.filter((i) => i.id === fresh)[0] : undefined;
+  React.useEffect(() => {
+    if (freshRef.current && freshRef.current.scrollIntoView) freshRef.current.scrollIntoView({ block: 'center' });
+  }, [fresh]);
   const stagesDone = Object.keys(player.modules).filter((id) => player.modules[id].completed > 0).length;
   // Islands with at least one stage done or started, but no stamp yet.
   const underway = islands
@@ -37,8 +47,16 @@ export function Passport(): React.ReactElement {
 
       <h1 className={styles.pageTitle}>{t(theme.terms.passport)}</h1>
       <p className={styles.muted}>{strings.passportIntro}</p>
+      {freshIsland && (
+        <p className={styles.passportStamped} role="status" style={{ animationDelay: `${STAMP_START_MS + 900}ms` }}>
+          {format(strings.passportStamped, { island: t(freshIsland.name) })}
+        </p>
+      )}
 
-      <div className={styles.passportBook}>
+      <div
+        className={fresh ? `${styles.passportBook} ${styles.passportBookThump}` : styles.passportBook}
+        style={fresh ? { animationDelay: `${STAMP_START_MS + 620}ms` } : undefined}
+      >
         <div className={`${styles.passportPage} ${styles.passportId}`}>
           <p className={styles.passportPageTitle}>
             {t(theme.terms.passport)} · {t(theme.terms.appTitle)}
@@ -103,9 +121,23 @@ export function Passport(): React.ReactElement {
               return (
                 <li
                   key={island.id}
-                  className={stamp ? styles.stamp : `${styles.stamp} ${styles.stampEmpty}`}
-                  style={{ transform: stamp ? `rotate(${TILTS[i % TILTS.length]}deg)` : undefined }}
+                  ref={island.id === fresh ? freshRef : undefined}
+                  className={`${stamp ? styles.stamp : `${styles.stamp} ${styles.stampEmpty}`} ${island.id === fresh ? styles.stampFresh : ''}`}
+                  style={
+                    {
+                      transform: stamp ? `rotate(${TILTS[i % TILTS.length]}deg)` : undefined,
+                      ['--od-stamp-delay' as string]: `${STAMP_START_MS}ms`
+                    } as React.CSSProperties
+                  }
                 >
+                  {island.id === fresh && (
+                    <svg className={styles.stampTool} viewBox="0 0 80 120" aria-hidden="true">
+                      <rect x="30" y="4" width="20" height="44" rx="10" fill="#8a5a34" stroke="#1a2940" strokeWidth="3" />
+                      <rect x="22" y="44" width="36" height="12" rx="4" fill="#5c3a22" stroke="#1a2940" strokeWidth="3" />
+                      <rect x="8" y="56" width="64" height="22" rx="5" fill="#e40028" stroke="#1a2940" strokeWidth="3" />
+                      <rect x="8" y="78" width="64" height="8" rx="2" fill="#1a2940" />
+                    </svg>
+                  )}
                   <Stamp id={island.id} label={t(island.name)} date={stamp ? formatDate(lang, stamp.date) : ''} color={island.color} landmark={island.landmark} empty={!stamp} />
                   <span className={styles.stampCaption}>{stamp ? t(island.name) : `${t(island.name)} · ${strings.stampOpen}`}</span>
                 </li>

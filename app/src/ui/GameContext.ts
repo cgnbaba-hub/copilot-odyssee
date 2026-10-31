@@ -6,7 +6,13 @@ import { Outcome, PlayerState } from '../core/progress/state';
 import { Strings } from './i18n/strings';
 import { Theme } from './theme/types';
 
-export type View = { name: 'map' } | { name: 'passport' } | { name: 'cheatsheet' } | { name: 'admin' } | { name: 'island'; islandId: string } | { name: 'module'; moduleId: string };
+export type View =
+  | { name: 'map' }
+  | { name: 'passport'; stamp?: string }
+  | { name: 'cheatsheet' }
+  | { name: 'admin' }
+  | { name: 'island'; islandId: string }
+  | { name: 'module'; moduleId: string };
 
 export interface Game {
   content: ContentBundle;

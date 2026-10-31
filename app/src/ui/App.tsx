@@ -58,6 +58,8 @@ interface Toast {
 }
 
 const TOAST_MS = 2600;
+/** How long pressing a new stamp into the passport takes. */
+const STAMP_PRESS_MS = 2600;
 const MAX_TOASTS = 3;
 
 export function App(props: AppProps): React.ReactElement {
@@ -68,6 +70,8 @@ export function App(props: AppProps): React.ReactElement {
   const [helpOpen, setHelpOpen] = React.useState(false);
   const [feedbackOpen, setFeedbackOpen] = React.useState(false);
   const [rankUp, setRankUp] = React.useState<number | undefined>(undefined);
+  // While a new stamp is pressed into the passport, a new status waits until the stamp is in.
+  const [stampSeen, setStampSeen] = React.useState(true);
   const [toasts, setToasts] = React.useState<Toast[]>([]);
   const playerRef = React.useRef<PlayerState | undefined>(undefined);
   const rootRef = React.useRef<HTMLDivElement>(null);
@@ -85,6 +89,14 @@ export function App(props: AppProps): React.ReactElement {
       active = false;
     };
   }, [props.store]);
+
+  const stampFor = view.name === 'passport' ? view.stamp : undefined;
+  React.useEffect(() => {
+    if (!stampFor) return undefined;
+    setStampSeen(false);
+    const timer = window.setTimeout(() => setStampSeen(true), STAMP_PRESS_MS);
+    return () => window.clearTimeout(timer);
+  }, [stampFor]);
 
   if (!player) {
     return (
@@ -210,7 +222,7 @@ export function App(props: AppProps): React.ReactElement {
   // Keys give every island and stage a fresh screen, so no state carries over from the previous one.
   else if (view.name === 'island') main = <IslandView key={view.islandId} islandId={view.islandId} />;
   else if (view.name === 'module') main = <ModulePlayer key={view.moduleId} moduleId={view.moduleId} />;
-  else if (view.name === 'passport') main = <Passport />;
+  else if (view.name === 'passport') main = <Passport stamp={view.stamp} />;
   else if (view.name === 'cheatsheet') main = <CheatSheet />;
   else if (view.name === 'admin' && props.admin) main = <AdminView source={props.admin} />;
   else main = <Home />;
@@ -228,8 +240,10 @@ export function App(props: AppProps): React.ReactElement {
         {helpOpen && <HelpPanel onClose={() => setHelpOpen(false)} onFeedback={openFeedback} />}
         {feedbackOpen && <FeedbackPanel sender={props.feedback} demo={props.storage === 'demo'} page={pageLabel} onClose={() => setFeedbackOpen(false)} />}
         {showTour && <Tour getRoot={() => rootRef.current || undefined} onDone={finishTour} />}
-        {/* A new status is celebrated outside of stages, so it never interrupts a task. */}
-        {rankUp !== undefined && view.name !== 'module' && <RankUp index={rankUp} onClose={() => setRankUp(undefined)} />}
+        {/* A new status is celebrated outside of stages and after a new stamp, so it never interrupts either. */}
+        {rankUp !== undefined && view.name !== 'module' && !(view.name === 'passport' && view.stamp && !stampSeen) && (
+          <RankUp index={rankUp} onClose={() => setRankUp(undefined)} />
+        )}
         <div className={styles.toasts} aria-live="polite">
           {toasts.map((x) => (
             <div key={x.id} className={x.kind === 'souvenir' ? `${styles.toast} ${styles.toastSouvenir}` : styles.toast}>

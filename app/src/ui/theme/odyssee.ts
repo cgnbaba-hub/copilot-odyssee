@@ -20,6 +20,10 @@ export const odysseeTheme: Theme = {
     primary: '#1D5A85',
     primaryShade: '#1A2940',
     onPrimary: '#FFFFFF',
+    // DERTOUR red (#E40028) for the main buttons; to be checked against the brand kit.
+    brand: '#E40028',
+    brandShade: '#A8001E',
+    onBrand: '#FFFFFF',
     accent: '#F2B13A',
     sand: '#E3CF9F',
     success: '#2C7A4B',

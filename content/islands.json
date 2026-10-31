@@ -16,7 +16,7 @@
         "de": "Der Gesang der Sirenen klingt verlockend, führt aber in die Irre. Genauso können KI-Antworten überzeugend klingen und trotzdem falsch sein.",
         "en": "The Sirens' song sounds tempting but leads you astray. AI answers can sound convincing and still be wrong."
       },
-      "map": { "x": 8, "y": 72 },
+      "map": { "x": 8, "y": 68 },
       "color": "#8E7CC3"
     },
     {
@@ -34,7 +34,7 @@
         "de": "Aiolos schenkt Odysseus die Winde in einem Schlauch. Wer sie zu lenken weiss, kommt schnell voran. So ist es auch mit guten Prompts.",
         "en": "Aeolus gives Odysseus the winds in a bag. Whoever knows how to steer them makes fast progress. Good prompts work the same way."
       },
-      "map": { "x": 17, "y": 30 },
+      "map": { "x": 16, "y": 30 },
       "color": "#3D9BE9"
     },
     {
@@ -52,7 +52,7 @@
         "de": "Ithaka ist das Ziel der Odyssee. Von jeder Insel bringst du eine Use-Case-Karte mit nach Hause.",
         "en": "Ithaca is the goal of the Odyssey. From every island you bring a use case card home."
       },
-      "map": { "x": 26, "y": 76 },
+      "map": { "x": 25, "y": 74 },
       "color": "#E9A23B",
       "home": true
     },
@@ -71,7 +71,7 @@
         "de": "Hermes, der Götterbote, hilft Odysseus auf seiner Reise. Copilot hilft dir bei deinen Nachrichten.",
         "en": "Hermes, messenger of the gods, helps Odysseus on his journey. Copilot helps you with your messages."
       },
-      "map": { "x": 36, "y": 26 },
+      "map": { "x": 33, "y": 32 },
       "color": "#4FB0A5"
     },
     {
@@ -89,7 +89,7 @@
         "de": "Athene, Göttin der Weisheit, stand Odysseus mit klugem Rat zur Seite. Hier richtest du Copilot so ein, dass er dich wirklich kennt.",
         "en": "Athena, goddess of wisdom, stood by Odysseus with wise counsel. Here you set Copilot up so that it really knows you."
       },
-      "map": { "x": 50, "y": 50 },
+      "map": { "x": 40, "y": 66 },
       "color": "#6F8F3A"
     },
     {
@@ -107,7 +107,7 @@
         "de": "Am Hof der Phaiaken erzählt Odysseus beim Fest seine ganze Geschichte. Copilot hält fest, was in deinen Meetings erzählt wird.",
         "en": "At the Phaeacian court, Odysseus tells his whole story at the feast. Copilot captures what is said in your meetings."
       },
-      "map": { "x": 45, "y": 70 },
+      "map": { "x": 54, "y": 30 },
       "color": "#7A6FF0"
     },
     {
@@ -125,7 +125,7 @@
         "de": "Penelope webt und trennt ihr Tuch immer wieder auf. Mit Copilot entstehen und verändern sich Texte ebenso schnell.",
         "en": "Penelope weaves her cloth and unravels it again. With Copilot, texts take shape and change just as quickly."
       },
-      "map": { "x": 54, "y": 30 },
+      "map": { "x": 61, "y": 72 },
       "color": "#2F6FD6"
     },
     {
@@ -143,7 +143,7 @@
         "de": "Der Zyklop zählt jeden Morgen seine Schafe. Copilot hilft dir beim Zählen, Vergleichen und Auswerten.",
         "en": "Every morning the Cyclops counts his sheep. Copilot helps you count, compare and analyse."
       },
-      "map": { "x": 63, "y": 76 },
+      "map": { "x": 69, "y": 30 },
       "color": "#2E9B58"
     },
     {
@@ -161,7 +161,7 @@
         "de": "Die Zauberin Kirke verwandelt alles, was zu ihr kommt. Copilot verwandelt deine Dokumente in Folien.",
         "en": "The sorceress Circe transforms everything that comes to her. Copilot transforms your documents into slides."
       },
-      "map": { "x": 73, "y": 26 },
+      "map": { "x": 77, "y": 70 },
       "color": "#D0573A"
     },
     {
@@ -179,7 +179,7 @@
         "de": "Der Seher Teiresias kennt den Weg nach Hause. Copilot findet in deinen Arbeitsdaten, was du suchst.",
         "en": "The seer Tiresias knows the way home. Copilot finds what you are looking for in your work data."
       },
-      "map": { "x": 82, "y": 72 },
+      "map": { "x": 85, "y": 30 },
       "color": "#5B5F97"
     },
     {
@@ -197,7 +197,7 @@
         "de": "In der Schmiede des Hephaistos entstehen Werkzeuge für Götter und Helden. Hier schmiedest du deine eigenen Agenten.",
         "en": "The forge of Hephaestus makes tools for gods and heroes. Here you forge your own agents."
       },
-      "map": { "x": 91, "y": 30 },
+      "map": { "x": 93, "y": 70 },
       "color": "#B5651D"
     }
   ]
