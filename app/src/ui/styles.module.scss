@@ -6256,3 +6256,39 @@ $grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width=
   background: var(--od-brand);
   color: var(--od-on-brand);
 }
+
+// More DERTOUR red at chosen points: signs, panels, links and small labels
+
+.contactNote a,
+.contactNote .linkButton {
+  color: var(--od-brand);
+}
+
+.drawerHead {
+  padding-bottom: 12px;
+  border-bottom: 5px solid var(--od-brand);
+}
+
+.dialog {
+  border-top: 8px solid var(--od-brand);
+}
+
+.rankUpName {
+  text-shadow: 3px 3px 0 rgba(228, 0, 40, 0.3);
+}
+
+.plaque {
+  border-top: 7px solid var(--od-brand);
+}
+
+.routeCurrent::after {
+  background: var(--od-brand) !important;
+}
+
+.ticketStubLabel {
+  color: var(--od-brand);
+}
+
+.toast {
+  border-left: 6px solid var(--od-brand);
+}
