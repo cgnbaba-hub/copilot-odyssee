@@ -40,6 +40,8 @@ export interface BriefingBlock {
   title: Localized;
   body: Localized;
   links?: { label: Localized; url: string }[];
+  /** Date the facts of this step were checked, if newer than the stage's reviewedAt. */
+  asOf?: string;
 }
 
 export interface QuizOption {
@@ -55,6 +57,7 @@ export interface QuizBlock {
   difficulty: Difficulty;
   question: Localized;
   options: QuizOption[];
+  asOf?: string;
 }
 
 export interface PromptBlock {
@@ -79,6 +82,7 @@ export interface MissionBlock {
   copilot?: boolean;
   /** The Microsoft 365 app the mission happens in; Copilot Chat when missing. */
   app?: MissionApp;
+  asOf?: string;
 }
 
 export type MissionApp = 'outlook' | 'teams' | 'word' | 'excel' | 'powerpoint';
@@ -116,6 +120,8 @@ export interface HelpTopic {
   question: Localized;
   answer: Localized;
   illustration?: 'license';
+  /** Date this answer was checked, if newer than the help's reviewedAt. */
+  asOf?: string;
 }
 
 /** A heading in the help that bundles related topics. */
@@ -166,4 +172,6 @@ export interface ContentBundle {
   areas?: Area[];
   prompts?: PromptTemplate[];
   challenges?: Challenge[];
+  /** Date all help answers were last checked. */
+  helpReviewedAt?: string;
 }

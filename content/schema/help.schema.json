@@ -10,6 +10,10 @@
     "$schema": {
       "type": "string"
     },
+    "reviewedAt": {
+      "description": "Datum der letzten fachlichen Prüfung aller Antworten (JJJJ-MM-TT). Erscheint unter jeder Antwort als «Stand: …».",
+      "$ref": "common.schema.json#/$defs/date"
+    },
     "contact": {
       "description": "E-Mail-Adresse für Fragen, die die App nicht beantwortet. Erscheint in der Hilfe und unten in der App.",
       "type": "string",
@@ -59,6 +63,10 @@
           "answer": {
             "description": "Antwort. Absätze (Leerzeile), Aufzählungen (\"- \") und **fett** sind möglich.",
             "$ref": "common.schema.json#/$defs/localized"
+          },
+          "asOf": {
+            "description": "Stand dieser Antwort, falls neuer als reviewedAt (JJJJ-MM-TT).",
+            "$ref": "common.schema.json#/$defs/date"
           },
           "illustration": {
             "description": "Zeigt eine Abbildung zur Antwort. license = schematische Copilot-Ansicht mit Basic- und Premium-Bezeichnung.",

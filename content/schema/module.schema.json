@@ -56,6 +56,7 @@
       "required": ["type", "id", "title", "body"],
       "properties": {
         "type": { "const": "briefing" },
+        "asOf": { "description": "Stand dieses Schritts (JJJJ-MM-TT), falls er neuer ist als reviewedAt der Etappe. Die App zeigt ihn als «Stand: …» an.", "$ref": "common.schema.json#/$defs/date" },
         "id": { "$ref": "common.schema.json#/$defs/id" },
         "title": { "$ref": "common.schema.json#/$defs/localized" },
         "body": { "$ref": "common.schema.json#/$defs/localized" },
@@ -80,6 +81,7 @@
       "required": ["type", "id", "difficulty", "question", "options"],
       "properties": {
         "type": { "const": "quiz" },
+        "asOf": { "description": "Stand dieses Schritts (JJJJ-MM-TT), falls er neuer ist als reviewedAt der Etappe. Die App zeigt ihn als «Stand: …» an.", "$ref": "common.schema.json#/$defs/date" },
         "id": { "$ref": "common.schema.json#/$defs/id" },
         "difficulty": { "$ref": "common.schema.json#/$defs/difficulty" },
         "question": { "$ref": "common.schema.json#/$defs/localized" },
@@ -129,6 +131,7 @@
       "required": ["type", "id", "title", "task"],
       "properties": {
         "type": { "const": "mission" },
+        "asOf": { "description": "Stand dieses Schritts (JJJJ-MM-TT), falls er neuer ist als reviewedAt der Etappe. Die App zeigt ihn als «Stand: …» an.", "$ref": "common.schema.json#/$defs/date" },
         "id": { "$ref": "common.schema.json#/$defs/id" },
         "title": { "$ref": "common.schema.json#/$defs/localized" },
         "task": { "$ref": "common.schema.json#/$defs/localized" },

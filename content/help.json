@@ -1,5 +1,6 @@
 {
   "$schema": "./schema/help.schema.json",
+  "reviewedAt": "2026-11-01",
   "contact": "ai-automation@dertour.ch",
   "groups": [
     {

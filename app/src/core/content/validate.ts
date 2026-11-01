@@ -172,11 +172,13 @@ export function validateContent(
   let help: HelpTopic[] | undefined;
   let helpGroups: HelpGroup[] | undefined;
   let contact: string | undefined;
+  let helpReviewedAt: string | undefined;
   const helpFile = extras.help;
   if (helpFile) {
     if (validateHelp(helpFile.data)) {
-      const data = helpFile.data as { topics: HelpTopic[]; groups?: HelpGroup[]; contact?: string };
+      const data = helpFile.data as { topics: HelpTopic[]; groups?: HelpGroup[]; contact?: string; reviewedAt?: string };
       help = data.topics;
+      helpReviewedAt = data.reviewedAt;
       helpGroups = data.groups;
       contact = data.contact;
       duplicates(help.map((t) => t.id)).forEach((id) => result.errors.push({ file: helpFile.path, message: `Hilfethema-id "${id}" kommt mehrfach vor.` }));
@@ -242,6 +244,7 @@ export function validateContent(
     if (help) bundle.help = help;
     if (helpGroups) bundle.helpGroups = helpGroups;
     if (contact) bundle.contact = contact;
+    if (helpReviewedAt) bundle.helpReviewedAt = helpReviewedAt;
     if (areas) bundle.areas = areas;
     if (prompts) bundle.prompts = prompts;
     if (challenges) bundle.challenges = challenges;
