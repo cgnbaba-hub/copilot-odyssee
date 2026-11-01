@@ -6559,3 +6559,514 @@ $grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width=
   font-size: 13px;
   font-style: italic;
 }
+
+// Brushing up: the companion steps into a spotlight on the start screen
+
+.reviewInvite {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 8px 22px;
+  margin: 0 0 18px;
+  padding: 18px 22px;
+  overflow: hidden;
+  background: radial-gradient(circle at 92px 50%, #fff3c4 0, #ffd97a 70px, $ink 150px);
+  border: 3px solid $ink;
+  border-radius: 24px;
+  box-shadow: 6px 6px 0 var(--od-brand);
+  animation: odInviteIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes odInviteIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.97);
+  }
+}
+
+.reviewSpot {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 140px;
+  height: 140px;
+}
+
+.reviewRays {
+  position: absolute;
+  inset: -40px;
+  background: repeating-conic-gradient(from 0deg, rgba(255, 255, 255, 0.55) 0 8deg, transparent 8deg 24deg);
+  border-radius: 50%;
+  mask-image: radial-gradient(circle, #000 30%, transparent 70%);
+  animation: odRays 40s linear infinite;
+}
+
+.reviewGuide {
+  position: relative;
+  width: 118px;
+  height: 118px;
+  filter: drop-shadow(0 6px 0 rgba(26, 41, 64, 0.35));
+  animation: odGuideHop 2.8s ease-in-out infinite;
+}
+
+.reviewBubble {
+  position: relative;
+  display: grid;
+  gap: 6px;
+  padding: 14px 18px 16px;
+  background: $paper-hi;
+  border: 2.5px solid $ink;
+  border-radius: 20px 20px 20px 6px;
+  box-shadow: 3px 3px 0 $ink;
+
+  p {
+    margin: 0;
+  }
+
+  // The bubble's tail points at the companion.
+  &::before {
+    position: absolute;
+    top: 50%;
+    left: -14px;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-right: 14px solid $ink;
+    border-bottom: 10px solid transparent;
+    content: '';
+    transform: translateY(-50%);
+  }
+}
+
+.reviewBadge {
+  justify-self: start;
+  padding: 2px 12px;
+  background: var(--od-brand);
+  border-radius: 999px;
+  color: var(--od-on-brand);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.reviewText {
+  max-width: 62ch;
+  font-size: 17px;
+}
+
+.reviewActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 18px;
+  margin-top: 6px;
+}
+
+@media (max-width: $narrow) {
+  .reviewInvite {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    padding: 16px;
+    background: radial-gradient(circle at 50% 76px, #fff3c4 0, #ffd97a 64px, $ink 140px);
+  }
+
+  .reviewBubble::before {
+    top: -14px;
+    left: 50%;
+    border-top: 0;
+    border-right: 10px solid transparent;
+    border-bottom: 14px solid $ink;
+    border-left: 10px solid transparent;
+    transform: translateX(-50%);
+  }
+}
+
+.reviewHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+}
+
+.reviewDots {
+  display: flex;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    width: 16px;
+    height: 16px;
+    background: $paper-hi;
+    border: 2.5px solid $ink;
+    border-radius: 50%;
+  }
+
+  .reviewDotDone {
+    background: var(--od-success);
+  }
+
+  .reviewDotNow {
+    background: var(--od-brand);
+    transform: scale(1.2);
+  }
+}
+
+.reviewFrom {
+  margin: 0 0 6px !important;
+  color: var(--od-text-muted);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.reviewDone {
+  position: relative;
+  text-align: center;
+
+  .guide {
+    justify-content: center;
+    text-align: left;
+  }
+
+  .doneActions {
+    justify-content: center;
+  }
+}
+
+// «Stimmt das noch?» under each step
+
+.factCheck {
+  margin: 14px 0 0 !important;
+  font-size: 14px;
+  text-align: right;
+}
+
+.factCheckToggle {
+  padding: 2px 4px;
+  background: none;
+  border: 0;
+  color: var(--od-text-muted);
+  cursor: pointer;
+  font-weight: 700;
+  text-decoration: underline dotted;
+  text-underline-offset: 3px;
+
+  span {
+    color: var(--od-brand);
+  }
+
+  &:hover {
+    color: var(--od-brand);
+  }
+}
+
+.factCheckDone {
+  color: var(--od-success);
+  font-weight: 700;
+}
+
+.factCheckForm {
+  display: grid;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 14px 16px;
+  background: $paper-hi;
+  border: 2px dashed var(--od-brand);
+  border-radius: 16px;
+
+  p {
+    margin: 0;
+  }
+}
+
+.factCheckTitle {
+  color: var(--od-brand);
+  font-weight: 800;
+}
+
+// Harbour board: notes pinned to a cork-coloured board
+
+.pinHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 16px;
+}
+
+.pinDemo {
+  padding: 8px 14px;
+  background: #fff3c4;
+  border: 2px solid $sun;
+  border-radius: 12px;
+  font-size: 14px;
+}
+
+.pinBoard {
+  margin-top: 16px;
+  padding: 18px;
+  background:
+    radial-gradient(rgba(26, 41, 64, 0.08) 1px, transparent 1.4px) 0 0 / 14px 14px,
+    #e9cf9f;
+  border: 3px solid $ink;
+  border-radius: 22px;
+  box-shadow: inset 0 0 0 6px #c79c5c;
+}
+
+.pinToolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 16px;
+  margin-bottom: 16px;
+
+  .viewSwitch {
+    margin: 0;
+  }
+}
+
+.pinGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 22px 18px;
+  margin: 0;
+  padding: 8px 0 0;
+  list-style: none;
+}
+
+.pinCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 18px 16px 14px;
+  background: $paper-hi;
+  border: 2.5px solid $ink;
+  border-radius: 6px;
+  box-shadow: 4px 4px 0 rgba(26, 41, 64, 0.85);
+  transform: rotate(-0.8deg);
+  transition: transform 0.2s ease;
+
+  &:nth-child(2n) {
+    transform: rotate(0.9deg);
+  }
+
+  &:nth-child(3n) {
+    transform: rotate(-0.3deg);
+  }
+
+  &:hover,
+  &:focus-within {
+    transform: rotate(0deg) translateY(-2px);
+  }
+
+  p,
+  h3 {
+    margin: 0;
+  }
+}
+
+.pinCardWaiting {
+  background: repeating-linear-gradient(-45deg, $paper-hi 0 12px, #f3ead2 12px 24px);
+  border-style: dashed;
+}
+
+.pinNeedle {
+  position: absolute;
+  top: -11px;
+  left: 50%;
+  width: 22px;
+  height: 22px;
+  background: radial-gradient(circle at 35% 35%, #ff6b7f 0, var(--od-brand) 55%, #a8001e 100%);
+  border: 2px solid $ink;
+  border-radius: 50%;
+  box-shadow: 2px 3px 0 rgba(26, 41, 64, 0.4);
+  transform: translateX(-50%);
+}
+
+.pinChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.pinStatus {
+  padding: 2px 10px;
+  background: #fff3c4;
+  border: 1.5px solid $sun;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.pinStatusRejected {
+  background: #fde3e6;
+  border-color: var(--od-brand);
+  color: var(--od-brand-shade);
+}
+
+.pinTitle {
+  font-size: 20px !important;
+}
+
+.pinText {
+  font-size: 15px;
+  line-height: 1.5;
+  white-space: pre-line;
+}
+
+.pinTextFolded {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
+}
+
+.pinBy {
+  margin-top: auto !important;
+  padding-top: 4px;
+  color: var(--od-text-muted);
+  font-size: 13px;
+}
+
+.pinActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.pinLike {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: #ffffff;
+  border: 2px solid $ink;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+
+  b {
+    min-width: 22px;
+    padding: 0 6px;
+    background: $ink;
+    border-radius: 999px;
+    color: #ffffff;
+    text-align: center;
+  }
+
+  &:disabled {
+    cursor: default;
+    opacity: 0.7;
+  }
+}
+
+.pinLikeOn {
+  background: var(--od-brand);
+  border-color: var(--od-brand-shade);
+  color: var(--od-on-brand);
+
+  b {
+    background: #ffffff;
+    color: var(--od-brand);
+  }
+
+  span {
+    display: inline-block;
+    animation: odPop 0.4s ease;
+  }
+}
+
+.pinForm {
+  display: grid;
+  gap: 10px;
+  margin: 16px 0 0;
+  padding: 18px 20px;
+  background: $paper-hi;
+  border: 3px solid var(--od-brand);
+  border-radius: 20px;
+  box-shadow: 5px 5px 0 $ink;
+
+  p {
+    margin: 0;
+  }
+}
+
+.pinFormRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 10px 16px;
+}
+
+.pinWarning {
+  padding: 8px 12px;
+  background: #fde3e6;
+  border-left: 5px solid var(--od-brand);
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+.pinEmpty {
+  margin: 0;
+  padding: 24px 12px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.pinModerate {
+  margin-bottom: 22px;
+  padding: 14px 16px 18px;
+  background: rgba(251, 246, 232, 0.75);
+  border: 2.5px dashed $ink;
+  border-radius: 16px;
+}
+
+@media (max-width: $narrow) {
+  .pinBoard {
+    padding: 14px 10px;
+  }
+
+  .pinCard,
+  .pinCard:nth-child(n) {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reviewInvite,
+  .reviewRays,
+  .reviewGuide,
+  .pinLikeOn span {
+    animation: none;
+  }
+}
+
+.sheetTabs {
+  display: flex;
+  width: max-content;
+  max-width: 100%;
+  margin: 10px 0 14px;
+}
+
+.pinActions {
+  .button,
+  .buttonPrimary,
+  .buttonSuccess {
+    padding: 7px 14px;
+    font-size: 14px;
+  }
+}
+
+.reviewDone .pageTitle {
+  background-position: center bottom;
+}

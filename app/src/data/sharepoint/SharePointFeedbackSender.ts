@@ -7,7 +7,8 @@ const KIND_TITLES: Record<FeedbackKind, string> = {
   idea: 'Idee oder Wunsch',
   problem: 'Etwas funktioniert nicht',
   content: 'Inhalt falsch oder unklar',
-  praise: 'Lob'
+  praise: 'Lob',
+  outdated: 'Stimmt das noch? (Schritt prüfen)'
 };
 
 /**

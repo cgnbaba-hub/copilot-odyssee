@@ -34,6 +34,9 @@ export interface PromptCardProps {
   eyebrow?: string;
   saved?: boolean;
   onToggleSave?: () => void;
+  /** Offers to share the prompt, e.g. on the harbour board. */
+  onShare?: () => void;
+  shareLabel?: string;
 }
 
 /** A prompt with buttons to copy it, open Copilot and pin it to the cheat sheet. */
@@ -70,6 +73,11 @@ export function PromptCard(props: PromptCardProps): React.ReactElement {
         {props.onToggleSave && (
           <button type="button" className={styles.button} aria-pressed={!!props.saved} onClick={props.onToggleSave}>
             {props.saved ? `★ ${strings.savedPrompt}` : `☆ ${strings.savePrompt}`}
+          </button>
+        )}
+        {props.onShare && (
+          <button type="button" className={styles.button} onClick={props.onShare}>
+            📌 {props.shareLabel}
           </button>
         )}
       </div>

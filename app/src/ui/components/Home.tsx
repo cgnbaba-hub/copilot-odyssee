@@ -9,6 +9,7 @@ import styles from '../styles.module.scss';
 import { CheckIcon, IslandArt, LockIcon } from './Art';
 import { ChallengeCard } from './ChallengeCard';
 import { Deck } from './Deck';
+import { ReviewInvite } from './ReviewInvite';
 import { LicenseChip } from './LicenseChip';
 import { SeaChart } from './SeaChart';
 
@@ -126,6 +127,7 @@ export function Home(): React.ReactElement {
 
   return (
     <div className={styles.home}>
+      <ReviewInvite />
       <div className={styles.viewSwitch} role="group" aria-label={strings.viewLabel} data-tour="view">
         <button type="button" aria-pressed={view === 'deck'} className={view === 'deck' ? styles.viewSwitchActive : undefined} onClick={() => choose('deck')}>
           {strings.viewDeck}

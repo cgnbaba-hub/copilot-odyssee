@@ -29,7 +29,13 @@ export function FeedbackPanel(props: { sender?: FeedbackSender; demo: boolean; p
   const [withPage, setWithPage] = React.useState(true);
   const [status, setStatus] = React.useState<Status>('editing');
   const mail = content.contact || '';
-  const labels: Record<FeedbackKind, string> = { idea: strings.feedbackIdea, problem: strings.feedbackProblem, content: strings.feedbackContent, praise: strings.feedbackPraise };
+  const labels: Record<FeedbackKind, string> = {
+    idea: strings.feedbackIdea,
+    problem: strings.feedbackProblem,
+    content: strings.feedbackContent,
+    praise: strings.feedbackPraise,
+    outdated: strings.feedbackOutdated
+  };
   const text = cleanMessage(message);
   const sender = props.sender;
 
