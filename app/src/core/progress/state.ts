@@ -1,6 +1,6 @@
 import { LearningModule, QuizBlock } from '../content/types';
 import { Lang } from '../i18n/locale';
-import { BRIEFING_XP, MISSION_XP, MODULE_BONUS_XP, PROMPT_MAX_XP, QUIZ_XP, USECASE_XP } from './rewards';
+import { BRIEFING_XP, MISSION_XP, MODULE_BONUS_XP, PIN_XP, PIN_XP_MAX_POSTS, PROMPT_MAX_XP, QUIZ_XP, USECASE_XP } from './rewards';
 
 /**
  * The player's progress. All functions here are pure: they return a new
@@ -69,6 +69,19 @@ export interface PlayerState {
   savedPrompts?: string[];
   /** Challenges of the week done, by week key (Monday, YYYY-MM-DD) to challenge id; missing in older saves. */
   challenges?: { [week: string]: string };
+  /** Quiz questions to brush up on, by block key; missing in older saves (see review.ts). */
+  reviews?: { [blockKey: string]: ReviewEntry };
+  /** Local day (YYYY-MM-DD) on which the player said «not today» to brushing up. */
+  reviewSnoozed?: string;
+  /** How many prompts the player pinned to the harbour board; the first few earn miles. */
+  pinsShared?: number;
+}
+
+export interface ReviewEntry {
+  /** Local day (YYYY-MM-DD) from which the question is due again. */
+  due: string;
+  /** How many reviews in a row were answered right the first time. */
+  step: number;
 }
 
 export interface Outcome {
@@ -87,7 +100,7 @@ export function initialState(lang: Lang): PlayerState {
   };
 }
 
-function blockKey(moduleId: string, blockId: string): string {
+export function blockKey(moduleId: string, blockId: string): string {
   return `${moduleId}/${blockId}`;
 }
 
@@ -239,4 +252,11 @@ export function completeChallenge(state: PlayerState, week: string, challengeId:
   const done = state.challenges || {};
   if (done[week]) return { state, xpGained: 0 };
   return { state: { ...state, xp: state.xp + CHALLENGE_XP, challenges: { ...done, [week]: challengeId } }, xpGained: CHALLENGE_XP };
+}
+
+/** Counts a prompt shared on the harbour board; the first few earn miles. */
+export function sharePin(state: PlayerState): Outcome {
+  const shared = state.pinsShared || 0;
+  const xpGained = shared < PIN_XP_MAX_POSTS ? PIN_XP : 0;
+  return { state: { ...state, pinsShared: shared + 1, xp: state.xp + xpGained }, xpGained };
 }

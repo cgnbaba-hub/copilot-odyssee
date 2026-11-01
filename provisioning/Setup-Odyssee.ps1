@@ -11,6 +11,12 @@
     - Liste "OdysseeFeedback": Rückmeldungen aus der App (Art, Nachricht, Seite, Sprache/Lizenz/Bereich).
       Alle Teilnehmenden dürfen Einträge anlegen und nur ihre eigenen sehen.
       Besitzer der Website sehen alle Einträge und können sie z. B. nach Excel exportieren.
+    - Liste "OdysseePinnwand": geteilte Prompts für die Hafen-Pinnwand, mit Inhaltsgenehmigung.
+      Alle Teilnehmenden dürfen Beiträge anlegen und nur ihre eigenen ändern. Ein neuer Beitrag
+      ist nur für die Person, die ihn geschrieben hat, und die Redaktion sichtbar, bis er
+      freigegeben ist. Freigeben dürfen die Besitzer der Website (in der App oder in der Liste).
+    - Liste "OdysseePinnwandDaumen": ein Eintrag pro «Hat mir geholfen».
+      Alle sehen alle Einträge (für die Zahl), entfernen kann man nur die eigenen.
 
     Das Skript ist idempotent: Es kann mehrfach laufen und ergänzt nur, was fehlt.
 
@@ -44,6 +50,8 @@ $ContentLibrary = 'OdysseeInhalte'
 $ProgressList = 'OdysseeFortschritt'
 $StateField = 'OdysseeState'
 $FeedbackList = 'OdysseeFeedback'
+$PinboardList = 'OdysseePinnwand'
+$LikesList = 'OdysseePinnwandDaumen'
 
 Connect-PnPOnline -Url $SiteUrl -Interactive -ClientId $ClientId
 
@@ -118,6 +126,53 @@ $list.Update()
 Invoke-PnPQuery
 
 Grant-ListRole -List $FeedbackList -Role 'Contribute'
+
+# Harbour board: shared prompts, visible to everyone once approved
+if (-not (Get-PnPList -Identity $PinboardList -ErrorAction SilentlyContinue)) {
+    Write-Host "Lege Liste $PinboardList an …"
+    New-PnPList -Title $PinboardList -Url "Lists/$PinboardList" -Template GenericList -OnQuickLaunch:$false | Out-Null
+}
+$pinboardFields = @(
+    "<Field Type='Note' Name='OdysseePrompt' StaticName='OdysseePrompt' DisplayName='Prompt' NumLines='8' RichText='FALSE' />",
+    "<Field Type='Text' Name='OdysseeTool' StaticName='OdysseeTool' DisplayName='Werkzeug' MaxLength='40' />",
+    "<Field Type='Text' Name='OdysseeArea' StaticName='OdysseeArea' DisplayName='Bereich' MaxLength='60' />",
+    "<Field Type='Boolean' Name='OdysseeShowName' StaticName='OdysseeShowName' DisplayName='Name anzeigen'><Default>0</Default></Field>"
+)
+foreach ($xml in $pinboardFields) {
+    $name = ([xml]$xml).Field.Name
+    if (-not (Get-PnPField -List $PinboardList -Identity $name -ErrorAction SilentlyContinue)) {
+        Add-PnPFieldFromXml -List $PinboardList -FieldXml $xml | Out-Null
+    }
+}
+$view = Get-PnPView -List $PinboardList | Where-Object { $_.DefaultView }
+Set-PnPView -List $PinboardList -Identity $view.Id -Fields 'Title', 'OdysseePrompt', 'OdysseeTool', 'OdysseeArea', 'OdysseeShowName', '_ModerationStatus', 'Author', 'Created' -Values @{ ViewQuery = '<OrderBy><FieldRef Name="Created" Ascending="FALSE" /></OrderBy>' } | Out-Null
+
+# Content approval: new posts wait until an approver (site owners) approves them.
+# Until then only the author and the approvers see them (DraftVersionVisibility 2 = approvers).
+$list = Get-PnPList -Identity $PinboardList
+$list.EnableModeration = $true
+$list.DraftVersionVisibility = 2
+$list.ReadSecurity = 1
+$list.WriteSecurity = 2
+$list.Update()
+Invoke-PnPQuery
+
+Grant-ListRole -List $PinboardList -Role 'Contribute'
+
+# One item per «helped me», titled with the post id; everyone reads all of them, removes only their own.
+if (-not (Get-PnPList -Identity $LikesList -ErrorAction SilentlyContinue)) {
+    Write-Host "Lege Liste $LikesList an …"
+    New-PnPList -Title $LikesList -Url "Lists/$LikesList" -Template GenericList -OnQuickLaunch:$false | Out-Null
+}
+Set-PnPField -List $LikesList -Identity 'Title' -Values @{ Title = 'Beitrag'; Indexed = $true } | Out-Null
+Set-PnPList -Identity $LikesList -EnableVersioning $false | Out-Null
+$list = Get-PnPList -Identity $LikesList
+$list.ReadSecurity = 1
+$list.WriteSecurity = 2
+$list.Update()
+Invoke-PnPQuery
+
+Grant-ListRole -List $LikesList -Role 'Contribute'
 
 Write-Host ''
 Write-Host 'Fertig. Nächster Schritt: Inhalte hochladen mit Publish-OdysseeContent.ps1.'

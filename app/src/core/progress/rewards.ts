@@ -15,3 +15,8 @@ export const MISSION_XP = 30;
 export const USECASE_XP = 50;
 /** Bonus for finishing a module the first time. */
 export const MODULE_BONUS_XP = 50;
+/** A question answered right the first time when brushing up. */
+export const REVIEW_XP = 5;
+/** Sharing a prompt on the harbour board; paid for the first few only. */
+export const PIN_XP = 20;
+export const PIN_XP_MAX_POSTS = 5;

@@ -209,7 +209,7 @@ Legende: 🤖 = setze ich um · 👤 = brauche ich von dir · 🏢 = IT oder Dat
   *Stand:* Alle Bausteine laufen im Lernmodus. Missionen haben eine Schritt-Anleitung und einen Kopier-Knopf. Offen: Feinschliff nach dem Pilot.
 - [ ] **AP 2.3 Gamification** 🤖
   Seemeilen und Ränge (Logik aus dem Prototyp übernommen), Trophäen, Serien. Bereichswertung statt Einzel-Rangliste, Rangliste optional.
-  *Stand:* Seemeilen, Status-Stufen mit Aufstiegs-Dialog, Reisepass mit Stempeln und 6 Souvenirs sind umgesetzt. Offen: Serien, Bereichswertung, optionale Rangliste.
+  *Stand:* Seemeilen, Status-Stufen mit Aufstiegs-Dialog, Reisepass mit Stempeln und 6 Souvenirs sind umgesetzt. Dazu die Challenge der Woche und **Auffrischen**: Quizfragen, die man falsch beantwortet hat, kommen nach 3 Tagen wieder, nach einer richtigen Antwort noch einmal nach 10 Tagen; danach gelten sie als gelernt. Die Begleitfigur schlägt das auf der Startseite vor («Heute nicht» blendet es bis morgen aus). Offen: Serien, Bereichswertung, optionale Rangliste.
 - [ ] **AP 2.4 Inhalte Inseln 0–2** 🤖👤
   Sirenenfelsen, Aiolos (Copilot Chat Basic) und Ithaka mit vollständigen Inhalten auf DE und EN. Ich schreibe die Inhalte, du prüfst sie auf Passung zu euren Regeln und Beispielen.
   *Stand:* Entwürfe für alle drei Inseln stehen (11 Etappen, DE/EN): Sirenenfelsen 3, Aiolos 5, Ithaka 3. Fakten zu Copilot Chat (Basic) geprüft am 28.10.2026 anhand öffentlicher Quellen. Unter anderem ist Copilot in Word, Excel, PowerPoint und OneNote seit April 2026 in grossen Organisationen Premium vorbehalten. Offen: dein Review (Lesefassung mit `npm run content:review`), danach Status auf `active`.
@@ -226,6 +226,7 @@ Legende: 🤖 = setze ich um · 👤 = brauche ich von dir · 🏢 = IT oder Dat
   *Stand:* Menüpunkt «Auswertung» für alle, die die Listen verwalten dürfen (Besitzer der Website): Teilnehmende, Aktivität, Fortschritt pro Insel und Etappe mit Hinweis auf Etappen, bei denen viele abbrechen, Bewertungen, Lizenzen, Bereiche, Use-Case-Potenzial und Feedback, dazu CSV-Export. Nur zusammengefasst, Gruppen unter 5 Personen werden nicht einzeln gezeigt.
 - [ ] **AP 3.3 Power-BI-Bericht** 🤖 – Vorlage für die wenigen Auswertenden mit Pro-Lizenz, für Verläufe und tiefere Analysen.
 - [ ] **AP 3.4 Use-Case-Bibliothek** 🤖 – Use Cases freiwillig und anonym teilen, mit Moderation. KollegInnen können sich gegenseitig inspirieren.
+  *Stand:* Erster Teil umgesetzt als **Hafen-Pinnwand** (zweiter Reiter im Spickzettel): Prompts teilen, mit Freigabe durch die Redaktion, «Hat mir geholfen», Filter nach Bereich. Listen `OdysseePinnwand` und `OdysseePinnwandDaumen`, siehe `docs/SHAREPOINT.md`. Offen: Test im Tenant, ganze Use-Case-Karten (mit Zeitersparnis) teilen.
 
 ### Phase 4: Ausbau und Betrieb
 
@@ -233,9 +234,23 @@ Legende: 🤖 = setze ich um · 👤 = brauche ich von dir · 🏢 = IT oder Dat
   *Stand:* Vorgezogen nach dem Testdurchlauf. Alle sieben Inseln haben je zwei Etappen als Entwurf: Outlook (Hermes), Teams (Phaiaken), Word (Penelope), Excel (Polyphem), PowerPoint (Kirke), Arbeitsdaten und Researcher (Teiresias), Agenten nutzen und bauen (Hephaistos). Die erste Outlook-Etappe geht auch mit Basic, deshalb gehört Hermes zu den Inseln für alle. Offen: dein Review und die Klärung mit der IT, welche Agenten freigeschaltet sind und ob Basic-Nutzende Agenten erstellen dürfen.
 - [ ] **AP 4.2 Pflegeprozess** 🤖
   Review-Fälligkeiten im Dashboard. Ein Modul "Was ist neu". Ein Power-Automate-Flow meldet relevante Einträge der Microsoft-365-Roadmap per Teams an die Content-Verantwortlichen.
+  *Stand:* Jeder Schritt zeigt sein Prüfdatum («Stand») und hat den Knopf **«Stimmt das noch?»**, der den Schritt mit Etappe, Nummer und Kennung an die Feedback-Liste meldet. Offen: Redaktions-Cockpit (überfällige Etappen und Meldungen pro Etappe in der Auswertung), «Neu bei Copilot».
 - [ ] **AP 4.3 Inhaltspflege ohne JSON** 🤖 – Editor in der App *oder* eine kleine Power App auf denselben Listen.
 - [ ] **AP 4.4 KI-Feedback auf Prompts** *(optional)* 🤖🏢 – Azure OpenAI im eigenen Tenant oder Copilot Studio, nur nach Freigabe und mit Budget.
 - [ ] **AP 4.5 Rollout** 👤🏢 – Teams-App für alle bereitstellen und anheften, Kommunikation, Copilot-Champions einbinden.
+
+### Backlog (gesammelte Ideen, noch nicht eingeplant)
+
+- [ ] **Umzug ins Firmen-Repository** 👤🏢 – Das Projekt zieht vom privaten GitHub-Repository in das Repository von DERTOUR Suisse. Dabei Links (Demo, Doku) und die CI prüfen.
+- [ ] **Bereiche von DERTOUR Suisse** 👤 – *Wartet auf dich:* Du gibst mir nach dem Umzug die genaue Liste der Bereiche im Unternehmen. Danach passe ich `content/areas.json` an (Namen, Beispiele, Prompt-Vorlagen) und baue darauf auf:
+  - **Praxis-Etappe pro Bereich** 🤖👤 – eine Etappe mit echten DERTOUR-Fällen pro Bereich (z. B. Angebotsmail in der Reiseberatung, Kampagnentext im Marketing). Die Fälle kommen aus den Fachbereichen.
+- [ ] **Abschlusszertifikat** 🤖 – druckbare Urkunde/PDF für Basic und Premium mit Name, Datum und Inseln. Grundlage für die SuccessFactors-Anbindung.
+- [ ] **SuccessFactors** 🤖🏢 – Abzeichen und Lerninhalte im LMS sichtbar machen (empfohlen: Abschlüsse als externe Lernereignisse melden). Erst nach Klärung mit HR und IT.
+- [ ] **Prompt-Werkstatt als eigener Reiter** 🤖 – eigene Prompts jederzeit prüfen lassen, mit denselben festen Regeln wie in den Etappen (Ziel, Kontext, Quelle, Erwartung) und Verbesserungsvorschlägen; ohne KI, der Text verlässt den Browser nicht.
+- [ ] **Lizenz automatisch erkennen** 🤖🏢 – über Microsoft Graph (`/me/licenseDetails`) Basic oder Premium vorauswählen. Braucht eine einmalige Freigabe der Berechtigung im SharePoint Admin Center.
+- [ ] **Bereichs-Regatta** 🤖👤🏢 – Teamwertung pro Bereich, nur zusammengefasst und ab einer Mindestgrösse. Erst nach Abgleich mit HR und Datenschutz.
+- [ ] **Challenge-Erinnerung in Teams** 🤖🏢 – Power-Automate-Flow, der montags die Challenge der Woche in einen Kanal postet.
+- [ ] **Redaktions-Cockpit** und **«Neu bei Copilot»** – siehe AP 4.2.
 
 ## 8. Was aus dem Prototyp wird
 

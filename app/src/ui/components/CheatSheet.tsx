@@ -8,6 +8,7 @@ import { playerArea, templatesFor } from '../progressHelpers';
 import styles from '../styles.module.scss';
 import { Guide } from './Guide';
 import { PromptCard } from './PromptCard';
+import { SheetTabs } from './SheetTabs';
 
 const ALL_AREAS = '';
 
@@ -17,7 +18,7 @@ const ALL_AREAS = '';
  */
 export function CheatSheet(): React.ReactElement {
   const game = useGame();
-  const { content, player, strings, t, update, navigate } = game;
+  const { content, player, strings, t, update, navigate, pinboard } = game;
   const area = playerArea(game);
   const [filter, setFilter] = React.useState(area ? area.id : ALL_AREAS);
   const saved = (content.prompts || []).filter((p) => isPromptSaved(player, p.id));
@@ -40,6 +41,7 @@ export function CheatSheet(): React.ReactElement {
       <button type="button" className={styles.backButton} onClick={() => navigate({ name: 'map' })}>
         ← {strings.backToOverview}
       </button>
+      <SheetTabs active="cheatsheet" />
       <h1 className={styles.pageTitle}>{strings.cheatsheetTitle}</h1>
       <Guide text={strings.cheatsheetGuide} />
 
@@ -52,7 +54,16 @@ export function CheatSheet(): React.ReactElement {
           <ul className={styles.promptList}>
             {own.map((card) => {
               const module = findModule(content, card.moduleId);
-              return <PromptCard key={card.id} eyebrow={module ? t(module.title) : undefined} title={card.task} text={card.prompt} />;
+              return (
+                <PromptCard
+                  key={card.id}
+                  eyebrow={module ? t(module.title) : undefined}
+                  title={card.task}
+                  text={card.prompt}
+                  shareLabel={pinboard ? strings.pinboardShareOwn : undefined}
+                  onShare={pinboard ? () => navigate({ name: 'pinboard', draft: { title: card.task, prompt: card.prompt } }) : undefined}
+                />
+              );
             })}
           </ul>
         </>

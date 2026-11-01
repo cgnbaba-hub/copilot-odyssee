@@ -1,12 +1,14 @@
 import { AdminSource } from '../core/admin/source';
 import { ContentBundle } from '../core/content/types';
 import { FeedbackSender } from '../core/feedback/feedback';
+import { PinboardSource } from '../core/pinboard/pinboard';
 import { DebouncedProgressStore } from '../core/progress/debounced';
 import { ProgressStore } from '../core/progress/store';
 import { RestClient } from './RestClient';
 import { SharePointAdminSource } from './sharepoint/SharePointAdminSource';
 import { SharePointContentSource } from './sharepoint/SharePointContentSource';
 import { SharePointFeedbackSender } from './sharepoint/SharePointFeedbackSender';
+import { SharePointPinboardSource } from './sharepoint/SharePointPinboardSource';
 import { SharePointProgressStore } from './sharepoint/SharePointProgressStore';
 
 /** Where progress ends up; shown to the player when it is not SharePoint. */
@@ -19,6 +21,8 @@ export interface Connection {
   storage: StorageMode;
   /** Missing while the feedback list has not been set up. */
   feedback?: FeedbackSender;
+  /** Missing while the harbour board's lists have not been set up. */
+  pinboard?: PinboardSource;
   /** Only for people who may see every entry, e.g. the site owners. */
   admin?: AdminSource;
 }
@@ -61,12 +65,21 @@ export async function connect(options: ConnectOptions): Promise<Connection> {
     log('Feedback-Liste nicht verfügbar, Feedback nur per E-Mail', error);
   }
 
+  let pinboard: PinboardSource | undefined;
+  const pinboardSource = new SharePointPinboardSource(options.client, options.webUrl);
+  try {
+    await pinboardSource.checkLists();
+    pinboard = pinboardSource;
+  } catch (error) {
+    log('Pinnwand-Listen nicht verfügbar, Pinnwand ausgeblendet', error);
+  }
+
   const sharePointStore = new SharePointProgressStore(options.client, options.webUrl, options.playerKey);
   try {
     await sharePointStore.checkList();
   } catch (error) {
     log('Fortschrittsliste nicht verfügbar, speichere im Browser', error);
-    return { content, contentSource, store: options.browserStore, storage: 'browser', feedback };
+    return { content, contentSource, store: options.browserStore, storage: 'browser', feedback, pinboard };
   }
 
   let admin: AdminSource | undefined;
@@ -87,5 +100,5 @@ export async function connect(options: ConnectOptions): Promise<Connection> {
     log('Übernahme des Browser-Fortschritts fehlgeschlagen', error);
   }
 
-  return { content, contentSource, store: new DebouncedProgressStore(sharePointStore, options.saveDelayMs), storage: 'sharepoint', feedback, admin };
+  return { content, contentSource, store: new DebouncedProgressStore(sharePointStore, options.saveDelayMs), storage: 'sharepoint', feedback, pinboard, admin };
 }

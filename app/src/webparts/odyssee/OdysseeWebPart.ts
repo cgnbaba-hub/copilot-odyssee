@@ -96,6 +96,7 @@ export default class OdysseeWebPart extends BaseClientSideWebPart<IOdysseeWebPar
       showDrafts: this.properties.showDrafts,
       storage: connection.storage,
       feedback: connection.feedback,
+      pinboard: connection.pinboard,
       admin: connection.admin
     } as AppProps & React.Attributes);
     ReactDom.render(element, this.domElement);

@@ -11,7 +11,9 @@ Diese Anleitung bringt die Odyssee auf eine SharePoint-Website, zum Beispiel fü
 | App-Paket `odyssee.sppkg` | App-Katalog (für den Pilot: Website-App-Katalog) | Das Webpart «Odyssee» |
 | Bibliothek `OdysseeInhalte` | Website der Odyssee | Inhaltsdatei `odyssee-content.json` |
 | Liste `OdysseeFortschritt` | Website der Odyssee | Spielstand, ein Eintrag pro Person |
-| Liste `OdysseeFeedback` | Website der Odyssee | Rückmeldungen aus der App |
+| Liste `OdysseeFeedback` | Website der Odyssee | Rückmeldungen aus der App, auch «Stimmt das noch?» |
+| Liste `OdysseePinnwand` | Website der Odyssee | Geteilte Prompts der Hafen-Pinnwand, mit Freigabe |
+| Liste `OdysseePinnwandDaumen` | Website der Odyssee | «Hat mir geholfen» zu den Pinnwand-Beiträgen |
 
 Bibliothek und Listen legt ein Skript an. Solange sie fehlen, läuft das Spiel trotzdem: mit den Inhalten aus dem App-Paket und mit Fortschritt im Browser. Ein Hinweis im Spiel weist darauf hin. Sobald die Liste da ist, wird der Browser-Fortschritt automatisch übernommen.
 
@@ -104,10 +106,28 @@ Wer die Auswertung sehen soll, ohne Besitzer der ganzen Website zu sein, bekommt
 
 Solange die Liste fehlt, zeigt die App statt des Formulars die Kontaktadresse aus `help.json`.
 
+### «Stimmt das noch?»
+
+Unter jedem Schritt einer Etappe steht der Knopf **«Stimmt das noch?»**. Wer merkt, dass ein Schritt nicht mehr zu Copilot passt, meldet ihn mit einem Klick, auf Wunsch mit einer kurzen Notiz. Die Meldung landet ebenfalls in `OdysseeFeedback`, mit der Art «Stimmt das noch? (Schritt prüfen)». In der Spalte «Seite» stehen Etappe, Schrittnummer und die genaue Kennung (z. B. `aiolos-gute-prompts/q-kontext`), in der Nachricht das Prüfdatum des Schritts. So findet die Redaktion die Stelle in `content/modules/` direkt.
+
+## Hafen-Pinnwand
+
+Auf der Pinnwand teilen Teilnehmende Prompts, die ihnen geholfen haben. Sie liegt im Spickzettel als zweiter Reiter und erscheint nur, wenn die beiden Listen `OdysseePinnwand` und `OdysseePinnwandDaumen` da sind (das Setup-Skript legt sie an).
+
+- **Freigabe:** Die Liste `OdysseePinnwand` nutzt die Inhaltsgenehmigung von SharePoint. Ein neuer Beitrag ist zuerst nur für die Person sichtbar, die ihn geschrieben hat, und für die Redaktion. Wer Elemente genehmigen darf (standardmässig die Besitzerinnen und Besitzer der Website), sieht in der App oben auf der Pinnwand «Zur Freigabe» mit den Knöpfen «Freigeben» und «Ablehnen». Alternativ geht es in der Liste selbst: Eintrag markieren, «Genehmigen/Ablehnen».
+- **Prüfen vor dem Freigeben:** keine Kunden- oder Personendaten, nichts Vertrauliches, und der Prompt hilft anderen. Das Formular warnt bereits, wenn etwas wie eine E-Mail-Adresse, Telefon- oder Kontonummer im Prompt steht.
+- **Name:** Wer einen Beitrag schreibt, entscheidet, ob der eigene Name angezeigt wird (standardmässig nicht, dann steht «Anonym»). SharePoint speichert trotzdem, wer den Eintrag angelegt hat; die Redaktion sieht das in der Liste.
+- **Löschen:** Einen Beitrag nimmt die Redaktion in der Liste herunter (löschen oder ablehnen). Die eigenen Beiträge kann jede Person in der Liste ändern.
+- **Redaktion erweitern:** Wer ohne Besitzerrechte freigeben soll, bekommt auf der Liste `OdysseePinnwand` die Berechtigungsstufe «Entwerfen» (enthält «Elemente genehmigen»).
+
+> Die Freigabe aus der App setzt den Genehmigungsstatus über `ValidateUpdateListItem`. Das ist nach Dokumentation geschrieben, aber noch nicht im Tenant getestet. Falls es nicht klappt, funktioniert die Freigabe in der Liste immer.
+
 ## Datenschutz und Berechtigungen
 
 - **Liste `OdysseeFortschritt`:** Elementberechtigungen sind so gesetzt, dass alle nur ihre eigenen Einträge sehen und ändern. Der Titel eines Eintrags ist ein SHA-256-Hash der Entra-Objekt-ID, nicht der Name.
 - **Grenze der Pseudonymisierung:** SharePoint speichert bei jedem Eintrag automatisch, wer ihn angelegt hat. Besitzerinnen und Besitzer der Website können deshalb technisch sehen, welcher Eintrag zu wem gehört. Die Auswertungen in Phase 3 arbeiten nur mit dem Hash und nur aggregiert. Der Zugriff auf die Website sollte auf wenige Personen beschränkt bleiben.
 - **Liste `OdysseeFeedback`:** Teilnehmende sehen nur ihre eigenen Einträge, Besitzerinnen und Besitzer der Website alle. Das Formular sagt offen, dass der Name mitgespeichert wird.
-- **Prompt-Texte** werden nicht gespeichert. Use-Case-Karten liegen im eigenen Spielstand.
+- **Prompt-Texte** aus den Übungen werden nicht gespeichert. Use-Case-Karten liegen im eigenen Spielstand.
+- **Liste `OdysseePinnwand`:** Freigegebene Beiträge sehen alle Teilnehmenden, also bewusst geteilte Prompts. Nicht freigegebene sehen nur die Verfasserin oder der Verfasser und die Redaktion. Ändern kann man nur eigene Beiträge.
+- **Liste `OdysseePinnwandDaumen`:** Jeder Eintrag enthält nur die Nummer des Beitrags. Alle können alle Einträge lesen, damit die App die Zahl zeigen kann; SharePoint speichert dazu, wer den Daumen gegeben hat.
 - **Grösse:** Ein Spielstand ist wenige Kilobyte gross. Ein Feld vom Typ «Mehrere Textzeilen» reicht dafür auf Jahre.

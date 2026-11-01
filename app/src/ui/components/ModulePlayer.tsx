@@ -16,6 +16,7 @@ import { islandProgress, nextStage } from '../progressHelpers';
 import styles from '../styles.module.scss';
 import { IslandArt } from './Art';
 import { Confetti } from './Confetti';
+import { FactCheck } from './FactCheck';
 import { formatLongDate } from '../format';
 import { Guide } from './Guide';
 import { Loading } from './Loading';
@@ -197,6 +198,7 @@ export function ModulePlayer(props: { moduleId: string }): React.ReactElement {
               </span>
             </p>
             <BlockView key={module.blocks[index].id} moduleId={module.id} block={module.blocks[index]} onDone={() => setIndex(index + 1)} />
+            <FactCheck key={`check-${module.blocks[index].id}`} stage={t(module.title)} step={current} stepId={`${module.id}/${module.blocks[index].id}`} asOf={asOf} />
           </div>
         </>
       )}

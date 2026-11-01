@@ -4,9 +4,11 @@ import { findIsland, findModule } from '../core/content/bundle';
 import { AdminSource } from '../core/admin/source';
 import { ContentBundle, Localized } from '../core/content/types';
 import { FeedbackSender } from '../core/feedback/feedback';
+import { PinboardSource } from '../core/pinboard/pinboard';
 import { Lang, localize } from '../core/i18n/locale';
 import { earnedSouvenirs, SouvenirId } from '../core/progress/achievements';
 import { DebouncedProgressStore, SaveStatus } from '../core/progress/debounced';
+import { REVIEW_INTERVALS } from '../core/progress/review';
 import { initialState, Outcome, PlayerState, updateProfile } from '../core/progress/state';
 import { ProgressStore } from '../core/progress/store';
 import { AdminView } from './components/AdminView';
@@ -23,7 +25,9 @@ import { ModulePlayer } from './components/ModulePlayer';
 import { NavBar } from './components/NavBar';
 import { Onboarding } from './components/Onboarding';
 import { Passport } from './components/Passport';
+import { Pinboard } from './components/Pinboard';
 import { RankUp } from './components/RankUp';
+import { ReviewView } from './components/ReviewView';
 import { Settings } from './components/Settings';
 import { Tour } from './components/Tour';
 import { Game, GameContext, View } from './GameContext';
@@ -45,6 +49,10 @@ export interface AppProps {
   feedback?: FeedbackSender;
   /** Evaluation data; only given to people who may see every entry. */
   admin?: AdminSource;
+  /** The harbour board with shared prompts; hidden without it. */
+  pinboard?: PinboardSource;
+  /** Days until a missed question comes back; the demo uses shorter ones so it can be tried at once. */
+  reviewIntervals?: number[];
 }
 
 interface Toast {
@@ -173,6 +181,9 @@ export function App(props: AppProps): React.ReactElement {
     strings,
     theme,
     showDrafts: props.showDrafts,
+    reviewIntervals: props.reviewIntervals || REVIEW_INTERVALS,
+    feedback: props.feedback,
+    pinboard: props.pinboard,
     t,
     apply: <T extends Outcome>(change: (state: PlayerState) => T): T => {
       const before = playerRef.current as PlayerState;
@@ -221,6 +232,8 @@ export function App(props: AppProps): React.ReactElement {
     }
     if (view.name === 'passport') return t(theme.terms.passport);
     if (view.name === 'cheatsheet') return strings.cheatsheet;
+    if (view.name === 'pinboard') return strings.pinboardTitle;
+    if (view.name === 'review') return strings.pageReview;
     if (view.name === 'admin') return strings.adminTitle;
     return strings.pageHome;
   })();
@@ -234,7 +247,7 @@ export function App(props: AppProps): React.ReactElement {
       ? 'settings'
       : view.name === 'passport'
         ? 'passport'
-        : view.name === 'cheatsheet'
+        : view.name === 'cheatsheet' || view.name === 'pinboard'
           ? 'cheatsheet'
           : view.name === 'admin'
             ? 'admin'
@@ -257,6 +270,8 @@ export function App(props: AppProps): React.ReactElement {
   else if (view.name === 'module') main = <ModulePlayer key={view.moduleId} moduleId={view.moduleId} />;
   else if (view.name === 'passport') main = <Passport stamp={view.stamp} />;
   else if (view.name === 'cheatsheet') main = <CheatSheet />;
+  else if (view.name === 'pinboard') main = <Pinboard key={view.draft ? view.draft.prompt : 'board'} draft={view.draft} />;
+  else if (view.name === 'review') main = <ReviewView />;
   else if (view.name === 'admin' && props.admin) main = <AdminView source={props.admin} />;
   else main = <Home />;
 

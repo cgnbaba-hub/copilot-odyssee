@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import { shuffled } from '../../core/content/shuffle';
 import { Localized, QuizBlock, QuizOption } from '../../core/content/types';
+import { scheduleReview } from '../../core/progress/review';
 import { answerQuiz } from '../../core/progress/state';
 import { useGame } from '../GameContext';
 import styles from '../styles.module.scss';
@@ -18,8 +19,13 @@ function feedbackFor(options: QuizOption[], result: Result, t: (text: Localized)
   return [missing];
 }
 
-export function QuizView(props: BlockViewProps<QuizBlock>): React.ReactElement {
-  const { strings, t, apply } = useGame();
+export interface QuizViewProps extends BlockViewProps<QuizBlock> {
+  /** Replaces the normal scoring, e.g. while brushing up; returns whether the answer is right. */
+  onAnswer?: (optionIds: string[]) => boolean;
+}
+
+export function QuizView(props: QuizViewProps): React.ReactElement {
+  const { strings, t, apply, reviewIntervals } = useGame();
   const { block, moduleId } = props;
   // Mixed anew each time the question opens, so the place of an answer gives nothing away.
   const options = React.useMemo(() => shuffled(block.options), [block.id]);
@@ -35,10 +41,16 @@ export function QuizView(props: BlockViewProps<QuizBlock>): React.ReactElement {
 
   const check = (): void => {
     if (selected.length === 0) return;
-    const outcome = apply((s) => answerQuiz(s, moduleId, block, selected));
-    setResult({ optionIds: selected, correct: outcome.correct });
+    const correct = props.onAnswer
+      ? props.onAnswer(selected)
+      : apply((s) => {
+          const outcome = answerQuiz(s, moduleId, block, selected);
+          // A question that tripped the player up comes back later for brushing up.
+          return outcome.correct ? outcome : { ...outcome, state: scheduleReview(outcome.state, moduleId, block.id, new Date(), reviewIntervals) };
+        }).correct;
+    setResult({ optionIds: selected, correct });
     // With one right answer a wrong choice is ruled out; with several the player adjusts the selection.
-    if (!outcome.correct && !multi) setWrongIds(wrongIds.concat(selected));
+    if (!correct && !multi) setWrongIds(wrongIds.concat(selected));
   };
 
   const retry = (): void => {

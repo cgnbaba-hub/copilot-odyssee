@@ -8,6 +8,7 @@ import { LocalStorageProgressStore } from '../core/progress/store';
 import { FeedbackEntry, FeedbackSender } from '../core/feedback/feedback';
 import { App } from '../ui/App';
 import { sampleAdminSource } from './sampleAdmin';
+import { samplePinboard } from './samplePinboard';
 
 /** In the demo, feedback only goes to the browser console. */
 const demoFeedback: FeedbackSender = {
@@ -30,6 +31,9 @@ ReactDom.render(
     storage="demo"
     feedback={demoFeedback}
     admin={sampleAdminSource(content)}
+    pinboard={samplePinboard()}
+    // In the demo a missed question can be brushed up at once; afterwards it waits three days.
+    reviewIntervals={[0, 3]}
   />,
   document.getElementById('root')
 );
