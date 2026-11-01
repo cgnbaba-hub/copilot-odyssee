@@ -153,8 +153,8 @@
         "en": "No meeting without a task list"
       },
       "task": {
-        "de": "Öffne nach deinem nächsten Teams-Meeting die Zusammenfassung von Copilot. Prüfe die Aufgaben und schicke sie in den Chat des Meetings.",
-        "en": "After your next Teams meeting, open Copilot's recap. Check the tasks and post them in the meeting chat."
+        "de": "Starte in deinem nächsten Teams-Meeting die Transkription und kündige sie an. Öffne danach die Zusammenfassung von Copilot, prüfe die Aufgaben und schicke sie in den Chat des Meetings.",
+        "en": "Start transcription in your next Teams meeting and announce it. Afterwards open Copilot's recap, check the tasks and post them in the meeting chat."
       },
       "copyText": {
         "de": "Liste alle Aufgaben aus diesem Meeting auf, mit verantwortlicher Person und Frist. Was ist noch offen?",

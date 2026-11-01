@@ -3,7 +3,7 @@
   "id": "phaiaken-chats",
   "island": "phaiaken",
   "order": 2,
-  "version": "1.0.0",
+  "version": "1.1.0",
   "owner": "copilot-team",
   "status": "draft",
   "reviewedAt": "2026-11-01",
@@ -17,7 +17,7 @@
     "en": "Understand long chats in seconds and phrase your own messages more clearly."
   },
   "estimatedMinutes": 8,
-  "notes": "Neuer Inhalt. Chat-Zusammenfassungen mit Copilot in Teams (Premium) gemäss öffentlicher Dokumentation, Stand Oktober 2026. Knopf-Bezeichnungen bewusst allgemein.",
+  "notes": "Neuer Inhalt. Chat-Zusammenfassungen mit Copilot in Teams (Premium) gemäss öffentlicher Dokumentation, Stand Oktober 2026. Knopf-Bezeichnungen bewusst allgemein. Faktencheck 2026-11-01 (2): Copilot im Chat nutzt nur den offenen Chat (Microsoft-Support); Quellenverweise nicht bestätigt, deshalb entfernt.",
   "blocks": [
     {
       "type": "briefing",
@@ -27,8 +27,8 @@
         "en": "Never read 200 messages again"
       },
       "body": {
-        "de": "In Chats und Kanälen öffnest du Copilot über das **Copilot-Symbol** oben im Chat. Typische Fragen:\n- «Was habe ich in den letzten 7 Tagen verpasst?»\n- «Welche Entscheidungen wurden getroffen?»\n- «Gibt es Fragen oder Aufgaben an mich?»\n\nCopilot verweist auf die Nachrichten, aus denen er seine Antwort hat. So springst du direkt an die richtige Stelle.\n\nAuch beim **Schreiben** hilft Copilot: Er formuliert deine Nachricht im Eingabefeld um, zum Beispiel kürzer oder freundlicher.",
-        "en": "In chats and channels you open Copilot via the **Copilot icon** at the top of the chat. Typical questions:\n- “What did I miss in the last 7 days?”\n- “Which decisions were made?”\n- “Are there any questions or tasks for me?”\n\nCopilot refers to the messages its answer is based on. That way you jump straight to the right place.\n\nCopilot also helps with **writing**: it rephrases your message in the input box, for example shorter or friendlier."
+        "de": "In Chats und Kanälen öffnest du Copilot über das **Copilot-Symbol** oben im Chat. Typische Fragen:\n- «Was habe ich in den letzten 7 Tagen verpasst?»\n- «Welche Entscheidungen wurden getroffen?»\n- «Gibt es Fragen oder Aufgaben an mich?»\n\nCopilot nutzt dabei nur den Chat, den du gerade offen hast. Prüfe wichtige Punkte in den Originalnachrichten nach.\n\nAuch beim **Schreiben** hilft Copilot: Er formuliert deine Nachricht im Eingabefeld um, zum Beispiel kürzer oder freundlicher.",
+        "en": "In chats and channels you open Copilot via the **Copilot icon** at the top of the chat. Typical questions:\n- “What did I miss in the last 7 days?”\n- “Which decisions were made?”\n- “Are there any questions or tasks for me?”\n\nCopilot only uses the chat you currently have open. Check important points in the original messages.\n\nCopilot also helps with **writing**: it rephrases your message in the input box, for example shorter or friendlier."
       }
     },
     {
@@ -120,8 +120,8 @@
         "en": "What did I miss?"
       },
       "task": {
-        "de": "Öffne in Teams einen Chat oder Kanal mit vielen Nachrichten. Lass Copilot zusammenfassen, was du verpasst hast, und spring über einen Verweis zur Originalnachricht.",
-        "en": "Open a chat or channel with many messages in Teams. Have Copilot summarise what you missed and jump to the original message via a reference."
+        "de": "Öffne in Teams einen Chat oder Kanal mit vielen Nachrichten. Lass Copilot zusammenfassen, was du verpasst hast, und prüfe einen Punkt in der Originalnachricht.",
+        "en": "Open a chat or channel with many messages in Teams. Have Copilot summarise what you missed and check one point in the original message."
       },
       "copyText": {
         "de": "Was habe ich in diesem Chat in den letzten 7 Tagen verpasst? Gibt es Fragen oder Aufgaben an mich?",

@@ -221,6 +221,25 @@ function Landmarks(props: { landmark?: Landmark; color: string }): React.ReactEl
           </g>
         </>
       );
+    case 'raft':
+      return (
+        <>
+          <Hill color={color} />
+          {/* Calypso's island: palms on the hill and a new raft with its sail on the beach. */}
+          <path d="M-40 -64 C-44 -84 -38 -104 -30 -118" stroke="#6b4228" strokeWidth="5" fill="none" strokeLinecap="round" />
+          <path d="M-30 -118 C-50 -124 -64 -116 -70 -104 C-56 -112 -42 -114 -30 -118 Z" fill="#5e7838" {...line} />
+          <path d="M-30 -118 C-12 -128 4 -122 10 -110 C-4 -116 -18 -118 -30 -118 Z" fill="#7f9a4e" {...line} />
+          <path d="M-30 -118 C-38 -136 -30 -148 -18 -150 C-24 -138 -26 -128 -30 -118 Z" fill="#7f9a4e" {...line} />
+          <path d="M8 -66 C6 -80 10 -94 16 -104" stroke="#6b4228" strokeWidth="4" fill="none" strokeLinecap="round" />
+          <path d="M16 -104 C2 -110 -8 -104 -12 -96 C-2 -102 8 -103 16 -104 Z" fill="#5e7838" {...line} />
+          <path d="M16 -104 C30 -112 42 -106 46 -96 C36 -102 26 -104 16 -104 Z" fill="#7f9a4e" {...line} />
+          <rect x="52" y="-22" width="62" height="12" rx="3" fill="#b98256" {...line} />
+          <path d="M60 -22 v12 M72 -22 v12 M84 -22 v12 M96 -22 v12 M108 -22 v12" stroke="#6b4228" strokeWidth="2" />
+          <path d="M82 -22 V-70" stroke={INK} strokeWidth="3" />
+          <path d="M84 -68 C104 -56 108 -40 106 -28 L84 -28 Z" fill={WHITE} {...line} />
+          <path d="M82 -70 L98 -66 L82 -62 Z" fill="#e40028" {...line} />
+        </>
+      );
     case 'owl':
       return (
         <>

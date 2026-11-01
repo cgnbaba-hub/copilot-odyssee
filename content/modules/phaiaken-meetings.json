@@ -3,7 +3,7 @@
   "id": "phaiaken-meetings",
   "island": "phaiaken",
   "order": 1,
-  "version": "1.0.0",
+  "version": "1.1.0",
   "owner": "copilot-team",
   "status": "draft",
   "reviewedAt": "2026-11-01",
@@ -17,7 +17,7 @@
     "en": "Keep track during meetings, catch up on what you missed and capture decisions and tasks afterwards."
   },
   "estimatedMinutes": 10,
-  "notes": "Überarbeitet: Prototyp-Frage 6 behalten, neue Briefings, Fragen, Werkstatt und Mission. Stand Oktober 2026 laut Microsoft-Support: Copilot im Meeting braucht in der Regel eine Transkription, ausser die organisierende Person erlaubt Copilot ohne Transkription (dann nur während des Meetings). Mit Bezug auf Transparenz gegenüber Teilnehmenden (Schweizer Datenschutz). Facilitator laut Praxisprüfung: nur in geplanten Meetings, in der Einladung (Outlook/Teams) aktivierbar. Praxisprüfung 29.10.2026 mit Premium- und Basic-Konto bei DERTOUR Suisse.",
+  "notes": "Überarbeitet: Prototyp-Frage 6 behalten, neue Briefings, Fragen, Werkstatt und Mission. Stand Oktober 2026 laut Microsoft-Support: Copilot im Meeting braucht in der Regel eine Transkription, ausser die organisierende Person erlaubt Copilot ohne Transkription (dann nur während des Meetings). Mit Bezug auf Transparenz gegenüber Teilnehmenden (Schweizer Datenschutz). Facilitator laut Praxisprüfung: nur in geplanten Meetings, in der Einladung (Outlook/Teams) aktivierbar. Praxisprüfung 29.10.2026 mit Premium- und Basic-Konto bei DERTOUR Suisse. Faktencheck 2026-11-01 (2): Copilot ohne Transkription nur bei «Nur während der Besprechung», Inhalt erst ab Start durch jemanden, danach nichts abrufbar (Microsoft-Support). Facilitator nicht in Kanal-, Sofort-, Anruf- und externen Meetings, Copilot-Lizenz nötig.",
   "blocks": [
     {
       "type": "briefing",
@@ -27,8 +27,8 @@
         "en": "Copilot in the meeting"
       },
       "body": {
-        "de": "In Teams-Meetings findest du Copilot über das **Copilot-Symbol** in der Meeting-Leiste. Du kannst ihn jederzeit fragen, nur du siehst die Antworten:\n- «Fasse zusammen, was bisher besprochen wurde.»\n- «Welche Fragen sind noch offen?»\n- «Wo sind wir uns nicht einig?»\n\nKommst du zu spät, bietet Copilot dir eine Zusammenfassung an. **Nach dem Meeting** findest du in der Zusammenfassung des Meetings Notizen und Aufgaben.\n\nDamit Copilot mitschreiben kann, läuft meistens eine **Transkription**. Die organisierende Person kann Copilot auch ohne Transkription erlauben. Dann hilft er nur während des Meetings.\n\n**Facilitator:** In **geplanten Meetings** kannst du zusätzlich den Facilitator dazuholen. Er schreibt für alle sichtbar Notizen mit und hält Entscheidungen und Aufgaben fest. Du schaltest ihn schon beim Planen in der **Einladung in Outlook oder Teams** ein oder holst ihn im laufenden Meeting dazu. In spontanen Meetings («Jetzt besprechen») gibt es ihn nicht.",
-        "en": "In Teams meetings you find Copilot via the **Copilot icon** in the meeting toolbar. You can ask it at any time, and only you see the answers:\n- “Summarise what has been discussed so far.”\n- “Which questions are still open?”\n- “Where do we disagree?”\n\nIf you join late, Copilot offers you a summary. **After the meeting** you find notes and tasks in the meeting recap.\n\nFor Copilot to follow along, a **transcript** is usually running. The organiser can also allow Copilot without a transcript. Then it only helps during the meeting.\n\n**Facilitator:** In **scheduled meetings** you can also bring in the Facilitator. It takes notes that everyone can see and captures decisions and tasks. You turn it on when you schedule the meeting, in the **invitation in Outlook or Teams**, or add it during the meeting. It is not available in ad-hoc meetings (“Meet now”)."
+        "de": "In Teams-Meetings findest du Copilot über das **Copilot-Symbol** in der Meeting-Leiste. Du kannst ihn jederzeit fragen, nur du siehst die Antworten:\n- «Fasse zusammen, was bisher besprochen wurde.»\n- «Welche Fragen sind noch offen?»\n- «Wo sind wir uns nicht einig?»\n\n**Wichtig:** Copilot kennt nur, was er mitbekommen hat. Dafür gibt es zwei Wege:\n- **Mit Transkription:** Copilot kennt alles ab dem Start der Transkription und hilft auch **nach dem Meeting**, in der Zusammenfassung mit Notizen und Aufgaben.\n- **Ohne Transkription:** Nur wenn die organisierende Person Copilot «Nur während der Besprechung» erlaubt hat. Dann kennt Copilot das Gespräch erst ab dem Moment, in dem jemand Copilot startet. Nach dem Meeting ist nichts mehr abrufbar.\n\nLäuft beides nicht, kann Copilot nichts zusammenfassen. Kommst du zu spät und Copilot ist schon aktiv, bietet er dir an, dich auf den Stand zu bringen. Er kennt aber nur die Zeit, seit er läuft.\n\n**Facilitator:** In **geplanten Meetings** kannst du zusätzlich den Facilitator dazuholen. Er schreibt für alle sichtbar Notizen mit und hält Entscheidungen und Aufgaben fest. Du schaltest ihn schon beim Planen in der **Einladung in Outlook oder Teams** ein oder holst ihn im laufenden Meeting dazu. In spontanen Meetings («Jetzt besprechen»), Kanal-Meetings, Anrufen und Meetings mit externen Personen gibt es ihn nicht.",
+        "en": "In Teams meetings you find Copilot via the **Copilot icon** in the meeting toolbar. You can ask it at any time, and only you see the answers:\n- “Summarise what has been discussed so far.”\n- “Which questions are still open?”\n- “Where do we disagree?”\n\n**Important:** Copilot only knows what it has picked up. There are two ways:\n- **With transcription:** Copilot knows everything from the start of the transcription and also helps **after the meeting**, in the recap with notes and tasks.\n- **Without transcription:** Only if the organiser allowed Copilot “Only during the meeting”. Then Copilot knows the conversation only from the moment someone starts Copilot. After the meeting nothing can be retrieved.\n\nIf neither is running, Copilot cannot summarise anything. If you join late and Copilot is already active, it offers to catch you up. But it only knows the time since it has been running.\n\n**Facilitator:** In **scheduled meetings** you can also bring in the Facilitator. It takes notes that everyone can see and captures decisions and tasks. You turn it on when you schedule the meeting, in the **invitation in Outlook or Teams**, or add it during the meeting. It is not available in ad-hoc meetings (“Meet now”), channel meetings, calls and meetings with external people."
       }
     },
     {
@@ -107,8 +107,8 @@
       "id": "q-zu-spaet",
       "difficulty": "beginner",
       "question": {
-        "de": "Du kommst zehn Minuten zu spät ins Meeting. Was ist am geschicktesten?",
-        "en": "You join the meeting ten minutes late. What is the smartest move?"
+        "de": "Du kommst zehn Minuten zu spät ins Meeting. Die Transkription läuft seit Beginn. Was ist am geschicktesten?",
+        "en": "You join the meeting ten minutes late. Transcription has been running since the start. What is the smartest move?"
       },
       "options": [
         {
@@ -157,6 +157,65 @@
           "explanation": {
             "de": "Der Facilitator führt Notizen. Neu starten muss niemand.",
             "en": "The Facilitator takes notes. Nobody needs to restart anything."
+          }
+        }
+      ]
+    },
+    {
+      "type": "quiz",
+      "id": "q-was-copilot-weiss",
+      "difficulty": "advanced",
+      "question": {
+        "de": "In welchen Fällen kann Copilot dir im Meeting sagen, was in den ersten zehn Minuten besprochen wurde?",
+        "en": "In which cases can Copilot tell you in the meeting what was discussed in the first ten minutes?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "de": "Die Transkription läuft seit Beginn des Meetings.",
+            "en": "Transcription has been running since the start of the meeting."
+          },
+          "correct": true,
+          "explanation": {
+            "de": "Ja. Dann kennt Copilot alles ab dem Start der Transkription.",
+            "en": "Yes. Then Copilot knows everything from the start of the transcription."
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "de": "Copilot ist auf «Nur während der Besprechung» gestellt, und jemand hat ihn gleich zu Beginn gestartet.",
+            "en": "Copilot is set to “Only during the meeting”, and someone started it right at the beginning."
+          },
+          "correct": true,
+          "explanation": {
+            "de": "Ja. Ohne Transkription kennt Copilot das Gespräch ab dem Moment, in dem jemand ihn startet.",
+            "en": "Yes. Without transcription, Copilot knows the conversation from the moment someone starts it."
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "de": "Immer, Copilot hört in jedem Teams-Meeting automatisch mit.",
+            "en": "Always, Copilot automatically listens in every Teams meeting."
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Nein. Ohne Transkription und ohne gestarteten Copilot gibt es nichts, worauf er zugreifen kann.",
+            "en": "No. Without transcription and without Copilot having been started, there is nothing it can access."
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "de": "Die Aufzeichnung wird jetzt gestartet, Copilot holt den Anfang nach.",
+            "en": "The recording is started now, Copilot catches up on the beginning."
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Nein. Eine Aufzeichnung oder Transkription erfasst nur, was ab ihrem Start gesagt wird.",
+            "en": "No. A recording or transcription only captures what is said from its start."
           }
         }
       ]
