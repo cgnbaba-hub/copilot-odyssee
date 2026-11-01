@@ -7,6 +7,7 @@ import { useGame } from '../GameContext';
 import { islandProgress, isPreview, nextStage } from '../progressHelpers';
 import styles from '../styles.module.scss';
 import { CheckIcon, IslandArt, LockIcon } from './Art';
+import { ChallengeCard } from './ChallengeCard';
 import { Deck } from './Deck';
 import { LicenseChip } from './LicenseChip';
 import { SeaChart } from './SeaChart';
@@ -151,6 +152,7 @@ export function Home(): React.ReactElement {
       )}
 
       <NextTicket />
+      <ChallengeCard />
     </div>
   );
 }

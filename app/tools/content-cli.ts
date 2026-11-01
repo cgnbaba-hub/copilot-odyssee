@@ -45,9 +45,7 @@ function blockMarkdown(block: Block): string {
     case 'quiz':
       return (
         `${head} (${block.difficulty}): ${block.question.de}\n\n` +
-        block.options
-          .map((o) => `- ${o.correct ? '✅' : '❌'} ${o.text.de}${o.explanation ? `  \n  _${o.explanation.de}_` : ''}`)
-          .join('\n') +
+        block.options.map((o) => `- ${o.correct ? '✅' : '❌'} ${o.text.de}${o.explanation ? `  \n  _${o.explanation.de}_` : ''}`).join('\n') +
         '\n'
       );
     case 'prompt':
@@ -78,7 +76,12 @@ function reviewMarkdown(bundle: ContentBundle): string {
     if (modules.length === 0) return;
     lines.push(`## ${island.name.de} (${island.tool.de}, ${island.license === 'basic' ? 'für alle' : 'Premium'})`, '');
     modules.forEach((m) => {
-      lines.push(`### ${m.title.de}${m.license && m.license !== island.license ? (m.license === 'premium' ? ' (nur Premium)' : ' (für alle)') : ''}`, '', `\`${m.id}\` · Version ${m.version} · Status ${m.status} · ${m.estimatedMinutes} Min.` + (m.reviewedAt ? ` · geprüft ${m.reviewedAt}` : ''), '');
+      lines.push(
+        `### ${m.title.de}${m.license && m.license !== island.license ? (m.license === 'premium' ? ' (nur Premium)' : ' (für alle)') : ''}`,
+        '',
+        `\`${m.id}\` · Version ${m.version} · Status ${m.status} · ${m.estimatedMinutes} Min.` + (m.reviewedAt ? ` · geprüft ${m.reviewedAt}` : ''),
+        ''
+      );
       lines.push(m.summary.de, '');
       if (m.notes) lines.push(`_Redaktion: ${m.notes}_`, '');
       m.blocks.forEach((b) => lines.push(blockMarkdown(b)));
@@ -100,6 +103,13 @@ function reviewMarkdown(bundle: ContentBundle): string {
       const where = `${p.app ? `in ${p.app}` : 'in Copilot Chat'}, ${p.license === 'basic' ? 'für alle' : 'nur Premium'}`;
       const forAreas = p.areas ? p.areas.map(areaName).join(', ') : 'alle Bereiche';
       lines.push(`### ${p.title.de}`, '', `${where} · ${forAreas}`, '', quote(p.prompt.de), '');
+    });
+  }
+  if (bundle.challenges && bundle.challenges.length > 0) {
+    lines.push('## Challenges der Woche', '');
+    bundle.challenges.forEach((c) => {
+      lines.push(`### ${c.title.de}`, '', `${c.app ? `in ${c.app}` : 'in Copilot Chat'}, ${c.license === 'basic' ? 'für alle' : 'nur Premium'}`, '', c.task.de, '');
+      if (c.copyText) lines.push(quote(c.copyText.de), '');
     });
   }
   return lines.join('\n');
@@ -139,12 +149,13 @@ function main(): void {
       module: readJson('schema/module.schema.json') as object,
       help: readJson('schema/help.schema.json') as object,
       areas: readJson('schema/areas.schema.json') as object,
-      prompts: readJson('schema/prompts.schema.json') as object
+      prompts: readJson('schema/prompts.schema.json') as object,
+      challenges: readJson('schema/challenges.schema.json') as object
     },
     { path: 'islands.json', data: readJson('islands.json') },
     moduleFiles,
     new Date(),
-    { help: optionalFile('help.json'), areas: optionalFile('areas.json'), prompts: optionalFile('prompts.json') }
+    { help: optionalFile('help.json'), areas: optionalFile('areas.json'), prompts: optionalFile('prompts.json'), challenges: optionalFile('challenges.json') }
   );
 
   result.warnings.forEach((w) => console.warn(`Warnung  content/${w.file}: ${w.message}`));
@@ -157,7 +168,7 @@ function main(): void {
   const b = result.bundle;
   console.log(
     `Inhalte ok: ${b.islands.length} Inseln, ${b.modules.length} Module, ${(b.help || []).length} Hilfethemen, ` +
-      `${(b.areas || []).length} Bereiche, ${(b.prompts || []).length} Prompt-Vorlagen.`
+      `${(b.areas || []).length} Bereiche, ${(b.prompts || []).length} Prompt-Vorlagen, ${(b.challenges || []).length} Challenges.`
   );
 
   if (command === 'bundle') {

@@ -46,6 +46,7 @@ export function parseContentFile(data: unknown): ContentBundle {
     helpGroups: list(data.helpGroups),
     contact: typeof data.contact === 'string' ? data.contact : undefined,
     areas: list(data.areas),
-    prompts: list(data.prompts)
+    prompts: list(data.prompts),
+    challenges: list(data.challenges)
   };
 }

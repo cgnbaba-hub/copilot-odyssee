@@ -67,6 +67,8 @@ export interface PlayerState {
   useCases: UseCaseCard[];
   /** Prompt templates the player pinned to the cheat sheet; missing in older saves. */
   savedPrompts?: string[];
+  /** Challenges of the week done, by week key (Monday, YYYY-MM-DD) to challenge id; missing in older saves. */
+  challenges?: { [week: string]: string };
 }
 
 export interface Outcome {
@@ -228,4 +230,13 @@ export function toggleSavedPrompt(state: PlayerState, promptId: string): PlayerS
   const saved = state.savedPrompts || [];
   const next = isPromptSaved(state, promptId) ? saved.filter((id) => id !== promptId) : saved.concat([promptId]);
   return { ...state, savedPrompts: next };
+}
+
+/** Seemeilen for the challenge of the week, paid once per week. */
+export const CHALLENGE_XP = 50;
+
+export function completeChallenge(state: PlayerState, week: string, challengeId: string): Outcome {
+  const done = state.challenges || {};
+  if (done[week]) return { state, xpGained: 0 };
+  return { state: { ...state, xp: state.xp + CHALLENGE_XP, challenges: { ...done, [week]: challengeId } }, xpGained: CHALLENGE_XP };
 }

@@ -1,6 +1,8 @@
 import { LearningModule, QuizBlock } from '../content/types';
 import {
   answerQuiz,
+  CHALLENGE_XP,
+  completeChallenge,
   completeMission,
   finishModule,
   getModule,
@@ -136,5 +138,12 @@ describe('player state', () => {
     const pinned = toggleSavedPrompt(old, 'mail-antwort');
     expect(isPromptSaved(pinned, 'mail-antwort')).toBe(true);
     expect(isPromptSaved(toggleSavedPrompt(pinned, 'mail-antwort'), 'mail-antwort')).toBe(false);
+  });
+
+  it('pays the challenge of the week once per week', () => {
+    const first = completeChallenge(initialState('de'), '2026-11-02', 'c1');
+    expect(first.xpGained).toBe(CHALLENGE_XP);
+    expect(completeChallenge(first.state, '2026-11-02', 'c1').xpGained).toBe(0);
+    expect(completeChallenge(first.state, '2026-11-09', 'c2').xpGained).toBe(CHALLENGE_XP);
   });
 });

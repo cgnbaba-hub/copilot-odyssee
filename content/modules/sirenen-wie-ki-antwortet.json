@@ -3,10 +3,10 @@
   "id": "sirenen-wie-ki-antwortet",
   "island": "sirenenfelsen",
   "order": 2,
-  "version": "1.0.0",
+  "version": "1.1.0",
   "owner": "copilot-team",
   "status": "draft",
-  "reviewedAt": "2026-10-28",
+  "reviewedAt": "2026-11-01",
   "reviewIntervalDays": 180,
   "title": {
     "de": "Wie KI-Antworten entstehen",
@@ -48,8 +48,8 @@
           },
           "correct": false,
           "explanation": {
-            "de": "Copilot lernt nicht während des Gesprächs dazu. Die Unterschiede entstehen beim Formulieren.",
-            "en": "Copilot does not learn during the conversation. The differences come from how it phrases."
+            "de": "Das KI-Modell selbst lernt dabei nicht dazu. Die Unterschiede entstehen beim Formulieren.",
+            "en": "The AI model itself does not learn from this. The differences come from how it phrases."
           }
         },
         {

@@ -144,6 +144,17 @@ export interface PromptTemplate {
   license: License;
 }
 
+/** A short task in the real Copilot; the app shows a new one every week. */
+export interface Challenge {
+  id: string;
+  title: Localized;
+  task: Localized;
+  copyText?: Localized;
+  /** Where it happens; Copilot Chat when missing. */
+  app?: MissionApp;
+  license: License;
+}
+
 /** Everything the app needs to render the game world. */
 export interface ContentBundle {
   islands: Island[];
@@ -154,4 +165,5 @@ export interface ContentBundle {
   contact?: string;
   areas?: Area[];
   prompts?: PromptTemplate[];
+  challenges?: Challenge[];
 }
