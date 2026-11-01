@@ -1,0 +1,174 @@
+{
+  "$schema": "../schema/module.schema.json",
+  "island": "kalypso",
+  "version": "1.0.0",
+  "owner": "copilot-team",
+  "status": "draft",
+  "reviewedAt": "2026-11-01",
+  "reviewIntervalDays": 60,
+  "id": "kalypso-cowork",
+  "order": 2,
+  "license": "premium",
+  "title": {
+    "de": "Cowork: Copilot erledigt ganze Aufgaben",
+    "en": "Cowork: Copilot completes whole tasks"
+  },
+  "summary": {
+    "de": "Im Cowork-Modus plant und erledigt Copilot Aufgaben mit mehreren Schritten. Du gibst den Auftrag und prüfst das Ergebnis.",
+    "en": "In Cowork mode, Copilot plans and completes tasks with several steps. You give the brief and check the result."
+  },
+  "estimatedMinutes": 8,
+  "notes": "Quellen: Microsoft-Blog «Introducing the new Copilot with Home, Code and Autopilot» (25.9.2026), Fachartikel (Thurrott, Redmondmag, empowering.cloud, windowsmode). Einführung läuft schrittweise über das Frontier-Programm; Details können sich bis zur allgemeinen Verfügbarkeit ändern. Kurz vor Freigabe mit einem Testkonto prüfen. Cowork: allgemein verfügbar seit 16.6.2026 (Microsoft-365-Blog), braucht M365-Copilot-Lizenz, Freischaltung durch Admin und nutzungsbasierte Abrechnung (Copilot Credits).",
+  "blocks": [
+    {
+      "type": "briefing",
+      "id": "cowork",
+      "title": {
+        "de": "Ein Mitarbeiter auf Zeit",
+        "en": "A temporary crew member"
+      },
+      "body": {
+        "de": "Im Chat beantwortet Copilot Fragen. Im **Cowork-Modus** erledigt er **ganze Aufgaben mit mehreren Schritten**, zum Beispiel:\n- «Lies die drei Hotelverträge, stell die Stornobedingungen als Tabelle zusammen und entwirf daraus eine Info für das Verkaufsteam.»\n- «Bereite aus meinen Notizen eine Präsentation und eine Einladungsmail für das Kick-off vor.»\n\nSo funktioniert es:\n- Copilot **plant die Schritte** und zeigt sie dir. Bei wichtigen Schritten fragt er nach.\n- Die Aufgabe läuft **in der Cloud** weiter, auch wenn du etwas anderes machst.\n- Am Ende **prüfst du** das Ergebnis, bevor du es verwendest oder verschickst.\n\nCowork gibt es nur mit **M365 Copilot (Premium)**. Die IT muss es freischalten, und jede Aufgabe wird **nach Aufwand abgerechnet**. Nutze es darum für Aufgaben, bei denen sich das lohnt.",
+        "en": "In the chat, Copilot answers questions. In **Cowork mode** it completes **whole tasks with several steps**, for example:\n- “Read the three hotel contracts, put the cancellation terms into a table and draft an update for the sales team from it.”\n- “Prepare a presentation and an invitation email for the kick-off from my notes.”\n\nHow it works:\n- Copilot **plans the steps** and shows them to you. For important steps it asks first.\n- The task keeps running **in the cloud**, even while you do something else.\n- At the end **you check** the result before you use or send it.\n\nCowork is only available with **M365 Copilot (Premium)**. IT has to enable it, and every task is **billed by effort**. So use it for tasks where that pays off."
+      }
+    },
+    {
+      "type": "quiz",
+      "id": "q-cowork-wann",
+      "difficulty": "intermediate",
+      "question": {
+        "de": "Für welche Aufgabe passt Cowork besser als der normale Chat?",
+        "en": "Which task suits Cowork better than the normal chat?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "de": "Eine kurze Frage zu einer Formulierung in einer Mail",
+            "en": "A short question about wording in an email"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Dafür reicht der Chat. Cowork kostet pro Aufgabe.",
+            "en": "The chat is enough for that. Cowork costs per task."
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "de": "Aus mehreren Unterlagen eine Übersicht, eine Präsentation und eine Info-Mail erstellen",
+            "en": "Creating an overview, a presentation and an update email from several documents"
+          },
+          "correct": true,
+          "explanation": {
+            "de": "Richtig. Mehrere Schritte und mehrere Ergebnisse sind die Stärke von Cowork.",
+            "en": "Right. Several steps and several results are Cowork's strength."
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "de": "Einem Gast verbindlich einen Preis bestätigen",
+            "en": "Bindingly confirming a price to a guest"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Verbindliche Auskünfte an Gäste gibst du selbst, nach Prüfung im Buchungssystem.",
+            "en": "You give binding information to guests yourself, after checking the booking system."
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "de": "Eine Aufgabe, deren Ergebnis niemand prüfen wird",
+            "en": "A task whose result nobody will check"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Auch bei Cowork prüfst du das Ergebnis, bevor du es verwendest.",
+            "en": "With Cowork too, you check the result before you use it."
+          }
+        }
+      ]
+    },
+    {
+      "type": "quiz",
+      "id": "q-cowork-voraussetzung",
+      "difficulty": "advanced",
+      "question": {
+        "de": "Was braucht es, damit du Cowork nutzen kannst?",
+        "en": "What is needed for you to use Cowork?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "de": "Eine M365-Copilot-Lizenz (Premium)",
+            "en": "An M365 Copilot licence (Premium)"
+          },
+          "correct": true,
+          "explanation": {
+            "de": "Ja. Mit Copilot Chat (Basic) gibt es Cowork nicht.",
+            "en": "Yes. Cowork is not available with Copilot Chat (Basic)."
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "de": "Die IT hat Cowork und die Abrechnung nach Nutzung freigeschaltet",
+            "en": "IT has enabled Cowork and usage-based billing"
+          },
+          "correct": true,
+          "explanation": {
+            "de": "Ja. Ohne Freischaltung läuft keine Cowork-Aufgabe.",
+            "en": "Yes. Without it no Cowork task runs."
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "de": "Microsoft Edge als Browser",
+            "en": "Microsoft Edge as the browser"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Nein. Cowork läuft in der Copilot-App, unabhängig vom Browser.",
+            "en": "No. Cowork runs in the Copilot app, independent of the browser."
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "de": "Dein Laptop muss bis zum Ende der Aufgabe eingeschaltet bleiben",
+            "en": "Your laptop must stay on until the task is finished"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Nein. Cowork arbeitet in der Cloud weiter.",
+            "en": "No. Cowork keeps working in the cloud."
+          }
+        }
+      ]
+    },
+    {
+      "type": "mission",
+      "id": "m-cowork",
+      "title": {
+        "de": "Ein Auftrag für die Crew",
+        "en": "A brief for the crew"
+      },
+      "task": {
+        "de": "Falls Cowork bei dir freigeschaltet ist: Wechsle unter dem Eingabefeld zu Cowork und gib Copilot den Auftrag unten. Prüfe die geplanten Schritte, bevor er loslegt, und das Ergebnis am Schluss.",
+        "en": "If Cowork is enabled for you: switch to Cowork below the input box and give Copilot the brief below. Check the planned steps before it starts and the result at the end."
+      },
+      "tip": {
+        "de": "Kein Cowork zu sehen? Dann ist es bei euch noch nicht freigeschaltet. Den Auftrag kannst du auch im normalen Chat in kleinen Schritten ausprobieren.",
+        "en": "No Cowork to be seen? Then it has not been enabled for you yet. You can also try the brief step by step in the normal chat."
+      },
+      "copyText": {
+        "de": "Lies die angehängten Unterlagen zu [Thema]. Erstelle daraus eine Übersicht auf einer Seite und einen Entwurf für eine Info-Mail an [Team]. Zeig mir zuerst deinen Plan.",
+        "en": "Read the attached documents on [topic]. From them, create a one-page overview and a draft update email to [team]. Show me your plan first."
+      }
+    }
+  ]
+}

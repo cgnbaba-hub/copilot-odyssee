@@ -3,7 +3,7 @@
   "id": "polyphem-excel-start",
   "island": "polyphem",
   "order": 1,
-  "version": "1.0.0",
+  "version": "1.1.0",
   "owner": "copilot-team",
   "status": "draft",
   "reviewedAt": "2026-11-01",
@@ -17,7 +17,7 @@
     "en": "What Copilot in Excel needs, what it can do and how to request a good analysis."
   },
   "estimatedMinutes": 10,
-  "notes": "Überarbeitet: Prototyp-Frage 5 und Prompt-Challenge 3 behalten, neues Briefing, Frage und Mission. Stand Oktober 2026: Copilot in Excel arbeitet mit Dateien in OneDrive oder SharePoint am zuverlässigsten, Daten als Tabelle helfen; Copilot kann Änderungen direkt in der Mappe ausführen (Bearbeitungsmodus, seit April 2026 Standard). Die frühere Funktion =COPILOT() ist eingestellt und wird deshalb nicht erwähnt. Laut Praxisprüfung reicht .xlsx oder .csv; OneDrive und Tabelle nur noch als Tipp bei Problemen. Praxisprüfung 29.10.2026 mit Premium- und Basic-Konto bei DERTOUR Suisse.",
+  "notes": "Überarbeitet: Prototyp-Frage 5 und Prompt-Challenge 3 behalten, neues Briefing, Frage und Mission. Stand Oktober 2026: Copilot in Excel arbeitet mit Dateien in OneDrive oder SharePoint am zuverlässigsten, Daten als Tabelle helfen; Copilot kann Änderungen direkt in der Mappe ausführen (Bearbeitungsmodus, seit April 2026 Standard). Die frühere Funktion =COPILOT() ist eingestellt und wird deshalb nicht erwähnt. Laut Praxisprüfung reicht .xlsx oder .csv; OneDrive und Tabelle nur noch als Tipp bei Problemen. Praxisprüfung 29.10.2026 mit Premium- und Basic-Konto bei DERTOUR Suisse. Faktencheck 2026-11-01 (2): Microsoft-FAQ nennt .xlsx/.xlsb/.xlsm in OneDrive/SharePoint mit AutoSpeichern; .csv nicht bestätigt, daher «zuerst als .xlsx speichern». Mit der Fachverantwortlichen abgleichen (früherer Praxishinweis .csv).",
   "blocks": [
     {
       "type": "briefing",
@@ -27,8 +27,8 @@
         "en": "Before you start"
       },
       "body": {
-        "de": "Copilot in Excel findest du über das **Copilot-Symbol** im Menüband «Start». Die Datei muss als **.xlsx** oder **.csv** gespeichert sein.\n\nDamit Copilot deine Daten gut versteht:\n- **Jede Spalte braucht eine klare Überschrift**, zum Beispiel «Destination» statt «Spalte C».\n- **Reagiert Copilot nicht wie erwartet?** Speichere die Datei in OneDrive oder SharePoint und formatiere die Daten als Tabelle: Klicke in die Daten und drücke **Strg + T**.\n\nDann kann Copilot:\n- Fragen zu deinen Daten beantworten und Auffälligkeiten zeigen\n- Formeln vorschlagen und erklären\n- sortieren, filtern und Zeilen hervorheben\n- Diagramme und PivotTables erstellen\n\nCopilot kann die Änderungen direkt in der Mappe ausführen. Er beschreibt vorher, was er tut.",
-        "en": "You find Copilot in Excel via the **Copilot icon** in the “Home” ribbon. The file must be saved as **.xlsx** or **.csv**.\n\nSo that Copilot understands your data well:\n- **Every column needs a clear heading**, for example “Destination” instead of “Column C”.\n- **Copilot not reacting as expected?** Save the file in OneDrive or SharePoint and format the data as a table: click into the data and press **Ctrl + T**.\n\nThen Copilot can:\n- answer questions about your data and point out patterns\n- suggest and explain formulas\n- sort, filter and highlight rows\n- create charts and PivotTables\n\nCopilot can make the changes directly in the workbook. It describes beforehand what it will do."
+        "de": "Copilot in Excel findest du über das **Copilot-Symbol** im Menüband «Start». Die Datei sollte eine Excel-Datei (**.xlsx**) sein, am besten in **OneDrive oder SharePoint** gespeichert, mit **automatischem Speichern**. Eine .csv-Datei speicherst du am besten zuerst als .xlsx.\n\nDamit Copilot deine Daten gut versteht:\n- **Jede Spalte braucht eine klare Überschrift**, zum Beispiel «Destination» statt «Spalte C».\n- **Reagiert Copilot nicht wie erwartet?** Formatiere die Daten als Tabelle: Klicke in die Daten und drücke **Strg + T**.\n\nDann kann Copilot:\n- Fragen zu deinen Daten beantworten und Auffälligkeiten zeigen\n- Formeln vorschlagen und erklären\n- sortieren, filtern und Zeilen hervorheben\n- Diagramme und PivotTables erstellen\n\nCopilot kann die Änderungen direkt in der Mappe ausführen. Er beschreibt vorher, was er tut.",
+        "en": "You find Copilot in Excel via the **Copilot icon** in the “Home” ribbon. The file should be an Excel file (**.xlsx**), ideally saved in **OneDrive or SharePoint** with **AutoSave** on. Best save a .csv file as .xlsx first.\n\nSo that Copilot understands your data well:\n- **Every column needs a clear heading**, for example “Destination” instead of “Column C”.\n- **Copilot not responding as expected?** Format the data as a table: click into the data and press **Ctrl + T**.\n\nThen Copilot can:\n- answer questions about your data and point out patterns\n- suggest and explain formulas\n- sort, filter and highlight rows\n- create charts and PivotTables\n\nCopilot can make the changes directly in the workbook. It describes beforehand what it will do."
       }
     },
     {
@@ -72,8 +72,8 @@
           },
           "correct": false,
           "explanation": {
-            "de": "In Excel arbeitet Copilot mit .xlsx- oder .csv-Dateien.",
-            "en": "In Excel, Copilot works with .xlsx or .csv files."
+            "de": "In Excel arbeitet Copilot mit Excel-Dateien wie .xlsx, am besten in OneDrive gespeichert.",
+            "en": "In Excel, Copilot works with Excel files such as .xlsx, ideally saved in OneDrive."
           }
         },
         {
@@ -119,8 +119,8 @@
           },
           "correct": false,
           "explanation": {
-            "de": "Gerade das alte Format funktioniert nicht. Nötig ist .xlsx oder .csv.",
-            "en": "The old format is exactly what does not work. You need .xlsx or .csv."
+            "de": "Gerade das alte Format funktioniert nicht. Nötig ist eine aktuelle Excel-Datei wie .xlsx.",
+            "en": "The old format is exactly what does not work. You need a current Excel file such as .xlsx."
           }
         },
         {

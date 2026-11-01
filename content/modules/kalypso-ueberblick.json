@@ -1,0 +1,126 @@
+{
+  "$schema": "../schema/module.schema.json",
+  "island": "kalypso",
+  "version": "1.0.0",
+  "owner": "copilot-team",
+  "status": "draft",
+  "reviewedAt": "2026-11-01",
+  "reviewIntervalDays": 60,
+  "id": "kalypso-ueberblick",
+  "order": 1,
+  "title": {
+    "de": "Die neue Copilot-App im Überblick",
+    "en": "The new Copilot app at a glance"
+  },
+  "summary": {
+    "de": "Home, Code und Autopilot: was sich ändert, was gleich bleibt und wann es zu dir kommt.",
+    "en": "Home, Code and Autopilot: what changes, what stays the same and when it reaches you."
+  },
+  "estimatedMinutes": 7,
+  "notes": "Quellen: Microsoft-Blog «Introducing the new Copilot with Home, Code and Autopilot» (25.9.2026), Fachartikel (Thurrott, Redmondmag, empowering.cloud, windowsmode). Einführung läuft schrittweise über das Frontier-Programm; Details können sich bis zur allgemeinen Verfügbarkeit ändern. Kurz vor Freigabe mit einem Testkonto prüfen.",
+  "blocks": [
+    {
+      "type": "briefing",
+      "id": "neu",
+      "title": {
+        "de": "Ein neues Floss für die Reise",
+        "en": "A new raft for the journey"
+      },
+      "body": {
+        "de": "Am **25. September 2026** hat Microsoft eine neue Copilot-App vorgestellt. Sie bringt vieles zusammen, was bisher verteilt war, und ist in **drei Bereiche** aufgeteilt:\n- **Home:** der Startpunkt. Hier chattest du wie bisher. Unter dem Eingabefeld wechselst du zwischen **Chat** und **Cowork**, dem Modus, in dem Copilot grössere Aufgaben selbst erledigt.\n- **Code:** Du beschreibst in normalen Worten ein kleines Werkzeug, und Copilot baut es dir.\n- **Autopilot:** ein Agent, der Aufgaben im Hintergrund erledigt. Er ist noch in einer frühen Testphase.\n\nNeu ist auch die **Bibliothek**: Dort findest du deine letzten Word-, Excel- und PowerPoint-Dateien, Pages und erstellte Bilder an einem Ort.\n\n**Was gleich bleibt:** Chatten, Prompts, Dateien hochladen, der Schutz deiner Daten. Was du in der Odyssee gelernt hast, gilt weiter.",
+        "en": "On **25 September 2026**, Microsoft presented a new Copilot app. It brings together much of what used to be spread out and is divided into **three areas**:\n- **Home:** the starting point. You chat here as before. Below the input box you switch between **Chat** and **Cowork**, the mode in which Copilot completes larger tasks itself.\n- **Code:** You describe a small tool in plain words, and Copilot builds it for you.\n- **Autopilot:** an agent that completes tasks in the background. It is still in an early test phase.\n\nAlso new is the **Library**: there you find your recent Word, Excel and PowerPoint files, pages and created images in one place.\n\n**What stays the same:** chatting, prompts, uploading files, the protection of your data. What you learned in the Odyssey still applies."
+      }
+    },
+    {
+      "type": "briefing",
+      "id": "wann",
+      "title": {
+        "de": "Wann kommt das bei dir an?",
+        "en": "When does it reach you?"
+      },
+      "body": {
+        "de": "Microsoft führt die neue App **schrittweise** ein. Zuerst bekommen sie Organisationen im **Frontier-Programm**, dem Vorab-Programm von Microsoft. Danach folgen die anderen, oft in Etappen.\n\nDas heisst für dich:\n- Deine Copilot-App kann **noch anders aussehen** als hier beschrieben. Das ist normal.\n- Manche Bereiche siehst du vielleicht, kannst sie aber noch nicht nutzen. **Cowork, Code und Autopilot** werden nach Nutzung abgerechnet und müssen von der IT freigeschaltet werden.\n- Findest du eine Funktion nicht, such nach ihrem Namen oder frag Copilot selbst: «Wo finde ich in dieser App …?»",
+        "en": "Microsoft is introducing the new app **step by step**. Organisations in the **Frontier programme**, Microsoft's early-access programme, get it first. The others follow, often in stages.\n\nFor you this means:\n- Your Copilot app may **still look different** from what is described here. That is normal.\n- You may see some areas but not be able to use them yet. **Cowork, Code and Autopilot** are billed by usage and have to be enabled by IT.\n- If you cannot find a feature, search for its name or ask Copilot itself: “Where do I find … in this app?”"
+      }
+    },
+    {
+      "type": "quiz",
+      "id": "q-bereiche",
+      "difficulty": "intermediate",
+      "question": {
+        "de": "Welche Aussagen zur neuen Copilot-App stimmen?",
+        "en": "Which statements about the new Copilot app are true?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "de": "Unter dem Eingabefeld wechselst du zwischen Chat und Cowork.",
+            "en": "Below the input box you switch between Chat and Cowork."
+          },
+          "correct": true,
+          "explanation": {
+            "de": "Ja. Beides liegt im Bereich Home.",
+            "en": "Yes. Both are in the Home area."
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "de": "Mit der neuen App gelten neue Regeln für Kundendaten.",
+            "en": "With the new app, new rules apply to customer data."
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Nein. Die Regeln eurer KI-Richtlinie und der Datenschutz gelten unverändert weiter.",
+            "en": "No. The rules of your AI policy and data protection still apply unchanged."
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "de": "In der Bibliothek findest du deine letzten Office-Dateien und Pages.",
+            "en": "In the Library you find your recent Office files and pages."
+          },
+          "correct": true,
+          "explanation": {
+            "de": "Ja. Die Bibliothek sammelt sie an einem Ort.",
+            "en": "Yes. The Library collects them in one place."
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "de": "Alle bekommen die neue App am selben Tag.",
+            "en": "Everyone gets the new app on the same day."
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Nein. Microsoft führt sie schrittweise ein, zuerst im Frontier-Programm.",
+            "en": "No. Microsoft introduces it step by step, starting with the Frontier programme."
+          }
+        }
+      ]
+    },
+    {
+      "type": "mission",
+      "id": "m-umschauen",
+      "title": {
+        "de": "Erkunde dein Floss",
+        "en": "Explore your raft"
+      },
+      "task": {
+        "de": "Öffne die Copilot-App oder Copilot im Browser und schau dich um: Siehst du schon Home, Code oder Autopilot? Gibt es unter dem Eingabefeld den Wechsel zwischen Chat und Cowork? Frag Copilot dann mit dem Text unten, was neu ist.",
+        "en": "Open the Copilot app or Copilot in the browser and look around: do you already see Home, Code or Autopilot? Is there a switch between Chat and Cowork below the input box? Then ask Copilot with the text below what is new."
+      },
+      "tip": {
+        "de": "Sieht alles noch wie bisher aus? Dann ist die neue App bei euch noch nicht eingeführt. Gib uns gern über «Feedback geben» Bescheid, was du siehst.",
+        "en": "Does everything still look as before? Then the new app has not been introduced for you yet. Feel free to tell us via “Give feedback” what you see."
+      },
+      "copyText": {
+        "de": "Welche Bereiche und Funktionen gibt es in dieser Copilot-App? Erkläre mir kurz, wofür ich jeden Bereich nutze.",
+        "en": "Which areas and features does this Copilot app have? Briefly explain what I use each area for."
+      }
+    }
+  ]
+}

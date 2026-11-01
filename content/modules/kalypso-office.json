@@ -1,0 +1,115 @@
+{
+  "$schema": "../schema/module.schema.json",
+  "island": "kalypso",
+  "version": "1.0.0",
+  "owner": "copilot-team",
+  "status": "draft",
+  "reviewedAt": "2026-11-01",
+  "reviewIntervalDays": 60,
+  "id": "kalypso-office",
+  "order": 3,
+  "license": "premium",
+  "title": {
+    "de": "Word, Excel und PowerPoint direkt in Copilot",
+    "en": "Word, Excel and PowerPoint right in Copilot"
+  },
+  "summary": {
+    "de": "Dokumente entstehen direkt im Copilot-Fenster, neben dem Chat, und landen ganz normal in deinen Office-Dateien.",
+    "en": "Documents are created right in the Copilot window, beside the chat, and end up as normal Office files."
+  },
+  "estimatedMinutes": 6,
+  "notes": "Quellen: Microsoft-Blog «Introducing the new Copilot with Home, Code and Autopilot» (25.9.2026), Fachartikel (Thurrott, Redmondmag, empowering.cloud, windowsmode). Einführung läuft schrittweise über das Frontier-Programm; Details können sich bis zur allgemeinen Verfügbarkeit ändern. Kurz vor Freigabe mit einem Testkonto prüfen. Office in Copilot: Frontier ab Oktober 2026, weltweite Einführung ab Mitte November 2026 (Message Center MC1530611), gesteuert über bestehende Copilot-Richtlinien.",
+  "blocks": [
+    {
+      "type": "briefing",
+      "id": "office",
+      "title": {
+        "de": "Die Werkstatt an Bord",
+        "en": "The workshop on board"
+      },
+      "body": {
+        "de": "Mit **Office in Copilot** öffnet sich ein Word-, Excel- oder PowerPoint-Dokument direkt **neben deinem Copilot-Chat**. Du musst nicht mehr zwischen Programmen wechseln:\n- Bitte Copilot zum Beispiel: «Erstelle ein Word-Dokument mit dem Reiseprogramm aus meinen Notizen.»\n- Das Dokument erscheint rechts. Du bearbeitest es selbst oder lässt Copilot weiterarbeiten.\n- Gespeichert wird eine **ganz normale Office-Datei**. Du findest sie in OneDrive, in Word und in der **Bibliothek** der Copilot-App.\n\nMicrosoft führt das ab **Mitte November 2026** weltweit ein, zuerst für Organisationen im Frontier-Programm. Wann es bei euch ankommt und ob es zu deiner Lizenz gehört, legt eure IT fest.",
+        "en": "With **Office in Copilot**, a Word, Excel or PowerPoint document opens right **beside your Copilot chat**. You no longer have to switch between programs:\n- Ask Copilot for example: “Create a Word document with the tour programme from my notes.”\n- The document appears on the right. You edit it yourself or let Copilot keep working.\n- What is saved is a **normal Office file**. You find it in OneDrive, in Word and in the **Library** of the Copilot app.\n\nMicrosoft is rolling this out worldwide from **mid-November 2026**, first for organisations in the Frontier programme. When it reaches you and whether it is part of your licence is decided by your IT."
+      }
+    },
+    {
+      "type": "quiz",
+      "id": "q-office-datei",
+      "difficulty": "intermediate",
+      "question": {
+        "de": "Copilot hat dir in der Copilot-App ein Word-Dokument erstellt. Wo findest du es danach?",
+        "en": "Copilot created a Word document for you in the Copilot app. Where do you find it afterwards?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "de": "Als normale Datei in OneDrive, in Word und in der Bibliothek der Copilot-App",
+            "en": "As a normal file in OneDrive, in Word and in the Library of the Copilot app"
+          },
+          "correct": true,
+          "explanation": {
+            "de": "Richtig. Es ist eine ganz normale Office-Datei.",
+            "en": "Right. It is a completely normal Office file."
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "de": "Nur im Chatverlauf, als Bild",
+            "en": "Only in the chat history, as an image"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Nein. Es entsteht eine echte Datei, die du weiterbearbeiten kannst.",
+            "en": "No. A real file is created that you can keep editing."
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "de": "Nirgends, das Dokument verschwindet beim Schliessen",
+            "en": "Nowhere, the document disappears when you close it"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Nein. Die Datei wird gespeichert wie jedes andere Dokument.",
+            "en": "No. The file is saved like any other document."
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "de": "In einem speziellen Copilot-Format, das Word nicht öffnen kann",
+            "en": "In a special Copilot format that Word cannot open"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Nein. Änderungen landen in der normalen Datei und sind auch in Word sichtbar.",
+            "en": "No. Changes end up in the normal file and are visible in Word too."
+          }
+        }
+      ]
+    },
+    {
+      "type": "mission",
+      "id": "m-office",
+      "title": {
+        "de": "Dokument an Deck",
+        "en": "Document on deck"
+      },
+      "task": {
+        "de": "Falls Office in Copilot bei dir schon verfügbar ist: Lass Copilot aus deinen Notizen ein Word-Dokument erstellen und bearbeite es direkt neben dem Chat. Öffne die Datei danach in Word.",
+        "en": "If Office in Copilot is already available for you: have Copilot create a Word document from your notes and edit it right beside the chat. Then open the file in Word."
+      },
+      "tip": {
+        "de": "Öffnet sich kein Dokument neben dem Chat? Dann ist die Funktion bei euch noch nicht da. Probier es in ein paar Wochen nochmals.",
+        "en": "No document opens beside the chat? Then the feature has not arrived for you yet. Try again in a few weeks."
+      },
+      "copyText": {
+        "de": "Erstelle aus diesen Notizen ein Word-Dokument mit dem Titel [Titel], gegliedert in Ziel, Ablauf und nächste Schritte. Notizen: [Notizen]",
+        "en": "Create a Word document titled [title] from these notes, structured into goal, process and next steps. Notes: [notes]"
+      }
+    }
+  ]
+}

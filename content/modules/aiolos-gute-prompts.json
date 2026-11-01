@@ -203,8 +203,8 @@
         "en": "Open Copilot Chat and try one of your prompts from this stage. Then refine the result with a second message, such as \"Make it shorter\" or \"A bit more formal, please\"."
       },
       "tip": {
-        "de": "Copilot Chat erreichst du im Browser unter m365.cloud.microsoft/chat oder in der Microsoft-365-Copilot-App.",
-        "en": "You can reach Copilot Chat in the browser at m365.cloud.microsoft/chat or in the Microsoft 365 Copilot app."
+        "de": "Copilot Chat erreichst du im Browser unter m365.cloud.microsoft/chat oder in der Copilot-App.",
+        "en": "You can reach Copilot Chat in the browser at m365.cloud.microsoft/chat or in the Copilot app."
       }
     },
     {
