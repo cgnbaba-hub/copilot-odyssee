@@ -3,10 +3,10 @@
   "id": "hephaistos-agent-bauen",
   "island": "hephaistos",
   "order": 2,
-  "version": "1.0.0",
+  "version": "1.1.0",
   "owner": "copilot-team",
   "status": "draft",
-  "reviewedAt": "2026-10-28",
+  "reviewedAt": "2026-11-01",
   "reviewIntervalDays": 180,
   "title": {
     "de": "Einen eigenen Agenten bauen",
@@ -27,8 +27,8 @@
         "en": "How an agent is made"
       },
       "body": {
-        "de": "Einen einfachen Agenten erstellst du direkt in Copilot: Klicke links bei den **Agenten** auf **«Agent erstellen»**. Du beschreibst in normaler Sprache, was er tun soll, und Copilot hilft beim Einrichten.\n\nEin guter Agent hat:\n- einen **klaren Namen und Zweck**, zum Beispiel «Kundendienst-Helfer für Umbuchungen»\n- **Anweisungen**: Ton, Aufbau der Antworten, was er nicht tun soll\n- **Wissen**: Dateien oder SharePoint-Seiten, auf die er sich stützt\n- **Startvorschläge**: Beispielfragen, die Kolleginnen und Kollegen anklicken können\n\nTeste den Agenten mit echten Fragen und **teile** ihn danach mit deinem Team. Ob du Agenten erstellen kannst, legt eure IT fest.",
-        "en": "You create a simple agent directly in Copilot: click **“Create agent”** under **Agents** on the left. You describe in plain language what it should do, and Copilot helps you set it up.\n\nA good agent has:\n- a **clear name and purpose**, for example “Customer service helper for rebookings”\n- **instructions**: tone, structure of the answers, what it should not do\n- **knowledge**: files or SharePoint sites it relies on\n- **starter prompts**: example questions colleagues can click\n\nTest the agent with real questions and then **share** it with your team. Whether you can create agents is decided by your IT."
+        "de": "Einen einfachen Agenten erstellst du direkt in Copilot: Klicke links bei den **Agenten** auf **«Agent erstellen»**. Du beschreibst in normaler Sprache, was er tun soll, und Copilot hilft beim Einrichten.\n\nEin guter Agent hat:\n- einen **klaren Namen und Zweck**, zum Beispiel «Kundendienst-Helfer für Umbuchungen»\n- **Anweisungen**: Ton, Aufbau der Antworten, was er nicht tun soll\n- **Wissen**: Dateien oder SharePoint-Seiten, auf die er sich stützt\n- **Startvorschläge**: Beispielfragen, die Kolleginnen und Kollegen anklicken können\n\nTeste den Agenten mit echten Fragen und **teile** ihn danach mit deinem Team. Ob du Agenten erstellen kannst, legt eure IT fest. Mit Basic gehen einfache Agenten, die mit dem Web arbeiten. Dateien und SharePoint als Wissen brauchen Premium.",
+        "en": "You create a simple agent directly in Copilot: click **“Create agent”** under **Agents** on the left. You describe in plain language what it should do, and Copilot helps you set it up.\n\nA good agent has:\n- a **clear name and purpose**, for example “Customer service helper for rebookings”\n- **instructions**: tone, structure of the answers, what it should not do\n- **knowledge**: files or SharePoint sites it relies on\n- **starter prompts**: example questions colleagues can click\n\nTest the agent with real questions and then **share** it with your team. Whether you can create agents is decided by your IT. With Basic, simple agents that work with the web are possible. Files and SharePoint as knowledge need Premium."
       }
     },
     {

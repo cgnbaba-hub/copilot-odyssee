@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Challenges der Woche",
+  "description": "Kurze Aufgaben im echten Copilot. Jede Woche zeigt die App die nächste Challenge aus dieser Liste, passend zur Lizenz. Neue Challenges einfach hinten anfügen.",
+  "type": "object",
+  "required": ["challenges"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "challenges": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "task", "license"],
+        "properties": {
+          "id": { "$ref": "common.schema.json#/$defs/id" },
+          "title": { "$ref": "common.schema.json#/$defs/localized" },
+          "task": {
+            "description": "Was zu tun ist, in zwei bis drei Sätzen.",
+            "$ref": "common.schema.json#/$defs/localized"
+          },
+          "copyText": {
+            "description": "Text, den man mit einem Knopf kopieren und in Copilot einfügen kann.",
+            "$ref": "common.schema.json#/$defs/localized"
+          },
+          "app": {
+            "description": "Wo die Challenge stattfindet, wenn nicht in Copilot Chat.",
+            "enum": ["outlook", "teams", "word", "excel", "powerpoint"]
+          },
+          "license": {
+            "description": "basic = geht mit Copilot Chat (Basic), premium = braucht M365 Copilot (Premium).",
+            "enum": ["basic", "premium"]
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

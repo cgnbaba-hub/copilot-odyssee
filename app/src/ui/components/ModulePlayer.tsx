@@ -16,6 +16,7 @@ import { islandProgress, nextStage } from '../progressHelpers';
 import styles from '../styles.module.scss';
 import { IslandArt } from './Art';
 import { Confetti } from './Confetti';
+import { formatLongDate } from '../format';
 import { Guide } from './Guide';
 import { Loading } from './Loading';
 import { StageRoute } from './StageRoute';
@@ -108,6 +109,10 @@ export function ModulePlayer(props: { moduleId: string }): React.ReactElement {
   const current = Math.min(index + 1, total);
   const backToIsland = (): void => navigate({ name: 'island', islandId: module.island });
 
+  // Copilot changes quickly, so every step says when its facts were checked.
+  const currentBlock = module.blocks[Math.min(index, total - 1)];
+  const asOf = ('asOf' in currentBlock && currentBlock.asOf) || module.reviewedAt;
+
   let doneView: React.ReactElement | undefined;
   if (done) {
     const islandDone = island ? islandProgress(game, island.id) : undefined;
@@ -181,7 +186,15 @@ export function ModulePlayer(props: { moduleId: string }): React.ReactElement {
             <p className={`${styles.blockKind} ${KIND_CLASS[module.blocks[index].type]}`}>
               <BlockKindIcon type={module.blocks[index].type} />
               <span>{blockKindNames(strings, module.blocks[index].type).long}</span>
-              <span className={styles.blockKindCount}>{format(strings.stepOf, { current, total })}</span>
+              <span className={styles.blockKindCount}>
+                {format(strings.stepOf, { current, total })}
+                {asOf && (
+                  <span className={styles.asOf} title={strings.asOfHint}>
+                    {' · '}
+                    {format(strings.asOf, { date: formatLongDate(lang, asOf) })}
+                  </span>
+                )}
+              </span>
             </p>
             <BlockView key={module.blocks[index].id} moduleId={module.id} block={module.blocks[index]} onDone={() => setIndex(index + 1)} />
           </div>

@@ -1,0 +1,201 @@
+{
+  "$schema": "./schema/challenges.schema.json",
+  "challenges": [
+    {
+      "id": "c-betreff-ideen",
+      "title": {
+        "de": "Fünf Betreffzeilen in fünf Minuten",
+        "en": "Five subject lines in five minutes"
+      },
+      "task": {
+        "de": "Nimm eine Mail, die du diese Woche verschicken musst. Lass Copilot fünf Betreffzeilen vorschlagen und wähle die beste. Hat sich die Mail dadurch verändert?",
+        "en": "Take an email you have to send this week. Have Copilot suggest five subject lines and pick the best one. Did the email change because of it?"
+      },
+      "copyText": {
+        "de": "Schlage mir fünf kurze, klare Betreffzeilen für diese Mail vor. Zielgruppe: [Empfänger]. Inhalt: [kurze Beschreibung der Mail]",
+        "en": "Suggest five short, clear subject lines for this email. Audience: [recipient]. Content: [short description of the email]"
+      },
+      "license": "basic"
+    },
+    {
+      "id": "c-rueckfragen",
+      "title": {
+        "de": "Copilot fragt zuerst",
+        "en": "Copilot asks first"
+      },
+      "task": {
+        "de": "Lass Copilot vor einer Aufgabe drei Rückfragen stellen, bevor er loslegt. Beantworte sie und vergleiche das Ergebnis mit dem, was du sonst bekommst.",
+        "en": "Have Copilot ask three questions before starting a task. Answer them and compare the result with what you usually get."
+      },
+      "copyText": {
+        "de": "Ich möchte [Aufgabe]. Stell mir zuerst drei Fragen, die du brauchst, um ein wirklich gutes Ergebnis zu liefern. Warte mit dem Ergebnis, bis ich geantwortet habe.",
+        "en": "I want to [task]. First ask me three questions you need to deliver a really good result. Wait with the result until I have answered."
+      },
+      "license": "basic"
+    },
+    {
+      "id": "c-webseite",
+      "title": {
+        "de": "Eine Webseite in 30 Sekunden",
+        "en": "A web page in 30 seconds"
+      },
+      "task": {
+        "de": "Öffne die Webseite eines Hotels oder einer Destination, die dich gerade beschäftigt. Lass Copilot in der Edge-Seitenleiste die wichtigsten Fakten als Tabelle zusammenstellen. Prüfe zwei davon auf der Seite.",
+        "en": "Open the website of a hotel or destination you are working on. Have Copilot in the Edge sidebar put the key facts into a table. Check two of them on the page."
+      },
+      "copyText": {
+        "de": "Stelle die wichtigsten Fakten dieser Seite als Tabelle zusammen: Lage, Ausstattung, Preise und Besonderheiten.",
+        "en": "Put the key facts of this page into a table: location, facilities, prices and special features."
+      },
+      "license": "basic"
+    },
+    {
+      "id": "c-uebersetzen",
+      "title": {
+        "de": "Dreisprachig in einer Minute",
+        "en": "Three languages in one minute"
+      },
+      "task": {
+        "de": "Nimm einen kurzen Text, zum Beispiel eine Abwesenheitsnotiz oder eine Info an Gäste. Lass ihn ins Französische und Italienische übersetzen und frag nach Stellen, bei denen du gegenlesen lassen solltest.",
+        "en": "Take a short text, for example an out-of-office note or information for guests. Have it translated into French and Italian and ask for parts you should have proofread."
+      },
+      "copyText": {
+        "de": "Übersetze diesen Text ins Französische und ins Italienische, höflich und persönlich. Markiere danach Stellen, bei denen eine Muttersprachlerin besser nochmals drüberschaut. Text: [Text]",
+        "en": "Translate this text into French and Italian, polite and personal. Then mark the parts a native speaker should check again. Text: [text]"
+      },
+      "license": "basic"
+    },
+    {
+      "id": "c-zielgruppe",
+      "title": {
+        "de": "Einmal für alle",
+        "en": "One text for everyone"
+      },
+      "task": {
+        "de": "Nimm einen fachlichen Text aus deiner Arbeit. Lass ihn einmal für die Geschäftsleitung und einmal für Gäste ohne Fachwissen umschreiben. Was ändert sich?",
+        "en": "Take a technical text from your work. Have it rewritten once for management and once for guests without expert knowledge. What changes?"
+      },
+      "copyText": {
+        "de": "Schreibe diesen Text zweimal neu: einmal kurz für die Geschäftsleitung mit den Zahlen im Vordergrund, einmal für Gäste ohne Fachbegriffe. Text: [Text]",
+        "en": "Rewrite this text twice: once briefly for management with the figures first, once for guests without technical terms. Text: [text]"
+      },
+      "license": "basic"
+    },
+    {
+      "id": "c-checkliste",
+      "title": {
+        "de": "Aus Text wird Checkliste",
+        "en": "From text to checklist"
+      },
+      "task": {
+        "de": "Nimm eine Anleitung, einen Ablauf oder eine lange Mail mit Aufgaben. Lass Copilot daraus eine Checkliste mit Verantwortlichen und Fristen machen.",
+        "en": "Take a guide, a process or a long email with tasks. Have Copilot turn it into a checklist with owners and deadlines."
+      },
+      "copyText": {
+        "de": "Mach aus diesem Text eine Checkliste. Pro Punkt: Was ist zu tun, wer ist verantwortlich, bis wann. Fehlt eine Angabe, schreib «offen». Text: [Text]",
+        "en": "Turn this text into a checklist. For each item: what needs doing, who is responsible, by when. If something is missing, write “open”. Text: [text]"
+      },
+      "license": "basic"
+    },
+    {
+      "id": "c-rezept",
+      "title": {
+        "de": "Dein Prompt-Rezept",
+        "en": "Your prompt recipe"
+      },
+      "task": {
+        "de": "Denk an eine Aufgabe, die du jede Woche ähnlich machst. Bau mit Copilot ein Prompt-Rezept mit Platzhaltern und speichere es dort, wo du es wiederfindest.",
+        "en": "Think of a task you do in a similar way every week. Build a prompt recipe with placeholders together with Copilot and save it where you will find it again."
+      },
+      "copyText": {
+        "de": "Hilf mir, ein wiederverwendbares Prompt-Rezept für diese Aufgabe zu bauen: [Aufgabe]. Setze für alles, was sich jedes Mal ändert, Platzhalter in eckigen Klammern.",
+        "en": "Help me build a reusable prompt recipe for this task: [task]. Use placeholders in square brackets for everything that changes each time."
+      },
+      "license": "basic"
+    },
+    {
+      "id": "c-kritiker",
+      "title": {
+        "de": "Copilot als kritischer Gast",
+        "en": "Copilot as a critical guest"
+      },
+      "task": {
+        "de": "Nimm einen Text an Gäste, zum Beispiel ein Angebot oder eine Reisebeschreibung. Lass Copilot ihn aus Sicht eines kritischen Gastes prüfen und übernimm die zwei besten Hinweise.",
+        "en": "Take a text for guests, for example an offer or a trip description. Have Copilot review it from the perspective of a critical guest and adopt the two best suggestions."
+      },
+      "copyText": {
+        "de": "Du bist ein kritischer Gast, der viel reist. Lies diesen Text und nenne die drei Stellen, die unklar sind oder Fragen auslösen, mit einem Verbesserungsvorschlag. Text: [Text]",
+        "en": "You are a critical guest who travels a lot. Read this text and name the three places that are unclear or raise questions, each with a suggestion. Text: [text]"
+      },
+      "license": "basic"
+    },
+    {
+      "id": "c-woche-vorbereiten",
+      "title": {
+        "de": "Die Woche in fünf Minuten",
+        "en": "The week in five minutes"
+      },
+      "task": {
+        "de": "Lass dir am Montag von Copilot zeigen, was diese Woche ansteht: Termine, offene Mails und Aufgaben. Plane danach die zwei wichtigsten Punkte fest ein.",
+        "en": "On Monday, have Copilot show you what is coming up this week: meetings, open emails and tasks. Then block time for the two most important items."
+      },
+      "copyText": {
+        "de": "Was steht diese Woche bei mir an? Liste wichtige Termine, Mails, die noch eine Antwort von mir brauchen, und offene Aufgaben auf.",
+        "en": "What is coming up for me this week? List important meetings, emails that still need a reply from me and open tasks."
+      },
+      "license": "premium",
+      "app": "outlook"
+    },
+    {
+      "id": "c-meeting-recap",
+      "title": {
+        "de": "Kein Meeting ohne Aufgabenliste",
+        "en": "No meeting without a task list"
+      },
+      "task": {
+        "de": "Öffne nach deinem nächsten Teams-Meeting die Zusammenfassung von Copilot. Prüfe die Aufgaben und schicke sie in den Chat des Meetings.",
+        "en": "After your next Teams meeting, open Copilot's recap. Check the tasks and post them in the meeting chat."
+      },
+      "copyText": {
+        "de": "Liste alle Aufgaben aus diesem Meeting auf, mit verantwortlicher Person und Frist. Was ist noch offen?",
+        "en": "List all tasks from this meeting with owner and deadline. What is still open?"
+      },
+      "license": "premium",
+      "app": "teams"
+    },
+    {
+      "id": "c-excel-frage",
+      "title": {
+        "de": "Eine Frage an deine Zahlen",
+        "en": "A question for your figures"
+      },
+      "task": {
+        "de": "Öffne eine Excel-Tabelle, die du selbst pflegst. Stell Copilot eine Frage, die du schon lange beantwortet haben wolltest, und prüfe das Ergebnis an zwei Zeilen.",
+        "en": "Open an Excel table you maintain yourself. Ask Copilot a question you have long wanted answered and check the result on two rows."
+      },
+      "copyText": {
+        "de": "Was fällt in diesen Daten auf? Zeig mir die drei wichtigsten Auffälligkeiten und erkläre, wie du darauf kommst.",
+        "en": "What stands out in this data? Show me the three most important findings and explain how you got there."
+      },
+      "license": "premium",
+      "app": "excel"
+    },
+    {
+      "id": "c-folien-notizen",
+      "title": {
+        "de": "Sprechernotizen für die nächste Präsentation",
+        "en": "Speaker notes for your next presentation"
+      },
+      "task": {
+        "de": "Öffne eine Präsentation, die du bald hältst. Lass Copilot Sprechernotizen schreiben und die drei wahrscheinlichsten Fragen aus dem Publikum vorbereiten.",
+        "en": "Open a presentation you will give soon. Have Copilot write speaker notes and prepare the three most likely audience questions."
+      },
+      "copyText": {
+        "de": "Schreibe kurze Sprechernotizen für jede Folie und nenne die drei Fragen, die das Publikum am wahrscheinlichsten stellt, mit einer Antwort.",
+        "en": "Write short speaker notes for every slide and name the three questions the audience is most likely to ask, each with an answer."
+      },
+      "license": "premium",
+      "app": "powerpoint"
+    }
+  ]
+}

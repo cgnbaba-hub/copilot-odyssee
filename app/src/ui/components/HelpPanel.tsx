@@ -1,7 +1,9 @@
 import * as React from 'react';
 
 import { HelpTopic } from '../../core/content/types';
+import { formatLongDate } from '../format';
 import { useGame } from '../GameContext';
+import { format } from '../i18n/strings';
 import styles from '../styles.module.scss';
 import { Drawer } from './Drawer';
 import { Guide } from './Guide';
@@ -18,7 +20,7 @@ export function searchWords(query: string): string[] {
 
 /** Questions and answers from content/help.json, grouped and searchable, as a panel over the game. */
 export function HelpPanel(props: { onClose: () => void; onFeedback?: () => void; initialTopic?: string }): React.ReactElement {
-  const { content, player, strings, t } = useGame();
+  const { content, lang, player, strings, t } = useGame();
   const topics = content.help || [];
   const groups = content.helpGroups || [];
   const [open, setOpen] = React.useState<string | undefined>(props.initialTopic);
@@ -44,6 +46,11 @@ export function HelpPanel(props: { onClose: () => void; onFeedback?: () => void;
           <div className={styles.faqAnswer}>
             <RichText text={t(topic.answer)} />
             {topic.illustration === 'license' && <LicenseMockup highlight={player.profile.license} />}
+            {(topic.asOf || content.helpReviewedAt) && (
+              <p className={styles.asOfLine} title={strings.asOfHint}>
+                {format(strings.asOf, { date: formatLongDate(lang, (topic.asOf || content.helpReviewedAt) as string) })}
+              </p>
+            )}
           </div>
         )}
       </li>

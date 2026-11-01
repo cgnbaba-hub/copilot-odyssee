@@ -10,3 +10,9 @@ export function formatNumber(lang: Lang, value: number): string {
 export function formatDate(lang: Lang, iso: string): string {
   return new Date(iso).toLocaleDateString(LOCALE[lang], { day: '2-digit', month: '2-digit', year: 'numeric' });
 }
+
+/** "1. November 2026" / "1 November 2026", for the date a fact was checked. */
+export function formatLongDate(lang: Lang, iso: string): string {
+  const date = new Date(`${iso}T12:00:00`);
+  return isNaN(date.getTime()) ? iso : date.toLocaleDateString(LOCALE[lang], { day: 'numeric', month: 'long', year: 'numeric' });
+}

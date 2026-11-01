@@ -1,6 +1,6 @@
 import Ajv2020, { ErrorObject } from 'ajv/dist/2020';
 
-import { Area, ContentBundle, HelpGroup, HelpTopic, Island, LearningModule, PromptTemplate } from './types';
+import { Area, Challenge, ContentBundle, HelpGroup, HelpTopic, Island, LearningModule, PromptTemplate } from './types';
 
 /**
  * Validates content packs against the JSON schemas in /content/schema plus
@@ -15,6 +15,8 @@ export interface ContentSchemas {
   help: object;
   areas: object;
   prompts: object;
+  /** Optional so older callers keep working; without it challenges.json is not checked. */
+  challenges?: object;
 }
 
 /** Content files besides islands and modules; each is optional. */
@@ -22,6 +24,7 @@ export interface ExtraContentFiles {
   help?: ContentFile<unknown>;
   areas?: ContentFile<unknown>;
   prompts?: ContentFile<unknown>;
+  challenges?: ContentFile<unknown>;
 }
 
 export interface ContentFile<T> {
@@ -133,9 +136,7 @@ export function validateContent(
   const validatePrompts = ajv.compile(schemas.prompts);
 
   const schemaErrors = (file: string, errors: ErrorObject[] | null | undefined): void => {
-    (errors || [])
-      .filter((e) => e.keyword !== 'if')
-      .forEach((e) => result.errors.push({ file, message: formatSchemaError(e) }));
+    (errors || []).filter((e) => e.keyword !== 'if').forEach((e) => result.errors.push({ file, message: formatSchemaError(e) }));
   };
 
   const eszett = (file: ContentFile<unknown>): void => {
@@ -171,11 +172,13 @@ export function validateContent(
   let help: HelpTopic[] | undefined;
   let helpGroups: HelpGroup[] | undefined;
   let contact: string | undefined;
+  let helpReviewedAt: string | undefined;
   const helpFile = extras.help;
   if (helpFile) {
     if (validateHelp(helpFile.data)) {
-      const data = helpFile.data as { topics: HelpTopic[]; groups?: HelpGroup[]; contact?: string };
+      const data = helpFile.data as { topics: HelpTopic[]; groups?: HelpGroup[]; contact?: string; reviewedAt?: string };
       help = data.topics;
+      helpReviewedAt = data.reviewedAt;
       helpGroups = data.groups;
       contact = data.contact;
       duplicates(help.map((t) => t.id)).forEach((id) => result.errors.push({ file: helpFile.path, message: `Hilfethema-id "${id}" kommt mehrfach vor.` }));
@@ -220,13 +223,31 @@ export function validateContent(
     eszett(promptsFile);
   }
 
+  let challenges: Challenge[] | undefined;
+  const challengesFile = extras.challenges;
+  if (challengesFile && schemas.challenges) {
+    const validateChallenges = ajv.compile(schemas.challenges);
+    if (validateChallenges(challengesFile.data)) {
+      challenges = (challengesFile.data as { challenges: Challenge[] }).challenges;
+      duplicates(challenges.map((c) => c.id)).forEach((id) => result.errors.push({ file: challengesFile.path, message: `Challenge-id "${id}" kommt mehrfach vor.` }));
+      if (!challenges.some((c) => c.license === 'basic')) {
+        result.warnings.push({ file: challengesFile.path, message: 'Keine Challenge für Basic: Personen mit Copilot Chat (Basic) sehen keine Challenge der Woche.' });
+      }
+    } else {
+      schemaErrors(challengesFile.path, validateChallenges.errors);
+    }
+    eszett(challengesFile);
+  }
+
   if (result.errors.length === 0) {
     const bundle: ContentBundle = { islands, modules };
     if (help) bundle.help = help;
     if (helpGroups) bundle.helpGroups = helpGroups;
     if (contact) bundle.contact = contact;
+    if (helpReviewedAt) bundle.helpReviewedAt = helpReviewedAt;
     if (areas) bundle.areas = areas;
     if (prompts) bundle.prompts = prompts;
+    if (challenges) bundle.challenges = challenges;
     result.bundle = bundle;
   }
   return result;

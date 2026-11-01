@@ -45,7 +45,9 @@ export function parseContentFile(data: unknown): ContentBundle {
     help: list(data.help),
     helpGroups: list(data.helpGroups),
     contact: typeof data.contact === 'string' ? data.contact : undefined,
+    helpReviewedAt: typeof data.helpReviewedAt === 'string' ? data.helpReviewedAt : undefined,
     areas: list(data.areas),
-    prompts: list(data.prompts)
+    prompts: list(data.prompts),
+    challenges: list(data.challenges)
   };
 }

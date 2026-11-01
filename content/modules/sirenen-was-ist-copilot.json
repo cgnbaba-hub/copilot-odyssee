@@ -3,7 +3,7 @@
   "id": "sirenen-was-ist-copilot",
   "island": "sirenenfelsen",
   "order": 1,
-  "version": "0.2.0",
+  "version": "0.3.0",
   "owner": "copilot-team",
   "status": "draft",
   "title": {
@@ -25,8 +25,8 @@
         "en": "Copilot in two tiers"
       },
       "body": {
-        "de": "Copilot ist der KI-Assistent von Microsoft. Du schreibst in normaler Sprache, was du brauchst, und Copilot entwirft Texte, fasst zusammen, beantwortet Fragen oder hilft beim Strukturieren.\n\nEs gibt zwei Stufen. In der App steht jeweils dabei, welche du nutzt:\n- **Copilot Chat (Basic)** haben alle mit einem Firmenkonto. Er arbeitet mit Wissen aus dem Web und mit dem, was du ihm gibst, also eingefügtem Text oder hochgeladenen Dateien.\n- **M365 Copilot (Premium)** ist eine Zusatzlizenz. Er kann zusätzlich in deinen Arbeitsdaten suchen (Mails, Chats, Dateien, Meetings) und ist direkt in Word, Excel, PowerPoint und Teams eingebaut.\n\nIn beiden Fällen gilt: Copilot unterstützt, du entscheidest.",
-        "en": "Copilot is Microsoft's AI assistant. You write what you need in plain language, and Copilot drafts text, summarises, answers questions or helps you structure things.\n\nThere are two tiers, and the app shows which one you are using:\n- **Copilot Chat (Basic)** is available to everyone with a work account. It works with knowledge from the web and with what you give it, such as pasted text or uploaded files.\n- **M365 Copilot (Premium)** is an add-on licence. It can also search your work data (emails, chats, files, meetings) and is built right into Word, Excel, PowerPoint and Teams.\n\nEither way: Copilot assists, you decide."
+        "de": "Copilot ist der KI-Assistent von Microsoft. Du schreibst in normaler Sprache, was du brauchst, und Copilot entwirft Texte, fasst zusammen, beantwortet Fragen oder hilft beim Strukturieren.\n\nEs gibt zwei Stufen. In der App steht jeweils dabei, welche du nutzt:\n- **Copilot Chat (Basic)** haben alle mit einem Firmenkonto. Er arbeitet mit Wissen aus dem Web und mit dem, was du ihm gibst, also eingefügtem Text oder hochgeladenen Dateien. In Outlook beantwortet er zusätzlich einfache Fragen zu deinem Posteingang und Kalender.\n- **M365 Copilot (Premium)** ist eine Zusatzlizenz. Er kann zusätzlich in deinen Arbeitsdaten suchen (Mails, Chats, Dateien, Meetings) und ist direkt in Word, Excel, PowerPoint und Teams eingebaut.\n\nIn beiden Fällen gilt: Copilot unterstützt, du entscheidest.",
+        "en": "Copilot is Microsoft's AI assistant. You write what you need in plain language, and Copilot drafts text, summarises, answers questions or helps you structure things.\n\nThere are two tiers, and the app shows which one you are using:\n- **Copilot Chat (Basic)** is available to everyone with a work account. It works with knowledge from the web and with what you give it, such as pasted text or uploaded files. In Outlook, it also answers simple questions about your inbox and calendar.\n- **M365 Copilot (Premium)** is an add-on licence. It can also search your work data (emails, chats, files, meetings) and is built right into Word, Excel, PowerPoint and Teams.\n\nEither way: Copilot assists, you decide."
       }
     },
     {
@@ -160,6 +160,6 @@
       ]
     }
   ],
-  "reviewedAt": "2026-10-28",
+  "reviewedAt": "2026-11-01",
   "reviewIntervalDays": 90
 }

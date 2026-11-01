@@ -3,10 +3,10 @@
   "id": "aiolos-copilot-chat-kennenlernen",
   "island": "aiolos",
   "order": 1,
-  "version": "1.1.0",
+  "version": "1.2.0",
   "owner": "copilot-team",
   "status": "draft",
-  "reviewedAt": "2026-10-28",
+  "reviewedAt": "2026-11-01",
   "reviewIntervalDays": 90,
   "title": {
     "de": "Copilot Chat kennenlernen",
@@ -17,7 +17,7 @@
     "en": "Where to find Copilot Chat (Basic), what it can do and what it cannot see."
   },
   "estimatedMinutes": 8,
-  "notes": "Stand Oktober 2026: Seit 15.04.2026 ist Copilot in Word, Excel, PowerPoint und OneNote für Personen ohne Lizenz in Organisationen mit mehr als 2000 Plätzen entfernt, in kleineren eingeschränkt (Message Center MC1253858/MC1253863, laut Fachpresse). Web, Microsoft-365-Copilot-App und Outlook bleiben. Bei jeder Prüfung gegen das Message Center abgleichen; Angaben zu Teams bewusst weggelassen, da unklar.",
+  "notes": "Stand Oktober 2026: Seit 15.04.2026 ist Copilot in Word, Excel, PowerPoint und OneNote für Personen ohne Lizenz in Organisationen mit mehr als 2000 Plätzen entfernt, in kleineren eingeschränkt (Message Center MC1253858/MC1253863, laut Fachpresse). Web, Microsoft-365-Copilot-App und Outlook bleiben. Bei jeder Prüfung gegen das Message Center abgleichen; Angaben zu Teams bewusst weggelassen, da unklar. Faktencheck 2026-11-01: Office-Apps ohne Lizenz ab >2000 Plätzen (MC1253858); Outlook-Basic mit Posteingang/Kalender (Microsoft-Support).",
   "blocks": [
     {
       "type": "briefing",
@@ -27,8 +27,8 @@
         "en": "Where to find Copilot Chat"
       },
       "body": {
-        "de": "Copilot Chat (Basic) erreichst du mit deinem Firmenkonto hier:\n- **im Browser** unter m365.cloud.microsoft/chat\n- in der **Microsoft-365-Copilot-App** auf dem Computer oder dem Handy\n- in **Outlook**\n- in **Microsoft Edge** als Seitenleiste: oben rechts auf das Copilot-Symbol klicken. So hast du Copilot direkt neben jeder Webseite, auch neben der Odyssee.\n\nIn Word, Excel, PowerPoint und OneNote ist Copilot seit April 2026 in grösseren Organisationen der Premium-Lizenz vorbehalten. Mit Basic arbeitest du dort, indem du Texte in den Chat kopierst oder Dateien hochlädst.",
-        "en": "You can reach Copilot Chat (Basic) with your work account here:\n- **in the browser** at m365.cloud.microsoft/chat\n- in the **Microsoft 365 Copilot app** on your computer or phone\n- in **Outlook**\n- in **Microsoft Edge** as a sidebar: click the Copilot icon at the top right. That way you have Copilot right beside any web page, including the Odyssey.\n\nIn Word, Excel, PowerPoint and OneNote, larger organisations have reserved Copilot for the Premium licence since April 2026. With Basic you work with those documents by copying text into the chat or uploading files."
+        "de": "Copilot Chat (Basic) erreichst du mit deinem Firmenkonto hier:\n- **im Browser** unter m365.cloud.microsoft/chat\n- in der **Microsoft-365-Copilot-App** auf dem Computer oder dem Handy\n- in **Outlook**\n- in **Microsoft Edge** als Seitenleiste: oben rechts auf das Copilot-Symbol klicken. So hast du Copilot direkt neben jeder Webseite, auch neben der Odyssee.\n\nIn Word, Excel, PowerPoint und OneNote gibt es Copilot seit Frühling 2026 in Organisationen mit mehr als 2000 Microsoft-365-Lizenzen nur noch mit Premium. Mit Basic arbeitest du dort, indem du Texte in den Chat kopierst oder Dateien hochlädst.",
+        "en": "You can reach Copilot Chat (Basic) with your work account here:\n- **in the browser** at m365.cloud.microsoft/chat\n- in the **Microsoft 365 Copilot app** on your computer or phone\n- in **Outlook**\n- in **Microsoft Edge** as a sidebar: click the Copilot icon at the top right. That way you have Copilot right beside any web page, including the Odyssey.\n\nSince spring 2026, organisations with more than 2,000 Microsoft 365 licences only have Copilot in Word, Excel, PowerPoint and OneNote with Premium. With Basic you work with those documents by copying text into the chat or uploading files."
       }
     },
     {
@@ -39,8 +39,8 @@
         "en": "What Copilot Chat sees and what it doesn't"
       },
       "body": {
-        "de": "Copilot Chat (Basic) arbeitet mit zwei Quellen:\n- **dem Web**, für allgemeines Wissen und aktuelle Themen\n- **dem, was du ihm gibst**: deine Nachricht, eingefügter Text und hochgeladene Dateien\n\nWas Copilot Chat (Basic) **nicht** kann: selbstständig in euren SharePoint-Seiten, Teams-Chats oder deinem OneDrive suchen. Das ist der Premium-Lizenz vorbehalten. Wenn Copilot ein internes Dokument kennen soll, gib es ihm.",
-        "en": "Copilot Chat (Basic) works with two sources:\n- **the web**, for general knowledge and current topics\n- **what you give it**: your message, pasted text and uploaded files\n\nWhat Copilot Chat (Basic) **cannot** do is search your SharePoint sites, Teams chats or OneDrive on its own. That is reserved for the Premium licence. If Copilot should know an internal document, give it to Copilot."
+        "de": "Copilot Chat (Basic) arbeitet mit zwei Quellen:\n- **dem Web**, für allgemeines Wissen und aktuelle Themen\n- **dem, was du ihm gibst**: deine Nachricht, eingefügter Text und hochgeladene Dateien\n\nWas Copilot Chat (Basic) **nicht** kann: selbstständig in euren SharePoint-Seiten, Teams-Chats oder deinem OneDrive suchen. Das ist der Premium-Lizenz vorbehalten. Eine Ausnahme ist Outlook: Dort beantwortet Copilot auch mit Basic einfache Fragen zu deinem Posteingang und Kalender. Wenn Copilot ein internes Dokument kennen soll, gib es ihm.",
+        "en": "Copilot Chat (Basic) works with two sources:\n- **the web**, for general knowledge and current topics\n- **what you give it**: your message, pasted text and uploaded files\n\nWhat Copilot Chat (Basic) **cannot** do is search your SharePoint sites, Teams chats or OneDrive on its own. That is reserved for the Premium licence. Outlook is an exception: there, Copilot answers simple questions about your inbox and calendar even with Basic. If Copilot should know an internal document, give it to Copilot."
       }
     },
     {
@@ -103,13 +103,13 @@
         {
           "id": "d",
           "text": {
-            "de": "Copilot antwortet trotzdem, aber nur mit öffentlichen Infos aus dem Web",
-            "en": "Copilot still answers, but only with public information from the web"
+            "de": "Copilot sucht das Dokument in deinen früheren Chats",
+            "en": "Copilot looks for the document in your earlier chats"
           },
           "correct": false,
           "explanation": {
-            "de": "Das kann passieren, und genau das ist gefährlich: Die Antwort klingt passend, beruht aber nicht auf eurem Konzept.",
-            "en": "That can happen, and that is exactly the danger: the answer sounds fitting but is not based on your concept."
+            "de": "Frühere Chats durchsucht Copilot dafür nicht. Gib ihm die Datei oder den Text.",
+            "en": "Copilot does not search your earlier chats for it. Give it the file or the text."
           }
         }
       ]

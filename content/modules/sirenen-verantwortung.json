@@ -3,10 +3,10 @@
   "id": "sirenen-verantwortung",
   "island": "sirenenfelsen",
   "order": 3,
-  "version": "1.0.0",
+  "version": "1.1.0",
   "owner": "copilot-team",
   "status": "draft",
-  "reviewedAt": "2026-10-28",
+  "reviewedAt": "2026-11-01",
   "reviewIntervalDays": 90,
   "title": {
     "de": "Sicher und verantwortungsvoll",
@@ -27,8 +27,8 @@
         "en": "The shield: enterprise data protection"
       },
       "body": {
-        "de": "Wenn du mit deinem Firmenkonto angemeldet bist, zeigt Copilot Chat ein **Schild-Symbol**. Es steht für den Unternehmensdatenschutz (Enterprise Data Protection):\n- Deine Eingaben und die Antworten werden **nicht zum Training** der KI-Modelle verwendet.\n- Sie werden **innerhalb von Microsoft 365** verarbeitet, unter den gleichen Verträgen wie deine Mails und Dateien.\n- Sie werden wie andere Firmendaten **protokolliert und aufbewahrt**, zum Beispiel für Audits.\n\nDas heisst auch: Copilot ist ein Firmen-Werkzeug, kein privates Tagebuch. Für private KI-Dienste ohne Schild gelten diese Zusagen nicht, dort haben Firmendaten nichts verloren.",
-        "en": "When you are signed in with your work account, Copilot Chat shows a **shield icon**. It stands for enterprise data protection:\n- Your prompts and the answers are **not used to train** the AI models.\n- They are processed **within Microsoft 365**, under the same contracts as your emails and files.\n- Like other company data, they are **logged and retained**, for example for audits.\n\nThat also means: Copilot is a work tool, not a private diary. Private AI services without the shield come without these commitments, and company data does not belong there."
+        "de": "Wenn du mit deinem Firmenkonto angemeldet bist, zeigt Copilot Chat ein **Schild-Symbol**. Es steht für den Unternehmensdatenschutz (Enterprise Data Protection):\n- Deine Eingaben und die Antworten werden **nicht zum Training** der KI-Modelle verwendet.\n- Sie werden **innerhalb von Microsoft 365** verarbeitet, unter den gleichen Verträgen wie deine Mails und Dateien.\n- Sie werden wie andere Firmendaten **protokolliert und aufbewahrt**, zum Beispiel für Audits.\n- Für eine **Websuche** schickt Copilot nur eine kurze Suchanfrage an Bing, ohne deinen Namen und ohne Firmenkennung. Diese Suchanfragen fallen nicht unter dieselben Verträge. Auch darum gehören vertrauliche Details nicht in den Prompt.\n\nDas heisst auch: Copilot ist ein Firmen-Werkzeug, kein privates Tagebuch. Für private KI-Dienste ohne Schild gelten diese Zusagen nicht, dort haben Firmendaten nichts verloren.",
+        "en": "When you are signed in with your work account, Copilot Chat shows a **shield icon**. It stands for enterprise data protection:\n- Your prompts and the answers are **not used to train** the AI models.\n- They are processed **within Microsoft 365**, under the same contracts as your emails and files.\n- Like other company data, they are **logged and retained**, for example for audits.\n- For a **web search**, Copilot only sends a short search query to Bing, without your name and without a company identifier. These search queries are not covered by the same contracts. That is another reason why confidential details do not belong in a prompt.\n\nThat also means: Copilot is a work tool, not a private diary. Private AI services without the shield come without these commitments, and company data does not belong there."
       }
     },
     {

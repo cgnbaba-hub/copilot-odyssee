@@ -1,5 +1,6 @@
 {
   "$schema": "./schema/help.schema.json",
+  "reviewedAt": "2026-11-01",
   "contact": "ai-automation@dertour.ch",
   "groups": [
     {
@@ -60,8 +61,8 @@
         "en": "What is the difference between Basic and Premium?"
       },
       "answer": {
-        "de": "**Copilot Chat (Basic)**\n- Du schreibst Copilot im Chat, was du brauchst.\n- Copilot kennt das Internet und alles, was du ihm gibst: Text, den du einfügst, und Dateien, die du hochlädst.\n- Du findest ihn im Browser, in der Microsoft-365-Copilot-App und in Outlook.\n\n**M365 Copilot (Premium)**\n- Kann zusätzlich selbst in deinen Mails, Chats, Dateien und Meetings suchen.\n- Ist direkt in Word, Excel, PowerPoint und Teams eingebaut.\n\nInseln mit dem Hinweis **«Nur mit Premium»** kannst du trotzdem besuchen und lesen. Ausprobieren geht erst mit der Premium-Lizenz.",
-        "en": "**Copilot Chat (Basic)**\n- You tell Copilot in the chat what you need.\n- Copilot knows the internet and everything you give it: text you paste and files you upload.\n- You find it in the browser, in the Microsoft 365 Copilot app and in Outlook.\n\n**M365 Copilot (Premium)**\n- Can also search your emails, chats, files and meetings by itself.\n- Is built right into Word, Excel, PowerPoint and Teams.\n\nYou can still visit and read islands marked **“Premium only”**. Trying things out requires the Premium licence."
+        "de": "**Copilot Chat (Basic)**\n- Du schreibst Copilot im Chat, was du brauchst.\n- Copilot kennt das Internet und alles, was du ihm gibst: Text, den du einfügst, und Dateien, die du hochlädst.\n- Du findest ihn im Browser, in der Microsoft-365-Copilot-App, in der Edge-Seitenleiste und in Outlook. In Outlook beantwortet er auch einfache Fragen zu Posteingang und Kalender.\n\n**M365 Copilot (Premium)**\n- Kann zusätzlich selbst in deinen Mails, Chats, Dateien und Meetings suchen.\n- Ist direkt in Word, Excel, PowerPoint und Teams eingebaut.\n\nInseln mit dem Hinweis **«Nur mit Premium»** kannst du trotzdem besuchen und lesen. Ausprobieren geht erst mit der Premium-Lizenz.",
+        "en": "**Copilot Chat (Basic)**\n- You tell Copilot in the chat what you need.\n- Copilot knows the internet and everything you give it: text you paste and files you upload.\n- You find it in the browser, in the Microsoft 365 Copilot app, in the Edge sidebar and in Outlook. In Outlook it also answers simple questions about your inbox and calendar.\n\n**M365 Copilot (Premium)**\n- Can also search your emails, chats, files and meetings by itself.\n- Is built right into Word, Excel, PowerPoint and Teams.\n\nYou can still visit and read islands marked **“Premium only”**. Trying things out requires the Premium licence."
       }
     },
     {
@@ -300,8 +301,8 @@
         "en": "What works in Outlook with Basic, and what only with Premium?"
       },
       "answer": {
-        "de": "**Mit Basic:**\n- eine geöffnete Mail zusammenfassen lassen\n- im Seitenbereich Fragen zur Mail stellen\n- Antworttexte vorschlagen lassen und in deine Antwort kopieren\n\n**Zusätzlich mit Premium:**\n- Entwurf direkt im Antwortfenster und Coaching für deine eigenen Texte\n- Fragen an dein ganzes Postfach und deinen Kalender\n- «Planen mit Copilot»: aus einem Mailverlauf eine Meeting-Einladung machen",
-        "en": "**With Basic:**\n- have an open email summarised\n- ask questions about the email in the side pane\n- have reply texts suggested and copy them into your reply\n\n**Additionally with Premium:**\n- a draft directly in the reply window and coaching for your own texts\n- questions about your whole mailbox and calendar\n- “Schedule with Copilot”: turn an email thread into a meeting invitation"
+        "de": "**Mit Basic:**\n- eine geöffnete Mail zusammenfassen lassen\n- im Seitenbereich Fragen zur Mail stellen\n- Antworttexte vorschlagen lassen und in deine Antwort kopieren\n- einfache Fragen zu Posteingang und Kalender, zum Beispiel «Welche Termine habe ich morgen?»\n\n**Zusätzlich mit Premium:**\n- Entwurf direkt im Antwortfenster und Coaching für deine eigenen Texte\n- Fragen über Mails, Teams-Chats, Dateien und Meetings hinweg\n- «Planen mit Copilot»: aus einem Mailverlauf eine Meeting-Einladung machen",
+        "en": "**With Basic:**\n- have an open email summarised\n- ask questions about the email in the side pane\n- have reply texts suggested and copy them into your reply\n- simple questions about your inbox and calendar, for example “What meetings do I have tomorrow?”\n\n**Additionally with Premium:**\n- a draft directly in the reply window and coaching for your own texts\n- questions across emails, Teams chats, files and meetings\n- “Schedule with Copilot”: turn an email thread into a meeting invitation"
       }
     },
     {
@@ -348,8 +349,8 @@
         "en": "What are agents and where do I find them?"
       },
       "answer": {
-        "de": "Ein Agent ist ein Copilot mit einer festen Aufgabe, zum Beispiel für ein Handbuch oder eine Recherche. Du findest Agenten in Copilot links unter **«Agenten»**.\n- **Researcher** und **Analyst** gibt es mit Premium.\n- Welche weiteren Agenten du siehst und ob du selbst welche bauen kannst, legt das Unternehmen fest.\n\nMehr dazu in der Schmiede des Hephaistos.",
-        "en": "An agent is a Copilot with a fixed job, for example for a handbook or research. You find agents in Copilot on the left under **“Agents”**.\n- **Researcher** and **Analyst** come with Premium.\n- Which other agents you see and whether you can build your own is decided by the company.\n\nMore on this at the Forge of Hephaestus."
+        "de": "Ein Agent ist ein Copilot mit einer festen Aufgabe, zum Beispiel für ein Handbuch oder eine Recherche. Du findest Agenten in Copilot links unter **«Agenten»**.\n- **Researcher** und **Analyst** gibt es mit Premium.\n- Welche weiteren Agenten du siehst und ob du selbst welche bauen kannst, legt das Unternehmen fest. Mit Basic gehen einfache Agenten, die mit dem Web arbeiten.\n\nMehr dazu in der Schmiede des Hephaistos.",
+        "en": "An agent is a Copilot with a fixed job, for example for a handbook or research. You find agents in Copilot on the left under **“Agents”**.\n- **Researcher** and **Analyst** come with Premium.\n- Which other agents you see and whether you can build your own is decided by the company. With Basic, simple agents that work with the web are possible.\n\nMore on this at the Forge of Hephaestus."
       }
     },
     {
