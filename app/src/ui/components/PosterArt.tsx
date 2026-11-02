@@ -375,3 +375,25 @@ export function PosterBanner(props: { className?: string }): React.ReactElement 
     </svg>
   );
 }
+
+/**
+ * Clouds over an island the player's licence does not cover, with a lock
+ * in the middle. Same coordinates as {@link PosterIsland}.
+ */
+export function IslandFog(): React.ReactElement {
+  return (
+    <g className="od-fog" aria-hidden="true">
+      <g fill="#fbf6e8" stroke={INK} strokeWidth="2.5" strokeOpacity="0.25">
+        <ellipse cx="-80" cy="-58" rx="92" ry="40" />
+        <ellipse cx="70" cy="-96" rx="104" ry="46" />
+        <ellipse cx="-18" cy="-136" rx="86" ry="38" />
+        <ellipse cx="0" cy="-22" rx="156" ry="34" />
+      </g>
+      <g transform="translate(0 -80)">
+        <circle r="30" fill={INK} />
+        <rect x="-12" y="-4" width="24" height="18" rx="3" fill="#fbf6e8" />
+        <path d="M-7 -4 V-11 a7 7 0 0 1 14 0 V-4" fill="none" stroke="#fbf6e8" strokeWidth="4" />
+      </g>
+    </g>
+  );
+}

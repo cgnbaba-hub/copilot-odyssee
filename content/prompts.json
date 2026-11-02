@@ -164,8 +164,8 @@
         "en": "Answers to frequent questions"
       },
       "prompt": {
-        "de": "Erstelle Antworten auf die zehn häufigsten Fragen von Kundinnen und Kunden zu [Thema, zum Beispiel Reiseversicherung]. Einfache Sprache, je höchstens drei Sätze. Kennzeichne, was ich vor dem Weitergeben prüfen muss.",
-        "en": "Create answers to the ten most frequent customer questions about [topic, for example travel insurance]. Plain language, at most three sentences each. Mark what I need to check before passing it on."
+        "de": "Erstelle Antworten auf diese häufigen Fragen von Kundinnen und Kunden zu [Thema, zum Beispiel Reiseversicherung]: [Fragen]. Stütze dich nur auf diese Angaben: [unsere Bedingungen oder Infos]. Einfache Sprache, je höchstens drei Sätze. Kennzeichne, was ich vor dem Weitergeben prüfen muss.",
+        "en": "Write answers to these frequent customer questions about [topic, for example travel insurance]: [questions]. Base them only on this information: [our terms or information]. Plain language, at most three sentences each. Mark what I need to check before passing them on."
       },
       "areas": [
         "beratung",
@@ -578,10 +578,10 @@
         "en": "Instructions for an agent"
       },
       "prompt": {
-        "de": "Du hilfst [Zielgruppe] bei [Aufgabe]. Stütze dich nur auf [Dokumente]. Antworte freundlich und kurz, höchstens [Anzahl] Wörter. Nenne keine verbindlichen Preise und frag nach, wenn Angaben fehlen.",
-        "en": "You help [audience] with [task]. Rely only on [documents]. Answer briefly and kindly, at most [number] words. Do not state binding prices and ask if information is missing."
+        "de": "Du hilfst [Zielgruppe] bei [Aufgabe]. Stütze dich nur auf [Webseiten oder, mit Premium, Dokumente]. Antworte freundlich und kurz, höchstens [Anzahl] Wörter. Nenne keine verbindlichen Preise und frag nach, wenn Angaben fehlen.",
+        "en": "You help [audience] with [task]. Rely only on [websites or, with Premium, documents]. Answer briefly and kindly, at most [number] words. Do not state binding prices and ask if information is missing."
       },
-      "license": "premium"
+      "license": "basic"
     }
   ]
 }

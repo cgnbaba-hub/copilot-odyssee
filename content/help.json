@@ -1,6 +1,6 @@
 {
   "$schema": "./schema/help.schema.json",
-  "reviewedAt": "2026-11-01",
+  "reviewedAt": "2026-11-02",
   "contact": "ai-automation@dertour.ch",
   "groups": [
     {
@@ -49,8 +49,8 @@
         "en": "Which version of Copilot do I have?"
       },
       "answer": {
-        "de": "Es gibt zwei Versionen. Copilot zeigt dir an, welche du hast:\n- **Copilot Chat (Basic)** haben alle mit einem Firmenkonto.\n- **M365 Copilot (Premium)** haben nur Personen mit einer Zusatzlizenz.\n\nSo findest du es heraus:\n- Öffne Copilot im Browser unter **m365.cloud.microsoft/chat**.\n- Schau nach der Bezeichnung **«Basic»** oder **«Premium»**. In Outlook steht sie unten im Bereich Copilot Chat, zum Beispiel «M365 Copilot (Premium)».\n- Siehst du keine Bezeichnung? Dann öffne **myaccount.microsoft.com** und klicke auf **«Abonnements»**. Dort sind deine Lizenzen aufgelistet.\n\nIm Zweifel wähle in dieser App **Copilot Chat (Basic)**. Du kannst die Einstellung jederzeit ändern.",
-        "en": "There are two versions. Copilot shows you which one you have:\n- **Copilot Chat (Basic)** is available to everyone with a work account.\n- **M365 Copilot (Premium)** is only for people with an add-on licence.\n\nHow to find out:\n- Open Copilot in the browser at **m365.cloud.microsoft/chat**.\n- Look for the label **“Basic”** or **“Premium”**. In Outlook it is shown at the bottom of the Copilot Chat pane, for example “M365 Copilot (Premium)”.\n- No label? Then open **myaccount.microsoft.com** and click **“Subscriptions”**. Your licences are listed there.\n\nIf in doubt, choose **Copilot Chat (Basic)** in this app. You can change the setting at any time."
+        "de": "Es gibt zwei Versionen. Copilot zeigt dir an, welche du hast:\n- **Copilot Chat (Basic)** haben alle mit einem Firmenkonto und einer Microsoft-365-Lizenz, bei uns zum Beispiel E3. Dafür brauchst du keine Zusatzlizenz.\n- **M365 Copilot (Premium)** haben nur Personen mit einer Zusatzlizenz.\n\nSo findest du es heraus:\n- Öffne Copilot im Browser unter **m365.cloud.microsoft/chat**.\n- Schau nach der Bezeichnung **«Basic»** oder **«Premium»**. In Outlook steht sie unten im Bereich Copilot Chat, zum Beispiel «M365 Copilot (Premium)».\n- Siehst du keine Bezeichnung? Dann öffne **myaccount.microsoft.com** und klicke auf **«Abonnements»**. Dort sind deine Lizenzen aufgelistet.\n\nIm Zweifel wähle in dieser App **Copilot Chat (Basic)**. Du kannst die Einstellung jederzeit ändern.",
+        "en": "There are two versions. Copilot shows you which one you have:\n- **Copilot Chat (Basic)** is available to everyone with a work account and a Microsoft 365 licence, at our company for example E3. No add-on licence is needed.\n- **M365 Copilot (Premium)** is only for people with an add-on licence.\n\nHow to find out:\n- Open Copilot in the browser at **m365.cloud.microsoft/chat**.\n- Look for the label **“Basic”** or **“Premium”**. In Outlook it is shown at the bottom of the Copilot Chat pane, for example “M365 Copilot (Premium)”.\n- No label? Then open **myaccount.microsoft.com** and click **“Subscriptions”**. Your licences are listed there.\n\nIf in doubt, choose **Copilot Chat (Basic)** in this app. You can change the setting at any time."
       }
     },
     {
@@ -61,8 +61,8 @@
         "en": "What is the difference between Basic and Premium?"
       },
       "answer": {
-        "de": "**Copilot Chat (Basic)**\n- Du schreibst Copilot im Chat, was du brauchst.\n- Copilot kennt das Internet und alles, was du ihm gibst: Text, den du einfügst, und Dateien, die du hochlädst.\n- Du findest ihn im Browser, in der Copilot-App, in der Edge-Seitenleiste und in Outlook. In Outlook beantwortet er auch einfache Fragen zu Posteingang und Kalender.\n\n**M365 Copilot (Premium)**\n- Kann zusätzlich selbst in deinen Mails, Chats, Dateien und Meetings suchen.\n- Ist direkt in Word, Excel, PowerPoint und Teams eingebaut.\n\nInseln mit dem Hinweis **«Nur mit Premium»** kannst du trotzdem besuchen und lesen. Ausprobieren geht erst mit der Premium-Lizenz.",
-        "en": "**Copilot Chat (Basic)**\n- You tell Copilot in the chat what you need.\n- Copilot knows the internet and everything you give it: text you paste and files you upload.\n- You find it in the browser, in the Copilot app, in the Edge sidebar and in Outlook. In Outlook it also answers simple questions about your inbox and calendar.\n\n**M365 Copilot (Premium)**\n- Can also search your emails, chats, files and meetings by itself.\n- Is built right into Word, Excel, PowerPoint and Teams.\n\nYou can still visit and read islands marked **“Premium only”**. Trying things out requires the Premium licence."
+        "de": "**Copilot Chat (Basic)**\n- Du schreibst Copilot im Chat, was du brauchst.\n- Copilot kennt das Internet und alles, was du ihm gibst: Text, den du einfügst, und Dateien, die du hochlädst.\n- Du findest ihn im Browser, in Teams, in der Copilot-App, in der Edge-Seitenleiste und in Outlook. In Outlook beantwortet er auch einfache Fragen zu Posteingang und Kalender.\n\n**M365 Copilot (Premium)**\n- Kann zusätzlich selbst in deinen Mails, Chats, Dateien und Meetings suchen.\n- Ist direkt in Word, Excel, PowerPoint und Teams eingebaut.\n\nInseln und Etappen **«Nur mit Premium»** liegen für dich im Nebel: Du siehst, was es dort gibt, spielen kannst du sie erst mit der Premium-Lizenz.",
+        "en": "**Copilot Chat (Basic)**\n- You tell Copilot in the chat what you need.\n- Copilot knows the internet and everything you give it: text you paste and files you upload.\n- You find it in the browser, in Teams, in the Copilot app, in the Edge sidebar and in Outlook. In Outlook it also answers simple questions about your inbox and calendar.\n\n**M365 Copilot (Premium)**\n- Can also search your emails, chats, files and meetings by itself.\n- Is built right into Word, Excel, PowerPoint and Teams.\n\nIslands and stages marked **“Premium only”** are in the fog for you: you see what is there, but you can only play them with the Premium licence."
       }
     },
     {
@@ -109,8 +109,8 @@
         "en": "I have Basic. Are the Premium islands still worth it?"
       },
       "answer": {
-        "de": "Ja, zum Lesen und Verstehen. Du siehst, was mit Premium möglich wäre, und kannst besser einschätzen, ob du die Lizenz brauchst.\n\nDie Missionen dort kannst du erst mit Premium ausprobieren. Viele Prompts funktionieren aber auch in Copilot Chat, wenn du den Text oder die Datei selbst hineingibst.",
-        "en": "Yes, for reading and understanding. You see what Premium could do and can judge better whether you need the licence.\n\nYou can only try the missions there with Premium. Many prompts also work in Copilot Chat, though, if you add the text or file yourself."
+        "de": "Du siehst auf jeder Premium-Insel, welche Etappen es gibt und was du dort lernst. So kannst du einschätzen, ob du die Lizenz brauchst. Spielen kannst du die Etappen erst mit Premium.\n\nViele Prompts aus dem Spickzettel funktionieren aber auch in Copilot Chat, wenn du den Text oder die Datei selbst hineingibst.",
+        "en": "On each Premium island you see which stages there are and what you learn there. That helps you judge whether you need the licence. You can only play the stages with Premium.\n\nMany prompts from the cheat sheet also work in Copilot Chat if you paste in the text or the file yourself."
       }
     },
     {
@@ -205,8 +205,8 @@
         "en": "What does choosing the model do?"
       },
       "answer": {
-        "de": "Copilot nutzt mehrere KI-Modelle. **Auto** wählt selbst und passt für die meisten Fragen. Für knifflige Aufgaben mit mehreren Schritten kannst du ein **gründlicheres Modell** wählen, falls du die Auswahl siehst. Welche Modelle es gibt, hängt von Lizenz und IT ab, und die Namen ändern sich oft.",
-        "en": "Copilot uses several AI models. **Auto** chooses itself and fits most questions. For tricky tasks with several steps you can choose a **more thorough model** if you see the choice. Which models are available depends on licence and IT, and the names change often."
+        "de": "Copilot nutzt mehrere KI-Modelle. Über dem Eingabefeld wählst du: **Auto** entscheidet selbst und passt für die meisten Fragen. **Quick Response** antwortet schnell, **Think Deeper** denkt bei kniffligen Aufgaben gründlicher nach. Unter Modellfamilien wie **GPT** findest du einzelne Versionen. Welche du siehst, hängt von Lizenz und IT ab, und die Namen ändern sich oft.",
+        "en": "Copilot uses several AI models. You choose above the input box: **Auto** decides itself and fits most questions. **Quick Response** answers quickly, **Think Deeper** thinks more thoroughly on tricky tasks. Under model families such as **GPT** you find individual versions. Which ones you see depends on licence and IT, and the names change often."
       }
     },
     {
@@ -217,8 +217,8 @@
         "en": "Can Copilot explain a web page to me?"
       },
       "answer": {
-        "de": "Ja, in der **Edge-Seitenleiste**. Öffne die Webseite, klicke oben rechts auf das Copilot-Symbol und frag zum Beispiel: «Fasse diese Seite zusammen» oder «Stelle alle Preise als Tabelle zusammen».\n\nDafür muss in Edge der Zugriff auf Seiteninhalte eingeschaltet sein: Einstellungen › Darstellung › Copilot und Seitenleiste. Je nach Version heisst die Einstellung etwas anders, und manchmal gibt die IT sie vor.",
-        "en": "Yes, in the **Edge sidebar**. Open the web page, click the Copilot icon at the top right and ask, for example: “Summarise this page” or “Put all prices into a table”.\n\nFor this, access to page content must be switched on in Edge: Settings › Appearance › Copilot and sidebar. Depending on the version the setting is named slightly differently, and sometimes IT sets it."
+        "de": "Ja, in der **Edge-Seitenleiste**. Öffne die Webseite, klicke oben rechts auf das Copilot-Symbol und frag zum Beispiel: «Fasse diese Seite zusammen» oder «Stelle alle Preise als Tabelle zusammen».\n\nDafür muss Edge die Seite für Copilot freigeben: In Edge oben rechts auf **«…»** › **Einstellungen**, oben ins Suchfeld **«Copilot»** eingeben und den **Zugriff auf Seiteninhalte** einschalten. Je nach Version heisst der Schalter etwas anders. Ist er grau, gibt die IT die Einstellung vor.",
+        "en": "Yes, in the **Edge sidebar**. Open the web page, click the Copilot icon at the top right and ask, for example: “Summarise this page” or “Put all prices into a table”.\n\nFor this, Edge has to let Copilot read the page: in Edge click **“…”** › **Settings** at the top right, type **“Copilot”** into the search box and switch on **access to page content**. Depending on the version the switch is named slightly differently. If it is greyed out, IT sets it."
       }
     },
     {
@@ -349,8 +349,8 @@
         "en": "What are agents and where do I find them?"
       },
       "answer": {
-        "de": "Ein Agent ist ein Copilot mit einer festen Aufgabe, zum Beispiel für ein Handbuch oder eine Recherche. Du findest Agenten in Copilot links unter **«Agenten»**.\n- **Researcher** und **Analyst** gibt es mit Premium.\n- Welche weiteren Agenten du siehst und ob du selbst welche bauen kannst, legt das Unternehmen fest. Mit Basic gehen einfache Agenten, die mit dem Web arbeiten.\n\nMehr dazu in der Schmiede des Hephaistos.",
-        "en": "An agent is a Copilot with a fixed job, for example for a handbook or research. You find agents in Copilot on the left under **“Agents”**.\n- **Researcher** and **Analyst** come with Premium.\n- Which other agents you see and whether you can build your own is decided by the company. With Basic, simple agents that work with the web are possible.\n\nMore on this at the Forge of Hephaestus."
+        "de": "Ein Agent ist ein Copilot mit einer festen Aufgabe, zum Beispiel für ein Handbuch oder eine Recherche. Du findest Agenten in Copilot links unter **«Agenten»**.\n- **Researcher** und **Analyst** gibt es mit Premium.\n- Welche weiteren Agenten du siehst und ob du selbst welche bauen kannst, legt das Unternehmen fest. Mit Basic gehen Agenten, die mit öffentlichen Webseiten arbeiten. Mails, Chats und Dateien als Wissen brauchen Premium.\n\nMehr dazu in der Schmiede des Hephaistos.",
+        "en": "An agent is a Copilot with a fixed job, for example for a handbook or research. You find agents in Copilot on the left under **“Agents”**.\n- **Researcher** and **Analyst** come with Premium.\n- Which other agents you see and whether you can build your own is decided by the company. With Basic, agents that work with public websites are possible. Emails, chats and files as knowledge need Premium.\n\nMore on this at the Forge of Hephaestus."
       }
     },
     {

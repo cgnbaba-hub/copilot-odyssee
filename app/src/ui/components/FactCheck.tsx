@@ -35,7 +35,7 @@ export function FactCheck(props: { stage: string; step: number; stepId: string; 
   if (status === 'sent') {
     return (
       <p className={`${styles.factCheck} ${styles.factCheckDone}`} role="status">
-        ✓ {strings.factCheckThanks}
+        <span>✓ {strings.factCheckThanks}</span>
       </p>
     );
   }
@@ -43,6 +43,7 @@ export function FactCheck(props: { stage: string; step: number; stepId: string; 
   if (status === 'closed') {
     return (
       <p className={styles.factCheck}>
+        <span>{strings.factCheckLead}</span>
         <button type="button" className={styles.factCheckToggle} aria-expanded={false} onClick={() => setStatus('open')}>
           <span aria-hidden="true">⚑</span> {strings.factCheckAsk}
         </button>

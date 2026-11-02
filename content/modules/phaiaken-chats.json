@@ -6,7 +6,7 @@
   "version": "1.1.0",
   "owner": "copilot-team",
   "status": "draft",
-  "reviewedAt": "2026-11-01",
+  "reviewedAt": "2026-11-02",
   "reviewIntervalDays": 180,
   "title": {
     "de": "Chats und Kanäle aufholen",
@@ -29,6 +29,18 @@
       "body": {
         "de": "In Chats und Kanälen öffnest du Copilot über das **Copilot-Symbol** oben im Chat. Typische Fragen:\n- «Was habe ich in den letzten 7 Tagen verpasst?»\n- «Welche Entscheidungen wurden getroffen?»\n- «Gibt es Fragen oder Aufgaben an mich?»\n\nCopilot nutzt dabei nur den Chat, den du gerade offen hast. Prüfe wichtige Punkte in den Originalnachrichten nach.\n\nAuch beim **Schreiben** hilft Copilot: Er formuliert deine Nachricht im Eingabefeld um, zum Beispiel kürzer oder freundlicher.",
         "en": "In chats and channels you open Copilot via the **Copilot icon** at the top of the chat. Typical questions:\n- “What did I miss in the last 7 days?”\n- “Which decisions were made?”\n- “Are there any questions or tasks for me?”\n\nCopilot only uses the chat you currently have open. Check important points in the original messages.\n\nCopilot also helps with **writing**: it rephrases your message in the input box, for example shorter or friendlier."
+      }
+    },
+    {
+      "type": "briefing",
+      "id": "umschreiben",
+      "title": {
+        "de": "Nachrichten mit Copilot überarbeiten",
+        "en": "Revising messages with Copilot"
+      },
+      "body": {
+        "de": "So lässt du eine Nachricht in Teams von Copilot überarbeiten:\n1. Schreib deinen Entwurf wie gewohnt ins **Eingabefeld** eines Chats oder Kanals. Noch nicht senden.\n2. Klick unter dem Eingabefeld auf das **Copilot-Symbol**.\n3. Wähl, was Copilot tun soll, zum Beispiel **umschreiben**, **kürzer**, **formeller** oder **freundlicher**, oder schreib eine eigene Anweisung wie «Mach daraus drei klare Stichpunkte».\n4. Copilot zeigt dir zuerst einen **Vorschlag**. Dein Text bleibt unverändert, bis du den Vorschlag übernimmst.\n5. Übernimm den Vorschlag, pass ihn bei Bedarf an und sende selbst.\n\nCopilot sendet nie von allein. Die Knöpfe heissen je nach Teams-Version etwas anders.",
+        "en": "How to have Copilot revise a message in Teams:\n1. Write your draft as usual in the **message box** of a chat or channel. Do not send it yet.\n2. Click the **Copilot icon** below the message box.\n3. Choose what Copilot should do, for example **rewrite**, **shorter**, **more formal** or **friendlier**, or type your own instruction such as “Turn this into three clear bullet points”.\n4. Copilot first shows you a **suggestion**. Your text stays unchanged until you accept it.\n5. Accept the suggestion, adjust it if needed and send it yourself.\n\nCopilot never sends anything by itself. The buttons are named slightly differently depending on your Teams version."
       }
     },
     {

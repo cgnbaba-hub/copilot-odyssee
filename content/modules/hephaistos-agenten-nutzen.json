@@ -6,7 +6,7 @@
   "version": "1.0.0",
   "owner": "copilot-team",
   "status": "draft",
-  "reviewedAt": "2026-11-01",
+  "reviewedAt": "2026-11-02",
   "reviewIntervalDays": 180,
   "title": {
     "de": "Agenten nutzen",
@@ -27,8 +27,8 @@
         "en": "Tools from the forge"
       },
       "body": {
-        "de": "Ein **Agent** ist ein Copilot mit einer festen Aufgabe. Er hat eigene Anweisungen und oft eigenes Wissen, zum Beispiel ein Handbuch oder eine SharePoint-Seite.\n\nDu findest Agenten in Copilot links unter **«Agenten»**:\n- **Researcher** recherchiert gründlich und liefert Berichte mit Quellen.\n- **Analyst** wertet Daten aus, zum Beispiel aus Excel-Dateien.\n- **Agenten eures Unternehmens**, zum Beispiel für interne Richtlinien, wenn die IT welche bereitstellt.\n\nResearcher und Analyst gibt es mit M365 Copilot (Premium). Welche weiteren Agenten du siehst, legt eure IT fest.",
-        "en": "An **agent** is a Copilot with a fixed job. It has its own instructions and often its own knowledge, such as a handbook or a SharePoint site.\n\nYou find agents in Copilot on the left under **“Agents”**:\n- **Researcher** researches thoroughly and delivers reports with sources.\n- **Analyst** analyses data, for example from Excel files.\n- **Your company's agents**, for example for internal guidelines, if IT provides them.\n\nResearcher and Analyst are available with M365 Copilot (Premium). Which other agents you see is decided by your IT."
+        "de": "Ein **Agent** ist ein Copilot mit einer festen Aufgabe. Er hat eigene Anweisungen und oft eigenes Wissen, zum Beispiel ein Handbuch oder eine SharePoint-Seite.\n\nDu findest Agenten in Copilot links unter **«Agenten»**:\n- **Researcher** recherchiert gründlich und liefert Berichte mit Quellen.\n- **Analyst** wertet Daten aus, zum Beispiel aus Excel-Dateien.\n- **Agenten eures Unternehmens**, zum Beispiel für interne Richtlinien, wenn die IT welche bereitstellt.\n\nResearcher und Analyst gibt es mit M365 Copilot (Premium). Welche weiteren Agenten du siehst, legt eure IT fest.\n\n**Agenten finden und anheften:**\n- Links unter **«Agenten»** siehst du die angehefteten Agenten. Mit Premium sind **Researcher** und **Analyst** meist schon da.\n- Über **«Alle Agenten»** oder **«Agenten entdecken»** findest du weitere, zum Beispiel von Microsoft oder von eurem Unternehmen.\n- Klick einen Agenten an und wähl **«Hinzufügen»**. Über die **drei Punkte** neben dem Agenten heftest du ihn an, damit er links in der Leiste bleibt.\n\nDie Bezeichnungen können je nach Version leicht abweichen.",
+        "en": "An **agent** is a Copilot with a fixed job. It has its own instructions and often its own knowledge, such as a handbook or a SharePoint site.\n\nYou find agents in Copilot on the left under **“Agents”**:\n- **Researcher** researches thoroughly and delivers reports with sources.\n- **Analyst** analyses data, for example from Excel files.\n- **Your company's agents**, for example for internal guidelines, if IT provides them.\n\nResearcher and Analyst are available with M365 Copilot (Premium). Which other agents you see is decided by your IT.\n\n**Finding and pinning agents:**\n- On the left under **“Agents”** you see your pinned agents. With Premium, **Researcher** and **Analyst** are usually already there.\n- Via **“All agents”** or **“Explore agents”** you find more, for example from Microsoft or from your company.\n- Click an agent and choose **“Add”**. Use the **three dots** next to the agent to pin it, so it stays in the bar on the left.\n\nThe labels may differ slightly depending on the version."
       }
     },
     {

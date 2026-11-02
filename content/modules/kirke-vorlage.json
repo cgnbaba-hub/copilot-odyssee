@@ -1,0 +1,182 @@
+{
+  "$schema": "../schema/module.schema.json",
+  "id": "kirke-vorlage",
+  "island": "kirke",
+  "order": 3,
+  "version": "1.0.0",
+  "owner": "copilot-team",
+  "status": "draft",
+  "reviewedAt": "2026-11-02",
+  "reviewIntervalDays": 90,
+  "title": {
+    "de": "Im DERTOUR-Design und mit echten Bildern",
+    "en": "In DERTOUR design and with real pictures"
+  },
+  "summary": {
+    "de": "Erst die Vorlage, dann Copilot: So entstehen Folien im DERTOUR-Design. Und warum KI-Bilder von Hotels keine echten Fotos ersetzen.",
+    "en": "Template first, then Copilot: how to get slides in DERTOUR design. And why AI pictures of hotels are no substitute for real photos."
+  },
+  "estimatedMinutes": 8,
+  "notes": "Neuer Inhalt nach Praxistest vom 2.11.2026: Copilot in PowerPoint übernimmt das DERTOUR-Design nur, wenn die Vorlage schon geöffnet ist oder ausdrücklich genannt wird. Brand Kit ist beim Brand Management in Arbeit. Wo die Vorlage liegt, mit dem Brand Management abgleichen.",
+  "blocks": [
+    {
+      "type": "briefing",
+      "id": "vorlage",
+      "title": {
+        "de": "Erst die Vorlage, dann Copilot",
+        "en": "Template first, then Copilot"
+      },
+      "body": {
+        "de": "Copilot kennt das DERTOUR-Design nicht von selbst. Er übernimmt es nur, wenn er in der **Vorlage** arbeitet. So gehst du vor:\n1. Erstelle eine neue Präsentation aus der **DERTOUR-Vorlage**. Wo ihr sie findet, weiss euer Brand Management.\n2. Öffne darin **Copilot** über das Symbol im Menüband «Start».\n3. Schreib deinen Prompt, am besten mit einer Datei: «Erstelle eine Präsentation aus /[Dateiname]».\n4. Prüfe Logo, Farben und Schriften. Einzelne Folien passt du mit Copilot an: «Gestalte Folie 4 als Vergleich in zwei Spalten.»\n\nStartest du in einer leeren Präsentation, nimmt Copilot ein allgemeines Design. Ein **Brand Kit**, mit dem Copilot das Design automatisch übernimmt, ist beim Brand Management in Arbeit.",
+        "en": "Copilot does not know the DERTOUR design by itself. It only applies it when it works inside the **template**. Here is how:\n1. Create a new presentation from the **DERTOUR template**. Your brand management team knows where to find it.\n2. Open **Copilot** in it via the icon in the “Home” ribbon.\n3. Write your prompt, ideally with a file: “Create a presentation from /[file name]”.\n4. Check logo, colours and fonts. Adjust single slides with Copilot: “Lay out slide 4 as a two-column comparison.”\n\nIf you start in a blank presentation, Copilot uses a generic design. A **Brand Kit** that lets Copilot apply the design automatically is in the works at brand management."
+      }
+    },
+    {
+      "type": "quiz",
+      "id": "q-design",
+      "difficulty": "intermediate",
+      "question": {
+        "de": "Copilot soll die Folien für ein Partnerevent im DERTOUR-Design erstellen. Wie gehst du vor?",
+        "en": "Copilot should create the slides for a partner event in DERTOUR design. How do you go about it?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "de": "In einer leeren Präsentation schreiben: «Verwende die Farben und Schriften von DERTOUR»",
+            "en": "In a blank presentation, write: “Use the DERTOUR colours and fonts”"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Copilot kennt das DERTOUR-Design nicht. Ohne Vorlage rät er nur.",
+            "en": "Copilot does not know the DERTOUR design. Without the template it only guesses."
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "de": "Eine neue Präsentation aus der DERTOUR-Vorlage öffnen und Copilot darin starten",
+            "en": "Open a new presentation from the DERTOUR template and start Copilot in it"
+          },
+          "correct": true,
+          "explanation": {
+            "de": "Richtig. In der Vorlage nutzt Copilot deren Layouts, Farben und Schriften.",
+            "en": "Right. In the template Copilot uses its layouts, colours and fonts."
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "de": "Erst mit Copilot erstellen und danach das DERTOUR-Logo auf jede Folie kopieren",
+            "en": "Create with Copilot first and then copy the DERTOUR logo onto every slide"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Das Logo allein macht noch kein DERTOUR-Design, und es kostet viel Handarbeit.",
+            "en": "The logo alone does not make a DERTOUR design, and it takes a lot of manual work."
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "de": "Ein Bild einer alten DERTOUR-Folie hochladen, damit Copilot das Design abschaut",
+            "en": "Upload a picture of an old DERTOUR slide so Copilot copies the design"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Aus einem Bild baut Copilot keine Vorlage. Nimm die echte Vorlage.",
+            "en": "Copilot does not build a template from a picture. Use the real template."
+          }
+        }
+      ]
+    },
+    {
+      "type": "briefing",
+      "id": "bilder",
+      "title": {
+        "de": "Bilder: schön ist nicht gleich echt",
+        "en": "Pictures: pretty is not the same as real"
+      },
+      "body": {
+        "de": "Copilot kann Bilder für Folien vorschlagen oder neu erstellen. Für Stimmungsbilder ist das praktisch. Bei Reisen gilt aber:\n- **Hotels, Schiffe und Zimmer** zeigst du nur mit **echten Bildern**, zum Beispiel aus den Unterlagen der Partner. Ein KI-Bild weckt Erwartungen, die vor Ort nicht stimmen.\n- **Kennzeichne KI-Bilder**, wo eure Regeln es verlangen, und prüfe, ob sie zu euren Werten passen.\n- **Zahlen, Preise und Daten** auf den Folien prüfst du an der Quelle, auch wenn Copilot sie aus deiner Datei übernommen hat.",
+        "en": "Copilot can suggest pictures for slides or create new ones. That is handy for mood pictures. For travel, however:\n- Show **hotels, ships and rooms** only with **real pictures**, for example from partner materials. An AI picture creates expectations that are not met on site.\n- **Label AI pictures** where your rules require it, and check that they fit your values.\n- Check **figures, prices and dates** on the slides at the source, even if Copilot took them from your file."
+      }
+    },
+    {
+      "type": "quiz",
+      "id": "q-ki-bild",
+      "difficulty": "advanced",
+      "question": {
+        "de": "Copilot schlägt für die Folie zu einem Partnerhotel ein KI-erstelltes Bild eines Pools vor. Es sieht besser aus als die Fotos des Hotels. Was ist richtig?",
+        "en": "For the slide about a partner hotel, Copilot suggests an AI-generated picture of a pool. It looks better than the hotel's photos. What is right?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "de": "Das KI-Bild nicht als Foto dieses Hotels zeigen",
+            "en": "Do not show the AI picture as a photo of this hotel"
+          },
+          "correct": true,
+          "explanation": {
+            "de": "Richtig. Sonst erwarten Gäste etwas, das es vor Ort nicht gibt.",
+            "en": "Right. Otherwise guests expect something that does not exist on site."
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "de": "Für das Hotel echte Bilder aus den Partnerunterlagen verwenden",
+            "en": "Use real pictures from the partner materials for the hotel"
+          },
+          "correct": true,
+          "explanation": {
+            "de": "Richtig. Echte Bilder zeigen, was Gäste wirklich erwartet.",
+            "en": "Right. Real pictures show what guests can really expect."
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "de": "Das KI-Bild verwenden, solange das Hotel ungefähr so aussieht",
+            "en": "Use the AI picture as long as the hotel looks roughly like that"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "«Ungefähr» reicht bei Reiseangeboten nicht. Gäste verlassen sich auf die Bilder.",
+            "en": "“Roughly” is not enough for travel offers. Guests rely on the pictures."
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "de": "Das KI-Bild verwenden und im Text das Hotel ausführlich beschreiben",
+            "en": "Use the AI picture and describe the hotel in detail in the text"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Ein guter Text macht ein falsches Bild nicht richtig.",
+            "en": "Good text does not make a wrong picture right."
+          }
+        }
+      ]
+    },
+    {
+      "type": "mission",
+      "id": "m-vorlage",
+      "title": {
+        "de": "Drei Folien im DERTOUR-Design",
+        "en": "Three slides in DERTOUR design"
+      },
+      "task": {
+        "de": "Erstelle eine neue Präsentation aus der DERTOUR-Vorlage und öffne darin Copilot. Lass drei Folien zu einem Thema aus deinem Alltag erstellen. Prüfe danach Logo, Farben, Schriften und alle Zahlen.",
+        "en": "Create a new presentation from the DERTOUR template and open Copilot in it. Have three slides created on a topic from your daily work. Then check the logo, colours, fonts and all figures."
+      },
+      "copyText": {
+        "de": "Erstelle drei Folien zum Thema [Thema] für [Zielgruppe]. Nutze die Layouts dieser Vorlage, höchstens vier Stichpunkte pro Folie und schreibe Sprechernotizen zu jeder Folie.",
+        "en": "Create three slides on [topic] for [audience]. Use the layouts of this template, at most four bullet points per slide, and write speaker notes for every slide."
+      },
+      "app": "powerpoint"
+    }
+  ]
+}

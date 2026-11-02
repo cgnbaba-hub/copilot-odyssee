@@ -31,6 +31,26 @@
         {
           "de": "Reiseprogramme für Kundinnen und Kunden zusammenfassen",
           "en": "Summarising tour programmes for customers"
+        },
+        {
+          "de": "Reiseunterlagen vor dem Versand auf Vollständigkeit prüfen",
+          "en": "Checking travel documents for completeness before sending"
+        },
+        {
+          "de": "Nachfassmails nach einem Angebot schreiben",
+          "en": "Writing follow-up emails after an offer"
+        },
+        {
+          "de": "Einreise- und Visahinweise verständlich erklären",
+          "en": "Explaining entry and visa information clearly"
+        },
+        {
+          "de": "Kundenwünsche aus einer langen Anfrage herausfiltern",
+          "en": "Pulling customer wishes out of a long enquiry"
+        },
+        {
+          "de": "Vergleiche zwischen zwei Hotels für ein Gespräch vorbereiten",
+          "en": "Preparing comparisons of two hotels for a consultation"
         }
       ]
     },
@@ -64,6 +84,26 @@
         {
           "de": "Den Ton einer heiklen Antwort prüfen lassen",
           "en": "Having the tone of a tricky reply checked"
+        },
+        {
+          "de": "Kulanzangebote freundlich formulieren",
+          "en": "Wording goodwill offers kindly"
+        },
+        {
+          "de": "Wiederkehrende Fragen für eine FAQ sammeln",
+          "en": "Collecting recurring questions for an FAQ"
+        },
+        {
+          "de": "Notizen aus einem Telefonat für den Fall festhalten",
+          "en": "Recording notes from a phone call for the case"
+        },
+        {
+          "de": "Umbuchungsoptionen übersichtlich gegenüberstellen",
+          "en": "Laying out rebooking options clearly side by side"
+        },
+        {
+          "de": "Eine Übergabe an die Kollegin im nächsten Dienst schreiben",
+          "en": "Writing a handover to the colleague on the next shift"
         }
       ]
     },
@@ -87,7 +127,7 @@
           "en": "Summarising hotel contracts and partner documents"
         },
         {
-          "de": "Notizen von Rekognoszierungsreisen aufbereiten",
+          "de": "Notizen von Inforeisen aufbereiten",
           "en": "Turning inspection trip notes into usable text"
         },
         {
@@ -97,6 +137,26 @@
         {
           "de": "Briefings für Reiseleitende erstellen",
           "en": "Creating briefings for tour guides"
+        },
+        {
+          "de": "Leistungsbeschreibungen auf Lücken prüfen",
+          "en": "Checking service descriptions for gaps"
+        },
+        {
+          "de": "Reiseverläufe Tag für Tag strukturieren",
+          "en": "Structuring itineraries day by day"
+        },
+        {
+          "de": "Feedback von Gästen zu einem Produkt auswerten",
+          "en": "Analysing guest feedback on a product"
+        },
+        {
+          "de": "Preis- und Leistungslisten in Excel vergleichen",
+          "en": "Comparing price and service lists in Excel"
+        },
+        {
+          "de": "Fragen für Verhandlungen mit Partnern vorbereiten",
+          "en": "Preparing questions for negotiations with partners"
         }
       ]
     },
@@ -130,6 +190,26 @@
         {
           "de": "Medienmitteilungen entwerfen",
           "en": "Drafting press releases"
+        },
+        {
+          "de": "Betreffzeilen und Teaser für Newsletter testen",
+          "en": "Testing subject lines and teasers for newsletters"
+        },
+        {
+          "de": "Bildideen und Briefings für Fotoshootings schreiben",
+          "en": "Writing picture ideas and briefs for photo shoots"
+        },
+        {
+          "de": "Texte auf Länge für verschiedene Kanäle kürzen",
+          "en": "Cutting texts to length for different channels"
+        },
+        {
+          "de": "Ergebnisse einer Kampagne zusammenfassen",
+          "en": "Summarising the results of a campaign"
+        },
+        {
+          "de": "Den Ton von Texten an die Marke anpassen",
+          "en": "Adapting the tone of texts to the brand"
         }
       ]
     },
@@ -163,6 +243,26 @@
         {
           "de": "Standardantworten auf interne Anfragen vorbereiten",
           "en": "Preparing standard replies to internal requests"
+        },
+        {
+          "de": "Rechnungs- und Belegfragen beantworten",
+          "en": "Answering questions about invoices and receipts"
+        },
+        {
+          "de": "Onboarding-Checklisten für neue Mitarbeitende erstellen",
+          "en": "Creating onboarding checklists for new employees"
+        },
+        {
+          "de": "Richtlinien in verständliche Kurzfassungen bringen",
+          "en": "Turning policies into easy-to-read summaries"
+        },
+        {
+          "de": "Excel-Listen bereinigen und auswerten",
+          "en": "Cleaning up and analysing Excel lists"
+        },
+        {
+          "de": "Termine und Fristen aus Mails zusammentragen",
+          "en": "Gathering dates and deadlines from emails"
         }
       ]
     },
@@ -196,6 +296,26 @@
         {
           "de": "Feedbackgespräche vorbereiten, ohne Personendaten",
           "en": "Preparing feedback conversations, without personal data"
+        },
+        {
+          "de": "Ziele und Prioritäten fürs Quartal formulieren",
+          "en": "Formulating goals and priorities for the quarter"
+        },
+        {
+          "de": "Entscheidungsvorlagen mit Vor- und Nachteilen schreiben",
+          "en": "Writing decision papers with pros and cons"
+        },
+        {
+          "de": "Agenden für Workshops entwerfen",
+          "en": "Drafting agendas for workshops"
+        },
+        {
+          "de": "Lange Berichte für die Geschäftsleitung verdichten",
+          "en": "Condensing long reports for management"
+        },
+        {
+          "de": "Risiken eines Projekts sammeln und bewerten",
+          "en": "Collecting and rating the risks of a project"
         }
       ]
     },
@@ -225,6 +345,30 @@
         {
           "de": "Ideen für ein neues Thema sammeln",
           "en": "Collecting ideas for a new topic"
+        },
+        {
+          "de": "Mails freundlicher oder bestimmter formulieren",
+          "en": "Making emails friendlier or firmer"
+        },
+        {
+          "de": "Dokumente in fünf Punkten zusammenfassen",
+          "en": "Summarising documents in five points"
+        },
+        {
+          "de": "Eine Präsentation gliedern",
+          "en": "Outlining a presentation"
+        },
+        {
+          "de": "Texte in eine andere Sprache übertragen",
+          "en": "Translating texts into another language"
+        },
+        {
+          "de": "Aufgaben aus Notizen herauslesen",
+          "en": "Picking out tasks from notes"
+        },
+        {
+          "de": "Fragen für ein Gespräch vorbereiten",
+          "en": "Preparing questions for a conversation"
         }
       ]
     }

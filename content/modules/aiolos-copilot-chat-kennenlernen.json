@@ -6,7 +6,7 @@
   "version": "1.2.0",
   "owner": "copilot-team",
   "status": "draft",
-  "reviewedAt": "2026-11-01",
+  "reviewedAt": "2026-11-02",
   "reviewIntervalDays": 90,
   "title": {
     "de": "Copilot Chat kennenlernen",
@@ -17,7 +17,7 @@
     "en": "Where to find Copilot Chat (Basic), what it can do and what it cannot see."
   },
   "estimatedMinutes": 8,
-  "notes": "Stand Oktober 2026: Seit 15.04.2026 ist Copilot in Word, Excel, PowerPoint und OneNote für Personen ohne Lizenz in Organisationen mit mehr als 2000 Plätzen entfernt, in kleineren eingeschränkt (Message Center MC1253858/MC1253863, laut Fachpresse). Web, Microsoft-365-Copilot-App und Outlook bleiben. Bei jeder Prüfung gegen das Message Center abgleichen; Angaben zu Teams bewusst weggelassen, da unklar. Faktencheck 2026-11-01: Office-Apps ohne Lizenz ab >2000 Plätzen (MC1253858); Outlook-Basic mit Posteingang/Kalender (Microsoft-Support).",
+  "notes": "Stand Oktober 2026: Seit 15.04.2026 ist Copilot in Word, Excel, PowerPoint und OneNote für Personen ohne Lizenz in Organisationen mit mehr als 2000 Plätzen entfernt, in kleineren eingeschränkt (Message Center MC1253858/MC1253863, laut Fachpresse). Web, Microsoft-365-Copilot-App und Outlook bleiben. Bei jeder Prüfung gegen das Message Center abgleichen; Angaben zu Teams bewusst weggelassen, da unklar. Faktencheck 2026-11-01: Office-Apps ohne Lizenz ab >2000 Plätzen (MC1253858); Outlook-Basic mit Posteingang/Kalender (Microsoft-Support). Praxistest 2.11.2026: über 2000 Lizenzen, Basic ohne Copilot in Word/Excel/PowerPoint bestätigt; Schild oben rechts, Konto unten links.",
   "blocks": [
     {
       "type": "briefing",
@@ -27,8 +27,8 @@
         "en": "Where to find Copilot Chat"
       },
       "body": {
-        "de": "Copilot Chat (Basic) erreichst du mit deinem Firmenkonto hier:\n- **im Browser** unter m365.cloud.microsoft/chat\n- in der **Copilot-App** (früher Microsoft-365-Copilot-App) auf dem Computer oder dem Handy\n- in **Outlook**\n- in **Microsoft Edge** als Seitenleiste: oben rechts auf das Copilot-Symbol klicken. So hast du Copilot direkt neben jeder Webseite, auch neben der Odyssee.\n\nIn Word, Excel, PowerPoint und OneNote gibt es Copilot seit Frühling 2026 in Organisationen mit mehr als 2000 Microsoft-365-Lizenzen nur noch mit Premium. Mit Basic arbeitest du dort, indem du Texte in den Chat kopierst oder Dateien hochlädst.",
-        "en": "You can reach Copilot Chat (Basic) with your work account here:\n- **in the browser** at m365.cloud.microsoft/chat\n- in the **Copilot app** (formerly the Copilot app) on your computer or phone\n- in **Outlook**\n- in **Microsoft Edge** as a sidebar: click the Copilot icon at the top right. That way you have Copilot right beside any web page, including the Odyssey.\n\nSince spring 2026, organisations with more than 2,000 Microsoft 365 licences only have Copilot in Word, Excel, PowerPoint and OneNote with Premium. With Basic you work with those documents by copying text into the chat or uploading files."
+        "de": "Copilot Chat (Basic) hat bei uns jede Person mit Firmenkonto und Microsoft-365-Lizenz, zum Beispiel E3. Du erreichst ihn hier:\n- **im Browser** unter m365.cloud.microsoft/chat. Tipp: als Lesezeichen speichern.\n- in **Teams**: links in der App-Leiste auf **Copilot** klicken\n- in der **Copilot-App** (früher Microsoft-365-Copilot-App) auf dem Computer oder dem Handy\n- in **Outlook**\n- in **Microsoft Edge** als Seitenleiste, über das Copilot-Symbol oben rechts. Praktisch, wenn du Copilot neben einer Webseite brauchst.\n\nSo sieht es aus: Oben rechts zeigt das **Schild**, dass dein Unternehmensdatenschutz gilt. Unten links siehst du, mit welchem **Konto** du angemeldet bist.\n\nIn Word, Excel, PowerPoint und OneNote gibt es Copilot nur mit Premium. Mit Basic kopierst du Texte in den Chat oder lädst die Datei hoch.",
+        "en": "At our company everyone with a work account and a Microsoft 365 licence, for example E3, has Copilot Chat (Basic). You can reach it here:\n- **in the browser** at m365.cloud.microsoft/chat. Tip: save it as a bookmark.\n- in **Teams**: click **Copilot** in the app bar on the left\n- in the **Copilot app** (formerly the Microsoft 365 Copilot app) on your computer or phone\n- in **Outlook**\n- in **Microsoft Edge** as a sidebar, via the Copilot icon at the top right. Handy when you need Copilot next to a web page.\n\nWhat it looks like: the **shield** at the top right shows that enterprise data protection applies. At the bottom left you see which **account** you are signed in with.\n\nIn Word, Excel, PowerPoint and OneNote, Copilot is only available with Premium. With Basic you copy text into the chat or upload the file."
       }
     },
     {
@@ -51,8 +51,8 @@
         "en": "Copilot in Edge: having web pages explained"
       },
       "body": {
-        "de": "In der **Edge-Seitenleiste** kann Copilot die Webseite lesen, die gerade offen ist. Das ist praktisch, wenn du dir etwas erklären oder Informationen herausziehen lassen willst, zum Beispiel:\n- «Fasse diese Seite in fünf Punkten zusammen.»\n- «Erkläre mir die Fachbegriffe auf dieser Seite in einfachen Worten.»\n- «Stelle alle Preise und Reisedaten dieser Seite als Tabelle zusammen.»\n\nDamit das geht, muss in Edge der **Zugriff auf Seiteninhalte** eingeschaltet sein: Einstellungen › Darstellung › Copilot und Seitenleiste. Je nach Version heisst die Einstellung etwas anders, und manchmal gibt die IT sie vor. Wie immer gilt: Wichtige Angaben prüfst du an der Quelle.",
-        "en": "In the **Edge sidebar**, Copilot can read the web page that is currently open. That is handy when you want something explained or information extracted, for example:\n- “Summarise this page in five points.”\n- “Explain the technical terms on this page in plain words.”\n- “Put all prices and travel dates on this page into a table.”\n\nFor this to work, **access to page content** must be switched on in Edge: Settings › Appearance › Copilot and sidebar. Depending on the version the setting is named slightly differently, and sometimes IT sets it. As always: check important details at the source."
+        "de": "In der **Edge-Seitenleiste** kann Copilot die Webseite lesen, die gerade offen ist. Das ist praktisch, wenn du dir etwas erklären oder Informationen herausziehen lassen willst, zum Beispiel:\n- «Fasse diese Seite in fünf Punkten zusammen.»\n- «Erkläre mir die Fachbegriffe auf dieser Seite in einfachen Worten.»\n- «Stelle alle Preise und Reisedaten dieser Seite als Tabelle zusammen.»\n\nDamit das geht, muss Edge die Seite für Copilot freigeben. So schaltest du es ein:\n1. In Edge oben rechts auf **«…»** klicken und **Einstellungen** wählen.\n2. Oben links ins Suchfeld **«Copilot»** eingeben.\n3. Bei den Copilot-Einstellungen den **Zugriff auf Seiteninhalte** einschalten.\n\nJe nach Version heisst der Schalter etwas anders. Ist er grau, hat die IT die Einstellung vorgegeben. Wie immer gilt: Wichtige Angaben prüfst du an der Quelle.",
+        "en": "In the **Edge sidebar**, Copilot can read the web page that is currently open. That is handy when you want something explained or information extracted, for example:\n- “Summarise this page in five points.”\n- “Explain the technical terms on this page in plain words.”\n- “Put all prices and travel dates on this page into a table.”\n\nFor this to work, Edge has to let Copilot read the page. How to switch it on:\n1. In Edge, click **“…”** at the top right and choose **Settings**.\n2. Type **“Copilot”** into the search box at the top left.\n3. In the Copilot settings, switch on **access to page content**.\n\nDepending on the version the switch is named slightly differently. If it is greyed out, IT has set it. As always: check important details at the source."
       }
     },
     {
@@ -150,13 +150,13 @@
         {
           "id": "c",
           "text": {
-            "de": "Am Firmenkonto oben rechts und am Schild-Symbol",
-            "en": "By the company account at the top right and the shield icon"
+            "de": "Am Schild-Symbol oben rechts und an deinem Firmenkonto unten links",
+            "en": "By the shield icon at the top right and your work account at the bottom left"
           },
           "correct": true,
           "explanation": {
-            "de": "Genau. Firmenkonto und Schild zeigen den Unternehmensdatenschutz.",
-            "en": "Exactly. Company account and shield show enterprise data protection."
+            "de": "Genau. Schild und Firmenkonto zeigen den Unternehmensdatenschutz.",
+            "en": "Exactly. The shield and your work account show enterprise data protection."
           }
         },
         {

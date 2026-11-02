@@ -6,7 +6,7 @@ import { format } from '../i18n/strings';
 import { islandProgress, isPreview, nextStage } from '../progressHelpers';
 import styles from '../styles.module.scss';
 import { CompassRose, LockIcon } from './Art';
-import { PosterIsland, Sailboat } from './PosterArt';
+import { IslandFog, PosterIsland, Sailboat } from './PosterArt';
 
 /**
  * All islands at once on an old sea chart. The islands can be visited in any
@@ -53,6 +53,7 @@ export function SeaChart(props: { islands: Island[] }): React.ReactElement {
                 <svg viewBox="-160 -190 320 205" aria-hidden="true">
                   <ellipse cx="0" cy="4" rx="150" ry="14" fill="#fbf6e8" opacity="0.55" />
                   <PosterIsland landmark={island.landmark} color={island.color} flag={done} />
+                  {preview && <IslandFog />}
                 </svg>
                 <span className={styles.chartName}>{t(island.name)}</span>
                 <span className={done ? `${styles.chartCount} ${styles.chartCountDone}` : styles.chartCount}>

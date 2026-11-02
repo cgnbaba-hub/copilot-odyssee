@@ -14,6 +14,9 @@ export const APP_NAMES: Record<MissionApp, string> = {
 
 export type CopyState = 'idle' | 'copied' | 'failed';
 
+/** How long «Kopiert» stays on a copy button. */
+const COPIED_VISIBLE_MS = 2000;
+
 /** Selects the text of an element so it can be copied by hand. */
 function selectText(element: HTMLElement | undefined): void {
   const selection = window.getSelection();
@@ -34,7 +37,11 @@ export function copyText(text: string, element: HTMLElement | undefined, done: (
     done('failed');
   };
   try {
-    navigator.clipboard.writeText(text).then(() => done('copied'), failed);
+    navigator.clipboard.writeText(text).then(() => {
+      done('copied');
+      // The confirmation fades after a moment, so the button can be used again.
+      window.setTimeout(() => done('idle'), COPIED_VISIBLE_MS);
+    }, failed);
   } catch {
     failed();
   }

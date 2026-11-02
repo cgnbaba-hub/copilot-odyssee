@@ -128,6 +128,8 @@ export function Home(): React.ReactElement {
   return (
     <div className={styles.home}>
       <ReviewInvite />
+      {/* The next step comes first, so it is in view without scrolling. */}
+      <NextTicket />
       <div className={styles.viewSwitch} role="group" aria-label={strings.viewLabel} data-tour="view">
         <button type="button" aria-pressed={view === 'deck'} className={view === 'deck' ? styles.viewSwitchActive : undefined} onClick={() => choose('deck')}>
           {strings.viewDeck}
@@ -153,7 +155,6 @@ export function Home(): React.ReactElement {
         </section>
       )}
 
-      <NextTicket />
       <ChallengeCard />
     </div>
   );

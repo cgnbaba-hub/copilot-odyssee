@@ -251,6 +251,13 @@ Legende: 🤖 = setze ich um · 👤 = brauche ich von dir · 🏢 = IT oder Dat
 - [ ] **Bereichs-Regatta** 🤖👤🏢 – Teamwertung pro Bereich, nur zusammengefasst und ab einer Mindestgrösse. Erst nach Abgleich mit HR und Datenschutz.
 - [ ] **Challenge-Erinnerung in Teams** 🤖🏢 – Power-Automate-Flow, der montags die Challenge der Woche in einen Kanal postet.
 - [ ] **Redaktions-Cockpit** und **«Neu bei Copilot»** – siehe AP 4.2.
+- [ ] **Quiz-Qualität** 🤖 – Analyse vom 2.11.2026: Bei 26 von 34 Fragen mit einer richtigen Antwort ist diese die längste Option (76 %, zufällig wären etwa 25 %). Ablenker gleich lang und gleich konkret machen, typische Fehlvorstellungen statt offensichtlich falscher Antworten, mehr Fragen, die nur mit dem Wissen aus der Etappe lösbar sind. Danach eine Prüfung im Validator, die solche Muster meldet.
+- [ ] **Konzernrichtlinie KR2501** 👤 – Die Richtlinie in der Unternehmensumgebung (Claude Code) bereitstellen, damit Sirenenfelsen und Ithaka genau daran ausgerichtet werden. Bis dahin nennt die App die Richtlinie nur.
+- [ ] **Outlook klassisch und neu** 👤🤖 – Screenshots und Beschreibung von dir: was in welchem Outlook geht, und wo die Anweisungen für Entwürfe eingestellt werden. Danach Hermes und Athene anpassen.
+- [ ] **Notebooks genauer erklären** 👤🤖 – Infos von dir, wie man ein Notebook erstellt, und ob es mit Basic geht. Danach Athene › «Notebooks und Pages» überarbeiten.
+- [ ] **Hephaistos für Basic?** 👤 – Der Agent Builder geht laut Test auch mit Basic (ohne Arbeitsinhalte). Entscheiden, ob «Einen eigenen Agenten bauen» für Basic geöffnet wird. Später: Agenten bauen ausführlicher (Wissen, Aktionen, Teilen, Pflege).
+- [ ] **Use Cases aufspüren vertiefen** 👤🤖 – Ideen aus «Open to Work» (Ryan Roslansky) in Ithaka einbauen, sobald du die Kernaussagen in eigenen Worten lieferst.
+- [ ] **Kalypsos Insel** 👤 – Erst wieder prüfen, wenn die neue Copilot-App bei euch verfügbar ist (Stand 2.11.2026: trotz Frontier noch nicht da).
 
 ## 8. Was aus dem Prototyp wird
 

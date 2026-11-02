@@ -14,6 +14,7 @@ export type View =
   | { name: 'cheatsheet' }
   | { name: 'admin' }
   | { name: 'review' }
+  | { name: 'workshop'; task?: string }
   | { name: 'pinboard'; draft?: { title: string; prompt: string } }
   | { name: 'island'; islandId: string }
   | { name: 'module'; moduleId: string };

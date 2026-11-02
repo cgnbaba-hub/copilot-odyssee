@@ -1,11 +1,14 @@
 import * as React from 'react';
 
-import { Block, Island } from '../../core/content/types';
+import { Block, Island, LearningModule } from '../../core/content/types';
+import { moduleStatus } from '../../core/progress/state';
 import { BlockKindIcon, blockKindNames } from '../blockKinds';
 import { useGame } from '../GameContext';
 import { GuidePortrait } from '../guides';
 import { format } from '../i18n/strings';
+import { isModulePreview } from '../progressHelpers';
 import styles from '../styles.module.scss';
+import { LockIcon } from './Art';
 import { mixColor } from './PosterArt';
 
 /** The trail across the island in a 600 × 170 drawing, from the beach up to the summit. */
@@ -40,28 +43,39 @@ function stations(count: number): [number, number][] {
 
 const pct = (x: number, y: number): React.CSSProperties => ({ left: `${(x / W) * 100}%`, top: `${(y / H) * 100}%` });
 
-/**
- * The steps of a stage as stations on a trail across the island. Done ones
- * are ticked, the next ones wait, and the companion walks along to the
- * current step. Screen readers get the same as a plain list.
- */
-export function StageRoute(props: { blocks: Block[]; index: number; island?: Island }): React.ReactElement {
-  const { strings, player } = useGame();
-  const total = props.blocks.length;
-  const current = Math.min(props.index, total);
+/** One station on the trail. */
+interface TrailStop {
+  id: string;
+  /** Short name under the station. */
+  label: string;
+  /** Read out for screen readers. */
+  spoken: string;
+  icon: React.ReactNode;
+  state: 'done' | 'current' | 'next' | 'locked';
+}
+
+const CHECK = (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="M5 12.5l4.5 4.5L19 7.5" />
+  </svg>
+);
+
+/** The island with its trail, stations and the companion standing at `guide` (the flag when past the last). */
+function Trail(props: { stops: TrailStop[]; guide: number; finished: boolean; island?: Island; label: string }): React.ReactElement {
+  const { player } = useGame();
+  const total = props.stops.length;
   const points = stations(total);
-  const finished = current >= total;
-  const guideAt = points[Math.min(current, total - 1)];
+  const guideAt = props.guide >= total ? [points[total - 1][0] + 18, points[total - 1][1] - 6] : points[props.guide];
   const land = props.island ? mixColor(props.island.color, '#7f9a4e', 0.55) : '#7f9a4e';
   const shade = mixColor(land, '#1a2940', 0.25);
+  const stateClass = { done: styles.stopDone, current: styles.stopCurrent, next: styles.stopNext, locked: `${styles.stopNext} ${styles.stopLocked}` };
 
   return (
     <div className={styles.trail}>
-      <ol className={styles.visuallyHidden} aria-label={format(strings.stepOf, { current: Math.min(current + 1, total), total })}>
-        {props.blocks.map((block, i) => (
-          <li key={block.id} aria-current={i === current ? 'step' : undefined}>
-            {format(strings.stepOf, { current: i + 1, total })}: {blockKindNames(strings, block.type).short}
-            {i < current ? ` (${strings.statusCompleted})` : ''}
+      <ol className={styles.visuallyHidden} aria-label={props.label}>
+        {props.stops.map((stop) => (
+          <li key={stop.id} aria-current={stop.state === 'current' ? 'step' : undefined}>
+            {stop.spoken}
           </li>
         ))}
       </ol>
@@ -96,35 +110,22 @@ export function StageRoute(props: { blocks: Block[]; index: number; island?: Isl
         <g transform={`translate(${points[total - 1][0] + 18} ${points[total - 1][1]})`}>
           <path d="M0 0 V-34" stroke="#1a2940" strokeWidth="2.5" />
           <path
-            className={finished ? styles.trailFlagUp : undefined}
+            className={props.finished ? styles.trailFlagUp : undefined}
             d="M0 -34 L22 -28 L0 -22 Z"
-            fill={finished ? '#e40028' : '#fbf6e8'}
+            fill={props.finished ? '#e40028' : '#fbf6e8'}
             stroke="#1a2940"
             strokeWidth="2"
             strokeLinejoin="round"
           />
         </g>
       </svg>
-      {props.blocks.map((block, i) => {
-        const state = i < current ? 'done' : i === current ? 'current' : 'next';
+      {props.stops.map((stop, i) => {
         const [x, y] = points[i];
         return (
-          <span
-            key={block.id}
-            className={`${styles.trailStop} ${state === 'done' ? styles.stopDone : state === 'current' ? styles.stopCurrent : styles.stopNext}`}
-            style={pct(x, y)}
-          >
-            <span className={styles.stopIcon}>
-              {state === 'done' ? (
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <path d="M5 12.5l4.5 4.5L19 7.5" />
-                </svg>
-              ) : (
-                <BlockKindIcon type={block.type} />
-              )}
-            </span>
+          <span key={stop.id} className={`${styles.trailStop} ${stateClass[stop.state]}`} style={pct(x, y)}>
+            <span className={styles.stopIcon}>{stop.state === 'done' ? CHECK : stop.icon}</span>
             <span className={styles.trailLabel} aria-hidden="true">
-              {blockKindNames(strings, block.type).short}
+              {stop.label}
             </span>
           </span>
         );
@@ -134,4 +135,67 @@ export function StageRoute(props: { blocks: Block[]; index: number; island?: Isl
       </span>
     </div>
   );
+}
+
+/**
+ * The steps of a stage as stations on a trail across the island. Done ones
+ * are ticked, the next ones wait, and the companion walks along to the
+ * current step. Screen readers get the same as a plain list.
+ */
+export function StageRoute(props: { blocks: Block[]; index: number; island?: Island }): React.ReactElement {
+  const { strings } = useGame();
+  const total = props.blocks.length;
+  const current = Math.min(props.index, total);
+  const stops: TrailStop[] = props.blocks.map((block, i) => ({
+    id: block.id,
+    label: blockKindNames(strings, block.type).short,
+    spoken: `${format(strings.stepOf, { current: i + 1, total })}: ${blockKindNames(strings, block.type).short}${i < current ? ` (${strings.statusCompleted})` : ''}`,
+    icon: <BlockKindIcon type={block.type} />,
+    state: i < current ? 'done' : i === current ? 'current' : 'next'
+  }));
+  return (
+    <Trail
+      stops={stops}
+      guide={Math.min(current, total - 1)}
+      finished={current >= total}
+      island={props.island}
+      label={format(strings.stepOf, { current: Math.min(current + 1, total), total })}
+    />
+  );
+}
+
+/** How long the companion waits before walking on to the next stage. */
+const WALK_DELAY_MS = 700;
+
+/**
+ * The stages of an island on the same trail, shown when a stage is done:
+ * the companion starts at the finished stage and walks on to the next open
+ * one, or up to the flag when the island is done.
+ */
+export function IslandRoute(props: { modules: LearningModule[]; finishedId: string; island?: Island }): React.ReactElement {
+  const game = useGame();
+  const { strings, player, t } = game;
+  const total = props.modules.length;
+  const states = props.modules.map((m): TrailStop['state'] =>
+    isModulePreview(game, m) && moduleStatus(player, m) !== 'completed' ? 'locked' : moduleStatus(player, m) === 'completed' ? 'done' : 'next'
+  );
+  const from = Math.max(0, props.modules.map((m) => m.id).indexOf(props.finishedId));
+  const open = states.indexOf('next');
+  const allDone = states.every((x) => x === 'done');
+  // Up to the next open stage; to the flag when all are done; otherwise (only locked ones left) the companion stays.
+  const to = open >= 0 ? open : allDone ? total : from;
+  const [guide, setGuide] = React.useState(from);
+  React.useEffect(() => {
+    const timer = window.setTimeout(() => setGuide(to), WALK_DELAY_MS);
+    return () => window.clearTimeout(timer);
+  }, [to]);
+
+  const stops: TrailStop[] = props.modules.map((m, i) => ({
+    id: m.id,
+    label: format(strings.stageNumber, { n: i + 1 }),
+    spoken: `${format(strings.stageNumber, { n: i + 1 })}: ${t(m.title)}${states[i] === 'done' ? ` (${strings.statusCompleted})` : states[i] === 'locked' ? ` (${strings.lockedStage})` : ''}`,
+    icon: states[i] === 'locked' ? <LockIcon /> : <b className={styles.stopNumber}>{i + 1}</b>,
+    state: states[i] === 'next' && i === to ? 'current' : states[i]
+  }));
+  return <Trail stops={stops} guide={guide} finished={allDone} island={props.island} label={strings.islandRouteLabel} />;
 }

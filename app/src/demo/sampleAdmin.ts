@@ -90,6 +90,13 @@ export function sampleAdminData(content: ContentBundle, now: Date): AdminData {
   return { players, feedback };
 }
 
-export function sampleAdminSource(content: ContentBundle): AdminSource {
-  return { sample: true, load: () => Promise.resolve(sampleAdminData(content, new Date())) };
+/** `sent` adds what was sent in this demo session, so feedback can be followed through to the evaluation. */
+export function sampleAdminSource(content: ContentBundle, sent: () => FeedbackRecord[] = () => []): AdminSource {
+  return {
+    sample: true,
+    load: () => {
+      const data = sampleAdminData(content, new Date());
+      return Promise.resolve({ ...data, feedback: sent().concat(data.feedback) });
+    }
+  };
 }
