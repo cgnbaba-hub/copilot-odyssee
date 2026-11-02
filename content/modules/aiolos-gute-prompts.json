@@ -25,8 +25,8 @@
         "en": "Four ingredients of a good prompt"
       },
       "body": {
-        "de": "Ein guter Prompt ist wie ein klarer Kurs. Vier Zutaten helfen:\n- **Ziel:** Was soll Copilot tun? Zum Beispiel «Fasse zusammen …» oder «Entwirf …».\n- **Kontext:** Wofür brauchst du das Ergebnis, für wen und warum?\n- **Quelle:** Worauf soll sich Copilot stützen? Zum Beispiel ein hochgeladenes Dokument oder ein eingefügter Text.\n- **Erwartung:** Wie soll das Ergebnis aussehen? Länge, Format, Ton.\n\nNicht jeder Prompt braucht alle vier. Aber je wichtiger das Ergebnis, desto mehr lohnt es sich.",
-        "en": "A good prompt is like a clear course. Four ingredients help:\n- **Goal:** What should Copilot do? For example \"Summarise …\" or \"Draft …\".\n- **Context:** What do you need the result for, for whom and why?\n- **Source:** What should Copilot rely on? For example an uploaded document or pasted text.\n- **Expectations:** What should the result look like? Length, format, tone.\n\nNot every prompt needs all four. But the more important the result, the more it pays off."
+        "de": "Ein guter Prompt ist wie ein klarer Kurs. Vier Zutaten helfen:\n- **Ziel:** Was soll Copilot tun? Zum Beispiel «Fasse zusammen …» oder «Entwirf …».\n- **Kontext:** Wofür brauchst du das Ergebnis, für wen und warum?\n- **Quelle:** Worauf soll sich Copilot stützen? Zum Beispiel ein hochgeladenes Dokument oder ein eingefügter Text.\n- **Erwartung:** Wie soll das Ergebnis aussehen? Länge, Format, Ton.\n\nNicht jeder Prompt braucht alle vier. Aber je wichtiger das Ergebnis, desto mehr lohnt es sich.\n\n**Drei Tipps für den Anfang** (nach «Open to Work» von Ryan Roslansky):\n- **Erklär es wie einer neuen Kollegin.** Was würdest du jemandem sagen, den du für diese Aufgabe einstellst? Genau das gehört in den Prompt: Rolle («Stell dir vor, du bist Produktmanagerin bei uns»), Zielgruppe und Ziel.\n- **Zerleg Grosses in kleine Schritte.** Klappt etwas nicht, formuliere mit mehr Kontext neu oder teile die Aufgabe auf.\n- **Fehlstarts sind normal.** Manchmal kommt nach zwanzig Minuten nichts Brauchbares heraus. Das heisst nicht, dass du es falsch machst, sondern dass du übst. Probier jeden Tag einen neuen Prompt.",
+        "en": "A good prompt is like a clear course. Four ingredients help:\n- **Goal:** What should Copilot do? For example \"Summarise …\" or \"Draft …\".\n- **Context:** What do you need the result for, for whom and why?\n- **Source:** What should Copilot rely on? For example an uploaded document or pasted text.\n- **Expectations:** What should the result look like? Length, format, tone.\n\nNot every prompt needs all four. But the more important the result, the more it pays off.\n\n**Three tips to get started** (after “Open to Work” by Ryan Roslansky):\n- **Explain it like you would to a new colleague.** What would you tell someone you hired for this task? That is exactly what belongs in the prompt: a role (“Imagine you are a product manager here”), the audience and the goal.\n- **Break big things into small steps.** If something does not work, rephrase with more context or split the task.\n- **False starts are normal.** Sometimes twenty minutes produce nothing usable. That does not mean you are doing it wrong; it means you are practising. Try one new prompt a day."
       }
     },
     {
@@ -216,6 +216,6 @@
       }
     }
   ],
-  "reviewedAt": "2026-11-01",
+  "reviewedAt": "2026-11-02",
   "reviewIntervalDays": 180
 }

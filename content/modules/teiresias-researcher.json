@@ -6,7 +6,7 @@
   "version": "1.0.0",
   "owner": "copilot-team",
   "status": "draft",
-  "reviewedAt": "2026-11-01",
+  "reviewedAt": "2026-11-02",
   "reviewIntervalDays": 180,
   "title": {
     "de": "Gründlich recherchieren mit Researcher",
@@ -43,8 +43,8 @@
         {
           "id": "a",
           "text": {
-            "de": "Für eine schnelle Antwort-Mail an eine Kollegin",
-            "en": "For a quick reply email to a colleague"
+            "de": "Für eine schnelle Antwort-Mail an eine Kollegin mit einer Terminbestätigung",
+            "en": "For a quick reply email to a colleague confirming an appointment"
           },
           "correct": false,
           "explanation": {
@@ -55,8 +55,8 @@
         {
           "id": "b",
           "text": {
-            "de": "Für die aktuelle Uhrzeit in Bangkok",
-            "en": "For the current time in Bangkok"
+            "de": "Für die aktuelle Uhrzeit und das Wetter in Bangkok heute Abend",
+            "en": "For the current time and the weather in Bangkok tonight"
           },
           "correct": false,
           "explanation": {
@@ -79,8 +79,8 @@
         {
           "id": "d",
           "text": {
-            "de": "Für eine verbindliche Auskunft zu Visa-Regeln an einen Gast",
-            "en": "For a binding answer on visa rules to a guest"
+            "de": "Für eine verbindliche Auskunft zu Visa-Regeln, die du direkt an einen Gast schickst",
+            "en": "For a binding answer on visa rules that you send straight to a guest"
           },
           "correct": false,
           "explanation": {

@@ -4,11 +4,10 @@
   "version": "1.0.0",
   "owner": "copilot-team",
   "status": "draft",
-  "reviewedAt": "2026-11-01",
+  "reviewedAt": "2026-11-02",
   "reviewIntervalDays": 90,
   "id": "athene-notebooks",
   "order": 3,
-  "license": "premium",
   "title": {
     "de": "Notebooks und Pages: Wissen sammeln",
     "en": "Notebooks and Pages: gathering knowledge"
@@ -18,7 +17,7 @@
     "en": "In a notebook you collect files, notes and chats for a project. Copilot then answers on exactly that basis."
   },
   "estimatedMinutes": 8,
-  "notes": "Neuer Inhalt. Stand Oktober 2026: Copilot Notebooks allgemein verfügbar für M365 Copilot; seit Juni 2026 eingeschränkt auch für Copilot Chat (Basic), laut Microsoft nur in OneNote im Web und mit weniger Quellen. Neue Notebooks werden ab Mitte Oktober in OneDrive gespeichert. Pages sind Teil der Notebooks-Ansicht. Basic-Verfügbarkeit mit dem Testkonto prüfen; dann ggf. license entfernen.",
+  "notes": "Neuer Inhalt. Stand Oktober 2026: Copilot Notebooks allgemein verfügbar für M365 Copilot; seit Juni 2026 eingeschränkt auch für Copilot Chat (Basic), laut Microsoft nur in OneNote im Web und mit weniger Quellen. Neue Notebooks werden ab Mitte Oktober in OneDrive gespeichert. Pages sind Teil der Notebooks-Ansicht. Basic-Verfügbarkeit mit dem Testkonto prüfen; dann ggf. license entfernen. Praxistest 2.11.2026: Notizbücher auch mit Basic verfügbar; in der deutschen Oberfläche heissen sie «Notizbücher» (links in Copilot).",
   "blocks": [
     {
       "type": "briefing",
@@ -28,8 +27,8 @@
         "en": "A library for every project"
       },
       "body": {
-        "de": "Ein **Notebook** ist ein Projektordner für Copilot. Du legst hinein, was zum Thema gehört: Dateien, Notizen, frühere Chats. Copilot antwortet dann auf dieser Grundlage und nennt die Quellen.\n\nGut geeignet für:\n- ein neues Reiseprogramm mit Hotelverträgen, Briefings und Notizen\n- die Vorbereitung einer Messe\n- ein Projekt, an dem du über Wochen arbeitest\n\n**Pages** sind Seiten, die du aus einer Copilot-Antwort machst. Du kannst sie weiter bearbeiten und mit Kolleginnen und Kollegen teilen. Im Notebook siehst du Quellen, Pages und Chat nebeneinander.\n\nSo findest du Notebooks: Öffne die Copilot-App und such links nach **«Notebooks»**. Mit Basic gibt es eine kleinere Version, je nach Einführung nur in OneNote im Web.",
-        "en": "A **notebook** is a project folder for Copilot. You put in what belongs to the topic: files, notes, earlier chats. Copilot then answers on that basis and names the sources.\n\nGood for:\n- a new travel programme with hotel contracts, briefings and notes\n- preparing a trade fair\n- a project you work on over weeks\n\n**Pages** are pages you make from a Copilot answer. You can keep editing them and share them with colleagues. In the notebook you see sources, pages and chat side by side.\n\nHow to find notebooks: open the Copilot app and look on the left for **“Notebooks”**. With Basic there is a smaller version, depending on the rollout only in OneNote on the web."
+        "de": "Ein **Notebook** ist ein Projektordner für Copilot. Du legst hinein, was zum Thema gehört: Dateien, Notizen, frühere Chats. Copilot antwortet dann auf dieser Grundlage und nennt die Quellen.\n\nGut geeignet für:\n- ein neues Reiseprogramm mit Hotelverträgen, Briefings und Notizen\n- die Vorbereitung einer Messe\n- ein Projekt, an dem du über Wochen arbeitest\n\n**Pages** sind Seiten, die du aus einer Copilot-Antwort machst. Du kannst sie weiter bearbeiten und mit Kolleginnen und Kollegen teilen. Im Notebook siehst du Quellen, Pages und Chat nebeneinander.\n\nSo findest du sie: Öffne Copilot und klicke links auf **«Notizbücher»**. Notebooks gibt es mit **Basic und Premium**.",
+        "en": "A **notebook** is a project folder for Copilot. You put in what belongs to the topic: files, notes, earlier chats. Copilot then answers on that basis and names the sources.\n\nGood for:\n- a new travel programme with hotel contracts, briefings and notes\n- preparing a trade fair\n- a project you work on over weeks\n\n**Pages** are pages you make from a Copilot answer. You can keep editing them and share them with colleagues. In the notebook you see sources, pages and chat side by side.\n\nHow to find them: open Copilot and click **“Notebooks”** on the left (in the German interface: «Notizbücher»). Notebooks are available with **Basic and Premium**."
       }
     },
     {
@@ -44,8 +43,8 @@
         {
           "id": "a",
           "text": {
-            "de": "Wenn du schnell eine Betreffzeile für eine Mail brauchst",
-            "en": "When you quickly need a subject line for an email"
+            "de": "Wenn du schnell eine Betreffzeile für eine Mail an einen Partner brauchst",
+            "en": "When you quickly need a subject line for an email to a partner"
           },
           "correct": false,
           "explanation": {
@@ -56,8 +55,8 @@
         {
           "id": "b",
           "text": {
-            "de": "Wenn du vertrauliche Kundendaten an einem sicheren Ort sammeln willst",
-            "en": "When you want to collect confidential customer data in a safe place"
+            "de": "Wenn du vertrauliche Kundendaten an einem besonders sicheren Ort sammeln willst",
+            "en": "When you want to collect confidential customer data in a particularly safe place"
           },
           "correct": false,
           "explanation": {
@@ -68,8 +67,8 @@
         {
           "id": "c",
           "text": {
-            "de": "Wenn du über Wochen an einem Projekt arbeitest und immer dieselben Unterlagen brauchst",
-            "en": "When you work on a project for weeks and keep needing the same documents"
+            "de": "Wenn du wochenlang mit denselben Unterlagen an einem Projekt arbeitest",
+            "en": "When you work on a project with the same documents for weeks"
           },
           "correct": true,
           "explanation": {
@@ -80,8 +79,8 @@
         {
           "id": "d",
           "text": {
-            "de": "Wenn Copilot eine Frage im Chat nicht beantworten konnte",
-            "en": "When Copilot could not answer a question in the chat"
+            "de": "Wenn Copilot eine Frage im normalen Chat zweimal nicht beantworten konnte",
+            "en": "When Copilot could not answer a question in the normal chat twice"
           },
           "correct": false,
           "explanation": {
@@ -103,8 +102,8 @@
         {
           "id": "a",
           "text": {
-            "de": "Webseiten für Kundinnen und Kunden veröffentlichen",
-            "en": "Publishing web pages for customers"
+            "de": "Angebote als Webseiten direkt für Kundinnen und Kunden veröffentlichen",
+            "en": "Publishing offers as web pages directly for customers"
           },
           "correct": false,
           "explanation": {
@@ -115,8 +114,8 @@
         {
           "id": "b",
           "text": {
-            "de": "Eine Copilot-Antwort als Seite weiterbearbeiten und mit dem Team teilen",
-            "en": "Keep editing a Copilot answer as a page and share it with the team"
+            "de": "Eine Copilot-Antwort weiterbearbeiten und mit dem Team teilen",
+            "en": "Keep editing a Copilot answer and share it with the team"
           },
           "correct": true,
           "explanation": {
@@ -127,8 +126,8 @@
         {
           "id": "c",
           "text": {
-            "de": "Lange Chats automatisch in PDF-Dateien umwandeln",
-            "en": "Automatically turning long chats into PDF files"
+            "de": "Lange Chats automatisch als PDF-Dateien in OneDrive ablegen",
+            "en": "Automatically storing long chats as PDF files in OneDrive"
           },
           "correct": false,
           "explanation": {
@@ -139,8 +138,8 @@
         {
           "id": "d",
           "text": {
-            "de": "Copilot dauerhaft eigene Regeln geben",
-            "en": "Giving Copilot permanent rules of your own"
+            "de": "Copilot dauerhaft eigene Regeln für alle künftigen Chats geben",
+            "en": "Giving Copilot permanent rules of your own for all future chats"
           },
           "correct": false,
           "explanation": {

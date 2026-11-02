@@ -64,6 +64,17 @@ Die Themen stehen unter Überschriften aus `groups` (`id`, `title`); jedes Thema
 
 Platzhalter schreibst du in eckige Klammern, zum Beispiel `[Thema]`. Die App hebt sie farbig hervor. Die Prüfung meldet unbekannte Bereiche, doppelte ids und «ß».
 
+## Inselprüfungen
+
+`content/exams.json` enthält pro Insel drei bis acht **neue** Fragen (Schema `schema/exams.schema.json`), aufgebaut wie die Quizfragen in den Modulen. Die Prüfung öffnet sich, wenn alle Etappen einer Insel abgeschlossen sind. Wer mindestens drei Viertel der Fragen auf Anhieb richtig beantwortet (bei 4 Fragen also 3), hat die Insel geschafft und bekommt den Stempel im Reisepass. Die Fragen kommen bei jedem Versuch in neuer Reihenfolge.
+
+Gute Prüfungsfragen:
+- fragen Wissen aus **mehreren Etappen** ab, nicht nur aus einer
+- sind **neu**, also keine Kopie einer Frage aus den Etappen
+- haben **gleich lange und gleich konkrete** Antworten; falsche Antworten sind typische Irrtümer, keine offensichtlichen Fehler
+
+`npm run content:check` warnt, wenn eine richtige Antwort deutlich länger ist als alle falschen (in Etappen und Prüfungen), weil sie sich dadurch verrät.
+
 ## Prüfen
 
 ```bash

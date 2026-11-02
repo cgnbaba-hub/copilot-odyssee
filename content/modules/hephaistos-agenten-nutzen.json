@@ -17,7 +17,7 @@
     "en": "What agents are, which ones exist and when they help you more than a normal chat."
   },
   "estimatedMinutes": 8,
-  "notes": "Neuer Inhalt. Stand Oktober 2026: Agenten erscheinen in der Microsoft-365-Copilot-App links unter «Agenten». Researcher und Analyst brauchen M365 Copilot (Premium). Ob Personen mit Copilot Chat (Basic) Agenten nutzen oder erstellen dürfen, hängt von den IT-Einstellungen ab (nutzungsabhängige Abrechnung), deshalb nur allgemein erwähnt. Bitte mit der IT klären, welche Agenten freigegeben sind.",
+  "notes": "Neuer Inhalt. Stand Oktober 2026: Agenten erscheinen in der Microsoft-365-Copilot-App links unter «Agents». Researcher und Analyst brauchen M365 Copilot (Premium). Ob Personen mit Copilot Chat (Basic) Agenten nutzen oder erstellen dürfen, hängt von den IT-Einstellungen ab (nutzungsabhängige Abrechnung), deshalb nur allgemein erwähnt. Bitte mit der IT klären, welche Agenten freigegeben sind.",
   "blocks": [
     {
       "type": "briefing",
@@ -27,7 +27,7 @@
         "en": "Tools from the forge"
       },
       "body": {
-        "de": "Ein **Agent** ist ein Copilot mit einer festen Aufgabe. Er hat eigene Anweisungen und oft eigenes Wissen, zum Beispiel ein Handbuch oder eine SharePoint-Seite.\n\nDu findest Agenten in Copilot links unter **«Agenten»**:\n- **Researcher** recherchiert gründlich und liefert Berichte mit Quellen.\n- **Analyst** wertet Daten aus, zum Beispiel aus Excel-Dateien.\n- **Agenten eures Unternehmens**, zum Beispiel für interne Richtlinien, wenn die IT welche bereitstellt.\n\nResearcher und Analyst gibt es mit M365 Copilot (Premium). Welche weiteren Agenten du siehst, legt eure IT fest.\n\n**Agenten finden und anheften:**\n- Links unter **«Agenten»** siehst du die angehefteten Agenten. Mit Premium sind **Researcher** und **Analyst** meist schon da.\n- Über **«Alle Agenten»** oder **«Agenten entdecken»** findest du weitere, zum Beispiel von Microsoft oder von eurem Unternehmen.\n- Klick einen Agenten an und wähl **«Hinzufügen»**. Über die **drei Punkte** neben dem Agenten heftest du ihn an, damit er links in der Leiste bleibt.\n\nDie Bezeichnungen können je nach Version leicht abweichen.",
+        "de": "Ein **Agent** ist ein Copilot mit einer festen Aufgabe. Er hat eigene Anweisungen und oft eigenes Wissen, zum Beispiel ein Handbuch oder eine SharePoint-Seite.\n\nDu findest Agenten in Copilot links unter **«Agents»**:\n- **Researcher** recherchiert gründlich und liefert Berichte mit Quellen.\n- **Analyst** wertet Daten aus, zum Beispiel aus Excel-Dateien.\n- **Agenten eures Unternehmens**, zum Beispiel für interne Richtlinien, wenn die IT welche bereitstellt.\n\nResearcher und Analyst gibt es mit M365 Copilot (Premium). Welche weiteren Agenten du siehst, legt eure IT fest.\n\n**Agenten finden und anheften:**\n- Links unter **«Agents»** siehst du die angehefteten Agenten. Mit Premium sind **Researcher** und **Analyst** meist schon da.\n- Über **«Alle Agenten»** oder **«Agenten entdecken»** findest du weitere, zum Beispiel von Microsoft oder von eurem Unternehmen.\n- Klick einen Agenten an und wähl **«Hinzufügen»**. Über die **drei Punkte** neben dem Agenten heftest du ihn an, damit er links in der Leiste bleibt.\n\nDie Bezeichnungen können je nach Version leicht abweichen.",
         "en": "An **agent** is a Copilot with a fixed job. It has its own instructions and often its own knowledge, such as a handbook or a SharePoint site.\n\nYou find agents in Copilot on the left under **“Agents”**:\n- **Researcher** researches thoroughly and delivers reports with sources.\n- **Analyst** analyses data, for example from Excel files.\n- **Your company's agents**, for example for internal guidelines, if IT provides them.\n\nResearcher and Analyst are available with M365 Copilot (Premium). Which other agents you see is decided by your IT.\n\n**Finding and pinning agents:**\n- On the left under **“Agents”** you see your pinned agents. With Premium, **Researcher** and **Analyst** are usually already there.\n- Via **“All agents”** or **“Explore agents”** you find more, for example from Microsoft or from your company.\n- Click an agent and choose **“Add”**. Use the **three dots** next to the agent to pin it, so it stays in the bar on the left.\n\nThe labels may differ slightly depending on the version."
       }
     },
@@ -43,8 +43,8 @@
         {
           "id": "a",
           "text": {
-            "de": "Er arbeitet ohne Kontrolle und trifft Entscheidungen selbst",
-            "en": "It works without control and makes decisions itself"
+            "de": "Er arbeitet ohne Kontrolle und trifft verbindliche Entscheidungen selbst",
+            "en": "It works without control and makes binding decisions by itself"
           },
           "correct": false,
           "explanation": {
@@ -67,8 +67,8 @@
         {
           "id": "c",
           "text": {
-            "de": "Er nutzt ein anderes, geheimes KI-Modell",
-            "en": "It uses a different, secret AI model"
+            "de": "Er nutzt ein anderes, nur für Agenten freigegebenes und geheimes KI-Modell",
+            "en": "It uses a different, secret AI model released only for agents"
           },
           "correct": false,
           "explanation": {
@@ -79,8 +79,8 @@
         {
           "id": "d",
           "text": {
-            "de": "Er ist ein Mensch aus dem Support, der im Hintergrund antwortet",
-            "en": "It is a support person answering in the background"
+            "de": "Er ist eine Person aus dem Support, die im Hintergrund die Antworten schreibt",
+            "en": "It is a support person writing the answers in the background"
           },
           "correct": false,
           "explanation": {
@@ -102,8 +102,8 @@
         {
           "id": "a",
           "text": {
-            "de": "Eine einmalige Rede für das Firmenjubiläum",
-            "en": "A one-off speech for the company anniversary"
+            "de": "Eine einmalige Rede für das Jubiläum der Firma mit persönlichen Anekdoten",
+            "en": "A one-off speech for the company anniversary with personal anecdotes"
           },
           "correct": false,
           "explanation": {
@@ -126,8 +126,8 @@
         {
           "id": "c",
           "text": {
-            "de": "Verbindliche Preisauskünfte direkt an Gäste",
-            "en": "Binding price information directly to guests"
+            "de": "Verbindliche Preisauskünfte, die direkt und ohne Prüfung an Gäste gehen",
+            "en": "Binding price information that goes to guests directly and unchecked"
           },
           "correct": false,
           "explanation": {
@@ -138,8 +138,8 @@
         {
           "id": "d",
           "text": {
-            "de": "Eine Frage, deren Antwort sich täglich ändert und nirgends steht",
-            "en": "A question whose answer changes daily and is written nowhere"
+            "de": "Eine Frage, deren Antwort sich täglich ändert und nirgends aufgeschrieben ist",
+            "en": "A question whose answer changes daily and is written down nowhere"
           },
           "correct": false,
           "explanation": {
@@ -157,7 +157,7 @@
         "en": "A tour of the forge"
       },
       "task": {
-        "de": "Öffne Copilot und schau links unter «Agenten», welche Agenten du hast. Öffne einen davon und stell ihm eine Frage aus deiner Arbeit.",
+        "de": "Öffne Copilot und schau links unter «Agents», welche Agenten du hast. Öffne einen davon und stell ihm eine Frage aus deiner Arbeit.",
         "en": "Open Copilot and look under “Agents” on the left to see which agents you have. Open one of them and ask it a question from your work."
       },
       "tip": {

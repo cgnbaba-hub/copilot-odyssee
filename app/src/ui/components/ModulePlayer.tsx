@@ -12,6 +12,7 @@ import { QuizView } from '../blocks/QuizView';
 import { UseCaseView } from '../blocks/UseCaseView';
 import { Strings, format } from '../i18n/strings';
 import { useGame } from '../GameContext';
+import { examOpen } from '../../core/progress/exam';
 import { islandProgress, isModulePreview, nextStage } from '../progressHelpers';
 import styles from '../styles.module.scss';
 import { IslandArt } from './Art';
@@ -135,6 +136,8 @@ export function ModulePlayer(props: { moduleId: string }): React.ReactElement {
     const islandDone = island ? islandProgress(game, island.id) : undefined;
     const newStamp = !!island && !!islandDone && islandDone.total > 0 && islandDone.completed === islandDone.total && getModule(player, module.id).completed === 1;
     const following = nextStage(game, module.id);
+    // All stages done but the exam still open: the exam is the next step on this island.
+    const examNext = !!island && islandDone !== undefined && islandDone.examPending && examOpen(content, player, island.id, { showDrafts: game.showDrafts });
     // When the rest of this island is Premium, the player is told why the journey moves on to another island.
     const lockedRest =
       !!island &&
@@ -168,22 +171,29 @@ export function ModulePlayer(props: { moduleId: string }): React.ReactElement {
         )}
         <Guide
           text={
-            lockedRest && island && following
-              ? format(strings.moduleDoneLockedRest, { island: t(island.name), next: t(following.island.name) })
-              : following
-                ? strings.moduleDoneGuide
-                : strings.allDoneText
+            examNext && island
+              ? format(strings.moduleDoneExam, { island: t(island.name) })
+              : lockedRest && island && following
+                ? format(strings.moduleDoneLockedRest, { island: t(island.name), next: t(following.island.name) })
+                : following
+                  ? strings.moduleDoneGuide
+                  : strings.allDoneText
           }
           cheer
           compact
         />
         <div className={styles.doneActions}>
-          {following && (
+          {examNext && island && (
+            <button type="button" className={`${styles.buttonPrimary} ${styles.buttonBig}`} onClick={() => navigate({ name: 'exam', islandId: island.id })}>
+              🏁 {strings.examGo} →
+            </button>
+          )}
+          {following && !examNext && (
             <button type="button" className={`${styles.buttonPrimary} ${styles.buttonBig}`} onClick={() => navigate({ name: 'module', moduleId: following.module.id })}>
               {strings.nextStage}: {t(following.module.title)} →
             </button>
           )}
-          <button type="button" className={following ? styles.button : `${styles.buttonPrimary} ${styles.buttonBig}`} onClick={() => navigate({ name: 'map' })}>
+          <button type="button" className={following || examNext ? styles.button : `${styles.buttonPrimary} ${styles.buttonBig}`} onClick={() => navigate({ name: 'map' })}>
             {strings.backToOverview}
           </button>
         </div>

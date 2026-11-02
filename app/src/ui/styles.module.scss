@@ -7219,3 +7219,71 @@ $grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width=
   background: $ink !important;
   color: #fbf6e8 !important;
 }
+
+// «Erst überlegen»: the options stay covered until the player asks for them
+
+.thinkFirst {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 12px 16px;
+  margin: 8px 0 4px;
+  padding: 16px 18px;
+  background: repeating-linear-gradient(-45deg, $paper-hi 0 14px, #f3ead2 14px 28px);
+  border: 2.5px dashed $ink;
+  border-radius: 16px;
+
+  p {
+    margin: 0;
+  }
+
+  > button {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+}
+
+.thinkFirstIcon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  background: $sun;
+  border: 2.5px solid $ink;
+  border-radius: 50%;
+  color: $ink;
+  font-family: var(--od-font-display);
+  font-size: 30px;
+}
+
+.thinkFirstTitle {
+  font-family: var(--od-font-display);
+  font-size: 22px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+// Island exam
+
+.ticketExam {
+  border-style: double !important;
+  border-width: 4px !important;
+}
+
+.examDone {
+  position: relative;
+  text-align: center;
+
+  .guide {
+    justify-content: center;
+    text-align: left;
+  }
+
+  .doneActions {
+    justify-content: center;
+  }
+
+  .pageTitle {
+    background-position: center bottom;
+  }
+}

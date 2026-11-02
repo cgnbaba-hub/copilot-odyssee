@@ -41,8 +41,8 @@
         {
           "id": "a",
           "text": {
-            "de": "Ein KI-Assistent, der in Microsoft 365 eingebaut ist und Texte auf Basis von Wahrscheinlichkeiten erzeugt",
-            "en": "An AI assistant built into Microsoft 365 that generates text based on probabilities"
+            "de": "Ein KI-Assistent in Microsoft 365, der Texte nach Wahrscheinlichkeiten erzeugt",
+            "en": "An AI assistant in Microsoft 365 that generates text based on probabilities"
           },
           "correct": true,
           "explanation": {
@@ -53,8 +53,8 @@
         {
           "id": "b",
           "text": {
-            "de": "Eine Suchmaschine, die zu jeder Frage die passende Webseite unverändert anzeigt",
-            "en": "A search engine that shows the matching web page unchanged for every question"
+            "de": "Eine Suchmaschine, die zu jeder Frage die passende Webseite unverändert wiedergibt",
+            "en": "A search engine that reproduces the matching web page unchanged for every question"
           },
           "correct": false,
           "explanation": {
@@ -65,8 +65,8 @@
         {
           "id": "c",
           "text": {
-            "de": "Eine Datenbank mit geprüften Antworten, die Microsoft laufend von Hand pflegt",
-            "en": "A database of verified answers that Microsoft maintains by hand"
+            "de": "Eine Datenbank mit geprüften Antworten, die Microsoft laufend von Hand nachführt",
+            "en": "A database of verified answers that Microsoft keeps updating by hand"
           },
           "correct": false,
           "explanation": {
@@ -77,8 +77,8 @@
         {
           "id": "d",
           "text": {
-            "de": "Ein Programm, das nur in Word funktioniert und dort Texte korrigiert",
-            "en": "A program that only works in Word and corrects texts there"
+            "de": "Ein Programm, das nur in Word funktioniert und dort Rechtschreibung korrigiert",
+            "en": "A program that only works in Word and corrects spelling there"
           },
           "correct": false,
           "explanation": {
@@ -160,6 +160,6 @@
       ]
     }
   ],
-  "reviewedAt": "2026-11-01",
+  "reviewedAt": "2026-11-02",
   "reviewIntervalDays": 90
 }

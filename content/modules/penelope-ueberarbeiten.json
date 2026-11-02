@@ -6,7 +6,7 @@
   "version": "1.0.0",
   "owner": "copilot-team",
   "status": "draft",
-  "reviewedAt": "2026-11-01",
+  "reviewedAt": "2026-11-02",
   "reviewIntervalDays": 180,
   "title": {
     "de": "Überarbeiten und zusammenfassen",
@@ -43,8 +43,8 @@
         {
           "id": "a",
           "text": {
-            "de": "Ob der neue Text länger ist als vorher",
-            "en": "Whether the new text is longer than before"
+            "de": "Ob der neue Text kürzer und besser lesbar ist als vorher",
+            "en": "Whether the new text is shorter and easier to read than before"
           },
           "correct": false,
           "explanation": {
@@ -55,8 +55,8 @@
         {
           "id": "b",
           "text": {
-            "de": "Ob Copilot die Formatierung beibehalten hat",
-            "en": "Whether Copilot kept the formatting"
+            "de": "Ob Copilot die Formatierung und die Zwischentitel beibehalten hat",
+            "en": "Whether Copilot kept the formatting and the subheadings"
           },
           "correct": false,
           "explanation": {
@@ -67,8 +67,8 @@
         {
           "id": "c",
           "text": {
-            "de": "Ob alle Fakten, Zahlen und Namen noch stimmen",
-            "en": "Whether all facts, figures and names are still right"
+            "de": "Ob alle Fakten, Zahlen, Daten und Namen noch stimmen",
+            "en": "Whether all facts, figures, dates and names are still right"
           },
           "correct": true,
           "explanation": {
@@ -79,8 +79,8 @@
         {
           "id": "d",
           "text": {
-            "de": "Nichts, es war ja dein eigener Text",
-            "en": "Nothing, it was your own text after all"
+            "de": "Nichts weiter, weil der Text ja auf deinem eigenen beruht",
+            "en": "Nothing more, because the text is based on your own"
           },
           "correct": false,
           "explanation": {

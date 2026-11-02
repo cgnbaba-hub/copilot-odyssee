@@ -43,8 +43,8 @@
         {
           "id": "a",
           "text": {
-            "de": "Nur bestehende Folien umformulieren, aber keine neuen erstellen",
-            "en": "Only rephrase existing slides but not create new ones"
+            "de": "Nur bestehende Folien umformulieren, aber keine neuen Folien erstellen",
+            "en": "Only rephrase existing slides but not create any new slides"
           },
           "correct": false,
           "explanation": {
@@ -55,8 +55,8 @@
         {
           "id": "b",
           "text": {
-            "de": "Nur Bilder einfügen und Animationen hinzufügen",
-            "en": "Only insert images and add animations"
+            "de": "Nur Bilder einfügen, Übergänge wählen und Animationen hinzufügen",
+            "en": "Only insert images, choose transitions and add animations"
           },
           "correct": false,
           "explanation": {
@@ -67,7 +67,7 @@
         {
           "id": "c",
           "text": {
-            "de": "Eine ganze Präsentation aus einem Prompt oder einem Dokument entwerfen",
+            "de": "Eine ganze Präsentation aus einem Prompt oder Dokument entwerfen",
             "en": "Draft a whole presentation from a prompt or a document"
           },
           "correct": true,
@@ -79,8 +79,8 @@
         {
           "id": "d",
           "text": {
-            "de": "Die Präsentation im Meeting selbstständig vortragen",
-            "en": "Present the slides in the meeting on its own"
+            "de": "Die Präsentation im Meeting mit eigener Stimme selbstständig vortragen",
+            "en": "Present the slides in the meeting on its own with its own voice"
           },
           "correct": false,
           "explanation": {
@@ -102,8 +102,8 @@
         {
           "id": "a",
           "text": {
-            "de": "Copilot bitten, die Farben und das Logo im Internet zu suchen",
-            "en": "Ask Copilot to look up the colours and logo on the internet"
+            "de": "Copilot bitten, Farben und Logo von DERTOUR im Internet zu suchen",
+            "en": "Ask Copilot to look up DERTOUR’s colours and logo on the internet"
           },
           "correct": false,
           "explanation": {
@@ -114,20 +114,20 @@
         {
           "id": "b",
           "text": {
-            "de": "Mit der Firmenvorlage starten oder sie bei Copilot auswählen, sobald das Brand-Kit hinterlegt ist",
-            "en": "Start with the company template or select it in Copilot once the brand kit is set up"
+            "de": "Zuerst die DERTOUR-Vorlage öffnen und Copilot darin starten",
+            "en": "Open the DERTOUR template first and start Copilot in it"
           },
           "correct": true,
           "explanation": {
-            "de": "Richtig. Das Brandmanagement arbeitet am Brand-Kit, bis dahin startest du mit der Vorlage.",
-            "en": "Right. Brand management is working on the brand kit; until then you start with the template."
+            "de": "Richtig. In der Vorlage nutzt Copilot deren Layouts, Farben und Schriften. Später hilft das Brand Kit.",
+            "en": "Right. In the template Copilot uses its layouts, colours and fonts. Later the Brand Kit will help."
           }
         },
         {
           "id": "c",
           "text": {
-            "de": "Im Prompt schreiben: «im DERTOUR-Design»",
-            "en": "Write in the prompt: “in the DERTOUR design”"
+            "de": "In einer leeren Präsentation schreiben: «bitte im DERTOUR-Design»",
+            "en": "Write in a blank presentation: “please in the DERTOUR design”"
           },
           "correct": false,
           "explanation": {
@@ -138,8 +138,8 @@
         {
           "id": "d",
           "text": {
-            "de": "Danach jede Folie von Hand umfärben",
-            "en": "Recolour every slide by hand afterwards"
+            "de": "Die fertigen Folien danach von Hand umfärben und das Logo einfügen",
+            "en": "Recolour the finished slides by hand and insert the logo afterwards"
           },
           "correct": false,
           "explanation": {

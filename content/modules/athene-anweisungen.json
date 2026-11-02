@@ -27,8 +27,8 @@
         "en": "Say it once, mean it always"
       },
       "body": {
-        "de": "Copilot kann sich merken, wie du arbeitest. Dafür gibt es zwei Dinge:\n- **Eigene Anweisungen:** Ein kurzer Text, der für alle deine Chats gilt. Zum Beispiel deine Rolle, die Schweizer Schreibweise oder wie lang Antworten sein sollen.\n- **Gedächtnis:** Copilot merkt sich wichtige Dinge aus euren Gesprächen. Du kannst ihm auch direkt sagen: «Merk dir, dass …».\n\nSo findest du die Einstellungen:\n- Öffne Copilot und klicke auf die **drei Punkte** oder dein **Profilbild**.\n- Wähle **Einstellungen** und dann **Personalisierung**.\n- Sieht es bei dir anders aus? Such in den Einstellungen nach «Personalisierung». Microsoft baut die Copilot-App gerade um.\n\nDu siehst dort jederzeit, was Copilot sich gemerkt hat, und kannst einzelne Erinnerungen löschen.",
-        "en": "Copilot can remember how you work. There are two things for this:\n- **Custom instructions:** A short text that applies to all your chats. For example your role, Swiss spelling or how long answers should be.\n- **Memory:** Copilot remembers important things from your conversations. You can also tell it directly: “Remember that …”.\n\nHow to find the settings:\n- Open Copilot and click the **three dots** or your **profile picture**.\n- Choose **Settings** and then **Personalization**.\n- Looks different for you? Search the settings for “Personalization”. Microsoft is currently rebuilding the Copilot app.\n\nThere you can always see what Copilot has remembered and delete individual memories."
+        "de": "Copilot kann sich merken, wie du arbeitest. Dafür gibt es zwei Dinge:\n- **Eigene Anweisungen:** Ein kurzer Text, der für alle deine Chats gilt. Zum Beispiel deine Rolle, die Schweizer Schreibweise oder wie lang Antworten sein sollen.\n- **Gedächtnis:** Copilot merkt sich wichtige Dinge aus euren Gesprächen. Du kannst ihm auch direkt sagen: «Merk dir, dass …».\n\nSo findest du die Einstellungen:\n1. Klicke in Copilot oben rechts auf **«…»** (Einstellungen und mehr) und dann auf **Einstellungen**.\n2. Wähle links **Personalisierung**.\n3. Bei **«Anpassen von Copilot»** klickst du auf **Verwalten** und schreibst deine Anweisungen.\n4. Bei **«Gespeicherte Erinnerungen»** siehst du über **Verwalten**, was Copilot sich gemerkt hat, und kannst einzelne Erinnerungen löschen.\n\nSieht es bei dir anders aus? Microsoft baut Copilot laufend um. Such dann in den Einstellungen nach «Personalisierung».",
+        "en": "Copilot can remember how you work. There are two things for this:\n- **Custom instructions:** A short text that applies to all your chats. For example your role, Swiss spelling or how long answers should be.\n- **Memory:** Copilot remembers important things from your conversations. You can also tell it directly: “Remember that …”.\n\nHow to find the settings:\n1. In Copilot, click **“…”** (Settings and more) at the top right and then **Settings**.\n2. Choose **Personalization** on the left.\n3. Under **“Customize Copilot”**, click **Manage** and write your instructions.\n4. Under **“Saved memories”**, **Manage** shows what Copilot has remembered, and you can delete individual memories.\n\nLooks different for you? Microsoft keeps rebuilding Copilot. Then search the settings for “Personalization”."
       }
     },
     {
@@ -102,8 +102,8 @@
         {
           "id": "a",
           "text": {
-            "de": "Einen neuen Chat beginnen, dann ist die Erinnerung weg",
-            "en": "Start a new chat, then the memory is gone"
+            "de": "Einen neuen Chat beginnen, dann gilt die alte Erinnerung nicht mehr",
+            "en": "Start a new chat, then the old memory no longer applies"
           },
           "correct": false,
           "explanation": {
@@ -114,8 +114,8 @@
         {
           "id": "b",
           "text": {
-            "de": "Die Erinnerung unter Personalisierung löschen oder Copilot sagen: «Vergiss, dass …»",
-            "en": "Delete the memory under Personalization or tell Copilot: “Forget that …”"
+            "de": "Die Erinnerung unter Personalisierung löschen oder sagen: «Vergiss das»",
+            "en": "Delete the memory under Personalization or say: “Forget that”"
           },
           "correct": true,
           "explanation": {
@@ -126,8 +126,8 @@
         {
           "id": "c",
           "text": {
-            "de": "Den Browser-Verlauf löschen",
-            "en": "Clear the browser history"
+            "de": "Den Browserverlauf und die Cookies von Edge vollständig löschen",
+            "en": "Delete the Edge browser history and cookies completely"
           },
           "correct": false,
           "explanation": {
@@ -138,8 +138,8 @@
         {
           "id": "d",
           "text": {
-            "de": "Die IT bitten, dein Copilot-Konto zurückzusetzen",
-            "en": "Ask IT to reset your Copilot account"
+            "de": "Die IT bitten, dein Copilot-Konto auf den Anfangszustand zurückzusetzen",
+            "en": "Ask IT to reset your Copilot account to its initial state"
           },
           "correct": false,
           "explanation": {
@@ -157,8 +157,8 @@
         "en": "Your instructions"
       },
       "task": {
-        "de": "Öffne in Copilot die Einstellungen und dort die Personalisierung. Füge den Text unten als eigene Anweisungen ein und passe die Klammern an. Stell danach in einem neuen Chat eine Frage und schau, ob die Antwort jetzt besser passt.",
-        "en": "In Copilot, open the settings and then Personalization. Paste the text below as custom instructions and adjust the brackets. Then ask a question in a new chat and see whether the answer fits better now."
+        "de": "Öffne in Copilot oben rechts «…» › Einstellungen › Personalisierung › «Anpassen von Copilot» › Verwalten. Füge den Text unten als eigene Anweisungen ein und passe die Klammern an. Stell danach in einem neuen Chat eine Frage und schau, ob die Antwort jetzt besser passt.",
+        "en": "In Copilot, open “…” › Settings › Personalization › “Customize Copilot” › Manage at the top right. Paste the text below as custom instructions and adjust the brackets. Then ask a question in a new chat and see whether the answer fits better now."
       },
       "tip": {
         "de": "Findest du keine Personalisierung? Dann ist sie bei euch noch nicht verfügbar oder von der IT ausgeschaltet. Du kannst den Text auch an den Anfang eines Chats stellen.",

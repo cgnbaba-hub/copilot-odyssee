@@ -75,6 +75,8 @@ export interface PlayerState {
   reviewSnoozed?: string;
   /** How many prompts the player pinned to the harbour board; the first few earn miles. */
   pinsShared?: number;
+  /** Island exams by island id; missing in older saves (see exam.ts). */
+  exams?: { [islandId: string]: { passed: boolean; best: number; attempts: number; passedAt?: string } };
 }
 
 export interface ReviewEntry {

@@ -17,6 +17,7 @@ import { Loading } from './components/Loading';
 import { CheatSheet } from './components/CheatSheet';
 import { ContactNote } from './components/ContactNote';
 import { FeedbackPanel } from './components/FeedbackPanel';
+import { ExamView } from './components/ExamView';
 import { Header } from './components/Header';
 import { HelpPanel } from './components/HelpPanel';
 import { Home } from './components/Home';
@@ -235,6 +236,10 @@ export function App(props: AppProps): React.ReactElement {
     if (view.name === 'cheatsheet') return strings.cheatsheet;
     if (view.name === 'pinboard') return strings.pinboardTitle;
     if (view.name === 'workshop') return strings.workshopTitle;
+    if (view.name === 'exam') {
+      const island = findIsland(props.content, view.islandId);
+      return format(strings.examTitle, { island: island ? t(island.name) : view.islandId });
+    }
     if (view.name === 'review') return strings.pageReview;
     if (view.name === 'admin') return strings.adminTitle;
     return strings.pageHome;
@@ -274,6 +279,7 @@ export function App(props: AppProps): React.ReactElement {
   else if (view.name === 'cheatsheet') main = <CheatSheet />;
   else if (view.name === 'pinboard') main = <Pinboard key={view.draft ? view.draft.prompt : 'board'} draft={view.draft} />;
   else if (view.name === 'review') main = <ReviewView />;
+  else if (view.name === 'exam') main = <ExamView key={view.islandId} islandId={view.islandId} />;
   else if (view.name === 'workshop') main = <Workshop key={view.task || 'workshop'} task={view.task} />;
   else if (view.name === 'admin' && props.admin) main = <AdminView source={props.admin} />;
   else main = <Home />;
@@ -296,8 +302,8 @@ export function App(props: AppProps): React.ReactElement {
         {helpOpen && <HelpPanel onClose={() => setHelpOpen(false)} onFeedback={openFeedback} />}
         {feedbackOpen && <FeedbackPanel sender={props.feedback} demo={props.storage === 'demo'} page={pageLabel} onClose={() => setFeedbackOpen(false)} />}
         {showTour && <Tour getRoot={() => rootRef.current || undefined} onDone={finishTour} />}
-        {/* A new status is celebrated outside of stages and after a new stamp, so it never interrupts either. */}
-        {rankUp !== undefined && view.name !== 'module' && !(view.name === 'passport' && view.stamp && !stampSeen) && (
+        {/* A new status is celebrated outside of stages, exams and brushing up, and after a new stamp, so it never interrupts any of them. */}
+        {rankUp !== undefined && view.name !== 'module' && view.name !== 'exam' && view.name !== 'review' && !(view.name === 'passport' && view.stamp && !stampSeen) && (
           <RankUp index={rankUp} onClose={() => setRankUp(undefined)} />
         )}
         {saveStatus && (

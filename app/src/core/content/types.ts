@@ -151,6 +151,13 @@ export interface PromptTemplate {
 }
 
 /** A short task in the real Copilot; the app shows a new one every week. */
+/** The island exam: new questions after all stages; passing it completes the island. */
+export interface IslandExam {
+  island: string;
+  reviewedAt?: string;
+  questions: QuizBlock[];
+}
+
 export interface Challenge {
   id: string;
   title: Localized;
@@ -172,6 +179,8 @@ export interface ContentBundle {
   areas?: Area[];
   prompts?: PromptTemplate[];
   challenges?: Challenge[];
+  /** Island exams, at most one per island; missing in older content files. */
+  exams?: IslandExam[];
   /** Date all help answers were last checked. */
   helpReviewedAt?: string;
 }

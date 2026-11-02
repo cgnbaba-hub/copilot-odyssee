@@ -126,8 +126,8 @@
         {
           "id": "b",
           "text": {
-            "de": "Copilot fragen: «Was wurde bisher besprochen?»",
-            "en": "Ask Copilot: “What has been discussed so far?”"
+            "de": "Copilot leise fragen: «Was wurde bisher besprochen?»",
+            "en": "Quietly ask Copilot: “What has been discussed so far?”"
           },
           "correct": true,
           "explanation": {

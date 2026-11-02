@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "owner": "copilot-team",
   "status": "draft",
-  "reviewedAt": "2026-11-01",
+  "reviewedAt": "2026-11-02",
   "reviewIntervalDays": 60,
   "id": "kalypso-office",
   "order": 3,
@@ -44,8 +44,8 @@
         {
           "id": "a",
           "text": {
-            "de": "Als normale Datei in OneDrive, in Word und in der Bibliothek der Copilot-App",
-            "en": "As a normal file in OneDrive, in Word and in the Library of the Copilot app"
+            "de": "Als normale Datei in OneDrive, in Word und in der Bibliothek der App",
+            "en": "As a normal file in OneDrive, in Word and in the app’s Library"
           },
           "correct": true,
           "explanation": {
@@ -56,8 +56,8 @@
         {
           "id": "b",
           "text": {
-            "de": "Nur im Chatverlauf, als Bild",
-            "en": "Only in the chat history, as an image"
+            "de": "Nur im Chatverlauf der Copilot-App, als Bild, das du herunterladen kannst",
+            "en": "Only in the chat history of the Copilot app, as an image you can download"
           },
           "correct": false,
           "explanation": {
@@ -68,8 +68,8 @@
         {
           "id": "c",
           "text": {
-            "de": "Nirgends, das Dokument verschwindet beim Schliessen",
-            "en": "Nowhere, the document disappears when you close it"
+            "de": "Nirgends dauerhaft, das Dokument verschwindet, sobald du den Chat schliesst",
+            "en": "Nowhere permanently, the document disappears as soon as you close the chat"
           },
           "correct": false,
           "explanation": {
@@ -80,8 +80,8 @@
         {
           "id": "d",
           "text": {
-            "de": "In einem speziellen Copilot-Format, das Word nicht öffnen kann",
-            "en": "In a special Copilot format that Word cannot open"
+            "de": "In einem eigenen Copilot-Format, das sich in Word nicht öffnen lässt",
+            "en": "In a separate Copilot format that cannot be opened in Word"
           },
           "correct": false,
           "explanation": {

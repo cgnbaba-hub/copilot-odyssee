@@ -56,7 +56,7 @@
           "id": "a",
           "text": {
             "de": "Alle Nachrichten von Anfang an lesen, damit dir nichts entgeht",
-            "en": "Read all messages from the beginning so that you miss nothing"
+            "en": "Read all messages from the beginning so you miss nothing"
           },
           "correct": false,
           "explanation": {
@@ -67,8 +67,8 @@
         {
           "id": "b",
           "text": {
-            "de": "Im Chat fragen, ob jemand kurz zusammenfassen kann",
-            "en": "Ask in the chat whether someone can summarise briefly"
+            "de": "Im Chat fragen, ob jemand kurz für dich zusammenfassen kann",
+            "en": "Ask in the chat whether someone can briefly summarise for you"
           },
           "correct": false,
           "explanation": {
@@ -79,8 +79,8 @@
         {
           "id": "c",
           "text": {
-            "de": "Copilot im Chat nach den wichtigsten Punkten und offenen Fragen fragen",
-            "en": "Ask Copilot in the chat for the key points and open questions"
+            "de": "Copilot nach den wichtigsten Punkten und offenen Fragen fragen",
+            "en": "Ask Copilot for the key points and open questions"
           },
           "correct": true,
           "explanation": {
@@ -91,8 +91,8 @@
         {
           "id": "d",
           "text": {
-            "de": "Nur die letzten zehn Nachrichten lesen",
-            "en": "Read only the last ten messages"
+            "de": "Nur die letzten zehn Nachrichten lesen und dann mitdiskutieren",
+            "en": "Read only the last ten messages and then join the discussion"
           },
           "correct": false,
           "explanation": {

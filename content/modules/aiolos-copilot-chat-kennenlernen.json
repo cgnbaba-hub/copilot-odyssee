@@ -67,8 +67,8 @@
         {
           "id": "a",
           "text": {
-            "de": "Copilot findet das Dokument, weil du darauf Zugriff hast",
-            "en": "Copilot finds the document because you have access to it"
+            "de": "Copilot findet es selbst, weil du in SharePoint Leserechte für das Dokument hast",
+            "en": "Copilot finds it by itself because you have read access to the document in SharePoint"
           },
           "correct": false,
           "explanation": {
@@ -79,8 +79,8 @@
         {
           "id": "b",
           "text": {
-            "de": "Copilot kennt es nicht. Du musst die Datei hochladen oder den Text einfügen.",
-            "en": "Copilot does not know it. You have to upload the file or paste the text."
+            "de": "Copilot kennt es nicht. Du lädst die Datei hoch oder fügst den Text ein.",
+            "en": "Copilot does not know it. You upload the file or paste the text."
           },
           "correct": true,
           "explanation": {
@@ -91,8 +91,8 @@
         {
           "id": "c",
           "text": {
-            "de": "Copilot findet es, wenn du den genauen Dateinamen nennst",
-            "en": "Copilot finds it if you name the exact file name"
+            "de": "Copilot findet es, sobald du den genauen Dateinamen und den Speicherort nennst",
+            "en": "Copilot finds it as soon as you name the exact file name and location"
           },
           "correct": false,
           "explanation": {
@@ -103,13 +103,13 @@
         {
           "id": "d",
           "text": {
-            "de": "Copilot sucht das Dokument in deinen früheren Chats",
-            "en": "Copilot looks for the document in your earlier chats"
+            "de": "Copilot durchsucht dafür deine früheren Chats und die zuletzt geöffneten Dateien",
+            "en": "Copilot searches your earlier chats and recently opened files for it"
           },
           "correct": false,
           "explanation": {
-            "de": "Frühere Chats durchsucht Copilot dafür nicht. Gib ihm die Datei oder den Text.",
-            "en": "Copilot does not search your earlier chats for it. Give it the file or the text."
+            "de": "Frühere Chats und zuletzt geöffnete Dateien durchsucht Basic dafür nicht. Gib ihm die Datei oder den Text.",
+            "en": "Basic does not search earlier chats or recently opened files for this. Give it the file or the text."
           }
         }
       ]
@@ -126,8 +126,8 @@
         {
           "id": "a",
           "text": {
-            "de": "An der Adresse copilot.microsoft.com im Browser",
-            "en": "By the address copilot.microsoft.com in the browser"
+            "de": "An der Adresse copilot.microsoft.com, die du als Lesezeichen gespeichert hast",
+            "en": "By the address copilot.microsoft.com that you saved as a bookmark"
           },
           "correct": false,
           "explanation": {
@@ -138,8 +138,8 @@
         {
           "id": "b",
           "text": {
-            "de": "Daran, dass Copilot auf Deutsch antwortet",
-            "en": "By Copilot answering in German"
+            "de": "Daran, dass Copilot auf Deutsch und in Schweizer Schreibweise antwortet",
+            "en": "By Copilot answering in German and with Swiss spelling"
           },
           "correct": false,
           "explanation": {
