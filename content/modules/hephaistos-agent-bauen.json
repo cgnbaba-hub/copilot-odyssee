@@ -6,7 +6,7 @@
   "version": "1.1.0",
   "owner": "copilot-team",
   "status": "draft",
-  "reviewedAt": "2026-11-01",
+  "reviewedAt": "2026-11-02",
   "reviewIntervalDays": 180,
   "title": {
     "de": "Einen eigenen Agenten bauen",
@@ -17,7 +17,7 @@
     "en": "Create an agent for a recurring task with instructions and knowledge, and share it with your team."
   },
   "estimatedMinutes": 12,
-  "notes": "Neuer Inhalt. Stand Oktober 2026: Einfache Agenten erstellt man direkt in Copilot mit Copilot Studio Lite (früher Agent Builder): Name, Beschreibung, Anweisungen, Wissensquellen, Startvorschläge, Teilen. Ob das für Basic freigeschaltet ist, legt die IT fest. Knopfnamen bewusst allgemein.",
+  "notes": "Neuer Inhalt. Stand Oktober 2026: Einfache Agenten erstellt man direkt in Copilot mit Copilot Studio Lite (früher Agent Builder): Name, Beschreibung, Anweisungen, Wissensquellen, Startvorschläge, Teilen. Ob das für Basic freigeschaltet ist, legt die IT fest. Knopfnamen bewusst allgemein. Praxistest 2.11.2026: Agent Builder mit Basic fast gleich, aber ohne Arbeitsinhalte (Mails, Dateien) als Wissen.",
   "blocks": [
     {
       "type": "briefing",
@@ -27,8 +27,8 @@
         "en": "How an agent is made"
       },
       "body": {
-        "de": "Einen einfachen Agenten erstellst du direkt in Copilot: Klicke links bei den **Agenten** auf **«Agent erstellen»**. Du beschreibst in normaler Sprache, was er tun soll, und Copilot hilft beim Einrichten.\n\nEin guter Agent hat:\n- einen **klaren Namen und Zweck**, zum Beispiel «Kundendienst-Helfer für Umbuchungen»\n- **Anweisungen**: Ton, Aufbau der Antworten, was er nicht tun soll\n- **Wissen**: Dateien oder SharePoint-Seiten, auf die er sich stützt\n- **Startvorschläge**: Beispielfragen, die Kolleginnen und Kollegen anklicken können\n\nTeste den Agenten mit echten Fragen und **teile** ihn danach mit deinem Team. Ob du Agenten erstellen kannst, legt eure IT fest. Mit Basic gehen einfache Agenten, die mit dem Web arbeiten. Dateien und SharePoint als Wissen brauchen Premium.",
-        "en": "You create a simple agent directly in Copilot: click **“Create agent”** under **Agents** on the left. You describe in plain language what it should do, and Copilot helps you set it up.\n\nA good agent has:\n- a **clear name and purpose**, for example “Customer service helper for rebookings”\n- **instructions**: tone, structure of the answers, what it should not do\n- **knowledge**: files or SharePoint sites it relies on\n- **starter prompts**: example questions colleagues can click\n\nTest the agent with real questions and then **share** it with your team. Whether you can create agents is decided by your IT. With Basic, simple agents that work with the web are possible. Files and SharePoint as knowledge need Premium."
+        "de": "Einen einfachen Agenten erstellst du direkt in Copilot: Klicke links bei den **Agenten** auf **«Agent erstellen»**. Du beschreibst in normaler Sprache, was er tun soll, und Copilot hilft beim Einrichten.\n\nEin guter Agent hat:\n- einen **klaren Namen und Zweck**, zum Beispiel «Kundendienst-Helfer für Umbuchungen»\n- **Anweisungen**: Ton, Aufbau der Antworten, was er nicht tun soll\n- **Wissen**: Dateien oder SharePoint-Seiten, auf die er sich stützt\n- **Startvorschläge**: Beispielfragen, die Kolleginnen und Kollegen anklicken können\n\nTeste den Agenten mit echten Fragen und **teile** ihn danach mit deinem Team. Ob du Agenten erstellen kannst, legt eure IT fest. Mit Basic baust du Agenten fast gleich wie mit Premium. Als Wissen nutzt der Agent dann aber nur **öffentliche Webseiten** und deine Anweisungen, nicht deine Mails, Chats oder Dateien. Arbeitsinhalte wie SharePoint-Seiten oder Mails als Wissen brauchen Premium.",
+        "en": "You create a simple agent directly in Copilot: click **“Create agent”** under **Agents** on the left. You describe in plain language what it should do, and Copilot helps you set it up.\n\nA good agent has:\n- a **clear name and purpose**, for example “Customer service helper for rebookings”\n- **instructions**: tone, structure of the answers, what it should not do\n- **knowledge**: files or SharePoint sites it relies on\n- **starter prompts**: example questions colleagues can click\n\nTest the agent with real questions and then **share** it with your team. Whether you can create agents is decided by your IT. With Basic you build agents almost the same way as with Premium. As knowledge, however, the agent then only uses **public websites** and your instructions, not your emails, chats or files. Work content such as SharePoint pages or emails as knowledge needs Premium."
       }
     },
     {

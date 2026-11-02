@@ -5404,7 +5404,7 @@ $grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width=
 .copyText {
   margin: 0 0 12px !important;
   padding: 12px 14px;
-  background: repeating-linear-gradient(180deg, transparent 0 27px, rgba(31, 95, 139, 0.14) 27px 28px), #fffdf6;
+  background: #fffdf6;
   border: 1.5px solid rgba(26, 41, 64, 0.3);
   border-left: 5px solid $sun;
   border-radius: 6px;
@@ -6742,32 +6742,43 @@ $grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width=
 // «Stimmt das noch?» under each step
 
 .factCheck {
-  margin: 14px 0 0 !important;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 12px;
+  margin: 18px 0 0 !important;
+  padding-top: 14px;
+  border-top: 1.5px dashed rgba(26, 41, 64, 0.25);
+  color: var(--od-text-muted);
   font-size: 14px;
-  text-align: right;
 }
 
 .factCheckToggle {
-  padding: 2px 4px;
-  background: none;
-  border: 0;
-  color: var(--od-text-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: $paper-hi;
+  border: 2px solid var(--od-brand);
+  border-radius: 999px;
+  color: var(--od-brand);
   cursor: pointer;
-  font-weight: 700;
-  text-decoration: underline dotted;
-  text-underline-offset: 3px;
-
-  span {
-    color: var(--od-brand);
-  }
+  font-size: 14px;
+  font-weight: 800;
 
   &:hover {
-    color: var(--od-brand);
+    background: var(--od-brand);
+    color: var(--od-on-brand);
   }
 }
 
 .factCheckDone {
-  color: var(--od-success);
+  padding: 12px 14px;
+  background: var(--od-success-soft);
+  border: 2px solid var(--od-success);
+  border-radius: 12px;
+  color: var(--od-ink);
+  font-size: 15px;
   font-weight: 700;
 }
 
@@ -7069,4 +7080,142 @@ $grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width=
 
 .reviewDone .pageTitle {
   background-position: center bottom;
+}
+
+// Islands and stages the player's licence does not cover: in the fog, locked
+
+:global(.od-fog) {
+  animation: odFogDrift 9s ease-in-out infinite alternate;
+}
+
+@keyframes odFogDrift {
+  from {
+    transform: translateX(-6px);
+  }
+  to {
+    transform: translateX(6px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :global(.od-fog) {
+    animation: none;
+  }
+}
+
+.appCalm :global(.od-fog) {
+  animation: none;
+}
+
+.chartIslandPreview > svg {
+  opacity: 1;
+  filter: grayscale(0.7);
+}
+
+.ticketLocked {
+  background: repeating-linear-gradient(-45deg, $paper-hi 0 12px, #efe6cf 12px 24px) !important;
+  opacity: 0.85;
+
+  .ticketTitle,
+  .ticketSummary {
+    color: var(--od-text-muted);
+  }
+}
+
+.ticketLock {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  max-width: 100%;
+  padding: 8px 10px;
+  background: $ink;
+  border-radius: 14px;
+  color: #fbf6e8;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.lockedNotice {
+  margin: 12px 0;
+  padding: 16px 18px;
+  background: repeating-linear-gradient(-45deg, $paper-hi 0 12px, #efe6cf 12px 24px);
+  border: 2.5px dashed $ink;
+  border-radius: 16px;
+
+  h2 {
+    margin: 0 !important;
+  }
+}
+
+// Prompt workshop tab
+
+.workshopIngredients {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  margin: 0 0 16px;
+  padding: 0;
+  list-style: none;
+
+  li {
+    display: grid;
+    gap: 2px;
+    padding: 10px 12px;
+    background: $paper-hi;
+    border: 2px solid $ink;
+    border-radius: 12px;
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  strong {
+    color: var(--od-brand);
+    font-family: var(--od-font-display);
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+}
+
+.pinReward {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 6px !important;
+  padding: 6px 14px;
+  background: #fff3c4;
+  border: 2px solid $sun;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.ideaMore {
+  padding: 6px 12px;
+  background: transparent;
+  border: 2px dashed $ink;
+  border-radius: 999px;
+  color: $ink;
+  cursor: pointer;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+// Stages as stations on the island trail (shown when a stage is done)
+
+.stopNumber {
+  font-family: var(--od-font-display);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.stopLocked .stopIcon {
+  background: $ink !important;
+  color: #fbf6e8 !important;
 }

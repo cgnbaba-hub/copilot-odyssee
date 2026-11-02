@@ -5,13 +5,14 @@ import { moduleStatus } from '../../core/progress/state';
 import { BlockKindIcon, blockKindNames } from '../blockKinds';
 import { format } from '../i18n/strings';
 import { useGame } from '../GameContext';
-import { islandProgress, isPreview } from '../progressHelpers';
+import { islandProgress, isModulePreview, isPreview } from '../progressHelpers';
 import styles from '../styles.module.scss';
 import { copyText, CopyState } from '../copilot';
 import { linkTo } from '../links';
+import { LockIcon } from './Art';
 import { Guide } from './Guide';
 import { LicenseChip } from './LicenseChip';
-import { mixColor, PosterIsland } from './PosterArt';
+import { IslandFog, mixColor, PosterIsland } from './PosterArt';
 import { UseCaseCards } from './UseCaseCards';
 
 export function IslandView(props: { islandId: string }): React.ReactElement {
@@ -53,6 +54,7 @@ export function IslandView(props: { islandId: string }): React.ReactElement {
           <circle cx="0" cy="-60" r="98" fill="#f2b13a" />
           <circle cx="0" cy="-60" r="80" fill="none" stroke="#fbf6e8" strokeWidth="3" opacity="0.35" />
           <PosterIsland landmark={island.landmark} color={island.color} flag={done} />
+          {preview && <IslandFog />}
         </svg>
         <div className={styles.islandBandText}>
           <p className={styles.islandBandEyebrow}>
@@ -93,8 +95,16 @@ export function IslandView(props: { islandId: string }): React.ReactElement {
             {modules.map((m, index) => {
               const status = moduleStatus(player, m);
               const isDone = status === 'completed';
+              const locked = isModulePreview(game, m);
+              const ticketClass = locked
+                ? `${styles.ticket} ${styles.ticketLocked}`
+                : isDone
+                  ? `${styles.ticket} ${styles.ticketDone}`
+                  : m === firstOpen
+                    ? `${styles.ticket} ${styles.ticketNext}`
+                    : styles.ticket;
               return (
-                <li key={m.id} className={isDone ? `${styles.ticket} ${styles.ticketDone}` : m === firstOpen ? `${styles.ticket} ${styles.ticketNext}` : styles.ticket}>
+                <li key={m.id} className={ticketClass}>
                   <div className={styles.ticketMain}>
                     <div className={peek === m.id ? `${styles.ticketPeek} ${styles.ticketPeekOpen}` : styles.ticketPeek}>
                       <p className={styles.ticketPeekTitle}>{strings.ticketLearn}</p>
@@ -136,15 +146,25 @@ export function IslandView(props: { islandId: string }): React.ReactElement {
                     </p>
                   </div>
                   <div className={styles.ticketStub}>
-                    {isDone ? <span className={styles.ticketStamp}>{strings.statusCompleted}</span> : <span className={styles.ticketStubLabel}>{strings.boarding}</span>}
-                    <button
-                      type="button"
-                      className={isDone ? styles.ticketAgain : styles.ticketGo}
-                      onClick={() => navigate({ name: 'module', moduleId: m.id })}
-                      aria-label={`${actionLabel[status]}: ${t(m.title)}`}
-                    >
-                      {actionLabel[status]}
-                    </button>
+                    {locked ? (
+                      <span className={styles.ticketLock}>
+                        <LockIcon /> {strings.lockedStage}
+                      </span>
+                    ) : isDone ? (
+                      <span className={styles.ticketStamp}>{strings.statusCompleted}</span>
+                    ) : (
+                      <span className={styles.ticketStubLabel}>{strings.boarding}</span>
+                    )}
+                    {!locked && (
+                      <button
+                        type="button"
+                        className={isDone ? styles.ticketAgain : styles.ticketGo}
+                        onClick={() => navigate({ name: 'module', moduleId: m.id })}
+                        aria-label={`${actionLabel[status]}: ${t(m.title)}`}
+                      >
+                        {actionLabel[status]}
+                      </button>
+                    )}
                   </div>
                 </li>
               );

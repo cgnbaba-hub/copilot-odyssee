@@ -22,7 +22,8 @@ export function CheatSheet(): React.ReactElement {
   const area = playerArea(game);
   const [filter, setFilter] = React.useState(area ? area.id : ALL_AREAS);
   const saved = (content.prompts || []).filter((p) => isPromptSaved(player, p.id));
-  const own = player.useCases.filter((card) => card.prompt.trim().length > 0).reverse();
+  // All use case cards: those without a prompt yet lead to the workshop.
+  const own = player.useCases.slice().reverse();
 
   const templateCard = (p: PromptTemplate): React.ReactElement => (
     <PromptCard
@@ -54,6 +55,22 @@ export function CheatSheet(): React.ReactElement {
           <ul className={styles.promptList}>
             {own.map((card) => {
               const module = findModule(content, card.moduleId);
+              if (card.prompt.trim().length === 0) {
+                return (
+                  <li key={card.id} className={styles.promptCard}>
+                    {module && <p className={styles.eyebrow}>{t(module.title)}</p>}
+                    <div className={styles.promptCardHead}>
+                      <h3>{card.task}</h3>
+                    </div>
+                    <p className={styles.muted}>{strings.cheatsheetOwnNoPrompt}</p>
+                    <div className={styles.promptCardActions}>
+                      <button type="button" className={styles.buttonPrimary} onClick={() => navigate({ name: 'workshop', task: card.task })}>
+                        🛠 {strings.cheatsheetOwnWrite}
+                      </button>
+                    </div>
+                  </li>
+                );
+              }
               return (
                 <PromptCard
                   key={card.id}

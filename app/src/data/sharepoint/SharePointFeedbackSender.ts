@@ -3,7 +3,7 @@ import { odataString, RestClient, RestError } from '../RestClient';
 import { FEEDBACK_CONTEXT_FIELD, FEEDBACK_LIST_TITLE, FEEDBACK_MESSAGE_FIELD, FEEDBACK_PROFILE_FIELD } from './names';
 
 /** Titles as the team reads them in the list. */
-const KIND_TITLES: Record<FeedbackKind, string> = {
+export const KIND_TITLES: Record<FeedbackKind, string> = {
   idea: 'Idee oder Wunsch',
   problem: 'Etwas funktioniert nicht',
   content: 'Inhalt falsch oder unklar',

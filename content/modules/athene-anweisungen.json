@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "owner": "copilot-team",
   "status": "draft",
-  "reviewedAt": "2026-11-01",
+  "reviewedAt": "2026-11-02",
   "reviewIntervalDays": 90,
   "id": "athene-anweisungen",
   "order": 1,
@@ -17,7 +17,7 @@
     "en": "With custom instructions and memory, Copilot answers the way you need without you repeating it every time."
   },
   "estimatedMinutes": 7,
-  "notes": "Neuer Inhalt. Stand Oktober 2026: Anweisungen und gespeicherte Erinnerungen unter Einstellungen > Personalisierung (Microsoft-Support «Customize how Microsoft 365 Copilot responds to you»). Gedächtnis wird laut Message Center bis Ende Oktober 2026 allgemein verfügbar; die IT kann es ausschalten. Ob Basic die Personalisierung hat, ist nicht eindeutig belegt: mit dem Basic-Testkonto prüfen. Menüpfad bewusst mit Suchhinweis, weil sich die App mit der neuen Copilot-App ändert.",
+  "notes": "Neuer Inhalt. Stand Oktober 2026: Anweisungen und gespeicherte Erinnerungen unter Einstellungen > Personalisierung (Microsoft-Support «Customize how Microsoft 365 Copilot responds to you»). Gedächtnis wird laut Message Center bis Ende Oktober 2026 allgemein verfügbar; die IT kann es ausschalten. Ob Basic die Personalisierung hat, ist nicht eindeutig belegt: mit dem Basic-Testkonto prüfen. Menüpfad bewusst mit Suchhinweis, weil sich die App mit der neuen Copilot-App ändert. Praxistest 2.11.2026: Personalisierung (Anweisungen, Gedächtnis) mit Basic und Premium vorhanden.",
   "blocks": [
     {
       "type": "briefing",

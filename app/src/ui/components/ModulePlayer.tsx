@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { findIsland, findModule } from '../../core/content/bundle';
+import { findIsland, findModule, modulesOfIsland } from '../../core/content/bundle';
 import { Block } from '../../core/content/types';
-import { finishModule, getModule, nextBlockIndex, startModule } from '../../core/progress/state';
+import { finishModule, getModule, moduleStatus, nextBlockIndex, startModule } from '../../core/progress/state';
 import { BriefingView } from '../blocks/BriefingView';
 import { MissionView } from '../blocks/MissionView';
 import { BlockKindIcon, blockKindNames } from '../blockKinds';
@@ -12,7 +12,7 @@ import { QuizView } from '../blocks/QuizView';
 import { UseCaseView } from '../blocks/UseCaseView';
 import { Strings, format } from '../i18n/strings';
 import { useGame } from '../GameContext';
-import { islandProgress, nextStage } from '../progressHelpers';
+import { islandProgress, isModulePreview, nextStage } from '../progressHelpers';
 import styles from '../styles.module.scss';
 import { IslandArt } from './Art';
 import { Confetti } from './Confetti';
@@ -20,7 +20,7 @@ import { FactCheck } from './FactCheck';
 import { formatLongDate } from '../format';
 import { Guide } from './Guide';
 import { Loading } from './Loading';
-import { StageRoute } from './StageRoute';
+import { IslandRoute, StageRoute } from './StageRoute';
 
 function BlockView(props: { moduleId: string; block: Block; onDone: () => void }): React.ReactElement {
   const { block } = props;
@@ -70,12 +70,14 @@ export function ModulePlayer(props: { moduleId: string }): React.ReactElement {
   const game = useGame();
   const { content, player, lang, strings, theme, t, apply, update, navigate } = game;
   const module = findModule(content, props.moduleId);
+  // A stage the player's licence does not cover cannot be played, also not through a direct link.
+  const locked = !!module && isModulePreview(game, module);
   const [index, setIndex] = React.useState<number | undefined>(undefined);
   const xpAtStart = React.useRef(player.xp);
   const finished = React.useRef(false);
 
   React.useEffect(() => {
-    if (!module) return;
+    if (!module || locked) return;
     const state = update((s) => startModule(s, module));
     xpAtStart.current = state.xp;
     setIndex(nextBlockIndex(state, module));
@@ -104,6 +106,20 @@ export function ModulePlayer(props: { moduleId: string }): React.ReactElement {
     return () => window.clearTimeout(timer);
   }, [islandStamped]);
 
+  if (module && locked) {
+    return (
+      <section className={styles.panel}>
+        <button type="button" className={styles.backButton} onClick={() => navigate({ name: 'island', islandId: module.island })}>
+          ← {strings.toIsland}
+        </button>
+        <h1 className={styles.pageTitle}>{t(module.title)}</h1>
+        <div className={styles.lockedNotice}>
+          <h2>{strings.lockedStageTitle}</h2>
+        </div>
+        <Guide text={strings.lockedStageText} />
+      </section>
+    );
+  }
   if (!module || index === undefined) return <Loading text={strings.loading} compact />;
   const island = findIsland(content, module.island);
   const total = module.blocks.length;
@@ -119,6 +135,12 @@ export function ModulePlayer(props: { moduleId: string }): React.ReactElement {
     const islandDone = island ? islandProgress(game, island.id) : undefined;
     const newStamp = !!island && !!islandDone && islandDone.total > 0 && islandDone.completed === islandDone.total && getModule(player, module.id).completed === 1;
     const following = nextStage(game, module.id);
+    // When the rest of this island is Premium, the player is told why the journey moves on to another island.
+    const lockedRest =
+      !!island &&
+      !!following &&
+      following.island.id !== island.id &&
+      modulesOfIsland(content, island.id, { showDrafts: game.showDrafts }).some((m) => m.id !== module.id && isModulePreview(game, m) && moduleStatus(player, m) !== 'completed');
     doneView = (
       <div className={styles.moduleDone}>
         <Confetti />
@@ -144,7 +166,17 @@ export function ModulePlayer(props: { moduleId: string }): React.ReactElement {
             </button>
           </div>
         )}
-        <Guide text={following ? strings.moduleDoneGuide : strings.allDoneText} cheer compact />
+        <Guide
+          text={
+            lockedRest && island && following
+              ? format(strings.moduleDoneLockedRest, { island: t(island.name), next: t(following.island.name) })
+              : following
+                ? strings.moduleDoneGuide
+                : strings.allDoneText
+          }
+          cheer
+          compact
+        />
         <div className={styles.doneActions}>
           {following && (
             <button type="button" className={`${styles.buttonPrimary} ${styles.buttonBig}`} onClick={() => navigate({ name: 'module', moduleId: following.module.id })}>
@@ -178,7 +210,12 @@ export function ModulePlayer(props: { moduleId: string }): React.ReactElement {
         </div>
       </div>
 
-      <StageRoute blocks={module.blocks} index={Math.min(index, total)} island={island} />
+      {/* Once the stage is done, the trail shows the island's stages and the companion walks on to the next one. */}
+      {done ? (
+        <IslandRoute modules={modulesOfIsland(content, module.island, { showDrafts: game.showDrafts })} finishedId={module.id} island={island} />
+      ) : (
+        <StageRoute blocks={module.blocks} index={Math.min(index, total)} island={island} />
+      )}
 
       {doneView || (
         <>

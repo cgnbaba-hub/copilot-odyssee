@@ -48,14 +48,14 @@ export function MissionView(props: BlockViewProps<MissionBlock>): React.ReactEle
       ]
     : [
         {
-          // The Edge sidebar keeps Copilot right beside the Odyssey; a new tab is the fallback.
+          // Most people open Copilot in the browser or in Teams; the Edge sidebar comes as a tip.
           text: strings.missionStep1,
           action: (
             <>
-              <EdgeTip />
-              <a className={styles.edgeFallback} href={COPILOT_CHAT_URL} target="_blank" rel="noopener noreferrer">
+              <a className={styles.button} href={COPILOT_CHAT_URL} target="_blank" rel="noopener noreferrer">
                 {strings.missionOpenCopilotTab} ↗
               </a>
+              <EdgeTip />
             </>
           )
         },

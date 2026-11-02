@@ -33,17 +33,17 @@ function EdgeSketch(): React.ReactElement {
 }
 
 /**
- * How to keep Copilot open beside the Odyssey: the Copilot icon in the Edge
- * sidebar. Below it, a short note that Copilot in Edge can also explain the
- * web page that is open, if this is switched on.
+ * A folded tip: Copilot in the Edge sidebar keeps it right beside the
+ * Odyssey, and there it can also explain the open web page, if this is
+ * switched on.
  */
 export function EdgeTip(): React.ReactElement {
   const { strings } = useGame();
   return (
     <div className={styles.edgeTip}>
-      <EdgeSketch />
       <details className={styles.edgeMore}>
         <summary>{strings.edgeMoreTitle}</summary>
+        <EdgeSketch />
         <p>{strings.edgeMoreText}</p>
         <ul>
           <li>{strings.edgeMoreExample1}</li>

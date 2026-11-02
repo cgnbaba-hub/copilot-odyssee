@@ -6,7 +6,7 @@ import { GuidePortrait, guideById } from '../guides';
 import { format } from '../i18n/strings';
 import { islandProgress, isPreview, nextStage } from '../progressHelpers';
 import styles from '../styles.module.scss';
-import { islandSilhouette, PosterIsland } from './PosterArt';
+import { IslandFog, islandSilhouette, PosterIsland } from './PosterArt';
 
 /**
  * The start screen seen from the bow of the ship: the selected island lies
@@ -284,6 +284,7 @@ export function Deck(props: { islands: Island[] }): React.ReactElement {
                   <title>{off === 0 ? `${strings.dock}: ${t(isl.name)}` : format(strings.steerTo, { name: t(isl.name) })}</title>
                   <path d={islandSilhouette(isl.landmark)} transform="scale(1 -0.3)" fill="#164a70" opacity="0.28" />
                   <PosterIsland landmark={isl.landmark} color={isl.color} flag={islDone} />
+                  {isPreview(game, isl) && <IslandFog />}
                 </g>
               );
             })}

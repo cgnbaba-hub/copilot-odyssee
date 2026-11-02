@@ -30,6 +30,7 @@ import { RankUp } from './components/RankUp';
 import { ReviewView } from './components/ReviewView';
 import { Settings } from './components/Settings';
 import { Tour } from './components/Tour';
+import { Workshop } from './components/Workshop';
 import { Game, GameContext, View } from './GameContext';
 import { format, stringsFor } from './i18n/strings';
 import styles from './styles.module.scss';
@@ -233,6 +234,7 @@ export function App(props: AppProps): React.ReactElement {
     if (view.name === 'passport') return t(theme.terms.passport);
     if (view.name === 'cheatsheet') return strings.cheatsheet;
     if (view.name === 'pinboard') return strings.pinboardTitle;
+    if (view.name === 'workshop') return strings.workshopTitle;
     if (view.name === 'review') return strings.pageReview;
     if (view.name === 'admin') return strings.adminTitle;
     return strings.pageHome;
@@ -247,7 +249,7 @@ export function App(props: AppProps): React.ReactElement {
       ? 'settings'
       : view.name === 'passport'
         ? 'passport'
-        : view.name === 'cheatsheet' || view.name === 'pinboard'
+        : view.name === 'cheatsheet' || view.name === 'pinboard' || view.name === 'workshop'
           ? 'cheatsheet'
           : view.name === 'admin'
             ? 'admin'
@@ -272,6 +274,7 @@ export function App(props: AppProps): React.ReactElement {
   else if (view.name === 'cheatsheet') main = <CheatSheet />;
   else if (view.name === 'pinboard') main = <Pinboard key={view.draft ? view.draft.prompt : 'board'} draft={view.draft} />;
   else if (view.name === 'review') main = <ReviewView />;
+  else if (view.name === 'workshop') main = <Workshop key={view.task || 'workshop'} task={view.task} />;
   else if (view.name === 'admin' && props.admin) main = <AdminView source={props.admin} />;
   else main = <Home />;
 

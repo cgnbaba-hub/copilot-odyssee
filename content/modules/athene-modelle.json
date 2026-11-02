@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "owner": "copilot-team",
   "status": "draft",
-  "reviewedAt": "2026-11-01",
+  "reviewedAt": "2026-11-02",
   "reviewIntervalDays": 90,
   "id": "athene-modelle",
   "order": 2,
@@ -17,7 +17,7 @@
     "en": "Copilot usually chooses the model itself. For tricky tasks you can switch on deeper thinking."
   },
   "estimatedMinutes": 6,
-  "notes": "Neuer Inhalt. Stand Oktober 2026: Modellauswahl in Copilot Chat mit Standard «Auto»; weitere Modelle (OpenAI, Anthropic) je nach Lizenz und Freigabe durch die IT. Modellnamen ändern sich laufend, deshalb bewusst keine Versionsnummern. Mit Basic- und Premium-Konto prüfen, welche Auswahl sichtbar ist.",
+  "notes": "Neuer Inhalt. Stand Oktober 2026: Modellauswahl in Copilot Chat mit Standard «Auto»; weitere Modelle (OpenAI, Anthropic) je nach Lizenz und Freigabe durch die IT. Modellnamen ändern sich laufend, deshalb bewusst keine Versionsnummern. Mit Basic- und Premium-Konto prüfen, welche Auswahl sichtbar ist. Praxistest 2.11.2026 (Basic): Auto, Quick Response, Think Deeper und unter «GPT» einzelne Versionen.",
   "blocks": [
     {
       "type": "briefing",
@@ -27,8 +27,8 @@
         "en": "One mind, several ways of thinking"
       },
       "body": {
-        "de": "Hinter Copilot stecken mehrere **KI-Modelle**. Manche antworten schnell, andere denken länger nach und sind bei kniffligen Aufgaben besser.\n- **Auto** ist der Standard: Copilot wählt selbst. Für die meisten Fragen ist das genau richtig.\n- Für Vergleiche, Konzepte oder mehrere Schritte kannst du ein **gründlicheres Modell** wählen. Die Antwort dauert dann etwas länger.\n- Je nach Lizenz und Freigabe durch die IT siehst du weitere Modelle, zum Beispiel von OpenAI oder Anthropic.\n\nDie Auswahl findest du meist direkt **über oder im Eingabefeld**. Die Namen der Modelle ändern sich oft. Merk dir darum das Prinzip: schnell für Alltägliches, gründlich für Knifflige.",
-        "en": "Copilot is powered by several **AI models**. Some answer quickly, others think longer and do better on tricky tasks.\n- **Auto** is the default: Copilot chooses itself. For most questions that is exactly right.\n- For comparisons, concepts or several steps you can choose a **more thorough model**. The answer then takes a little longer.\n- Depending on your licence and what IT has enabled, you see further models, for example from OpenAI or Anthropic.\n\nYou usually find the choice right **above or in the input box**. Model names change often. So remember the principle: quick for everyday things, thorough for tricky ones."
+        "de": "Hinter Copilot stecken mehrere **KI-Modelle**. Manche antworten schnell, andere denken länger nach und sind bei kniffligen Aufgaben besser. Die Auswahl findest du über dem Eingabefeld:\n- **Auto** ist der Standard: Copilot wählt selbst. Für die meisten Fragen ist das genau richtig.\n- **Quick Response** antwortet schnell, gut für kurze Fragen und Texte.\n- **Think Deeper** denkt gründlicher nach. Nimm es für Vergleiche, Konzepte oder Aufgaben mit mehreren Schritten. Die Antwort dauert dann etwas länger.\n- Unter einzelnen Modellfamilien, zum Beispiel **GPT**, findest du bestimmte Modellversionen, je nach Lizenz und Freigabe durch die IT.\n\nDie Namen und Versionen ändern sich oft. Merk dir darum das Prinzip: schnell für Alltägliches, gründlich für Kniffliges.",
+        "en": "Copilot runs on several **AI models**. Some answer quickly, others think longer and do better on tricky tasks. You find the choice above the input box:\n- **Auto** is the default: Copilot chooses. For most questions that is exactly right.\n- **Quick Response** answers quickly, good for short questions and texts.\n- **Think Deeper** thinks more thoroughly. Use it for comparisons, concepts or tasks with several steps. The answer then takes a little longer.\n- Under individual model families, for example **GPT**, you find specific model versions, depending on your licence and on IT.\n\nNames and versions change often. So remember the principle: quick for everyday things, thorough for tricky ones."
       }
     },
     {

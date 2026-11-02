@@ -4,16 +4,16 @@
     {
       "id": "c-betreff-ideen",
       "title": {
-        "de": "Fünf Betreffzeilen in fünf Minuten",
-        "en": "Five subject lines in five minutes"
+        "de": "Eine Mail in drei Runden",
+        "en": "One email in three rounds"
       },
       "task": {
-        "de": "Nimm eine Mail, die du diese Woche verschicken musst. Lass Copilot fünf Betreffzeilen vorschlagen und wähle die beste. Hat sich die Mail dadurch verändert?",
-        "en": "Take an email you have to send this week. Have Copilot suggest five subject lines and pick the best one. Did the email change because of it?"
+        "de": "Nimm eine echte Mail, auf die du diese Woche antworten musst. Runde 1: Lass Copilot mit dem Prompt unten einen Entwurf schreiben. Runde 2: Lass Copilot den Entwurf aus Sicht der Empfängerin kritisieren («Was ist unklar? Was fehlt?»). Runde 3: Lass ihn die Kritik einarbeiten und auf höchstens 120 Wörter kürzen. Sende die Antwort erst, wenn du sie selbst geprüft hast.",
+        "en": "Take a real email you have to answer this week. Round 1: have Copilot write a draft with the prompt below. Round 2: have Copilot criticise the draft from the recipient’s point of view (“What is unclear? What is missing?”). Round 3: have it work in the criticism and cut it to at most 120 words. Only send the reply once you have checked it yourself."
       },
       "copyText": {
-        "de": "Schlage mir fünf kurze, klare Betreffzeilen für diese Mail vor. Zielgruppe: [Empfänger]. Inhalt: [kurze Beschreibung der Mail]",
-        "en": "Suggest five short, clear subject lines for this email. Audience: [recipient]. Content: [short description of the email]"
+        "de": "Entwirf eine Antwort auf diese Mail. Ziel: [was die Antwort erreichen soll]. Empfänger: [wer]. Ton: [Ton]. Höchstens 120 Wörter. Mail: [Text einfügen]",
+        "en": "Draft a reply to this email. Goal: [what the reply should achieve]. Recipient: [who]. Tone: [tone]. At most 120 words. Email: [paste text]"
       },
       "license": "basic"
     },
@@ -24,8 +24,8 @@
         "en": "Copilot asks first"
       },
       "task": {
-        "de": "Lass Copilot vor einer Aufgabe drei Rückfragen stellen, bevor er loslegt. Beantworte sie und vergleiche das Ergebnis mit dem, was du sonst bekommst.",
-        "en": "Have Copilot ask three questions before starting a task. Answer them and compare the result with what you usually get."
+        "de": "Wähle eine Aufgabe, die du diese Woche ohnehin erledigen musst. Lass sie einmal direkt erledigen. Lass Copilot dann in einem neuen Chat zuerst drei Rückfragen stellen, beantworte sie und vergleiche: Welches Ergebnis würdest du so verwenden? Bewerte beide von 1 bis 5.",
+        "en": "Pick a task you have to do this week anyway. Have it done directly once. Then, in a new chat, let Copilot ask three questions first, answer them and compare: which result would you use as it is? Rate both from 1 to 5."
       },
       "copyText": {
         "de": "Ich möchte [Aufgabe]. Stell mir zuerst drei Fragen, die du brauchst, um ein wirklich gutes Ergebnis zu liefern. Warte mit dem Ergebnis, bis ich geantwortet habe.",
@@ -36,96 +36,96 @@
     {
       "id": "c-webseite",
       "title": {
-        "de": "Eine Webseite in 30 Sekunden",
-        "en": "A web page in 30 seconds"
+        "de": "Zwei Angebote im Vergleich",
+        "en": "Two offers compared"
       },
       "task": {
-        "de": "Öffne die Webseite eines Hotels oder einer Destination, die dich gerade beschäftigt. Lass Copilot in der Edge-Seitenleiste die wichtigsten Fakten als Tabelle zusammenstellen. Prüfe zwei davon auf der Seite.",
-        "en": "Open the website of a hotel or destination you are working on. Have Copilot in the Edge sidebar put the key facts into a table. Check two of them on the page."
+        "de": "Nimm zwei öffentliche Angebote oder Hotelseiten, die eine Familie mit zwei Kindern interessieren könnten. Gib Copilot die Inhalte (Text einfügen oder in der Edge-Seitenleiste) und lass eine Vergleichstabelle nach deinen Kriterien bauen. Frag danach: «Welche Angaben fehlen für eine Empfehlung?» Prüfe drei Werte direkt auf den Seiten.",
+        "en": "Take two public offers or hotel pages that a family with two children might be interested in. Give Copilot the content (paste the text or use the Edge sidebar) and have it build a comparison table based on your criteria. Then ask: “Which information is missing for a recommendation?” Check three values directly on the pages."
       },
       "copyText": {
-        "de": "Stelle die wichtigsten Fakten dieser Seite als Tabelle zusammen: Lage, Ausstattung, Preise und Besonderheiten.",
-        "en": "Put the key facts of this page into a table: location, facilities, prices and special features."
+        "de": "Vergleiche diese zwei Angebote für eine Familie mit zwei Kindern (6 und 10) als Tabelle. Kriterien: Lage, Kinderangebot, Verpflegung, Preis pro Woche, Besonderheiten. Schreib «nicht angegeben», wenn etwas fehlt. Angebot 1: [Text] Angebot 2: [Text]",
+        "en": "Compare these two offers for a family with two children (6 and 10) as a table. Criteria: location, children’s programme, board, price per week, special features. Write “not stated” where something is missing. Offer 1: [text] Offer 2: [text]"
       },
       "license": "basic"
     },
     {
       "id": "c-uebersetzen",
       "title": {
-        "de": "Dreisprachig in einer Minute",
-        "en": "Three languages in one minute"
+        "de": "Mehrsprachig, aber richtig",
+        "en": "Multilingual, but right"
       },
       "task": {
-        "de": "Nimm einen kurzen Text, zum Beispiel eine Abwesenheitsnotiz oder eine Info an Gäste. Lass ihn ins Französische und Italienische übersetzen und frag nach Stellen, bei denen du gegenlesen lassen solltest.",
-        "en": "Take a short text, for example an out-of-office note or information for guests. Have it translated into French and Italian and ask for parts you should have proofread."
+        "de": "Nimm einen Text an Gäste, zum Beispiel eine Reiseinfo. Lass ihn ins Französische und Italienische übersetzen. Lass dann beide Übersetzungen zurück ins Deutsche übersetzen und vergleiche mit dem Original: Wo hat sich die Bedeutung verschoben? Lass genau diese Stellen verbessern und eine Person mit der Muttersprache einen Satz gegenlesen.",
+        "en": "Take a text for guests, for example travel information. Have it translated into French and Italian. Then have both translations translated back into German and compare them with the original: where has the meaning shifted? Have exactly those passages improved and ask a native speaker to check one sentence."
       },
       "copyText": {
-        "de": "Übersetze diesen Text ins Französische und ins Italienische, höflich und persönlich. Markiere danach Stellen, bei denen eine Muttersprachlerin besser nochmals drüberschaut. Text: [Text]",
-        "en": "Translate this text into French and Italian, polite and personal. Then mark the parts a native speaker should check again. Text: [text]"
+        "de": "Übersetze diesen Text ins Französische und ins Italienische, höflich und persönlich, für Gäste aus der Westschweiz und dem Tessin. Text: [Text]",
+        "en": "Translate this text into French and Italian, polite and personal, for guests from French- and Italian-speaking Switzerland. Text: [text]"
       },
       "license": "basic"
     },
     {
       "id": "c-zielgruppe",
       "title": {
-        "de": "Einmal für alle",
-        "en": "One text for everyone"
+        "de": "Drei Fassungen, eine Botschaft",
+        "en": "Three versions, one message"
       },
       "task": {
-        "de": "Nimm einen fachlichen Text aus deiner Arbeit. Lass ihn einmal für die Geschäftsleitung und einmal für Gäste ohne Fachwissen umschreiben. Was ändert sich?",
-        "en": "Take a technical text from your work. Have it rewritten once for management and once for guests without expert knowledge. What changes?"
+        "de": "Nimm einen fachlichen Text aus deiner Arbeit. Lass drei Fassungen schreiben: drei Sätze für die Geschäftsleitung mit den Zahlen vorne, eine Version für Gäste ohne Fachbegriffe und einen Teams-Beitrag mit höchstens 50 Wörtern. Frag Copilot zum Schluss, ob die Kernaussage in allen drei Fassungen gleich geblieben ist.",
+        "en": "Take a specialist text from your work. Have three versions written: three sentences for management with the figures first, a version for guests without jargon, and a Teams post of at most 50 words. Finally ask Copilot whether the key message stayed the same in all three versions."
       },
       "copyText": {
-        "de": "Schreibe diesen Text zweimal neu: einmal kurz für die Geschäftsleitung mit den Zahlen im Vordergrund, einmal für Gäste ohne Fachbegriffe. Text: [Text]",
-        "en": "Rewrite this text twice: once briefly for management with the figures first, once for guests without technical terms. Text: [text]"
+        "de": "Schreibe diesen Text in drei Fassungen: 1) drei Sätze für die Geschäftsleitung, Zahlen zuerst, 2) für Gäste ohne Fachbegriffe, 3) als Teams-Beitrag mit höchstens 50 Wörtern. Text: [Text]",
+        "en": "Rewrite this text in three versions: 1) three sentences for management, figures first, 2) for guests without jargon, 3) as a Teams post of at most 50 words. Text: [text]"
       },
       "license": "basic"
     },
     {
       "id": "c-checkliste",
       "title": {
-        "de": "Aus Text wird Checkliste",
-        "en": "From text to checklist"
+        "de": "Vom Durcheinander zum Plan",
+        "en": "From muddle to plan"
       },
       "task": {
-        "de": "Nimm eine Anleitung, einen Ablauf oder eine lange Mail mit Aufgaben. Lass Copilot daraus eine Checkliste mit Verantwortlichen und Fristen machen.",
-        "en": "Take a guide, a process or a long email with tasks. Have Copilot turn it into a checklist with owners and deadlines."
+        "de": "Nimm einen langen Mailverlauf oder deine Notizen zu einem laufenden Projekt. Lass Copilot daraus eine Checkliste mit Verantwortlichen und Fristen machen. Frag danach: «Welche Risiken oder Abhängigkeiten siehst du?» Ergänze die Liste, prüfe sie und teile sie mit den Beteiligten.",
+        "en": "Take a long email thread or your notes on an ongoing project. Have Copilot turn them into a checklist with owners and deadlines. Then ask: “Which risks or dependencies do you see?” Add to the list, check it and share it with the people involved."
       },
       "copyText": {
-        "de": "Mach aus diesem Text eine Checkliste. Pro Punkt: Was ist zu tun, wer ist verantwortlich, bis wann. Fehlt eine Angabe, schreib «offen». Text: [Text]",
-        "en": "Turn this text into a checklist. For each item: what needs doing, who is responsible, by when. If something is missing, write “open”. Text: [text]"
+        "de": "Mach aus diesem Text eine Checkliste. Pro Punkt: Was ist zu tun, wer ist verantwortlich, bis wann. Fehlt eine Angabe, schreib «offen». Sortiere nach Frist. Text: [Text]",
+        "en": "Turn this text into a checklist. Per item: what needs doing, who is responsible, by when. If something is missing, write “open”. Sort by deadline. Text: [text]"
       },
       "license": "basic"
     },
     {
       "id": "c-rezept",
       "title": {
-        "de": "Dein Prompt-Rezept",
-        "en": "Your prompt recipe"
+        "de": "Dein Prompt-Rezept, getestet",
+        "en": "Your prompt recipe, tested"
       },
       "task": {
-        "de": "Denk an eine Aufgabe, die du jede Woche ähnlich machst. Bau mit Copilot ein Prompt-Rezept mit Platzhaltern und speichere es dort, wo du es wiederfindest.",
-        "en": "Think of a task you do in a similar way every week. Build a prompt recipe with placeholders together with Copilot and save it where you will find it again."
+        "de": "Denk an eine Aufgabe, die du jede Woche ähnlich machst. Bau mit Copilot ein Prompt-Rezept mit Platzhaltern. Teste es an zwei echten Fällen, verbessere es einmal in der Prompt-Werkstatt und häng es dann an die Hafen-Pinnwand, damit andere es nutzen können.",
+        "en": "Think of a task you do in a similar way every week. Build a prompt recipe with placeholders together with Copilot. Test it on two real cases, improve it once in the prompt workshop and then pin it to the harbour board so others can use it."
       },
       "copyText": {
-        "de": "Hilf mir, ein wiederverwendbares Prompt-Rezept für diese Aufgabe zu bauen: [Aufgabe]. Setze für alles, was sich jedes Mal ändert, Platzhalter in eckigen Klammern.",
-        "en": "Help me build a reusable prompt recipe for this task: [task]. Use placeholders in square brackets for everything that changes each time."
+        "de": "Hilf mir, ein wiederverwendbares Prompt-Rezept für diese Aufgabe zu bauen: [Aufgabe]. Setze für alles, was sich jedes Mal ändert, Platzhalter in eckigen Klammern. Frag mich, was du dafür noch wissen musst.",
+        "en": "Help me build a reusable prompt recipe for this task: [task]. Put placeholders in square brackets for everything that changes each time. Ask me what else you need to know."
       },
       "license": "basic"
     },
     {
       "id": "c-kritiker",
       "title": {
-        "de": "Copilot als kritischer Gast",
-        "en": "Copilot as a critical guest"
+        "de": "Zwei kritische Blicke",
+        "en": "Two critical eyes"
       },
       "task": {
-        "de": "Nimm einen Text an Gäste, zum Beispiel ein Angebot oder eine Reisebeschreibung. Lass Copilot ihn aus Sicht eines kritischen Gastes prüfen und übernimm die zwei besten Hinweise.",
-        "en": "Take a text for guests, for example an offer or a trip description. Have Copilot review it from the perspective of a critical guest and adopt the two best suggestions."
+        "de": "Nimm einen Text an Gäste, zum Beispiel ein Angebot oder eine Reisebeschreibung. Lass Copilot ihn zuerst aus Sicht eines kritischen Gastes prüfen, dann aus Sicht des Kundendienstes: Welche Rückfragen und Reklamationen löst er aus? Übernimm die drei wichtigsten Hinweise und vergleiche Vorher und Nachher.",
+        "en": "Take a text for guests, for example an offer or a tour description. Have Copilot check it first from the point of view of a critical guest, then from customer service’s point of view: which questions and complaints will it trigger? Adopt the three most important points and compare before and after."
       },
       "copyText": {
         "de": "Du bist ein kritischer Gast, der viel reist. Lies diesen Text und nenne die drei Stellen, die unklar sind oder Fragen auslösen, mit einem Verbesserungsvorschlag. Text: [Text]",
-        "en": "You are a critical guest who travels a lot. Read this text and name the three places that are unclear or raise questions, each with a suggestion. Text: [text]"
+        "en": "You are a critical guest who travels a lot. Read this text and name the three passages that are unclear or raise questions, with a suggestion for improvement. Text: [text]"
       },
       "license": "basic"
     },

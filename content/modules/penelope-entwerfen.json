@@ -6,7 +6,7 @@
   "version": "1.0.0",
   "owner": "copilot-team",
   "status": "draft",
-  "reviewedAt": "2026-11-01",
+  "reviewedAt": "2026-11-02",
   "reviewIntervalDays": 180,
   "title": {
     "de": "Entwerfen mit eigenen Dateien",
@@ -27,8 +27,8 @@
         "en": "Copilot in Word"
       },
       "body": {
-        "de": "In Word öffnet sich Copilot **nicht von selbst**. Klicke im geöffneten Dokument **unten rechts auf das Copilot-Symbol**. Je nach Version findest du es auch im Menüband «Start».\n\nDas Wichtigste: **Gib Copilot deinen Rohstoff.** Tippe im Copilot-Feld **«/»** und dann die ersten Buchstaben eines Dateinamens. Copilot schlägt passende Dateien vor. So schreibt er auf Basis deiner Unterlagen statt aus allgemeinem Wissen. Das klappt auch in Copilot Chat ausserhalb von Word.\n\nCopilot kann direkt im Dokument arbeiten. Damit du jede Änderung siehst:\n- Schalte unter «Überprüfen» die **Änderungsverfolgung** ein.\n- Nimm Änderungen an oder lehne sie ab.",
-        "en": "In Word, Copilot does **not open by itself**. In the open document, click the **Copilot icon at the bottom right**. Depending on your version, it is also in the “Home” ribbon.\n\nThe key point: **give Copilot your raw material.** In the Copilot box, type **“/”** and then the first letters of a file name. Copilot suggests matching files. That way it writes based on your material instead of general knowledge. This also works in Copilot Chat outside Word.\n\nCopilot can work directly in the document. To see every change:\n- Turn on **Track Changes** under “Review”.\n- Accept or reject changes."
+        "de": "In Word öffnet sich Copilot **nicht von selbst**. Klicke im geöffneten Dokument **unten rechts auf das Copilot-Symbol**. Je nach Version findest du es auch im Menüband «Start».\n\nDas Wichtigste: **Gib Copilot deinen Rohstoff.** Tippe im Copilot-Feld **«/»** und dann die ersten Buchstaben eines Dateinamens. Copilot schlägt passende Dateien vor. So schreibt er auf Basis deiner Unterlagen statt aus allgemeinem Wissen. Das klappt auch in Copilot Chat ausserhalb von Word.\n\nCopilot kann direkt im Dokument arbeiten und zeigt dir, was er geändert hat. Willst du jede Änderung einzeln annehmen oder ablehnen, zum Beispiel bei Verträgen, schalte vorher unter «Überprüfen» **Änderungen nachverfolgen** ein.",
+        "en": "In Word, Copilot does **not open by itself**. In the open document, click the **Copilot icon at the bottom right**. Depending on your version, it is also in the “Home” ribbon.\n\nThe key point: **give Copilot your raw material.** In the Copilot box, type **“/”** and then the first letters of a file name. Copilot suggests matching files. That way it writes based on your material instead of general knowledge. This also works in Copilot Chat outside Word.\n\nCopilot can work directly in the document and shows you what it changed. If you want to accept or reject each change one by one, for example in contracts, turn on **Track Changes** under “Review” first."
       }
     },
     {
@@ -36,7 +36,7 @@
       "id": "q-notizen",
       "difficulty": "intermediate",
       "question": {
-        "de": "Du willst in Word ein Reiseprogramm entwerfen, das auf den Notizen deiner Rekognoszierungsreise beruht. Wie kommt Copilot an die Notizen?",
+        "de": "Du willst in Word ein Reiseprogramm entwerfen, das auf den Notizen deiner Inforeise beruht. Wie kommt Copilot an die Notizen?",
         "en": "You want to draft a tour programme in Word based on the notes from your inspection trip. How does Copilot get the notes?"
       },
       "options": [
@@ -99,7 +99,7 @@
         "en": "A catalogue description"
       },
       "scenario": {
-        "de": "Für die neue achttägige Rundreise durch Andalusien hast du ein Word-Dokument «Notizen Andalusien» von deiner Rekognoszierungsreise. Du brauchst eine Katalogbeschreibung für Familien mit Teenagern, rund 250 Wörter. Schreib den Prompt für Copilot in Word.",
+        "de": "Für die neue achttägige Rundreise durch Andalusien hast du ein Word-Dokument «Notizen Andalusien» von deiner Inforeise. Du brauchst eine Katalogbeschreibung für Familien mit Teenagern, rund 250 Wörter. Schreib den Prompt für Copilot in Word.",
         "en": "For the new eight-day tour of Andalusia you have a Word document “Notes Andalusia” from your inspection trip. You need a catalogue description for families with teenagers, about 250 words. Write the prompt for Copilot in Word."
       },
       "rubric": [

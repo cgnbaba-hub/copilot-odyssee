@@ -8,14 +8,46 @@ import { useGame } from '../GameContext';
 import styles from '../styles.module.scss';
 import { BlockViewProps } from './BlockViewProps';
 
-function criterionName(strings: Strings, criterion: RubricCriterion): string {
+export function criterionName(strings: Strings, criterion: RubricCriterion): string {
   return strings[`criterion_${criterion}` as keyof Strings];
 }
 
 const GOOD_SCORE = 70;
 
-function criterionTip(strings: Strings, criterion: RubricCriterion): string {
+export function criterionTip(strings: Strings, criterion: RubricCriterion): string {
   return strings[`criterionTip_${criterion}` as keyof Strings];
+}
+
+/** Score and the four ingredients, met or missing; shared by the stages and the workshop tab. */
+export function PromptFeedbackBox(props: { feedback: PromptFeedback; boxRef?: React.Ref<HTMLDivElement> }): React.ReactElement {
+  const { strings } = useGame();
+  const { feedback } = props;
+  return (
+    <div className={styles.feedbackBox} ref={props.boxRef}>
+      <div className={styles.scoreRow}>
+        <span className={styles.scoreValue}>{feedback.score}</span>
+        <span>
+          <strong>{strings.score}</strong> / 100
+        </span>
+        <div className={styles.scoreBar}>
+          <div className={styles.scoreBarFill} style={{ width: `${feedback.score}%` }} />
+        </div>
+      </div>
+      {feedback.tooShort && <p>{strings.promptTooShort}</p>}
+      <ul className={styles.criteria}>
+        {feedback.met.map((c) => (
+          <li key={c} className={styles.criterionMet}>
+            <strong>{criterionName(strings, c)}</strong> · {strings.criterionMet}
+          </li>
+        ))}
+        {feedback.missing.map((c) => (
+          <li key={c} className={styles.criterionMissing}>
+            <strong>{criterionName(strings, c)}</strong> · {strings.criterionMissing}: {criterionTip(strings, c)}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }
 
 export function PromptView(props: BlockViewProps<PromptBlock>): React.ReactElement {
@@ -53,34 +85,7 @@ export function PromptView(props: BlockViewProps<PromptBlock>): React.ReactEleme
       <textarea id={inputId} className={styles.textarea} rows={5} value={text} placeholder={strings.promptPlaceholder} onChange={(e) => setText(e.target.value)} />
       <p className={styles.muted}>{strings.promptPrivacy}</p>
 
-      <div aria-live="polite">
-        {feedback && (
-          <div className={styles.feedbackBox} ref={feedbackRef}>
-            <div className={styles.scoreRow}>
-              <span className={styles.scoreValue}>{feedback.score}</span>
-              <span>
-                <strong>{strings.score}</strong> / 100
-              </span>
-              <div className={styles.scoreBar}>
-                <div className={styles.scoreBarFill} style={{ width: `${feedback.score}%` }} />
-              </div>
-            </div>
-            {feedback.tooShort && <p>{strings.promptTooShort}</p>}
-            <ul className={styles.criteria}>
-              {feedback.met.map((c) => (
-                <li key={c} className={styles.criterionMet}>
-                  <strong>{criterionName(strings, c)}</strong> · {strings.criterionMet}
-                </li>
-              ))}
-              {feedback.missing.map((c) => (
-                <li key={c} className={styles.criterionMissing}>
-                  <strong>{criterionName(strings, c)}</strong> · {strings.criterionMissing}: {criterionTip(strings, c)}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-      </div>
+      <div aria-live="polite">{feedback && <PromptFeedbackBox feedback={feedback} boxRef={feedbackRef} />}</div>
 
       {feedback && block.examplePrompt && (
         <div>

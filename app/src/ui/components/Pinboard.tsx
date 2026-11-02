@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import { cleanPost, NewPinPost, PIN_PROMPT_MAX, PIN_TITLE_MAX, PIN_TOOLS, PinboardData, PinOrder, PinPost, PinTool, sensitiveHints, sortPosts } from '../../core/pinboard/pinboard';
+import { PIN_XP, PIN_XP_MAX_POSTS } from '../../core/progress/rewards';
 import { sharePin } from '../../core/progress/state';
 import { APP_NAMES, COPILOT_CHAT_URL, copyText, CopyState } from '../copilot';
 import { formatDate } from '../format';
@@ -226,7 +227,7 @@ function PinForm(props: { draft?: { title: string; prompt: string }; onSent: () 
  */
 export function Pinboard(props: { draft?: { title: string; prompt: string } }): React.ReactElement {
   const game = useGame();
-  const { content, strings, t, navigate, pinboard } = game;
+  const { content, player, strings, theme, t, navigate, pinboard } = game;
   const [load, setLoad] = React.useState<Load>({ status: 'loading' });
   const [reload, setReload] = React.useState(0);
   const [order, setOrder] = React.useState<PinOrder>('popular');
@@ -369,6 +370,11 @@ export function Pinboard(props: { draft?: { title: string; prompt: string } }): 
         )}
       </div>
       <Guide text={strings.pinboardGuide} />
+      {(player.pinsShared || 0) < PIN_XP_MAX_POSTS && (
+        <p className={styles.pinReward}>
+          <span aria-hidden="true">🪙</span> {format(strings.pinboardReward, { xp: PIN_XP, xpName: t(theme.terms.xp), max: PIN_XP_MAX_POSTS })}
+        </p>
+      )}
       {pinboard && pinboard.sample && <p className={styles.pinDemo}>{strings.pinboardDemo}</p>}
       {formOpen && (
         <PinForm
