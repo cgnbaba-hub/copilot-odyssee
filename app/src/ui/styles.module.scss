@@ -7930,3 +7930,72 @@ $grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width=
     opacity: 1;
   }
 }
+
+// The sea chart comes alive: wave marks drift, the route flows towards the
+// suggested island and a sea serpent swims in the corner.
+.chartLayer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.chartWaveMark {
+  animation: odWaveMark 6s ease-in-out infinite alternate;
+}
+
+@keyframes odWaveMark {
+  from {
+    transform: translateX(-8px);
+    opacity: 0.4;
+  }
+  to {
+    transform: translateX(10px);
+    opacity: 1;
+  }
+}
+
+.chartRouteNext {
+  stroke: #e40028;
+  stroke-dasharray: 3 9;
+  animation: odRouteFlow 1.2s linear infinite;
+}
+
+@keyframes odRouteFlow {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
+.chartHump {
+  animation: odHump 2.4s ease-in-out infinite alternate;
+}
+
+@keyframes odHump {
+  from {
+    transform: translateY(3px);
+  }
+  to {
+    transform: translateY(-4px);
+  }
+}
+
+.chartIsland:hover > svg {
+  animation: odIslandHop 0.5s ease;
+}
+
+@keyframes odIslandHop {
+  40% {
+    transform: translateY(-6px) rotate(-1.5deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chartWaveMark,
+  .chartRouteNext,
+  .chartHump,
+  .chartIsland:hover > svg {
+    animation: none !important;
+  }
+}
