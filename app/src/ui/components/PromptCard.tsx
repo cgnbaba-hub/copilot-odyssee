@@ -8,7 +8,7 @@ import styles from '../styles.module.scss';
 import { LicenseChip } from './LicenseChip';
 
 /** Shows [placeholders] highlighted, so it is clear what to replace. */
-function PromptText(props: { text: string }): React.ReactElement {
+export function PromptText(props: { text: string }): React.ReactElement {
   const parts = props.text.split(/(\[[^\]]+\])/);
   return (
     <>

@@ -3218,7 +3218,7 @@ $grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width=
 
 .deckWave {
   fill: none;
-  stroke: #3a82b4;
+  stroke: var(--od-wave, #3a82b4);
   stroke-linecap: round;
   animation: odDrift var(--od-dur) linear infinite;
 }
@@ -7285,5 +7285,648 @@ $grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width=
 
   .pageTitle {
     background-position: center bottom;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// The living sea: the sky follows the clock and the weather of the day,
+// dolphins, gulls and a far sail pass by, a message in a bottle drifts past
+// every day. Everything here stops for reduced motion or the calm setting.
+// ---------------------------------------------------------------------------
+
+.deck {
+  transition: background 1.2s ease;
+}
+
+.deckRays {
+  transform-box: view-box;
+  transform-origin: 500px 340px;
+  animation: odRaysTurn 160s linear infinite;
+}
+
+@keyframes odRaysTurn {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.deckSun {
+  transform-box: view-box;
+  transform-origin: 500px 340px;
+  animation: odSunBreathe 7s ease-in-out infinite alternate;
+}
+
+@keyframes odSunBreathe {
+  to {
+    transform: scale(1.035);
+  }
+}
+
+.deckRainbow {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 0;
+  animation: odRainbow 2.6s cubic-bezier(0.3, 0.1, 0.2, 1) both;
+}
+
+@keyframes odRainbow {
+  from {
+    stroke-dashoffset: 100;
+  }
+}
+
+.deckStar {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: odTwinkle 2.8s ease-in-out infinite alternate;
+}
+
+@keyframes odTwinkle {
+  from {
+    opacity: 0.25;
+    transform: scale(0.7);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+.deckMoonGlow {
+  animation: odMoonGlow 5s ease-in-out infinite alternate;
+}
+
+@keyframes odMoonGlow {
+  to {
+    opacity: 0.22;
+  }
+}
+
+.deckMeteor {
+  stroke-dasharray: 24 140;
+  stroke-dashoffset: 24;
+  animation: odMeteor 15s ease-out infinite;
+  animation-delay: 2.5s;
+}
+
+@keyframes odMeteor {
+  0% {
+    stroke-dashoffset: 24;
+  }
+  6%,
+  100% {
+    stroke-dashoffset: -110;
+  }
+}
+
+.deckCloudSlow {
+  animation: odCloud 42s ease-in-out infinite alternate-reverse;
+}
+
+.deckFarSail {
+  animation: odFarSail 150s linear infinite;
+  animation-delay: -40s;
+}
+
+@keyframes odFarSail {
+  0% {
+    opacity: 0;
+    transform: translateX(-80px);
+  }
+  6%,
+  92% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(820px);
+  }
+}
+
+.deckGull {
+  animation: odGull 44s linear infinite;
+}
+
+@keyframes odGull {
+  0% {
+    transform: translate(-120px, 0);
+  }
+  50% {
+    transform: translate(515px, -14px);
+  }
+  100% {
+    transform: translate(1150px, 4px);
+  }
+}
+
+.deckGullWing {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: odFlap 0.95s ease-in-out infinite alternate;
+}
+
+@keyframes odFlap {
+  to {
+    transform: scaleY(0.3);
+  }
+}
+
+.deckDolphin {
+  transform-origin: 0 0;
+  animation: odLeap 13s cubic-bezier(0.45, 0, 0.55, 1) infinite backwards;
+}
+
+@keyframes odLeap {
+  0% {
+    transform: rotate(-95deg);
+  }
+  13%,
+  100% {
+    transform: rotate(95deg);
+  }
+}
+
+.deckSplashIn,
+.deckSplashOut {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: 13s ease-out infinite backwards;
+}
+
+.deckSplashIn {
+  animation-name: odSplashIn;
+}
+
+.deckSplashOut {
+  animation-name: odSplashOut;
+}
+
+@keyframes odSplashIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  2.5% {
+    opacity: 1;
+  }
+  7%,
+  100% {
+    opacity: 0;
+    transform: scale(1.7);
+  }
+}
+
+@keyframes odSplashOut {
+  0%,
+  9.5% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  11.5% {
+    opacity: 1;
+  }
+  17%,
+  100% {
+    opacity: 0;
+    transform: scale(1.7);
+  }
+}
+
+.deckCap {
+  opacity: 0;
+  animation: odCap 5s ease-in-out infinite;
+}
+
+@keyframes odCap {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.9;
+  }
+  70% {
+    opacity: 0;
+  }
+}
+
+// The weather sign in the top right corner of the deck.
+.deckMood {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin: 0;
+  padding: 5px 13px 5px 8px;
+  background: rgba(251, 246, 232, 0.92);
+  border: 2px solid $ink;
+  border-radius: 999px;
+  box-shadow: 3px 3px 0 $ink;
+  color: $ink;
+  cursor: help;
+  font-size: 13px;
+  font-weight: 700;
+  animation: odMoodIn 0.7s 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+
+  svg {
+    width: 20px;
+    height: 20px;
+    color: #e08a1e;
+  }
+}
+
+.deck[data-sky='night'] .deckMood svg {
+  color: #6b7fb3;
+}
+
+.deck[data-sky='dusk'] .deckMood svg,
+.deck[data-sky='dawn'] .deckMood svg {
+  color: $coral;
+}
+
+@keyframes odMoodIn {
+  from {
+    opacity: 0;
+    transform: translateY(-12px) scale(0.8);
+  }
+}
+
+// The message in a bottle, bobbing on the water to the right of the bow.
+.bottle {
+  position: absolute;
+  right: 12%;
+  bottom: 25%;
+  z-index: 2;
+  width: 70px;
+  height: 70px;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+
+  svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+
+  &:focus-visible {
+    outline: 3px solid $sun;
+    outline-offset: 2px;
+  }
+
+  &:hover .bottleBody {
+    animation-duration: 1.1s;
+  }
+}
+
+.bottleBody {
+  transform-box: fill-box;
+  transform-origin: 50% 80%;
+  animation: odBob 3.4s ease-in-out infinite;
+}
+
+@keyframes odBob {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-5deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(6deg);
+  }
+}
+
+.bottleRipple {
+  animation: odRipple 3.4s ease-in-out infinite;
+}
+
+@keyframes odRipple {
+  50% {
+    transform: translateX(-4px);
+    opacity: 0.6;
+  }
+}
+
+.bottleFresh svg {
+  animation: odBottleGlow 1.8s ease-in-out infinite alternate;
+}
+
+@keyframes odBottleGlow {
+  from {
+    filter: drop-shadow(0 0 0 rgba(255, 233, 168, 0));
+  }
+  to {
+    filter: drop-shadow(0 0 9px rgba(255, 236, 170, 0.95));
+  }
+}
+
+.bottleBadge {
+  position: absolute;
+  top: -8px;
+  right: -14px;
+  padding: 2px 8px;
+  background: $coral;
+  border: 2px solid $ink;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  animation: odBadgePop 2.4s ease-in-out infinite;
+}
+
+@keyframes odBadgePop {
+  0%,
+  70%,
+  100% {
+    transform: scale(1) rotate(6deg);
+  }
+  80% {
+    transform: scale(1.18) rotate(-4deg);
+  }
+  90% {
+    transform: scale(0.96) rotate(8deg);
+  }
+}
+
+.bottleNote {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  background: rgba(26, 41, 64, 0.38);
+  animation: odFadeIn 0.3s ease both;
+}
+
+@keyframes odFadeIn {
+  from {
+    opacity: 0;
+  }
+}
+
+.bottlePaper {
+  position: relative;
+  width: min(470px, 100%);
+  max-height: 100%;
+  overflow: auto;
+  padding: 26px 26px 18px;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(214, 170, 104, 0.28) 0, transparent 40%),
+    radial-gradient(circle at 92% 96%, rgba(214, 170, 104, 0.3) 0, transparent 45%),
+    #fbf1d6;
+  border: 3px solid $ink;
+  border-radius: 8px 20px 10px 18px;
+  box-shadow: 6px 6px 0 $ink;
+  color: $ink;
+  transform: rotate(-0.8deg);
+  transform-origin: 50% 0;
+  animation: odUnroll 0.75s cubic-bezier(0.34, 1.4, 0.64, 1) backwards;
+}
+
+@keyframes odUnroll {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.3, 0.06) rotate(-8deg);
+  }
+  45% {
+    opacity: 1;
+    transform: translateY(0) scale(0.9, 0.3) rotate(-3deg);
+  }
+}
+
+.bottleEyebrow {
+  margin: 0;
+  color: $coral;
+  font-family: var(--od-font-logo);
+  font-size: 17px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.bottleHeading {
+  margin: 2px 0 2px;
+  font-family: var(--od-font-display);
+  font-size: 25px;
+  line-height: 1.2;
+}
+
+.bottlePlace {
+  margin: 0 0 12px;
+  color: var(--od-text-muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.bottleText {
+  margin: 0 0 14px;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 2px dashed rgba(26, 41, 64, 0.35);
+  border-radius: 12px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.bottleActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.bottleFoot {
+  margin: 14px 0 0;
+  color: var(--od-text-muted);
+  font-size: 13px;
+  font-style: italic;
+}
+
+@container (max-width: 620px) {
+  .deckMood {
+    display: none;
+  }
+
+  .bottle {
+    right: auto;
+    bottom: auto;
+    left: 84px;
+    top: 55%;
+    width: 50px;
+    height: 50px;
+  }
+}
+
+// Pages come in one part after another, so the eye follows the order.
+.home > * {
+  animation: odRise 0.55s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+@for $i from 1 through 6 {
+  .home > *:nth-child(#{$i}) {
+    animation-delay: #{($i - 1) * 70}ms;
+  }
+}
+
+@keyframes odRise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+
+// A light sweeps over the miles bar now and then.
+.statusBarFill {
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(100deg, transparent 20%, rgba(255, 255, 255, 0.75) 50%, transparent 80%);
+    transform: translateX(-100%);
+    animation: odShimmer 5.5s ease-in-out 1.2s infinite;
+  }
+}
+
+@keyframes odShimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  30%,
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+// The compass in the logo settles when the app opens.
+.brandCompass {
+  animation: odCompass 1.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes odCompass {
+  0% {
+    transform: rotate(-200deg) scale(0.6);
+  }
+  60% {
+    transform: rotate(20deg) scale(1.05);
+  }
+}
+
+// Buttons give way under the finger like real ones.
+.buttonPrimary:not(:disabled):active,
+.button:not(:disabled):active,
+.ticketGo:active {
+  transform: translate(2px, 2px) !important;
+  box-shadow: 1px 1px 0 $ink !important;
+  transition-duration: 0.05s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .deckRays,
+  .deckSun,
+  .deckRainbow,
+  .deckStar,
+  .deckMoonGlow,
+  .deckMood,
+  .bottleBody,
+  .bottleRipple,
+  .bottleFresh svg,
+  .bottleBadge,
+  .bottlePaper,
+  .bottleNote,
+  .home > *,
+  .statusBarFill::after,
+  .brandCompass {
+    animation: none !important;
+  }
+}
+
+// Seasons and celebrations on the deck.
+.deckSnow {
+  animation: odSnow 10s linear infinite;
+}
+
+@keyframes odSnow {
+  from {
+    transform: translate(0, var(--od-from));
+  }
+  to {
+    transform: translate(var(--od-drift), var(--od-to));
+  }
+}
+
+.deckBurst {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: odBurst 3.6s ease-out infinite backwards;
+}
+
+@keyframes odBurst {
+  0% {
+    opacity: 0;
+    transform: scale(0.15);
+  }
+  6% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 1;
+    transform: scale(0.95);
+  }
+  58%,
+  100% {
+    opacity: 0;
+    transform: scale(1.1) translateY(12px);
+  }
+}
+
+.deckLantern {
+  animation: odLantern 2.2s ease-in-out infinite alternate;
+}
+
+@keyframes odLantern {
+  from {
+    opacity: 0.55;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .deckLantern {
+    animation: none !important;
+  }
+}
+
+.deckFlag {
+  transform-box: fill-box;
+  transform-origin: 50% 0;
+  animation: odFlag 1.4s ease-in-out infinite alternate;
+}
+
+@keyframes odFlag {
+  from {
+    transform: rotate(-7deg);
+  }
+  to {
+    transform: rotate(7deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .deckFlag,
+  .deckBurst {
+    animation: none !important;
+  }
+
+  .deckBurst {
+    opacity: 1;
   }
 }

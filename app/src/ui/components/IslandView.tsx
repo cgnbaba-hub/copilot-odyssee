@@ -10,6 +10,7 @@ import { islandProgress, isModulePreview, isPreview } from '../progressHelpers';
 import styles from '../styles.module.scss';
 import { copyText, CopyState } from '../copilot';
 import { linkTo } from '../links';
+import { skyMood } from '../sky';
 import { LockIcon } from './Art';
 import { Guide } from './Guide';
 import { LicenseChip } from './LicenseChip';
@@ -36,12 +37,22 @@ export function IslandView(props: { islandId: string }): React.ReactElement {
   // Touch screens cannot hover, so there the preview of a ticket opens with a tap.
   const [peek, setPeek] = React.useState<string | undefined>(undefined);
   const [linkState, setLinkState] = React.useState<CopyState>('idle');
+  // The band over the island shares the light of the deck: evening glow at dusk, moon and stars at night.
+  const mood = skyMood(new Date());
+  const night = mood.phase === 'night';
+  const tint = night ? '#0d1b33' : mood.phase === 'dusk' ? '#6e2a4c' : '#1a2940';
+  const tintShare = night ? 0.72 : 0.5;
 
   return (
     <section className={styles.islandPage} style={{ ['--od-island' as string]: island.color } as React.CSSProperties}>
       <header
         className={styles.islandBand}
-        style={{ ['--od-sky' as string]: mixColor(island.color, '#1a2940', 0.5), ['--od-sky-low' as string]: mixColor(island.color, '#1a2940', 0.2) } as React.CSSProperties}
+        style={
+          {
+            ['--od-sky' as string]: mixColor(island.color, tint, tintShare),
+            ['--od-sky-low' as string]: mixColor(island.color, tint, tintShare - 0.3)
+          } as React.CSSProperties
+        }
       >
         <button type="button" className={styles.islandBack} onClick={() => navigate({ name: 'map' })}>
           ← {strings.backToDeck}
@@ -50,13 +61,37 @@ export function IslandView(props: { islandId: string }): React.ReactElement {
           {linkState === 'copied' ? `✓ ${strings.shareLinkCopied}` : `🔗 ${strings.shareLink}`}
         </button>
         <svg className={styles.islandBandArt} viewBox="-180 -190 360 230" aria-hidden="true">
-          <g className={styles.islandBandRays}>
+          <g className={styles.islandBandRays} opacity={night ? 0.35 : 1}>
             {Array.from({ length: 12 }, (_, i) => (
               <path key={i} d="M0 -60 L-14 -230 L14 -230 Z" fill="#fbf6e8" opacity="0.13" transform={`rotate(${i * 30} 0 -60)`} />
             ))}
           </g>
-          <circle cx="0" cy="-60" r="98" fill="#f2b13a" />
-          <circle cx="0" cy="-60" r="80" fill="none" stroke="#fbf6e8" strokeWidth="3" opacity="0.35" />
+          {night ? (
+            <g>
+              <mask id="od-band-moon">
+                <circle cx="0" cy="-60" r="70" fill="#fff" />
+                <circle cx="30" cy="-80" r="62" fill="#000" />
+              </mask>
+              <circle cx="0" cy="-60" r="98" fill="#f4ecd2" opacity="0.12" />
+              <circle cx="0" cy="-60" r="70" fill="#f4ecd2" mask="url(#od-band-moon)" />
+              {[
+                [-150, -160],
+                [-120, -100],
+                [-60, -175],
+                [70, -170],
+                [130, -130],
+                [160, -60],
+                [-165, -40]
+              ].map(([x, y], i) => (
+                <circle key={i} className={styles.deckStar} cx={x} cy={y} r={2 + (i % 3) * 0.6} fill="#fdf6dc" style={{ animationDelay: `${i * 0.45}s` }} />
+              ))}
+            </g>
+          ) : (
+            <>
+              <circle cx="0" cy="-60" r="98" fill={mood.phase === 'day' ? '#f2b13a' : mood.sun} />
+              <circle cx="0" cy="-60" r="80" fill="none" stroke="#fbf6e8" strokeWidth="3" opacity="0.35" />
+            </>
+          )}
           <PosterIsland landmark={island.landmark} color={island.color} flag={done} />
           {preview && <IslandFog />}
         </svg>
