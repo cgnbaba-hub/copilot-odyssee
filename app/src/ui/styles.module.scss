@@ -7908,10 +7908,11 @@ $grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width=
 .deckFlag {
   transform-box: fill-box;
   transform-origin: 50% 0;
-  animation: odFlag 1.4s ease-in-out infinite alternate;
+  animation: odBunting 1.4s ease-in-out infinite alternate;
 }
 
-@keyframes odFlag {
+// Named apart from odFlag, the flag at the end of the stage trail.
+@keyframes odBunting {
   from {
     transform: rotate(-7deg);
   }
@@ -7997,5 +7998,232 @@ $grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width=
   .chartHump,
   .chartIsland:hover > svg {
     animation: none !important;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Stage view in motion: steps turn in like pages, answers spark or shake,
+// stations on the trail pop when reached, and the miles count up at the end.
+// ---------------------------------------------------------------------------
+
+.lessonCard {
+  animation: odStepIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+@keyframes odStepIn {
+  from {
+    opacity: 0;
+    transform: translateX(36px) rotate(0.8deg);
+  }
+}
+
+// The answers come in one after the other once they are shown.
+.choiceList > * {
+  animation: odRise 0.4s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+@for $i from 1 through 6 {
+  .choiceList > *:nth-child(#{$i}) {
+    animation-delay: #{($i - 1) * 60}ms;
+  }
+}
+
+.choiceCorrect {
+  animation: odRightPulse 0.6s ease-out;
+}
+
+@keyframes odRightPulse {
+  0% {
+    transform: scale(1);
+  }
+  35% {
+    transform: scale(1.025);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.choiceWrong {
+  animation: odShake 0.45s ease-in-out;
+}
+
+@keyframes odShake {
+  20%,
+  60% {
+    transform: translateX(-7px);
+  }
+  40%,
+  80% {
+    transform: translateX(7px);
+  }
+}
+
+.actionBar {
+  animation: odBarIn 0.35s ease-out backwards;
+}
+
+@keyframes odBarIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+.actionIcon {
+  position: relative;
+}
+
+.actionBarGood .actionIcon {
+  animation: odIconPop 0.55s cubic-bezier(0.34, 1.8, 0.64, 1) backwards;
+}
+
+.actionBarBad .actionIcon {
+  animation: odIconWobble 0.5s ease-in-out;
+}
+
+@keyframes odIconPop {
+  from {
+    transform: scale(0.2) rotate(-30deg);
+  }
+}
+
+@keyframes odIconWobble {
+  25% {
+    transform: rotate(-14deg);
+  }
+  75% {
+    transform: rotate(14deg);
+  }
+}
+
+// Little sparks flying out of the tick of a right answer.
+.sparks {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  pointer-events: none;
+
+  i {
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    margin: -4.5px 0 0 -4.5px;
+    background: $sun;
+    border: 1.5px solid $ink;
+    border-radius: 50%;
+    opacity: 0;
+    animation: odSpark 0.75s 0.12s ease-out;
+  }
+
+  i:nth-child(even) {
+    background: var(--od-brand);
+  }
+}
+
+@keyframes odSpark {
+  0% {
+    opacity: 1;
+    transform: rotate(var(--od-a)) translateY(-14px) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(var(--od-a)) translateY(-52px) scale(0.4);
+  }
+}
+
+// The continue button nudges after a moment, so the next step is not missed.
+.actionBarGood .buttonSuccess {
+  animation: odNudge 2.6s 1.4s ease-in-out infinite;
+}
+
+@keyframes odNudge {
+  0%,
+  80%,
+  100% {
+    transform: translateX(0);
+  }
+  85% {
+    transform: translateX(5px);
+  }
+  90% {
+    transform: translateX(-2px);
+  }
+  95% {
+    transform: translateX(3px);
+  }
+}
+
+// Stations: a reached one pops, the current one sends out a ring.
+.stopDone .stopIcon {
+  animation: odStopPop 0.5s cubic-bezier(0.34, 1.8, 0.64, 1) backwards;
+}
+
+@keyframes odStopPop {
+  from {
+    transform: scale(0.4);
+  }
+}
+
+.stopCurrent .stopIcon::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border: 2.5px solid $sun;
+  border-radius: 50%;
+  animation: odRing 1.8s ease-out infinite;
+}
+
+@keyframes odRing {
+  from {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.7);
+  }
+}
+
+// The miles of a finished stage, counting up.
+.doneMiles {
+  margin: 18px 0 0;
+  color: var(--od-brand);
+  font-family: var(--od-font-logo);
+  font-size: 46px;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  animation: odMilesIn 0.6s 0.2s cubic-bezier(0.34, 1.6, 0.64, 1) backwards;
+
+  span {
+    font-size: 22px;
+    text-transform: uppercase;
+  }
+}
+
+@keyframes odMilesIn {
+  from {
+    opacity: 0;
+    transform: scale(0.5) translateY(10px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lessonCard,
+  .choiceList > *,
+  .choiceCorrect,
+  .choiceWrong,
+  .actionBar,
+  .actionBarGood .actionIcon,
+  .actionBarBad .actionIcon,
+  .sparks i,
+  .actionBarGood .buttonSuccess,
+  .stopDone .stopIcon,
+  .stopCurrent .stopIcon::after,
+  .doneMiles {
+    animation: none !important;
+  }
+
+  .sparks {
+    display: none;
   }
 }
