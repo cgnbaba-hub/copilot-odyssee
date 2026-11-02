@@ -253,11 +253,11 @@ Legende: 🤖 = setze ich um · 👤 = brauche ich von dir · 🏢 = IT oder Dat
 - [ ] **Redaktions-Cockpit** und **«Neu bei Copilot»** – siehe AP 4.2.
 - [x] **Quiz-Qualität** 🤖 – *Umgesetzt (2.11.2026):* Ablenker überarbeitet (richtige Antwort nur noch selten die längste), Warnung im Validator, «Erst überlegen» vor jeder Frage und Inselprüfungen mit 48 neuen Fragen (`content/exams.json`): Erst wer sie besteht, bekommt den Stempel.
 - [ ] **Konzernrichtlinie KR2501** 👤 – Die Richtlinie in der Unternehmensumgebung (Claude Code) bereitstellen, damit Sirenenfelsen und Ithaka genau daran ausgerichtet werden. Bis dahin nennt die App die Richtlinie nur.
-- [ ] **Outlook klassisch und neu** 👤🤖 – Von dir: wo die Anweisungen für Entwürfe in beiden Outlook-Varianten liegen und welche Copilot-Funktionen nur im neuen Outlook gehen (Screenshots oder kurze Liste). Danach Hermes und Athene anpassen.
-- [ ] **Notebooks genauer erklären** 👤🤖 – *Teilweise:* Notizbücher sind laut Test mit Basic verfügbar, die Etappe ist jetzt für alle offen. Offen: genaue Anleitung zum Erstellen (Infos von dir).
+- [x] **Outlook klassisch und neu** – *Umgesetzt:* Entwurfsanweisungen für beide Outlook-Varianten nach Schrittaufzeichnung (Hermes › «Postfach im Griff», Hinweis in Athene und Hilfe).
+- [x] **Notebooks genauer erklären** – *Umgesetzt:* Schritte zum Anlegen und Befüllen nach Schrittaufzeichnung mit Basic-Testkonto.
 - [x] **Hephaistos für Basic** – *Umgesetzt:* Die Insel gehört jetzt zu den Inseln für alle; Researcher, Analyst und Arbeitsinhalte als Wissen bleiben Premium. Später: Agenten bauen ausführlicher (Wissen, Aktionen, Teilen, Pflege).
 - [x] **«Open to Work» eingebaut** – *Umgesetzt:* neue Etappe «Drei Körbe» auf Ithaka (Aufgaben statt Jobtitel, drei Körbe, fünf C), Prompt-Tipps auf Aiolos, vier neue Challenges. Bewusst weggelassen: die prozentuale «Verwundbarkeit», bei Bedarf mit HR abstimmen.
-- [ ] **Edge-Einstellung für den Seitenzugriff** 👤 – Die Schrittaufzeichnung vom 2.11. zeigte die Websuche in Copilot, nicht die Edge-Einstellung. Ein Screenshot der Edge-Einstellung fehlt noch.
+- [x] **Edge-Einstellung für den Seitenzugriff** – *Umgesetzt:* edge://settings/ai › «Copilot und KI» › «Allow Copilot to use browser content». Deutsche Bezeichnungen sinngemäss, da die Aufzeichnung eine englische Edge-Oberfläche zeigt.
 - [ ] **Kalypsos Insel** 👤 – Erst wieder prüfen, wenn die neue Copilot-App bei euch verfügbar ist (Stand 2.11.2026: trotz Frontier noch nicht da).
 
 ## 8. Was aus dem Prototyp wird

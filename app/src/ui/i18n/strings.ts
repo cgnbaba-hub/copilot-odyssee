@@ -146,7 +146,7 @@ const de = {
   edgeMoreExample2: '«Erkläre mir die Fachbegriffe auf dieser Seite in einfachen Worten.»',
   edgeMoreExample3: '«Stelle alle Preise und Daten dieser Seite als Tabelle zusammen.»',
   edgeMoreSetting:
-    'Damit Copilot die Seite lesen darf: In Edge oben rechts auf «…» › Einstellungen, oben ins Suchfeld «Copilot» eingeben und den Zugriff auf Seiteninhalte einschalten. Ist der Schalter grau, gibt die IT die Einstellung vor. Prüfe wichtige Angaben wie immer an der Quelle.',
+    'Damit Copilot die Seite lesen darf: edge://settings/ai in die Adresszeile tippen (oder «…» › Einstellungen › «Copilot und KI») und «Copilot die Nutzung von Browserinhalten erlauben» einschalten (englisch: «Allow Copilot to use browser content»). Ist der Schalter grau, gibt die IT die Einstellung vor. Prüfe wichtige Angaben wie immer an der Quelle.',
   missionStep2Copy: 'Klicke auf «Text kopieren». Klicke dann in Copilot unten ins Eingabefeld und drücke Strg + V.',
   missionStep2: 'Schreib deine Anfrage in Copilot unten ins Eingabefeld.',
   missionStep3: 'Drücke die Enter-Taste und lies die Antwort.',
@@ -689,7 +689,7 @@ const en: Strings = {
   edgeMoreExample2: '“Explain the technical terms on this page in plain words.”',
   edgeMoreExample3: '“Put all prices and dates on this page into a table.”',
   edgeMoreSetting:
-    'So that Copilot may read the page: in Edge click “…” › Settings at the top right, type “Copilot” into the search box and switch on access to page content. If the switch is greyed out, IT sets it. As always, check important details at the source.',
+    'So that Copilot may read the page: type edge://settings/ai into the address bar (or “…” › Settings › “Copilot and AI”) and switch on “Allow Copilot to use browser content”. If the switch is greyed out, IT sets it. As always, check important details at the source.',
   missionStep2Copy: 'Click “Copy text”. Then click into the input box at the bottom of Copilot and press Ctrl + V.',
   missionStep2: 'Write your request into the input box at the bottom of Copilot.',
   missionStep3: 'Press Enter and read the answer.',
