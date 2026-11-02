@@ -1,19 +1,36 @@
 import { moduleLicense, modulesOfIsland, sortedIslands } from '../core/content/bundle';
 import { Area, Island, LearningModule, License, PromptTemplate } from '../core/content/types';
+import { examFor, examOpen, examPassed } from '../core/progress/exam';
 import { moduleStatus } from '../core/progress/state';
 import { Game } from './GameContext';
 
 export interface IslandProgress {
+  /** Stages completed, plus one for a passed exam. */
   completed: number;
+  /** Stages, plus one when the island has an exam. */
   total: number;
+  /** The island has an exam that is not passed yet. */
+  examPending: boolean;
 }
 
+/** Progress on an island; the exam counts as its last step, so «done» means stages and exam. */
 export function islandProgress(game: Game, islandId: string): IslandProgress {
   const modules = modulesOfIsland(game.content, islandId, { showDrafts: game.showDrafts });
+  const hasExam = modules.length > 0 && !!examFor(game.content, islandId);
+  const passed = examPassed(game.player, islandId);
   return {
-    completed: modules.filter((m) => moduleStatus(game.player, m) === 'completed').length,
-    total: modules.length
+    completed: modules.filter((m) => moduleStatus(game.player, m) === 'completed').length + (hasExam && passed ? 1 : 0),
+    total: modules.length + (hasExam ? 1 : 0),
+    examPending: hasExam && !passed
   };
+}
+
+/** An island whose stages are all done but whose exam is still open, along the route; the start screen offers it. */
+export function pendingExam(game: Game): Island | undefined {
+  const filter = { showDrafts: game.showDrafts };
+  return sortedIslands(game.content).filter(
+    (island) => !isPreview(game, island) && !examPassed(game.player, island.id) && examOpen(game.content, game.player, island.id, filter)
+  )[0];
 }
 
 /** Whether the player's licence covers content of the given licence tier. */

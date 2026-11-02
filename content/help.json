@@ -349,7 +349,7 @@
         "en": "What are agents and where do I find them?"
       },
       "answer": {
-        "de": "Ein Agent ist ein Copilot mit einer festen Aufgabe, zum Beispiel für ein Handbuch oder eine Recherche. Du findest Agenten in Copilot links unter **«Agenten»**.\n- **Researcher** und **Analyst** gibt es mit Premium.\n- Welche weiteren Agenten du siehst und ob du selbst welche bauen kannst, legt das Unternehmen fest. Mit Basic gehen Agenten, die mit öffentlichen Webseiten arbeiten. Mails, Chats und Dateien als Wissen brauchen Premium.\n\nMehr dazu in der Schmiede des Hephaistos.",
+        "de": "Ein Agent ist ein Copilot mit einer festen Aufgabe, zum Beispiel für ein Handbuch oder eine Recherche. Du findest Agenten in Copilot links unter **«Agents»**.\n- **Researcher** und **Analyst** gibt es mit Premium.\n- Welche weiteren Agenten du siehst und ob du selbst welche bauen kannst, legt das Unternehmen fest. Mit Basic gehen Agenten, die mit öffentlichen Webseiten arbeiten. Mails, Chats und Dateien als Wissen brauchen Premium.\n\nMehr dazu in der Schmiede des Hephaistos.",
         "en": "An agent is a Copilot with a fixed job, for example for a handbook or research. You find agents in Copilot on the left under **“Agents”**.\n- **Researcher** and **Analyst** come with Premium.\n- Which other agents you see and whether you can build your own is decided by the company. With Basic, agents that work with public websites are possible. Emails, chats and files as knowledge need Premium.\n\nMore on this at the Forge of Hephaestus."
       }
     },
@@ -361,8 +361,8 @@
         "en": "What are Notebooks and Pages?"
       },
       "answer": {
-        "de": "Ein **Notebook** sammelt Dateien, Notizen und Chats zu einem Projekt. Copilot antwortet dann auf dieser Grundlage. **Pages** sind Seiten aus Copilot-Antworten, die du weiterbearbeiten und teilen kannst.\n- Mit **Premium** findest du Notebooks in der Copilot-App links.\n- Mit **Basic** gibt es eine kleinere Version, je nach Einführung nur in OneNote im Web.",
-        "en": "A **notebook** collects files, notes and chats for a project. Copilot then answers on that basis. **Pages** are pages made from Copilot answers that you can keep editing and share.\n- With **Premium** you find notebooks on the left in the Copilot app.\n- With **Basic** there is a smaller version, depending on the rollout only in OneNote on the web."
+        "de": "Ein **Notebook** sammelt Dateien, Notizen und Chats zu einem Projekt. Copilot antwortet dann auf dieser Grundlage. **Pages** sind Seiten aus Copilot-Antworten, die du weiterbearbeiten und teilen kannst.\n- Du findest Notebooks in Copilot links unter **«Notizbücher»**.\n- Das geht mit **Basic und Premium**.",
+        "en": "A **notebook** collects files, notes and chats for a project. Copilot then answers on that basis. **Pages** are pages made from Copilot answers that you can keep editing and share.\n- You find notebooks in Copilot on the left under **“Notebooks”** (German interface: «Notizbücher»).\n- This works with **Basic and Premium**."
       }
     },
     {

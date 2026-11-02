@@ -48,6 +48,10 @@ export function parseContentFile(data: unknown): ContentBundle {
     helpReviewedAt: typeof data.helpReviewedAt === 'string' ? data.helpReviewedAt : undefined,
     areas: list(data.areas),
     prompts: list(data.prompts),
-    challenges: list(data.challenges)
+    challenges: list(data.challenges),
+    exams:
+      Array.isArray(data.exams) && data.exams.every((e) => isObject(e) && typeof e.island === 'string' && Array.isArray(e.questions))
+        ? (data.exams as ContentBundle['exams'])
+        : undefined
   };
 }

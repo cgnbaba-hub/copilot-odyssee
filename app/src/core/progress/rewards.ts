@@ -20,3 +20,5 @@ export const REVIEW_XP = 5;
 /** Sharing a prompt on the harbour board; paid for the first few only. */
 export const PIN_XP = 20;
 export const PIN_XP_MAX_POSTS = 5;
+/** Passing an island exam the first time. */
+export const EXAM_XP = 60;

@@ -1,0 +1,205 @@
+{
+  "$schema": "../schema/module.schema.json",
+  "id": "ithaka-drei-koerbe",
+  "island": "ithaka",
+  "order": 3,
+  "version": "1.0.0",
+  "owner": "copilot-team",
+  "status": "draft",
+  "reviewedAt": "2026-11-02",
+  "reviewIntervalDays": 365,
+  "title": {
+    "de": "Drei Körbe: was du abgibst und was nur du kannst",
+    "en": "Three baskets: what you hand off and what only you can do"
+  },
+  "summary": {
+    "de": "Sieh deine Arbeit als Sammlung von Aufgaben und sortiere sie in drei Körbe. So siehst du, wo Copilot dir Zeit schenkt und wo deine menschlichen Stärken zählen.",
+    "en": "See your work as a set of tasks and sort them into three baskets. That shows where Copilot saves you time and where your human strengths count."
+  },
+  "estimatedMinutes": 12,
+  "notes": "Neuer Inhalt nach Ideen aus Ryan Roslansky, «Open to Work» (Kapitel 10, 30-60-90-Tage-Plan): Job als Sammlung von Aufgaben, drei Körbe, 5C. In eigenen Worten zusammengefasst, keine Zitate. Bewusst weggelassen: die Einschätzung der eigenen «Verwundbarkeit» in Prozent, weil sie im Unternehmenskontext verunsichern kann; bei Bedarf mit HR abstimmen.",
+  "blocks": [
+    {
+      "type": "briefing",
+      "id": "aufgaben",
+      "title": {
+        "de": "Dein Job ist eine Sammlung von Aufgaben",
+        "en": "Your job is a set of tasks"
+      },
+      "body": {
+        "de": "Statt «Was ist mein Job?» lohnt sich die Frage: **«Welche Aufgaben mache ich eigentlich?»** Ein Job ist kein einzelnes Ding, sondern eine Sammlung von Aufgaben, und die verändern sich mit der Zeit.\n\nSo gehst du vor:\n- Schreib deine **zwölf häufigsten Aufgaben** einer normalen Woche auf, zum Beispiel «Angebotsmails schreiben», «Beratungsgespräche führen», «Partnerverträge lesen».\n- Sei konkret: nicht «Kommunikation», sondern «heikle Mails an verärgerte Gäste beantworten».\n\nDiese Liste ist der Ausgangspunkt für die drei Körbe.\n\nDie Idee stammt aus dem Buch «Open to Work» von Ryan Roslansky, dem CEO von LinkedIn.",
+        "en": "Instead of “What is my job?”, it pays to ask: **“Which tasks do I actually do?”** A job is not a single thing but a set of tasks, and they change over time.\n\nHow to go about it:\n- Write down your **twelve most frequent tasks** in a normal week, for example “writing offer emails”, “holding consultations”, “reading partner contracts”.\n- Be specific: not “communication” but “answering tricky emails from annoyed guests”.\n\nThis list is the starting point for the three baskets.\n\nThe idea comes from the book “Open to Work” by Ryan Roslansky, CEO of LinkedIn."
+      }
+    },
+    {
+      "type": "briefing",
+      "id": "koerbe",
+      "title": {
+        "de": "Die drei Körbe",
+        "en": "The three baskets"
+      },
+      "body": {
+        "de": "Sortiere jede Aufgabe in einen Korb:\n- **Korb 1: Copilot macht den Grossteil.** Klare Regeln und Muster, zum Beispiel Protokoll-Entwürfe, Routineberichte, Termine aus Mails zusammentragen. Du prüfst das Ergebnis.\n- **Korb 2: Du und Copilot im Team.** Anspruchsvolle Arbeit, bei der dein Fachwissen und Copilot sich ergänzen, zum Beispiel Angebote vergleichen, ein Konzept entwickeln, eine Analyse vorbereiten.\n- **Korb 3: Nur du.** Vertrauen aufbauen, ein schwieriges Gespräch führen, die Stimmung im Raum lesen, nach Werten entscheiden.\n\n**Die Prüffrage:** Braucht die Aufgabe unausgesprochenen Zusammenhang, Vertrauen oder ein Urteil nach Werten? Dann Korb 3. Folgt sie klaren Regeln? Dann eher Korb 1. Alles dazwischen ist Korb 2.\n\nKorb 1 heisst nicht «ohne Kontrolle»: Für Inhalte an Gäste und Zahlen gilt weiter die Ampel aus der letzten Etappe.",
+        "en": "Sort every task into a basket:\n- **Basket 1: Copilot does most of it.** Clear rules and patterns, for example draft minutes, routine reports, collecting dates from emails. You check the result.\n- **Basket 2: You and Copilot as a team.** Demanding work where your expertise and Copilot complement each other, for example comparing offers, developing a concept, preparing an analysis.\n- **Basket 3: Only you.** Building trust, holding a difficult conversation, reading the room, deciding according to values.\n\n**The test question:** Does the task need unspoken context, trust or a judgement based on values? Then basket 3. Does it follow clear rules? Then rather basket 1. Everything in between is basket 2.\n\nBasket 1 does not mean “unchecked”: for content for guests and for figures, the traffic light from the previous stage still applies."
+      }
+    },
+    {
+      "type": "quiz",
+      "id": "q-korb-gespraech",
+      "difficulty": "intermediate",
+      "question": {
+        "de": "Ein Stammkunde ist enttäuscht, weil seine Wunschreise ausgebucht ist. Du willst ihn anrufen und eine Alternative finden. In welchen Korb gehört das Gespräch?",
+        "en": "A regular customer is disappointed because his preferred trip is fully booked. You want to call him and find an alternative. Which basket does the conversation belong in?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "de": "Korb 1, weil Copilot den Anruf mit einem Skript vorbereiten kann",
+            "en": "Basket 1, because Copilot can prepare the call with a script"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Ein Skript kann helfen. Das Gespräch selbst lebt aber von Vertrauen und Zwischentönen.",
+            "en": "A script can help. The conversation itself, however, lives on trust and nuance."
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "de": "Korb 2, weil Copilot im Gespräch live mithören und antworten kann",
+            "en": "Basket 2, because Copilot can listen in live and answer during the call"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Copilot führt keine Kundengespräche für dich. Vorbereiten ja, führen nein.",
+            "en": "Copilot does not hold customer conversations for you. Preparing, yes; holding, no."
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "de": "Korb 3, weil es um Vertrauen und das Gespür für den Kunden geht",
+            "en": "Basket 3, because it is about trust and a feel for the customer"
+          },
+          "correct": true,
+          "explanation": {
+            "de": "Genau. Vorbereiten kannst du mit Copilot, das Gespräch bleibt deins.",
+            "en": "Exactly. You can prepare with Copilot; the conversation stays yours."
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "de": "Gar keinem, solche Gespräche lassen sich nicht einordnen",
+            "en": "None of them, such conversations cannot be sorted"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Doch: Die Prüffrage nach Vertrauen und Zwischentönen führt klar zu Korb 3.",
+            "en": "They can: the test question about trust and nuance clearly leads to basket 3."
+          }
+        }
+      ]
+    },
+    {
+      "type": "quiz",
+      "id": "q-korb-zwei",
+      "difficulty": "advanced",
+      "question": {
+        "de": "Welche Aufgaben passen in Korb 2, also «du und Copilot im Team»?",
+        "en": "Which tasks fit basket 2, “you and Copilot as a team”?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": {
+            "de": "Drei Angebote von Partnern vergleichen und eine Empfehlung erarbeiten",
+            "en": "Comparing three partner offers and working out a recommendation"
+          },
+          "correct": true,
+          "explanation": {
+            "de": "Ja. Copilot stellt gegenüber, du bewertest mit deinem Wissen.",
+            "en": "Yes. Copilot lays them side by side, you judge with your knowledge."
+          }
+        },
+        {
+          "id": "b",
+          "text": {
+            "de": "Ein neues Reisekonzept für junge Familien entwickeln",
+            "en": "Developing a new travel concept for young families"
+          },
+          "correct": true,
+          "explanation": {
+            "de": "Ja. Ideen und Struktur mit Copilot, Erfahrung und Urteil von dir.",
+            "en": "Yes. Ideas and structure with Copilot, experience and judgement from you."
+          }
+        },
+        {
+          "id": "c",
+          "text": {
+            "de": "Die Termine der nächsten Woche aus fünf Mails zusammentragen",
+            "en": "Collecting next week’s dates from five emails"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Das folgt klaren Regeln. Das ist eher Korb 1.",
+            "en": "That follows clear rules. It is rather basket 1."
+          }
+        },
+        {
+          "id": "d",
+          "text": {
+            "de": "Einer Kollegin in einer schweren Zeit beistehen und zuhören",
+            "en": "Supporting a colleague through a hard time and listening"
+          },
+          "correct": false,
+          "explanation": {
+            "de": "Das ist zutiefst menschlich und gehört in Korb 3.",
+            "en": "That is deeply human and belongs in basket 3."
+          }
+        }
+      ]
+    },
+    {
+      "type": "briefing",
+      "id": "fuenf-c",
+      "title": {
+        "de": "Was nur du kannst: die fünf C",
+        "en": "What only you can do: the five Cs"
+      },
+      "body": {
+        "de": "Je mehr Copilot im Korb 1 übernimmt, desto wichtiger wird Korb 3. Dort zählen Fähigkeiten, die oft als «weich» gelten, aber auf Dauer am meisten tragen. «Open to Work» nennt sie die **fünf C**:\n- **Curiosity (Neugier):** bessere Fragen stellen, über den Tellerrand schauen.\n- **Creativity (Kreativität):** aus dem Gefundenen etwas Neues machen.\n- **Communication (Kommunikation):** die Botschaft auf dein Gegenüber zuschneiden und zwischen den Zeilen lesen.\n- **Compassion (Mitgefühl):** verstehen, was dein Gegenüber gerade braucht.\n- **Courage (Mut):** sichtbar handeln, auch wenn es unbequem ist.\n\nCopilot hilft dir dabei: Er sammelt Beispiele aus anderen Branchen, zeigt dir blinde Flecken und Gegenargumente. Die Hand heben, das Gespräch führen und entscheiden musst du selbst.",
+        "en": "The more Copilot takes over in basket 1, the more basket 3 matters. There, skills that are often called “soft” but carry the most in the long run count. “Open to Work” calls them the **five Cs**:\n- **Curiosity:** asking better questions, looking beyond your own field.\n- **Creativity:** turning what you find into something new.\n- **Communication:** tailoring the message to the other person and reading between the lines.\n- **Compassion:** understanding what the other person needs right now.\n- **Courage:** acting visibly, even when it is uncomfortable.\n\nCopilot helps you with this: it collects examples from other industries and shows you blind spots and counter-arguments. Raising your hand, holding the conversation and deciding are up to you."
+      }
+    },
+    {
+      "type": "mission",
+      "id": "m-koerbe",
+      "title": {
+        "de": "Deine drei Körbe",
+        "en": "Your three baskets"
+      },
+      "task": {
+        "de": "Schreib deine zwölf häufigsten Aufgaben auf und lass sie von Copilot vorsortieren. Prüfe danach jede Einordnung selbst mit der Prüffrage. Welche Aufgabe aus Korb 1 gibst du diese Woche zuerst an Copilot ab?",
+        "en": "Write down your twelve most frequent tasks and have Copilot pre-sort them. Then check every assignment yourself with the test question. Which basket 1 task will you hand to Copilot first this week?"
+      },
+      "copyText": {
+        "de": "Hier sind meine häufigsten Aufgaben: [Liste]. Sortiere sie in drei Körbe: 1) Copilot kann den Grossteil übernehmen, ich prüfe, 2) ich arbeite mit Copilot zusammen, 3) nur ein Mensch kann es, weil es Vertrauen, Zwischentöne oder ein Urteil nach Werten braucht. Begründe jede Einordnung in einem Satz.",
+        "en": "Here are my most frequent tasks: [list]. Sort them into three baskets: 1) Copilot can take over most of it, I check, 2) I work together with Copilot, 3) only a human can do it because it needs trust, nuance or a judgement based on values. Give one sentence of reasoning per assignment."
+      },
+      "tip": {
+        "de": "Copilot schlägt nur vor. Ob eine Aufgabe in Korb 3 gehört, weisst du am besten.",
+        "en": "Copilot only suggests. You know best whether a task belongs in basket 3."
+      }
+    },
+    {
+      "type": "usecase",
+      "id": "u-korb",
+      "intro": {
+        "de": "Welche Aufgabe aus deinem Korb 1 gibst du als Erstes an Copilot ab? Halte sie als Use-Case-Karte fest.",
+        "en": "Which task from your basket 1 will you hand to Copilot first? Record it as a use case card."
+      }
+    }
+  ]
+}

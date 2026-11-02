@@ -6,7 +6,7 @@
   "version": "1.1.0",
   "owner": "copilot-team",
   "status": "draft",
-  "reviewedAt": "2026-11-01",
+  "reviewedAt": "2026-11-02",
   "reviewIntervalDays": 180,
   "title": {
     "de": "Wie KI-Antworten entstehen",
@@ -173,8 +173,8 @@
         {
           "id": "a",
           "text": {
-            "de": "Sie belegen, dass jede Aussage der Antwort korrekt ist",
-            "en": "They prove that every statement in the answer is correct"
+            "de": "Sie belegen, dass jede einzelne Aussage der Antwort geprüft und korrekt ist",
+            "en": "They prove that every single statement in the answer is checked and correct"
           },
           "correct": false,
           "explanation": {
@@ -186,7 +186,7 @@
           "id": "b",
           "text": {
             "de": "Sie zeigen, woher die Informationen stammen, damit du nachprüfen kannst",
-            "en": "They show where the information comes from, so you can check it"
+            "en": "They show where the information comes from, so you can check it yourself"
           },
           "correct": true,
           "explanation": {
@@ -209,8 +209,8 @@
         {
           "id": "d",
           "text": {
-            "de": "Sie erscheinen nur, wenn Copilot unsicher ist",
-            "en": "They only appear when Copilot is unsure"
+            "de": "Sie erscheinen nur dann, wenn Copilot sich bei der Antwort unsicher ist",
+            "en": "They only appear when Copilot is unsure about the answer"
           },
           "correct": false,
           "explanation": {

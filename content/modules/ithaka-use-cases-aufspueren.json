@@ -6,7 +6,7 @@
   "version": "1.0.0",
   "owner": "copilot-team",
   "status": "draft",
-  "reviewedAt": "2026-11-01",
+  "reviewedAt": "2026-11-02",
   "reviewIntervalDays": 180,
   "title": {
     "de": "Use Cases aufspüren",
@@ -138,8 +138,8 @@
         {
           "id": "c",
           "text": {
-            "de": "Mit einem grünen, der jede Woche vorkommt",
-            "en": "With a green one that comes up every week"
+            "de": "Mit einem grünen Use Case, der jede Woche vorkommt",
+            "en": "With a green use case that comes up every week"
           },
           "correct": true,
           "explanation": {

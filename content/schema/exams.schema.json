@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Inselprüfungen",
+  "description": "Pro Insel einige neue Fragen, die nach allen Etappen gestellt werden. Wer genug davon auf Anhieb richtig beantwortet, schliesst die Insel ab und bekommt den Stempel. Die Fragen sind gleich aufgebaut wie die Quizfragen in den Modulen.",
+  "type": "object",
+  "required": ["exams"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "exams": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["island", "questions"],
+        "properties": {
+          "island": { "description": "id der Insel aus islands.json.", "$ref": "common.schema.json#/$defs/id" },
+          "reviewedAt": { "description": "Wann die Fragen zuletzt geprüft wurden (JJJJ-MM-TT).", "$ref": "common.schema.json#/$defs/date" },
+          "questions": {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 8,
+            "items": { "$ref": "module.schema.json#/$defs/quiz" }
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

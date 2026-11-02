@@ -4,7 +4,7 @@ import { moduleLicense, sortedIslands } from '../../core/content/bundle';
 import { Island } from '../../core/content/types';
 import { format } from '../i18n/strings';
 import { useGame } from '../GameContext';
-import { islandProgress, isPreview, nextStage } from '../progressHelpers';
+import { islandProgress, isPreview, nextStage, pendingExam } from '../progressHelpers';
 import styles from '../styles.module.scss';
 import { CheckIcon, IslandArt, LockIcon } from './Art';
 import { ChallengeCard } from './ChallengeCard';
@@ -74,6 +74,27 @@ function NextTicket(): React.ReactElement {
   const game = useGame();
   const { strings, t, navigate } = game;
   const stage = nextStage(game);
+  // An island whose stages are all done waits for its exam; that comes before the next stage further along the route.
+  const exam = pendingExam(game);
+  if (exam && (!stage || stage.island.order >= exam.order)) {
+    return (
+      <article className={styles.ticket} data-tour="next">
+        <div className={styles.ticketMain}>
+          <p className={styles.ticketEyebrow}>{strings.examNextTitle}</p>
+          <h2 className={styles.ticketTitle}>{format(strings.examTitle, { island: t(exam.name) })}</h2>
+          <p className={styles.ticketMeta}>
+            <span>{strings.examTicketSummary}</span>
+          </p>
+        </div>
+        <div className={styles.ticketStub}>
+          <span className={styles.ticketStubLabel}>{strings.boarding}</span>
+          <button type="button" className={styles.ticketGo} onClick={() => navigate({ name: 'exam', islandId: exam.id })}>
+            {strings.go}
+          </button>
+        </div>
+      </article>
+    );
+  }
   if (!stage) {
     return (
       <article className={styles.ticket} data-tour="next">

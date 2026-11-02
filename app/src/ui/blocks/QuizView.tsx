@@ -24,6 +24,29 @@ export interface QuizViewProps extends BlockViewProps<QuizBlock> {
   onAnswer?: (optionIds: string[]) => boolean;
 }
 
+/**
+ * Thinking of an answer before seeing the options makes it stick much
+ * better than recognising it, so the options stay covered until the
+ * player asks for them.
+ */
+function ThinkFirst(props: { onReveal: () => void }): React.ReactElement {
+  const { strings } = useGame();
+  return (
+    <div className={styles.thinkFirst}>
+      <span className={styles.thinkFirstIcon} aria-hidden="true">
+        ?
+      </span>
+      <div>
+        <p className={styles.thinkFirstTitle}>{strings.quizThinkTitle}</p>
+        <p>{strings.quizThinkText}</p>
+      </div>
+      <button type="button" className={styles.buttonPrimary} onClick={props.onReveal}>
+        {strings.quizReveal}
+      </button>
+    </div>
+  );
+}
+
 export function QuizView(props: QuizViewProps): React.ReactElement {
   const { strings, t, apply, reviewIntervals } = useGame();
   const { block, moduleId } = props;
@@ -33,6 +56,7 @@ export function QuizView(props: QuizViewProps): React.ReactElement {
   const [selected, setSelected] = React.useState<string[]>([]);
   const [result, setResult] = React.useState<Result | undefined>(undefined);
   const [wrongIds, setWrongIds] = React.useState<string[]>([]);
+  const [revealed, setRevealed] = React.useState(false);
 
   const toggle = (id: string): void => {
     if (!multi) setSelected([id]);
@@ -63,66 +87,74 @@ export function QuizView(props: QuizViewProps): React.ReactElement {
   return (
     <>
       <h2 className={styles.blockTitle}>{t(block.question)}</h2>
-      {multi && <p className={styles.quizMulti}>{strings.quizMultiHint}</p>}
-      <div className={styles.choiceList} role={multi ? 'group' : 'radiogroup'} aria-label={t(block.question)}>
-        {options.map((option, optionIndex) => {
-          const isSelected = selected.indexOf(option.id) >= 0;
-          let className = `${styles.choice} ${styles.choiceLarge}`;
-          if (multi) className += ` ${styles.choiceMulti}`;
-          if (result && isSelected && !multi) className += ` ${result.correct ? styles.choiceCorrect : styles.choiceWrong}`;
-          else if (result && result.correct && isSelected) className += ` ${styles.choiceCorrect}`;
-          else if (wrongIds.indexOf(option.id) >= 0) className += ` ${styles.choiceWrong}`;
-          else if (isSelected) className += ` ${styles.choiceSelected}`;
-          return (
-            <button
-              type="button"
-              role={multi ? 'checkbox' : 'radio'}
-              aria-checked={isSelected}
-              key={option.id}
-              className={className}
-              disabled={!!result || wrongIds.indexOf(option.id) >= 0}
-              onClick={() => toggle(option.id)}
-            >
-              <span className={styles.choiceLetter} aria-hidden="true">
-                {multi ? (isSelected ? '✓' : '') : String.fromCharCode(65 + optionIndex)}
-              </span>
-              <span className={styles.choiceText}>{t(option.text)}</span>
-            </button>
-          );
-        })}
-      </div>
-
-      <div className={result ? `${styles.actionBar} ${result.correct ? styles.actionBarGood : styles.actionBarBad}` : styles.actionBar} aria-live="polite">
-        {result && (
-          <div className={styles.actionFeedback}>
-            <span className={styles.actionIcon} aria-hidden="true">
-              {result.correct ? '✓' : '✕'}
-            </span>
-            <div>
-              <strong>{result.correct ? strings.correct : strings.wrong}</strong>
-              {feedback.map((text, i) => (
-                <p key={i}>{text}</p>
-              ))}
-            </div>
+      {!revealed ? (
+        <ThinkFirst onReveal={() => setRevealed(true)} />
+      ) : (
+        <>
+          {multi && <p className={styles.quizMulti}>{strings.quizMultiHint}</p>}
+          <div className={styles.choiceList} role={multi ? 'group' : 'radiogroup'} aria-label={t(block.question)}>
+            {options.map((option, optionIndex) => {
+              const isSelected = selected.indexOf(option.id) >= 0;
+              let className = `${styles.choice} ${styles.choiceLarge}`;
+              if (multi) className += ` ${styles.choiceMulti}`;
+              if (result && isSelected && !multi) className += ` ${result.correct ? styles.choiceCorrect : styles.choiceWrong}`;
+              else if (result && result.correct && isSelected) className += ` ${styles.choiceCorrect}`;
+              else if (wrongIds.indexOf(option.id) >= 0) className += ` ${styles.choiceWrong}`;
+              else if (isSelected) className += ` ${styles.choiceSelected}`;
+              return (
+                <button
+                  type="button"
+                  role={multi ? 'checkbox' : 'radio'}
+                  aria-checked={isSelected}
+                  key={option.id}
+                  className={className}
+                  disabled={!!result || wrongIds.indexOf(option.id) >= 0}
+                  onClick={() => toggle(option.id)}
+                >
+                  <span className={styles.choiceLetter} aria-hidden="true">
+                    {multi ? (isSelected ? '✓' : '') : String.fromCharCode(65 + optionIndex)}
+                  </span>
+                  <span className={styles.choiceText}>{t(option.text)}</span>
+                </button>
+              );
+            })}
           </div>
-        )}
-        {!result && selected.length === 0 && <p className={styles.actionHint}>{multi ? strings.hintPickAnswers : strings.hintPickAnswer}</p>}
-        {!result && (
-          <button type="button" className={`${styles.buttonPrimary} ${styles.buttonWide}`} disabled={selected.length === 0} onClick={check}>
-            {strings.check}
-          </button>
-        )}
-        {result && !result.correct && (
-          <button type="button" className={`${styles.buttonPrimary} ${styles.buttonWide}`} onClick={retry}>
-            {strings.tryAgain}
-          </button>
-        )}
-        {result && result.correct && (
-          <button type="button" className={`${styles.buttonSuccess} ${styles.buttonWide}`} onClick={props.onDone}>
-            {strings.continue}
-          </button>
-        )}
-      </div>
+        </>
+      )}
+
+      {revealed && (
+        <div className={result ? `${styles.actionBar} ${result.correct ? styles.actionBarGood : styles.actionBarBad}` : styles.actionBar} aria-live="polite">
+          {result && (
+            <div className={styles.actionFeedback}>
+              <span className={styles.actionIcon} aria-hidden="true">
+                {result.correct ? '✓' : '✕'}
+              </span>
+              <div>
+                <strong>{result.correct ? strings.correct : strings.wrong}</strong>
+                {feedback.map((text, i) => (
+                  <p key={i}>{text}</p>
+                ))}
+              </div>
+            </div>
+          )}
+          {!result && selected.length === 0 && <p className={styles.actionHint}>{multi ? strings.hintPickAnswers : strings.hintPickAnswer}</p>}
+          {!result && (
+            <button type="button" className={`${styles.buttonPrimary} ${styles.buttonWide}`} disabled={selected.length === 0} onClick={check}>
+              {strings.check}
+            </button>
+          )}
+          {result && !result.correct && (
+            <button type="button" className={`${styles.buttonPrimary} ${styles.buttonWide}`} onClick={retry}>
+              {strings.tryAgain}
+            </button>
+          )}
+          {result && result.correct && (
+            <button type="button" className={`${styles.buttonSuccess} ${styles.buttonWide}`} onClick={props.onDone}>
+              {strings.continue}
+            </button>
+          )}
+        </div>
+      )}
     </>
   );
 }

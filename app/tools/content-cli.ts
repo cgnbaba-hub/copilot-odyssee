@@ -112,6 +112,18 @@ function reviewMarkdown(bundle: ContentBundle): string {
       if (c.copyText) lines.push(quote(c.copyText.de), '');
     });
   }
+  if (bundle.exams && bundle.exams.length > 0) {
+    lines.push('## Inselprüfungen', '');
+    bundle.exams.forEach((exam) => {
+      const island = bundle.islands.filter((i) => i.id === exam.island)[0];
+      lines.push(`### ${island ? island.name.de : exam.island}`, '');
+      exam.questions.forEach((q) => {
+        lines.push(`**${q.question.de}**`, '');
+        q.options.forEach((o) => lines.push(`- ${o.correct ? '✔' : '✘'} ${o.text.de}${o.explanation ? ` – ${o.explanation.de}` : ''}`));
+        lines.push('');
+      });
+    });
+  }
   return lines.join('\n');
 }
 
@@ -150,12 +162,19 @@ function main(): void {
       help: readJson('schema/help.schema.json') as object,
       areas: readJson('schema/areas.schema.json') as object,
       prompts: readJson('schema/prompts.schema.json') as object,
-      challenges: readJson('schema/challenges.schema.json') as object
+      challenges: readJson('schema/challenges.schema.json') as object,
+      exams: readJson('schema/exams.schema.json') as object
     },
     { path: 'islands.json', data: readJson('islands.json') },
     moduleFiles,
     new Date(),
-    { help: optionalFile('help.json'), areas: optionalFile('areas.json'), prompts: optionalFile('prompts.json'), challenges: optionalFile('challenges.json') }
+    {
+      help: optionalFile('help.json'),
+      areas: optionalFile('areas.json'),
+      prompts: optionalFile('prompts.json'),
+      challenges: optionalFile('challenges.json'),
+      exams: optionalFile('exams.json')
+    }
   );
 
   result.warnings.forEach((w) => console.warn(`Warnung  content/${w.file}: ${w.message}`));
@@ -168,7 +187,7 @@ function main(): void {
   const b = result.bundle;
   console.log(
     `Inhalte ok: ${b.islands.length} Inseln, ${b.modules.length} Module, ${(b.help || []).length} Hilfethemen, ` +
-      `${(b.areas || []).length} Bereiche, ${(b.prompts || []).length} Prompt-Vorlagen, ${(b.challenges || []).length} Challenges.`
+      `${(b.areas || []).length} Bereiche, ${(b.prompts || []).length} Prompt-Vorlagen, ${(b.challenges || []).length} Challenges, ${(b.exams || []).length} Inselprüfungen.`
   );
 
   if (command === 'bundle') {

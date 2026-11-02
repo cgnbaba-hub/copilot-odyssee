@@ -27,7 +27,7 @@
         "en": "How an agent is made"
       },
       "body": {
-        "de": "Einen einfachen Agenten erstellst du direkt in Copilot: Klicke links bei den **Agenten** auf **«Agent erstellen»**. Du beschreibst in normaler Sprache, was er tun soll, und Copilot hilft beim Einrichten.\n\nEin guter Agent hat:\n- einen **klaren Namen und Zweck**, zum Beispiel «Kundendienst-Helfer für Umbuchungen»\n- **Anweisungen**: Ton, Aufbau der Antworten, was er nicht tun soll\n- **Wissen**: Dateien oder SharePoint-Seiten, auf die er sich stützt\n- **Startvorschläge**: Beispielfragen, die Kolleginnen und Kollegen anklicken können\n\nTeste den Agenten mit echten Fragen und **teile** ihn danach mit deinem Team. Ob du Agenten erstellen kannst, legt eure IT fest. Mit Basic baust du Agenten fast gleich wie mit Premium. Als Wissen nutzt der Agent dann aber nur **öffentliche Webseiten** und deine Anweisungen, nicht deine Mails, Chats oder Dateien. Arbeitsinhalte wie SharePoint-Seiten oder Mails als Wissen brauchen Premium.",
+        "de": "Einen einfachen Agenten erstellst du direkt in Copilot: Klicke links bei **«Agents»** auf **«Agent erstellen»**. Du beschreibst in normaler Sprache, was er tun soll, und Copilot hilft beim Einrichten.\n\nEin guter Agent hat:\n- einen **klaren Namen und Zweck**, zum Beispiel «Kundendienst-Helfer für Umbuchungen»\n- **Anweisungen**: Ton, Aufbau der Antworten, was er nicht tun soll\n- **Wissen**: Dateien oder SharePoint-Seiten, auf die er sich stützt\n- **Startvorschläge**: Beispielfragen, die Kolleginnen und Kollegen anklicken können\n\nTeste den Agenten mit echten Fragen und **teile** ihn danach mit deinem Team. Ob du Agenten erstellen kannst, legt eure IT fest. Mit Basic baust du Agenten fast gleich wie mit Premium. Als Wissen nutzt der Agent dann aber nur **öffentliche Webseiten** und deine Anweisungen, nicht deine Mails, Chats oder Dateien. Arbeitsinhalte wie SharePoint-Seiten oder Mails als Wissen brauchen Premium.",
         "en": "You create a simple agent directly in Copilot: click **“Create agent”** under **Agents** on the left. You describe in plain language what it should do, and Copilot helps you set it up.\n\nA good agent has:\n- a **clear name and purpose**, for example “Customer service helper for rebookings”\n- **instructions**: tone, structure of the answers, what it should not do\n- **knowledge**: files or SharePoint sites it relies on\n- **starter prompts**: example questions colleagues can click\n\nTest the agent with real questions and then **share** it with your team. Whether you can create agents is decided by your IT. With Basic you build agents almost the same way as with Premium. As knowledge, however, the agent then only uses **public websites** and your instructions, not your emails, chats or files. Work content such as SharePoint pages or emails as knowledge needs Premium."
       }
     },
@@ -55,8 +55,8 @@
         {
           "id": "a",
           "text": {
-            "de": "Alles aus deinem OneDrive, damit er möglichst viel weiss",
-            "en": "Everything from your OneDrive so that it knows as much as possible"
+            "de": "Alles aus deinem OneDrive, damit der Agent möglichst viel über das Team weiss",
+            "en": "Everything from your OneDrive so the agent knows as much as possible about the team"
           },
           "correct": false,
           "explanation": {
@@ -67,8 +67,8 @@
         {
           "id": "b",
           "text": {
-            "de": "Nur aktuelle Unterlagen, die alle im Team sehen dürfen, zum Beispiel das Prozesshandbuch",
-            "en": "Only current documents everyone in the team may see, for example the process handbook"
+            "de": "Aktuelle Unterlagen, die alle im Team sehen dürfen, etwa das Handbuch",
+            "en": "Current documents everyone in the team may see, such as the handbook"
           },
           "correct": true,
           "explanation": {
@@ -79,8 +79,8 @@
         {
           "id": "c",
           "text": {
-            "de": "Möglichst alte Unterlagen, weil die gut geprüft sind",
-            "en": "Preferably old documents because they have been well checked"
+            "de": "Vor allem ältere Unterlagen, weil sie schon von mehreren Leuten geprüft wurden",
+            "en": "Mainly older documents because several people have already checked them"
           },
           "correct": false,
           "explanation": {
@@ -91,8 +91,8 @@
         {
           "id": "d",
           "text": {
-            "de": "Gar keine, der Agent findet alles selbst im Internet",
-            "en": "None, the agent finds everything on the internet itself"
+            "de": "Gar keine, weil der Agent alle internen Abläufe selbst im Internet findet",
+            "en": "None, because the agent finds all internal processes on the internet itself"
           },
           "correct": false,
           "explanation": {
@@ -133,7 +133,7 @@
         "en": "Your first tool"
       },
       "task": {
-        "de": "Öffne Copilot, klicke bei den Agenten auf «Agent erstellen» und baue einen Agenten für eine wiederkehrende Aufgabe aus deinem Alltag. Teste ihn mit drei echten Fragen.",
+        "de": "Öffne Copilot, klicke links bei «Agents» auf «Agent erstellen» und baue einen Agenten für eine wiederkehrende Aufgabe aus deinem Alltag. Teste ihn mit drei echten Fragen.",
         "en": "Open Copilot, click “Create agent” under Agents and build an agent for a recurring task from your daily work. Test it with three real questions."
       },
       "tip": {

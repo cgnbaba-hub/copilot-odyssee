@@ -6,7 +6,7 @@
   "version": "1.0.0",
   "owner": "copilot-team",
   "status": "draft",
-  "reviewedAt": "2026-11-01",
+  "reviewedAt": "2026-11-02",
   "reviewIntervalDays": 180,
   "title": {
     "de": "Formeln und Auswertungen",
@@ -43,8 +43,8 @@
         {
           "id": "a",
           "text": {
-            "de": "Copilot fragen, ob die Formel stimmt",
-            "en": "Ask Copilot whether the formula is right"
+            "de": "Copilot im selben Chat fragen, ob die neue Formel wirklich stimmt",
+            "en": "Ask Copilot in the same chat whether the new formula is really right"
           },
           "correct": false,
           "explanation": {
@@ -55,8 +55,8 @@
         {
           "id": "b",
           "text": {
-            "de": "Schauen, ob alle Zellen einen Wert ohne Fehlermeldung zeigen",
-            "en": "See whether all cells show a value without an error message"
+            "de": "Schauen, ob alle Zellen der neuen Spalte einen Wert ohne Fehlermeldung zeigen",
+            "en": "See whether all cells in the new column show a value without an error"
           },
           "correct": false,
           "explanation": {
@@ -67,8 +67,8 @@
         {
           "id": "c",
           "text": {
-            "de": "Zwei, drei Zeilen von Hand nachrechnen, auch einen Grenzfall, und die Formel lesen",
-            "en": "Recalculate two or three rows by hand, including an edge case, and read the formula"
+            "de": "Zwei, drei Zeilen und einen Grenzfall von Hand nachrechnen und die Formel lesen",
+            "en": "Recalculate two or three rows and an edge case by hand and read the formula"
           },
           "correct": true,
           "explanation": {
@@ -79,8 +79,8 @@
         {
           "id": "d",
           "text": {
-            "de": "Gar nicht, Excel rechnet ja immer richtig",
-            "en": "Not at all, Excel always calculates correctly"
+            "de": "Gar nicht, weil Excel Formeln von Copilot automatisch prüft",
+            "en": "Not at all, because Excel checks Copilot’s formulas automatically"
           },
           "correct": false,
           "explanation": {

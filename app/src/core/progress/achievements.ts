@@ -14,13 +14,17 @@ export interface Stamp {
   date: string;
 }
 
-/** An island earns its stamp once every visible stage on it is completed. */
+/** An island earns its stamp once every visible stage on it is completed and, where there is one, its exam is passed. */
 export function passportStamps(content: ContentBundle, state: PlayerState, filter: ContentFilter): Stamp[] {
   const stamps: Stamp[] = [];
   sortedIslands(content).forEach((island) => {
     const modules = modulesOfIsland(content, island.id, filter);
     if (modules.length === 0) return;
     const dates = modules.map((m) => getModule(state, m.id).firstCompletedAt);
+    if ((content.exams || []).some((e) => e.island === island.id)) {
+      const exam = (state.exams || {})[island.id];
+      dates.push(exam && exam.passed ? exam.passedAt : undefined);
+    }
     if (dates.every((d) => !!d)) {
       stamps.push({ islandId: island.id, date: (dates as string[]).sort()[dates.length - 1] });
     }
@@ -39,8 +43,7 @@ function completedModules(content: ContentBundle, state: PlayerState): ContentBu
 const CHECKS: Record<SouvenirId, (content: ContentBundle, state: PlayerState) => boolean> = {
   'first-postcard': (content, state) => state.useCases.length > 0,
 
-  'aeolus-bag': (content, state) =>
-    Object.keys(state.blocks).some((key) => state.blocks[key].bestScore === 100),
+  'aeolus-bag': (content, state) => Object.keys(state.blocks).some((key) => state.blocks[key].bestScore === 100),
 
   // Every quiz of a completed stage paid full XP, i.e. it was right on the first try.
   'siren-proof': (content, state) =>

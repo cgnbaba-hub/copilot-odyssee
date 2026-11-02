@@ -1,6 +1,6 @@
 import Ajv2020, { ErrorObject } from 'ajv/dist/2020';
 
-import { Area, Challenge, ContentBundle, HelpGroup, HelpTopic, Island, LearningModule, PromptTemplate } from './types';
+import { Area, Challenge, ContentBundle, HelpGroup, HelpTopic, Island, IslandExam, LearningModule, PromptTemplate, QuizBlock } from './types';
 
 /**
  * Validates content packs against the JSON schemas in /content/schema plus
@@ -17,6 +17,8 @@ export interface ContentSchemas {
   prompts: object;
   /** Optional so older callers keep working; without it challenges.json is not checked. */
   challenges?: object;
+  /** Optional like challenges; without it exams.json is not checked. */
+  exams?: object;
 }
 
 /** Content files besides islands and modules; each is optional. */
@@ -25,6 +27,7 @@ export interface ExtraContentFiles {
   areas?: ContentFile<unknown>;
   prompts?: ContentFile<unknown>;
   challenges?: ContentFile<unknown>;
+  exams?: ContentFile<unknown>;
 }
 
 export interface ContentFile<T> {
@@ -46,6 +49,26 @@ export interface ValidationResult {
 }
 
 const DAY_MS = 24 * 60 * 60 * 1000;
+
+/** A right answer this much longer than every wrong one gives itself away. */
+const TELL_RATIO = 1.25;
+
+/** Problems in a quiz block that a schema cannot see: no right answer, duplicate ids, a right answer that stands out by length. */
+export function quizIssues(block: QuizBlock): { errors: string[]; warnings: string[] } {
+  const errors: string[] = [];
+  const warnings: string[] = [];
+  if (!block.options.some((o) => o.correct)) errors.push(`Quiz "${block.id}" hat keine richtige Antwort.`);
+  duplicates(block.options.map((o) => o.id)).forEach((id) => errors.push(`Quiz "${block.id}": Antwort-id "${id}" kommt mehrfach vor.`));
+  const right = block.options.filter((o) => o.correct);
+  const wrong = block.options.filter((o) => !o.correct);
+  if (right.length === 1 && wrong.length > 0) {
+    const longestWrong = Math.max(...wrong.map((o) => o.text.de.length));
+    if (right[0].text.de.length >= longestWrong * TELL_RATIO) {
+      warnings.push(`Quiz "${block.id}": Die richtige Antwort ist deutlich länger als alle anderen und verrät sich dadurch.`);
+    }
+  }
+  return { errors, warnings };
+}
 
 function formatSchemaError(error: ErrorObject): string {
   const where = error.instancePath || '/';
@@ -104,10 +127,9 @@ function checkModule(module: LearningModule, file: string, islandIds: string[], 
 
   module.blocks.forEach((block) => {
     if (block.type !== 'quiz') return;
-    if (!block.options.some((o) => o.correct)) {
-      error(`Quiz "${block.id}" hat keine richtige Antwort.`);
-    }
-    duplicates(block.options.map((o) => o.id)).forEach((id) => error(`Quiz "${block.id}": Antwort-id "${id}" kommt mehrfach vor.`));
+    const issues = quizIssues(block);
+    issues.errors.forEach(error);
+    issues.warnings.forEach((message) => result.warnings.push({ file, message }));
   });
 
   if (module.status === 'active' && module.reviewedAt && module.reviewIntervalDays) {
@@ -129,8 +151,9 @@ export function validateContent(
 
   const ajv = new Ajv2020({ allErrors: true, strict: false });
   ajv.addSchema(schemas.common, 'common.schema.json');
+  ajv.addSchema(schemas.module, 'module.schema.json');
   const validateIslands = ajv.compile(schemas.islands);
-  const validateModule = ajv.compile(schemas.module);
+  const validateModule = ajv.getSchema('module.schema.json') || ajv.compile(schemas.module);
   const validateHelp = ajv.compile(schemas.help);
   const validateAreas = ajv.compile(schemas.areas);
   const validatePrompts = ajv.compile(schemas.prompts);
@@ -239,6 +262,30 @@ export function validateContent(
     eszett(challengesFile);
   }
 
+  let exams: IslandExam[] | undefined;
+  const examsFile = extras.exams;
+  if (examsFile && schemas.exams) {
+    const validateExams = ajv.compile(schemas.exams);
+    if (validateExams(examsFile.data)) {
+      exams = (examsFile.data as { exams: IslandExam[] }).exams;
+      duplicates(exams.map((e) => e.island)).forEach((id) => result.errors.push({ file: examsFile.path, message: `Für die Insel "${id}" gibt es mehr als eine Prüfung.` }));
+      exams.forEach((exam) => {
+        if (islandIds.indexOf(exam.island) < 0) result.errors.push({ file: examsFile.path, message: `Prüfung für unbekannte Insel "${exam.island}".` });
+        duplicates(exam.questions.map((q) => q.id)).forEach((id) =>
+          result.errors.push({ file: examsFile.path, message: `Prüfung "${exam.island}": Frage-id "${id}" kommt mehrfach vor.` })
+        );
+        exam.questions.forEach((q) => {
+          const issues = quizIssues(q);
+          issues.errors.forEach((message) => result.errors.push({ file: examsFile.path, message: `Prüfung "${exam.island}": ${message}` }));
+          issues.warnings.forEach((message) => result.warnings.push({ file: examsFile.path, message: `Prüfung "${exam.island}": ${message}` }));
+        });
+      });
+    } else {
+      schemaErrors(examsFile.path, validateExams.errors);
+    }
+    eszett(examsFile);
+  }
+
   if (result.errors.length === 0) {
     const bundle: ContentBundle = { islands, modules };
     if (help) bundle.help = help;
@@ -248,6 +295,7 @@ export function validateContent(
     if (areas) bundle.areas = areas;
     if (prompts) bundle.prompts = prompts;
     if (challenges) bundle.challenges = challenges;
+    if (exams) bundle.exams = exams;
     result.bundle = bundle;
   }
   return result;

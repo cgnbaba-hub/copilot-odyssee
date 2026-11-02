@@ -6,7 +6,7 @@
   "version": "1.0.0",
   "owner": "copilot-team",
   "status": "draft",
-  "reviewedAt": "2026-11-01",
+  "reviewedAt": "2026-11-02",
   "reviewIntervalDays": 180,
   "title": {
     "de": "Texte und Mails schreiben",
@@ -43,32 +43,32 @@
         {
           "id": "a",
           "text": {
-            "de": "Die Sprache von Windows auf Deutsch (Schweiz) umstellen",
-            "en": "Switch the Windows language to German (Switzerland)"
+            "de": "Die Sprache von Windows und Office auf Deutsch (Schweiz) umstellen",
+            "en": "Switch the Windows and Office language to German (Switzerland)"
           },
           "correct": false,
           "explanation": {
-            "de": "Copilot richtet sich nach deinem Prompt, nicht nach der Windows-Sprache.",
-            "en": "Copilot follows your prompt, not the Windows language."
+            "de": "Die Systemsprache steuert nicht, wie Copilot schreibt. Sag es ihm in den eigenen Anweisungen.",
+            "en": "The system language does not control how Copilot writes. Tell it in the custom instructions."
           }
         },
         {
           "id": "b",
           "text": {
-            "de": "Gar nicht, Copilot kennt nur die deutsche Schreibweise",
-            "en": "Not at all, Copilot only knows German spelling"
+            "de": "In jedem Prompt neu um Schweizer Schreibweise bitten, anders geht es nicht",
+            "en": "Ask for Swiss spelling again in every prompt, there is no other way"
           },
           "correct": false,
           "explanation": {
-            "de": "Copilot kann Schweizer Schreibweise. Du musst es ihm nur sagen.",
-            "en": "Copilot can do Swiss spelling. You just have to tell it."
+            "de": "Das geht, ist aber mühsam. In den eigenen Anweisungen gilt es für alle Chats.",
+            "en": "That works but is tedious. In the custom instructions it applies to all chats."
           }
         },
         {
           "id": "c",
           "text": {
-            "de": "Es in den eigenen Anweisungen hinterlegen: «Schreib in Schweizer Rechtschreibung.»",
-            "en": "Store it in the custom instructions: “Write in Swiss spelling.”"
+            "de": "In den eigenen Anweisungen festhalten: «Schreib mit ss statt Eszett.»",
+            "en": "Store it in the custom instructions: “Write ss instead of Eszett.”"
           },
           "correct": true,
           "explanation": {
@@ -79,8 +79,8 @@
         {
           "id": "d",
           "text": {
-            "de": "Den Text danach durch die Word-Rechtschreibprüfung laufen lassen",
-            "en": "Run the text through the Word spell check afterwards"
+            "de": "Den Text danach durch die Rechtschreibprüfung von Word laufen lassen",
+            "en": "Run the text through Word’s spell check afterwards"
           },
           "correct": false,
           "explanation": {

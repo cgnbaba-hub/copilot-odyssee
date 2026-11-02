@@ -6,7 +6,7 @@
   "version": "1.0.0",
   "owner": "copilot-team",
   "status": "draft",
-  "reviewedAt": "2026-11-01",
+  "reviewedAt": "2026-11-02",
   "reviewIntervalDays": 180,
   "title": {
     "de": "Fragen an deine Arbeitsdaten",
@@ -55,8 +55,8 @@
         {
           "id": "a",
           "text": {
-            "de": "In allen Daten des Unternehmens, auch in gesperrten Ordnern",
-            "en": "In all company data, including locked folders"
+            "de": "In allen Daten des Unternehmens, auch in Ordnern, die für dich gesperrt sind",
+            "en": "In all company data, including folders that are locked for you"
           },
           "correct": false,
           "explanation": {
@@ -68,7 +68,7 @@
           "id": "b",
           "text": {
             "de": "In Mails, Chats, Dateien und Meetings, auf die du selbst Zugriff hast",
-            "en": "In emails, chats, files and meetings that you yourself can access"
+            "en": "In emails, chats, files and meetings that you yourself have access to"
           },
           "correct": true,
           "explanation": {
@@ -79,8 +79,8 @@
         {
           "id": "c",
           "text": {
-            "de": "Nur in den Dateien, die du heute geöffnet hast",
-            "en": "Only in the files you opened today"
+            "de": "Nur in den Dateien, die du heute schon geöffnet oder bearbeitet hast",
+            "en": "Only in the files you have already opened or edited today"
           },
           "correct": false,
           "explanation": {
@@ -91,8 +91,8 @@
         {
           "id": "d",
           "text": {
-            "de": "Nur im Internet, Arbeitsdaten bleiben aussen vor",
-            "en": "Only on the internet, work data stays out"
+            "de": "Nur im Internet, weil Arbeitsdaten mit Work IQ ausgeschlossen bleiben",
+            "en": "Only on the internet, because work data stays excluded with Work IQ"
           },
           "correct": false,
           "explanation": {
@@ -114,8 +114,8 @@
         {
           "id": "a",
           "text": {
-            "de": "Nichts, Copilot hat sich offenbar geirrt",
-            "en": "Nothing, Copilot has apparently made a mistake"
+            "de": "Nichts weiter, Copilot hat sich offenbar geirrt und die Liste erfunden",
+            "en": "Nothing more, Copilot apparently made a mistake and invented the list"
           },
           "correct": false,
           "explanation": {
@@ -126,8 +126,8 @@
         {
           "id": "b",
           "text": {
-            "de": "Copilot ab sofort nicht mehr verwenden",
-            "en": "Stop using Copilot from now on"
+            "de": "Copilot ab sofort nicht mehr verwenden, bis die IT es wieder freigibt",
+            "en": "Stop using Copilot from now on until IT approves it again"
           },
           "correct": false,
           "explanation": {
@@ -138,7 +138,7 @@
         {
           "id": "c",
           "text": {
-            "de": "Die IT oder die verantwortliche Person informieren, damit die Freigabe korrigiert wird",
+            "de": "Die IT oder die zuständige Person informieren, damit die Freigabe korrigiert wird",
             "en": "Inform IT or the person responsible so that the sharing is corrected"
           },
           "correct": true,
@@ -150,8 +150,8 @@
         {
           "id": "d",
           "text": {
-            "de": "Die Liste an die Personalabteilung weiterleiten, damit sie Bescheid weiss",
-            "en": "Forward the list to HR so that they know"
+            "de": "Die Liste an die Personalabteilung weiterleiten, damit sie Bescheid weiss und handelt",
+            "en": "Forward the list to HR so that they know and act"
           },
           "correct": false,
           "explanation": {

@@ -196,6 +196,70 @@
       },
       "license": "premium",
       "app": "powerpoint"
+    },
+    {
+      "id": "c-gegenargumente",
+      "title": {
+        "de": "Die stärksten Gegenargumente",
+        "en": "The strongest counter-arguments"
+      },
+      "task": {
+        "de": "Nimm eine Idee, die du bald vorschlagen willst, zum Beispiel in einem Teammeeting. Lass Copilot die drei stärksten Gegenargumente und deine blinden Flecken nennen. Überarbeite deinen Vorschlag, besprich ihn mit einer Kollegin, der du vertraust, und bring ihn dann ein.",
+        "en": "Take an idea you want to propose soon, for example in a team meeting. Have Copilot name the three strongest counter-arguments and your blind spots. Revise your proposal, discuss it with a colleague you trust, and then put it forward."
+      },
+      "copyText": {
+        "de": "Hier ist mein Vorschlag: [Vorschlag]. Nenne die drei stärksten Gegenargumente, die meine Zuhörer haben könnten, und zwei blinde Flecken in meiner Begründung. Schlage danach vor, wie ich darauf eingehe.",
+        "en": "Here is my proposal: [proposal]. Name the three strongest counter-arguments my audience could have and two blind spots in my reasoning. Then suggest how I can address them."
+      },
+      "license": "basic"
+    },
+    {
+      "id": "c-fuenf-branchen",
+      "title": {
+        "de": "Ideen aus fünf Branchen",
+        "en": "Ideas from five industries"
+      },
+      "task": {
+        "de": "Wähl einen Ablauf, der bei dir eingeschlafen ist, zum Beispiel eine wöchentliche Sitzung oder ein Standardbericht. Frag Copilot, wie fünf ganz andere Branchen ein ähnliches Problem lösen. Such dir eine Idee aus und probier sie im kleinen Rahmen aus.",
+        "en": "Pick a routine that has gone stale for you, for example a weekly meeting or a standard report. Ask Copilot how five completely different industries solve a similar problem. Choose one idea and try it out on a small scale."
+      },
+      "copyText": {
+        "de": "Unser [Ablauf, zum Beispiel wöchentliches Teammeeting] ist eingeschlafen: [kurze Beschreibung]. Zeig mir, wie fünf ganz unterschiedliche Branchen ein ähnliches Problem lösen, je mit einer Idee, die wir übernehmen könnten.",
+        "en": "Our [routine, for example weekly team meeting] has gone stale: [short description]. Show me how five very different industries solve a similar problem, each with one idea we could adopt."
+      },
+      "license": "basic"
+    },
+    {
+      "id": "c-perspektive",
+      "title": {
+        "de": "Mit anderen Augen",
+        "en": "Through other eyes"
+      },
+      "task": {
+        "de": "Nimm einen Plan oder eine Präsentation, an der du gerade arbeitest. Lass Copilot sie zuerst aus Sicht der Geschäftsleitung und dann aus Sicht einer Kundin prüfen. Was fällt den beiden auf, das dir selbst entgangen ist? Übernimm die zwei wichtigsten Punkte.",
+        "en": "Take a plan or presentation you are currently working on. Have Copilot review it first from management’s point of view and then from a customer’s point of view. What do they notice that you missed? Adopt the two most important points."
+      },
+      "copyText": {
+        "de": "Prüfe diesen Plan zuerst aus Sicht unserer Geschäftsleitung und dann aus Sicht einer Kundin. Nenne je drei Punkte, die ihnen auffallen würden, und was ich ändern sollte. Plan: [Text]",
+        "en": "Review this plan first from our management’s point of view and then from a customer’s point of view. Name three points each would notice and what I should change. Plan: [text]"
+      },
+      "license": "basic"
+    },
+    {
+      "id": "c-lernen-teilen",
+      "title": {
+        "de": "Teil, was du gelernt hast",
+        "en": "Share what you learned"
+      },
+      "task": {
+        "de": "Such dir zwei oder drei Kolleginnen und Kollegen, die auch mit Copilot unterwegs sind, und tauscht euch kurz aus. Häng danach deinen besten Prompt der Woche an die Hafen-Pinnwand oder teile eine Erkenntnis im Teamchat. Wer teilt, lernt doppelt.",
+        "en": "Find two or three colleagues who are also exploring Copilot and have a short exchange. Then pin your best prompt of the week to the harbour board or share one insight in the team chat. Those who share learn twice."
+      },
+      "copyText": {
+        "de": "Hilf mir, in drei Sätzen zusammenzufassen, was ich diese Woche mit Copilot gelernt habe, damit ich es mit meinem Team teilen kann: [Stichpunkte]",
+        "en": "Help me summarise in three sentences what I learned with Copilot this week, so I can share it with my team: [notes]"
+      },
+      "license": "basic"
     }
   ]
 }

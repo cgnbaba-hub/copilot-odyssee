@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import { findIsland, moduleLicense, modulesOfIsland, sortedIslands } from '../../core/content/bundle';
+import { examFor, examOpen, examPassed } from '../../core/progress/exam';
 import { moduleStatus } from '../../core/progress/state';
 import { BlockKindIcon, blockKindNames } from '../blockKinds';
 import { format } from '../i18n/strings';
@@ -24,6 +25,9 @@ export function IslandView(props: { islandId: string }): React.ReactElement {
   const modules = modulesOfIsland(content, island.id, { showDrafts });
   const actionLabel = { new: strings.go, inProgress: strings.resumeShort, completed: strings.repeat };
   const preview = isPreview(game, island);
+  const exam = examFor(content, island.id);
+  const examIsPassed = examPassed(player, island.id);
+  const examIsOpen = examOpen(content, player, island.id, { showDrafts });
   const progress = islandProgress(game, island.id);
   const done = progress.total > 0 && progress.completed === progress.total;
   const number = sortedIslands(content).indexOf(island) + 1;
@@ -169,6 +173,34 @@ export function IslandView(props: { islandId: string }): React.ReactElement {
                 </li>
               );
             })}
+            {exam && (
+              <li className={`${styles.ticket} ${styles.ticketExam} ${examIsPassed ? styles.ticketDone : examIsOpen && !preview ? styles.ticketNext : ''}`}>
+                <div className={styles.ticketMain}>
+                  <p className={styles.ticketEyebrow}>🏁 {strings.examTicketTitle}</p>
+                  <h3 className={styles.ticketTitle}>{format(strings.examTitle, { island: t(island.name) })}</h3>
+                  <p className={styles.ticketSummary}>{strings.examTicketSummary}</p>
+                  <p className={styles.ticketMeta}>
+                    <span>{format(strings.examQuestionCount, { n: exam.questions.length })}</span>
+                  </p>
+                </div>
+                <div className={styles.ticketStub}>
+                  {examIsPassed ? (
+                    <span className={styles.ticketStamp}>{strings.examTicketPassed}</span>
+                  ) : examIsOpen && !preview ? (
+                    <span className={styles.ticketStubLabel}>{strings.boarding}</span>
+                  ) : (
+                    <span className={styles.ticketLock}>
+                      <LockIcon /> {preview ? strings.lockedStage : strings.examTicketLocked}
+                    </span>
+                  )}
+                  {(examIsPassed || (examIsOpen && !preview)) && (
+                    <button type="button" className={examIsPassed ? styles.ticketAgain : styles.ticketGo} onClick={() => navigate({ name: 'exam', islandId: island.id })}>
+                      {examIsPassed ? strings.repeat : strings.examGo}
+                    </button>
+                  )}
+                </div>
+              </li>
+            )}
           </ol>
         )}
 

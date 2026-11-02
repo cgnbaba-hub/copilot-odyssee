@@ -6,7 +6,7 @@
   "version": "1.2.0",
   "owner": "copilot-team",
   "status": "draft",
-  "reviewedAt": "2026-11-01",
+  "reviewedAt": "2026-11-02",
   "reviewIntervalDays": 180,
   "license": "premium",
   "title": {
@@ -44,8 +44,8 @@
         {
           "id": "a",
           "text": {
-            "de": "«Fasse alle Mails der letzten Woche zusammen.»",
-            "en": "“Summarise all emails from last week.”"
+            "de": "«Fasse alle Mails der letzten Woche in einer langen Liste zusammen.»",
+            "en": "“Summarise all emails from last week in one long list.”"
           },
           "correct": false,
           "explanation": {
@@ -56,8 +56,8 @@
         {
           "id": "b",
           "text": {
-            "de": "«Welche Mails der letzten Woche brauchen eine Antwort oder Entscheidung von mir?»",
-            "en": "“Which emails from last week need a reply or decision from me?”"
+            "de": "«Welche Mails der letzten Woche brauchen noch etwas von mir?»",
+            "en": "“Which emails from last week still need something from me?”"
           },
           "correct": true,
           "explanation": {
@@ -68,7 +68,7 @@
         {
           "id": "c",
           "text": {
-            "de": "«Lies meine Mails und markiere die wichtigen.»",
+            "de": "«Lies meine Mails und markiere die wichtigen mit einer Fahne.»",
             "en": "“Read my emails and flag the important ones.”"
           },
           "correct": false,
@@ -80,8 +80,8 @@
         {
           "id": "d",
           "text": {
-            "de": "«Lösche alle Newsletter und Werbung von letzter Woche.»",
-            "en": "“Delete all newsletters and ads from last week.”"
+            "de": "«Lösche alle Newsletter und Werbemails der letzten Woche für mich.»",
+            "en": "“Delete all newsletters and promotional emails from last week for me.”"
           },
           "correct": false,
           "explanation": {
@@ -103,8 +103,8 @@
         {
           "id": "a",
           "text": {
-            "de": "Es schreibt jede Mail vor dem Senden automatisch um",
-            "en": "It automatically rewrites every email before sending"
+            "de": "Es schreibt jede Mail vor dem Senden automatisch freundlicher um",
+            "en": "It automatically rewrites every email in a friendlier way before sending"
           },
           "correct": false,
           "explanation": {
@@ -115,8 +115,8 @@
         {
           "id": "b",
           "text": {
-            "de": "Es prüft, ob die Empfängerin die Mail wahrscheinlich liest",
-            "en": "It checks whether the recipient is likely to read the email"
+            "de": "Es prüft, ob die Empfängerin die Mail wahrscheinlich liest und versteht",
+            "en": "It checks whether the recipient is likely to read and understand the email"
           },
           "correct": false,
           "explanation": {
@@ -127,8 +127,8 @@
         {
           "id": "c",
           "text": {
-            "de": "Rückmeldung und Vorschläge zu deinem eigenen Entwurf, die du selbst übernimmst",
-            "en": "Feedback and suggestions on your own draft that you apply yourself"
+            "de": "Hinweise zu deinem eigenen Entwurf, die du selbst übernimmst",
+            "en": "Tips on your own draft that you choose to apply yourself"
           },
           "correct": true,
           "explanation": {
@@ -139,8 +139,8 @@
         {
           "id": "d",
           "text": {
-            "de": "Es korrigiert nur Tippfehler und Grammatik",
-            "en": "It only corrects typos and grammar"
+            "de": "Es korrigiert nur Tippfehler, Grammatik und die Zeichensetzung",
+            "en": "It only corrects typos, grammar and punctuation"
           },
           "correct": false,
           "explanation": {

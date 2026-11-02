@@ -1,0 +1,2909 @@
+{
+  "$schema": "./schema/exams.schema.json",
+  "exams": [
+    {
+      "island": "sirenenfelsen",
+      "reviewedAt": "2026-11-02",
+      "questions": [
+        {
+          "type": "quiz",
+          "id": "x-studie",
+          "difficulty": "intermediate",
+          "question": {
+            "de": "Copilot nennt dir für eine Präsentation eine Studie mit Titel, Jahr und einer genauen Prozentzahl. Was tust du, bevor du sie zitierst?",
+            "en": "For a presentation, Copilot names a study with title, year and an exact percentage. What do you do before you quote it?"
+          },
+          "options": [
+            {
+              "id": "a",
+              "text": {
+                "de": "Die Studie an der Quelle suchen und prüfen, ob es sie gibt und ob die Zahl stimmt",
+                "en": "Look up the study at the source and check that it exists and the figure is right"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Richtig. KI kann Quellen und Zahlen erfinden, die echt klingen.",
+                "en": "Right. AI can invent sources and figures that sound real."
+              }
+            },
+            {
+              "id": "b",
+              "text": {
+                "de": "Copilot im selben Chat fragen, ob die Studie wirklich existiert, und der Antwort folgen",
+                "en": "Ask Copilot in the same chat whether the study really exists and follow its answer"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Copilot kann sich auch bei der Nachfrage irren. Prüf an der Quelle.",
+                "en": "Copilot can be wrong when asked again too. Check at the source."
+              }
+            },
+            {
+              "id": "c",
+              "text": {
+                "de": "Sie zitieren, weil im Firmen-Copilot das Schild angezeigt wird",
+                "en": "Quote it, because the shield is shown in the company Copilot"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Das Schild schützt deine Daten, es macht Antworten nicht richtiger.",
+                "en": "The shield protects your data; it does not make answers more correct."
+              }
+            },
+            {
+              "id": "d",
+              "text": {
+                "de": "Nur die Prozentzahl weglassen und den Rest der Angaben übernehmen",
+                "en": "Leave out only the percentage and use the rest of the details"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Auch Titel und Jahr können erfunden sein.",
+                "en": "Title and year can be invented too."
+              }
+            }
+          ]
+        },
+        {
+          "type": "quiz",
+          "id": "x-personendaten",
+          "difficulty": "advanced",
+          "question": {
+            "de": "Du willst eine lange Mail eines Gastes von Copilot zusammenfassen lassen. Welche Angaben ersetzt du vorher, zum Beispiel durch «Gast A»?",
+            "en": "You want Copilot to summarise a long email from a guest. Which details do you replace beforehand, for example with “Guest A”?"
+          },
+          "options": [
+            {
+              "id": "a",
+              "text": {
+                "de": "Name, Adresse und Telefonnummer des Gastes",
+                "en": "The guest’s name, address and phone number"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Ja. Personendaten brauchst du für die Zusammenfassung nicht.",
+                "en": "Yes. You do not need personal data for the summary."
+              }
+            },
+            {
+              "id": "b",
+              "text": {
+                "de": "Buchungsnummer und Angaben aus dem Reisepass",
+                "en": "Booking number and passport details"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Ja. Auch sie machen den Gast erkennbar.",
+                "en": "Yes. They also identify the guest."
+              }
+            },
+            {
+              "id": "c",
+              "text": {
+                "de": "Das Reiseziel und die gewünschte Reisezeit",
+                "en": "The destination and the preferred travel dates"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Die brauchst du für den Inhalt, und sie machen den Gast nicht erkennbar.",
+                "en": "You need them for the content, and they do not identify the guest."
+              }
+            },
+            {
+              "id": "d",
+              "text": {
+                "de": "Die Fragen, die der Gast in seiner Mail stellt",
+                "en": "The questions the guest asks in the email"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Um die geht es ja gerade. Sie bleiben drin.",
+                "en": "They are exactly what it is about. They stay in."
+              }
+            }
+          ]
+        },
+        {
+          "type": "quiz",
+          "id": "x-schild-regeln",
+          "difficulty": "advanced",
+          "question": {
+            "de": "Eine Kollegin sagt: «Mit dem Schild darf ich alles in Copilot eingeben.» Was stimmt?",
+            "en": "A colleague says: “With the shield I may enter anything into Copilot.” What is true?"
+          },
+          "options": [
+            {
+              "id": "a",
+              "text": {
+                "de": "Stimmt, mit dem Schild sind alle Firmendaten im Prompt ohne weitere Einschränkung erlaubt",
+                "en": "True, with the shield all company data is allowed in the prompt without further restriction"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Das Schild betrifft den Datenschutz, nicht eure Regeln für KI.",
+                "en": "The shield concerns data protection, not your rules for AI."
+              }
+            },
+            {
+              "id": "b",
+              "text": {
+                "de": "Das Schild schützt die Daten vertraglich, die Regeln der KR2501 gelten trotzdem",
+                "en": "The shield protects data contractually, but the rules of KR2501 still apply"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Richtig. Was in einen Prompt darf, regelt eure Konzernrichtlinie.",
+                "en": "Right. Your group guideline says what may go into a prompt."
+              }
+            },
+            {
+              "id": "c",
+              "text": {
+                "de": "Das Schild bedeutet, dass Copilot keine falschen Antworten mehr gibt",
+                "en": "The shield means that Copilot no longer gives wrong answers"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Das Schild sagt nichts über die Richtigkeit der Antworten.",
+                "en": "The shield says nothing about whether answers are correct."
+              }
+            },
+            {
+              "id": "d",
+              "text": {
+                "de": "Das Schild zeigt nur an, dass du mit Microsoft Edge arbeitest",
+                "en": "The shield only shows that you are working in Microsoft Edge"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Es steht für den Unternehmensdatenschutz, nicht für den Browser.",
+                "en": "It stands for enterprise data protection, not for the browser."
+              }
+            }
+          ]
+        },
+        {
+          "type": "quiz",
+          "id": "x-klischee",
+          "difficulty": "intermediate",
+          "question": {
+            "de": "Ein Text von Copilot für eine Seniorenreise beschreibt ältere Gäste als «langsam und technikfern». Was tust du?",
+            "en": "A Copilot text for a seniors’ trip describes older guests as “slow and not tech-savvy”. What do you do?"
+          },
+          "options": [
+            {
+              "id": "a",
+              "text": {
+                "de": "Stehen lassen, weil Copilot das aus sehr vielen Reisetexten so gelernt hat",
+                "en": "Leave it, because Copilot learned it that way from a great many travel texts"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Genau deshalb übernimmt KI Klischees. Du bist verantwortlich.",
+                "en": "That is exactly how AI picks up stereotypes. You are responsible."
+              }
+            },
+            {
+              "id": "b",
+              "text": {
+                "de": "Die Stelle umformulieren, weil du für den Text verantwortlich bist",
+                "en": "Rephrase the passage, because you are responsible for the text"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Richtig. Was du verschickst, geht in deinem Namen raus.",
+                "en": "Right. What you send goes out in your name."
+              }
+            },
+            {
+              "id": "c",
+              "text": {
+                "de": "Den Text verschicken und Copilot das Klischee später melden",
+                "en": "Send the text and report the stereotype to Copilot later"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Erst korrigieren, dann verschicken.",
+                "en": "Correct first, then send."
+              }
+            },
+            {
+              "id": "d",
+              "text": {
+                "de": "Den ganzen Text löschen und Copilot dafür nie wieder nutzen",
+                "en": "Delete the whole text and never use Copilot for this again"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Umformulieren reicht. Der Rest kann gut sein.",
+                "en": "Rephrasing is enough. The rest may be fine."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "island": "aiolos",
+      "reviewedAt": "2026-11-02",
+      "questions": [
+        {
+          "type": "quiz",
+          "id": "x-zutaten",
+          "difficulty": "advanced",
+          "question": {
+            "de": "Welcher Prompt enthält alle vier Zutaten: Ziel, Kontext, Quelle und Erwartung?",
+            "en": "Which prompt contains all four ingredients: goal, context, source and expectations?"
+          },
+          "options": [
+            {
+              "id": "a",
+              "text": {
+                "de": "«Fasse den angehängten Hotelvertrag für unsere Produktmanagerin in fünf Stichpunkten zusammen.»",
+                "en": "“Summarise the attached hotel contract in five bullet points for our product manager.”"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Richtig: zusammenfassen (Ziel), Produktmanagerin (Kontext), Vertrag (Quelle), fünf Stichpunkte (Erwartung).",
+                "en": "Right: summarise (goal), product manager (context), contract (source), five bullet points (expectations)."
+              }
+            },
+            {
+              "id": "b",
+              "text": {
+                "de": "«Fasse den angehängten Hotelvertrag bitte möglichst gut, vollständig und verständlich für mich zusammen.»",
+                "en": "“Please summarise the attached hotel contract for me as well, completely and clearly as possible.”"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Es fehlt, für wen und wofür, und «möglichst gut» ist keine klare Erwartung.",
+                "en": "Who it is for and why is missing, and “as well as possible” is no clear expectation."
+              }
+            },
+            {
+              "id": "c",
+              "text": {
+                "de": "«Schreib unserer Produktmanagerin etwas Hilfreiches zu diesem Hotelvertrag hier.»",
+                "en": "“Write our product manager something helpful about this hotel contract.”"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Ziel und Erwartung bleiben offen.",
+                "en": "Goal and expectations stay open."
+              }
+            },
+            {
+              "id": "d",
+              "text": {
+                "de": "«Liste in fünf Stichpunkten auf, was in Hotelverträgen üblicherweise drinsteht.»",
+                "en": "“List in five bullet points what hotel contracts usually contain.”"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Hier fehlt die Quelle: Copilot antwortet allgemein statt zu deinem Vertrag.",
+                "en": "The source is missing: Copilot answers in general instead of about your contract."
+              }
+            }
+          ]
+        },
+        {
+          "type": "quiz",
+          "id": "x-uebersetzen",
+          "difficulty": "intermediate",
+          "question": {
+            "de": "Copilot hat dir eine gute Antwort auf Deutsch geschrieben. Du brauchst sie für einen Gast aus Lausanne auf Französisch. Was ist am schnellsten?",
+            "en": "Copilot wrote you a good answer in German. You need it in French for a guest from Lausanne. What is quickest?"
+          },
+          "options": [
+            {
+              "id": "a",
+              "text": {
+                "de": "Im selben Chat: «Übersetze das ins Französische, Sie-Form.»",
+                "en": "In the same chat: “Translate this into French, formal.”"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Richtig. Copilot kennt den Text schon und passt ihn an.",
+                "en": "Right. Copilot already knows the text and adapts it."
+              }
+            },
+            {
+              "id": "b",
+              "text": {
+                "de": "Einen neuen Chat öffnen und den ganzen Prompt auf Französisch schreiben",
+                "en": "Open a new chat and write the whole prompt in French"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Das geht, ist aber umständlicher als nachzuschärfen.",
+                "en": "That works but is more cumbersome than refining."
+              }
+            },
+            {
+              "id": "c",
+              "text": {
+                "de": "Den Text kopieren und in einem privaten Übersetzungsdienst übersetzen",
+                "en": "Copy the text and translate it in a private translation service"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Dort gilt der Unternehmensdatenschutz nicht.",
+                "en": "Enterprise data protection does not apply there."
+              }
+            },
+            {
+              "id": "d",
+              "text": {
+                "de": "Gar nicht, Copilot schreibt Antworten nur in der Sprache der Frage",
+                "en": "Not at all, Copilot only answers in the language of the question"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Copilot übersetzt problemlos.",
+                "en": "Copilot translates without problems."
+              }
+            }
+          ]
+        },
+        {
+          "type": "quiz",
+          "id": "x-excel-basic",
+          "difficulty": "advanced",
+          "question": {
+            "de": "Du hast nur Basic und willst eine Excel-Liste mit Buchungszahlen auswerten lassen. Wie gehst du vor?",
+            "en": "You only have Basic and want an Excel list of booking figures analysed. How do you go about it?"
+          },
+          "options": [
+            {
+              "id": "a",
+              "text": {
+                "de": "In Excel oben im Menüband auf das Copilot-Symbol klicken",
+                "en": "Click the Copilot icon in the Excel ribbon"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "In Excel gibt es Copilot bei uns nur mit Premium.",
+                "en": "At our company, Copilot in Excel is Premium only."
+              }
+            },
+            {
+              "id": "b",
+              "text": {
+                "de": "Die Datei in Copilot Chat hochladen und deine Frage dazu stellen",
+                "en": "Upload the file to Copilot Chat and ask your question about it"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Richtig. Mit Basic gibst du Copilot die Datei selbst.",
+                "en": "Right. With Basic you give Copilot the file yourself."
+              }
+            },
+            {
+              "id": "c",
+              "text": {
+                "de": "Den Dateinamen nennen, damit Copilot die Datei aus OneDrive holt",
+                "en": "Name the file so that Copilot fetches it from OneDrive"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Basic sucht nicht selbst in deinem OneDrive.",
+                "en": "Basic does not search your OneDrive by itself."
+              }
+            },
+            {
+              "id": "d",
+              "text": {
+                "de": "Gar nicht, Dateien kann Copilot Chat mit Basic nicht lesen",
+                "en": "Not at all, Copilot Chat cannot read files with Basic"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Hochladen geht auch mit Basic.",
+                "en": "Uploading works with Basic too."
+              }
+            }
+          ]
+        },
+        {
+          "type": "quiz",
+          "id": "x-wo",
+          "difficulty": "intermediate",
+          "question": {
+            "de": "Wo erreichst du Copilot Chat mit Basic?",
+            "en": "Where can you reach Copilot Chat with Basic?"
+          },
+          "options": [
+            {
+              "id": "a",
+              "text": {
+                "de": "Im Browser unter m365.cloud.microsoft/chat",
+                "en": "In the browser at m365.cloud.microsoft/chat"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Ja.",
+                "en": "Yes."
+              }
+            },
+            {
+              "id": "b",
+              "text": {
+                "de": "In Teams über «Copilot» in der App-Leiste links",
+                "en": "In Teams via “Copilot” in the app bar on the left"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Ja.",
+                "en": "Yes."
+              }
+            },
+            {
+              "id": "c",
+              "text": {
+                "de": "In Word über den Copilot-Knopf im Menüband",
+                "en": "In Word via the Copilot button in the ribbon"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "In Word, Excel und PowerPoint gibt es Copilot bei uns nur mit Premium.",
+                "en": "In Word, Excel and PowerPoint, Copilot is Premium only at our company."
+              }
+            },
+            {
+              "id": "d",
+              "text": {
+                "de": "In PowerPoint über «Mit Copilot erstellen»",
+                "en": "In PowerPoint via “Create with Copilot”"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Auch das ist Premium vorbehalten.",
+                "en": "That is also reserved for Premium."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "island": "ithaka",
+      "reviewedAt": "2026-11-02",
+      "questions": [
+        {
+          "type": "quiz",
+          "id": "x-ampel",
+          "difficulty": "intermediate",
+          "question": {
+            "de": "Du willst Copilot für deine Arbeit nutzen. Welcher Use Case ist «gelb», also nur mit Prüfung?",
+            "en": "You want to use Copilot for your work. Which use case is “yellow”, i.e. only with checking?"
+          },
+          "options": [
+            {
+              "id": "a",
+              "text": {
+                "de": "Ideen für den Betreff eines internen Newsletters sammeln",
+                "en": "Collecting ideas for the subject of an internal newsletter"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Das ist grün: Ideen kannst du einfach ausprobieren.",
+                "en": "That is green: you can simply try out ideas."
+              }
+            },
+            {
+              "id": "b",
+              "text": {
+                "de": "Eine Angebotsmail mit Preisen und Reisedaten an eine Kundin entwerfen",
+                "en": "Drafting an offer email with prices and travel dates for a customer"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Richtig. Texte an Gäste und Zahlen prüfst du immer.",
+                "en": "Right. You always check texts for guests and figures."
+              }
+            },
+            {
+              "id": "c",
+              "text": {
+                "de": "Entscheiden lassen, welche Bewerbung für die offene Stelle in die nächste Runde kommt",
+                "en": "Letting it decide which application for the open position goes through to the next round"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Entscheidungen über Personen sind rot.",
+                "en": "Decisions about people are red."
+              }
+            },
+            {
+              "id": "d",
+              "text": {
+                "de": "Deine eigenen Notizen aus einem Workshop sauber gliedern",
+                "en": "Tidying up your own notes from a workshop"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Das ist grün.",
+                "en": "That is green."
+              }
+            }
+          ]
+        },
+        {
+          "type": "quiz",
+          "id": "x-korb",
+          "difficulty": "advanced",
+          "question": {
+            "de": "Welche Aufgabe gehört am ehesten in Korb 1, wo Copilot den Grossteil übernimmt und du prüfst?",
+            "en": "Which task most likely belongs in basket 1, where Copilot does most of it and you check?"
+          },
+          "options": [
+            {
+              "id": "a",
+              "text": {
+                "de": "Aus deinen Stichpunkten jede Woche das Protokoll der Teamsitzung entwerfen",
+                "en": "Drafting the minutes of the team meeting from your notes every week"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Richtig. Klare Muster, du prüfst das Ergebnis.",
+                "en": "Right. Clear patterns, you check the result."
+              }
+            },
+            {
+              "id": "b",
+              "text": {
+                "de": "Mit einer langjährigen Partnerin über neue Konditionen für die nächste Saison verhandeln",
+                "en": "Negotiating new terms for the next season with a long-standing partner"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Verhandeln lebt von Vertrauen und Gespür: Korb 3.",
+                "en": "Negotiating lives on trust and instinct: basket 3."
+              }
+            },
+            {
+              "id": "c",
+              "text": {
+                "de": "Ein neues Reisekonzept für eine Zielgruppe entwickeln",
+                "en": "Developing a new travel concept for a target group"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Das ist Korb 2: du und Copilot im Team.",
+                "en": "That is basket 2: you and Copilot as a team."
+              }
+            },
+            {
+              "id": "d",
+              "text": {
+                "de": "Einer Kollegin nach einem schwierigen Kundengespräch beistehen",
+                "en": "Supporting a colleague after a difficult customer conversation"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Das ist zutiefst menschlich: Korb 3.",
+                "en": "That is deeply human: basket 3."
+              }
+            }
+          ]
+        },
+        {
+          "type": "quiz",
+          "id": "x-rezept",
+          "difficulty": "intermediate",
+          "question": {
+            "de": "Was macht aus einem guten Prompt ein Prompt-Rezept?",
+            "en": "What turns a good prompt into a prompt recipe?"
+          },
+          "options": [
+            {
+              "id": "a",
+              "text": {
+                "de": "Er wird möglichst lang und ausführlich, damit Copilot wirklich alle Details kennt",
+                "en": "It becomes as long and detailed as possible so that Copilot really knows every detail"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Länge allein hilft nicht. Wiederverwendbar wird er durch Platzhalter.",
+                "en": "Length alone does not help. Placeholders make it reusable."
+              }
+            },
+            {
+              "id": "b",
+              "text": {
+                "de": "Platzhalter in eckigen Klammern für alles, was sich jedes Mal ändert",
+                "en": "Placeholders in square brackets for everything that changes each time"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Richtig. So nutzt du ihn immer wieder.",
+                "en": "Right. That way you use it again and again."
+              }
+            },
+            {
+              "id": "c",
+              "text": {
+                "de": "Er wird von der IT geprüft und für alle freigeschaltet",
+                "en": "It is checked by IT and released for everyone"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Prompt-Rezepte machst du selbst und teilst sie, wenn sie gut sind.",
+                "en": "You make prompt recipes yourself and share them when they are good."
+              }
+            },
+            {
+              "id": "d",
+              "text": {
+                "de": "Er funktioniert nur in Copilot mit Premium-Lizenz",
+                "en": "It only works in Copilot with a Premium licence"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Rezepte funktionieren mit Basic genauso.",
+                "en": "Recipes work just as well with Basic."
+              }
+            }
+          ]
+        },
+        {
+          "type": "quiz",
+          "id": "x-zeit",
+          "difficulty": "intermediate",
+          "question": {
+            "de": "Welcher Use Case lohnt sich als Erstes am meisten?",
+            "en": "Which use case pays off most as your first one?"
+          },
+          "options": [
+            {
+              "id": "a",
+              "text": {
+                "de": "Ein grüner, der jede Woche vorkommt und jedes Mal eine halbe Stunde kostet",
+                "en": "A green one that comes up every week and takes half an hour each time"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Richtig. Häufig, zeitintensiv und risikoarm.",
+                "en": "Right. Frequent, time-consuming and low-risk."
+              }
+            },
+            {
+              "id": "b",
+              "text": {
+                "de": "Ein roter, der einmal im Jahr vorkommt, aber sehr viel Zeit kostet",
+                "en": "A red one that comes up once a year but takes a lot of time"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Rot heisst: nicht mit Copilot. Und einmal im Jahr lohnt sich wenig.",
+                "en": "Red means: not with Copilot. And once a year pays off little."
+              }
+            },
+            {
+              "id": "c",
+              "text": {
+                "de": "Ein gelber, bei dem die Prüfung der Ergebnisse länger dauert als die Arbeit selbst",
+                "en": "A yellow one where checking the results takes longer than the work itself"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Dann sparst du nichts.",
+                "en": "Then you save nothing."
+              }
+            },
+            {
+              "id": "d",
+              "text": {
+                "de": "Der, den du am wenigsten magst, auch wenn er selten vorkommt",
+                "en": "The one you like least, even if it rarely comes up"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Abneigung allein spart keine Zeit. Häufigkeit zählt.",
+                "en": "Dislike alone saves no time. Frequency counts."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "island": "hermes",
+      "reviewedAt": "2026-11-02",
+      "questions": [
+        {
+          "type": "quiz",
+          "id": "x-antwort-basic",
+          "difficulty": "intermediate",
+          "question": {
+            "de": "Mit Basic lässt du dir in Outlook eine Antwort auf eine Mail vorschlagen. Wie kommt sie in deine Mail?",
+            "en": "With Basic you have Copilot suggest a reply to an email in Outlook. How does it get into your email?"
+          },
+          "options": [
+            {
+              "id": "a",
+              "text": {
+                "de": "Du kopierst den Vorschlag in dein Antwortfenster und passt ihn an",
+                "en": "You copy the suggestion into your reply window and adjust it"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Richtig. Einen Entwurf direkt im Antwortfenster gibt es nur mit Premium.",
+                "en": "Right. A draft directly in the reply window is Premium only."
+              }
+            },
+            {
+              "id": "b",
+              "text": {
+                "de": "Copilot schreibt ihn mit Basic direkt in dein Antwortfenster",
+                "en": "With Basic, Copilot writes it straight into your reply window"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Das ist Premium vorbehalten.",
+                "en": "That is reserved for Premium."
+              }
+            },
+            {
+              "id": "c",
+              "text": {
+                "de": "Copilot sendet die Antwort nach deiner Bestätigung selbst",
+                "en": "Copilot sends the reply itself after your confirmation"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Copilot sendet nie selbst.",
+                "en": "Copilot never sends by itself."
+              }
+            },
+            {
+              "id": "d",
+              "text": {
+                "de": "Gar nicht, Basic kann in Outlook keine Antworten vorschlagen, nur zusammenfassen",
+                "en": "Not at all, Basic cannot suggest replies in Outlook, only summarise"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Doch, vorschlagen kann Basic.",
+                "en": "It can: Basic can suggest replies."
+              }
+            }
+          ]
+        },
+        {
+          "type": "quiz",
+          "id": "x-markiert",
+          "difficulty": "advanced",
+          "question": {
+            "de": "Du markierst in einer langen Mail einen Absatz und stellst Copilot eine Frage. Womit arbeitet Copilot?",
+            "en": "You highlight a paragraph in a long email and ask Copilot a question. What does Copilot work with?"
+          },
+          "options": [
+            {
+              "id": "a",
+              "text": {
+                "de": "Mit der ganzen Mail, die Markierung ist nur zur Orientierung",
+                "en": "With the whole email; the highlight is only for orientation"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Markierst du etwas, arbeitet Copilot nur damit.",
+                "en": "If you highlight something, Copilot works only with that."
+              }
+            },
+            {
+              "id": "b",
+              "text": {
+                "de": "Nur mit dem markierten Absatz",
+                "en": "Only with the highlighted paragraph"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Richtig.",
+                "en": "Right."
+              }
+            },
+            {
+              "id": "c",
+              "text": {
+                "de": "Mit dem ganzen Verlauf, inklusive aller früheren Antworten",
+                "en": "With the whole thread, including all earlier replies"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Nein, nur mit dem markierten Teil.",
+                "en": "No, only with the highlighted part."
+              }
+            },
+            {
+              "id": "d",
+              "text": {
+                "de": "Mit allen Mails, die du von diesem Absender bekommen hast",
+                "en": "With all emails you have received from this sender"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Nein, nur mit dem markierten Teil.",
+                "en": "No, only with the highlighted part."
+              }
+            }
+          ]
+        },
+        {
+          "type": "quiz",
+          "id": "x-klassisch",
+          "difficulty": "advanced",
+          "question": {
+            "de": "Wo findest du im klassischen Outlook direkt «Zusammenfassen»?",
+            "en": "Where do you find “Summarise” directly in classic Outlook?"
+          },
+          "options": [
+            {
+              "id": "a",
+              "text": {
+                "de": "Über den kleinen Pfeil neben dem Copilot-Knopf oben rechts im Menüband",
+                "en": "Via the small arrow next to the Copilot button at the top right of the ribbon"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Richtig.",
+                "en": "Right."
+              }
+            },
+            {
+              "id": "b",
+              "text": {
+                "de": "Über der geöffneten Mail bei «Zusammenfassung durch Copilot»",
+                "en": "Above the open email at “Summary by Copilot”"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Das ist das neue Outlook.",
+                "en": "That is the new Outlook."
+              }
+            },
+            {
+              "id": "c",
+              "text": {
+                "de": "Mit einem Rechtsklick auf die Mail in der Liste des Posteingangs und dann «Copilot»",
+                "en": "By right-clicking the email in the inbox list and then choosing “Copilot”"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Dort ist Copilot nicht zu finden.",
+                "en": "Copilot is not there."
+              }
+            },
+            {
+              "id": "d",
+              "text": {
+                "de": "Unter Datei › Optionen › Copilot › Mails zusammenfassen",
+                "en": "Under File › Options › Copilot › Summarise emails"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Das ist keine echte Einstellung.",
+                "en": "That is not a real setting."
+              }
+            }
+          ]
+        },
+        {
+          "type": "quiz",
+          "id": "x-basic-frage",
+          "difficulty": "advanced",
+          "question": {
+            "de": "Welche Frage beantwortet Copilot in Outlook auch mit Basic?",
+            "en": "Which question does Copilot in Outlook answer with Basic too?"
+          },
+          "options": [
+            {
+              "id": "a",
+              "text": {
+                "de": "«Welche Termine habe ich morgen?»",
+                "en": "“What meetings do I have tomorrow?”"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Richtig. Einfache Fragen zu Posteingang und Kalender gehen auch mit Basic.",
+                "en": "Right. Simple questions about inbox and calendar also work with Basic."
+              }
+            },
+            {
+              "id": "b",
+              "text": {
+                "de": "«Was hat mein Team diese Woche in Teams besprochen?»",
+                "en": "“What did my team discuss in Teams this week?”"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Chats durchsucht nur Premium.",
+                "en": "Only Premium searches chats."
+              }
+            },
+            {
+              "id": "c",
+              "text": {
+                "de": "«Fasse alle Dateien in OneDrive zum Projekt Kanada zusammen.»",
+                "en": "“Summarise all files in OneDrive on the Canada project.”"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Dateien durchsucht nur Premium.",
+                "en": "Only Premium searches files."
+              }
+            },
+            {
+              "id": "d",
+              "text": {
+                "de": "«Was steht im SharePoint-Handbuch zu Umbuchungen?»",
+                "en": "“What does the SharePoint handbook say about rebookings?”"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "SharePoint durchsucht nur Premium.",
+                "en": "Only Premium searches SharePoint."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "island": "athene",
+      "reviewedAt": "2026-11-02",
+      "questions": [
+        {
+          "type": "quiz",
+          "id": "x-anweisungen",
+          "difficulty": "intermediate",
+          "question": {
+            "de": "Copilot soll in allen deinen Chats Schweizer Schreibweise nutzen und dich duzen. Wo hinterlegst du das?",
+            "en": "Copilot should use Swiss spelling and the informal “du” in all your chats. Where do you set that?"
+          },
+          "options": [
+            {
+              "id": "a",
+              "text": {
+                "de": "Einstellungen › Personalisierung › Anpassen von Copilot",
+                "en": "Settings › Personalization › Customize Copilot"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Richtig. Eigene Anweisungen gelten für alle Chats.",
+                "en": "Right. Custom instructions apply to all chats."
+              }
+            },
+            {
+              "id": "b",
+              "text": {
+                "de": "Am Anfang jedes neuen Chats als ersten Satz",
+                "en": "As the first sentence at the start of every new chat"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Das geht, ist aber mühsam. Die Anweisungen gelten automatisch.",
+                "en": "That works but is tedious. The instructions apply automatically."
+              }
+            },
+            {
+              "id": "c",
+              "text": {
+                "de": "In den Spracheinstellungen von Windows und Edge",
+                "en": "In the language settings of Windows and Edge"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Die steuern nicht, wie Copilot schreibt.",
+                "en": "They do not control how Copilot writes."
+              }
+            },
+            {
+              "id": "d",
+              "text": {
+                "de": "In einem eigenen Notizbuch mit dem Titel «Meine Regeln für Copilot»",
+                "en": "In a separate notebook titled “My rules for Copilot”"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Ein Notizbuch gilt nur für dieses Projekt.",
+                "en": "A notebook only applies to that project."
+              }
+            }
+          ]
+        },
+        {
+          "type": "quiz",
+          "id": "x-think",
+          "difficulty": "advanced",
+          "question": {
+            "de": "Für welche Aufgabe lohnt sich «Think Deeper» am ehesten?",
+            "en": "For which task is “Think Deeper” most worthwhile?"
+          },
+          "options": [
+            {
+              "id": "a",
+              "text": {
+                "de": "Ein anderes Wort für «Reise» finden",
+                "en": "Finding another word for “trip”"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Dafür reicht Auto oder Quick Response.",
+                "en": "Auto or Quick Response is enough for that."
+              }
+            },
+            {
+              "id": "b",
+              "text": {
+                "de": "Drei Angebote für eine Gruppenreise mit Vor- und Nachteilen abwägen",
+                "en": "Weighing three offers for a group trip with pros and cons"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Richtig. Bei mehreren Schritten lohnt sich gründliches Nachdenken.",
+                "en": "Right. With several steps, thorough thinking pays off."
+              }
+            },
+            {
+              "id": "c",
+              "text": {
+                "de": "Eine kurze Mail an eine Kollegin aus dem Team in drei Sätzen zusammenfassen",
+                "en": "Summarising a short email to a colleague from the team in three sentences"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Dafür reicht Auto.",
+                "en": "Auto is enough for that."
+              }
+            },
+            {
+              "id": "d",
+              "text": {
+                "de": "Die aktuelle Uhrzeit in New York herausfinden",
+                "en": "Finding out the current time in New York"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Dafür braucht es kein gründliches Modell.",
+                "en": "That needs no thorough model."
+              }
+            }
+          ]
+        },
+        {
+          "type": "quiz",
+          "id": "x-erinnerung",
+          "difficulty": "intermediate",
+          "question": {
+            "de": "Copilot erinnert sich an etwas Falsches über dich. Wo prüfst und löschst du das?",
+            "en": "Copilot remembers something wrong about you. Where do you check and delete it?"
+          },
+          "options": [
+            {
+              "id": "a",
+              "text": {
+                "de": "Personalisierung › Gespeicherte Erinnerungen › Verwalten",
+                "en": "Personalization › Saved memories › Manage"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Richtig. Dort siehst du alles, was Copilot sich gemerkt hat.",
+                "en": "Right. There you see everything Copilot has remembered."
+              }
+            },
+            {
+              "id": "b",
+              "text": {
+                "de": "Links im Chatverlauf den Chat löschen, in dem es stand",
+                "en": "Delete the chat it was in from the chat history on the left"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Die Erinnerung bleibt trotzdem. Lösch sie unter Personalisierung.",
+                "en": "The memory stays anyway. Delete it under Personalization."
+              }
+            },
+            {
+              "id": "c",
+              "text": {
+                "de": "Bei der IT beantragen, dass dein Konto zurückgesetzt wird",
+                "en": "Ask IT to reset your account"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Das kannst du selbst, ohne IT.",
+                "en": "You can do that yourself, without IT."
+              }
+            },
+            {
+              "id": "d",
+              "text": {
+                "de": "In den Einstellungen von Outlook unter Konten",
+                "en": "In the Outlook settings under Accounts"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Erinnerungen stellst du in Copilot ein.",
+                "en": "You manage memories in Copilot."
+              }
+            }
+          ]
+        },
+        {
+          "type": "quiz",
+          "id": "x-notizbuch",
+          "difficulty": "advanced",
+          "question": {
+            "de": "Du legst ein Notizbuch für eine neue Rundreise an. Was gehört hinein?",
+            "en": "You create a notebook for a new tour. What belongs in it?"
+          },
+          "options": [
+            {
+              "id": "a",
+              "text": {
+                "de": "Die Hotelverträge und die Briefings zu dieser Reise",
+                "en": "The hotel contracts and the briefings for this tour"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Ja.",
+                "en": "Yes."
+              }
+            },
+            {
+              "id": "b",
+              "text": {
+                "de": "Deine Notizen aus den Planungsmeetings",
+                "en": "Your notes from the planning meetings"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Ja.",
+                "en": "Yes."
+              }
+            },
+            {
+              "id": "c",
+              "text": {
+                "de": "Namen und Adressen aller Gäste, die gebucht haben",
+                "en": "Names and addresses of all guests who have booked"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Personendaten gehören nicht hinein.",
+                "en": "Personal data does not belong in it."
+              }
+            },
+            {
+              "id": "d",
+              "text": {
+                "de": "Unterlagen zu allen anderen Reisen des Katalogs",
+                "en": "Documents on all other trips in the catalogue"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Ein Notizbuch bündelt ein Projekt. Fremdes stört nur.",
+                "en": "A notebook bundles one project. Anything else just gets in the way."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "island": "kalypso",
+      "reviewedAt": "2026-11-02",
+      "questions": [
+        {
+          "type": "quiz",
+          "id": "x-cowork-fehlt",
+          "difficulty": "intermediate",
+          "question": {
+            "de": "Du siehst in deiner Copilot-App noch kein «Cowork». Was ist die wahrscheinlichste Erklärung?",
+            "en": "You do not see “Cowork” in your Copilot app yet. What is the most likely explanation?"
+          },
+          "options": [
+            {
+              "id": "a",
+              "text": {
+                "de": "Microsoft führt die App schrittweise ein, und Cowork muss die IT freischalten",
+                "en": "Microsoft is rolling the app out step by step, and IT must enable Cowork"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Richtig.",
+                "en": "Right."
+              }
+            },
+            {
+              "id": "b",
+              "text": {
+                "de": "Deine Copilot-Lizenz ist abgelaufen und muss von dir im Microsoft-Konto verlängert werden",
+                "en": "Your Copilot licence has expired and you must renew it in your Microsoft account"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Dann würdest du Copilot gar nicht mehr sehen.",
+                "en": "Then you would not see Copilot at all."
+              }
+            },
+            {
+              "id": "c",
+              "text": {
+                "de": "Cowork gibt es nur in der Handy-App, nicht am Computer",
+                "en": "Cowork is only available in the phone app, not on the computer"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Das stimmt nicht.",
+                "en": "That is not true."
+              }
+            },
+            {
+              "id": "d",
+              "text": {
+                "de": "Du musst die Copilot-App deinstallieren und neu installieren",
+                "en": "You need to uninstall and reinstall the Copilot app"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Neu installieren schaltet nichts frei.",
+                "en": "Reinstalling does not enable anything."
+              }
+            }
+          ]
+        },
+        {
+          "type": "quiz",
+          "id": "x-code",
+          "difficulty": "intermediate",
+          "question": {
+            "de": "Du möchtest «Code» oder «Autopilot» in der neuen App ausprobieren. Was tust du zuerst?",
+            "en": "You want to try “Code” or “Autopilot” in the new app. What do you do first?"
+          },
+          "options": [
+            {
+              "id": "a",
+              "text": {
+                "de": "Einfach loslegen, beide sind für alle ohne Kosten freigeschaltet",
+                "en": "Just start, both are enabled for everyone at no cost"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Beide werden nach Nutzung abgerechnet und von der IT freigeschaltet.",
+                "en": "Both are billed by usage and enabled by IT."
+              }
+            },
+            {
+              "id": "b",
+              "text": {
+                "de": "Bei der IT nachfragen, ob du sie nutzen darfst",
+                "en": "Check with IT whether you may use them"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Richtig.",
+                "en": "Right."
+              }
+            },
+            {
+              "id": "c",
+              "text": {
+                "de": "Eine Erweiterung für Edge aus dem Store installieren",
+                "en": "Install an extension for Edge from the store"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Dafür gibt es keine Erweiterung.",
+                "en": "There is no extension for this."
+              }
+            },
+            {
+              "id": "d",
+              "text": {
+                "de": "Die Lizenz in deinem Microsoft-Konto selbst auf Premium umstellen",
+                "en": "Switch the licence to Premium yourself in your Microsoft account"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Lizenzen vergibt das Unternehmen.",
+                "en": "The company assigns licences."
+              }
+            }
+          ]
+        },
+        {
+          "type": "quiz",
+          "id": "x-bibliothek",
+          "difficulty": "intermediate",
+          "question": {
+            "de": "Wo findest du in der neuen App deine zuletzt erstellten Word-Dateien, Pages und Bilder an einem Ort?",
+            "en": "Where in the new app do you find your recently created Word files, pages and images in one place?"
+          },
+          "options": [
+            {
+              "id": "a",
+              "text": {
+                "de": "In der Bibliothek",
+                "en": "In the Library"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Richtig.",
+                "en": "Right."
+              }
+            },
+            {
+              "id": "b",
+              "text": {
+                "de": "Im Bereich Code",
+                "en": "In the Code area"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Code ist für kleine Werkzeuge.",
+                "en": "Code is for small tools."
+              }
+            },
+            {
+              "id": "c",
+              "text": {
+                "de": "Im Autopilot",
+                "en": "In Autopilot"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Autopilot ist ein Agent für Aufgaben im Hintergrund.",
+                "en": "Autopilot is an agent for background tasks."
+              }
+            },
+            {
+              "id": "d",
+              "text": {
+                "de": "In den Einstellungen",
+                "en": "In the settings"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Dort findest du keine Dateien.",
+                "en": "You find no files there."
+              }
+            }
+          ]
+        },
+        {
+          "type": "quiz",
+          "id": "x-gleich",
+          "difficulty": "advanced",
+          "question": {
+            "de": "Was bleibt mit der neuen Copilot-App gleich?",
+            "en": "What stays the same with the new Copilot app?"
+          },
+          "options": [
+            {
+              "id": "a",
+              "text": {
+                "de": "Chatten und Prompts schreiben wie bisher",
+                "en": "Chatting and writing prompts as before"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Ja.",
+                "en": "Yes."
+              }
+            },
+            {
+              "id": "b",
+              "text": {
+                "de": "Der Schutz deiner Firmendaten",
+                "en": "The protection of your company data"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Ja.",
+                "en": "Yes."
+              }
+            },
+            {
+              "id": "c",
+              "text": {
+                "de": "Alle neuen Bereiche sind sofort für alle sichtbar",
+                "en": "All new areas are visible to everyone at once"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Die App kommt schrittweise.",
+                "en": "The app arrives step by step."
+              }
+            },
+            {
+              "id": "d",
+              "text": {
+                "de": "Copilot sendet Mails und Termine jetzt selbstständig",
+                "en": "Copilot now sends emails and invitations by itself"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Senden tust weiterhin du.",
+                "en": "You still do the sending."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "island": "hephaistos",
+      "reviewedAt": "2026-11-02",
+      "questions": [
+        {
+          "type": "quiz",
+          "id": "x-wissen-basic",
+          "difficulty": "advanced",
+          "question": {
+            "de": "Du baust mit Basic einen Agenten. Was kannst du ihm als Wissen geben?",
+            "en": "You build an agent with Basic. What can you give it as knowledge?"
+          },
+          "options": [
+            {
+              "id": "a",
+              "text": {
+                "de": "Öffentliche Webseiten, zum Beispiel die Einreisebestimmungen des Bundes",
+                "en": "Public websites, for example the federal entry requirements"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Richtig. Arbeitsinhalte als Wissen brauchen Premium.",
+                "en": "Right. Work content as knowledge needs Premium."
+              }
+            },
+            {
+              "id": "b",
+              "text": {
+                "de": "Deine Mails zum Thema, damit der Agent den ganzen bisherigen Verlauf kennt",
+                "en": "Your emails on the topic, so that the agent knows the whole history so far"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Mails als Wissen brauchen Premium.",
+                "en": "Emails as knowledge need Premium."
+              }
+            },
+            {
+              "id": "c",
+              "text": {
+                "de": "Das Prozesshandbuch des Teams, das auf SharePoint abgelegt ist",
+                "en": "The team’s process handbook stored on SharePoint"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "SharePoint als Wissen braucht Premium.",
+                "en": "SharePoint as knowledge needs Premium."
+              }
+            },
+            {
+              "id": "d",
+              "text": {
+                "de": "Die Teams-Chats deiner Abteilung aus den letzten drei Monaten",
+                "en": "Your department’s Teams chats from the last three months"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Chats als Wissen brauchen Premium.",
+                "en": "Chats as knowledge need Premium."
+              }
+            }
+          ]
+        },
+        {
+          "type": "quiz",
+          "id": "x-anweisungen-agent",
+          "difficulty": "advanced",
+          "question": {
+            "de": "Dein Agent soll Kolleginnen bei Fragen zu Umbuchungen helfen. Was gehört in seine Anweisungen?",
+            "en": "Your agent should help colleagues with questions about rebookings. What belongs in its instructions?"
+          },
+          "options": [
+            {
+              "id": "a",
+              "text": {
+                "de": "Ton und Aufbau der Antworten",
+                "en": "Tone and structure of the answers"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Ja.",
+                "en": "Yes."
+              }
+            },
+            {
+              "id": "b",
+              "text": {
+                "de": "Was er nicht beantworten soll, zum Beispiel verbindliche Preise",
+                "en": "What it should not answer, for example binding prices"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Ja.",
+                "en": "Yes."
+              }
+            },
+            {
+              "id": "c",
+              "text": {
+                "de": "Das Passwort für das Buchungssystem",
+                "en": "The password for the booking system"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Passwörter gehören nie in einen Agenten.",
+                "en": "Passwords never belong in an agent."
+              }
+            },
+            {
+              "id": "d",
+              "text": {
+                "de": "Namen und Telefonnummern von Gästen mit offenen Fällen",
+                "en": "Names and phone numbers of guests with open cases"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Personendaten gehören nicht in die Anweisungen.",
+                "en": "Personal data does not belong in the instructions."
+              }
+            }
+          ]
+        },
+        {
+          "type": "quiz",
+          "id": "x-anheften",
+          "difficulty": "intermediate",
+          "question": {
+            "de": "Du hast einen nützlichen Agenten gefunden. Wie bleibt er links in der Leiste sichtbar?",
+            "en": "You found a useful agent. How does it stay visible in the bar on the left?"
+          },
+          "options": [
+            {
+              "id": "a",
+              "text": {
+                "de": "Indem du ihn jeden Tag neu suchst und öffnest",
+                "en": "By searching for it and opening it again every day"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Einfacher: anheften.",
+                "en": "Easier: pin it."
+              }
+            },
+            {
+              "id": "b",
+              "text": {
+                "de": "Über die drei Punkte neben dem Agenten anheften",
+                "en": "Pin it via the three dots next to the agent"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Richtig.",
+                "en": "Right."
+              }
+            },
+            {
+              "id": "c",
+              "text": {
+                "de": "Indem du ihn in einem Notizbuch speicherst",
+                "en": "By saving it in a notebook"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Notizbücher sind für Unterlagen, nicht für Agenten.",
+                "en": "Notebooks are for documents, not for agents."
+              }
+            },
+            {
+              "id": "d",
+              "text": {
+                "de": "Indem du die IT bittest, ihn für dich zu installieren",
+                "en": "By asking IT to install it for you"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Anheften kannst du selbst.",
+                "en": "You can pin it yourself."
+              }
+            }
+          ]
+        },
+        {
+          "type": "quiz",
+          "id": "x-pflege",
+          "difficulty": "intermediate",
+          "question": {
+            "de": "Die Richtlinie, auf die sich dein geteilter Agent stützt, wurde geändert. Was tust du?",
+            "en": "The guideline your shared agent relies on has changed. What do you do?"
+          },
+          "options": [
+            {
+              "id": "a",
+              "text": {
+                "de": "Die Unterlagen im Agenten aktualisieren, weil du für ihn verantwortlich bist",
+                "en": "Update the documents in the agent, because you are responsible for it"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Richtig.",
+                "en": "Right."
+              }
+            },
+            {
+              "id": "b",
+              "text": {
+                "de": "Nichts, der Agent liest die neue Fassung der Richtlinie automatisch im Intranet nach",
+                "en": "Nothing, the agent automatically reads the new version of the guideline on the intranet"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Nur wenn er genau diese Quelle hat. Prüf es.",
+                "en": "Only if it has exactly that source. Check it."
+              }
+            },
+            {
+              "id": "c",
+              "text": {
+                "de": "Den Agenten löschen, ohne das Team zu informieren",
+                "en": "Delete the agent without informing the team"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Dann fehlt er allen ohne Erklärung.",
+                "en": "Then everyone loses it without explanation."
+              }
+            },
+            {
+              "id": "d",
+              "text": {
+                "de": "Das Team bitten, alte Antworten einfach zu ignorieren",
+                "en": "Ask the team to simply ignore old answers"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Besser die Quelle korrigieren.",
+                "en": "Better to correct the source."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "island": "phaiaken",
+      "reviewedAt": "2026-11-02",
+      "questions": [
+        {
+          "type": "quiz",
+          "id": "x-transkript",
+          "difficulty": "intermediate",
+          "question": {
+            "de": "Du öffnest im Meeting Copilot und siehst: «Die Transkription ist erforderlich …». Was tust du?",
+            "en": "You open Copilot in a meeting and see: “Transcription is required …”. What do you do?"
+          },
+          "options": [
+            {
+              "id": "a",
+              "text": {
+                "de": "Die Transkription starten und kurz ankündigen",
+                "en": "Start the transcription and announce it briefly"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Richtig. Copilot braucht im Normalfall eine Transkription.",
+                "en": "Right. Copilot normally needs a transcription."
+              }
+            },
+            {
+              "id": "b",
+              "text": {
+                "de": "Copilot schliessen und nach ein paar Minuten erneut öffnen",
+                "en": "Close Copilot and open it again after a few minutes"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Ohne Transkription bleibt die Meldung.",
+                "en": "Without a transcription the message stays."
+              }
+            },
+            {
+              "id": "c",
+              "text": {
+                "de": "Nach dem Meeting die Zusammenfassung von Copilot abrufen",
+                "en": "Fetch Copilot’s recap after the meeting"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Ohne Transkription gibt es danach nichts abzurufen.",
+                "en": "Without a transcription there is nothing to fetch afterwards."
+              }
+            },
+            {
+              "id": "d",
+              "text": {
+                "de": "Statt der Transkription den Facilitator einschalten",
+                "en": "Turn on the Facilitator instead of the transcription"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Auch der Facilitator braucht die Transkription.",
+                "en": "The Facilitator also needs the transcription."
+              }
+            }
+          ]
+        },
+        {
+          "type": "quiz",
+          "id": "x-facilitator",
+          "difficulty": "advanced",
+          "question": {
+            "de": "In welchem Meeting kannst du den Facilitator dazuholen?",
+            "en": "In which meeting can you bring in the Facilitator?"
+          },
+          "options": [
+            {
+              "id": "a",
+              "text": {
+                "de": "In einer Sofortbesprechung über «Jetzt besprechen»",
+                "en": "In an ad-hoc meeting via “Meet now”"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Dort gibt es ihn nicht.",
+                "en": "It is not available there."
+              }
+            },
+            {
+              "id": "b",
+              "text": {
+                "de": "In einem geplanten Teams-Meeting mit Kolleginnen",
+                "en": "In a scheduled Teams meeting with colleagues"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Richtig.",
+                "en": "Right."
+              }
+            },
+            {
+              "id": "c",
+              "text": {
+                "de": "In einem Teams-Anruf mit einer Kollegin",
+                "en": "In a Teams call with a colleague"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Bei Anrufen gibt es ihn nicht.",
+                "en": "It is not available for calls."
+              }
+            },
+            {
+              "id": "d",
+              "text": {
+                "de": "In einem Meeting mit einem externen Hotelpartner",
+                "en": "In a meeting with an external hotel partner"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Mit externen Personen gibt es ihn nicht.",
+                "en": "It is not available with external people."
+              }
+            }
+          ]
+        },
+        {
+          "type": "quiz",
+          "id": "x-umschreiben",
+          "difficulty": "intermediate",
+          "question": {
+            "de": "Du lässt eine Teams-Nachricht von Copilot freundlicher formulieren. Was passiert?",
+            "en": "You have Copilot make a Teams message friendlier. What happens?"
+          },
+          "options": [
+            {
+              "id": "a",
+              "text": {
+                "de": "Du bekommst einen Vorschlag und entscheidest, ob du ihn übernimmst",
+                "en": "You get a suggestion and decide whether to accept it"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Richtig. Dein Text bleibt, bis du übernimmst.",
+                "en": "Right. Your text stays until you accept."
+              }
+            },
+            {
+              "id": "b",
+              "text": {
+                "de": "Copilot ersetzt deinen Text sofort durch die neue Fassung und sendet die Nachricht",
+                "en": "Copilot immediately replaces your text with the new version and sends the message"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Copilot sendet nie selbst.",
+                "en": "Copilot never sends by itself."
+              }
+            },
+            {
+              "id": "c",
+              "text": {
+                "de": "Copilot schickt dir die neue Fassung per Mail zur Freigabe",
+                "en": "Copilot emails you the new version for approval"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Der Vorschlag erscheint direkt im Eingabefeld.",
+                "en": "The suggestion appears right in the message box."
+              }
+            },
+            {
+              "id": "d",
+              "text": {
+                "de": "Die Empfänger sehen beide Fassungen und wählen selbst",
+                "en": "The recipients see both versions and choose"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Gesendet wird nur, was du sendest.",
+                "en": "Only what you send is sent."
+              }
+            }
+          ]
+        },
+        {
+          "type": "quiz",
+          "id": "x-chat",
+          "difficulty": "intermediate",
+          "question": {
+            "de": "Du fragst Copilot in einem Teams-Gruppenchat: «Was wurde entschieden?» Worauf stützt er sich?",
+            "en": "In a Teams group chat you ask Copilot: “What was decided?” What does it rely on?"
+          },
+          "options": [
+            {
+              "id": "a",
+              "text": {
+                "de": "Auf den Chat, den du gerade offen hast",
+                "en": "On the chat you have open"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Richtig.",
+                "en": "Right."
+              }
+            },
+            {
+              "id": "b",
+              "text": {
+                "de": "Auf alle deine Chats und Kanäle der letzten Woche",
+                "en": "On all your chats and channels from last week"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Nein, nur auf den offenen Chat.",
+                "en": "No, only on the open chat."
+              }
+            },
+            {
+              "id": "c",
+              "text": {
+                "de": "Auf alle Kanäle des Teams",
+                "en": "On all channels of the team"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Nein, nur auf den offenen Chat.",
+                "en": "No, only on the open chat."
+              }
+            },
+            {
+              "id": "d",
+              "text": {
+                "de": "Auf die Mails aller Teilnehmenden",
+                "en": "On the emails of all participants"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Nein, nur auf den offenen Chat.",
+                "en": "No, only on the open chat."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "island": "penelope",
+      "reviewedAt": "2026-11-02",
+      "questions": [
+        {
+          "type": "quiz",
+          "id": "x-slash",
+          "difficulty": "intermediate",
+          "question": {
+            "de": "Wie verweist du im Copilot-Feld von Word auf eine Datei mit deinen Notizen?",
+            "en": "How do you refer to a file with your notes in the Copilot box in Word?"
+          },
+          "options": [
+            {
+              "id": "a",
+              "text": {
+                "de": "«/» tippen und dann die ersten Buchstaben des Dateinamens",
+                "en": "Type “/” and then the first letters of the file name"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Richtig.",
+                "en": "Right."
+              }
+            },
+            {
+              "id": "b",
+              "text": {
+                "de": "Die Datei aus dem Explorer in den Dokumenttext ziehen",
+                "en": "Drag the file from Explorer into the document text"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Ein Verweis geht über «/» im Copilot-Feld.",
+                "en": "A reference works via “/” in the Copilot box."
+              }
+            },
+            {
+              "id": "c",
+              "text": {
+                "de": "«@» tippen und den Namen der Person, die die Datei hat",
+                "en": "Type “@” and the name of the person who has the file"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Mit «/» verweist du auf Dateien.",
+                "en": "You refer to files with “/”."
+              }
+            },
+            {
+              "id": "d",
+              "text": {
+                "de": "Den Dateinamen fett in den Text schreiben",
+                "en": "Write the file name in bold in the text"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Ein Name im Text ist kein Verweis.",
+                "en": "A name in the text is not a reference."
+              }
+            }
+          ]
+        },
+        {
+          "type": "quiz",
+          "id": "x-nachverfolgen",
+          "difficulty": "advanced",
+          "question": {
+            "de": "Copilot überarbeitet einen Vertragstext direkt im Dokument. Du willst jede Änderung einzeln annehmen oder ablehnen. Was tust du vorher?",
+            "en": "Copilot revises a contract text directly in the document. You want to accept or reject each change individually. What do you do beforehand?"
+          },
+          "options": [
+            {
+              "id": "a",
+              "text": {
+                "de": "Das Dokument im Kompatibilitätsmodus öffnen",
+                "en": "Open the document in compatibility mode"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Das hat damit nichts zu tun.",
+                "en": "That has nothing to do with it."
+              }
+            },
+            {
+              "id": "b",
+              "text": {
+                "de": "Unter «Überprüfen» Änderungen nachverfolgen einschalten",
+                "en": "Turn on Track Changes under “Review”"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Richtig.",
+                "en": "Right."
+              }
+            },
+            {
+              "id": "c",
+              "text": {
+                "de": "Das Dokument schreibschützen, damit nichts verloren geht",
+                "en": "Protect the document so nothing gets lost"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Dann kann Copilot nichts ändern.",
+                "en": "Then Copilot cannot change anything."
+              }
+            },
+            {
+              "id": "d",
+              "text": {
+                "de": "Das automatische Speichern ausschalten",
+                "en": "Turn off AutoSave"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Das zeigt keine Änderungen an.",
+                "en": "That shows no changes."
+              }
+            }
+          ]
+        },
+        {
+          "type": "quiz",
+          "id": "x-pruefen",
+          "difficulty": "advanced",
+          "question": {
+            "de": "Copilot hat aus deinen Notizen eine Katalogbeschreibung geschrieben. Was prüfst du?",
+            "en": "Copilot wrote a catalogue description from your notes. What do you check?"
+          },
+          "options": [
+            {
+              "id": "a",
+              "text": {
+                "de": "Preise, Daten und Leistungen gegen deine Unterlagen",
+                "en": "Prices, dates and services against your documents"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Ja.",
+                "en": "Yes."
+              }
+            },
+            {
+              "id": "b",
+              "text": {
+                "de": "Ob Ton und Länge zur Zielgruppe passen",
+                "en": "Whether tone and length suit the audience"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Ja.",
+                "en": "Yes."
+              }
+            },
+            {
+              "id": "c",
+              "text": {
+                "de": "Ob Copilot deine Notizen danach gelöscht hat",
+                "en": "Whether Copilot deleted your notes afterwards"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Copilot löscht nichts.",
+                "en": "Copilot deletes nothing."
+              }
+            },
+            {
+              "id": "d",
+              "text": {
+                "de": "Ob Word die Datei automatisch als PDF gespeichert hat",
+                "en": "Whether Word saved the file as a PDF automatically"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Das macht Word nicht von selbst.",
+                "en": "Word does not do that by itself."
+              }
+            }
+          ]
+        },
+        {
+          "type": "quiz",
+          "id": "x-oeffnen",
+          "difficulty": "intermediate",
+          "question": {
+            "de": "Wie öffnest du Copilot in Word?",
+            "en": "How do you open Copilot in Word?"
+          },
+          "options": [
+            {
+              "id": "a",
+              "text": {
+                "de": "Über das Copilot-Symbol unten rechts im Dokument oder im Menüband «Start»",
+                "en": "Via the Copilot icon at the bottom right of the document or in the “Home” ribbon"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Richtig.",
+                "en": "Right."
+              }
+            },
+            {
+              "id": "b",
+              "text": {
+                "de": "Copilot öffnet sich beim Start von Word immer automatisch am rechten Rand",
+                "en": "Copilot always opens automatically on the right edge when Word starts"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "In Word öffnet er sich nicht von selbst.",
+                "en": "In Word it does not open by itself."
+              }
+            },
+            {
+              "id": "c",
+              "text": {
+                "de": "Über Datei › Konto › Copilot aktivieren und Word neu starten",
+                "en": "Via File › Account › Activate Copilot and restarting Word"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Dort ist er nicht.",
+                "en": "It is not there."
+              }
+            },
+            {
+              "id": "d",
+              "text": {
+                "de": "Nur in Word im Browser, in der Desktop-App von Word gibt es ihn nicht",
+                "en": "Only in Word in the browser; the Word desktop app does not have it"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Beides geht.",
+                "en": "Both work."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "island": "polyphem",
+      "reviewedAt": "2026-11-02",
+      "questions": [
+        {
+          "type": "quiz",
+          "id": "x-csv",
+          "difficulty": "intermediate",
+          "question": {
+            "de": "Du hast eine .csv-Datei mit Buchungen in OneDrive. Was gilt für Copilot in Excel?",
+            "en": "You have a .csv file with bookings in OneDrive. What applies to Copilot in Excel?"
+          },
+          "options": [
+            {
+              "id": "a",
+              "text": {
+                "de": "Copilot kann direkt damit arbeiten, umwandeln musst du sie nicht",
+                "en": "Copilot can work with it directly; you do not need to convert it"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Richtig.",
+                "en": "Right."
+              }
+            },
+            {
+              "id": "b",
+              "text": {
+                "de": "Du musst sie zuerst im alten Format .xls speichern",
+                "en": "You must first save it in the old .xls format"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Das alte Format hilft nicht.",
+                "en": "The old format does not help."
+              }
+            },
+            {
+              "id": "c",
+              "text": {
+                "de": "Mit .csv-Dateien funktioniert Copilot in Excel überhaupt nicht, nur mit .xlsx",
+                "en": "Copilot in Excel does not work with .csv files at all, only with .xlsx"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Doch, das funktioniert.",
+                "en": "It does work."
+              }
+            },
+            {
+              "id": "d",
+              "text": {
+                "de": "Copilot wandelt sie beim Öffnen automatisch in ein PDF um",
+                "en": "Copilot automatically converts it to PDF when opening"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Das macht Copilot nicht.",
+                "en": "Copilot does not do that."
+              }
+            }
+          ]
+        },
+        {
+          "type": "quiz",
+          "id": "x-daten",
+          "difficulty": "intermediate",
+          "question": {
+            "de": "Was hilft Copilot am meisten, deine Daten richtig zu verstehen?",
+            "en": "What helps Copilot most to understand your data correctly?"
+          },
+          "options": [
+            {
+              "id": "a",
+              "text": {
+                "de": "Wichtige Zellen farbig markieren",
+                "en": "Colouring important cells"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Farben helfen dir, nicht Copilot.",
+                "en": "Colours help you, not Copilot."
+              }
+            },
+            {
+              "id": "b",
+              "text": {
+                "de": "Klare Spaltenüberschriften und die Daten als Tabelle",
+                "en": "Clear column headings and the data as a table"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Richtig.",
+                "en": "Right."
+              }
+            },
+            {
+              "id": "c",
+              "text": {
+                "de": "Leere Zeilen zwischen den einzelnen Blöcken, damit es übersichtlich bleibt",
+                "en": "Empty rows between the individual blocks so that it stays clear"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Leere Zeilen trennen die Daten eher.",
+                "en": "Empty rows tend to split the data."
+              }
+            },
+            {
+              "id": "d",
+              "text": {
+                "de": "Verbundene Zellen in der Überschrift",
+                "en": "Merged cells in the heading"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Verbundene Zellen erschweren das Lesen.",
+                "en": "Merged cells make reading harder."
+              }
+            }
+          ]
+        },
+        {
+          "type": "quiz",
+          "id": "x-pivot",
+          "difficulty": "advanced",
+          "question": {
+            "de": "Copilot erstellt eine PivotTable mit dem Umsatz pro Destination. Was tust du, bevor du die Zahlen weitergibst?",
+            "en": "Copilot creates a PivotTable with revenue per destination. What do you do before passing the figures on?"
+          },
+          "options": [
+            {
+              "id": "a",
+              "text": {
+                "de": "Zwei, drei Werte mit dem Buchungssystem vergleichen",
+                "en": "Compare two or three values with the booking system"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Richtig. Verbindliche Zahlen stammen aus dem Buchungssystem.",
+                "en": "Right. Binding figures come from the booking system."
+              }
+            },
+            {
+              "id": "b",
+              "text": {
+                "de": "Nichts, Excel rechnet bei Copilot immer fehlerfrei",
+                "en": "Nothing, Excel always calculates correctly with Copilot"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Die Rechnung stimmt nur, wenn die Daten und die Auswahl stimmen.",
+                "en": "The calculation is only right if the data and selection are right."
+              }
+            },
+            {
+              "id": "c",
+              "text": {
+                "de": "Copilot fragen, ob die Zahlen stimmen, und dann weitergeben",
+                "en": "Ask Copilot whether the figures are right and then pass them on"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Prüf selbst an der Quelle.",
+                "en": "Check yourself at the source."
+              }
+            },
+            {
+              "id": "d",
+              "text": {
+                "de": "Alle Werte auf ganze Tausender runden",
+                "en": "Round all values to whole thousands"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Runden prüft nichts.",
+                "en": "Rounding checks nothing."
+              }
+            }
+          ]
+        },
+        {
+          "type": "quiz",
+          "id": "x-autosave",
+          "difficulty": "intermediate",
+          "question": {
+            "de": "Ist automatisches Speichern nötig, damit Copilot in Excel funktioniert?",
+            "en": "Is AutoSave required for Copilot in Excel to work?"
+          },
+          "options": [
+            {
+              "id": "a",
+              "text": {
+                "de": "Ja, ohne automatisches Speichern startet Copilot nicht",
+                "en": "Yes, without AutoSave Copilot does not start"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Laut Test geht es auch ohne.",
+                "en": "According to the test it works without it."
+              }
+            },
+            {
+              "id": "b",
+              "text": {
+                "de": "Nein, empfohlen ist es aber",
+                "en": "No, but it is recommended"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Richtig.",
+                "en": "Right."
+              }
+            },
+            {
+              "id": "c",
+              "text": {
+                "de": "Nur bei .csv-Dateien, bei .xlsx nicht",
+                "en": "Only for .csv files, not for .xlsx"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Für beide gilt dasselbe.",
+                "en": "The same applies to both."
+              }
+            },
+            {
+              "id": "d",
+              "text": {
+                "de": "Nur in Excel auf dem Handy",
+                "en": "Only in Excel on the phone"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Das hängt nicht vom Gerät ab.",
+                "en": "That does not depend on the device."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "island": "kirke",
+      "reviewedAt": "2026-11-02",
+      "questions": [
+        {
+          "type": "quiz",
+          "id": "x-start",
+          "difficulty": "intermediate",
+          "question": {
+            "de": "Wie startest du am besten eine neue Präsentation mit Copilot?",
+            "en": "What is the best way to start a new presentation with Copilot?"
+          },
+          "options": [
+            {
+              "id": "a",
+              "text": {
+                "de": "In der DERTOUR-Vorlage mit einer Datei: «Erstelle eine Präsentation aus /[Datei]»",
+                "en": "In the DERTOUR template with a file: “Create a presentation from /[file]”"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Richtig. Vorlage und Datei geben Design und Inhalt vor.",
+                "en": "Right. Template and file provide design and content."
+              }
+            },
+            {
+              "id": "b",
+              "text": {
+                "de": "In einer leeren Präsentation mit «Mach eine schöne Präsentation»",
+                "en": "In a blank presentation with “Make a nice presentation”"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Ohne Vorlage und Inhalt wird es allgemein.",
+                "en": "Without template and content it stays generic."
+              }
+            },
+            {
+              "id": "c",
+              "text": {
+                "de": "Zuerst alle Folien von Hand bauen und Copilot danach nur noch Farben und Schriften anpassen lassen",
+                "en": "Build all slides by hand first and then let Copilot only adjust colours and fonts"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Damit verschenkst du die grösste Hilfe.",
+                "en": "That wastes the biggest help."
+              }
+            },
+            {
+              "id": "d",
+              "text": {
+                "de": "Ein Bild einer alten Präsentation hochladen und kopieren lassen",
+                "en": "Upload a picture of an old presentation and have it copied"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Aus einem Bild entsteht keine Vorlage.",
+                "en": "A picture does not become a template."
+              }
+            }
+          ]
+        },
+        {
+          "type": "quiz",
+          "id": "x-zimmerbild",
+          "difficulty": "advanced",
+          "question": {
+            "de": "Für eine Kundenpräsentation fehlt dir ein Bild vom Zimmer eines Partnerhotels. Was ist richtig?",
+            "en": "For a customer presentation you are missing a picture of a partner hotel’s room. What is right?"
+          },
+          "options": [
+            {
+              "id": "a",
+              "text": {
+                "de": "Copilot ein schönes Zimmer erzeugen lassen und als Hotelzimmer zeigen",
+                "en": "Have Copilot generate a nice room and show it as the hotel room"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Ein KI-Bild weckt falsche Erwartungen.",
+                "en": "An AI picture creates false expectations."
+              }
+            },
+            {
+              "id": "b",
+              "text": {
+                "de": "Beim Partner ein echtes Foto anfragen oder die Folie ohne Bild zeigen",
+                "en": "Ask the partner for a real photo or show the slide without a picture"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Richtig.",
+                "en": "Right."
+              }
+            },
+            {
+              "id": "c",
+              "text": {
+                "de": "Ein ähnliches Zimmer aus einer Bildersuche im Internet nehmen",
+                "en": "Take a similar room from an image search on the internet"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Das zeigt ein anderes Hotel, und die Rechte sind unklar.",
+                "en": "That shows another hotel, and the rights are unclear."
+              }
+            },
+            {
+              "id": "d",
+              "text": {
+                "de": "Das Foto eines anderen Partnerhotels derselben Kategorie nehmen",
+                "en": "Use a photo of another partner hotel of the same category"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Auch das zeigt nicht das echte Zimmer.",
+                "en": "That does not show the real room either."
+              }
+            }
+          ]
+        },
+        {
+          "type": "quiz",
+          "id": "x-gliederung",
+          "difficulty": "intermediate",
+          "question": {
+            "de": "Bevor Copilot die Folien erstellt, zeigt er dir eine Gliederung. Was tust du?",
+            "en": "Before Copilot creates the slides, it shows you an outline. What do you do?"
+          },
+          "options": [
+            {
+              "id": "a",
+              "text": {
+                "de": "Die Gliederung prüfen und anpassen",
+                "en": "Check and adjust the outline"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Richtig. Hier steuerst du den Aufbau am einfachsten.",
+                "en": "Right. This is the easiest place to steer the structure."
+              }
+            },
+            {
+              "id": "b",
+              "text": {
+                "de": "Sofort weiterklicken, die Folien kann man danach ändern",
+                "en": "Click on at once; you can change the slides later"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Das geht, kostet aber mehr Arbeit.",
+                "en": "That works but costs more work."
+              }
+            },
+            {
+              "id": "c",
+              "text": {
+                "de": "Die Gliederung löschen, damit Copilot frei arbeitet",
+                "en": "Delete the outline so that Copilot works freely"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Dann fehlt der Plan.",
+                "en": "Then the plan is missing."
+              }
+            },
+            {
+              "id": "d",
+              "text": {
+                "de": "Die Gliederung an die IT schicken",
+                "en": "Send the outline to IT"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Das ist nicht nötig.",
+                "en": "That is not necessary."
+              }
+            }
+          ]
+        },
+        {
+          "type": "quiz",
+          "id": "x-einspringen",
+          "difficulty": "advanced",
+          "question": {
+            "de": "Du hältst morgen die Präsentation einer Kollegin. Wobei hilft dir Copilot?",
+            "en": "Tomorrow you give a colleague’s presentation. What does Copilot help you with?"
+          },
+          "options": [
+            {
+              "id": "a",
+              "text": {
+                "de": "Sprechernotizen zu jeder Folie schreiben",
+                "en": "Writing speaker notes for every slide"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Ja.",
+                "en": "Yes."
+              }
+            },
+            {
+              "id": "b",
+              "text": {
+                "de": "Mögliche Fragen aus dem Publikum mit Antworten vorbereiten",
+                "en": "Preparing likely audience questions with answers"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Ja.",
+                "en": "Yes."
+              }
+            },
+            {
+              "id": "c",
+              "text": {
+                "de": "Die Präsentation im Meeting für dich vortragen",
+                "en": "Giving the presentation for you in the meeting"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Vortragen musst du selbst.",
+                "en": "You have to present yourself."
+              }
+            },
+            {
+              "id": "d",
+              "text": {
+                "de": "Bestätigen, dass alle Zahlen auf den Folien stimmen",
+                "en": "Confirming that all figures on the slides are right"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Zahlen prüfst du an der Quelle.",
+                "en": "You check figures at the source."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "island": "teiresias",
+      "reviewedAt": "2026-11-02",
+      "questions": [
+        {
+          "type": "quiz",
+          "id": "x-zugriff",
+          "difficulty": "intermediate",
+          "question": {
+            "de": "Du fragst Copilot (Premium) nach einem Meeting, zu dem du keinen Zugriff hast. Was passiert?",
+            "en": "You ask Copilot (Premium) about a meeting you have no access to. What happens?"
+          },
+          "options": [
+            {
+              "id": "a",
+              "text": {
+                "de": "Copilot findet es nicht, er sucht nur, worauf du selbst Zugriff hast",
+                "en": "Copilot does not find it; it only searches what you yourself can access"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Richtig.",
+                "en": "Right."
+              }
+            },
+            {
+              "id": "b",
+              "text": {
+                "de": "Copilot findet es trotzdem, weil er mit Premium alle Daten des Unternehmens kennt",
+                "en": "Copilot finds it anyway, because with Premium it knows all company data"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Copilot hält sich an deine Berechtigungen.",
+                "en": "Copilot respects your permissions."
+              }
+            },
+            {
+              "id": "c",
+              "text": {
+                "de": "Copilot fragt die organisierende Person um Erlaubnis",
+                "en": "Copilot asks the organiser for permission"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Das macht Copilot nicht.",
+                "en": "Copilot does not do that."
+              }
+            },
+            {
+              "id": "d",
+              "text": {
+                "de": "Copilot sucht stattdessen im Internet nach dem Meeting",
+                "en": "Copilot searches the internet for the meeting instead"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Interne Meetings stehen nicht im Internet.",
+                "en": "Internal meetings are not on the internet."
+              }
+            }
+          ]
+        },
+        {
+          "type": "quiz",
+          "id": "x-verweis",
+          "difficulty": "intermediate",
+          "question": {
+            "de": "Wie verweist du im Chat gezielt auf eine Person, eine Datei oder ein Meeting?",
+            "en": "How do you refer specifically to a person, a file or a meeting in the chat?"
+          },
+          "options": [
+            {
+              "id": "a",
+              "text": {
+                "de": "Mit «#» vor dem Namen",
+                "en": "With “#” before the name"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "In Copilot geht das mit «/».",
+                "en": "In Copilot this works with “/”."
+              }
+            },
+            {
+              "id": "b",
+              "text": {
+                "de": "Mit «/» und den ersten Buchstaben",
+                "en": "With “/” and the first letters"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Richtig.",
+                "en": "Right."
+              }
+            },
+            {
+              "id": "c",
+              "text": {
+                "de": "Indem du den Namen in Anführungszeichen setzt",
+                "en": "By putting the name in quotation marks"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Das ist kein Verweis.",
+                "en": "That is not a reference."
+              }
+            },
+            {
+              "id": "d",
+              "text": {
+                "de": "Gar nicht, Copilot findet alles von selbst",
+                "en": "Not at all, Copilot finds everything by itself"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Ein Verweis macht die Antwort genauer.",
+                "en": "A reference makes the answer more precise."
+              }
+            }
+          ]
+        },
+        {
+          "type": "quiz",
+          "id": "x-researcher",
+          "difficulty": "advanced",
+          "question": {
+            "de": "Wofür nimmst du Researcher statt einer normalen Frage?",
+            "en": "What do you use Researcher for instead of a normal question?"
+          },
+          "options": [
+            {
+              "id": "a",
+              "text": {
+                "de": "Für eine schnelle Antwort auf eine kurze Mail einer Kollegin aus dem Team",
+                "en": "For a quick reply to a short email from a colleague in the team"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Dafür reicht der Chat.",
+                "en": "The chat is enough for that."
+              }
+            },
+            {
+              "id": "b",
+              "text": {
+                "de": "Für eine verbindliche Visa-Auskunft, die du direkt an einen Gast schickst",
+                "en": "For a binding visa answer that you send straight to a guest"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Verbindliches prüfst du an der offiziellen Quelle.",
+                "en": "You check binding information at the official source."
+              }
+            },
+            {
+              "id": "c",
+              "text": {
+                "de": "Für eine gründliche Übersicht aus vielen Quellen, etwa einen Marktvergleich",
+                "en": "For a thorough overview from many sources, such as a market comparison"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Richtig.",
+                "en": "Right."
+              }
+            },
+            {
+              "id": "d",
+              "text": {
+                "de": "Für das Wetter am Reiseziel morgen",
+                "en": "For tomorrow’s weather at the destination"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Dafür reicht eine einfache Frage.",
+                "en": "A simple question is enough."
+              }
+            }
+          ]
+        },
+        {
+          "type": "quiz",
+          "id": "x-freigabe",
+          "difficulty": "advanced",
+          "question": {
+            "de": "Copilot zeigt dir ein vertrauliches Dokument, das offenbar für alle freigegeben ist. Was tust du?",
+            "en": "Copilot shows you a confidential document that is apparently shared with everyone. What do you do?"
+          },
+          "options": [
+            {
+              "id": "a",
+              "text": {
+                "de": "Die Besitzerin oder die IT informieren, damit die Freigabe korrigiert wird",
+                "en": "Inform the owner or IT so that the sharing is corrected"
+              },
+              "correct": true,
+              "explanation": {
+                "de": "Richtig. Copilot zeigt nur, was ohnehin zugänglich ist.",
+                "en": "Right. Copilot only shows what is accessible anyway."
+              }
+            },
+            {
+              "id": "b",
+              "text": {
+                "de": "Es in Ruhe lesen, weil Copilot es dir ja selbst angezeigt hat",
+                "en": "Read it calmly, because Copilot showed it to you itself"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Zugänglich heisst nicht erlaubt.",
+                "en": "Accessible does not mean allowed."
+              }
+            },
+            {
+              "id": "c",
+              "text": {
+                "de": "Es an Kolleginnen weiterleiten, damit sie über den Fehler Bescheid wissen",
+                "en": "Forward it to colleagues so that they know about the mistake"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Das verbreitet es weiter.",
+                "en": "That spreads it further."
+              }
+            },
+            {
+              "id": "d",
+              "text": {
+                "de": "Copilot ab sofort nicht mehr verwenden, bis die IT es wieder erlaubt",
+                "en": "Stop using Copilot from now on until IT allows it again"
+              },
+              "correct": false,
+              "explanation": {
+                "de": "Das Problem ist die Freigabe, nicht Copilot.",
+                "en": "The problem is the sharing, not Copilot."
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -6,7 +6,7 @@
   "version": "1.0.0",
   "owner": "copilot-team",
   "status": "draft",
-  "reviewedAt": "2026-11-01",
+  "reviewedAt": "2026-11-02",
   "reviewIntervalDays": 180,
   "title": {
     "de": "Im Gespräch nachschärfen",
@@ -27,8 +27,8 @@
         "en": "Correcting the course"
       },
       "body": {
-        "de": "Copilot merkt sich, was im selben Chat schon gesagt wurde. Du musst also nicht von vorne beginnen, sondern kannst nachsteuern:\n- **Form:** «Kürzer, bitte maximal 5 Sätze.» «Als Tabelle.»\n- **Ton:** «Lockerer, wir duzen uns im Team.» «Formeller, für die Geschäftsleitung.»\n- **Zielgruppe:** «Erkläre es so, dass es jemand ohne Fachwissen versteht.»\n- **Inhalt:** «Der zweite Punkt stimmt nicht, wir arbeiten mit festen Kontingenten. Passe das an.»\n\nZwei Kniffe, die oft viel bringen:\n- **Lass Copilot zuerst fragen:** «Stell mir zuerst drei Fragen, bevor du den Text schreibst.»\n- **Gib eine Rolle:** «Du bist eine erfahrene Reiseberaterin. Prüfe meinen Entwurf aus Sicht einer Kundin.»\n\nFür ein neues Thema öffnest du einen neuen Chat, damit Altes die Antwort nicht beeinflusst.",
-        "en": "Copilot remembers what has already been said in the same chat. So you don't have to start over, you can steer:\n- **Form:** “Shorter, please, at most 5 sentences.” “As a table.”\n- **Tone:** “More casual, we are on first-name terms in the team.” “More formal, for the leadership team.”\n- **Audience:** “Explain it so that someone without expert knowledge understands it.”\n- **Content:** “The second point is wrong, we work with fixed allotments. Adjust that.”\n\nTwo tricks that often help a lot:\n- **Let Copilot ask first:** “Ask me three questions before you write the text.”\n- **Give it a role:** “You are an experienced travel consultant. Review my draft from a customer's point of view.”\n\nFor a new topic, open a new chat so that earlier content does not influence the answer."
+        "de": "Copilot merkt sich, was im selben Chat schon gesagt wurde. Du musst also nicht von vorne beginnen, sondern kannst nachsteuern:\n- **Form:** «Kürzer, bitte maximal 5 Sätze.» «Als Tabelle.»\n- **Ton:** «Lockerer, wir duzen uns im Team.» «Formeller, für die Geschäftsleitung.»\n- **Zielgruppe:** «Erkläre es so, dass es jemand ohne Fachwissen versteht.»\n- **Inhalt:** «Der zweite Punkt stimmt nicht, wir arbeiten mit festen Kontingenten. Passe das an.»\n\nZwei Kniffe, die oft viel bringen:\n- **Lass Copilot zuerst fragen:** «Stell mir zuerst drei Fragen, bevor du den Text schreibst.»\n- **Gib eine Rolle:** «Du bist eine erfahrene Reiseberaterin. Prüfe meinen Entwurf aus Sicht einer Kundin.»\n\nFür ein neues Thema öffnest du einen neuen Chat, damit Altes die Antwort nicht beeinflusst.\n\n**Lass dir zeigen, was du übersehen hast:** Schreib zuerst, was du vorhast und wie dein Plan aussieht, und frag dann: «Welche Ideen oder Blickwinkel fehlen mir?» Oder: «Wie würde unsere Geschäftsleitung diesen Plan sehen?» So wird Copilot zum Sparringspartner, nicht nur zum Schreibwerkzeug.",
+        "en": "Copilot remembers what has already been said in the same chat. So you don't have to start over, you can steer:\n- **Form:** “Shorter, please, at most 5 sentences.” “As a table.”\n- **Tone:** “More casual, we are on first-name terms in the team.” “More formal, for the leadership team.”\n- **Audience:** “Explain it so that someone without expert knowledge understands it.”\n- **Content:** “The second point is wrong, we work with fixed allotments. Adjust that.”\n\nTwo tricks that often help a lot:\n- **Let Copilot ask first:** “Ask me three questions before you write the text.”\n- **Give it a role:** “You are an experienced travel consultant. Review my draft from a customer's point of view.”\n\nFor a new topic, open a new chat so that earlier content does not influence the answer.\n\n**Have Copilot show you what you missed:** first write what you intend and what your plan looks like, then ask: “Which ideas or angles am I missing?” Or: “How would our management see this plan?” That way Copilot becomes a sparring partner, not just a writing tool."
       }
     },
     {
@@ -43,8 +43,8 @@
         {
           "id": "a",
           "text": {
-            "de": "Einen neuen Chat öffnen und den Prompt mit «kurz» ergänzen",
-            "en": "Open a new chat and add “short” to the prompt"
+            "de": "Einen neuen Chat öffnen und den ganzen Prompt mit dem Wort «kurz» wiederholen",
+            "en": "Open a new chat and repeat the whole prompt with the word “short” added"
           },
           "correct": false,
           "explanation": {
@@ -56,7 +56,7 @@
           "id": "b",
           "text": {
             "de": "Im selben Chat nachschärfen: «Kürze auf fünf Sätze und schreib lockerer.»",
-            "en": "Refine in the same chat: “Shorten to five sentences and write more casually.”"
+            "en": "Refine in the same chat: “Cut it to five sentences and write more casually.”"
           },
           "correct": true,
           "explanation": {
@@ -67,8 +67,8 @@
         {
           "id": "c",
           "text": {
-            "de": "Auf «Neu generieren» klicken, bis eine kürzere Version kommt",
-            "en": "Click “Regenerate” until a shorter version appears"
+            "de": "So lange auf «Neu generieren» klicken, bis zufällig eine kürzere Version kommt",
+            "en": "Keep clicking “Regenerate” until a shorter version happens to appear"
           },
           "correct": false,
           "explanation": {
@@ -79,8 +79,8 @@
         {
           "id": "d",
           "text": {
-            "de": "Die Antwort kopieren und selbst kürzen, Copilot kann das nicht",
-            "en": "Copy the answer and shorten it yourself, Copilot cannot do that"
+            "de": "Die Antwort kopieren und selbst kürzen, weil Copilot den Ton nicht anpassen kann",
+            "en": "Copy the answer and shorten it yourself because Copilot cannot adjust the tone"
           },
           "correct": false,
           "explanation": {

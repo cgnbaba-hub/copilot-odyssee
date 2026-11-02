@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "owner": "copilot-team",
   "status": "draft",
-  "reviewedAt": "2026-11-01",
+  "reviewedAt": "2026-11-02",
   "reviewIntervalDays": 60,
   "id": "kalypso-cowork",
   "order": 2,
@@ -44,8 +44,8 @@
         {
           "id": "a",
           "text": {
-            "de": "Eine kurze Frage zu einer Formulierung in einer Mail",
-            "en": "A short question about wording in an email"
+            "de": "Eine kurze Frage zu einer einzelnen Formulierung in einer Mail an einen Gast",
+            "en": "A short question about a single phrase in an email to a guest"
           },
           "correct": false,
           "explanation": {
@@ -56,8 +56,8 @@
         {
           "id": "b",
           "text": {
-            "de": "Aus mehreren Unterlagen eine Übersicht, eine Präsentation und eine Info-Mail erstellen",
-            "en": "Creating an overview, a presentation and an update email from several documents"
+            "de": "Aus mehreren Unterlagen Übersicht, Folien und Info-Mail erstellen",
+            "en": "Creating an overview, slides and an update email from several documents"
           },
           "correct": true,
           "explanation": {
@@ -68,8 +68,8 @@
         {
           "id": "c",
           "text": {
-            "de": "Einem Gast verbindlich einen Preis bestätigen",
-            "en": "Bindingly confirming a price to a guest"
+            "de": "Einem Gast einen Preis verbindlich bestätigen und die Buchung auslösen",
+            "en": "Bindingly confirming a price to a guest and triggering the booking"
           },
           "correct": false,
           "explanation": {
@@ -80,8 +80,8 @@
         {
           "id": "d",
           "text": {
-            "de": "Eine Aufgabe, deren Ergebnis niemand prüfen wird",
-            "en": "A task whose result nobody will check"
+            "de": "Eine Aufgabe, deren Ergebnis danach niemand mehr prüfen oder lesen wird",
+            "en": "A task whose result nobody will check or read afterwards"
           },
           "correct": false,
           "explanation": {
