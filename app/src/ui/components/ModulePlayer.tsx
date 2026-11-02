@@ -15,6 +15,7 @@ import { useGame } from '../GameContext';
 import { examOpen } from '../../core/progress/exam';
 import { islandProgress, isModulePreview, nextStage } from '../progressHelpers';
 import styles from '../styles.module.scss';
+import { CountUp } from './CountUp';
 import { IslandArt } from './Art';
 import { Confetti } from './Confetti';
 import { FactCheck } from './FactCheck';
@@ -75,6 +76,7 @@ export function ModulePlayer(props: { moduleId: string }): React.ReactElement {
   const locked = !!module && isModulePreview(game, module);
   const [index, setIndex] = React.useState<number | undefined>(undefined);
   const xpAtStart = React.useRef(player.xp);
+  const reducedMotion = player.profile.motion === 'reduced' || (!!window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
   const finished = React.useRef(false);
 
   React.useEffect(() => {
@@ -156,6 +158,11 @@ export function ModulePlayer(props: { moduleId: string }): React.ReactElement {
             </span>
           </div>
         )}
+        {player.xp - xpAtStart.current > 0 && (
+          <p className={styles.doneMiles} aria-hidden="true">
+            +<CountUp to={player.xp - xpAtStart.current} reduced={reducedMotion} /> <span>{t(theme.terms.xp)}</span>
+          </p>
+        )}
         <h2 className={styles.moduleDoneTitle}>{strings.moduleDoneTitle}</h2>
         <p className={styles.lead}>{format(strings.moduleDoneText, { xp: player.xp - xpAtStart.current, xpName: t(theme.terms.xp) })}</p>
         {newStamp && island && (
@@ -230,7 +237,8 @@ export function ModulePlayer(props: { moduleId: string }): React.ReactElement {
       {doneView || (
         <>
           <Guide text={hintFor(strings, module.blocks[index])} compact />
-          <div className={styles.lessonCard}>
+          {/* Each step comes in like a new page of the logbook. */}
+          <div className={styles.lessonCard} key={module.blocks[index].id}>
             <p className={`${styles.blockKind} ${KIND_CLASS[module.blocks[index].type]}`}>
               <BlockKindIcon type={module.blocks[index].type} />
               <span>{blockKindNames(strings, module.blocks[index].type).long}</span>

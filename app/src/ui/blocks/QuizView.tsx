@@ -128,6 +128,13 @@ export function QuizView(props: QuizViewProps): React.ReactElement {
             <div className={styles.actionFeedback}>
               <span className={styles.actionIcon} aria-hidden="true">
                 {result.correct ? '✓' : '✕'}
+                {result.correct && (
+                  <span className={styles.sparks}>
+                    {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => (
+                      <i key={i} style={{ ['--od-a' as string]: `${i * 45}deg` } as React.CSSProperties} />
+                    ))}
+                  </span>
+                )}
               </span>
               <div>
                 <strong>{result.correct ? strings.correct : strings.wrong}</strong>
