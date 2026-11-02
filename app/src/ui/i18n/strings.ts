@@ -543,7 +543,22 @@ const de = {
   examGo: 'Zur Prüfung',
   examNextTitle: 'Bereit für die Inselprüfung',
   moduleDoneExam: 'Alle Etappen geschafft! Jetzt fehlt nur noch die Inselprüfung, dann bekommst du den Stempel für {island}.',
-  examQuestionCount: '{n} Fragen'
+  examQuestionCount: '{n} Fragen',
+  skyDawn: 'Morgenrot',
+  skyDay: 'Sonnenschein',
+  skyDusk: 'Abendrot',
+  skyNight: 'Sternennacht',
+  skyClear: 'klare Sicht',
+  skyClouds: 'Wolken ziehen',
+  skyRainbow: 'Regenbogen',
+  skyBreeze: 'frische Brise',
+  deckMoodHint: 'Der Himmel folgt deiner Uhrzeit, und jeden Tag ist anderes Wetter auf See. Schau morgen wieder vorbei.',
+  bottleOpen: 'Flaschenpost von heute lesen',
+  bottleOpenNew: 'Eine Flaschenpost treibt vorbei: öffnen',
+  bottleNew: 'Neu',
+  bottleTitle: 'Flaschenpost des Tages',
+  bottleClose: 'Zurück ins Meer',
+  bottleTomorrow: 'Morgen treibt eine neue Flaschenpost an. Gespeicherte Prompts findest du im Spickzettel.'
 };
 
 export type Strings = typeof de;
@@ -1081,7 +1096,22 @@ const en: Strings = {
   examGo: 'To the exam',
   examNextTitle: 'Ready for the island exam',
   moduleDoneExam: 'All stages done! Only the island exam is left, then you get the stamp for {island}.',
-  examQuestionCount: '{n} questions'
+  examQuestionCount: '{n} questions',
+  skyDawn: 'Sunrise',
+  skyDay: 'Sunshine',
+  skyDusk: 'Sunset',
+  skyNight: 'Starry night',
+  skyClear: 'clear skies',
+  skyClouds: 'drifting clouds',
+  skyRainbow: 'rainbow',
+  skyBreeze: 'fresh breeze',
+  deckMoodHint: 'The sky follows your clock, and every day brings different weather at sea. Come back tomorrow.',
+  bottleOpen: "Read today's message in a bottle",
+  bottleOpenNew: 'A message in a bottle drifts by: open it',
+  bottleNew: 'New',
+  bottleTitle: 'Message in a bottle',
+  bottleClose: 'Back to the sea',
+  bottleTomorrow: 'Tomorrow a new bottle washes up. Saved prompts are on your cheat sheet.'
 };
 
 const STRINGS: Record<Lang, Strings> = { de, en };
