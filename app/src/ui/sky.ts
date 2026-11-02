@@ -5,11 +5,14 @@
  */
 
 export type DayPhase = 'dawn' | 'day' | 'dusk' | 'night';
-export type Weather = 'clear' | 'clouds' | 'rainbow' | 'breeze';
+export type Weather = 'clear' | 'clouds' | 'rainbow' | 'breeze' | 'snow';
+/** Days the ship celebrates: Swiss National Day, New Year's Eve and Day, Advent. */
+export type SkyEvent = 'nationalday' | 'newyear' | 'advent';
 
 export interface SkyMood {
   phase: DayPhase;
   weather: Weather;
+  event?: SkyEvent;
   /** Sky from top to horizon. */
   skyTop: string;
   skyLow: string;
@@ -65,6 +68,8 @@ const MOODS: Record<DayPhase, Omit<SkyMood, 'phase' | 'weather'>> = {
   }
 };
 
+const WINTER_DAY: Partial<SkyMood> = { skyTop: '#b9c6d2', skyLow: '#e3e8e6', sun: '#f2c46e', rays: '#eef2f0', raysOpacity: 0.55, cloud: '#f5f7f8', glint: '#f4dca0' };
+
 const WEATHERS: Weather[] = ['clear', 'clouds', 'rainbow', 'breeze', 'clear', 'clouds', 'breeze'];
 
 /** Morning glow 5 to 8, day until 17, evening glow until 20, then night. */
@@ -86,11 +91,28 @@ export function weatherOf(date: Date): Weather {
   return WEATHERS[Math.abs(h) % WEATHERS.length];
 }
 
+/** The celebration of the day, if any. */
+export function skyEvent(date: Date): SkyEvent | undefined {
+  const m = date.getMonth() + 1;
+  const d = date.getDate();
+  if (m === 8 && d === 1) return 'nationalday';
+  if ((m === 12 && d === 31) || (m === 1 && d === 1)) return 'newyear';
+  if (m === 12 && d <= 26) return 'advent';
+  return undefined;
+}
+
 export function skyMood(date: Date): SkyMood {
   const phase = dayPhase(date);
-  const weather = weatherOf(date);
+  let weather = weatherOf(date);
+  const month = date.getMonth() + 1;
+  // In winter a cloudy day brings snow.
+  if (weather === 'clouds' && (month === 12 || month <= 2)) weather = 'snow';
   // A rainbow needs the sun; at night it is simply a clear sky.
-  return { phase, weather: weather === 'rainbow' && phase === 'night' ? 'clear' : weather, ...MOODS[phase] };
+  if (weather === 'rainbow' && phase === 'night') weather = 'clear';
+  const mood: SkyMood = { phase, weather, event: skyEvent(date), ...MOODS[phase] };
+  // Snow comes from a grey winter sky, so the flakes stand out.
+  if (weather === 'snow' && phase === 'day') return { ...mood, ...WINTER_DAY };
+  return mood;
 }
 
 /** Index of today among all days, to pick the daily message in a bottle. */

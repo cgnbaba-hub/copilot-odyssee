@@ -215,3 +215,117 @@ export function Whitecaps(): React.ReactElement {
     </g>
   );
 }
+
+/** Snow falling on the deck on a winter day. */
+export function Snow(): React.ReactElement {
+  const rnd = seeded(11);
+  const flakes: React.ReactElement[] = [];
+  for (let i = 0; i < 54; i++) {
+    const x = rnd() * 1040 - 20;
+    const y = rnd() * 600;
+    const r = 1.6 + rnd() * 2.8;
+    const style = {
+      ['--od-from' as string]: `${(-y - 20).toFixed(0)}px`,
+      ['--od-to' as string]: `${(620 - y).toFixed(0)}px`,
+      ['--od-drift' as string]: `${(rnd() * 80 - 40).toFixed(0)}px`,
+      animationDuration: `${(7 + rnd() * 8).toFixed(1)}s`,
+      animationDelay: `${(-rnd() * 14).toFixed(1)}s`
+    } as React.CSSProperties;
+    flakes.push(<circle key={i} className={styles.deckSnow} cx={x.toFixed(0)} cy={y.toFixed(0)} r={r.toFixed(1)} style={style} />);
+  }
+  return (
+    <g fill="#fffdf6" stroke="rgba(26, 41, 64, 0.35)" strokeWidth="0.9">
+      {flakes}
+    </g>
+  );
+}
+
+const BURSTS: Record<'nationalday' | 'newyear', string[]> = {
+  nationalday: ['#e40028', '#ffffff', '#e40028', '#ffffff'],
+  newyear: ['#f5c94a', '#ff7a8a', '#7fd6c2', '#ffffff']
+};
+
+/** Fireworks over the sea on National Day and at New Year. */
+export function Fireworks(props: { kind: 'nationalday' | 'newyear' }): React.ReactElement {
+  const colors = BURSTS[props.kind];
+  const spots = [
+    { x: 380, y: 90, d: 0 },
+    { x: 880, y: 190, d: 1.1 },
+    { x: 230, y: 235, d: 2.0 },
+    { x: 610, y: 195, d: 2.7 }
+  ];
+  return (
+    <g strokeLinecap="round" strokeWidth="3.4">
+      {spots.map((s, i) => {
+        const rays: string[] = [];
+        for (let k = 0; k < 14; k++) {
+          const a = (k / 14) * Math.PI * 2;
+          rays.push(
+            `M${(s.x + Math.cos(a) * 10).toFixed(1)} ${(s.y + Math.sin(a) * 10).toFixed(1)} L${(s.x + Math.cos(a) * 52).toFixed(1)} ${(s.y + Math.sin(a) * 52).toFixed(1)}`
+          );
+        }
+        return (
+          <g key={i} className={styles.deckBurst} style={{ animationDelay: `${s.d}s` }}>
+            <path d={rays.join(' ')} stroke={colors[i % colors.length]} fill="none" />
+            <circle cx={s.x} cy={s.y} r="5" fill={colors[(i + 1) % colors.length]} />
+          </g>
+        );
+      })}
+    </g>
+  );
+}
+
+/** A string of lanterns along the rigging in Advent. */
+export function Lanterns(): React.ReactElement {
+  const lights: React.ReactElement[] = [];
+  const glow = ['#ffd36b', '#ff8a5c', '#fff1b0'];
+  [-1, 1].forEach((side) => {
+    for (let k = 1; k <= 8; k++) {
+      const t = k / 9;
+      const x = 500 + side * 460 * t;
+      // The rope sags a little between mast and rail.
+      const y = 374 + 226 * t + Math.sin(t * Math.PI) * 10;
+      const i = lights.length;
+      lights.push(
+        <g key={i} className={styles.deckLantern} style={{ animationDelay: `${((i * 0.37) % 2.2).toFixed(2)}s` }}>
+          <circle cx={x.toFixed(1)} cy={y.toFixed(1)} r="9" fill={glow[i % 3]} opacity="0.35" />
+          <circle cx={x.toFixed(1)} cy={y.toFixed(1)} r="4.2" fill={glow[i % 3]} stroke={INK} strokeWidth="1.4" />
+        </g>
+      );
+    }
+  });
+  return <g>{lights}</g>;
+}
+
+const FLAGS: Record<'nationalday' | 'newyear', string[]> = {
+  nationalday: ['#e40028', '#ffffff'],
+  newyear: ['#f5c94a', '#e4572e', '#7fd6c2', '#8a6fc0']
+};
+
+/** Little flags along the rigging on a day to celebrate. */
+export function Bunting(props: { kind: 'nationalday' | 'newyear' }): React.ReactElement {
+  const colors = FLAGS[props.kind];
+  const flags: React.ReactElement[] = [];
+  [-1, 1].forEach((side) => {
+    for (let k = 1; k <= 10; k++) {
+      const t = k / 11;
+      const x = 500 + side * 460 * t;
+      const y = 374 + 226 * t + Math.sin(t * Math.PI) * 10;
+      const w = 7 + t * 9;
+      const i = flags.length;
+      flags.push(
+        <path
+          key={i}
+          className={styles.deckFlag}
+          d={`M${(x - w / 2).toFixed(1)} ${y.toFixed(1)} L${(x + w / 2).toFixed(1)} ${y.toFixed(1)} L${x.toFixed(1)} ${(y + w * 1.2).toFixed(1)} Z`}
+          fill={colors[i % colors.length]}
+          stroke={INK}
+          strokeWidth="1.3"
+          strokeLinejoin="round"
+          style={{ animationDelay: `${((k * 0.21) % 1.4).toFixed(2)}s` }}
+        />
+      );
+    }
+  });
+  return <g>{flags}</g>;
+}

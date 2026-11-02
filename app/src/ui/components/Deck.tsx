@@ -8,7 +8,7 @@ import { islandProgress, isPreview, nextStage } from '../progressHelpers';
 import { skyMood } from '../sky';
 import styles from '../styles.module.scss';
 import { Bottle } from './Bottle';
-import { DistantSail, Dolphins, ExtraClouds, Gulls, Meteors, Moon, MOON, Rainbow, SkyDefs, Stars, Whitecaps } from './DeckSky';
+import { Bunting, DistantSail, Dolphins, ExtraClouds, Fireworks, Gulls, Lanterns, Meteors, Moon, MOON, Rainbow, SkyDefs, Snow, Stars, Whitecaps } from './DeckSky';
 import { IslandFog, islandSilhouette, PosterIsland } from './PosterArt';
 
 /**
@@ -57,7 +57,7 @@ function SunRays(props: { color: string; opacity: number }): React.ReactElement 
   return <path className={styles.deckRays} d={rays.join(' ')} fill={props.color} opacity={props.opacity} />;
 }
 
-function Bow(props: { sway: string }): React.ReactElement {
+function Bow(props: { sway: string; swiss?: boolean; lanterns?: boolean; bunting?: 'nationalday' | 'newyear' }): React.ReactElement {
   const planks: React.ReactElement[] = [];
   for (let i = -6; i <= 6; i++) planks.push(<path key={i} d={`M${500 + i * 70} 600 L500 482`} stroke="#7d5032" strokeWidth="2" />);
   return (
@@ -72,7 +72,17 @@ function Bow(props: { sway: string }): React.ReactElement {
       <path d="M490 478 L510 478 L502 376 L498 376 Z" fill="#6b4228" stroke={INK} strokeWidth="2" strokeLinejoin="round" />
       <path d="M493 440 h14 M495 410 h10" stroke={SAND} strokeWidth="3" />
       <path d="M500 376 V352" stroke={INK} strokeWidth="2.5" />
-      <path className={styles.deckPennant} d="M500 352 L530 359 L500 366 Z" fill="#c94f33" stroke={INK} strokeWidth="1.8" strokeLinejoin="round" />
+      {props.swiss ? (
+        // On the first of August the ship flies the Swiss flag.
+        <g className={styles.deckPennant}>
+          <rect x="500" y="344" width="24" height="24" fill="#e40028" stroke={INK} strokeWidth="1.8" />
+          <path d="M509.5 349 h5 v5 h5 v5 h-5 v5 h-5 v-5 h-5 v-5 h5 Z" fill="#fff" />
+        </g>
+      ) : (
+        <path className={styles.deckPennant} d="M500 352 L530 359 L500 366 Z" fill="#c94f33" stroke={INK} strokeWidth="1.8" strokeLinejoin="round" />
+      )}
+      {props.lanterns && <Lanterns />}
+      {props.bunting && <Bunting kind={props.bunting} />}
       <g fill="none" stroke={SAND} strokeWidth="6">
         <ellipse cx="190" cy="578" rx="48" ry="14" />
         <ellipse cx="190" cy="578" rx="30" ry="8" />
@@ -82,7 +92,8 @@ function Bow(props: { sway: string }): React.ReactElement {
 }
 
 const PHASE_LABEL = { dawn: 'skyDawn', day: 'skyDay', dusk: 'skyDusk', night: 'skyNight' } as const;
-const WEATHER_LABEL = { clear: 'skyClear', clouds: 'skyClouds', rainbow: 'skyRainbow', breeze: 'skyBreeze' } as const;
+const WEATHER_LABEL = { clear: 'skyClear', clouds: 'skyClouds', rainbow: 'skyRainbow', breeze: 'skyBreeze', snow: 'skySnow' } as const;
+const EVENT_LABEL = { nationalday: 'skyNationalDay', newyear: 'skyNewYear', advent: 'skyAdvent' } as const;
 
 /** Sun, half sun on the horizon or moon, for the little weather sign on the deck. */
 function MoodIcon(props: { phase: string }): React.ReactElement {
@@ -256,7 +267,7 @@ export function Deck(props: { islands: Island[] }): React.ReactElement {
   const night = mood.phase === 'night';
   const glintX = night ? MOON.x - current * 8 : 500;
   const shade = mood.dusk > 0 ? { filter: `brightness(${(1 - mood.dusk).toFixed(2)}) saturate(${(1 - mood.dusk / 2).toFixed(2)})` } : undefined;
-  const moodLabel = `${strings[PHASE_LABEL[mood.phase]]} · ${strings[WEATHER_LABEL[mood.weather]]}`;
+  const moodLabel = `${strings[PHASE_LABEL[mood.phase]]} · ${mood.event ? strings[EVENT_LABEL[mood.event]] : strings[WEATHER_LABEL[mood.weather]]}`;
   const signClass = turn ? `${styles.plaque} ${turn.dir < 0 ? styles.plaqueFromLeft : styles.plaqueFromRight}` : styles.plaque;
 
   return (
@@ -287,6 +298,7 @@ export function Deck(props: { islands: Island[] }): React.ReactElement {
             {!night && <SunRays color={mood.rays} opacity={mood.raysOpacity} />}
             {night && <Stars />}
             {night && !reduceMotion && <Meteors />}
+            {(mood.event === 'nationalday' || mood.event === 'newyear') && (night || mood.phase === 'dusk') && !reduceMotion && <Fireworks kind={mood.event} />}
             {mood.weather === 'rainbow' && <Rainbow />}
             {/* Sky and sun drift a little against the turn, which makes steering feel like a change of course. */}
             <g className={styles.deckParallax} style={{ transform: `translateX(${-current * 8}px)` }}>
@@ -310,7 +322,7 @@ export function Deck(props: { islands: Island[] }): React.ReactElement {
               <rect x="1214" y="84" width="80" height="26" rx="13" />
               <rect x="1520" y="66" width="140" height="22" rx="11" />
             </g>
-            {mood.weather === 'clouds' && <ExtraClouds color={mood.cloud} />}
+            {(mood.weather === 'clouds' || mood.weather === 'snow') && <ExtraClouds color={mood.cloud} />}
           </g>
           {!night && !reduceMotion && <Gulls count={mood.weather === 'breeze' ? 4 : 2} />}
           <rect x="-200" y={HORIZON} width="1400" height={600 - HORIZON + 200} fill={mood.sea} />
@@ -358,8 +370,14 @@ export function Deck(props: { islands: Island[] }): React.ReactElement {
         </g>
         {turn && sailing && !reduceMotion && <Spray key={`spray-${turn.n}`} dir={turn.dir} />}
         <g style={shade}>
-          <Bow sway={sway} />
+          <Bow
+            sway={sway}
+            swiss={mood.event === 'nationalday'}
+            lanterns={mood.event === 'advent'}
+            bunting={mood.event === 'nationalday' || mood.event === 'newyear' ? mood.event : undefined}
+          />
         </g>
+        {mood.weather === 'snow' && !reduceMotion && <Snow />}
       </svg>
       <div className={styles.deckGrain} />
       <p className={styles.deckMood} title={strings.deckMoodHint}>

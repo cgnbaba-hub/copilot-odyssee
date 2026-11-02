@@ -7848,3 +7848,85 @@ $grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width=
     animation: none !important;
   }
 }
+
+// Seasons and celebrations on the deck.
+.deckSnow {
+  animation: odSnow 10s linear infinite;
+}
+
+@keyframes odSnow {
+  from {
+    transform: translate(0, var(--od-from));
+  }
+  to {
+    transform: translate(var(--od-drift), var(--od-to));
+  }
+}
+
+.deckBurst {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: odBurst 3.6s ease-out infinite backwards;
+}
+
+@keyframes odBurst {
+  0% {
+    opacity: 0;
+    transform: scale(0.15);
+  }
+  6% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 1;
+    transform: scale(0.95);
+  }
+  58%,
+  100% {
+    opacity: 0;
+    transform: scale(1.1) translateY(12px);
+  }
+}
+
+.deckLantern {
+  animation: odLantern 2.2s ease-in-out infinite alternate;
+}
+
+@keyframes odLantern {
+  from {
+    opacity: 0.55;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .deckLantern {
+    animation: none !important;
+  }
+}
+
+.deckFlag {
+  transform-box: fill-box;
+  transform-origin: 50% 0;
+  animation: odFlag 1.4s ease-in-out infinite alternate;
+}
+
+@keyframes odFlag {
+  from {
+    transform: rotate(-7deg);
+  }
+  to {
+    transform: rotate(7deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .deckFlag,
+  .deckBurst {
+    animation: none !important;
+  }
+
+  .deckBurst {
+    opacity: 1;
+  }
+}

@@ -558,7 +558,11 @@ const de = {
   bottleNew: 'Neu',
   bottleTitle: 'Flaschenpost des Tages',
   bottleClose: 'Zurück ins Meer',
-  bottleTomorrow: 'Morgen treibt eine neue Flaschenpost an. Gespeicherte Prompts findest du im Spickzettel.'
+  bottleTomorrow: 'Morgen treibt eine neue Flaschenpost an. Gespeicherte Prompts findest du im Spickzettel.',
+  skySnow: 'Schneefall',
+  skyNationalDay: 'Bundesfeiertag',
+  skyNewYear: 'Neujahr',
+  skyAdvent: 'Adventszeit'
 };
 
 export type Strings = typeof de;
@@ -1111,7 +1115,11 @@ const en: Strings = {
   bottleNew: 'New',
   bottleTitle: 'Message in a bottle',
   bottleClose: 'Back to the sea',
-  bottleTomorrow: 'Tomorrow a new bottle washes up. Saved prompts are on your cheat sheet.'
+  bottleTomorrow: 'Tomorrow a new bottle washes up. Saved prompts are on your cheat sheet.',
+  skySnow: 'snowfall',
+  skyNationalDay: 'Swiss National Day',
+  skyNewYear: 'New Year',
+  skyAdvent: 'Advent'
 };
 
 const STRINGS: Record<Lang, Strings> = { de, en };

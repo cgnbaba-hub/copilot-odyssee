@@ -1,4 +1,4 @@
-import { dayNumber, dayPhase, skyMood, weatherOf } from './sky';
+import { dayNumber, dayPhase, skyEvent, skyMood, weatherOf } from './sky';
 
 const at = (h: number, m = 0, day = 2): Date => new Date(2026, 10, day, h, m);
 
@@ -23,5 +23,25 @@ describe('sky mood', () => {
 
   it('counts whole days', () => {
     expect(dayNumber(at(23, 0, 3)) - dayNumber(at(1, 0, 2))).toBe(1);
+  });
+
+  it('celebrates National Day, New Year and Advent', () => {
+    expect(skyEvent(new Date(2026, 7, 1))).toBe('nationalday');
+    expect(skyEvent(new Date(2026, 11, 31))).toBe('newyear');
+    expect(skyEvent(new Date(2027, 0, 1))).toBe('newyear');
+    expect(skyEvent(new Date(2026, 11, 6))).toBe('advent');
+    expect(skyEvent(new Date(2026, 10, 2))).toBeUndefined();
+  });
+
+  it('turns clouds into snow in winter only', () => {
+    const winter: string[] = [];
+    const autumn: string[] = [];
+    for (let d = 1; d <= 28; d++) {
+      winter.push(skyMood(new Date(2027, 0, d, 12)).weather);
+      autumn.push(skyMood(new Date(2026, 9, d, 12)).weather);
+    }
+    expect(winter).toContain('snow');
+    expect(winter).not.toContain('clouds');
+    expect(autumn).not.toContain('snow');
   });
 });
