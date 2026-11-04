@@ -1,17 +1,21 @@
 import * as React from 'react';
 
 import { findModule } from '../../core/content/bundle';
-import { PromptTemplate } from '../../core/content/types';
+import { MissionApp, PromptTemplate } from '../../core/content/types';
+import { APP_NAMES } from '../copilot';
 import { isPromptSaved, toggleSavedPrompt, updateProfile } from '../../core/progress/state';
 import { useGame } from '../GameContext';
 import { format } from '../i18n/strings';
-import { playerArea, templatesFor } from '../progressHelpers';
+import { licenseCovers, playerArea, templatesFor } from '../progressHelpers';
 import styles from '../styles.module.scss';
 import { Guide } from './Guide';
 import { PromptCard } from './PromptCard';
 import { SheetTabs } from './SheetTabs';
 
 const ALL_AREAS = '';
+const FIRST_TEMPLATES = 6;
+type AppFilter = 'all' | 'chat' | MissionApp;
+const APP_FILTERS: AppFilter[] = ['all', 'chat', 'outlook', 'teams', 'word', 'excel', 'powerpoint'];
 const FILTER_KEY = 'odyssee.sheetArea';
 
 /** The area last picked here; it counts only while the profile area is still the one it was picked under. */
@@ -51,6 +55,15 @@ export function CheatSheet(): React.ReactElement {
     saveFilter(profileArea, next);
   };
   const pickedArea = (content.areas || []).filter((a) => a.id === filter)[0];
+  // Templates by app, the first few at once; Premium ones folded away for Basic.
+  const [app, setApp] = React.useState<AppFilter>('all');
+  const [showAll, setShowAll] = React.useState(false);
+  const forArea = templatesFor(game, filter || undefined);
+  const apps = APP_FILTERS.filter((a) => a === 'all' || forArea.some((p) => (p.app || 'chat') === a));
+  const inApp = forArea.filter((p) => app === 'all' || (p.app || 'chat') === app);
+  const usable = inApp.filter((p) => licenseCovers(game, p.license));
+  const premiumOnly = inApp.filter((p) => !licenseCovers(game, p.license));
+  const shown = showAll ? usable : usable.slice(0, FIRST_TEMPLATES);
   const saved = (content.prompts || []).filter((p) => isPromptSaved(player, p.id));
   // All use case cards: those without a prompt yet lead to the workshop.
   const own = player.useCases.slice().reverse();
@@ -140,7 +153,34 @@ export function CheatSheet(): React.ReactElement {
           </button>
         </p>
       )}
-      <ul className={styles.promptList}>{templatesFor(game, filter || undefined).map(templateCard)}</ul>
+      <div className={styles.appChips} role="group" aria-label={strings.cheatsheetAppFilter}>
+        {apps.map((a) => (
+          <button
+            type="button"
+            key={a}
+            className={a === app ? `${styles.appChip} ${styles.appChipActive}` : styles.appChip}
+            aria-pressed={a === app}
+            onClick={() => {
+              setApp(a);
+              setShowAll(false);
+            }}
+          >
+            {a === 'all' ? strings.allApps : a === 'chat' ? strings.appChat : APP_NAMES[a]}
+          </button>
+        ))}
+      </div>
+      <ul className={styles.promptList}>{shown.map(templateCard)}</ul>
+      {usable.length > shown.length && (
+        <button type="button" className={`${styles.button} ${styles.showMore}`} onClick={() => setShowAll(true)}>
+          {format(strings.showAllTemplates, { count: usable.length })}
+        </button>
+      )}
+      {premiumOnly.length > 0 && (
+        <details className={styles.premiumFold}>
+          <summary>{format(strings.premiumTemplates, { count: premiumOnly.length })}</summary>
+          <ul className={styles.promptList}>{premiumOnly.map(templateCard)}</ul>
+        </details>
+      )}
     </section>
   );
 }

@@ -195,6 +195,7 @@ export function App(props: AppProps): React.ReactElement {
     feedback: props.feedback,
     pinboard: props.pinboard,
     userName: props.userName,
+    editor: !!props.admin,
     t,
     apply: <T extends Outcome>(change: (state: PlayerState) => T): T => {
       const before = playerRef.current as PlayerState;
@@ -312,7 +313,7 @@ export function App(props: AppProps): React.ReactElement {
       >
         {props.storage === 'demo' && <p className={styles.demoBanner}>{strings.demoBanner}</p>}
         {props.storage === 'browser' && <p className={styles.demoBanner}>{strings.browserStorageBanner}</p>}
-        <Header onOpenSettings={() => setSettingsOpen(true)} onOpenHelp={() => setHelpOpen(true)} />
+        <Header onOpenSettings={() => setSettingsOpen(true)} onOpenHelp={() => setHelpOpen(true)} saveStatus={saveStatus} />
         <main className={styles.main}>{main}</main>
         <ContactNote onFeedback={openFeedback} />
         {onboarded && <NavBar onOpenHelp={() => setHelpOpen(true)} onOpenSettings={() => setSettingsOpen(true)} admin={!!props.admin} active={navActive} />}
@@ -324,9 +325,10 @@ export function App(props: AppProps): React.ReactElement {
         {rankUp !== undefined && view.name !== 'module' && view.name !== 'exam' && view.name !== 'review' && !(view.name === 'passport' && view.stamp && !stampSeen) && (
           <RankUp index={rankUp} onClose={() => setRankUp(undefined)} />
         )}
-        {saveStatus && (
-          <p className={`${styles.saveStatus} ${saveStatus === 'error' ? styles.saveStatusError : ''}`} role="status">
-            {saveStatus === 'saved' ? `✓ ${strings.saveSaved}` : saveStatus === 'error' ? strings.saveError : strings.saveSaving}
+        {/* Saving shows as a small mark in the header; only a failure gets a message of its own. */}
+        {saveStatus === 'error' && (
+          <p className={`${styles.saveStatus} ${styles.saveStatusError}`} role="status">
+            {strings.saveError}
           </p>
         )}
         {undoState && (

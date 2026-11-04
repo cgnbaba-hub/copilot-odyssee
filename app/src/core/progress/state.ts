@@ -23,6 +23,8 @@ export interface Profile {
   textSize?: 'normal' | 'large';
   /** Fewer animations, in addition to the operating system setting. */
   motion?: 'full' | 'reduced';
+  /** Kinds of step whose how-to hint the companion has already given. */
+  hintsSeen?: string[];
 }
 
 export interface BlockProgress {

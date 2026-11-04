@@ -231,6 +231,8 @@ export function Pinboard(props: { draft?: { title: string; prompt: string } }): 
   const [load, setLoad] = React.useState<Load>({ status: 'loading' });
   const [reload, setReload] = React.useState(0);
   const [order, setOrder] = React.useState<PinOrder>('popular');
+  // The editorial team reviews waiting posts on their own tab, so the board itself stays in front.
+  const [tab, setTab] = React.useState<'board' | 'review'>('board');
   const [filter, setFilter] = React.useState(ALL_AREAS);
   const [formOpen, setFormOpen] = React.useState(!!props.draft);
   const [actionFailed, setActionFailed] = React.useState(false);
@@ -302,9 +304,20 @@ export function Pinboard(props: { draft?: { title: string; prompt: string } }): 
       posts.filter((p) => waiting.indexOf(p) < 0 && (p.status === 'approved' || p.mine) && (!filter || !p.area || p.area === filter)),
       order
     );
+    const reviewing = tab === 'review' && waiting.length > 0;
     body = (
       <>
         {waiting.length > 0 && (
+          <div className={styles.viewSwitch} role="group" aria-label={strings.pinboardTitle}>
+            <button type="button" aria-pressed={!reviewing} className={!reviewing ? styles.viewSwitchActive : undefined} onClick={() => setTab('board')}>
+              {strings.pinboardTabBoard}
+            </button>
+            <button type="button" aria-pressed={reviewing} className={reviewing ? styles.viewSwitchActive : undefined} onClick={() => setTab('review')}>
+              {format(strings.pinboardTabReview, { count: waiting.length })}
+            </button>
+          </div>
+        )}
+        {reviewing && (
           <section className={styles.pinModerate} aria-labelledby="od-pin-moderate">
             <h2 className={styles.sectionTitle} id="od-pin-moderate">
               {format(strings.pinboardModerate, { count: waiting.length })}
@@ -317,37 +330,41 @@ export function Pinboard(props: { draft?: { title: string; prompt: string } }): 
             </ul>
           </section>
         )}
-        <div className={styles.pinToolbar}>
-          <div className={styles.viewSwitch} role="group" aria-label={strings.pinboardSort}>
-            <button type="button" aria-pressed={order === 'popular'} className={order === 'popular' ? styles.viewSwitchActive : undefined} onClick={() => setOrder('popular')}>
-              {strings.pinboardSortPopular}
-            </button>
-            <button type="button" aria-pressed={order === 'new'} className={order === 'new' ? styles.viewSwitchActive : undefined} onClick={() => setOrder('new')}>
-              {strings.pinboardSortNew}
-            </button>
-          </div>
-          {(content.areas || []).length > 0 && (
-            <label className={styles.filterLabel}>
-              {strings.pinboardFilter}
-              <select className={styles.input} value={filter} onChange={(e) => setFilter(e.target.value)}>
-                <option value={ALL_AREAS}>{strings.allAreas}</option>
-                {(content.areas || []).map((a) => (
-                  <option key={a.id} value={a.id}>
-                    {t(a.name)}
-                  </option>
+        {!reviewing && (
+          <>
+            <div className={styles.pinToolbar}>
+              <div className={styles.viewSwitch} role="group" aria-label={strings.pinboardSort}>
+                <button type="button" aria-pressed={order === 'popular'} className={order === 'popular' ? styles.viewSwitchActive : undefined} onClick={() => setOrder('popular')}>
+                  {strings.pinboardSortPopular}
+                </button>
+                <button type="button" aria-pressed={order === 'new'} className={order === 'new' ? styles.viewSwitchActive : undefined} onClick={() => setOrder('new')}>
+                  {strings.pinboardSortNew}
+                </button>
+              </div>
+              {(content.areas || []).length > 0 && (
+                <label className={styles.filterLabel}>
+                  {strings.pinboardFilter}
+                  <select className={styles.input} value={filter} onChange={(e) => setFilter(e.target.value)}>
+                    <option value={ALL_AREAS}>{strings.allAreas}</option>
+                    {(content.areas || []).map((a) => (
+                      <option key={a.id} value={a.id}>
+                        {t(a.name)}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+              )}
+            </div>
+            {visible.length > 0 ? (
+              <ul className={styles.pinGrid}>
+                {visible.map((p) => (
+                  <PinCard key={p.id} post={p} onLike={() => like(p)} />
                 ))}
-              </select>
-            </label>
-          )}
-        </div>
-        {visible.length > 0 ? (
-          <ul className={styles.pinGrid}>
-            {visible.map((p) => (
-              <PinCard key={p.id} post={p} onLike={() => like(p)} />
-            ))}
-          </ul>
-        ) : (
-          <p className={styles.pinEmpty}>{filter ? strings.pinboardEmptyFilter : strings.pinboardEmpty}</p>
+              </ul>
+            ) : (
+              <p className={styles.pinEmpty}>{filter ? strings.pinboardEmptyFilter : strings.pinboardEmpty}</p>
+            )}
+          </>
         )}
       </>
     );

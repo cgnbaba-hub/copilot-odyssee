@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { findIsland, findModule, modulesOfIsland } from '../../core/content/bundle';
 import { Block } from '../../core/content/types';
-import { finishModule, getModule, moduleStatus, nextBlockIndex, startModule } from '../../core/progress/state';
+import { finishModule, getModule, moduleStatus, nextBlockIndex, startModule, updateProfile } from '../../core/progress/state';
 import { BriefingView } from '../blocks/BriefingView';
 import { MissionView } from '../blocks/MissionView';
 import { BlockKindIcon, blockKindNames } from '../blockKinds';
@@ -51,6 +51,17 @@ const KIND_CLASS: Record<Block['type'], string> = {
   mission: styles.kindMission,
   usecase: styles.kindUseCase
 };
+
+/**
+ * The kind of how-to hint a step gets, or undefined when the hint says
+ * something particular to this step and is always shown (several right
+ * answers, an app to open, a task outside Copilot).
+ */
+function routineHint(block: Block): string | undefined {
+  if (block.type === 'quiz' && block.options.filter((o) => o.correct).length > 1) return undefined;
+  if (block.type === 'mission' && (block.app || block.copilot === false)) return undefined;
+  return block.type;
+}
 
 function hintFor(strings: Strings, block: Block): string {
   switch (block.type) {
@@ -108,6 +119,18 @@ export function ModulePlayer(props: { moduleId: string }): React.ReactElement {
     const timer = window.setTimeout(() => navigate({ name: 'passport', stamp: module.island }), STAMP_DELAY_MS);
     return () => window.clearTimeout(timer);
   }, [islandStamped]);
+
+  // How-to hints come once per kind of step; after that the companion only speaks when it has news.
+  const hintBlock = module && index !== undefined && index < module.blocks.length ? module.blocks[index] : undefined;
+  const hintKind = hintBlock ? routineHint(hintBlock) : undefined;
+  const [hintShownFor, setHintShownFor] = React.useState<string | undefined>(undefined);
+  const seen = player.profile.hintsSeen || [];
+  const showHint = !!hintBlock && (hintKind === undefined || seen.indexOf(hintKind) < 0 || hintShownFor === hintBlock.id);
+  React.useEffect(() => {
+    if (!hintBlock || hintKind === undefined || seen.indexOf(hintKind) >= 0) return;
+    setHintShownFor(hintBlock.id);
+    update((s) => updateProfile(s, { hintsSeen: (s.profile.hintsSeen || []).concat([hintKind]) }));
+  }, [hintBlock ? hintBlock.id : '']);
 
   if (module && locked) {
     return (
@@ -236,7 +259,7 @@ export function ModulePlayer(props: { moduleId: string }): React.ReactElement {
 
       {doneView || (
         <>
-          <Guide text={hintFor(strings, module.blocks[index])} compact />
+          {showHint && <Guide text={hintFor(strings, module.blocks[index])} compact />}
           {/* Each step comes in like a new page of the logbook. */}
           <div className={styles.lessonCard} key={module.blocks[index].id}>
             <p className={`${styles.blockKind} ${KIND_CLASS[module.blocks[index].type]}`}>

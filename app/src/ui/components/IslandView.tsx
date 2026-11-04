@@ -163,7 +163,7 @@ export function IslandView(props: { islandId: string }): React.ReactElement {
                       </ul>
                     </div>
                     <p className={styles.ticketEyebrow}>
-                      {format(strings.stageNumber, { n: index + 1 })} {m.status === 'draft' && <span className={styles.chipDraft}>{strings.draft}</span>}
+                      {format(strings.stageNumber, { n: index + 1 })} {m.status === 'draft' && game.editor && <span className={styles.chipDraft}>{strings.draft}</span>}
                       {m.core && (
                         <span className={styles.chipCompass}>
                           ✧ {strings.compassBadge} <TermTip term="compass" />

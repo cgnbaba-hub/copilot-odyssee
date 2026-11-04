@@ -15,6 +15,8 @@ export function ChallengeCard(): React.ReactElement {
   const { content, player, strings, theme, t, apply } = useGame();
   const [copyState, setCopyState] = React.useState<CopyState>('idle');
   const copyRef = React.useRef<HTMLParagraphElement>(null);
+  // Folded to one line by default, so the start screen stays calm; opens on a click.
+  const [open, setOpen] = React.useState(false);
   const now = new Date();
   const challenge = currentChallenge(content.challenges, player.profile.license, now);
   if (!challenge) return <></>;
@@ -31,47 +33,62 @@ export function ChallengeCard(): React.ReactElement {
         <span className={styles.challengeBadge}>{strings.challengeTitle}</span>
         <span className={styles.challengeDays}>{days === 1 ? strings.challengeLastDay : format(strings.challengeDaysLeft, { days })}</span>
       </div>
-      <h2 id="od-challenge-title" className={styles.challengeName}>
-        {t(challenge.title)}
-      </h2>
-      <p className={styles.challengeTask}>{t(challenge.task)}</p>
-      <p className={styles.challengeWhere}>{where}</p>
+      <div className={styles.challengeLine}>
+        <h2 id="od-challenge-title" className={styles.challengeName}>
+          {done && <span aria-hidden="true">✓ </span>}
+          {t(challenge.title)}
+        </h2>
+        {!done && (
+          <span className={styles.challengeReward}>
+            +{CHALLENGE_XP} {t(theme.terms.xp)}
+          </span>
+        )}
+        <button type="button" className={styles.challengeToggle} aria-expanded={open} aria-controls="od-challenge-body" onClick={() => setOpen(!open)}>
+          {open ? strings.challengeFold : strings.challengeOpen}
+        </button>
+      </div>
+      {open && (
+        <div id="od-challenge-body">
+          <p className={styles.challengeTask}>{t(challenge.task)}</p>
+          <p className={styles.challengeWhere}>{where}</p>
 
-      {done ? (
-        <div className={styles.challengeStamp} role="status">
-          <span aria-hidden="true">✓</span>
-          <div>
-            <strong>{strings.challengeDone}</strong>
-            <p>{days === 1 ? strings.challengeNextTomorrow : format(strings.challengeNext, { days })}</p>
-          </div>
-        </div>
-      ) : (
-        <>
-          {text && (
-            <div className={styles.challengeCopy}>
-              <p className={styles.copyText} ref={copyRef}>
-                {text}
-              </p>
-              <button
-                type="button"
-                className={copyState === 'copied' ? styles.buttonSuccess : styles.button}
-                onClick={() => copyText(text, copyRef.current || undefined, setCopyState)}
-              >
-                {copyState === 'copied' ? `✓ ${strings.missionCopied}` : `⧉ ${strings.missionCopy}`}
-              </button>
+          {done ? (
+            <div className={styles.challengeStamp} role="status">
+              <span aria-hidden="true">✓</span>
+              <div>
+                <strong>{strings.challengeDone}</strong>
+                <p>{days === 1 ? strings.challengeNextTomorrow : format(strings.challengeNext, { days })}</p>
+              </div>
             </div>
+          ) : (
+            <>
+              {text && (
+                <div className={styles.challengeCopy}>
+                  <p className={styles.copyText} ref={copyRef}>
+                    {text}
+                  </p>
+                  <button
+                    type="button"
+                    className={copyState === 'copied' ? styles.buttonSuccess : styles.button}
+                    onClick={() => copyText(text, copyRef.current || undefined, setCopyState)}
+                  >
+                    {copyState === 'copied' ? `✓ ${strings.missionCopied}` : `⧉ ${strings.missionCopy}`}
+                  </button>
+                </div>
+              )}
+              <div className={styles.challengeActions}>
+                <button type="button" className={styles.buttonPrimary} onClick={() => apply((s) => completeChallenge(s, week, challenge.id))}>
+                  {format(strings.challengeComplete, { xp: CHALLENGE_XP, xpName: t(theme.terms.xp) })}
+                </button>
+                {!challenge.app && (
+                  <a className={styles.edgeFallback} href={COPILOT_CHAT_URL} target="_blank" rel="noopener noreferrer">
+                    {strings.missionOpenCopilotTab} ↗
+                  </a>
+                )}
+              </div>
+            </>
           )}
-          <div className={styles.challengeActions}>
-            <button type="button" className={styles.buttonPrimary} onClick={() => apply((s) => completeChallenge(s, week, challenge.id))}>
-              {format(strings.challengeComplete, { xp: CHALLENGE_XP, xpName: t(theme.terms.xp) })}
-            </button>
-            {!challenge.app && (
-              <a className={styles.edgeFallback} href={COPILOT_CHAT_URL} target="_blank" rel="noopener noreferrer">
-                {strings.missionOpenCopilotTab} ↗
-              </a>
-            )}
-          </div>
-        </>
+        </div>
       )}
     </section>
   );

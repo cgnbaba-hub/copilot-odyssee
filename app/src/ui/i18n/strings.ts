@@ -607,7 +607,16 @@ const de = {
   islandMinutes: 'ca. {minutes} Min.',
   compassBadge: 'Kompass-Kurs',
   compassProgress: 'Kompass-Kurs {done} von {total}',
-  compassDone: 'Kompass-Kurs geschafft'
+  compassDone: 'Kompass-Kurs geschafft',
+  challengeOpen: 'Ansehen',
+  challengeFold: 'Zuklappen',
+  cheatsheetAppFilter: 'Vorlagen nach App',
+  allApps: 'Alle',
+  appChat: 'Copilot Chat',
+  showAllTemplates: 'Alle {count} Vorlagen zeigen',
+  premiumTemplates: 'Mit Premium ({count})',
+  pinboardTabBoard: 'Pinnwand',
+  pinboardTabReview: 'Zur Freigabe ({count})'
 };
 
 export type Strings = typeof de;
@@ -1209,7 +1218,16 @@ const en: Strings = {
   islandMinutes: 'about {minutes} min',
   compassBadge: 'Compass course',
   compassProgress: 'Compass course {done} of {total}',
-  compassDone: 'Compass course done'
+  compassDone: 'Compass course done',
+  challengeOpen: 'Show',
+  challengeFold: 'Fold',
+  cheatsheetAppFilter: 'Templates by app',
+  allApps: 'All',
+  appChat: 'Copilot Chat',
+  showAllTemplates: 'Show all {count} templates',
+  premiumTemplates: 'With Premium ({count})',
+  pinboardTabBoard: 'Board',
+  pinboardTabReview: 'To review ({count})'
 };
 
 const STRINGS: Record<Lang, Strings> = { de, en };
