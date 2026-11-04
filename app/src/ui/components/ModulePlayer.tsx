@@ -252,8 +252,9 @@ export function ModulePlayer(props: { moduleId: string }): React.ReactElement {
                 )}
               </span>
             </p>
-            <BlockView key={module.blocks[index].id} moduleId={module.id} block={module.blocks[index]} onDone={() => setIndex(index + 1)} />
+            {/* Up here, next to the date of the facts, the report button is never covered by the sticky action bar below. */}
             <FactCheck key={`check-${module.blocks[index].id}`} stage={t(module.title)} step={current} stepId={`${module.id}/${module.blocks[index].id}`} asOf={asOf} />
+            <BlockView key={module.blocks[index].id} moduleId={module.id} block={module.blocks[index]} onDone={() => setIndex(index + 1)} />
           </div>
         </>
       )}

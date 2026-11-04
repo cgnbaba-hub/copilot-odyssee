@@ -12,6 +12,15 @@ export const APP_NAMES: Record<MissionApp, string> = {
   powerpoint: 'PowerPoint'
 };
 
+/** The web versions of the apps, for prompts that are used there and not in Copilot Chat. */
+export const APP_URLS: Record<MissionApp, string> = {
+  outlook: 'https://outlook.office.com/mail/',
+  teams: 'https://teams.microsoft.com/',
+  word: 'https://www.office.com/launch/word',
+  excel: 'https://www.office.com/launch/excel',
+  powerpoint: 'https://www.office.com/launch/powerpoint'
+};
+
 export type CopyState = 'idle' | 'copied' | 'failed';
 
 /** How long «Kopiert» stays on a copy button. */
