@@ -4,7 +4,7 @@ import { Island } from '../../core/content/types';
 import { useGame } from '../GameContext';
 import { GuidePortrait, guideById } from '../guides';
 import { format } from '../i18n/strings';
-import { islandProgress, isPreview, nextStage } from '../progressHelpers';
+import { islandMinutes, islandProgress, isPreview, nextStage } from '../progressHelpers';
 import { skyMood } from '../sky';
 import styles from '../styles.module.scss';
 import { Bottle } from './Bottle';
@@ -255,7 +255,7 @@ export function Deck(props: { islands: Island[] }): React.ReactElement {
   else if (progress.total === 0) status = strings.deckSoon;
   else if (done) status = strings.statusCompleted;
   else if (progress.completed > 0) status = format(strings.deckStagesDone, { done: progress.completed, total: progress.total });
-  else status = format(strings.deckStages, { total: progress.total });
+  else status = `${format(strings.deckStages, { total: progress.total })} · ${format(strings.islandMinutes, { minutes: islandMinutes(game, island.id) })}`;
 
   const left = islands[current - 1];
   const right = islands[current + 1];

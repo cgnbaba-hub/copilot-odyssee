@@ -5,6 +5,7 @@ import { formatLongDate } from '../format';
 import { useGame } from '../GameContext';
 import { format } from '../i18n/strings';
 import styles from '../styles.module.scss';
+import { Legend } from './Legend';
 import { Drawer } from './Drawer';
 import { Guide } from './Guide';
 import { LicenseMockup } from './LicenseMockup';
@@ -89,6 +90,10 @@ export function HelpPanel(props: { onClose: () => void; onFeedback?: () => void;
   return (
     <Drawer id="od-help-title" title={strings.help} onClose={props.onClose}>
       <Guide text={strings.helpGuide} compact />
+      <details className={styles.legendBox}>
+        <summary>{strings.legendTitle}</summary>
+        <Legend />
+      </details>
       {topics.length === 0 ? (
         <p className={styles.muted}>{strings.helpEmpty}</p>
       ) : (

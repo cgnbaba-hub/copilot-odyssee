@@ -53,6 +53,8 @@ export interface AppProps {
   admin?: AdminSource;
   /** The harbour board with shared prompts; hidden without it. */
   pinboard?: PinboardSource;
+  /** Display name of the signed-in person; only shown, never stored. */
+  userName?: string;
   /** Days until a missed question comes back; the demo uses shorter ones so it can be tried at once. */
   reviewIntervals?: number[];
 }
@@ -192,6 +194,7 @@ export function App(props: AppProps): React.ReactElement {
     reviewIntervals: props.reviewIntervals || REVIEW_INTERVALS,
     feedback: props.feedback,
     pinboard: props.pinboard,
+    userName: props.userName,
     t,
     apply: <T extends Outcome>(change: (state: PlayerState) => T): T => {
       const before = playerRef.current as PlayerState;

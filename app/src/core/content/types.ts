@@ -111,6 +111,8 @@ export interface LearningModule {
   title: Localized;
   summary: Localized;
   estimatedMinutes: number;
+  /** Part of the compass course: the most important stages, suggested first. */
+  core?: boolean;
   notes?: string;
   blocks: Block[];
 }

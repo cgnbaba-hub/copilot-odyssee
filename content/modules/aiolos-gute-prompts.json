@@ -15,6 +15,7 @@
     "en": "Goal, context, source and expectations get you better results from Copilot Chat."
   },
   "estimatedMinutes": 12,
+  "core": true,
   "notes": "Aus dem Prototyp übernommen: Fragen 3 und 4, Prompt-Challenges 1 und 2 (jetzt für Copilot Chat statt Word/Outlook, damit sie mit der Basic-Lizenz funktionieren). Die vier Zutaten folgen Microsofts Prompt-Empfehlung (Goal, Context, Source, Expectations). Freigabe durch das Copilot-Team steht aus.",
   "blocks": [
     {

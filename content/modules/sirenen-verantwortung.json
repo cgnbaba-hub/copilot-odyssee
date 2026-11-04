@@ -17,6 +17,7 @@
     "en": "What the data protection shield means, what belongs in a prompt and what doesn't, and why you stay responsible."
   },
   "estimatedMinutes": 10,
+  "core": true,
   "notes": "Neuer Inhalt. Angaben zum Unternehmensdatenschutz (Enterprise Data Protection) gemäss öffentlicher Microsoft-Dokumentation, Stand Oktober 2026. Bitte mit der KI-Richtlinie des Unternehmens abgleichen und ggf. Link zur Richtlinie als Briefing-Link ergänzen.",
   "blocks": [
     {

@@ -4,8 +4,9 @@ import { moduleLicense, sortedIslands } from '../../core/content/bundle';
 import { Island } from '../../core/content/types';
 import { format } from '../i18n/strings';
 import { useGame } from '../GameContext';
-import { islandProgress, isPreview, nextStage, pendingExam } from '../progressHelpers';
+import { compassProgress, islandProgress, isPreview, nextStage, pendingExam } from '../progressHelpers';
 import styles from '../styles.module.scss';
+import { TermTip } from './Legend';
 import { CheckIcon, IslandArt, LockIcon } from './Art';
 import { ChallengeCard } from './ChallengeCard';
 import { Deck } from './Deck';
@@ -74,6 +75,7 @@ function NextTicket(): React.ReactElement {
   const game = useGame();
   const { strings, t, navigate } = game;
   const stage = nextStage(game);
+  const compass = compassProgress(game);
   // An island whose stages are all done waits for its exam; that comes before the next stage further along the route.
   const exam = pendingExam(game);
   if (exam && (!stage || stage.island.order >= exam.order)) {
@@ -113,7 +115,14 @@ function NextTicket(): React.ReactElement {
   return (
     <article className={styles.ticket} data-tour="next">
       <div className={styles.ticketMain}>
-        <p className={styles.ticketEyebrow}>{stage.resume ? strings.resumeStageTitle : strings.nextStageTitle}</p>
+        <p className={styles.ticketEyebrow}>
+          {stage.resume ? strings.resumeStageTitle : strings.nextStageTitle}
+          {stage.module.core && compass.total > 0 && (
+            <span className={styles.chipCompass}>
+              ✧ {format(strings.compassProgress, { done: compass.done + 1, total: compass.total })} <TermTip term="compass" />
+            </span>
+          )}
+        </p>
         <h2 className={styles.ticketTitle}>{t(stage.module.title)}</h2>
         <p className={styles.ticketMeta}>
           <span>{t(stage.island.name)}</span>

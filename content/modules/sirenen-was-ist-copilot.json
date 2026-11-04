@@ -15,6 +15,7 @@
     "en": "Know the two tiers of Copilot and judge AI answers correctly."
   },
   "estimatedMinutes": 6,
+  "core": true,
   "notes": "Aus dem Prototyp übernommen: Frage 1. Die Prototyp-Frage zum Sprachmodell («GPT-4») ist entfallen, weil sie veraltet ist. Stufen-Bezeichnungen «Copilot Chat (Basic)» / «M365 Copilot (Premium)» gemäss den Produkt-Labels seit April 2026 (Message Center MC1253858/MC1253863). Fachlich geprüft am 28.10.2026 anhand öffentlicher Quellen, Freigabe durch das Copilot-Team steht aus.",
   "blocks": [
     {

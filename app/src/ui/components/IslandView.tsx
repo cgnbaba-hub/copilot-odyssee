@@ -6,8 +6,9 @@ import { moduleStatus } from '../../core/progress/state';
 import { BlockKindIcon, blockKindNames } from '../blockKinds';
 import { format } from '../i18n/strings';
 import { useGame } from '../GameContext';
-import { islandProgress, isModulePreview, isPreview } from '../progressHelpers';
+import { islandMinutes, islandProgress, isModulePreview, isPreview } from '../progressHelpers';
 import styles from '../styles.module.scss';
+import { TermTip } from './Legend';
 import { copyText, CopyState } from '../copilot';
 import { linkTo } from '../links';
 import { skyMood } from '../sky';
@@ -33,7 +34,9 @@ export function IslandView(props: { islandId: string }): React.ReactElement {
   const done = progress.total > 0 && progress.completed === progress.total;
   const number = sortedIslands(content).indexOf(island) + 1;
   // The first open stage gets the attention; done ones carry a stamp.
-  const firstOpen = modules.filter((m) => moduleStatus(player, m) !== 'completed')[0];
+  // A stage of the compass course goes first, the same one the start screen suggests.
+  const open = modules.filter((m) => moduleStatus(player, m) !== 'completed' && !isModulePreview(game, m));
+  const firstOpen = open.filter((m) => moduleStatus(player, m) === 'inProgress')[0] || open.filter((m) => !!m.core)[0] || open[0];
   // Touch screens cannot hover, so there the preview of a ticket opens with a tap.
   const [peek, setPeek] = React.useState<string | undefined>(undefined);
   const [linkState, setLinkState] = React.useState<CopyState>('idle');
@@ -110,7 +113,7 @@ export function IslandView(props: { islandId: string }): React.ReactElement {
                     <i key={m.id} className={moduleStatus(player, m) === 'completed' ? styles.dotDone : moduleStatus(player, m) === 'inProgress' ? styles.dotHalf : undefined} />
                   ))}
                 </span>
-                {format(strings.deckStagesDone, { done: progress.completed, total: progress.total })}
+                {format(strings.deckStagesDone, { done: progress.completed, total: progress.total })} · {format(strings.islandMinutes, { minutes: islandMinutes(game, island.id) })}
               </span>
             )}
           </div>
@@ -161,6 +164,11 @@ export function IslandView(props: { islandId: string }): React.ReactElement {
                     </div>
                     <p className={styles.ticketEyebrow}>
                       {format(strings.stageNumber, { n: index + 1 })} {m.status === 'draft' && <span className={styles.chipDraft}>{strings.draft}</span>}
+                      {m.core && (
+                        <span className={styles.chipCompass}>
+                          ✧ {strings.compassBadge} <TermTip term="compass" />
+                        </span>
+                      )}
                     </p>
                     <h3 className={styles.ticketTitle}>{t(m.title)}</h3>
                     <p className={styles.ticketSummary}>{t(m.summary)}</p>
@@ -211,7 +219,9 @@ export function IslandView(props: { islandId: string }): React.ReactElement {
             {exam && (
               <li className={`${styles.ticket} ${styles.ticketExam} ${examIsPassed ? styles.ticketDone : examIsOpen && !preview ? styles.ticketNext : ''}`}>
                 <div className={styles.ticketMain}>
-                  <p className={styles.ticketEyebrow}>🏁 {strings.examTicketTitle}</p>
+                  <p className={styles.ticketEyebrow}>
+                    🏁 {strings.examTicketTitle} <TermTip term="exam" />
+                  </p>
                   <h3 className={styles.ticketTitle}>{format(strings.examTitle, { island: t(island.name) })}</h3>
                   <p className={styles.ticketSummary}>{strings.examTicketSummary}</p>
                   <p className={styles.ticketMeta}>
