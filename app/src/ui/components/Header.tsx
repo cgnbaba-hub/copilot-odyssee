@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import { SUPPORTED_LANGS } from '../../core/i18n/locale';
+import { SaveStatus } from '../../core/progress/debounced';
 import { updateProfile } from '../../core/progress/state';
 import { formatNumber } from '../format';
 import { format } from '../i18n/strings';
@@ -10,7 +11,7 @@ import { TermTip } from './Legend';
 import { rankProgress } from '../theme/types';
 import { CompassRose, RankEmblem } from './Art';
 
-export function Header(props: { onOpenSettings: () => void; onOpenHelp: () => void }): React.ReactElement {
+export function Header(props: { onOpenSettings: () => void; onOpenHelp: () => void; saveStatus?: SaveStatus }): React.ReactElement {
   const { player, lang, strings, theme, t, update, navigate } = useGame();
   const rank = rankProgress(theme, player.xp);
   const onboarded = player.profile.onboarded;
@@ -63,6 +64,16 @@ export function Header(props: { onOpenSettings: () => void; onOpenHelp: () => vo
             <span className={styles.versionPillLabel}>{strings.yourCopilot}</span>
             <span>{versionShort}</span>
           </button>
+          {props.saveStatus && props.saveStatus !== 'error' && (
+            <span
+              className={props.saveStatus === 'saved' ? styles.saveMark : `${styles.saveMark} ${styles.saveMarkBusy}`}
+              role="status"
+              title={props.saveStatus === 'saved' ? strings.saveSaved : strings.saveSaving}
+              aria-label={props.saveStatus === 'saved' ? strings.saveSaved : strings.saveSaving}
+            >
+              {props.saveStatus === 'saved' ? '✓' : ''}
+            </span>
+          )}
         </div>
       )}
 

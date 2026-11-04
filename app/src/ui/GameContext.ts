@@ -33,6 +33,8 @@ export interface Game {
   feedback?: FeedbackSender;
   /** Shared prompts; missing while the board's lists are not set up. */
   pinboard?: PinboardSource;
+  /** True for the editorial team (those who see the evaluation); they see drafts marked as such. */
+  editor?: boolean;
   /** Display name of the signed-in person, from SharePoint; missing in the demo. */
   userName?: string;
   /** Text of the current language. */

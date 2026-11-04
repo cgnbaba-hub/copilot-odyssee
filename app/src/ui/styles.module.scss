@@ -8554,3 +8554,170 @@ $grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width=
   font-size: 13.5px;
   white-space: normal;
 }
+
+// ---------------------------------------------------------------------------
+// UX round: calmer start screen, shorter cheat sheet, compact stages on phones
+// ---------------------------------------------------------------------------
+
+// The challenge of the week as one line that opens on a click.
+.challengeLine {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+
+  .challengeName {
+    flex: 1 1 auto;
+    margin: 0 !important;
+    font-size: 24px !important;
+  }
+}
+
+.challengeReward {
+  padding: 3px 10px;
+  background: #fff3c4;
+  border: 1.5px solid $sun;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.challengeToggle {
+  padding: 6px 16px;
+  background: $paper-hi;
+  border: 2px solid $ink;
+  border-radius: 999px;
+  box-shadow: 2px 2px 0 $ink;
+  color: $ink;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+// Cheat sheet: templates by app.
+.appChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 0 14px;
+}
+
+.appChip {
+  padding: 5px 13px;
+  background: $paper-hi;
+  border: 1.5px solid rgba(26, 41, 64, 0.35);
+  border-radius: 999px;
+  color: $ink;
+  cursor: pointer;
+  font-size: 13.5px;
+  font-weight: 700;
+
+  &:hover {
+    border-color: $ink;
+  }
+}
+
+.appChipActive {
+  background: $ink;
+  border-color: $ink;
+  color: $paper-hi;
+}
+
+.showMore {
+  display: block;
+  margin: 14px auto 0;
+}
+
+.premiumFold {
+  margin-top: 22px;
+  padding: 12px 16px;
+  background: #f1edf9;
+  border: 2px dashed rgba(91, 75, 168, 0.45);
+  border-radius: 14px;
+
+  summary {
+    color: #5b4ba8;
+    cursor: pointer;
+    font-weight: 800;
+  }
+
+  .promptList {
+    margin-top: 14px;
+  }
+}
+
+// Saving: a small mark in the header instead of a floating pill.
+.saveMark {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  color: #8fd3a8;
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.saveMarkBusy {
+  border: 2px solid rgba(251, 246, 232, 0.35);
+  border-top-color: $paper-hi;
+  animation: odSpin 0.9s linear infinite;
+}
+
+@keyframes odSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// On phones a stage starts with its content: the trail shrinks to a row of stations.
+@media (max-width: $narrow) {
+  .lessonArt {
+    display: none;
+  }
+
+  .lessonTitle {
+    font-size: 22px;
+  }
+
+  .trail {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+    margin: 10px 0 6px;
+  }
+
+  .trailArt,
+  .trailGuide,
+  .trailLabel {
+    display: none !important;
+  }
+
+  .trailStop {
+    position: static;
+    transform: none;
+
+    .stopIcon {
+      width: 30px;
+      height: 30px;
+
+      svg {
+        width: 15px;
+        height: 15px;
+      }
+    }
+  }
+
+  // Miles toasts stay at the top, where they cover no buttons, but small.
+  .toasts .toast {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+}
+
+// Board / review tabs for the editorial team, a little apart from the sort switch.
+.pinBoard > .viewSwitch {
+  margin-bottom: 14px;
+}
