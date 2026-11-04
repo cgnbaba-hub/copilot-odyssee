@@ -6,6 +6,7 @@ import { formatNumber } from '../format';
 import { format } from '../i18n/strings';
 import { useGame } from '../GameContext';
 import styles from '../styles.module.scss';
+import { TermTip } from './Legend';
 import { rankProgress } from '../theme/types';
 import { CompassRose, RankEmblem } from './Art';
 
@@ -36,7 +37,10 @@ export function Header(props: { onOpenSettings: () => void; onOpenHelp: () => vo
           <RankEmblem index={rank.index} className={styles.statusEmblem} />
           <div className={styles.statusText}>
             <div className={styles.statusLine}>
-              <strong>{t(rank.rank)}</strong>
+              <span className={styles.statusRankRow}>
+                <strong>{t(rank.rank)}</strong>
+                <TermTip term="rank" light />
+              </span>
               <span>
                 {formatNumber(lang, player.xp)} {t(theme.terms.xp)}
                 {rank.next && <span className={styles.statusNext}> · {format(strings.statusNext, { xp: formatNumber(lang, rank.xpToNext), rank: t(rank.next) })}</span>}

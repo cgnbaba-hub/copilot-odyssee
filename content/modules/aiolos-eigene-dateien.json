@@ -17,6 +17,7 @@
     "en": "Upload documents, have them summarised and reuse the results safely."
   },
   "estimatedMinutes": 12,
+  "core": true,
   "notes": "Datei-Upload ist in Copilot Chat (Basic) verfügbar, mit «Standard-Zugang» je nach Auslastung (Stand Oktober 2026). Konkrete Grössenlimits bewusst nicht genannt, da sie sich ändern.",
   "blocks": [
     {

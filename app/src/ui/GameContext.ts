@@ -33,6 +33,8 @@ export interface Game {
   feedback?: FeedbackSender;
   /** Shared prompts; missing while the board's lists are not set up. */
   pinboard?: PinboardSource;
+  /** Display name of the signed-in person, from SharePoint; missing in the demo. */
+  userName?: string;
   /** Text of the current language. */
   t: (text: Localized) => string;
   /** Applies a state change, saves it and celebrates earned XP. */

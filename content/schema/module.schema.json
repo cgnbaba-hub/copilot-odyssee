@@ -21,6 +21,7 @@
     "title": { "$ref": "common.schema.json#/$defs/localized" },
     "summary": { "$ref": "common.schema.json#/$defs/localized" },
     "estimatedMinutes": { "type": "integer", "minimum": 1 },
+    "core": { "description": "Gehört zum Kompass-Kurs: die wichtigsten Etappen, die die App zuerst vorschlägt.", "type": "boolean" },
     "notes": { "description": "Interne Notizen für die Redaktion, werden in der App nicht angezeigt.", "type": "string" },
     "blocks": {
       "type": "array",

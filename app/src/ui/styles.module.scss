@@ -8364,3 +8364,193 @@ $grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width=
   line-height: 1.55;
   white-space: pre-line;
 }
+
+// ---------------------------------------------------------------------------
+// Feedback round 2: info buttons, the legend of terms, how you move on
+// ---------------------------------------------------------------------------
+
+.infoTip {
+  position: relative;
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+.infoTipButton {
+  display: inline-grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  background: $paper-hi;
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+  color: var(--od-text-muted);
+  cursor: help;
+  font-family: Georgia, serif;
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: none;
+
+  &:hover,
+  &:focus-visible {
+    background: $ink;
+    border-color: $ink;
+    color: $paper-hi;
+    outline: none;
+  }
+}
+
+.infoTipLight {
+  background: transparent;
+  color: rgba(251, 246, 232, 0.8);
+
+  &:hover,
+  &:focus-visible {
+    background: $paper-hi;
+    border-color: $paper-hi;
+    color: $ink;
+  }
+}
+
+.infoTipBubble {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  z-index: 80;
+  width: max-content;
+  max-width: min(280px, 78vw);
+  padding: 9px 12px;
+  background: $ink;
+  border-radius: 10px;
+  box-shadow: 3px 3px 0 rgba(26, 41, 64, 0.25);
+  color: $paper-hi;
+  font-family: var(--od-font-body, inherit);
+  font-size: 13.5px;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.45;
+  text-align: left;
+  text-transform: none;
+  white-space: normal;
+  transform: translateX(-50%);
+  animation: odFadeIn 0.15s ease;
+}
+
+.infoTipLeft {
+  left: -6px;
+  transform: none;
+}
+
+.infoTipRight {
+  right: -6px;
+  left: auto;
+  transform: none;
+}
+
+// The words of the journey.
+.legend {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 10px 18px;
+  margin: 8px 0 0;
+}
+
+.legendItem {
+  dt {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 800;
+  }
+
+  dd {
+    margin: 2px 0 0 32px;
+    color: var(--od-text-muted);
+    font-size: 14px;
+    line-height: 1.45;
+  }
+}
+
+.legendIcon {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  background: $sun;
+  border: 2px solid $ink;
+  border-radius: 50%;
+  color: $ink;
+  font-size: 12px;
+}
+
+.legendCompact {
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 6px 14px;
+
+  dd {
+    font-size: 13px;
+  }
+}
+
+.legendTitle {
+  margin: 18px 0 4px !important;
+  font-weight: 800;
+}
+
+.legendBox,
+.progressGuide {
+  margin: 10px 0 16px;
+  padding: 12px 16px;
+  background: $paper-hi;
+  border: 2px solid rgba(26, 41, 64, 0.2);
+  border-radius: 14px;
+
+  summary {
+    cursor: pointer;
+    font-weight: 800;
+  }
+
+  > p {
+    margin: 8px 0 0;
+  }
+}
+
+.chipCompass {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: 8px;
+  padding: 1px 9px;
+  background: #fff3c4;
+  border: 1.5px solid $sun;
+  border-radius: 999px;
+  color: $ink;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  vertical-align: middle;
+}
+
+// In the header the rank name and its info button share a row, and the bubble is not clipped.
+.statusLine .statusRankRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow: visible;
+}
+
+.statusLine .infoTip,
+.statusLine .infoTipBubble {
+  overflow: visible;
+}
+
+.statusLine .infoTipBubble {
+  color: $paper-hi;
+  font-size: 13.5px;
+  white-space: normal;
+}

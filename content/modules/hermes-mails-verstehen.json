@@ -17,6 +17,7 @@
     "en": "Summarise long emails and prepare replies, right in Outlook. Works with both versions."
   },
   "estimatedMinutes": 10,
+  "core": true,
   "notes": "Neuer Inhalt. Stand Oktober 2026: Copilot Chat in Outlook bleibt auch ohne Lizenz verfügbar (MC1253858/MC1253863) und bezieht sich auf die geöffnete Mail; Markieren begrenzt auf den markierten Text (Release Notes Februar 2026). Ob Basic in eurem Tenant auch über das ganze Postfach antwortet, ist je nach Rollout unterschiedlich, deshalb bewusst nicht versprochen. Knopf-Bezeichnungen bewusst allgemein gehalten, da sie sich zwischen neuem Outlook, klassischem Outlook und Web unterscheiden. Praxisprüfung 29.10.2026 mit Premium- und Basic-Konto bei DERTOUR Suisse. Faktencheck 2026-11-01: Laut Microsoft-Support beantwortet Copilot Chat in Outlook auch ohne Lizenz Fragen zu Posteingang, Kalender und Meetings (Ausbau laut Roadmap RM554934). Mit dem Basic-Testkonto prüfen.",
   "blocks": [
     {

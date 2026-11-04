@@ -6,7 +6,11 @@ import { earnedSouvenirs, passportStamps, SOUVENIR_IDS } from '../../core/progre
 import { formatDate, formatNumber } from '../format';
 import { format } from '../i18n/strings';
 import { useGame } from '../GameContext';
+import { mrzName } from '../passportLine';
+import { islandMinutes } from '../progressHelpers';
 import styles from '../styles.module.scss';
+import { Legend, TermTip } from './Legend';
+import { RichText } from './RichText';
 import { rankProgress } from '../theme/types';
 import { RankEmblem, SouvenirIcon, Stamp } from './Art';
 
@@ -16,8 +20,29 @@ const TILTS = [-8, 5, -3, 9, -6, 3, -10, 6, -2, 8];
 /** Delay before the rubber stamp comes down, so the page has settled. */
 const STAMP_START_MS = 450;
 
+/**
+ * How stages, sea miles, ranks and stamps hang together, with the first
+ * island as an example and a word that none of it unlocks a licence.
+ */
+function ProgressGuide(): React.ReactElement {
+  const game = useGame();
+  const { strings, t, content, showDrafts } = game;
+  const first = sortedIslands(content)[0];
+  const stages = first ? modulesOfIsland(content, first.id, { showDrafts }).length : 0;
+  return (
+    <details className={styles.progressGuide}>
+      <summary>{strings.progressTitle}</summary>
+      <RichText text={`- ${strings.progressFlow}\n- ${strings.progressStamp}`} />
+      {first && stages > 0 && <p>{format(strings.progressExample, { island: t(first.name), stages, minutes: islandMinutes(game, first.id) })}</p>}
+      <p className={styles.muted}>{strings.progressLicence}</p>
+      <p className={styles.legendTitle}>{strings.legendTitle}</p>
+      <Legend />
+    </details>
+  );
+}
+
 export function Passport(props: { stamp?: string }): React.ReactElement {
-  const { content, player, lang, strings, theme, t, navigate, showDrafts } = useGame();
+  const { content, player, lang, strings, theme, t, navigate, showDrafts, userName } = useGame();
   const stamps = passportStamps(content, player, { showDrafts });
   const souvenirs = earnedSouvenirs(content, player);
   const rank = rankProgress(theme, player.xp);
@@ -47,6 +72,7 @@ export function Passport(props: { stamp?: string }): React.ReactElement {
 
       <h1 className={styles.pageTitle}>{t(theme.terms.passport)}</h1>
       <p className={styles.muted}>{strings.passportIntro}</p>
+      <ProgressGuide />
       {freshIsland && (
         <p className={styles.passportStamped} role="status" style={{ animationDelay: `${STAMP_START_MS + 900}ms` }}>
           {format(strings.passportStamped, { island: t(freshIsland.name) })}
@@ -65,9 +91,19 @@ export function Passport(props: { stamp?: string }): React.ReactElement {
             <RankEmblem index={rank.index} className={styles.passportEmblem} />
           </div>
           <dl className={styles.passportFields}>
-            <dt>{strings.passportRank}</dt>
+            {userName && (
+              <>
+                <dt>{strings.passportName}</dt>
+                <dd>{userName}</dd>
+              </>
+            )}
+            <dt>
+              {strings.passportRank} <TermTip term="rank" />
+            </dt>
             <dd>{t(rank.rank)}</dd>
-            <dt>{t(theme.terms.xp)}</dt>
+            <dt>
+              {t(theme.terms.xp)} <TermTip term="miles" />
+            </dt>
             <dd>{formatNumber(lang, player.xp)}</dd>
             <dt>{strings.statsStages}</dt>
             <dd>{stagesDone}</dd>
@@ -103,9 +139,7 @@ export function Passport(props: { stamp?: string }): React.ReactElement {
             )}
           </div>
           <p className={styles.passportMrz} aria-hidden="true">
-            {`P<CHEODYSSEE<<${t(rank.rank)
-              .toUpperCase()
-              .replace(/[^A-Z]/g, '<')}<<<<<<<<`.slice(0, 34)}
+            {mrzName(userName, t(rank.rank))}
             <br />
             {`${('0000' + player.xp).slice(-5)}SM<${stamps.length}V${islands.length}<<<<<<<<<<<<<<<<<<<<`.slice(0, 34)}
           </p>
@@ -113,7 +147,7 @@ export function Passport(props: { stamp?: string }): React.ReactElement {
 
         <div className={styles.passportPage}>
           <p className={styles.passportPageTitle}>
-            {t(theme.terms.stamps)} · {format(strings.passportStampCount, { count: stamps.length, total: islands.length })}
+            {t(theme.terms.stamps)} · {format(strings.passportStampCount, { count: stamps.length, total: islands.length })} <TermTip term="stamp" align="right" />
           </p>
           <ul className={styles.stampGrid}>
             {islands.map((island, i) => {
@@ -148,7 +182,9 @@ export function Passport(props: { stamp?: string }): React.ReactElement {
         </div>
       </div>
 
-      <h2 className={styles.sectionTitle}>{t(theme.terms.souvenirs)}</h2>
+      <h2 className={styles.sectionTitle}>
+        {t(theme.terms.souvenirs)} <TermTip term="souvenir" />
+      </h2>
       <ul className={styles.souvenirGrid}>
         {SOUVENIR_IDS.map((id) => {
           const earned = souvenirs.indexOf(id) >= 0;

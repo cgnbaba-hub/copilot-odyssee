@@ -6,6 +6,7 @@ import { format } from '../i18n/strings';
 import { useGame } from '../GameContext';
 import { guideById } from '../guides';
 import styles from '../styles.module.scss';
+import { Legend } from './Legend';
 import { Guide } from './Guide';
 import { GuidePicker } from './GuidePicker';
 import { LicenseMockup } from './LicenseMockup';
@@ -100,7 +101,8 @@ export function Onboarding(): React.ReactElement {
                 <span>{strings.how3Text}</span>
               </li>
             </ol>
-            <p className={styles.lead}>{strings.howRewards}</p>
+            <p className={styles.legendTitle}>{strings.legendTitle}</p>
+            <Legend compact />
           </>
         )}
 

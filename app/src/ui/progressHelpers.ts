@@ -68,7 +68,41 @@ export function nextStage(game: Game, excludeModuleId?: string): NextStage | und
       if (status !== 'completed' && module.id !== excludeModuleId && !isModulePreview(game, module)) candidates.push({ island, module, resume: status === 'inProgress' });
     });
   });
-  return candidates.filter((c) => c.resume)[0] || candidates[0];
+  // A stage already begun comes first, then the compass course, then the rest of the route.
+  return candidates.filter((c) => c.resume)[0] || candidates.filter((c) => !!c.module.core)[0] || candidates[0];
+}
+
+/** The stages of the compass course the player can play, in route order. */
+export function compassStages(game: Game): { island: Island; module: LearningModule }[] {
+  const filter = { showDrafts: game.showDrafts };
+  const stages: { island: Island; module: LearningModule }[] = [];
+  sortedIslands(game.content).forEach((island) => {
+    if (isPreview(game, island)) return;
+    modulesOfIsland(game.content, island.id, filter).forEach((module) => {
+      if (module.core && !isModulePreview(game, module)) stages.push({ island, module });
+    });
+  });
+  return stages;
+}
+
+export interface CompassProgress {
+  done: number;
+  total: number;
+  minutes: number;
+}
+
+export function compassProgress(game: Game): CompassProgress {
+  const stages = compassStages(game);
+  return {
+    done: stages.filter((s) => moduleStatus(game.player, s.module) === 'completed').length,
+    total: stages.length,
+    minutes: stages.reduce((sum, s) => sum + s.module.estimatedMinutes, 0)
+  };
+}
+
+/** Rough time for all stages of an island. */
+export function islandMinutes(game: Game, islandId: string): number {
+  return modulesOfIsland(game.content, islandId, { showDrafts: game.showDrafts }).reduce((sum, m) => sum + m.estimatedMinutes, 0);
 }
 
 /** First island on the route that still has open stages and is not a preview. */
