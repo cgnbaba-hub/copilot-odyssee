@@ -2,8 +2,9 @@ import * as React from 'react';
 
 import { findModule } from '../../core/content/bundle';
 import { PromptTemplate } from '../../core/content/types';
-import { isPromptSaved, toggleSavedPrompt } from '../../core/progress/state';
+import { isPromptSaved, toggleSavedPrompt, updateProfile } from '../../core/progress/state';
 import { useGame } from '../GameContext';
+import { format } from '../i18n/strings';
 import { playerArea, templatesFor } from '../progressHelpers';
 import styles from '../styles.module.scss';
 import { Guide } from './Guide';
@@ -11,6 +12,26 @@ import { PromptCard } from './PromptCard';
 import { SheetTabs } from './SheetTabs';
 
 const ALL_AREAS = '';
+const FILTER_KEY = 'odyssee.sheetArea';
+
+/** The area last picked here; it counts only while the profile area is still the one it was picked under. */
+function savedFilter(profileArea: string): string | undefined {
+  try {
+    const raw = window.localStorage.getItem(FILTER_KEY);
+    const saved = raw ? (JSON.parse(raw) as { profile: string; filter: string }) : undefined;
+    return saved && saved.profile === profileArea ? saved.filter : undefined;
+  } catch {
+    return undefined;
+  }
+}
+
+function saveFilter(profileArea: string, filter: string): void {
+  try {
+    window.localStorage.setItem(FILTER_KEY, JSON.stringify({ profile: profileArea, filter }));
+  } catch {
+    // The choice is then simply not remembered.
+  }
+}
 
 /**
  * Prompts to copy into Copilot: saved templates, the player's own prompts
@@ -20,7 +41,16 @@ export function CheatSheet(): React.ReactElement {
   const game = useGame();
   const { content, player, strings, t, update, navigate, pinboard } = game;
   const area = playerArea(game);
-  const [filter, setFilter] = React.useState(area ? area.id : ALL_AREAS);
+  const profileArea = area ? area.id : ALL_AREAS;
+  // A change of area in the settings wins over an earlier pick here, also while this page is open.
+  const [picked, setPicked] = React.useState<string | undefined>(() => savedFilter(profileArea));
+  React.useEffect(() => setPicked(savedFilter(profileArea)), [profileArea]);
+  const filter = picked !== undefined ? picked : profileArea;
+  const setFilter = (next: string): void => {
+    setPicked(next);
+    saveFilter(profileArea, next);
+  };
+  const pickedArea = (content.areas || []).filter((a) => a.id === filter)[0];
   const saved = (content.prompts || []).filter((p) => isPromptSaved(player, p.id));
   // All use case cards: those without a prompt yet lead to the workshop.
   const own = player.useCases.slice().reverse();
@@ -102,6 +132,14 @@ export function CheatSheet(): React.ReactElement {
           </label>
         )}
       </div>
+      {pickedArea && pickedArea.id !== profileArea && (
+        <p className={styles.areaOffer}>
+          {format(strings.areaOfferText, { area: t(pickedArea.name) })}{' '}
+          <button type="button" className={styles.linkButton} onClick={() => update((s) => updateProfile(s, { area: pickedArea.id }))}>
+            {strings.areaOfferSave}
+          </button>
+        </p>
+      )}
       <ul className={styles.promptList}>{templatesFor(game, filter || undefined).map(templateCard)}</ul>
     </section>
   );

@@ -8227,3 +8227,140 @@ $grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width=
     display: none;
   }
 }
+
+// ---------------------------------------------------------------------------
+// Feedback round: clearer licence, safer reset, app links, report button up top
+// ---------------------------------------------------------------------------
+
+// The miles bar ends in the next rank's badge; the licence stands apart.
+.statusBarRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  .statusBar {
+    flex: 1 1 auto;
+  }
+}
+
+.statusNextEmblem {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  margin-top: 4px;
+  opacity: 0.85;
+}
+
+.status .versionPill {
+  position: relative;
+  margin-left: 16px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 10%;
+    bottom: 10%;
+    left: -13px;
+    border-left: 2px dashed rgba(251, 246, 232, 0.35);
+  }
+}
+
+// «Stimmt das noch?» sits right under the step header, out of reach of the sticky action bar.
+.lessonCard .factCheck {
+  justify-content: flex-end;
+  margin: -6px 0 6px !important;
+  padding-top: 0;
+  border-top: none;
+}
+
+.lessonCard .factCheckToggle {
+  padding: 3px 11px;
+  border-width: 1.5px;
+  font-size: 13px;
+}
+
+.lessonCard .factCheckDone {
+  padding: 6px 12px;
+  font-size: 14px;
+}
+
+.lessonCard .factCheckForm {
+  margin: 0 0 14px;
+}
+
+// Prompts used in an app: where Copilot sits there.
+.promptCardWhere {
+  margin: 10px 0 0;
+  color: var(--od-text-muted);
+  font-size: 13.5px;
+}
+
+.areaOffer {
+  margin: -4px 0 14px;
+  color: var(--od-text-muted);
+  font-size: 14px;
+}
+
+// Rarely needed settings, folded away.
+.advanced {
+  margin-top: 26px;
+  padding-top: 14px;
+  border-top: 1.5px dashed rgba(26, 41, 64, 0.25);
+
+  summary {
+    cursor: pointer;
+    font-weight: 800;
+  }
+
+  > p,
+  > button,
+  > div {
+    margin-top: 10px;
+  }
+}
+
+.undoBar {
+  position: fixed;
+  left: 50%;
+  bottom: 96px;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 12px 10px 18px;
+  background: $ink;
+  border-radius: 999px;
+  box-shadow: 4px 4px 0 var(--od-brand);
+  color: $paper-hi;
+  font-weight: 700;
+  transform: translateX(-50%);
+  animation: odBarIn 0.3s ease-out backwards;
+}
+
+// A template to copy inside an info step.
+.briefingExample {
+  display: grid;
+  justify-items: start;
+  gap: 8px;
+  margin: 16px 0 4px;
+  padding: 14px 16px;
+  background: #fff8e6;
+  border: 2px dashed var(--od-accent);
+  border-radius: $radius;
+}
+
+.briefingExampleLabel {
+  margin: 0;
+  color: var(--od-brand);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.briefingExampleText {
+  margin: 0;
+  font-size: 15.5px;
+  line-height: 1.55;
+  white-space: pre-line;
+}

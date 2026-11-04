@@ -26,7 +26,7 @@ const de = {
   versionBasic: 'Copilot Chat (Basic)',
   versionPremium: 'M365 Copilot (Premium)',
   versionShortBasic: 'Basic',
-  yourCopilot: 'Dein Copilot',
+  yourCopilot: 'Deine Lizenz',
   versionShortPremium: 'Premium',
   versionUnknown: 'Noch nicht gewählt',
   change: 'ändern',
@@ -46,7 +46,7 @@ const de = {
   licenseUnknownHint: 'Kein Problem. Du startest mit den Inseln für alle.',
   licenseHowToTitle: 'So findest du heraus, welche Version du hast',
   licenseHowTo:
-    '- Öffne Copilot im Browser unter **m365.cloud.microsoft/chat**.\n- Schau nach dem Wort **«Basic»** oder **«Premium»**.\n- Unsicher? Wähle **Copilot Chat (Basic)**. Du kannst es später in den Einstellungen ändern.',
+    '- Öffne **m365.cloud.microsoft** im Browser. Unter deinem Namen steht, ob du **«Basic»** oder **«Premium»** hast.\n- Schneller Check: Siehst du in **Word, Excel oder PowerPoint** einen Copilot-Knopf? Dann hast du Premium. In Outlook und Teams zeigt sich Copilot bei beiden Versionen.\n- Unsicher? Wähle **Copilot Chat (Basic)**. Du kannst es später in den Einstellungen ändern.',
   howTitle: 'So funktioniert deine Reise',
   how1Title: 'Wähle die nächste Etappe',
   how1Text: 'Eine Etappe dauert 5 bis 12 Minuten.',
@@ -562,7 +562,22 @@ const de = {
   skySnow: 'Schneefall',
   skyNationalDay: 'Bundesfeiertag',
   skyNewYear: 'Neujahr',
-  skyAdvent: 'Adventszeit'
+  skyAdvent: 'Adventszeit',
+  rankProgress: 'Fortschritt zum nächsten Rang',
+  openApp: '{app} öffnen',
+  whereOutlook: 'In Outlook findest du Copilot oben im Menüband oder direkt beim Schreiben einer Mail.',
+  whereTeams: 'In Teams findest du Copilot oben rechts in einem Chat oder einer Besprechung.',
+  whereWord: 'In Word findest du Copilot oben im Menüband (Start › Copilot).',
+  whereExcel: 'In Excel findest du Copilot oben im Menüband (Start › Copilot).',
+  wherePowerPoint: 'In PowerPoint findest du Copilot oben im Menüband (Start › Copilot).',
+  wherePremiumOnly: 'Das geht nur mit Premium.',
+  areaOfferText: 'Du schaust gerade die Vorlagen für «{area}» an.',
+  areaOfferSave: 'Als meinen Bereich speichern',
+  settingsAdvanced: 'Erweitert',
+  resetExplain: 'Löscht Seemeilen, Stempel, Souvenirs und deine Notizen. Nur nötig, wenn du ganz von vorne beginnen willst.',
+  resetDone: 'Dein Fortschritt wurde gelöscht.',
+  resetUndo: 'Rückgängig',
+  exampleToCopy: 'Vorlage zum Kopieren'
 };
 
 export type Strings = typeof de;
@@ -588,7 +603,7 @@ const en: Strings = {
   versionBasic: 'Copilot Chat (Basic)',
   versionPremium: 'M365 Copilot (Premium)',
   versionShortBasic: 'Basic',
-  yourCopilot: 'Your Copilot',
+  yourCopilot: 'Your licence',
   versionShortPremium: 'Premium',
   versionUnknown: 'Not chosen yet',
   change: 'change',
@@ -608,7 +623,7 @@ const en: Strings = {
   licenseUnknownHint: 'No problem. You start with the islands for everyone.',
   licenseHowToTitle: 'How to find out which version you have',
   licenseHowTo:
-    '- Open Copilot in the browser at **m365.cloud.microsoft/chat**.\n- Look for the word **“Basic”** or **“Premium”**.\n- Unsure? Choose **Copilot Chat (Basic)**. You can change it later in the settings.',
+    '- Open **m365.cloud.microsoft** in the browser. Below your name it says whether you have **“Basic”** or **“Premium”**.\n- Quick check: do you see a Copilot button in **Word, Excel or PowerPoint**? Then you have Premium. Outlook and Teams show Copilot in both versions.\n- Unsure? Choose **Copilot Chat (Basic)**. You can change it later in the settings.',
   howTitle: 'How your journey works',
   how1Title: 'Choose the next stage',
   how1Text: 'A stage takes 5 to 12 minutes.',
@@ -1119,7 +1134,22 @@ const en: Strings = {
   skySnow: 'snowfall',
   skyNationalDay: 'Swiss National Day',
   skyNewYear: 'New Year',
-  skyAdvent: 'Advent'
+  skyAdvent: 'Advent',
+  rankProgress: 'Progress to the next rank',
+  openApp: 'Open {app}',
+  whereOutlook: 'In Outlook, Copilot sits in the ribbon at the top or right where you write an email.',
+  whereTeams: 'In Teams, Copilot sits at the top right of a chat or meeting.',
+  whereWord: 'In Word, Copilot sits in the ribbon at the top (Home › Copilot).',
+  whereExcel: 'In Excel, Copilot sits in the ribbon at the top (Home › Copilot).',
+  wherePowerPoint: 'In PowerPoint, Copilot sits in the ribbon at the top (Home › Copilot).',
+  wherePremiumOnly: 'This needs Premium.',
+  areaOfferText: 'You are looking at the templates for “{area}”.',
+  areaOfferSave: 'Save as my field of work',
+  settingsAdvanced: 'Advanced',
+  resetExplain: 'Deletes sea miles, stamps, souvenirs and your notes. Only needed if you want to start over completely.',
+  resetDone: 'Your progress was deleted.',
+  resetUndo: 'Undo',
+  exampleToCopy: 'Template to copy'
 };
 
 const STRINGS: Record<Lang, Strings> = { de, en };

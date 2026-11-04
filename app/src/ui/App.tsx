@@ -69,6 +69,8 @@ interface Toast {
 }
 
 const TOAST_MS = 2600;
+/** How long deleting all progress can be undone. */
+const UNDO_MS = 15000;
 /** How long pressing a new stamp into the passport takes. */
 const STAMP_PRESS_MS = 2600;
 /** How long «Gespeichert» stays visible. */
@@ -141,6 +143,10 @@ export function App(props: AppProps): React.ReactElement {
     return () => window.clearTimeout(timer);
   }, [stampFor]);
 
+  // After deleting everything, the old state is kept for a moment so a slip of the finger can be undone.
+  const [undoState, setUndoState] = React.useState<PlayerState | undefined>(undefined);
+  const undoTimer = React.useRef(0);
+  React.useEffect(() => () => window.clearTimeout(undoTimer.current), []);
   if (!player) {
     return (
       <div className={styles.app} style={themeVariables(theme)}>
@@ -215,10 +221,19 @@ export function App(props: AppProps): React.ReactElement {
   };
 
   const reset = (): void => {
+    const before = playerRef.current;
     props.store.clear().catch(() => undefined);
     commit(initialState(lang));
     setSettingsOpen(false);
     setView({ name: 'map' });
+    setUndoState(before);
+    window.clearTimeout(undoTimer.current);
+    undoTimer.current = window.setTimeout(() => setUndoState(undefined), UNDO_MS);
+  };
+  const undoReset = (): void => {
+    if (undoState) commit(undoState);
+    setUndoState(undefined);
+    window.clearTimeout(undoTimer.current);
   };
 
   const onboarded = player.profile.onboarded;
@@ -310,6 +325,14 @@ export function App(props: AppProps): React.ReactElement {
           <p className={`${styles.saveStatus} ${saveStatus === 'error' ? styles.saveStatusError : ''}`} role="status">
             {saveStatus === 'saved' ? `✓ ${strings.saveSaved}` : saveStatus === 'error' ? strings.saveError : strings.saveSaving}
           </p>
+        )}
+        {undoState && (
+          <div className={styles.undoBar} role="status">
+            <span>{strings.resetDone}</span>
+            <button type="button" className={styles.buttonPrimary} onClick={undoReset}>
+              {strings.resetUndo}
+            </button>
+          </div>
         )}
         <div className={styles.toasts} aria-live="polite">
           {toasts.map((x) => (

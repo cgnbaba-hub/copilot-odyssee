@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { MissionApp } from '../../core/content/types';
-import { APP_NAMES, COPILOT_CHAT_URL, copyText, CopyState } from '../copilot';
+import { APP_NAMES, APP_URLS, COPILOT_CHAT_URL, copyText, CopyState } from '../copilot';
 import { format } from '../i18n/strings';
 import { useGame } from '../GameContext';
 import styles from '../styles.module.scss';
@@ -25,6 +25,9 @@ export function PromptText(props: { text: string }): React.ReactElement {
   );
 }
 
+/** Where Copilot sits in each app, in one sentence. */
+const WHERE = { outlook: 'whereOutlook', teams: 'whereTeams', word: 'whereWord', excel: 'whereExcel', powerpoint: 'wherePowerPoint' } as const;
+
 export interface PromptCardProps {
   title: string;
   text: string;
@@ -41,7 +44,8 @@ export interface PromptCardProps {
 
 /** A prompt with buttons to copy it, open Copilot and pin it to the cheat sheet. */
 export function PromptCard(props: PromptCardProps): React.ReactElement {
-  const { strings } = useGame();
+  const { strings, player } = useGame();
+  const premiumPlayer = player.profile.license === 'premium';
   const [copyState, setCopyState] = React.useState<CopyState>('idle');
   const textRef = React.useRef<HTMLParagraphElement>(null);
   const place = props.app ? format(strings.placeApp, { app: APP_NAMES[props.app] }) : strings.placeChat;
@@ -65,7 +69,11 @@ export function PromptCard(props: PromptCardProps): React.ReactElement {
         >
           {copyState === 'copied' ? `✓ ${strings.copied}` : `⧉ ${strings.copy}`}
         </button>
-        {!props.app && (
+        {props.app ? (
+          <a className={styles.button} href={APP_URLS[props.app]} target="_blank" rel="noopener noreferrer">
+            {format(strings.openApp, { app: APP_NAMES[props.app] })} ↗
+          </a>
+        ) : (
           <a className={styles.button} href={COPILOT_CHAT_URL} target="_blank" rel="noopener noreferrer">
             {strings.missionOpenCopilot} ↗
           </a>
@@ -81,6 +89,12 @@ export function PromptCard(props: PromptCardProps): React.ReactElement {
           </button>
         )}
       </div>
+      {props.app && (
+        <p className={styles.promptCardWhere}>
+          {strings[WHERE[props.app]]}
+          {props.premium && !premiumPlayer && ` ${strings.wherePremiumOnly}`}
+        </p>
+      )}
       {copyState === 'failed' && <p className={styles.copyFailed}>{strings.missionCopyFailed}</p>}
     </li>
   );

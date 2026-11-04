@@ -60,6 +60,10 @@
         "id": { "$ref": "common.schema.json#/$defs/id" },
         "title": { "$ref": "common.schema.json#/$defs/localized" },
         "body": { "$ref": "common.schema.json#/$defs/localized" },
+        "example": {
+          "description": "Optionales Beispiel zum Kopieren, zum Beispiel eine Vorlage. [Platzhalter] werden hervorgehoben.",
+          "$ref": "common.schema.json#/$defs/localized"
+        },
         "links": {
           "type": "array",
           "items": {

@@ -9,7 +9,7 @@ import styles from '../styles.module.scss';
 type Status = 'closed' | 'open' | 'sending' | 'sent' | 'failed';
 
 /**
- * «Stimmt das noch?» under every step: one click reports the step to the
+ * «Stimmt das noch?» at the top of every step: one click reports the step to the
  * feedback list with its stage, step and date, so outdated facts are found
  * by the people who meet them. Without a feedback list it offers an email.
  */
@@ -43,8 +43,7 @@ export function FactCheck(props: { stage: string; step: number; stepId: string; 
   if (status === 'closed') {
     return (
       <p className={styles.factCheck}>
-        <span>{strings.factCheckLead}</span>
-        <button type="button" className={styles.factCheckToggle} aria-expanded={false} onClick={() => setStatus('open')}>
+        <button type="button" className={styles.factCheckToggle} aria-expanded={false} onClick={() => setStatus('open')} title={strings.factCheckLead}>
           <span aria-hidden="true">⚑</span> {strings.factCheckAsk}
         </button>
       </p>

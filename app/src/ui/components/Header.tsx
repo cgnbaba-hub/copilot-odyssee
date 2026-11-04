@@ -42,8 +42,12 @@ export function Header(props: { onOpenSettings: () => void; onOpenHelp: () => vo
                 {rank.next && <span className={styles.statusNext}> · {format(strings.statusNext, { xp: formatNumber(lang, rank.xpToNext), rank: t(rank.next) })}</span>}
               </span>
             </div>
-            <div className={styles.statusBar} role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={rank.percent} aria-label={t(theme.terms.xp)}>
-              <div className={styles.statusBarFill} style={{ width: `${rank.percent}%` }} />
+            {/* The bar ends in the badge of the next rank, so it reads as rank progress and not as a way to Premium. */}
+            <div className={styles.statusBarRow}>
+              <div className={styles.statusBar} role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={rank.percent} aria-label={strings.rankProgress}>
+                <div className={styles.statusBarFill} style={{ width: `${rank.percent}%` }} />
+              </div>
+              {rank.next && <RankEmblem index={rank.index + 1} className={styles.statusNextEmblem} />}
             </div>
           </div>
           <button

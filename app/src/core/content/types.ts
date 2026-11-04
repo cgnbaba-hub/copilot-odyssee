@@ -39,6 +39,8 @@ export interface BriefingBlock {
   id: string;
   title: Localized;
   body: Localized;
+  /** An example to copy, such as a template; [placeholders] are highlighted. */
+  example?: Localized;
   links?: { label: Localized; url: string }[];
   /** Date the facts of this step were checked, if newer than the stage's reviewedAt. */
   asOf?: string;

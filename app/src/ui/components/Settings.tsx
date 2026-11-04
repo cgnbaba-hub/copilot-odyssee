@@ -80,7 +80,10 @@ export function Settings(props: { onClose: () => void; onReset: () => void; onRe
         {strings.tourRestart}
       </button>
 
-      <div className={styles.drawerFooter}>
+      {/* Deleting everything is rare and hard to undo, so it waits behind «Erweitert». */}
+      <details className={styles.advanced}>
+        <summary>{strings.settingsAdvanced}</summary>
+        <p className={styles.muted}>{strings.resetExplain}</p>
         {confirmReset ? (
           <div className={styles.feedbackBad} role="alert">
             <p>{strings.resetConfirm}</p>
@@ -98,7 +101,7 @@ export function Settings(props: { onClose: () => void; onReset: () => void; onRe
             {strings.resetProgress}
           </button>
         )}
-      </div>
+      </details>
     </Drawer>
   );
 }
