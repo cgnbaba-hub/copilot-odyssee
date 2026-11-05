@@ -1,9 +1,14 @@
 import { defineConfig } from 'vite';
 
 // Builds the demo (demo/index.html) from the same sources as the web part.
-export default defineConfig({
+// `vite build --mode team` builds the edition for colleagues: no sample
+// evaluation and no sample harbour board, feedback goes by email.
+export default defineConfig(({ mode }) => ({
   root: 'demo',
   base: './',
+  define: {
+    __ODYSSEE_EDITION__: JSON.stringify(mode === 'team' ? 'team' : 'demo')
+  },
   esbuild: {
     jsx: 'transform',
     jsxFactory: 'React.createElement',
@@ -16,7 +21,7 @@ export default defineConfig({
     fs: { allow: ['..'] }
   },
   build: {
-    outDir: '../dist-demo',
+    outDir: mode === 'team' ? '../dist-team' : '../dist-demo',
     emptyOutDir: true
   }
-});
+}));

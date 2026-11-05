@@ -12,6 +12,14 @@ import { App } from '../ui/App';
 import { sampleAdminSource } from './sampleAdmin';
 import { samplePinboard } from './samplePinboard';
 
+/**
+ * Set by the build: 'team' is the single HTML file for colleagues. It has no
+ * sample evaluation and no sample harbour board, keeps its own progress, and
+ * feedback goes to the contact address by email.
+ */
+declare const __ODYSSEE_EDITION__: string;
+const TEAM = __ODYSSEE_EDITION__ === 'team';
+
 /** Feedback sent in the demo; it shows up at the top of the evaluation. */
 const demoSent: FeedbackRecord[] = [];
 
@@ -37,15 +45,15 @@ const demoFeedback: FeedbackSender = {
 ReactDom.render(
   <App
     content={content}
-    store={new DebouncedProgressStore(new LocalStorageProgressStore('odyssee-demo'), 800)}
+    store={new DebouncedProgressStore(new LocalStorageProgressStore(TEAM ? 'odyssee-team' : 'odyssee-demo'), 800)}
     initialLang={langFromCulture(navigator.language)}
     showDrafts={true}
     storage="demo"
-    feedback={demoFeedback}
-    admin={sampleAdminSource(content, () => demoSent)}
-    pinboard={samplePinboard()}
+    feedback={TEAM ? undefined : demoFeedback}
+    admin={TEAM ? undefined : sampleAdminSource(content, () => demoSent)}
+    pinboard={TEAM ? undefined : samplePinboard()}
     // In the demo a missed question can be brushed up at once; afterwards it waits three days.
-    reviewIntervals={[0, 3]}
+    reviewIntervals={TEAM ? undefined : [0, 3]}
   />,
   document.getElementById('root')
 );

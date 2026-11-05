@@ -20,7 +20,9 @@
     "predemo": "npm run content:bundle",
     "demo": "vite",
     "predemo:build": "npm run content:bundle",
-    "demo:build": "vite build"
+    "demo:build": "vite build",
+    "preteam:build": "npm run content:bundle",
+    "team:build": "vite build --mode team && tsx tools/inline-html.ts dist-team/index.html dist-team/copilot-odyssee.html"
   },
   "dependencies": {
     "@fluentui/react": "^8.106.4",
