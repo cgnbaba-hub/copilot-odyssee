@@ -25,7 +25,7 @@ Alles in `app/src/ui/theme/odyssee.ts` (`badges`):
 
 1. **Wortlaut des Ausstellers** (`issuer`), derzeit «DERTOUR Suisse».
 2. **LinkedIn-Unternehmensseite** (`linkedInOrganizationId`): die numerische ID der Firmenseite. Damit zeigt LinkedIn das Firmenlogo statt nur den Namen.
-3. **Öffentliche Prüf-URL** (`certUrl`, optional): eine Seite, auf der eine kennung bestätigt werden kann. Sie wird an LinkedIn mitgegeben.
+3. **Öffentliche Prüf-URL** (`certUrl`, optional): eine Seite, auf der eine Kennung bestätigt werden kann. Sie wird an LinkedIn mitgegeben.
 
 ## Offizielle Ausstellung (Backlog)
 
