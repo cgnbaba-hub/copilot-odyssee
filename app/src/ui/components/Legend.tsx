@@ -11,9 +11,9 @@ import { InfoTip } from './InfoTip';
  * in the help and in the passport. The info buttons use the same texts, so
  * the explanations never drift apart.
  */
-export type Term = 'miles' | 'rank' | 'stage' | 'island' | 'exam' | 'stamp' | 'souvenir' | 'home' | 'compass';
+export type Term = 'miles' | 'rank' | 'stage' | 'island' | 'exam' | 'stamp' | 'souvenir' | 'home' | 'compass' | 'badge';
 
-export const TERMS: Term[] = ['miles', 'rank', 'stage', 'island', 'exam', 'stamp', 'souvenir', 'home', 'compass'];
+export const TERMS: Term[] = ['miles', 'rank', 'stage', 'island', 'exam', 'stamp', 'souvenir', 'home', 'compass', 'badge'];
 
 const ICONS: Record<Term, string> = {
   miles: '⚓',
@@ -24,7 +24,8 @@ const ICONS: Record<Term, string> = {
   stamp: '✪',
   souvenir: '★',
   home: '⌂',
-  compass: '✧'
+  compass: '✧',
+  badge: '❂'
 };
 
 const NAMES: Record<Term, keyof Strings> = {
@@ -36,7 +37,8 @@ const NAMES: Record<Term, keyof Strings> = {
   stamp: 'termStamp',
   souvenir: 'termSouvenir',
   home: 'termHome',
-  compass: 'termCompass'
+  compass: 'termCompass',
+  badge: 'termBadge'
 };
 
 const TEXTS: Record<Term, keyof Strings> = {
@@ -48,7 +50,8 @@ const TEXTS: Record<Term, keyof Strings> = {
   stamp: 'termStampText',
   souvenir: 'termSouvenirText',
   home: 'termHomeText',
-  compass: 'termCompassText'
+  compass: 'termCompassText',
+  badge: 'termBadgeText'
 };
 
 export function termName(strings: Strings, term: Term): string {

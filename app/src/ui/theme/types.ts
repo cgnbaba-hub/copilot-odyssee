@@ -61,6 +61,14 @@ export interface Theme {
     stamps: Localized;
     souvenirs: Localized;
   };
+  /** Issuer data for the completion badges and certificates. */
+  badges?: {
+    issuer: Localized;
+    /** LinkedIn company page id; with it LinkedIn shows the company logo. */
+    linkedInOrganizationId?: string;
+    /** Public page where a credential id can be checked. */
+    certUrl?: string;
+  };
   /** Sorted by minLevel, the first entry starts at level 1. */
   ranks: { minLevel: number; name: Localized }[];
   souvenirs: Record<SouvenirId, { name: Localized; hint: Localized }>;

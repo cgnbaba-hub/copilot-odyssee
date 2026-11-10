@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import { modulesOfIsland, sortedIslands } from '../../core/content/bundle';
+import { badgeStatuses } from '../../core/progress/badges';
 import { moduleStatus } from '../../core/progress/state';
 import { earnedSouvenirs, passportStamps, SOUVENIR_IDS } from '../../core/progress/achievements';
 import { formatDate, formatNumber } from '../format';
@@ -9,6 +10,7 @@ import { useGame } from '../GameContext';
 import { mrzName } from '../passportLine';
 import { islandMinutes } from '../progressHelpers';
 import styles from '../styles.module.scss';
+import { BadgesSection } from './Badges';
 import { Legend, TermTip } from './Legend';
 import { RichText } from './RichText';
 import { rankProgress } from '../theme/types';
@@ -44,6 +46,7 @@ function ProgressGuide(): React.ReactElement {
 export function Passport(props: { stamp?: string }): React.ReactElement {
   const { content, player, lang, strings, theme, t, navigate, showDrafts, userName } = useGame();
   const stamps = passportStamps(content, player, { showDrafts });
+  const badges = badgeStatuses(content, player, { showDrafts });
   const souvenirs = earnedSouvenirs(content, player);
   const rank = rankProgress(theme, player.xp);
   const islands = sortedIslands(content);
@@ -178,9 +181,11 @@ export function Passport(props: { stamp?: string }): React.ReactElement {
               );
             })}
           </ul>
-          <p className={styles.passportGoal}>{stamps.length === islands.length ? strings.passportComplete : strings.passportGoal}</p>
+          <p className={styles.passportGoal}>{strings.passportBadgesPointer}</p>
         </div>
       </div>
+
+      <BadgesSection statuses={badges} />
 
       <h2 className={styles.sectionTitle}>
         {t(theme.terms.souvenirs)} <TermTip term="souvenir" />
