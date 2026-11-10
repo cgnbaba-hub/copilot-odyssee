@@ -43,6 +43,7 @@ src/content/bundle.generated.ts
 # Demo build
 dist-demo
 dist-team
+dist-scorm
 
 # Exported content for SharePoint
 dist-content

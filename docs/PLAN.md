@@ -246,6 +246,8 @@ Legende: 🤖 = setze ich um · 👤 = brauche ich von dir · 🏢 = IT oder Dat
   - **Praxis-Etappe pro Bereich** 🤖👤 – eine Etappe mit echten DERTOUR-Fällen pro Bereich (z. B. Angebotsmail in der Reiseberatung, Kampagnentext im Marketing). Die Fälle kommen aus den Fachbereichen.
 - [ ] **Abschlusszertifikat** 🤖 – druckbare Urkunde/PDF für Basic und Premium mit Name, Datum und Inseln. Grundlage für die SuccessFactors-Anbindung.
 - [ ] **SuccessFactors** 🤖🏢 – Abzeichen und Lerninhalte im LMS sichtbar machen (empfohlen: Abschlüsse als externe Lernereignisse melden). Erst nach Klärung mit HR und IT.
+- [ ] **LMS-Anbindung (SuccessFactors)** 🤖🏢 – Die App als SCORM-1.2-Paket (`npm run scorm:build`), das im LMS Status, Punktzahl, Lernzeit und Fortschritt meldet.
+  *Stand:* Paket gebaut und mit einem nachgebauten LMS getestet. Offen: Test in SuccessFactors Learning mit dem LMS-Admin, dann die offenen Fragen in `docs/LMS.md` (SCORM 2004 oder xAPI, ein Kurs oder einer pro Insel, Verknüpfung mit dem SharePoint-Fortschritt, Zertifikate).
 - [ ] **Prompt-Werkstatt als eigener Reiter** 🤖 – eigene Prompts jederzeit prüfen lassen, mit denselben festen Regeln wie in den Etappen (Ziel, Kontext, Quelle, Erwartung) und Verbesserungsvorschlägen; ohne KI, der Text verlässt den Browser nicht.
 - [ ] **Lizenz automatisch erkennen** 🤖🏢 – über Microsoft Graph (`/me/licenseDetails`) Basic oder Premium vorauswählen. Braucht eine einmalige Freigabe der Berechtigung im SharePoint Admin Center.
 - [ ] **Bereichs-Regatta** 🤖👤🏢 – Teamwertung pro Bereich, nur zusammengefasst und ab einer Mindestgrösse. Erst nach Abgleich mit HR und Datenschutz.
