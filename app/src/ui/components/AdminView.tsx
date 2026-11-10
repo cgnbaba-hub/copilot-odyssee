@@ -94,6 +94,7 @@ export function AdminView(props: { source: AdminSource }): React.ReactElement {
     return island ? t(island.name) : id;
   };
   const hours = Math.round(stats.useCaseMinutesPerMonth / 60);
+  const share = (count: number): string | undefined => (stats.participants ? format(strings.adminShare, { percent: Math.round((count / stats.participants) * 100) }) : undefined);
   const kinds = load.data.feedback.map((f) => f.kind).filter((k, i, all) => k && all.indexOf(k) === i);
   const feedback = load.data.feedback.filter((f) => !kind || f.kind === kind);
   const date = (iso: string): string => {
@@ -152,6 +153,12 @@ export function AdminView(props: { source: AdminSource }): React.ReactElement {
         />
         <Tile value={n(stats.useCases)} label={strings.adminUseCases} note={hours > 0 ? format(strings.adminUseCaseHours, { hours: n(hours) }) : undefined} />
         <Tile value={n(stats.feedback)} label={strings.adminFeedbackCount} />
+      </div>
+      {/* What management asks first: how many know the essentials, how many are through. */}
+      <div className={styles.adminTiles}>
+        <Tile value={n(stats.compassDone)} label={strings.adminCompass} note={share(stats.compassDone)} />
+        <Tile value={n(stats.badgesBasic)} label={strings.adminBadgesBasic} note={share(stats.badgesBasic)} />
+        <Tile value={n(stats.badgesPremium)} label={strings.adminBadgesPremium} note={share(stats.badgesPremium)} />
       </div>
 
       {stats.participants < MIN_GROUP ? (

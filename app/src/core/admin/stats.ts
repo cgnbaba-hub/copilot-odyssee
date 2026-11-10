@@ -1,5 +1,6 @@
-import { modulesOfIsland, sortedIslands } from '../content/bundle';
+import { isModuleVisible, modulesOfIsland, sortedIslands } from '../content/bundle';
 import { ContentBundle, Localized } from '../content/types';
+import { badgeStatuses } from '../progress/badges';
 import { getModule, LicenseChoice, minutesPerMonth, PlayerState } from '../progress/state';
 
 /**
@@ -68,6 +69,11 @@ export interface Stats {
   /** Minutes per month that the collected use cases take today. */
   useCaseMinutesPerMonth: number;
   feedback: number;
+  /** Players who finished every stage of the compass course; 0 when the content marks none. */
+  compassDone: number;
+  /** Players who earned the Basic badge, and the Premium one. */
+  badgesBasic: number;
+  badgesPremium: number;
   licenses: Record<LicenseChoice, number>;
   /** By area; areas with fewer than MIN_GROUP players are folded into "small". */
   areas: CountRow[];
@@ -133,6 +139,8 @@ export function computeStats(content: ContentBundle, data: AdminData, now: Date,
   });
 
   const cutoff = now.getTime() - 30 * DAY_MS;
+  const core = content.modules.filter((m) => m.core && isModuleVisible(m, options));
+  const badges = states.map((s) => badgeStatuses(content, s, options));
   return {
     participants: states.length,
     active30: players.filter((p) => p.modified && new Date(p.modified).getTime() >= cutoff).length,
@@ -140,6 +148,9 @@ export function computeStats(content: ContentBundle, data: AdminData, now: Date,
     useCases: states.reduce((sum, s) => sum + s.useCases.length, 0),
     useCaseMinutesPerMonth: states.reduce((sum, s) => sum + s.useCases.reduce((m, card) => m + minutesPerMonth(card), 0), 0),
     feedback: data.feedback.length,
+    compassDone: core.length === 0 ? 0 : states.filter((s) => core.every((m) => getModule(s, m.id).completed > 0)).length,
+    badgesBasic: badges.filter((b) => b[0].earned).length,
+    badgesPremium: badges.filter((b) => b[1].earned).length,
     licenses,
     areas,
     smallAreas,

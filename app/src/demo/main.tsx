@@ -12,6 +12,7 @@ import { ScormProgressStore } from '../data/scorm/ScormProgressStore';
 import { KIND_TITLES } from '../data/sharepoint/SharePointFeedbackSender';
 import { App } from '../ui/App';
 import { sampleAdminSource } from './sampleAdmin';
+import { sampleJourneys } from './sampleJourneys';
 import { samplePinboard } from './samplePinboard';
 
 /**
@@ -88,6 +89,8 @@ ReactDom.render(
     feedback={TEAM ? undefined : demoFeedback}
     admin={TEAM ? undefined : sampleAdminSource(content, () => demoSent)}
     pinboard={TEAM ? undefined : samplePinboard()}
+    // Only the demo offers ready-made journeys, for showing the app to others.
+    samples={TEAM ? undefined : sampleJourneys(content)}
     // In the demo a missed question can be brushed up at once; afterwards it waits three days.
     reviewIntervals={TEAM ? undefined : [0, 3]}
   />,

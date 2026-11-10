@@ -57,6 +57,27 @@ describe('computeStats', () => {
 
 describe('toCsv', () => {
   it('quotes cells with separators and quotes', () => {
-    expect(toCsv(['A', 'B'], [['x;y', 'sagt "hallo"'], [1, undefined]])).toBe('A;B\r\n"x;y";"sagt ""hallo"""\r\n1;');
+    expect(
+      toCsv(
+        ['A', 'B'],
+        [
+          ['x;y', 'sagt "hallo"'],
+          [1, undefined]
+        ]
+      )
+    ).toBe('A;B\r\n"x;y";"sagt ""hallo"""\r\n1;');
+  });
+
+  it('counts who finished the compass course and who earned a badge', () => {
+    const now = new Date('2026-10-29T12:00:00Z');
+    const marked = { ...content, modules: content.modules.map((m) => (m.id === 'm1' ? { ...m, core: true } : m)) } as ContentBundle;
+    const stamped = player('verkauf', []);
+    ['m1', 'm2'].forEach((id) => (stamped.modules[id] = { started: 1, completed: 1, inProgress: false, firstCompletedAt: '2026-10-20T08:00:00Z' }));
+    const stats = computeStats(marked, { players: [{ state: stamped }, { state: player('verkauf', ['m1']) }, { state: player('verkauf', ['m2']) }], feedback: [] }, now);
+    expect(stats.compassDone).toBe(2);
+    // The one island has no exam, so its two finished stages are the stamp, and with it both badges.
+    expect(stats.badgesBasic).toBe(1);
+    expect(stats.badgesPremium).toBe(1);
+    expect(computeStats(content, { players: [{ state: stamped }], feedback: [] }, now).compassDone).toBe(0);
   });
 });

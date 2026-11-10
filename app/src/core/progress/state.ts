@@ -24,6 +24,8 @@ export interface Profile {
   textSize?: 'normal' | 'large';
   /** Fewer animations, in addition to the operating system setting. */
   motion?: 'full' | 'reduced';
+  /** True once the end of the compass course was celebrated. */
+  compassCheered?: boolean;
   /** Kinds of step whose how-to hint the companion has already given. */
   hintsSeen?: string[];
   /** Kinds of completion badge whose celebration was already shown (see badges.ts). */
