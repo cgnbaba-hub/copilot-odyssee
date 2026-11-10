@@ -421,8 +421,20 @@
         "en": "What are nautical miles, stamps and souvenirs?"
       },
       "answer": {
-        "de": "- **Seemeilen** bekommst du für jede Übung. Mit genug Seemeilen steigst du im Rang auf.\n- **Stempel** kommen in deinen Reisepass, wenn du alle Etappen einer Insel abgeschlossen hast. Der volle Pass ist dein Abschluss-Badge.\n- **Souvenirs** sind kleine Erinnerungen an besondere Momente, zum Beispiel deine erste Mission.",
-        "en": "- **Nautical miles** are awarded for every exercise. With enough miles you rise in rank.\n- **Stamps** go into your passport when you complete all stages of an island. The full passport is your completion badge.\n- **Souvenirs** are small mementos of special moments, for example your first mission."
+        "de": "- **Seemeilen** bekommst du für jede Übung. Mit genug Seemeilen steigst du im Rang auf.\n- **Stempel** kommen in deinen Reisepass, wenn du alle Etappen einer Insel abgeschlossen hast. Mit den Stempeln verdienst du Abzeichen.\n- **Souvenirs** sind kleine Erinnerungen an besondere Momente, zum Beispiel deine erste Mission.",
+        "en": "- **Nautical miles** are awarded for every exercise. With enough miles you rise in rank.\n- **Stamps** go into your passport when you complete all stages of an island. Stamps earn you badges.\n- **Souvenirs** are small mementos of special moments, for example your first mission."
+      }
+    },
+    {
+      "id": "abzeichen",
+      "group": "app",
+      "question": {
+        "de": "Was sind die Abzeichen und wie bekomme ich sie?",
+        "en": "What are the badges and how do I get them?"
+      },
+      "answer": {
+        "de": "- Das **Basic-Abzeichen** bekommst du, wenn du alle 7 Basic-Inseln mit Inselprüfung abgeschlossen hast. Das **Premium-Abzeichen** gibt es nach allen 12 Inseln.\n- Im Reisepass kannst du ein Abzeichen **herunterladen**, als **Zertifikat drucken** (oder als PDF speichern) und **zu LinkedIn hinzufügen**. LinkedIn öffnet nur ein vorausgefülltes Formular, dein Profil ändert sich erst, wenn du dort speicherst.\n- Jedes Abzeichen hat eine **Kennung**, zum Beispiel CO-B-2611-7F3K. Sie bezeichnet dein Abzeichen eindeutig, und HR kann es damit bestätigen. Sie ist eine Bezeichnung und kein Fälschungsschutz.",
+        "en": "- You get the **Basic badge** when you have completed all 7 Basic islands with their island exams. The **Premium badge** follows after all 12 islands.\n- In the passport you can **download** a badge, **print it as a certificate** (or save it as PDF) and **add it to LinkedIn**. LinkedIn only opens a pre-filled form; your profile changes when you save there.\n- Every badge has an **ID**, for example CO-B-2611-7F3K. It identifies your badge, and HR can confirm it with it. It is a label, not forgery protection."
       }
     },
     {

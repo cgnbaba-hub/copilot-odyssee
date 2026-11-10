@@ -51,6 +51,8 @@ export const odysseeTheme: Theme = {
     stamps: { de: 'Stempel', en: 'Stamps' },
     souvenirs: { de: 'Souvenirs', en: 'Souvenirs' }
   },
+  // HR supplies linkedInOrganizationId (company page id) and certUrl (public verification page) later.
+  badges: { issuer: { de: 'DERTOUR Suisse', en: 'DERTOUR Suisse' } },
   ranks: [
     { minLevel: 1, name: { de: 'Reisende:r', en: 'Traveller' } },
     { minLevel: 3, name: { de: 'Entdecker:in', en: 'Explorer' } },

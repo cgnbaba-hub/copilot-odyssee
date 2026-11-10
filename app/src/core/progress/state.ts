@@ -1,5 +1,6 @@
 import { LearningModule, QuizBlock } from '../content/types';
 import { Lang } from '../i18n/locale';
+import { BadgeId } from './badges';
 import { BRIEFING_XP, MISSION_XP, MODULE_BONUS_XP, PIN_XP, PIN_XP_MAX_POSTS, PROMPT_MAX_XP, QUIZ_XP, USECASE_XP } from './rewards';
 
 /**
@@ -25,6 +26,8 @@ export interface Profile {
   motion?: 'full' | 'reduced';
   /** Kinds of step whose how-to hint the companion has already given. */
   hintsSeen?: string[];
+  /** Kinds of completion badge whose celebration was already shown (see badges.ts). */
+  badgesSeen?: BadgeId[];
 }
 
 export interface BlockProgress {

@@ -8721,3 +8721,323 @@ $grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width=
 .pinBoard > .viewSwitch {
   margin-bottom: 14px;
 }
+
+// ---------------------------------------------------------------------------
+// Completion badges: passport cards, celebration and printable certificate
+// ---------------------------------------------------------------------------
+
+.badgeGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @media (max-width: $compact) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.badgeCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 18px;
+  text-align: center;
+  background: var(--od-surface);
+  border: 2px solid var(--od-line);
+  border-radius: $radius;
+
+  h3 {
+    margin: 0 0 4px;
+    font-size: 21px;
+  }
+
+  p {
+    margin: 4px 0;
+  }
+}
+
+.badgeCardEarned {
+  border-color: $sun;
+}
+
+.badgeArt {
+  flex: none;
+  width: 160px;
+  height: 160px;
+}
+
+.badgeCardLocked .badgeArt {
+  opacity: 0.7;
+}
+
+.badgeBody {
+  width: 100%;
+  min-width: 0;
+}
+
+.badgeProgressText {
+  font-weight: 700;
+}
+
+.badgeBar {
+  display: block;
+  height: 8px;
+  margin: 6px 0 8px;
+  overflow: hidden;
+  background: var(--od-line);
+  border-radius: 4px;
+
+  > span {
+    display: block;
+    height: 100%;
+    background: var(--od-success);
+  }
+}
+
+.badgeId {
+  code {
+    padding: 2px 6px;
+    font-size: 15px;
+    letter-spacing: 0.04em;
+    background: $paper-hi;
+    border: 1px solid var(--od-line);
+    border-radius: 6px;
+    color: $ink;
+  }
+}
+
+.badgeCopy {
+  margin-left: 6px;
+  padding: 2px 8px;
+  font: inherit;
+  font-size: 14px;
+  color: var(--od-text);
+  background: transparent;
+  border: 1px solid var(--od-line);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.badgeActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 10px 0 6px;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.badgeEarnedArt {
+  display: block;
+  width: 190px;
+  height: 190px;
+  margin: 0 auto 12px;
+  animation: pop 0.6s ease-out;
+}
+
+.badgeEarnedActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+// Certificate: full-screen overlay with an A4 landscape sheet
+.certificateOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1002;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  overflow: auto;
+  background: rgba(15, 44, 71, 0.8);
+  text-align: left;
+}
+
+.certificateBar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.certificateSheet {
+  flex: none;
+  width: min(100%, 1000px);
+  aspect-ratio: 297 / 210;
+  padding: 14px;
+  color: $ink;
+  background: $paper-hi;
+  border: 4px solid $ink;
+  border-radius: 8px;
+  box-shadow: $shadow-strong;
+  container-type: inline-size;
+
+  @media (max-width: $compact) {
+    width: 760px;
+  }
+}
+
+.certificateInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  padding: 2cqw 4cqw;
+  text-align: center;
+  border: 2px solid var(--od-brand);
+
+  p,
+  h2 {
+    margin: 0;
+  }
+}
+
+.certificateIssuer {
+  font-family: var(--od-font-display);
+  font-size: 2cqw;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--od-brand);
+}
+
+.certificateTitle {
+  font-size: 6cqw;
+  font-weight: 900;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.certificateHolder,
+.certificateHolderInput,
+.certificateHolderPrint {
+  font-family: var(--od-font-display);
+  font-size: 4cqw;
+  font-weight: 800;
+}
+
+.certificateHolderInput {
+  width: 70%;
+  color: inherit;
+  text-align: center;
+  background: transparent;
+  border: 0;
+  border-bottom: 2px dashed $ink;
+}
+
+.certificateHolderLabel {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.certificateHolderPrint {
+  display: none;
+}
+
+.certificateText {
+  font-size: 1.9cqw;
+}
+
+.certificateBadgeName {
+  font-family: var(--od-font-display);
+  font-size: 3.2cqw;
+  font-weight: 900;
+}
+
+.certificateIslandsTitle {
+  font-size: 1.3cqw;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.certificateIslands {
+  font-size: 1.4cqw;
+  line-height: 1.4;
+}
+
+.certificateFoot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 1.5cqw;
+
+  code {
+    font-size: 1.5cqw;
+    letter-spacing: 0.04em;
+  }
+}
+
+.certificateArt {
+  width: 16cqw;
+  height: 16cqw;
+}
+
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 12mm;
+  }
+
+  // Hide everything inside the app except the certificate and the elements that contain it.
+  .app *:not(.certificateOverlay):not(.certificateOverlay *):not(:has(.certificateOverlay)) {
+    display: none !important;
+  }
+
+  .certificateBar {
+    display: none !important;
+  }
+
+  // Fixed, so the card around the certificate cannot shrink it; the page margin comes from @page.
+  .certificateOverlay {
+    position: fixed;
+    inset: 0;
+    z-index: auto;
+    display: block;
+    padding: 0;
+    overflow: visible;
+    background: none;
+  }
+
+  .certificateSheet {
+    width: 100%;
+    max-height: 186mm;
+    box-shadow: none;
+    border-radius: 0;
+    break-inside: avoid;
+  }
+
+  .certificateHolderInput {
+    display: none;
+  }
+
+  .certificateHolderPrint {
+    display: block;
+  }
+
+  .app {
+    background: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .badgeEarnedArt {
+    animation: none !important;
+  }
+}

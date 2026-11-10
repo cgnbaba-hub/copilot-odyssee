@@ -244,7 +244,8 @@ Legende: 🤖 = setze ich um · 👤 = brauche ich von dir · 🏢 = IT oder Dat
 - [ ] **Umzug ins Firmen-Repository** 👤🏢 – Das Projekt zieht vom privaten GitHub-Repository in das Repository von DERTOUR Suisse. Dabei Links (Demo, Doku) und die CI prüfen.
 - [ ] **Bereiche von DERTOUR Suisse** 👤 – *Wartet auf dich:* Du gibst mir nach dem Umzug die genaue Liste der Bereiche im Unternehmen. Danach passe ich `content/areas.json` an (Namen, Beispiele, Prompt-Vorlagen) und baue darauf auf:
   - **Praxis-Etappe pro Bereich** 🤖👤 – eine Etappe mit echten DERTOUR-Fällen pro Bereich (z. B. Angebotsmail in der Reiseberatung, Kampagnentext im Marketing). Die Fälle kommen aus den Fachbereichen.
-- [ ] **Abschlusszertifikat** 🤖 – druckbare Urkunde/PDF für Basic und Premium mit Name, Datum und Inseln. Grundlage für die SuccessFactors-Anbindung.
+- [ ] **Abschlusszertifikat** 🤖👤🏢 – druckbare Urkunde für Basic und Premium mit Name, Datum, Inseln und Kennung.
+  *Stand:* gebaut: Abzeichen im Reisepass, Bild-Download, Zertifikat zum Drucken oder als PDF, LinkedIn-Link, Glückwunsch-Dialog (siehe `docs/BADGES.md`). Offen: endgültige Abzeichen-Grafik, Wortlaut des Ausstellers, LinkedIn-Firmenseite und Prüf-URL von HR, einmaliger Test des LinkedIn-Links, offizielle Ausstellung über eine Abzeichen-Plattform und die SuccessFactors-Anbindung.
 - [ ] **SuccessFactors** 🤖🏢 – Abzeichen und Lerninhalte im LMS sichtbar machen (empfohlen: Abschlüsse als externe Lernereignisse melden). Erst nach Klärung mit HR und IT.
 - [ ] **LMS-Anbindung (SuccessFactors)** 🤖🏢 – Die App als SCORM-1.2-Paket (`npm run scorm:build`), das im LMS Status, Punktzahl, Lernzeit und Fortschritt meldet.
   *Stand:* Paket gebaut und mit einem nachgebauten LMS getestet. Offen: Test in SuccessFactors Learning mit dem LMS-Admin, dann die offenen Fragen in `docs/LMS.md` (SCORM 2004 oder xAPI, ein Kurs oder einer pro Insel, Verknüpfung mit dem SharePoint-Fortschritt, Zertifikate).

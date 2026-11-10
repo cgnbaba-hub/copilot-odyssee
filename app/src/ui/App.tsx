@@ -9,6 +9,7 @@ import { Lang, localize } from '../core/i18n/locale';
 import { earnedSouvenirs, SouvenirId } from '../core/progress/achievements';
 import { DebouncedProgressStore, SaveStatus } from '../core/progress/debounced';
 import { REVIEW_INTERVALS } from '../core/progress/review';
+import { BadgeId, badgeStatuses } from '../core/progress/badges';
 import { initialState, Outcome, PlayerState, updateProfile } from '../core/progress/state';
 import { ProgressStore } from '../core/progress/store';
 import { AdminView } from './components/AdminView';
@@ -27,6 +28,7 @@ import { NavBar } from './components/NavBar';
 import { Onboarding } from './components/Onboarding';
 import { Passport } from './components/Passport';
 import { Pinboard } from './components/Pinboard';
+import { BadgeEarned } from './components/BadgeEarned';
 import { RankUp } from './components/RankUp';
 import { ReviewView } from './components/ReviewView';
 import { Settings } from './components/Settings';
@@ -280,6 +282,17 @@ export function App(props: AppProps): React.ReactElement {
             : 'journey';
   // The tour explains the start screen, so it waits until the player is there and nothing else is open.
   const showTour = onboarded && !player.profile.toured && view.name === 'map' && !helpOpen && !settingsOpen && !feedbackOpen && rankUp === undefined;
+  // The first earned badge whose celebration was not shown yet.
+  const badgesSeen = player.profile.badgesSeen || [];
+  const pendingBadge = onboarded
+    ? badgeStatuses(props.content, player, { showDrafts: game.showDrafts })
+        .filter((b) => b.earned && badgesSeen.indexOf(b.id) < 0)
+        .map((b) => b.id)[0]
+    : undefined;
+  const closeBadge = (id: BadgeId, toPassport: boolean): void => {
+    game.update((s) => updateProfile(s, { badgesSeen: [...(s.profile.badgesSeen || []).filter((x) => x !== id), id] }));
+    if (toPassport) game.navigate({ name: 'passport' });
+  };
   const finishTour = (): void => {
     game.update((s) => updateProfile(s, { toured: true }));
   };
@@ -325,6 +338,13 @@ export function App(props: AppProps): React.ReactElement {
         {rankUp !== undefined && view.name !== 'module' && view.name !== 'exam' && view.name !== 'review' && !(view.name === 'passport' && view.stamp && !stampSeen) && (
           <RankUp index={rankUp} onClose={() => setRankUp(undefined)} />
         )}
+        {/* A new badge waits behind a pending new status and is shown on the same terms. */}
+        {rankUp === undefined &&
+          pendingBadge &&
+          view.name !== 'module' &&
+          view.name !== 'exam' &&
+          view.name !== 'review' &&
+          !(view.name === 'passport' && view.stamp && !stampSeen) && <BadgeEarned id={pendingBadge} onClose={(toPassport) => closeBadge(pendingBadge, toPassport)} />}
         {/* Saving shows as a small mark in the header; only a failure gets a message of its own. */}
         {saveStatus === 'error' && (
           <p className={`${styles.saveStatus} ${styles.saveStatusError}`} role="status">
