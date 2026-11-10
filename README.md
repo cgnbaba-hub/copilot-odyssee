@@ -35,6 +35,7 @@ npm ci
 | `npm run demo` | Startet die Demo unter http://localhost:5173 |
 | `npm run demo:build` | Baut die Demo nach `app/dist-demo/` |
 | `npm run team:build` | Baut eine einzelne HTML-Datei für Kolleginnen und Kollegen nach `app/dist-team/copilot-odyssee.html`: ohne Beispiel-Auswertung und Beispiel-Pinnwand, Feedback per Mail, Fortschritt im Browser |
+| `npm run scorm:build` | Baut das SCORM-1.2-Paket für ein LMS (z. B. SuccessFactors) nach `app/dist-scorm/copilot-odyssee-scorm12.zip`, siehe [docs/LMS.md](docs/LMS.md) |
 | `npm test` | Typecheck, Lint und Unit-Tests |
 | `npm run build` | Wie `npm test`, dazu das App-Paket `app/sharepoint/solution/odyssee.sppkg` |
 | `npm start` | SPFx-Entwicklungsserver für die gehostete Workbench in SharePoint |

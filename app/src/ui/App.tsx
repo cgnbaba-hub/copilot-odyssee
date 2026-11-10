@@ -44,8 +44,8 @@ export interface AppProps {
   /** Language before the player picks one. */
   initialLang: Lang;
   showDrafts: boolean;
-  /** Where progress is saved; anything but SharePoint is pointed out to the player. */
-  storage: 'demo' | 'browser' | 'sharepoint';
+  /** Where progress is saved; the browser-only kinds are pointed out to the player, SharePoint and an LMS are not. */
+  storage: 'demo' | 'browser' | 'sharepoint' | 'lms';
   theme?: Theme;
   /** Where feedback goes; without it the app points to the contact address. */
   feedback?: FeedbackSender;
