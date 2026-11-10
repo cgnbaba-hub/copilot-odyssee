@@ -57,6 +57,8 @@ export interface AppProps {
   pinboard?: PinboardSource;
   /** Display name of the signed-in person; only shown, never stored. */
   userName?: string;
+  /** Ready-made journeys to load, for presenting the app; only the demo passes them. */
+  samples?: { id: string; label: Localized; build: () => PlayerState }[];
   /** Days until a missed question comes back; the demo uses shorter ones so it can be tried at once. */
   reviewIntervals?: number[];
 }
@@ -149,6 +151,7 @@ export function App(props: AppProps): React.ReactElement {
 
   // After deleting everything, the old state is kept for a moment so a slip of the finger can be undone.
   const [undoState, setUndoState] = React.useState<PlayerState | undefined>(undefined);
+  const [undoLabel, setUndoLabel] = React.useState('');
   const undoTimer = React.useRef(0);
   React.useEffect(() => () => window.clearTimeout(undoTimer.current), []);
   if (!player) {
@@ -233,6 +236,21 @@ export function App(props: AppProps): React.ReactElement {
     setSettingsOpen(false);
     setView({ name: 'map' });
     setUndoState(before);
+    setUndoLabel(strings.resetDone);
+    window.clearTimeout(undoTimer.current);
+    undoTimer.current = window.setTimeout(() => setUndoState(undefined), UNDO_MS);
+  };
+  // A sample journey replaces the progress like a reset does, so it can be undone the same way.
+  const loadSample = (build: () => PlayerState): void => {
+    const before = playerRef.current;
+    const sample = build();
+    const profile = before ? before.profile : sample.profile;
+    // The presenter keeps language, companion and display settings; the journey brings its licence.
+    commit({ ...sample, profile: { ...sample.profile, lang: profile.lang, guide: profile.guide, textSize: profile.textSize, motion: profile.motion } });
+    setSettingsOpen(false);
+    setView({ name: 'map' });
+    setUndoState(before);
+    setUndoLabel(strings.sampleLoaded);
     window.clearTimeout(undoTimer.current);
     undoTimer.current = window.setTimeout(() => setUndoState(undefined), UNDO_MS);
   };
@@ -330,7 +348,7 @@ export function App(props: AppProps): React.ReactElement {
         <main className={styles.main}>{main}</main>
         <ContactNote onFeedback={openFeedback} />
         {onboarded && <NavBar onOpenHelp={() => setHelpOpen(true)} onOpenSettings={() => setSettingsOpen(true)} admin={!!props.admin} active={navActive} />}
-        {settingsOpen && <Settings onClose={() => setSettingsOpen(false)} onReset={reset} onRestartTour={restartTour} />}
+        {settingsOpen && <Settings onClose={() => setSettingsOpen(false)} onReset={reset} onRestartTour={restartTour} samples={props.samples} onLoadSample={loadSample} />}
         {helpOpen && <HelpPanel onClose={() => setHelpOpen(false)} onFeedback={openFeedback} />}
         {feedbackOpen && <FeedbackPanel sender={props.feedback} demo={props.storage === 'demo'} page={pageLabel} onClose={() => setFeedbackOpen(false)} />}
         {showTour && <Tour getRoot={() => rootRef.current || undefined} onDone={finishTour} />}
@@ -353,7 +371,7 @@ export function App(props: AppProps): React.ReactElement {
         )}
         {undoState && (
           <div className={styles.undoBar} role="status">
-            <span>{strings.resetDone}</span>
+            <span>{undoLabel}</span>
             <button type="button" className={styles.buttonPrimary} onClick={undoReset}>
               {strings.resetUndo}
             </button>

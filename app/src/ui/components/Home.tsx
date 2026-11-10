@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import { moduleLicense, sortedIslands } from '../../core/content/bundle';
 import { Island } from '../../core/content/types';
+import { updateProfile } from '../../core/progress/state';
 import { format } from '../i18n/strings';
 import { useGame } from '../GameContext';
 import { compassProgress, islandProgress, isPreview, nextStage, pendingExam } from '../progressHelpers';
@@ -66,6 +67,33 @@ function IslandList(props: { islands: Island[]; route: Island[]; title: string; 
           );
         })}
       </ol>
+    </section>
+  );
+}
+
+/**
+ * The moment the compass course is done: the companion says so once and
+ * makes clear that everything from here on is free choice.
+ */
+function CompassDone(): React.ReactElement {
+  const game = useGame();
+  const { strings, player, update } = game;
+  const compass = compassProgress(game);
+  if (compass.total === 0 || compass.done < compass.total || player.profile.compassCheered) return <></>;
+  return (
+    <section className={styles.compassDone} aria-labelledby="od-compass-done">
+      <span className={styles.compassDoneMark} aria-hidden="true">
+        ✧
+      </span>
+      <div>
+        <h2 id="od-compass-done" className={styles.compassDoneTitle}>
+          {strings.compassDoneTitle}
+        </h2>
+        <p>{format(strings.compassDoneText, { count: compass.total })}</p>
+      </div>
+      <button type="button" className={styles.buttonPrimary} onClick={() => update((s) => updateProfile(s, { compassCheered: true }))}>
+        {strings.compassDoneButton}
+      </button>
     </section>
   );
 }
@@ -157,6 +185,7 @@ export function Home(): React.ReactElement {
 
   return (
     <div className={styles.home}>
+      <CompassDone />
       <ReviewInvite />
       {/* The next step comes first, so it is in view without scrolling. */}
       <NextTicket />

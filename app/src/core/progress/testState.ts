@@ -4,7 +4,7 @@ import { recordExam } from './exam';
 import { answerQuiz, completeMission, finishModule, initialState, markBriefingRead, PlayerState, saveUseCase, startModule, submitPrompt, updateProfile } from './state';
 
 /**
- * Test helper: a player who has played every visible stage and passed every
+ * Helper for tests and for the sample journeys of the demo: a player who has played every visible stage and passed every
  * exam of the given islands, through the real game functions so XP and dates
  * look like a real save. Long use case texts make it a worst case for size.
  */

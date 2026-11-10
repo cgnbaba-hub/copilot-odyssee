@@ -9041,3 +9041,63 @@ $grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width=
     animation: none !important;
   }
 }
+
+// ---------------------------------------------------------------------------
+// Ready for the whole company: presenting, compass course finish
+// ---------------------------------------------------------------------------
+
+.sampleButtons {
+  display: grid;
+  gap: 8px;
+  margin-top: 8px;
+
+  button {
+    justify-content: flex-start;
+    text-align: left;
+  }
+}
+
+.compassDone {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 18px;
+  padding: 16px 20px;
+  background: #fff3c4;
+  border: 3px solid $ink;
+  border-radius: 20px;
+  box-shadow: 5px 5px 0 $sun;
+
+  > div {
+    flex: 1 1 260px;
+  }
+
+  p {
+    margin: 4px 0 0;
+  }
+}
+
+.compassDoneMark {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  background: $sun;
+  border: 3px solid $ink;
+  border-radius: 50%;
+  font-size: 26px;
+  animation: odIconPop 0.6s cubic-bezier(0.34, 1.8, 0.64, 1) backwards;
+}
+
+.compassDoneTitle {
+  margin: 0;
+  font-family: var(--od-font-display);
+  font-size: 22px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .compassDoneMark {
+    animation: none !important;
+  }
+}

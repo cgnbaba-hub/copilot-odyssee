@@ -1,7 +1,8 @@
 import * as React from 'react';
 
+import { Localized } from '../../core/content/types';
 import { SUPPORTED_LANGS } from '../../core/i18n/locale';
-import { LicenseChoice, updateProfile } from '../../core/progress/state';
+import { LicenseChoice, PlayerState, updateProfile } from '../../core/progress/state';
 import { useGame } from '../GameContext';
 import styles from '../styles.module.scss';
 import { AreaPicker } from './AreaPicker';
@@ -10,8 +11,15 @@ import { GuidePicker } from './GuidePicker';
 import { LicenseMockup } from './LicenseMockup';
 import { LicensePicker } from './LicensePicker';
 
-export function Settings(props: { onClose: () => void; onReset: () => void; onRestartTour: () => void }): React.ReactElement {
-  const { content, player, lang, strings, update } = useGame();
+export function Settings(props: {
+  onClose: () => void;
+  onReset: () => void;
+  onRestartTour: () => void;
+  /** Ready-made journeys for presenting the app; only the demo has them. */
+  samples?: { id: string; label: Localized; build: () => PlayerState }[];
+  onLoadSample?: (build: () => PlayerState) => void;
+}): React.ReactElement {
+  const { content, player, lang, strings, t, update } = useGame();
   const [confirmReset, setConfirmReset] = React.useState(false);
 
   return (
@@ -79,6 +87,20 @@ export function Settings(props: { onClose: () => void; onReset: () => void; onRe
       <button type="button" className={styles.button} onClick={props.onRestartTour}>
         {strings.tourRestart}
       </button>
+
+      {props.samples && props.samples.length > 0 && (
+        <>
+          <h3 className={styles.drawerSection}>{strings.samplesTitle}</h3>
+          <p className={styles.muted}>{strings.samplesIntro}</p>
+          <div className={styles.sampleButtons}>
+            {props.samples.map((sample) => (
+              <button type="button" key={sample.id} className={styles.button} onClick={() => props.onLoadSample && props.onLoadSample(sample.build)}>
+                {t(sample.label)}
+              </button>
+            ))}
+          </div>
+        </>
+      )}
 
       {/* Deleting everything is rare and hard to undo, so it waits behind «Erweitert». */}
       <details className={styles.advanced}>

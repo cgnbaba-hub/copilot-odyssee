@@ -648,7 +648,17 @@ const de = {
   certCompletedAll: 'hat alle {count} Inseln der Copilot Odyssee mit Inselprüfung abgeschlossen.',
   certIslands: 'Abgeschlossene Inseln',
   certDate: 'Datum',
-  certId: 'Kennung'
+  certId: 'Kennung',
+  adminCompass: 'Kompass-Kurs geschafft',
+  adminBadgesBasic: 'Abzeichen Basic',
+  adminBadgesPremium: 'Abzeichen Premium',
+  adminShare: '{percent} % der Teilnehmenden',
+  samplesTitle: 'Vorführen',
+  samplesIntro: 'Lade eine fertig gespielte Beispielreise, um die App zu zeigen. Dein eigener Stand wird ersetzt; direkt danach kannst du es rückgängig machen.',
+  sampleLoaded: 'Beispielreise geladen.',
+  compassDoneTitle: 'Kompass-Kurs geschafft!',
+  compassDoneText: 'Du hast die {count} wichtigsten Etappen hinter dir und kennst jetzt das Wesentliche. Ab hier reist du, wohin du Lust hast: Jede weitere Insel bringt dich deinem Abzeichen näher.',
+  compassDoneButton: 'Weiter reisen'
 };
 
 export type Strings = typeof de;
@@ -1291,7 +1301,17 @@ const en: Strings = {
   certCompletedAll: 'has completed all {count} islands of the Copilot Odyssey including the island exams.',
   certIslands: 'Islands completed',
   certDate: 'Date',
-  certId: 'ID'
+  certId: 'ID',
+  adminCompass: 'Compass course done',
+  adminBadgesBasic: 'Basic badges',
+  adminBadgesPremium: 'Premium badges',
+  adminShare: '{percent} % of participants',
+  samplesTitle: 'Presenting',
+  samplesIntro: 'Load a ready-played sample journey to show the app. It replaces your own progress; you can undo it right afterwards.',
+  sampleLoaded: 'Sample journey loaded.',
+  compassDoneTitle: 'Compass course done!',
+  compassDoneText: 'You have the {count} most important stages behind you and now know the essentials. From here you travel wherever you like: every further island brings you closer to your badge.',
+  compassDoneButton: 'Travel on'
 };
 
 const STRINGS: Record<Lang, Strings> = { de, en };
