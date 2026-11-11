@@ -87,6 +87,27 @@ export function sampleAdminData(content: ContentBundle, now: Date): AdminData {
     },
     { kind: 'Idee oder Wunsch', message: 'Mehr Beispiele für Offerten an Firmenkunden, bitte.', context: 'Spickzettel', profile: 'de · premium · beratung', created: ago(9) }
   ];
+  // Reports from «Stimmt das noch?», so the editorial overview has something to show.
+  const reported = content.modules.filter((m) => m.blocks.length > 1)[4];
+  if (reported) {
+    const title = reported.title.de;
+    feedback.unshift(
+      {
+        kind: 'Stimmt das noch? (Schritt prüfen)',
+        message: 'Der Knopf sitzt bei mir inzwischen oben rechts.',
+        context: `Etappe «${title}» · Schritt 1 (${reported.id}/${reported.blocks[0].id})`,
+        profile: 'de · basic · beratung',
+        created: ago(0)
+      },
+      {
+        kind: 'Stimmt das noch? (Schritt prüfen)',
+        message: 'Bitte prüfen, ob dieser Schritt noch stimmt.',
+        context: `Etappe «${title}» · Schritt 2 (${reported.id}/${reported.blocks[1].id})`,
+        profile: 'de · premium · marketing',
+        created: ago(1)
+      }
+    );
+  }
   return { players, feedback };
 }
 

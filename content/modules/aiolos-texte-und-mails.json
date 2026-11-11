@@ -8,6 +8,15 @@
   "status": "draft",
   "reviewedAt": "2026-11-02",
   "reviewIntervalDays": 180,
+  "changes": [
+    {
+      "date": "2026-11-10",
+      "note": {
+        "de": "Ergänzt: Mit den eigenen Anweisungen schreibt Copilot dauerhaft «ss» statt Eszett.",
+        "en": "Added: with custom instructions, Copilot permanently writes “ss” instead of the Eszett."
+      }
+    }
+  ],
   "title": {
     "de": "Texte und Mails schreiben",
     "en": "Writing texts and emails"

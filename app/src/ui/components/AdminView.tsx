@@ -6,6 +6,7 @@ import { SharedUseCases, sharedUseCases } from '../../core/pinboard/pinboard';
 import { saveFile } from '../download';
 import { formatNumber } from '../format';
 import { useGame } from '../GameContext';
+import { EditorialSection } from './EditorialSection';
 import { format } from '../i18n/strings';
 import styles from '../styles.module.scss';
 
@@ -254,6 +255,8 @@ export function AdminView(props: { source: AdminSource }): React.ReactElement {
           </div>
         </>
       )}
+
+      <EditorialSection feedback={load.data.feedback} now={load.at} />
 
       <div className={styles.adminSectionHead}>
         <h2 className={styles.sectionTitle}>{strings.adminFeedback}</h2>

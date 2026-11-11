@@ -14,6 +14,7 @@ import { Deck } from './Deck';
 import { Regatta } from './Regatta';
 import { ReviewInvite } from './ReviewInvite';
 import { LicenseChip } from './LicenseChip';
+import { NewsCard } from './NewsCard';
 import { SeaChart } from './SeaChart';
 import { StayOnCourse } from './StayOnCourse';
 
@@ -194,6 +195,7 @@ export function Home(): React.ReactElement {
       {/* The next step comes first, so it is in view without scrolling. */}
       <NextTicket />
       <StayOnCourse />
+      <NewsCard />
       <div className={game.regatta ? `${styles.viewSwitch} ${styles.viewSwitchFour}` : styles.viewSwitch} role="group" aria-label={strings.viewLabel} data-tour="view">
         <button type="button" aria-pressed={view === 'deck'} className={view === 'deck' ? styles.viewSwitchActive : undefined} onClick={() => choose('deck')}>
           {strings.viewDeck}
