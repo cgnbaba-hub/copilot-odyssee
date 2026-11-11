@@ -17,6 +17,9 @@
       freigegeben ist. Freigeben dürfen die Besitzer der Website (in der App oder in der Liste).
     - Liste "OdysseePinnwandDaumen": ein Eintrag pro «Hat mir geholfen».
       Alle sehen alle Einträge (für die Zahl), entfernen kann man nur die eigenen.
+    - Liste "OdysseeRegatta": ein Eintrag pro Person, die an der Regatta teilnimmt
+      (Bereich, Seemeilen, Kompass-Kurs geschafft, Name anzeigen ja/nein).
+      Alle sehen alle Einträge (für die Rangliste), ändern kann man nur den eigenen.
 
     Das Skript ist idempotent: Es kann mehrfach laufen und ergänzt nur, was fehlt.
 
@@ -52,6 +55,7 @@ $StateField = 'OdysseeState'
 $FeedbackList = 'OdysseeFeedback'
 $PinboardList = 'OdysseePinnwand'
 $LikesList = 'OdysseePinnwandDaumen'
+$RegattaList = 'OdysseeRegatta'
 
 Connect-PnPOnline -Url $SiteUrl -Interactive -ClientId $ClientId
 
@@ -173,6 +177,39 @@ $list.Update()
 Invoke-PnPQuery
 
 Grant-ListRole -List $LikesList -Role 'Contribute'
+
+# Regatta: one item per person who chose to take part, titled with the person's pseudonymous key.
+# Everyone reads all of them (for the ranking), changes only their own.
+if (-not (Get-PnPList -Identity $RegattaList -ErrorAction SilentlyContinue)) {
+    Write-Host "Lege Liste $RegattaList an …"
+    New-PnPList -Title $RegattaList -Url "Lists/$RegattaList" -Template GenericList -OnQuickLaunch:$false | Out-Null
+}
+$regattaFields = @(
+    "<Field Type='Text' Name='OdysseeArea' StaticName='OdysseeArea' DisplayName='Bereich' MaxLength='60' />",
+    "<Field Type='Number' Name='OdysseeMiles' StaticName='OdysseeMiles' DisplayName='Seemeilen' Decimals='0' Min='0' />",
+    "<Field Type='Text' Name='OdysseeWeek' StaticName='OdysseeWeek' DisplayName='Woche (Montag)' MaxLength='10' />",
+    "<Field Type='Number' Name='OdysseeWeekStart' StaticName='OdysseeWeekStart' DisplayName='Seemeilen zu Wochenbeginn' Decimals='0' Min='0' />",
+    "<Field Type='Boolean' Name='OdysseeCompass' StaticName='OdysseeCompass' DisplayName='Kompass-Kurs geschafft'><Default>0</Default></Field>",
+    "<Field Type='Boolean' Name='OdysseeShowName' StaticName='OdysseeShowName' DisplayName='Name anzeigen'><Default>0</Default></Field>"
+)
+foreach ($xml in $regattaFields) {
+    $name = ([xml]$xml).Field.Name
+    if (-not (Get-PnPField -List $RegattaList -Identity $name -ErrorAction SilentlyContinue)) {
+        Add-PnPFieldFromXml -List $RegattaList -FieldXml $xml | Out-Null
+    }
+}
+# The app looks up each person's item by title.
+Set-PnPField -List $RegattaList -Identity 'Title' -Values @{ Title = 'Schlüssel'; Indexed = $true } | Out-Null
+Set-PnPList -Identity $RegattaList -EnableVersioning $false | Out-Null
+$view = Get-PnPView -List $RegattaList | Where-Object { $_.DefaultView }
+Set-PnPView -List $RegattaList -Identity $view.Id -Fields 'OdysseeArea', 'OdysseeMiles', 'OdysseeWeek', 'OdysseeWeekStart', 'OdysseeCompass', 'OdysseeShowName', 'Modified' -Values @{ ViewQuery = '<OrderBy><FieldRef Name="OdysseeMiles" Ascending="FALSE" /></OrderBy>' } | Out-Null
+$list = Get-PnPList -Identity $RegattaList
+$list.ReadSecurity = 1
+$list.WriteSecurity = 2
+$list.Update()
+Invoke-PnPQuery
+
+Grant-ListRole -List $RegattaList -Role 'Contribute'
 
 Write-Host ''
 Write-Host 'Fertig. Nächster Schritt: Inhalte hochladen mit Publish-OdysseeContent.ps1.'

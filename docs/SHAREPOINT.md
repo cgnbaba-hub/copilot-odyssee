@@ -14,6 +14,7 @@ Diese Anleitung bringt die Odyssee auf eine SharePoint-Website, zum Beispiel fü
 | Liste `OdysseeFeedback` | Website der Odyssee | Rückmeldungen aus der App, auch «Stimmt das noch?» |
 | Liste `OdysseePinnwand` | Website der Odyssee | Geteilte Prompts der Hafen-Pinnwand, mit Freigabe |
 | Liste `OdysseePinnwandDaumen` | Website der Odyssee | «Hat mir geholfen» zu den Pinnwand-Beiträgen |
+| Liste `OdysseeRegatta` | Website der Odyssee | Regatta: ein Eintrag pro Person, die mitmacht (Bereich, Seemeilen) |
 
 Bibliothek und Listen legt ein Skript an. Solange sie fehlen, läuft das Spiel trotzdem: mit den Inhalten aus dem App-Paket und mit Fortschritt im Browser. Ein Hinweis im Spiel weist darauf hin. Sobald die Liste da ist, wird der Browser-Fortschritt automatisch übernommen.
 
@@ -122,6 +123,19 @@ Auf der Pinnwand teilen Teilnehmende Prompts, die ihnen geholfen haben. Sie lieg
 
 > Die Freigabe aus der App setzt den Genehmigungsstatus über `ValidateUpdateListItem`. Das ist nach Dokumentation geschrieben, aber noch nicht im Tenant getestet. Falls es nicht klappt, funktioniert die Freigabe in der Liste immer.
 
+## Regatta
+
+Die Regatta ist der Vergleich zwischen den Bereichen und, für alle, die das möchten, zwischen Personen. Sie liegt auf der Startseite als vierte Ansicht neben «Blick vom Schiff», «Seekarte» und «Logbuch» und erscheint nur, wenn die Liste `OdysseeRegatta` da ist (das Setup-Skript legt sie an). Wer die Regatta nicht anbieten will, lässt die Liste weg oder löscht sie.
+
+- **Teilnahme nur nach eigener Wahl:** Beim ersten Öffnen fragt die App, ob man für den Bereich mitzählen (ohne Namen), mit Namen mitsegeln oder nicht teilnehmen will. Vorher schreibt die App nichts in die Liste. Die Wahl lässt sich unten in der Regatta jederzeit ändern; bei «Nicht teilnehmen» löscht die App den Eintrag.
+- **Was im Eintrag steht:** Bereich, Seemeilen, Seemeilen zu Beginn der laufenden Woche, ob der Kompass-Kurs geschafft ist und ob der Name gezeigt werden darf. Antworten, Notizen und Use Cases stehen dort nicht. Der Titel ist derselbe Hash wie in `OdysseeFortschritt`.
+- **Bereiche:** Es zählt der Durchschnitt der Seemeilen pro Person, damit grosse und kleine Bereiche vergleichbar sind. Ein Bereich erscheint erst ab 5 Teilnehmenden einzeln.
+- **Wochenwertung:** «Diese Woche» zählt die Seemeilen seit Montag. Wer neu dazukommt, startet die Woche beim aktuellen Stand, frühere Seemeilen zählen nur in «Ganze Reise».
+- **Rangliste:** Die zehn Schnellsten, ohne Zustimmung als «Crewmitglied» ohne Namen und Bereich. Die eigene Zeile sieht man immer.
+- **Keine Kontrolle:** Die App rechnet die Zahlen im Browser und schreibt sie in den eigenen Eintrag. Wer will, kann seinen Eintrag in der Liste von Hand ändern. Für einen spielerischen Vergleich reicht das, für Prämien oder Beurteilungen nicht. Verlässliche Zahlen stehen in der Auswertung, die aus `OdysseeFortschritt` rechnet.
+
+> Die Regatta ist gegen eine nachgebaute Liste getestet, noch nicht im Tenant.
+
 ## Datenschutz und Berechtigungen
 
 - **Liste `OdysseeFortschritt`:** Elementberechtigungen sind so gesetzt, dass alle nur ihre eigenen Einträge sehen und ändern. Der Titel eines Eintrags ist ein SHA-256-Hash der Entra-Objekt-ID, nicht der Name.
@@ -130,4 +144,5 @@ Auf der Pinnwand teilen Teilnehmende Prompts, die ihnen geholfen haben. Sie lieg
 - **Prompt-Texte** aus den Übungen werden nicht gespeichert. Use-Case-Karten liegen im eigenen Spielstand.
 - **Liste `OdysseePinnwand`:** Freigegebene Beiträge sehen alle Teilnehmenden, also bewusst geteilte Prompts. Nicht freigegebene sehen nur die Verfasserin oder der Verfasser und die Redaktion. Ändern kann man nur eigene Beiträge.
 - **Liste `OdysseePinnwandDaumen`:** Jeder Eintrag enthält nur die Nummer des Beitrags. Alle können alle Einträge lesen, damit die App die Zahl zeigen kann; SharePoint speichert dazu, wer den Daumen gegeben hat.
+- **Liste `OdysseeRegatta`:** Einen Eintrag gibt es nur für Personen, die in der App gewählt haben, an der Regatta teilzunehmen. Alle Teilnehmenden können alle Einträge lesen, damit die App die Rangliste rechnen kann. Die App zeigt den Namen nur mit Zustimmung; SharePoint speichert aber bei jedem Eintrag, wer ihn angelegt hat. Wer die Liste direkt öffnet, kann deshalb auch bei Einträgen ohne Namensfreigabe sehen, von wem sie stammen, samt Bereich und Seemeilen. Bitte mit dem Datenschutz und, wo nötig, der Personalvertretung klären, ob das so passt. Wenn nicht: Liste weglassen, dann gibt es keine Regatta.
 - **Grösse:** Ein Spielstand ist wenige Kilobyte gross. Ein Feld vom Typ «Mehrere Textzeilen» reicht dafür auf Jahre.

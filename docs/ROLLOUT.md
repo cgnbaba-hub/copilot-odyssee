@@ -23,7 +23,8 @@ Die Beispielreisen gibt es nur in der Demo, nicht in SharePoint, nicht in der HT
 - [ ] Bereichsliste (`content/areas.json`) entspricht den echten Bereichen.
 
 **Technik (mit der IT)**
-- [ ] SharePoint-Listen angelegt (`docs/SHAREPOINT.md`): Fortschritt, Feedback, Pinnwand, Daumen.
+- [ ] SharePoint-Listen angelegt (`docs/SHAREPOINT.md`): Fortschritt, Feedback, Pinnwand, Daumen, Regatta.
+- [ ] Regatta mit Datenschutz (und Personalvertretung) geklärt: Teilnahme ist freiwillig, die Liste ist aber für alle Teilnehmenden lesbar (`docs/SHAREPOINT.md`, Abschnitt Datenschutz). Ohne Freigabe die Liste `OdysseeRegatta` weglassen.
 - [ ] Freigabe der Pinnwand im echten Tenant getestet.
 - [ ] App-Paket im App-Katalog, Webpart auf der Zielseite, in Teams als Registerkarte.
 - [ ] Wer die Auswertung sehen darf, ist festgelegt (Berechtigung auf der Fortschrittsliste).

@@ -5,6 +5,8 @@ import { AdminSource } from '../core/admin/source';
 import { ContentBundle, Localized } from '../core/content/types';
 import { FeedbackSender } from '../core/feedback/feedback';
 import { PinboardSource } from '../core/pinboard/pinboard';
+import { RegattaSource, RegattaSync, reportOf } from '../core/regatta/regatta';
+import { weekKey } from '../core/challenge/challenge';
 import { Lang, localize } from '../core/i18n/locale';
 import { earnedSouvenirs, SouvenirId } from '../core/progress/achievements';
 import { DebouncedProgressStore, SaveStatus } from '../core/progress/debounced';
@@ -55,6 +57,8 @@ export interface AppProps {
   admin?: AdminSource;
   /** The harbour board with shared prompts; hidden without it. */
   pinboard?: PinboardSource;
+  /** The regatta between areas and crews; hidden without it. */
+  regatta?: RegattaSource;
   /** Display name of the signed-in person; only shown, never stored. */
   userName?: string;
   /** Ready-made journeys to load, for presenting the app; only the demo passes them. */
@@ -82,6 +86,8 @@ const STAMP_PRESS_MS = 2600;
 /** How long «Gespeichert» stays visible. */
 const SAVED_VISIBLE_MS = 2200;
 const MAX_TOASTS = 3;
+/** How long the regatta waits after a change before it reports the new miles. */
+const REGATTA_DELAY_MS = 4000;
 
 /**
  * A link can open an island or a stage directly, e.g. «…/Odyssee.aspx?insel=aiolos»
@@ -125,6 +131,17 @@ export function App(props: AppProps): React.ReactElement {
   }, [saveStatus]);
   const [toasts, setToasts] = React.useState<Toast[]>([]);
   const playerRef = React.useRef<PlayerState | undefined>(undefined);
+  const regatta = React.useMemo(() => (props.regatta ? new RegattaSync(props.regatta) : undefined), [props.regatta]);
+  // Keeps the person's line in the regatta up to date; nothing is sent unless they chose to take part.
+  React.useEffect(() => {
+    if (!regatta || !player) return undefined;
+    const timer = window.setTimeout(() => {
+      const report = reportOf(props.content, player, { showDrafts: props.showDrafts }, weekKey(new Date()));
+      // Without a report the line is removed, but only if this session wrote one (e.g. all progress was deleted).
+      if (report || regatta.reported) regatta.push(report).catch(() => undefined);
+    }, REGATTA_DELAY_MS);
+    return () => window.clearTimeout(timer);
+  }, [regatta, player, props.content, props.showDrafts]);
   const rootRef = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
@@ -199,6 +216,7 @@ export function App(props: AppProps): React.ReactElement {
     reviewIntervals: props.reviewIntervals || REVIEW_INTERVALS,
     feedback: props.feedback,
     pinboard: props.pinboard,
+    regatta,
     userName: props.userName,
     editor: !!props.admin,
     t,

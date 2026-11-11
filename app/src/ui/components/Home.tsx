@@ -11,17 +11,18 @@ import { TermTip } from './Legend';
 import { CheckIcon, IslandArt, LockIcon } from './Art';
 import { ChallengeCard } from './ChallengeCard';
 import { Deck } from './Deck';
+import { Regatta } from './Regatta';
 import { ReviewInvite } from './ReviewInvite';
 import { LicenseChip } from './LicenseChip';
 import { SeaChart } from './SeaChart';
 
-type HomeView = 'deck' | 'chart' | 'log';
+type HomeView = 'deck' | 'chart' | 'log' | 'regatta';
 const VIEW_KEY = 'odyssee-home-view';
 
 function savedView(): HomeView {
   try {
     const saved = window.localStorage.getItem(VIEW_KEY);
-    return saved === 'log' || saved === 'chart' ? saved : 'deck';
+    return saved === 'log' || saved === 'chart' || saved === 'regatta' ? saved : 'deck';
   } catch {
     return 'deck';
   }
@@ -172,7 +173,9 @@ export function Home(): React.ReactElement {
   const game = useGame();
   const { strings } = game;
   const islands = sortedIslands(game.content);
-  const [view, setView] = React.useState<HomeView>(savedView);
+  const [saved, setView] = React.useState<HomeView>(savedView);
+  // Without the regatta's list the view does not exist, also when it was open last time.
+  const view: HomeView = saved === 'regatta' && !game.regatta ? 'deck' : saved;
 
   const choose = (next: HomeView): void => {
     setView(next);
@@ -189,7 +192,7 @@ export function Home(): React.ReactElement {
       <ReviewInvite />
       {/* The next step comes first, so it is in view without scrolling. */}
       <NextTicket />
-      <div className={styles.viewSwitch} role="group" aria-label={strings.viewLabel} data-tour="view">
+      <div className={game.regatta ? `${styles.viewSwitch} ${styles.viewSwitchFour}` : styles.viewSwitch} role="group" aria-label={strings.viewLabel} data-tour="view">
         <button type="button" aria-pressed={view === 'deck'} className={view === 'deck' ? styles.viewSwitchActive : undefined} onClick={() => choose('deck')}>
           {strings.viewDeck}
         </button>
@@ -199,12 +202,20 @@ export function Home(): React.ReactElement {
         <button type="button" aria-pressed={view === 'log'} className={view === 'log' ? styles.viewSwitchActive : undefined} onClick={() => choose('log')}>
           {strings.viewLog}
         </button>
+        {game.regatta && (
+          <button type="button" aria-pressed={view === 'regatta'} className={view === 'regatta' ? styles.viewSwitchActive : undefined} onClick={() => choose('regatta')}>
+            {strings.viewRegatta}
+            {game.player.profile.regatta === undefined && <span className={styles.viewSwitchNew}>{strings.regattaNew}</span>}
+          </button>
+        )}
       </div>
 
       {view === 'deck' ? (
         <Deck islands={islands} />
       ) : view === 'chart' ? (
         <SeaChart islands={islands} />
+      ) : view === 'regatta' ? (
+        <Regatta />
       ) : (
         <section className={styles.panel}>
           <h1 className={styles.pageTitle}>{strings.viewLog}</h1>
