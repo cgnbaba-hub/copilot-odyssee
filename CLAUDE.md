@@ -21,6 +21,7 @@ Lern-App für Microsoft Copilot bei DERTOUR Suisse, als SharePoint-Webpart (SPFx
 - `npm run build` – Inhalte bündeln, Lint, alle Tests, App-Paket. Das ist auch die CI. Tests laufen nur so (Heft), nicht mit `npx jest`.
 - `npm run content:check` – Inhalte prüfen.
 - `npm run demo:build` (→ `dist-demo`), `team:build` (eine HTML-Datei), `scorm:build` (LMS-Paket).
+- `npm run agent:export` – Texte für den Odyssee-Lotsen nach `dist-agent` (siehe `docs/AGENT.md`).
 - `npx tsc --noEmit -p .` meldet fehlende Style-Klassen, bis `npm run build` die Typen erzeugt hat; andere Fehler sind echt.
 - Formatieren, nur angefasste Dateien, nie die SCSS-Datei: `npx prettier --single-quote --print-width 180 --trailing-comma none --write <dateien>`. Nicht umformatieren: `LicenseMockup.tsx`, `RichText.tsx`, `UseCaseCards.tsx`.
 

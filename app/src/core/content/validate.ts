@@ -195,15 +195,17 @@ export function validateContent(
   let help: HelpTopic[] | undefined;
   let helpGroups: HelpGroup[] | undefined;
   let contact: string | undefined;
+  let agentUrl: string | undefined;
   let helpReviewedAt: string | undefined;
   const helpFile = extras.help;
   if (helpFile) {
     if (validateHelp(helpFile.data)) {
-      const data = helpFile.data as { topics: HelpTopic[]; groups?: HelpGroup[]; contact?: string; reviewedAt?: string };
+      const data = helpFile.data as { topics: HelpTopic[]; groups?: HelpGroup[]; contact?: string; agentUrl?: string; reviewedAt?: string };
       help = data.topics;
       helpReviewedAt = data.reviewedAt;
       helpGroups = data.groups;
       contact = data.contact;
+      agentUrl = data.agentUrl;
       duplicates(help.map((t) => t.id)).forEach((id) => result.errors.push({ file: helpFile.path, message: `Hilfethema-id "${id}" kommt mehrfach vor.` }));
       const groupIds = (helpGroups || []).map((g) => g.id);
       duplicates(groupIds).forEach((id) => result.errors.push({ file: helpFile.path, message: `Hilfegruppe-id "${id}" kommt mehrfach vor.` }));
@@ -291,6 +293,7 @@ export function validateContent(
     if (help) bundle.help = help;
     if (helpGroups) bundle.helpGroups = helpGroups;
     if (contact) bundle.contact = contact;
+    if (agentUrl) bundle.agentUrl = agentUrl;
     if (helpReviewedAt) bundle.helpReviewedAt = helpReviewedAt;
     if (areas) bundle.areas = areas;
     if (prompts) bundle.prompts = prompts;

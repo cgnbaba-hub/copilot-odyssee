@@ -19,6 +19,11 @@
       "type": "string",
       "pattern": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$"
     },
+    "agentUrl": {
+      "description": "Freiwillig: Adresse des Odyssee-Lotsen, eines Agenten in Copilot (siehe docs/AGENT.md). Ist sie gesetzt, zeigt das Hilfe-Fenster einen Link dorthin.",
+      "type": "string",
+      "pattern": "^https://"
+    },
     "groups": {
       "description": "Überschriften, unter denen die Hilfe ihre Themen bündelt. Reihenfolge wie in der Datei.",
       "type": "array",

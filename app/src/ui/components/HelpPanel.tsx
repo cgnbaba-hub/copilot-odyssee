@@ -105,6 +105,17 @@ export function HelpPanel(props: { onClose: () => void; onFeedback?: () => void;
           {list}
         </>
       )}
+      {content.agentUrl && (
+        <div className={styles.faqContact}>
+          <strong>{strings.helpAgentTitle}</strong>
+          <p>
+            {strings.helpAgentText}{' '}
+            <a href={content.agentUrl} target="_blank" rel="noopener noreferrer">
+              {strings.helpAgentOpen} ↗
+            </a>
+          </p>
+        </div>
+      )}
       {content.contact && (
         <div className={styles.faqContact}>
           <strong>{strings.helpContactTitle}</strong>

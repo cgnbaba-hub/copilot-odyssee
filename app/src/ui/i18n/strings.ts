@@ -773,7 +773,10 @@ const de = {
   editorialColReviewed: 'Geprüft am',
   editorialColDue: 'Fällig am',
   editorialColDays: 'Tage bis fällig',
-  editorialColReports: 'Offene Meldungen'
+  editorialColReports: 'Offene Meldungen',
+  helpAgentTitle: 'Frag den Odyssee-Lotsen',
+  helpAgentText: 'Der Odyssee-Lotse ist ein Agent in Copilot. Er kennt die Inhalte der Odyssee und hilft dir direkt bei der Arbeit, zum Beispiel mit einem passenden Prompt.',
+  helpAgentOpen: 'Lotsen in Copilot öffnen'
 };
 
 export type Strings = typeof de;
@@ -1541,7 +1544,10 @@ const en: Strings = {
   editorialColReviewed: 'Checked on',
   editorialColDue: 'Due on',
   editorialColDays: 'Days until due',
-  editorialColReports: 'Open reports'
+  editorialColReports: 'Open reports',
+  helpAgentTitle: 'Ask the Odyssey pilot',
+  helpAgentText: 'The Odyssey pilot is an agent in Copilot. It knows what the Odyssey teaches and helps you right at work, for example with a fitting prompt.',
+  helpAgentOpen: 'Open the pilot in Copilot'
 };
 
 const STRINGS: Record<Lang, Strings> = { de, en };

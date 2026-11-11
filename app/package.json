@@ -24,7 +24,9 @@
     "preteam:build": "npm run content:bundle",
     "team:build": "vite build --mode team && tsx tools/inline-html.ts dist-team/index.html dist-team/copilot-odyssee.html",
     "prescorm:build": "npm run content:bundle",
-    "scorm:build": "vite build --mode scorm && tsx tools/scorm-package.ts"
+    "scorm:build": "vite build --mode scorm && tsx tools/scorm-package.ts",
+    "preagent:export": "npm run content:bundle",
+    "agent:export": "tsx tools/agent-export.ts"
   },
   "dependencies": {
     "@fluentui/react": "^8.106.4",
