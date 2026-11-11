@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { findModule } from '../../core/content/bundle';
-import { minutesPerMonth } from '../../core/progress/state';
+import { ADOPTED_MODULE, minutesPerMonth } from '../../core/progress/state';
 import { format } from '../i18n/strings';
 import { useGame } from '../GameContext';
 import styles from '../styles.module.scss';
@@ -27,7 +27,7 @@ export function UseCaseCards(): React.ReactElement {
             const module = findModule(content, card.moduleId);
             return (
               <li key={card.id} className={styles.useCaseCard}>
-                <p className={styles.eyebrow}>{module ? t(module.title) : card.moduleId}</p>
+                <p className={styles.eyebrow}>{module ? t(module.title) : card.moduleId === ADOPTED_MODULE ? strings.useCaseFromBoard : card.moduleId}</p>
                 <p className={styles.useCaseTask}>{card.task}</p>
                 <p className={styles.muted}>
                   {frequency[card.frequency]} · {card.minutesPerTime} {strings.minutes} ·{' '}

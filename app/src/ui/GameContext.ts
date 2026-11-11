@@ -3,7 +3,7 @@ import * as React from 'react';
 import { ContentBundle, Localized } from '../core/content/types';
 import { Lang } from '../core/i18n/locale';
 import { FeedbackSender } from '../core/feedback/feedback';
-import { PinboardSource } from '../core/pinboard/pinboard';
+import { PinboardSource, PinUseCase } from '../core/pinboard/pinboard';
 import { RegattaSync } from '../core/regatta/regatta';
 import { Outcome, PlayerState } from '../core/progress/state';
 import { Strings } from './i18n/strings';
@@ -17,9 +17,16 @@ export type View =
   | { name: 'review' }
   | { name: 'exam'; islandId: string }
   | { name: 'workshop'; task?: string }
-  | { name: 'pinboard'; draft?: { title: string; prompt: string } }
+  | { name: 'pinboard'; draft?: PinDraft }
   | { name: 'island'; islandId: string }
   | { name: 'module'; moduleId: string };
+
+/** What the form of the harbour board starts with, e.g. one of the player's own use cases. */
+export interface PinDraft {
+  title: string;
+  prompt: string;
+  useCase?: PinUseCase;
+}
 
 export interface Game {
   content: ContentBundle;

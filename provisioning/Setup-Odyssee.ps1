@@ -140,7 +140,10 @@ $pinboardFields = @(
     "<Field Type='Note' Name='OdysseePrompt' StaticName='OdysseePrompt' DisplayName='Prompt' NumLines='8' RichText='FALSE' />",
     "<Field Type='Text' Name='OdysseeTool' StaticName='OdysseeTool' DisplayName='Werkzeug' MaxLength='40' />",
     "<Field Type='Text' Name='OdysseeArea' StaticName='OdysseeArea' DisplayName='Bereich' MaxLength='60' />",
-    "<Field Type='Boolean' Name='OdysseeShowName' StaticName='OdysseeShowName' DisplayName='Name anzeigen'><Default>0</Default></Field>"
+    "<Field Type='Boolean' Name='OdysseeShowName' StaticName='OdysseeShowName' DisplayName='Name anzeigen'><Default>0</Default></Field>",
+    # Only filled for use cases: how often the task comes up (daily, weekly, monthly, rarely) and the minutes it takes each time.
+    "<Field Type='Text' Name='OdysseeFrequency' StaticName='OdysseeFrequency' DisplayName='Häufigkeit' MaxLength='20' />",
+    "<Field Type='Number' Name='OdysseeMinutes' StaticName='OdysseeMinutes' DisplayName='Minuten pro Mal' Decimals='0' Min='0' />"
 )
 foreach ($xml in $pinboardFields) {
     $name = ([xml]$xml).Field.Name
@@ -149,7 +152,7 @@ foreach ($xml in $pinboardFields) {
     }
 }
 $view = Get-PnPView -List $PinboardList | Where-Object { $_.DefaultView }
-Set-PnPView -List $PinboardList -Identity $view.Id -Fields 'Title', 'OdysseePrompt', 'OdysseeTool', 'OdysseeArea', 'OdysseeShowName', '_ModerationStatus', 'Author', 'Created' -Values @{ ViewQuery = '<OrderBy><FieldRef Name="Created" Ascending="FALSE" /></OrderBy>' } | Out-Null
+Set-PnPView -List $PinboardList -Identity $view.Id -Fields 'Title', 'OdysseePrompt', 'OdysseeTool', 'OdysseeArea', 'OdysseeFrequency', 'OdysseeMinutes', 'OdysseeShowName', '_ModerationStatus', 'Author', 'Created' -Values @{ ViewQuery = '<OrderBy><FieldRef Name="Created" Ascending="FALSE" /></OrderBy>' } | Out-Null
 
 # Content approval: new posts wait until an approver (site owners) approves them.
 # Until then only the author and the approvers see them (DraftVersionVisibility 2 = approvers).

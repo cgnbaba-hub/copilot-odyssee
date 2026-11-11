@@ -9480,3 +9480,38 @@ $grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width=
   border: 2px solid var(--od-success);
   border-radius: 12px;
 }
+
+// Use cases on the harbour board
+
+.pinUseCaseChip {
+  padding: 2px 10px;
+  background: $ink;
+  border-radius: 999px;
+  color: $paper-hi;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.pinUseCaseTime {
+  margin: 8px 0 0;
+  padding: 6px 10px;
+  background: #fff3c4;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.pinUseCaseSummary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 20px;
+  margin: 12px 0 0;
+  font-size: 15px;
+
+  label {
+    margin: 0;
+  }
+}

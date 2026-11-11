@@ -247,6 +247,25 @@ export function minutesPerMonth(card: UseCaseInput): number {
   return Math.round(card.minutesPerTime * TIMES_PER_MONTH[card.frequency]);
 }
 
+/** Id of the card a use case from the harbour board becomes in a player's own cards. */
+export function adoptedCardId(postId: string): string {
+  return `pin-${postId}`;
+}
+
+/** Stage id of cards taken over from the harbour board. */
+export const ADOPTED_MODULE = 'pinnwand';
+
+export function hasAdopted(state: PlayerState, postId: string): boolean {
+  return state.useCases.some((card) => card.id === adoptedCardId(postId));
+}
+
+/** Takes a colleague's use case over into the player's own cards, once; it earns no miles. */
+export function adoptUseCase(state: PlayerState, postId: string, input: UseCaseInput, now: Date): PlayerState {
+  if (hasAdopted(state, postId)) return state;
+  const card: UseCaseCard = { ...input, id: adoptedCardId(postId), moduleId: ADOPTED_MODULE, createdAt: now.toISOString() };
+  return { ...state, useCases: state.useCases.concat([card]) };
+}
+
 export function isPromptSaved(state: PlayerState, promptId: string): boolean {
   return (state.savedPrompts || []).indexOf(promptId) >= 0;
 }
