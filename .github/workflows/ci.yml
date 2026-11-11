@@ -35,6 +35,9 @@ jobs:
       - name: Inhaltsdatei für SharePoint exportieren
         run: npm run content:export
 
+      - name: Texte für den Odyssee-Lotsen erzeugen
+        run: npm run agent:export -- --drafts
+
       - name: App-Paket hochladen
         uses: actions/upload-artifact@v4
         with:
@@ -47,6 +50,13 @@ jobs:
         with:
           name: odyssee-demo
           path: app/dist-demo
+          if-no-files-found: error
+
+      - name: Odyssee-Lotse hochladen
+        uses: actions/upload-artifact@v4
+        with:
+          name: odyssee-lotse
+          path: app/dist-agent
           if-no-files-found: error
 
       - name: Inhaltsdatei hochladen

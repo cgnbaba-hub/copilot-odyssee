@@ -190,6 +190,8 @@ export interface ContentBundle {
   helpGroups?: HelpGroup[];
   /** Email address for questions the app does not answer. */
   contact?: string;
+  /** Address of the companion agent in Copilot, if one was set up (see docs/AGENT.md). */
+  agentUrl?: string;
   areas?: Area[];
   prompts?: PromptTemplate[];
   challenges?: Challenge[];

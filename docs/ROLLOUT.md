@@ -29,6 +29,7 @@ Die Beispielreisen gibt es nur in der Demo, nicht in SharePoint, nicht in der HT
 - [ ] App-Paket im App-Katalog, Webpart auf der Zielseite, in Teams als Registerkarte.
 - [ ] Wer die Auswertung sehen darf, ist festgelegt (Berechtigung auf der Fortschrittsliste).
 - [ ] Optional: LMS-Paket in SuccessFactors getestet (`docs/LMS.md`).
+- [ ] Optional: Odyssee-Lotse in Copilot angelegt und in `content/help.json` als `agentUrl` eingetragen (`docs/AGENT.md`).
 
 **Abzeichen (mit HR)**
 - [ ] Wortlaut des Ausstellers bestätigt, LinkedIn-Unternehmensseite eingetragen, LinkedIn-Link einmal getestet (`docs/BADGES.md`).
