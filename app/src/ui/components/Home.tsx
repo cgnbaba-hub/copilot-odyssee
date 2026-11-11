@@ -15,6 +15,7 @@ import { Regatta } from './Regatta';
 import { ReviewInvite } from './ReviewInvite';
 import { LicenseChip } from './LicenseChip';
 import { SeaChart } from './SeaChart';
+import { StayOnCourse } from './StayOnCourse';
 
 type HomeView = 'deck' | 'chart' | 'log' | 'regatta';
 const VIEW_KEY = 'odyssee-home-view';
@@ -192,6 +193,7 @@ export function Home(): React.ReactElement {
       <ReviewInvite />
       {/* The next step comes first, so it is in view without scrolling. */}
       <NextTicket />
+      <StayOnCourse />
       <div className={game.regatta ? `${styles.viewSwitch} ${styles.viewSwitchFour}` : styles.viewSwitch} role="group" aria-label={strings.viewLabel} data-tour="view">
         <button type="button" aria-pressed={view === 'deck'} className={view === 'deck' ? styles.viewSwitchActive : undefined} onClick={() => choose('deck')}>
           {strings.viewDeck}

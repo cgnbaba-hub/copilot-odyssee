@@ -61,6 +61,8 @@ export interface AppProps {
   regatta?: RegattaSource;
   /** Display name of the signed-in person; only shown, never stored. */
   userName?: string;
+  /** Address of the page that shows the app, for calendar entries; left out where a link would lead nowhere. */
+  appUrl?: string;
   /** Ready-made journeys to load, for presenting the app; only the demo passes them. */
   samples?: { id: string; label: Localized; build: () => PlayerState }[];
   /** Days until a missed question comes back; the demo uses shorter ones so it can be tried at once. */
@@ -218,6 +220,7 @@ export function App(props: AppProps): React.ReactElement {
     pinboard: props.pinboard,
     regatta,
     userName: props.userName,
+    appUrl: props.appUrl,
     editor: !!props.admin,
     t,
     apply: <T extends Outcome>(change: (state: PlayerState) => T): T => {

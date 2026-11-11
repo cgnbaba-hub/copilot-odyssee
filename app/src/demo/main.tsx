@@ -91,6 +91,8 @@ ReactDom.render(
     admin={TEAM ? undefined : sampleAdminSource(content, () => demoSent)}
     pinboard={TEAM ? undefined : samplePinboard()}
     regatta={TEAM ? undefined : sampleRegatta(content)}
+    // A file on someone's disk or a frame inside an LMS has no address worth putting in a calendar.
+    appUrl={TEAM ? undefined : window.location.href.split('#')[0]}
     // Only the demo offers ready-made journeys, for showing the app to others.
     samples={TEAM ? undefined : sampleJourneys(content)}
     // In the demo a missed question can be brushed up at once; afterwards it waits three days.

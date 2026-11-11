@@ -9354,3 +9354,129 @@ $grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width=
     animation: none !important;
   }
 }
+
+// Staying with it: weekly streak and a slot for the calendar
+
+.courseBar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px 18px;
+  padding: 8px 16px;
+  background: $paper-hi;
+  border: 2px solid rgba(26, 41, 64, 0.25);
+  border-radius: 16px;
+  font-size: 15px;
+
+  p {
+    margin: 0;
+  }
+}
+
+.courseStreak {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+}
+
+.courseFlame {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  background: rgba(26, 41, 64, 0.08);
+  border-radius: 50%;
+  font-family: var(--od-font-display);
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.courseFlameOn {
+  background: $sun;
+  border: 2px solid $ink;
+}
+
+.coursePlan {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 12px;
+}
+
+.coursePicker {
+  flex: 1 1 100%;
+  margin-top: 6px;
+  padding-top: 12px;
+  border-top: 1.5px dashed rgba(26, 41, 64, 0.25);
+}
+
+.coursePickerTitle {
+  font-family: var(--od-font-display);
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.courseFields {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 12px 20px;
+  margin: 12px 0;
+}
+
+.courseDays {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  background: #ffffff;
+  border: 2px solid $ink;
+  border-radius: 999px;
+
+  button {
+    min-width: 44px;
+    min-height: 40px;
+    padding: 0 8px;
+    background: none;
+    border: none;
+    border-radius: 999px;
+    color: $ink;
+    cursor: pointer;
+    font-weight: 800;
+  }
+}
+
+.courseDayOn {
+  background: $ink !important;
+  color: $paper-hi !important;
+}
+
+.courseField {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 13px;
+  font-weight: 700;
+
+  input,
+  select {
+    min-height: 44px;
+    padding: 0 12px;
+    background: #ffffff;
+    border: 2px solid $ink;
+    border-radius: 12px;
+    color: $ink;
+    font: inherit;
+    font-size: 16px;
+  }
+}
+
+.coursePickerDone {
+  margin-top: 10px !important;
+  padding: 8px 14px;
+  background: #e5f4ea;
+  border: 2px solid var(--od-success);
+  border-radius: 12px;
+}

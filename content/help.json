@@ -438,6 +438,18 @@
       }
     },
     {
+      "id": "dranbleiben",
+      "group": "app",
+      "question": {
+        "de": "Wie bleibe ich dran? Lernzeit und Wochen-Serie",
+        "en": "How do I keep going? Learning time and weekly streak"
+      },
+      "answer": {
+        "de": "Wenig und regelmässig bringt mehr als viel auf einmal. Die Leiste auf der Startseite hilft dabei, sobald du deine erste Etappe geschafft hast.\n- **Lernzeit einplanen:** Wähle Wochentag und Uhrzeit und lade die Kalenderdatei herunter. Öffne sie, Outlook zeigt einen Serientermin für 12 Wochen. Mit «Speichern» steht er in deinem Kalender. Verschieben oder löschen kannst du ihn dort wie jeden Termin.\n- **Wochen-Serie:** Sie zählt die Wochen in Folge, in denen du eine Etappe oder Inselprüfung zum ersten Mal geschafft oder die Challenge der Woche erledigt hast. Die laufende Woche hast du bis Sonntag Zeit.\n- Reisst die Serie, beginnt einfach eine neue. Seemeilen und Stempel bleiben.",
+        "en": "Little and often beats a lot at once. The bar on the start page helps with that as soon as you have completed your first stage.\n- **Plan your learning time:** choose a weekday and a time and download the calendar file. Open it and Outlook shows a recurring appointment for 12 weeks. “Save” puts it in your calendar. You can move or delete it there like any appointment.\n- **Weekly streak:** it counts the weeks in a row in which you completed a stage or island exam for the first time, or did the challenge of the week. You have until Sunday for the current week.\n- If the streak breaks, a new one simply starts. Nautical miles and stamps stay."
+      }
+    },
+    {
       "id": "regatta",
       "group": "app",
       "question": {
