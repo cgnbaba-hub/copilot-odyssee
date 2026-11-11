@@ -1,6 +1,7 @@
 import { NewPinPost, PinboardData, PinboardSource, PinPost } from '../core/pinboard/pinboard';
 
-const STORAGE_KEY = 'odyssee-demo-pinboard';
+// A new key whenever the examples change shape, so an older saved board does not hide them.
+const STORAGE_KEY = 'odyssee-demo-pinboard-2';
 
 /** Example posts, so the board is not empty in the demo. */
 const SAMPLES: PinPost[] = [
@@ -16,7 +17,8 @@ const SAMPLES: PinPost[] = [
     status: 'approved',
     mine: false,
     likes: 12,
-    liked: false
+    liked: false,
+    useCase: { frequency: 'daily', minutes: 10 }
   },
   {
     id: 'beispiel-2',
@@ -41,7 +43,8 @@ const SAMPLES: PinPost[] = [
     status: 'approved',
     mine: false,
     likes: 7,
-    liked: false
+    liked: false,
+    useCase: { frequency: 'weekly', minutes: 30 }
   },
   {
     id: 'beispiel-4',
@@ -67,7 +70,8 @@ const SAMPLES: PinPost[] = [
     status: 'approved',
     mine: false,
     likes: 3,
-    liked: false
+    liked: false,
+    useCase: { frequency: 'monthly', minutes: 45 }
   },
   {
     id: 'beispiel-6',
@@ -123,6 +127,7 @@ export function samplePinboard(): PinboardSource {
         prompt: post.prompt,
         tool: post.tool,
         area: post.area,
+        useCase: post.useCase,
         created: new Date().toISOString(),
         status: 'pending',
         mine: true,

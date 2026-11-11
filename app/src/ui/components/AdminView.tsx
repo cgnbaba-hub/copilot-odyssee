@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import { AdminSource } from '../../core/admin/source';
 import { AdminData, computeStats, MIN_GROUP, Stats, toCsv } from '../../core/admin/stats';
+import { SharedUseCases, sharedUseCases } from '../../core/pinboard/pinboard';
 import { saveFile } from '../download';
 import { formatNumber } from '../format';
 import { useGame } from '../GameContext';
@@ -42,7 +43,20 @@ function BarRow(props: { label: string; value: number; max: number; text: string
 
 /** Figures for the site owners: how far people got, what they think, what they wrote. */
 export function AdminView(props: { source: AdminSource }): React.ReactElement {
-  const { content, lang, strings, t, showDrafts } = useGame();
+  const { content, lang, strings, t, showDrafts, pinboard } = useGame();
+  // What colleagues shared as use cases on the harbour board; missing without the board.
+  const [shared, setShared] = React.useState<SharedUseCases | undefined>(undefined);
+  React.useEffect(() => {
+    if (!pinboard) return undefined;
+    let active = true;
+    pinboard.load().then(
+      (data) => active && setShared(sharedUseCases(data.posts)),
+      () => undefined
+    );
+    return () => {
+      active = false;
+    };
+  }, [pinboard]);
   const [load, setLoad] = React.useState<Load>({ status: 'loading' });
   const [kind, setKind] = React.useState('');
 
@@ -152,6 +166,13 @@ export function AdminView(props: { source: AdminSource }): React.ReactElement {
         <Tile value={n(stats.compassDone)} label={strings.adminCompass} note={share(stats.compassDone)} />
         <Tile value={n(stats.badgesBasic)} label={strings.adminBadgesBasic} note={share(stats.badgesBasic)} />
         <Tile value={n(stats.badgesPremium)} label={strings.adminBadgesPremium} note={share(stats.badgesPremium)} />
+        {shared && (
+          <Tile
+            value={n(shared.count)}
+            label={strings.adminSharedUseCases}
+            note={shared.count > 0 ? format(strings.adminSharedUseCaseHours, { hours: n(Math.max(1, Math.round(shared.minutesPerMonth / 60))) }) : undefined}
+          />
+        )}
       </div>
 
       {stats.participants < MIN_GROUP ? (

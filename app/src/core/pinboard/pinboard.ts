@@ -1,4 +1,5 @@
 import { MissionApp } from '../content/types';
+import { Frequency, minutesPerMonth } from '../progress/state';
 
 /**
  * The harbour board ("Hafen-Pinnwand"): prompts colleagues found useful and
@@ -12,6 +13,20 @@ export type PinStatus = 'approved' | 'pending' | 'rejected';
 export type PinTool = MissionApp | 'chat';
 
 export const PIN_TOOLS: PinTool[] = ['chat', 'outlook', 'teams', 'word', 'excel', 'powerpoint'];
+
+/**
+ * Makes a post a use case: a task from someone's working day, with how
+ * often it comes up and how long it takes today. Others can take it over
+ * into their own cards, and the hours add up to what Copilot can ease.
+ */
+export interface PinUseCase {
+  frequency: Frequency;
+  /** Minutes the task takes each time, without Copilot. */
+  minutes: number;
+}
+
+export const PIN_FREQUENCIES: Frequency[] = ['daily', 'weekly', 'monthly', 'rarely'];
+export const PIN_MINUTES_MAX = 600;
 
 export interface PinPost {
   id: string;
@@ -30,6 +45,8 @@ export interface PinPost {
   likes: number;
   /** Whether the current person said so. */
   liked: boolean;
+  /** Set when the post is a use case and not only a prompt. */
+  useCase?: PinUseCase;
 }
 
 export interface NewPinPost {
@@ -38,6 +55,7 @@ export interface NewPinPost {
   tool: PinTool;
   area?: string;
   showName: boolean;
+  useCase?: PinUseCase;
 }
 
 export interface PinboardData {
@@ -66,7 +84,32 @@ export function cleanPost(input: NewPinPost): NewPinPost | undefined {
   const prompt = input.prompt.trim().slice(0, PIN_PROMPT_MAX);
   const words = prompt.split(/\s+/).filter((w) => w.length > 0).length;
   if (title.length < 3 || words < PIN_PROMPT_MIN_WORDS) return undefined;
-  return { ...input, title, prompt };
+  return { ...input, title, prompt, useCase: cleanUseCase(input.useCase) };
+}
+
+/** A use case as it can be stored; undefined when the figures make no sense. */
+export function cleanUseCase(useCase: { frequency?: unknown; minutes?: unknown } | undefined): PinUseCase | undefined {
+  if (!useCase) return undefined;
+  const minutes = Math.round(Number(useCase.minutes));
+  if (PIN_FREQUENCIES.indexOf(useCase.frequency as Frequency) < 0 || !isFinite(minutes) || minutes < 1) return undefined;
+  return { frequency: useCase.frequency as Frequency, minutes: Math.min(minutes, PIN_MINUTES_MAX) };
+}
+
+/** Minutes per month the task of a use case post takes today; 0 for a plain prompt. */
+export function postMinutesPerMonth(post: { useCase?: PinUseCase }): number {
+  return post.useCase ? minutesPerMonth({ task: '', prompt: '', frequency: post.useCase.frequency, minutesPerTime: post.useCase.minutes }) : 0;
+}
+
+export interface SharedUseCases {
+  count: number;
+  /** What the shared tasks take per month for one person each, by the authors' own estimate. */
+  minutesPerMonth: number;
+}
+
+/** The approved use cases on the board, for the summary line and the evaluation. */
+export function sharedUseCases(posts: PinPost[]): SharedUseCases {
+  const shared = posts.filter((p) => p.status === 'approved' && !!p.useCase);
+  return { count: shared.length, minutesPerMonth: shared.reduce((sum, p) => sum + postMinutesPerMonth(p), 0) };
 }
 
 export type SensitiveHint = 'mail' | 'phone' | 'iban';

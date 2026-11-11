@@ -728,7 +728,19 @@ const de = {
   planClose: 'Schliessen',
   planDone: 'Die Datei «copilot-odyssee.ics» ist heruntergeladen. Öffne sie: Outlook zeigt den Serientermin, mit «Speichern» steht er in deinem Kalender.',
   planEventTitle: 'Copilot Odyssee: {minutes} Minuten',
-  planEventText: 'Deine Lernzeit für Copilot. Eine Etappe dauert 5 bis 12 Minuten. Probiere das Gelernte danach gleich an einer echten Aufgabe aus.'
+  planEventText: 'Deine Lernzeit für Copilot. Eine Etappe dauert 5 bis 12 Minuten. Probiere das Gelernte danach gleich an einer echten Aufgabe aus.',
+  pinUseCaseCheck: 'Das ist ein Use Case aus meinem Alltag: Ich gebe an, wie oft die Aufgabe anfällt und wie lange sie dauert.',
+  pinUseCaseMinutes: 'Minuten pro Mal, ohne Copilot',
+  pinUseCaseChip: 'Use Case',
+  pinUseCaseTime: '{frequency} · {minutes} Min. pro Mal · bisher ca. {month} Min. im Monat',
+  pinAdopt: 'Übernehmen',
+  pinAdopted: 'In deinen Karten',
+  pinAdoptHint: 'Legt eine Kopie bei deinen Use-Case-Karten und im Spickzettel ab.',
+  pinOnlyUseCases: 'Nur Use Cases zeigen',
+  pinUseCaseSummary: '{count} Use Cases geteilt. Die Aufgaben kosten heute zusammen rund {hours} Stunden im Monat pro Person, die sie hat.',
+  useCaseFromBoard: 'Von der Hafen-Pinnwand',
+  adminSharedUseCases: 'Geteilte Use Cases',
+  adminSharedUseCaseHours: 'Aufgaben von rund {hours} Std. im Monat'
 };
 
 export type Strings = typeof de;
@@ -1451,7 +1463,19 @@ const en: Strings = {
   planClose: 'Close',
   planDone: 'The file “copilot-odyssee.ics” has been downloaded. Open it: Outlook shows the recurring appointment, and “Save” puts it in your calendar.',
   planEventTitle: 'Copilot Odyssey: {minutes} minutes',
-  planEventText: 'Your learning time for Copilot. A stage takes 5 to 12 minutes. Afterwards, try what you learned on a real task straight away.'
+  planEventText: 'Your learning time for Copilot. A stage takes 5 to 12 minutes. Afterwards, try what you learned on a real task straight away.',
+  pinUseCaseCheck: 'This is a use case from my working day: I say how often the task comes up and how long it takes.',
+  pinUseCaseMinutes: 'Minutes each time, without Copilot',
+  pinUseCaseChip: 'Use case',
+  pinUseCaseTime: '{frequency} · {minutes} min each time · about {month} min a month so far',
+  pinAdopt: 'Take over',
+  pinAdopted: 'In your cards',
+  pinAdoptHint: 'Puts a copy with your use case cards and on your cheat sheet.',
+  pinOnlyUseCases: 'Show use cases only',
+  pinUseCaseSummary: '{count} use cases shared. Together the tasks take about {hours} hours a month today for each person who has them.',
+  useCaseFromBoard: 'From the harbour board',
+  adminSharedUseCases: 'Shared use cases',
+  adminSharedUseCaseHours: 'tasks of about {hours} h a month'
 };
 
 const STRINGS: Record<Lang, Strings> = { de, en };

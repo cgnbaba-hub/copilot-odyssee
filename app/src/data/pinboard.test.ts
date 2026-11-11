@@ -11,6 +11,7 @@ type Item = { [field: string]: unknown };
 class FakeBoard implements RestClient {
   public me = 7;
   public approver = false;
+  public oldList = false;
   public posts: Item[] = [];
   public likes: Item[] = [];
   public posted: { url: string; body?: unknown; headers?: { [name: string]: string } }[] = [];
@@ -24,7 +25,11 @@ class FakeBoard implements RestClient {
   public get(url: string): Promise<RestResponse> {
     if (url.indexOf(`${WEB}/_api/web/currentuser`) === 0) return this._respond(200, { Id: this.me });
     if (url === `${POSTS}/EffectiveBasePermissions`) return this._respond(200, { High: '0', Low: this.approver ? '4294967295' : '1011028719' });
-    if (url.indexOf(`${POSTS}/items`) === 0) return this._respond(200, { value: this.posts });
+    if (url.indexOf(`${POSTS}/items`) === 0) {
+      // Like SharePoint, a list set up before the use case columns existed refuses them in $select.
+      if (this.oldList && url.indexOf('OdysseeFrequency') >= 0) return this._respond(400);
+      return this._respond(200, { value: this.posts });
+    }
     if (url.indexOf(`${LIKES}/items`) === 0) return this._respond(200, { value: this.likes });
     if (url.indexOf(POSTS) === 0 || url.indexOf(LIKES) === 0) return this._respond(200, { Id: 'list' });
     return this._respond(404);
@@ -109,5 +114,24 @@ describe('SharePointPinboardSource', () => {
       url: `${POSTS}/items`,
       body: { Title: 'Angebot', OdysseePrompt: 'Kürze die Mail.', OdysseeTool: 'outlook', OdysseeArea: 'beratung', OdysseeShowName: true }
     });
+  });
+
+  it('reads and writes use cases, and works on a list without those columns', async () => {
+    const sp = new FakeBoard();
+    sp.posts = [item(1, 3, 0, { OdysseeFrequency: 'weekly', OdysseeMinutes: 30 }), item(2, 3, 0, { OdysseeFrequency: '', OdysseeMinutes: null })];
+    const source = new SharePointPinboardSource(sp, WEB);
+    const data = await source.load();
+    expect(data.posts.map((p) => p.useCase)).toEqual([{ frequency: 'weekly', minutes: 30 }, undefined]);
+    const post = { title: 'Angebot', prompt: 'Kürze die Mail.', tool: 'outlook' as const, showName: false, useCase: { frequency: 'daily' as const, minutes: 10 } };
+    await source.add(post);
+    expect(sp.posted[0].body).toMatchObject({ OdysseeFrequency: 'daily', OdysseeMinutes: 10 });
+
+    const old = new FakeBoard();
+    old.oldList = true;
+    old.posts = [item(1, 3, 0)];
+    const oldSource = new SharePointPinboardSource(old, WEB);
+    expect((await oldSource.load()).posts).toHaveLength(1);
+    await oldSource.add(post);
+    expect(old.posted[0].body).not.toHaveProperty('OdysseeFrequency');
   });
 });

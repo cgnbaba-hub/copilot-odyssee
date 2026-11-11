@@ -1,6 +1,15 @@
-import { NewPinPost, PIN_TOOLS, PinboardData, PinboardSource, PinPost, PinStatus, PinTool } from '../../core/pinboard/pinboard';
+import { cleanUseCase, NewPinPost, PIN_TOOLS, PinboardData, PinboardSource, PinPost, PinStatus, PinTool } from '../../core/pinboard/pinboard';
 import { odataString, RestClient, RestError } from '../RestClient';
-import { PINBOARD_AREA_FIELD, PINBOARD_LIKES_LIST_TITLE, PINBOARD_LIST_TITLE, PINBOARD_PROMPT_FIELD, PINBOARD_SHOW_NAME_FIELD, PINBOARD_TOOL_FIELD } from './names';
+import {
+  PINBOARD_AREA_FIELD,
+  PINBOARD_FREQUENCY_FIELD,
+  PINBOARD_LIKES_LIST_TITLE,
+  PINBOARD_LIST_TITLE,
+  PINBOARD_MINUTES_FIELD,
+  PINBOARD_PROMPT_FIELD,
+  PINBOARD_SHOW_NAME_FIELD,
+  PINBOARD_TOOL_FIELD
+} from './names';
 
 /** Bit of the SharePoint permission "Approve items" in the low part of the permission mask. */
 const APPROVE_ITEMS = 0x10;
@@ -33,6 +42,8 @@ export class SharePointPinboardSource implements PinboardSource {
   private _userId: number | undefined;
   /** Item ids of the current person's likes, by post id, to take one back. */
   private _myLikes: { [postId: string]: number } = {};
+  /** False once the list turned out to lack the use case columns (set up before they existed). */
+  private _useCaseFields = true;
 
   public constructor(
     private readonly _client: RestClient,
@@ -75,7 +86,8 @@ export class SharePointPinboardSource implements PinboardSource {
     return ((low >>> 0) & APPROVE_ITEMS) !== 0;
   }
 
-  public async load(): Promise<PinboardData> {
+  /** Reads the posts; a list without the use case columns is read without them. */
+  private async _posts(): Promise<Item> {
     const fields = [
       'Id',
       'Title',
@@ -87,11 +99,23 @@ export class SharePointPinboardSource implements PinboardSource {
       'AuthorId',
       'Author/Title',
       'OData__ModerationStatus'
-    ].join(',');
+    ];
+    const url = (select: string[]): string => `${this._listUrl(PINBOARD_LIST_TITLE)}/items?$select=${select.join(',')}&$expand=Author&$orderby=Created desc&$top=${MAX_POSTS}`;
+    if (this._useCaseFields) {
+      const response = await this._client.get(url(fields.concat([PINBOARD_FREQUENCY_FIELD, PINBOARD_MINUTES_FIELD])));
+      if (response.ok) return (await response.json()) as Item;
+      // SharePoint answers 400 when a column in $select does not exist.
+      if (response.status !== 400) throw new RestError(response.status, 'Pinnwand konnte nicht geladen werden');
+      this._useCaseFields = false;
+    }
+    return this._get(url(fields), 'Pinnwand konnte nicht geladen werden');
+  }
+
+  public async load(): Promise<PinboardData> {
     const [me, canModerate, postsBody, likesBody] = await Promise.all([
       this._currentUserId(),
       this._canModerate(),
-      this._get(`${this._listUrl(PINBOARD_LIST_TITLE)}/items?$select=${fields}&$expand=Author&$orderby=Created desc&$top=${MAX_POSTS}`, 'Pinnwand konnte nicht geladen werden'),
+      this._posts(),
       this._get(`${this._listUrl(PINBOARD_LIKES_LIST_TITLE)}/items?$select=Id,Title,AuthorId&$top=${MAX_LIKES}`, 'Daumen konnten nicht geladen werden')
     ]);
 
@@ -122,7 +146,8 @@ export class SharePointPinboardSource implements PinboardSource {
         status,
         mine,
         likes: counts[id] || 0,
-        liked: this._myLikes[id] !== undefined
+        liked: this._myLikes[id] !== undefined,
+        useCase: cleanUseCase({ frequency: item[PINBOARD_FREQUENCY_FIELD], minutes: item[PINBOARD_MINUTES_FIELD] })
       });
     });
     return { posts, canModerate };
@@ -134,7 +159,8 @@ export class SharePointPinboardSource implements PinboardSource {
       [PINBOARD_PROMPT_FIELD]: post.prompt,
       [PINBOARD_TOOL_FIELD]: post.tool,
       [PINBOARD_AREA_FIELD]: post.area || '',
-      [PINBOARD_SHOW_NAME_FIELD]: post.showName
+      [PINBOARD_SHOW_NAME_FIELD]: post.showName,
+      ...(post.useCase && this._useCaseFields ? { [PINBOARD_FREQUENCY_FIELD]: post.useCase.frequency, [PINBOARD_MINUTES_FIELD]: post.useCase.minutes } : {})
     });
     if (!response.ok) throw new RestError(response.status, 'Prompt konnte nicht geteilt werden');
   }

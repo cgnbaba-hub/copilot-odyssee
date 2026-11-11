@@ -121,7 +121,11 @@ export function CheatSheet(): React.ReactElement {
                   title={card.task}
                   text={card.prompt}
                   shareLabel={pinboard ? strings.pinboardShareOwn : undefined}
-                  onShare={pinboard ? () => navigate({ name: 'pinboard', draft: { title: card.task, prompt: card.prompt } }) : undefined}
+                  onShare={
+                    pinboard
+                      ? () => navigate({ name: 'pinboard', draft: { title: card.task, prompt: card.prompt, useCase: { frequency: card.frequency, minutes: card.minutesPerTime } } })
+                      : undefined
+                  }
                 />
               );
             })}

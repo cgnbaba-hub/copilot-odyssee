@@ -15,7 +15,10 @@ import {
   saveUseCase,
   startModule,
   submitPrompt,
-  toggleSavedPrompt
+  toggleSavedPrompt,
+  ADOPTED_MODULE,
+  adoptUseCase,
+  hasAdopted
 } from './state';
 
 const quiz: QuizBlock = {
@@ -145,5 +148,19 @@ describe('player state', () => {
     expect(first.xpGained).toBe(CHALLENGE_XP);
     expect(completeChallenge(first.state, '2026-11-02', 'c1').xpGained).toBe(0);
     expect(completeChallenge(first.state, '2026-11-09', 'c2').xpGained).toBe(CHALLENGE_XP);
+  });
+});
+
+describe('use cases taken over from the harbour board', () => {
+  const input = { task: 'Wochenbericht', prompt: 'Fasse zusammen.', frequency: 'weekly' as const, minutesPerTime: 30 };
+
+  it('adds the card once and earns no miles', () => {
+    const start = initialState('de');
+    const once = adoptUseCase(start, '17', input, new Date('2026-11-11T08:00:00Z'));
+    expect(once.useCases).toEqual([{ ...input, id: 'pin-17', moduleId: ADOPTED_MODULE, createdAt: '2026-11-11T08:00:00.000Z' }]);
+    expect(once.xp).toBe(0);
+    expect(hasAdopted(once, '17')).toBe(true);
+    expect(hasAdopted(once, '18')).toBe(false);
+    expect(adoptUseCase(once, '17', input, new Date())).toBe(once);
   });
 });

@@ -1,12 +1,28 @@
 import * as React from 'react';
 
-import { cleanPost, NewPinPost, PIN_PROMPT_MAX, PIN_TITLE_MAX, PIN_TOOLS, PinboardData, PinOrder, PinPost, PinTool, sensitiveHints, sortPosts } from '../../core/pinboard/pinboard';
+import {
+  cleanPost,
+  NewPinPost,
+  PIN_FREQUENCIES,
+  PIN_MINUTES_MAX,
+  PIN_PROMPT_MAX,
+  PIN_TITLE_MAX,
+  PIN_TOOLS,
+  PinboardData,
+  PinOrder,
+  PinPost,
+  PinTool,
+  postMinutesPerMonth,
+  sensitiveHints,
+  sharedUseCases,
+  sortPosts
+} from '../../core/pinboard/pinboard';
 import { PIN_XP, PIN_XP_MAX_POSTS } from '../../core/progress/rewards';
-import { sharePin } from '../../core/progress/state';
+import { adoptUseCase, Frequency, hasAdopted, sharePin } from '../../core/progress/state';
 import { APP_NAMES, copyText, CopyState } from '../copilot';
 import { CopilotLink } from './CopilotLink';
 import { formatDate } from '../format';
-import { useGame } from '../GameContext';
+import { PinDraft, useGame } from '../GameContext';
 import { format, Strings } from '../i18n/strings';
 import { playerArea } from '../progressHelpers';
 import styles from '../styles.module.scss';
@@ -20,13 +36,17 @@ const ALL_AREAS = '';
 /** Longer prompts are folded until opened. */
 const FOLD_CHARS = 320;
 
+function frequencyName(strings: Strings, frequency: Frequency): string {
+  return { daily: strings.frequency_daily, weekly: strings.frequency_weekly, monthly: strings.frequency_monthly, rarely: strings.frequency_rarely }[frequency];
+}
+
 function toolName(strings: Strings, tool: PinTool): string {
   return tool === 'chat' ? strings.pinboardToolChat : APP_NAMES[tool];
 }
 
 /** One note on the board: prompt, where it is used, who shared it and how many it helped. */
 function PinCard(props: { post: PinPost; onLike: () => void; onModerate?: (approve: boolean) => void }): React.ReactElement {
-  const { content, lang, strings, t } = useGame();
+  const { content, lang, strings, t, player, update } = useGame();
   const { post } = props;
   const [copyState, setCopyState] = React.useState<CopyState>('idle');
   const [open, setOpen] = React.useState(false);
@@ -34,6 +54,20 @@ function PinCard(props: { post: PinPost; onLike: () => void; onModerate?: (appro
   const area = (content.areas || []).filter((a) => a.id === post.area)[0];
   const folded = post.prompt.length > FOLD_CHARS && !open;
   const by = post.mine ? strings.pinboardMine : post.author || strings.pinboardAnonymous;
+  const adopted = hasAdopted(player, post.id);
+  // Taking a use case over puts a copy into the player's own cards; it also says «helped me», once.
+  const adopt = (): void => {
+    if (!post.useCase) return;
+    update((s) =>
+      adoptUseCase(
+        s,
+        post.id,
+        { task: post.title, prompt: post.prompt, frequency: post.useCase ? post.useCase.frequency : 'weekly', minutesPerTime: post.useCase ? post.useCase.minutes : 0 },
+        new Date()
+      )
+    );
+    if (!post.liked) props.onLike();
+  };
   const helped = post.likes === 1 ? strings.pinboardHelpedOne : format(strings.pinboardHelpedCount, { count: post.likes });
 
   return (
@@ -41,6 +75,7 @@ function PinCard(props: { post: PinPost; onLike: () => void; onModerate?: (appro
       <span className={styles.pinNeedle} aria-hidden="true" />
       <div className={styles.pinChips}>
         <span className={styles.chip}>{toolName(strings, post.tool)}</span>
+        {post.useCase && <span className={styles.pinUseCaseChip}>{strings.pinUseCaseChip}</span>}
         {area && <span className={styles.chip}>{t(area.name)}</span>}
         {post.status === 'pending' && <span className={styles.pinStatus}>{strings.pinboardPending}</span>}
         {post.status === 'rejected' && <span className={`${styles.pinStatus} ${styles.pinStatusRejected}`}>{strings.pinboardRejected}</span>}
@@ -53,6 +88,11 @@ function PinCard(props: { post: PinPost; onLike: () => void; onModerate?: (appro
         <button type="button" className={styles.linkButton} aria-expanded={open} onClick={() => setOpen(!open)}>
           {open ? strings.pinboardShowLess : strings.pinboardShowMore}
         </button>
+      )}
+      {post.useCase && (
+        <p className={styles.pinUseCaseTime}>
+          {format(strings.pinUseCaseTime, { frequency: frequencyName(strings, post.useCase.frequency), minutes: post.useCase.minutes, month: postMinutesPerMonth(post) })}
+        </p>
       )}
       <p className={styles.pinBy}>
         {by} · {post.created ? formatDate(lang, post.created) : ''}
@@ -76,6 +116,11 @@ function PinCard(props: { post: PinPost; onLike: () => void; onModerate?: (appro
           >
             {copyState === 'copied' ? `✓ ${strings.copied}` : `⧉ ${strings.copy}`}
           </button>
+          {post.status === 'approved' && post.useCase && !post.mine && (
+            <button type="button" className={adopted ? styles.buttonSuccess : styles.button} disabled={adopted} title={strings.pinAdoptHint} onClick={adopt}>
+              {adopted ? `✓ ${strings.pinAdopted}` : `＋ ${strings.pinAdopt}`}
+            </button>
+          )}
           {post.status === 'approved' && (
             <button
               type="button"
@@ -99,7 +144,7 @@ function PinCard(props: { post: PinPost; onLike: () => void; onModerate?: (appro
 type FormStatus = 'editing' | 'sending' | 'sent' | 'failed';
 
 /** The form to pin a prompt; warns about anything that looks like personal data. */
-function PinForm(props: { draft?: { title: string; prompt: string }; onSent: () => void; onCancel: () => void }): React.ReactElement {
+function PinForm(props: { draft?: PinDraft; onSent: () => void; onCancel: () => void }): React.ReactElement {
   const game = useGame();
   const { content, strings, t, apply, pinboard } = game;
   const ownArea = playerArea(game);
@@ -108,8 +153,12 @@ function PinForm(props: { draft?: { title: string; prompt: string }; onSent: () 
   const [tool, setTool] = React.useState<PinTool>('chat');
   const [area, setArea] = React.useState(ownArea ? ownArea.id : ALL_AREAS);
   const [showName, setShowName] = React.useState(false);
+  const draftUseCase = props.draft ? props.draft.useCase : undefined;
+  const [isUseCase, setIsUseCase] = React.useState(!!draftUseCase);
+  const [frequency, setFrequency] = React.useState<Frequency>(draftUseCase ? draftUseCase.frequency : 'weekly');
+  const [minutes, setMinutes] = React.useState(draftUseCase ? String(draftUseCase.minutes) : '15');
   const [status, setStatus] = React.useState<FormStatus>('editing');
-  const input: NewPinPost = { title, prompt, tool, area: area || undefined, showName };
+  const input: NewPinPost = { title, prompt, tool, area: area || undefined, showName, useCase: isUseCase ? { frequency, minutes: Number(minutes) } : undefined };
   const post = cleanPost(input);
   const hints = sensitiveHints(`${title} ${prompt}`);
   const hintNames = { mail: strings.pinboardSensitiveMail, phone: strings.pinboardSensitivePhone, iban: strings.pinboardSensitiveIban };
@@ -191,6 +240,28 @@ function PinForm(props: { draft?: { title: string; prompt: string }; onSent: () 
         )}
       </div>
       <label className={styles.feedbackCheck}>
+        <input type="checkbox" checked={isUseCase} onChange={(e) => setIsUseCase(e.target.checked)} />
+        <span>{strings.pinUseCaseCheck}</span>
+      </label>
+      {isUseCase && (
+        <div className={styles.pinFormRow}>
+          <label className={styles.feedbackField}>
+            <span>{strings.useCaseFrequency}</span>
+            <select className={styles.input} value={frequency} onChange={(e) => setFrequency(e.target.value as Frequency)}>
+              {PIN_FREQUENCIES.map((f) => (
+                <option key={f} value={f}>
+                  {frequencyName(strings, f)}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label className={styles.feedbackField}>
+            <span>{strings.pinUseCaseMinutes}</span>
+            <input className={styles.input} type="number" min={1} max={PIN_MINUTES_MAX} value={minutes} onChange={(e) => setMinutes(e.target.value)} />
+          </label>
+        </div>
+      )}
+      <label className={styles.feedbackCheck}>
         <input type="checkbox" checked={showName} onChange={(e) => setShowName(e.target.checked)} />
         <span>{strings.pinboardShowName}</span>
       </label>
@@ -222,7 +293,7 @@ function PinForm(props: { draft?: { title: string; prompt: string }; onSent: () 
  * The harbour board: prompts colleagues found useful, most helpful first,
  * filtered by field of work. The editorial team approves new posts here.
  */
-export function Pinboard(props: { draft?: { title: string; prompt: string } }): React.ReactElement {
+export function Pinboard(props: { draft?: PinDraft }): React.ReactElement {
   const game = useGame();
   const { content, player, strings, theme, t, navigate, pinboard } = game;
   const [load, setLoad] = React.useState<Load>({ status: 'loading' });
@@ -231,6 +302,7 @@ export function Pinboard(props: { draft?: { title: string; prompt: string } }): 
   // The editorial team reviews waiting posts on their own tab, so the board itself stays in front.
   const [tab, setTab] = React.useState<'board' | 'review'>('board');
   const [filter, setFilter] = React.useState(ALL_AREAS);
+  const [onlyUseCases, setOnlyUseCases] = React.useState(false);
   const [formOpen, setFormOpen] = React.useState(!!props.draft);
   const [actionFailed, setActionFailed] = React.useState(false);
 
@@ -298,10 +370,11 @@ export function Pinboard(props: { draft?: { title: string; prompt: string } }): 
     const { posts, canModerate } = load.data;
     const waiting = canModerate ? posts.filter((p) => p.status === 'pending') : [];
     const visible = sortPosts(
-      posts.filter((p) => waiting.indexOf(p) < 0 && (p.status === 'approved' || p.mine) && (!filter || !p.area || p.area === filter)),
+      posts.filter((p) => waiting.indexOf(p) < 0 && (p.status === 'approved' || p.mine) && (!filter || !p.area || p.area === filter) && (!onlyUseCases || !!p.useCase)),
       order
     );
     const reviewing = tab === 'review' && waiting.length > 0;
+    const shared = sharedUseCases(posts);
     body = (
       <>
         {waiting.length > 0 && (
@@ -352,6 +425,15 @@ export function Pinboard(props: { draft?: { title: string; prompt: string } }): 
                 </label>
               )}
             </div>
+            {shared.count > 0 && (
+              <p className={styles.pinUseCaseSummary}>
+                <label className={styles.feedbackCheck}>
+                  <input type="checkbox" checked={onlyUseCases} onChange={(e) => setOnlyUseCases(e.target.checked)} />
+                  <span>{strings.pinOnlyUseCases}</span>
+                </label>
+                <span>{format(strings.pinUseCaseSummary, { count: shared.count, hours: Math.max(1, Math.round(shared.minutesPerMonth / 60)) })}</span>
+              </p>
+            )}
             {visible.length > 0 ? (
               <ul className={styles.pinGrid}>
                 {visible.map((p) => (
