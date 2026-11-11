@@ -708,7 +708,27 @@ const de = {
   regattaTogether: '{count} segeln mit, zusammen {miles}.',
   copyOpen: 'Kopieren und {app} öffnen',
   copyOpenDone: 'Kopiert · dort mit Strg + V einfügen',
-  missionStep2Pasted: 'Klicke in Copilot unten ins Eingabefeld und drücke Strg + V. Der Knopf oben hat den Text schon kopiert. Falls nicht, kopiere ihn hier noch einmal.'
+  missionStep2Pasted: 'Klicke in Copilot unten ins Eingabefeld und drücke Strg + V. Der Knopf oben hat den Text schon kopiert. Falls nicht, kopiere ihn hier noch einmal.',
+  streakNone: 'Neue Wochen-Serie: Schliesse diese Woche eine Etappe ab.',
+  streakOne: '1 Woche in Folge',
+  streakMany: '{weeks} Wochen in Folge',
+  streakThisWeekDone: 'diese Woche geschafft',
+  streakThisWeekOpen: 'diese Woche noch offen',
+  planTitle: 'Lernzeit einplanen',
+  planOffer: '15 Minuten pro Woche einplanen',
+  planYours: 'Dein Termin: {day}, {time} Uhr',
+  planChange: 'Ändern',
+  planIntro: 'Wähle einen festen Termin. Du bekommst eine Kalenderdatei mit einem Serientermin für {weeks} Wochen. Ein fester Platz im Kalender hilft mehr als jeder gute Vorsatz.',
+  planDay: 'Wochentag',
+  planDays: 'Mo,Di,Mi,Do,Fr,Sa,So',
+  planTime: 'Uhrzeit',
+  planLength: 'Dauer',
+  planMinutes: '{minutes} Minuten',
+  planDownload: 'Kalenderdatei herunterladen',
+  planClose: 'Schliessen',
+  planDone: 'Die Datei «copilot-odyssee.ics» ist heruntergeladen. Öffne sie: Outlook zeigt den Serientermin, mit «Speichern» steht er in deinem Kalender.',
+  planEventTitle: 'Copilot Odyssee: {minutes} Minuten',
+  planEventText: 'Deine Lernzeit für Copilot. Eine Etappe dauert 5 bis 12 Minuten. Probiere das Gelernte danach gleich an einer echten Aufgabe aus.'
 };
 
 export type Strings = typeof de;
@@ -1411,7 +1431,27 @@ const en: Strings = {
   regattaTogether: '{count} are sailing along, {miles} together.',
   copyOpen: 'Copy and open {app}',
   copyOpenDone: 'Copied · paste there with Ctrl + V',
-  missionStep2Pasted: 'Click into the input box at the bottom of Copilot and press Ctrl + V. The button above has already copied the text. If not, copy it here again.'
+  missionStep2Pasted: 'Click into the input box at the bottom of Copilot and press Ctrl + V. The button above has already copied the text. If not, copy it here again.',
+  streakNone: 'New weekly streak: complete one stage this week.',
+  streakOne: '1 week in a row',
+  streakMany: '{weeks} weeks in a row',
+  streakThisWeekDone: 'this week done',
+  streakThisWeekOpen: 'this week still open',
+  planTitle: 'Plan your learning time',
+  planOffer: 'Plan 15 minutes a week',
+  planYours: 'Your slot: {day}, {time}',
+  planChange: 'Change',
+  planIntro: 'Choose a fixed slot. You get a calendar file with a recurring appointment for {weeks} weeks. A fixed place in the calendar helps more than any good intention.',
+  planDay: 'Weekday',
+  planDays: 'Mon,Tue,Wed,Thu,Fri,Sat,Sun',
+  planTime: 'Time',
+  planLength: 'Length',
+  planMinutes: '{minutes} minutes',
+  planDownload: 'Download calendar file',
+  planClose: 'Close',
+  planDone: 'The file “copilot-odyssee.ics” has been downloaded. Open it: Outlook shows the recurring appointment, and “Save” puts it in your calendar.',
+  planEventTitle: 'Copilot Odyssey: {minutes} minutes',
+  planEventText: 'Your learning time for Copilot. A stage takes 5 to 12 minutes. Afterwards, try what you learned on a real task straight away.'
 };
 
 const STRINGS: Record<Lang, Strings> = { de, en };

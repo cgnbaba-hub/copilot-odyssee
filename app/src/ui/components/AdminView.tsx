@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import { AdminSource } from '../../core/admin/source';
 import { AdminData, computeStats, MIN_GROUP, Stats, toCsv } from '../../core/admin/stats';
+import { saveFile } from '../download';
 import { formatNumber } from '../format';
 import { useGame } from '../GameContext';
 import { format } from '../i18n/strings';
@@ -12,15 +13,7 @@ type Load = { status: 'loading' } | { status: 'failed' } | { status: 'ready'; da
 /** Offers a file to save; used for the CSV exports. */
 function download(fileName: string, text: string): void {
   // The byte order mark makes Excel read umlauts correctly.
-  const blob = new Blob(['﻿' + text], { type: 'text/csv;charset=utf-8' });
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement('a');
-  link.href = url;
-  link.download = fileName;
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-  window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+  saveFile(fileName, '\ufeff' + text, 'text/csv;charset=utf-8');
 }
 
 function Tile(props: { value: string; label: string; note?: string }): React.ReactElement {

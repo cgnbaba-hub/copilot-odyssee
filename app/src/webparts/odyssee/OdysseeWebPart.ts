@@ -98,6 +98,7 @@ export default class OdysseeWebPart extends BaseClientSideWebPart<IOdysseeWebPar
       feedback: connection.feedback,
       pinboard: connection.pinboard,
       regatta: connection.regatta,
+      appUrl: window.location.href.split(/[?#]/)[0],
       admin: connection.admin,
       userName: this.context.pageContext.user.displayName
     } as AppProps & React.Attributes);
