@@ -98,6 +98,14 @@ export interface UseCaseBlock {
 export type Block = BriefingBlock | QuizBlock | PromptBlock | MissionBlock | UseCaseBlock;
 export type BlockType = Block['type'];
 
+export interface ModuleChange {
+  /** Day of the change (YYYY-MM-DD). */
+  date: string;
+  note: Localized;
+  /** True when the stage was added on that day. */
+  new?: boolean;
+}
+
 export interface LearningModule {
   id: string;
   island: string;
@@ -107,6 +115,8 @@ export interface LearningModule {
   status: ModuleStatus;
   reviewedAt?: string;
   reviewIntervalDays?: number;
+  /** What changed and when; shown to players as news (see news.ts). */
+  changes?: ModuleChange[];
   license?: License;
   title: Localized;
   summary: Localized;

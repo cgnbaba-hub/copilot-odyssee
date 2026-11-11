@@ -32,6 +32,8 @@ export interface Profile {
   badgesSeen?: BadgeId[];
   /** Taking part in the regatta: not at all, counted for the area, or also with the name; missing until chosen (see regatta.ts). */
   regatta?: 'off' | 'team' | 'name';
+  /** Day (YYYY-MM-DD) up to which the player has seen the news about changed stages; missing until first put aside. */
+  newsSeen?: string;
   /** Weekly learning time the person put in their calendar (see habit.ts); missing until chosen. */
   plan?: { weekday: number; time: string; minutes: number };
 }
