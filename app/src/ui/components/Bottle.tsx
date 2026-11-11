@@ -8,6 +8,7 @@ import { format } from '../i18n/strings';
 import { licenseCovers } from '../progressHelpers';
 import { dayNumber } from '../sky';
 import styles from '../styles.module.scss';
+import { CopilotLink } from './CopilotLink';
 import { PromptText } from './PromptCard';
 
 /**
@@ -120,9 +121,10 @@ export function Bottle(): React.ReactElement {
               <PromptText text={t(prompt.prompt)} />
             </p>
             <div className={styles.bottleActions}>
+              <CopilotLink text={t(prompt.prompt)} app={prompt.app} className={styles.buttonPrimary} />
               <button
                 type="button"
-                className={copyState === 'copied' ? styles.buttonSuccess : styles.buttonPrimary}
+                className={copyState === 'copied' ? styles.buttonSuccess : styles.button}
                 onClick={() => copyText(t(prompt.prompt), textRef.current || undefined, setCopyState)}
               >
                 {copyState === 'copied' ? `✓ ${strings.copied}` : `⧉ ${strings.copy}`}

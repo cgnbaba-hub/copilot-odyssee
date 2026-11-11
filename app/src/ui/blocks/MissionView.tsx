@@ -3,9 +3,10 @@ import * as React from 'react';
 import { MissionBlock } from '../../core/content/types';
 import { completeMission } from '../../core/progress/state';
 import { format, Strings } from '../i18n/strings';
-import { APP_NAMES, COPILOT_CHAT_URL, copyText, CopyState } from '../copilot';
+import { APP_NAMES, copyText, CopyState } from '../copilot';
 import { useGame } from '../GameContext';
 import styles from '../styles.module.scss';
+import { CopilotLink } from '../components/CopilotLink';
 import { EdgeTip } from '../components/EdgeTip';
 import { BlockViewProps } from './BlockViewProps';
 
@@ -52,14 +53,12 @@ export function MissionView(props: BlockViewProps<MissionBlock>): React.ReactEle
           text: strings.missionStep1,
           action: (
             <>
-              <a className={styles.button} href={COPILOT_CHAT_URL} target="_blank" rel="noopener noreferrer">
-                {strings.missionOpenCopilotTab} ↗
-              </a>
+              <CopilotLink text={textToCopy} className={styles.button} label={strings.missionOpenCopilotTab} />
               <EdgeTip />
             </>
           )
         },
-        { text: textToCopy ? strings.missionStep2Copy : strings.missionStep2, action: copyBox },
+        { text: textToCopy ? strings.missionStep2Pasted : strings.missionStep2, action: copyBox },
         { text: strings.missionStep3 },
         { text: strings.missionStep4 }
       ];

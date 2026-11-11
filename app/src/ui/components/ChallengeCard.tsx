@@ -2,7 +2,8 @@ import * as React from 'react';
 
 import { currentChallenge, daysUntilNextWeek, weekKey } from '../../core/challenge/challenge';
 import { CHALLENGE_XP, completeChallenge } from '../../core/progress/state';
-import { APP_NAMES, COPILOT_CHAT_URL, copyText, CopyState } from '../copilot';
+import { APP_NAMES, copyText, CopyState } from '../copilot';
+import { CopilotLink } from './CopilotLink';
 import { useGame } from '../GameContext';
 import { format } from '../i18n/strings';
 import styles from '../styles.module.scss';
@@ -80,11 +81,7 @@ export function ChallengeCard(): React.ReactElement {
                 <button type="button" className={styles.buttonPrimary} onClick={() => apply((s) => completeChallenge(s, week, challenge.id))}>
                   {format(strings.challengeComplete, { xp: CHALLENGE_XP, xpName: t(theme.terms.xp) })}
                 </button>
-                {!challenge.app && (
-                  <a className={styles.edgeFallback} href={COPILOT_CHAT_URL} target="_blank" rel="noopener noreferrer">
-                    {strings.missionOpenCopilotTab} ↗
-                  </a>
-                )}
+                {!challenge.app && <CopilotLink text={text} className={styles.edgeFallback} label={strings.missionOpenCopilotTab} />}
               </div>
             </>
           )}
