@@ -4,6 +4,7 @@ import { ContentBundle, Localized } from '../core/content/types';
 import { Lang } from '../core/i18n/locale';
 import { FeedbackSender } from '../core/feedback/feedback';
 import { PinboardSource } from '../core/pinboard/pinboard';
+import { RegattaSync } from '../core/regatta/regatta';
 import { Outcome, PlayerState } from '../core/progress/state';
 import { Strings } from './i18n/strings';
 import { Theme } from './theme/types';
@@ -33,6 +34,8 @@ export interface Game {
   feedback?: FeedbackSender;
   /** Shared prompts; missing while the board's lists are not set up. */
   pinboard?: PinboardSource;
+  /** The comparison between areas and crews; missing while its list is not set up. */
+  regatta?: RegattaSync;
   /** True for the editorial team (those who see the evaluation); they see drafts marked as such. */
   editor?: boolean;
   /** Display name of the signed-in person, from SharePoint; missing in the demo. */

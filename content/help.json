@@ -438,6 +438,18 @@
       }
     },
     {
+      "id": "regatta",
+      "group": "app",
+      "question": {
+        "de": "Was ist die Regatta und wer sieht dort was von mir?",
+        "en": "What is the regatta and who sees what of mine there?"
+      },
+      "answer": {
+        "de": "Die Regatta ist ein freundlicher Vergleich: Welcher Bereich segelt am weitesten? Du findest sie auf der Startseite neben Seekarte und Logbuch.\n- **Du entscheidest selbst.** Bis du gewählt hast, wird nichts von dir gezählt. Du kannst für deinen Bereich mitzählen (ohne Namen), mit Namen mitsegeln oder nicht teilnehmen. Die Wahl änderst du jederzeit unten in der Regatta.\n- **Bereiche:** Es zählt der Durchschnitt der Seemeilen pro Person. Ein Bereich erscheint erst ab 5 Teilnehmenden.\n- **Diese Woche:** Die Wochenwertung beginnt jeden Montag bei null.\n- **Was geteilt wird:** nur dein Bereich, deine Seemeilen und ob du den Kompass-Kurs geschafft hast. Deine Antworten, Notizen und Use Cases bleiben bei dir.\n- **Dein Name** erscheint in der App nur, wenn du «Mit Namen mitsegeln» wählst. Technisch speichert SharePoint bei jedem Eintrag, wer ihn angelegt hat.\n- Wenn du «Nicht teilnehmen» wählst, wird dein Eintrag gelöscht.\nSeemeilen und Plätze haben keinen Einfluss auf deine Lizenz oder deine Beurteilung.",
+        "en": "The regatta is a friendly comparison: which area sails the furthest? You find it on the start page next to the sea chart and the logbook.\n- **You decide.** Until you have chosen, nothing of yours is counted. You can count for your area (without your name), sail with your name or not take part. You can change this at any time at the bottom of the regatta.\n- **Areas:** the average nautical miles per person count. An area only appears once it has 5 participants.\n- **This week:** the weekly ranking starts at zero every Monday.\n- **What is shared:** only your area, your nautical miles and whether you finished the compass course. Your answers, notes and use cases stay with you.\n- **Your name** only appears in the app if you choose “Sail with my name”. Technically, SharePoint stores who created each entry.\n- If you choose “Do not take part”, your entry is deleted.\nNautical miles and places have no effect on your licence or your appraisal."
+      }
+    },
+    {
       "id": "handy",
       "group": "app",
       "question": {
@@ -457,8 +469,8 @@
         "en": "What does this app store about me?"
       },
       "answer": {
-        "de": "- **Gespeichert** werden dein Fortschritt (Seemeilen, abgeschlossene Etappen, Stempel), dein Arbeitsbereich, gemerkte Prompt-Vorlagen und deine Use-Case-Karten.\n- **Nicht gespeichert** werden die Prompts, die du in der Prompt-Werkstatt schreibst. Sie werden nur in deinem Browser bewertet.\n- Auswertungen für Schulungen erfolgen nur zusammengefasst über viele Personen, zum Beispiel pro Bereich, nie über dich einzeln.",
-        "en": "- **Stored**: your progress (nautical miles, completed stages, stamps), your area of work, saved prompt templates and your use case cards.\n- **Not stored**: the prompts you write in the prompt workshop. They are only evaluated in your browser.\n- Analyses for training are only done in aggregate across many people, for example per area, never about you individually."
+        "de": "- **Gespeichert** werden dein Fortschritt (Seemeilen, abgeschlossene Etappen, Stempel), dein Arbeitsbereich, gemerkte Prompt-Vorlagen und deine Use-Case-Karten.\n- **Nicht gespeichert** werden die Prompts, die du in der Prompt-Werkstatt schreibst. Sie werden nur in deinem Browser bewertet.\n- Auswertungen für Schulungen erfolgen nur zusammengefasst über viele Personen, zum Beispiel pro Bereich, nie über dich einzeln.\n- **Regatta:** Dort zählst du nur mit, wenn du es selbst wählst. Dann sind dein Bereich und deine Seemeilen für die Rangliste sichtbar, dein Name nur auf deinen Wunsch.",
+        "en": "- **Stored**: your progress (nautical miles, completed stages, stamps), your area of work, saved prompt templates and your use case cards.\n- **Not stored**: the prompts you write in the prompt workshop. They are only evaluated in your browser.\n- Analyses for training are only done in aggregate across many people, for example per area, never about you individually.\n- **Regatta:** you only count there if you choose to. Then your area and your nautical miles are visible for the ranking, your name only if you want it."
       }
     },
     {

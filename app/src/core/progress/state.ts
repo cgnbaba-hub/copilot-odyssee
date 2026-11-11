@@ -30,6 +30,8 @@ export interface Profile {
   hintsSeen?: string[];
   /** Kinds of completion badge whose celebration was already shown (see badges.ts). */
   badgesSeen?: BadgeId[];
+  /** Taking part in the regatta: not at all, counted for the area, or also with the name; missing until chosen (see regatta.ts). */
+  regatta?: 'off' | 'team' | 'name';
 }
 
 export interface BlockProgress {

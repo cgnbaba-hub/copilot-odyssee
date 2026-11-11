@@ -9101,3 +9101,256 @@ $grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width=
     animation: none !important;
   }
 }
+
+// Regatta: comparison between areas and the fastest crews
+
+.viewSwitchNew {
+  margin-left: 6px;
+  padding: 1px 7px;
+  background: var(--od-brand);
+  border-radius: 999px;
+  color: var(--od-on-brand);
+  font-family: var(--od-font-body, inherit);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  vertical-align: 2px;
+}
+
+.regatta {
+  .sectionTitle {
+    margin-bottom: 2px !important;
+  }
+}
+
+.regattaJoin {
+  margin: 18px 0 6px;
+  padding: 16px 20px;
+  background: #fff3c4;
+  border: 3px solid $ink;
+  border-radius: 20px;
+  box-shadow: 5px 5px 0 $sun;
+
+  p {
+    margin: 4px 0 0;
+  }
+}
+
+.regattaJoinTitle {
+  margin: 0;
+  font-family: var(--od-font-display);
+  font-size: 24px;
+}
+
+.regattaChoices {
+  margin: 12px 0 10px;
+  gap: 10px;
+}
+
+.regattaPeriod {
+  margin-top: 20px;
+}
+
+.regattaNote {
+  margin: 8px 0 0;
+  font-size: 15px;
+}
+
+.regattaError {
+  margin: 12px 0 0;
+  padding: 8px 14px;
+  background: #fde8e4;
+  border: 2px solid $coral;
+  border-radius: 12px;
+}
+
+.regattaMe {
+  margin-top: 16px;
+  padding: 14px 20px 16px;
+  background: $ink;
+  border-radius: 18px;
+  box-shadow: 5px 5px 0 var(--od-brand);
+  color: $paper-hi;
+
+  p {
+    margin: 0;
+  }
+}
+
+.regattaMeLabel {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+.regattaMeRank {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 12px;
+
+  strong {
+    color: $sun;
+    font-family: var(--od-font-display);
+    font-size: 38px;
+    line-height: 1.15;
+  }
+
+  span {
+    font-size: 17px;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+.regattaMeTeam {
+  margin-top: 6px !important;
+  font-size: 15px;
+  opacity: 0.9;
+}
+
+.regattaTeams,
+.regattaCrews {
+  display: grid;
+  gap: 8px;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.regattaTeam {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 6px 12px;
+  padding: 10px 14px;
+  background: $paper-hi;
+  border: 2px solid rgba(26, 41, 64, 0.18);
+  border-radius: 14px;
+}
+
+.regattaCrew {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 14px;
+  background: $paper-hi;
+  border: 2px solid rgba(26, 41, 64, 0.18);
+  border-radius: 14px;
+}
+
+.regattaMine {
+  background: #fff3c4;
+  border-color: $ink;
+}
+
+.regattaRank {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  background: rgba(26, 41, 64, 0.08);
+  border-radius: 50%;
+  font-family: var(--od-font-display);
+  font-size: 16px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.regattaRankTop {
+  background: $sun;
+  border: 2px solid $ink;
+}
+
+.regattaTeamName,
+.regattaCrewName {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px 10px;
+  min-width: 0;
+
+  strong {
+    font-family: var(--od-font-display);
+    font-size: 17px;
+  }
+
+  .muted {
+    font-size: 14px;
+  }
+}
+
+.regattaYours {
+  padding: 1px 8px;
+  background: $ink;
+  border-radius: 999px;
+  color: $paper-hi;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.regattaScore {
+  font-family: var(--od-font-display);
+  font-size: 17px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.regattaTrack {
+  grid-column: 2 / -1;
+  height: 12px;
+  overflow: hidden;
+  background: rgba(26, 41, 64, 0.08);
+  border-radius: 999px;
+}
+
+.regattaFill {
+  display: block;
+  height: 100%;
+  background: var(--od-brand);
+  border-radius: 999px;
+  transform-origin: left center;
+  animation: odRegattaFill 0.7s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+.regattaTeamMeta {
+  grid-column: 2 / -1;
+  font-size: 14px;
+}
+
+.regattaGap {
+  color: var(--od-text-muted);
+  font-weight: 800;
+  text-align: center;
+  line-height: 1;
+}
+
+@keyframes odRegattaFill {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+@media (max-width: $narrow) {
+  // Four views do not fit in one row on a phone; two rows of two read better than a lone last button.
+  .viewSwitchFour {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-self: stretch;
+    border-radius: 24px;
+  }
+
+  .regattaMeRank strong {
+    font-size: 32px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .regattaFill {
+    animation: none !important;
+  }
+}

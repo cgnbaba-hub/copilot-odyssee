@@ -14,6 +14,7 @@ import { App } from '../ui/App';
 import { sampleAdminSource } from './sampleAdmin';
 import { sampleJourneys } from './sampleJourneys';
 import { samplePinboard } from './samplePinboard';
+import { sampleRegatta } from './sampleRegatta';
 
 /**
  * Set by the build: 'team' is the single HTML file for colleagues. It has no
@@ -89,6 +90,7 @@ ReactDom.render(
     feedback={TEAM ? undefined : demoFeedback}
     admin={TEAM ? undefined : sampleAdminSource(content, () => demoSent)}
     pinboard={TEAM ? undefined : samplePinboard()}
+    regatta={TEAM ? undefined : sampleRegatta(content)}
     // Only the demo offers ready-made journeys, for showing the app to others.
     samples={TEAM ? undefined : sampleJourneys(content)}
     // In the demo a missed question can be brushed up at once; afterwards it waits three days.
