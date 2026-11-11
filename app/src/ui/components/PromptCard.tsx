@@ -1,10 +1,11 @@
 import * as React from 'react';
 
 import { MissionApp } from '../../core/content/types';
-import { APP_NAMES, APP_URLS, COPILOT_CHAT_URL, copyText, CopyState } from '../copilot';
+import { APP_NAMES, copyText, CopyState } from '../copilot';
 import { format } from '../i18n/strings';
 import { useGame } from '../GameContext';
 import styles from '../styles.module.scss';
+import { CopilotLink } from './CopilotLink';
 import { LicenseChip } from './LicenseChip';
 
 /** Shows [placeholders] highlighted, so it is clear what to replace. */
@@ -62,22 +63,14 @@ export function PromptCard(props: PromptCardProps): React.ReactElement {
         <PromptText text={props.text} />
       </p>
       <div className={styles.promptCardActions}>
+        <CopilotLink text={props.text} app={props.app} className={styles.buttonPrimary} />
         <button
           type="button"
-          className={copyState === 'copied' ? styles.buttonSuccess : styles.buttonPrimary}
+          className={copyState === 'copied' ? styles.buttonSuccess : styles.button}
           onClick={() => copyText(props.text, textRef.current || undefined, setCopyState)}
         >
           {copyState === 'copied' ? `✓ ${strings.copied}` : `⧉ ${strings.copy}`}
         </button>
-        {props.app ? (
-          <a className={styles.button} href={APP_URLS[props.app]} target="_blank" rel="noopener noreferrer">
-            {format(strings.openApp, { app: APP_NAMES[props.app] })} ↗
-          </a>
-        ) : (
-          <a className={styles.button} href={COPILOT_CHAT_URL} target="_blank" rel="noopener noreferrer">
-            {strings.missionOpenCopilot} ↗
-          </a>
-        )}
         {props.onToggleSave && (
           <button type="button" className={styles.button} aria-pressed={!!props.saved} onClick={props.onToggleSave}>
             {props.saved ? `★ ${strings.savedPrompt}` : `☆ ${strings.savePrompt}`}

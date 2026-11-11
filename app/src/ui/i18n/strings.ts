@@ -131,7 +131,6 @@ const de = {
   showExample: 'Beispiel anzeigen',
   hideExample: 'Beispiel ausblenden',
 
-  missionOpenCopilot: 'Copilot öffnen',
   missionCopy: 'Text kopieren',
   missionCopied: 'Kopiert! Jetzt in Copilot einfügen.',
   missionCopyFailed: 'Das hat nicht geklappt. Markiere den Text mit der Maus und drücke Strg + C.',
@@ -147,7 +146,6 @@ const de = {
   edgeMoreExample3: '«Stelle alle Preise und Daten dieser Seite als Tabelle zusammen.»',
   edgeMoreSetting:
     'Damit Copilot die Seite lesen darf: edge://settings/ai in die Adresszeile tippen (oder «…» › Einstellungen › «Copilot und KI») und «Copilot die Nutzung von Browserinhalten erlauben» einschalten (englisch: «Allow Copilot to use browser content»). Ist der Schalter grau, gibt die IT die Einstellung vor. Prüfe wichtige Angaben wie immer an der Quelle.',
-  missionStep2Copy: 'Klicke auf «Text kopieren». Klicke dann in Copilot unten ins Eingabefeld und drücke Strg + V.',
   missionStep2: 'Schreib deine Anfrage in Copilot unten ins Eingabefeld.',
   missionStep3: 'Drücke die Enter-Taste und lies die Antwort.',
   missionStep4: 'Fertig? Bewerte unten, wie hilfreich es war. Copilot kannst du für die nächste Mission offen lassen.',
@@ -707,7 +705,10 @@ const de = {
   regattaYou: 'Du',
   regattaCrewsEmptyWeek: 'Diese Woche ist noch niemand losgesegelt. Der erste Platz ist frei.',
   regattaCrewsEmptyTotal: 'Noch segelt niemand mit.',
-  regattaTogether: '{count} segeln mit, zusammen {miles}.'
+  regattaTogether: '{count} segeln mit, zusammen {miles}.',
+  copyOpen: 'Kopieren und {app} öffnen',
+  copyOpenDone: 'Kopiert · dort mit Strg + V einfügen',
+  missionStep2Pasted: 'Klicke in Copilot unten ins Eingabefeld und drücke Strg + V. Der Knopf oben hat den Text schon kopiert. Falls nicht, kopiere ihn hier noch einmal.'
 };
 
 export type Strings = typeof de;
@@ -838,7 +839,6 @@ const en: Strings = {
   showExample: 'Show example',
   hideExample: 'Hide example',
 
-  missionOpenCopilot: 'Open Copilot',
   missionCopy: 'Copy text',
   missionCopied: 'Copied! Now paste it into Copilot.',
   missionCopyFailed: 'That didn’t work. Select the text with the mouse and press Ctrl + C.',
@@ -854,7 +854,6 @@ const en: Strings = {
   edgeMoreExample3: '“Put all prices and dates on this page into a table.”',
   edgeMoreSetting:
     'So that Copilot may read the page: type edge://settings/ai into the address bar (or “…” › Settings › “Copilot and AI”) and switch on “Allow Copilot to use browser content”. If the switch is greyed out, IT sets it. As always, check important details at the source.',
-  missionStep2Copy: 'Click “Copy text”. Then click into the input box at the bottom of Copilot and press Ctrl + V.',
   missionStep2: 'Write your request into the input box at the bottom of Copilot.',
   missionStep3: 'Press Enter and read the answer.',
   missionStep4: 'Done? Rate below how helpful it was. You can leave Copilot open for the next mission.',
@@ -1409,7 +1408,10 @@ const en: Strings = {
   regattaYou: 'You',
   regattaCrewsEmptyWeek: 'Nobody has set off this week yet. First place is open.',
   regattaCrewsEmptyTotal: 'Nobody is sailing along yet.',
-  regattaTogether: '{count} are sailing along, {miles} together.'
+  regattaTogether: '{count} are sailing along, {miles} together.',
+  copyOpen: 'Copy and open {app}',
+  copyOpenDone: 'Copied · paste there with Ctrl + V',
+  missionStep2Pasted: 'Click into the input box at the bottom of Copilot and press Ctrl + V. The button above has already copied the text. If not, copy it here again.'
 };
 
 const STRINGS: Record<Lang, Strings> = { de, en };

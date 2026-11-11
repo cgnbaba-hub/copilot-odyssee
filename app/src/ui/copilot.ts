@@ -23,6 +23,31 @@ export const APP_URLS: Record<MissionApp, string> = {
 
 export type CopyState = 'idle' | 'copied' | 'failed';
 
+/**
+ * Copies at once, inside the click itself. A link that opens Copilot in a new
+ * tab uses this, because the clipboard of the browser refuses a page that has
+ * just lost the focus. Returns false where the browser does not allow it.
+ */
+export function copyNow(text: string): boolean {
+  const active = document.activeElement as HTMLElement | null;
+  const area = document.createElement('textarea');
+  try {
+    area.value = text;
+    area.setAttribute('readonly', '');
+    area.style.position = 'fixed';
+    area.style.top = '0';
+    area.style.opacity = '0';
+    document.body.appendChild(area);
+    area.select();
+    return document.execCommand('copy');
+  } catch {
+    return false;
+  } finally {
+    if (area.parentNode) area.parentNode.removeChild(area);
+    if (active && active.focus) active.focus();
+  }
+}
+
 /** How long «Kopiert» stays on a copy button. */
 const COPIED_VISIBLE_MS = 2000;
 

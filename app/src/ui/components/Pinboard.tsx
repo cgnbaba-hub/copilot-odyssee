@@ -3,7 +3,8 @@ import * as React from 'react';
 import { cleanPost, NewPinPost, PIN_PROMPT_MAX, PIN_TITLE_MAX, PIN_TOOLS, PinboardData, PinOrder, PinPost, PinTool, sensitiveHints, sortPosts } from '../../core/pinboard/pinboard';
 import { PIN_XP, PIN_XP_MAX_POSTS } from '../../core/progress/rewards';
 import { sharePin } from '../../core/progress/state';
-import { APP_NAMES, COPILOT_CHAT_URL, copyText, CopyState } from '../copilot';
+import { APP_NAMES, copyText, CopyState } from '../copilot';
+import { CopilotLink } from './CopilotLink';
 import { formatDate } from '../format';
 import { useGame } from '../GameContext';
 import { format, Strings } from '../i18n/strings';
@@ -67,18 +68,14 @@ function PinCard(props: { post: PinPost; onLike: () => void; onModerate?: (appro
         </div>
       ) : (
         <div className={styles.pinActions}>
+          <CopilotLink text={post.prompt} app={post.tool === 'chat' ? undefined : post.tool} className={styles.buttonPrimary} />
           <button
             type="button"
-            className={copyState === 'copied' ? styles.buttonSuccess : styles.buttonPrimary}
+            className={copyState === 'copied' ? styles.buttonSuccess : styles.button}
             onClick={() => copyText(post.prompt, textRef.current || undefined, setCopyState)}
           >
             {copyState === 'copied' ? `✓ ${strings.copied}` : `⧉ ${strings.copy}`}
           </button>
-          {post.tool === 'chat' && (
-            <a className={styles.button} href={COPILOT_CHAT_URL} target="_blank" rel="noopener noreferrer">
-              {strings.missionOpenCopilot} ↗
-            </a>
-          )}
           {post.status === 'approved' && (
             <button
               type="button"

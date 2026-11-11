@@ -3,7 +3,8 @@ import * as React from 'react';
 import { RubricCriterion } from '../../core/content/types';
 import { evaluatePrompt, PromptFeedback } from '../../core/prompt/feedback';
 import { criterionName, criterionTip, PromptFeedbackBox } from '../blocks/PromptView';
-import { COPILOT_CHAT_URL, copyText, CopyState } from '../copilot';
+import { copyText, CopyState } from '../copilot';
+import { CopilotLink } from './CopilotLink';
 import { useGame } from '../GameContext';
 import { format } from '../i18n/strings';
 import styles from '../styles.module.scss';
@@ -82,9 +83,7 @@ export function Workshop(props: { task?: string }): React.ReactElement {
             >
               {copyState === 'copied' ? `✓ ${strings.copied}` : `⧉ ${strings.copy}`}
             </button>
-            <a className={styles.button} href={COPILOT_CHAT_URL} target="_blank" rel="noopener noreferrer">
-              {strings.missionOpenCopilot} ↗
-            </a>
+            <CopilotLink text={text} className={styles.button} />
             {pinboard && (
               <button type="button" className={styles.button} onClick={() => navigate({ name: 'pinboard', draft: { title: props.task || '', prompt: text } })}>
                 📌 {strings.pinboardShareOwn}
